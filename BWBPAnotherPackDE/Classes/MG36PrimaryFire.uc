@@ -1,0 +1,318 @@
+//=============================================================================
+// MG36PrimaryFire.
+//
+// Rapid fire CQC fire. Uses up ammo very quickly. 
+// Very controllable, and packs a decent punch.
+//
+// Has accuracy and damage drop off issues due to CQC Barrel.
+// Rounds detonate on target and do not penetrate.
+//
+// by Nolan "Dark Carnivour" Richert.
+// Copyright(c) 2005 RuneStorm. All Rights Reserved.
+//=============================================================================
+class MG36PrimaryFire extends BallisticRangeAttenFire;
+
+var() sound	FireSoundLoop;
+var() sound	FireSoundLoopBegin;
+var() sound	FireSoundLoopEnd;
+
+var bool bFiring;
+
+var() Actor						SMuzzleFlash;		// Silenced Muzzle flash stuff
+var() class<Actor>			SMuzzleFlashClass;
+var() Name						SFlashBone;
+var() float						SFlashScaleFactor;
+
+
+simulated function bool AllowFire()
+{
+	if (!super.AllowFire())
+	{
+		if (bFiring)
+		{
+			StopFiring();
+			Instigator.AmbientSound = BW.UsedAmbientSound;
+		}
+		return false;
+	}
+	return super.AllowFire();
+}
+
+//Trigger muzzleflash emitter
+function FlashMuzzleFlash()
+{
+    if ( (Level.NetMode == NM_DedicatedServer) || (AIController(Instigator.Controller) != None) )
+		return;
+	if (!Instigator.IsFirstPerson() || PlayerController(Instigator.Controller).ViewTarget != Instigator)
+		return;
+    if (!MG36Carbine(Weapon).bSilenced && MuzzleFlash != None)
+        MuzzleFlash.Trigger(Weapon, Instigator);
+    else if (MG36Carbine(Weapon).bSilenced && SMuzzleFlash != None)
+        SMuzzleFlash.Trigger(Weapon, Instigator);
+
+	if (!bBrassOnCock)
+		EjectBrass();
+}
+
+// Remove effects
+simulated function DestroyEffects()
+{
+	Super.DestroyEffects();
+
+	class'BUtil'.static.KillEmitterEffect (MuzzleFlash);
+	class'BUtil'.static.KillEmitterEffect (SMuzzleFlash);
+}
+
+function InitEffects()
+{
+	if (AIController(Instigator.Controller) != None)
+		return;
+    if ((MuzzleFlashClass != None) && ((MuzzleFlash == None) || MuzzleFlash.bDeleteMe) )
+		class'BUtil'.static.InitMuzzleFlash (MuzzleFlash, MuzzleFlashClass, Weapon.DrawScale*FlashScaleFactor, weapon, FlashBone);
+    if ((SMuzzleFlashClass != None) && ((SMuzzleFlash == None) || SMuzzleFlash.bDeleteMe) )
+		class'BUtil'.static.InitMuzzleFlash (SMuzzleFlash, SMuzzleFlashClass, Weapon.DrawScale*SFlashScaleFactor, weapon, SFlashBone);
+}
+
+simulated function SendFireEffect(Actor Other, vector HitLocation, vector HitNormal, int Surf, optional vector WaterHitLoc)
+{
+	BallisticAttachment(Weapon.ThirdPersonActor).BallisticUpdateHit(Other, HitLocation, HitNormal, Surf, MG36Carbine(Weapon).bSilenced, WaterHitLoc);
+}
+
+
+
+
+
+
+
+
+
+
+
+/*function ServerPlayFiring()
+{
+	if (MG36Carbine(Weapon) != None && MG36Carbine(Weapon).bSilenced && SilencedFireSound.Sound != None)
+		Weapon.PlayOwnedSound(SilencedFireSound.Sound,SilencedFireSound.Slot,SilencedFireSound.Volume,SilencedFireSound.bNoOverride,SilencedFireSound.Radius,SilencedFireSound.Pitch,SilencedFireSound.bAtten);
+	else if (BallisticFireSound.Sound != None)
+		Weapon.PlayOwnedSound(BallisticFireSound.Sound,BallisticFireSound.Slot,BallisticFireSound.Volume,BallisticFireSound.bNoOverride,BallisticFireSound.Radius,BallisticFireSound.Pitch,BallisticFireSound.bAtten);
+
+	if (MG36Carbine(Weapon).bSilenced)
+		Weapon.SetBoneScale (0, 1.0, MG36Carbine(Weapon).SilencerBone);
+	else
+		Weapon.SetBoneScale (0, 0.0, MG36Carbine(Weapon).SilencerBone);
+	
+	if (AimedFireAnim != '')
+	{
+		BW.SafePlayAnim(FireAnim, FireAnimRate, TweenTime, ,"FIRE");
+		if (BW.BlendFire())		
+			BW.SafePlayAnim(AimedFireAnim, FireAnimRate, TweenTime, 1, "AIMEDFIRE");
+	}
+
+	else
+	{
+		if (FireCount > 0 && Weapon.HasAnim(FireLoopAnim))
+			BW.SafePlayAnim(FireLoopAnim, FireLoopAnimRate, 0.0, ,"FIRE");
+		else BW.SafePlayAnim(FireAnim, FireAnimRate, TweenTime, ,"FIRE");
+	}
+
+	CheckClipFinished();
+}
+
+	if (MG36Carbine(Weapon) != None && MG36Carbine(Weapon).bSilenced && SilencedFireSound.Sound != None)
+	{
+		if (MG36Carbine(Weapon).CurrentWeaponMode == 0 || MG36Carbine(Weapon).CurrentWeaponMode == 1)
+			Weapon.PlayOwnedSound(SilencedFireSound.Sound,SilencedFireSound.Slot,SilencedFireSound.Volume,,SilencedFireSound.Radius,,true);
+	}
+	else if (BallisticFireSound.Sound != None)
+		Weapon.PlayOwnedSound(BallisticFireSound.Sound,BallisticFireSound.Slot,BallisticFireSound.Volume,,BallisticFireSound.Radius);
+
+	CheckClipFinished();
+}*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//// server propagation of firing ////
+function ServerPlayFiring()
+{
+	if (MG36Carbine(Weapon) != None && MG36Carbine(Weapon).bSilenced && SilencedFireSound.Sound != None)
+		Weapon.PlayOwnedSound(SilencedFireSound.Sound,SilencedFireSound.Slot,SilencedFireSound.Volume,SilencedFireSound.bNoOverride,SilencedFireSound.Radius,SilencedFireSound.Pitch,SilencedFireSound.bAtten);
+	else if (BallisticFireSound.Sound != None)
+		Weapon.PlayOwnedSound(BallisticFireSound.Sound,BallisticFireSound.Slot,BallisticFireSound.Volume,BallisticFireSound.bNoOverride,BallisticFireSound.Radius,BallisticFireSound.Pitch,BallisticFireSound.bAtten);
+
+	CheckClipFinished();
+
+	if (AimedFireAnim != '')
+	{
+		BW.SafePlayAnim(FireAnim, FireAnimRate, TweenTime, ,"FIRE");
+		if (BW.BlendFire())		
+			BW.SafePlayAnim(AimedFireAnim, FireAnimRate, TweenTime, 1, "AIMEDFIRE");
+	}
+
+	else
+	{
+		if (FireCount > 0 && Weapon.HasAnim(FireLoopAnim))
+			BW.SafePlayAnim(FireLoopAnim, FireLoopAnimRate, 0.0, ,"FIRE");
+		else BW.SafePlayAnim(FireAnim, FireAnimRate, TweenTime, ,"FIRE");
+	}
+}
+
+//Do the spread on the client side
+function PlayFiring()
+{
+	if (ScopeDownOn == SDO_Fire)
+		BW.TemporaryScopeDown(0.5, 0.9);
+		
+	if (AimedFireAnim != '')
+	{
+		BW.SafePlayAnim(FireAnim, FireAnimRate, TweenTime, ,"FIRE");
+		if (BW.BlendFire())		
+			BW.SafePlayAnim(AimedFireAnim, FireAnimRate, TweenTime, 1, "AIMEDFIRE");
+	}
+
+	else
+	{
+		if (FireCount > 0 && Weapon.HasAnim(FireLoopAnim))
+			BW.SafePlayAnim(FireLoopAnim, FireLoopAnimRate, 0.0, ,"FIRE");
+		else BW.SafePlayAnim(FireAnim, FireAnimRate, TweenTime, ,"FIRE");
+	}
+	
+    ClientPlayForceFeedback(FireForce);  // jdf
+    FireCount++;
+	// End code from normal PlayFiring()
+
+	if (MG36Carbine(Weapon) != None && MG36Carbine(Weapon).bSilenced && SilencedFireSound.Sound != None)
+		Weapon.PlayOwnedSound(SilencedFireSound.Sound,SilencedFireSound.Slot,SilencedFireSound.Volume,SilencedFireSound.bNoOverride,SilencedFireSound.Radius,SilencedFireSound.Pitch,SilencedFireSound.bAtten);
+	else if (BallisticFireSound.Sound != None)
+		Weapon.PlayOwnedSound(BallisticFireSound.Sound,BallisticFireSound.Slot,BallisticFireSound.Volume,BallisticFireSound.bNoOverride,BallisticFireSound.Radius,BallisticFireSound.Pitch,BallisticFireSound.bAtten);
+
+	CheckClipFinished();
+}
+
+simulated function SwitchSilencerMode (bool bNewMode)
+{
+	if (bNewMode)
+	{
+		Damage *= 0.7;
+		RecoilPerShot *= 0.9;
+		BW.RecoilXFactor *= 0.6;
+		BW.RecoilYFactor *= 0.6;
+		XInaccuracy = default.XInaccuracy;
+		YInaccuracy = default.YInaccuracy;
+		DamageType=Class'DT_MG36SilAssault';
+     	DamageTypeHead=Class'DT_MG36SilAssaultHead';
+     	DamageTypeArm=Class'DT_MG36SilAssault';
+	}
+	
+	else
+	{
+		Damage =default.Damage;
+     	DamageType=Class'DT_MG36Assault';
+     	DamageTypeHead=Class'DT_MG36AssaultHead';
+     	DamageTypeArm=Class'DT_MG36Assault';
+		RecoilPerShot = default.RecoilPerShot;
+		RangeAtten = default.RangeAtten;
+		BW.RecoilXFactor = BW.default.RecoilXFactor;
+		BW.RecoilYFactor = BW.default.RecoilYFactor;
+		XInaccuracy = default.XInaccuracy;
+		YInaccuracy = default.YInaccuracy;
+	}
+}
+
+//FIXME
+simulated event ModeDoFire()
+{
+	if (MG36Carbine(Weapon).bSilenced)
+	{
+    		if (!AllowFire())
+		{
+			StopFiring();
+       			return;
+		}
+	}
+
+	Super.ModeDoFire();
+}
+
+function StopFiring()
+{
+	bFiring=false;
+    Instigator.AmbientSound = BW.UsedAmbientSound;
+	Super.StopFiring();
+}
+
+simulated function ModeTick(float DT)
+{
+	Super.ModeTick(DT);
+
+	if (bIsFiring && MG36Carbine(Weapon).bSilenced && MG36Carbine(Weapon).CurrentWeaponMode != 0 && MG36Carbine(Weapon).CurrentWeaponMode != 1)
+		Instigator.AmbientSound = FireSoundLoop;
+	else
+		Instigator.AmbientSound = BW.UsedAmbientSound;
+}
+
+
+function DoFireEffect()
+{
+	Super.DoFireEffect();
+	bFiring=true;
+}
+
+defaultproperties
+{
+     SMuzzleFlashClass=Class'BWBPAnotherPackDE.MG36SilencedFlash'
+     SFlashBone="tip2"
+     SFlashScaleFactor=0.750000
+     CutOffDistance=8192.000000
+     CutOffStartRange=7680.000000
+     TraceRange=(Min=9000.000000,Max=11000.000000)
+     WallPenetrationForce=16.000000
+     
+     Damage=28.000000
+     DamageHead=37.000000
+     DamageLimb=28.000000
+	 
+     RangeAtten=0.400000
+     WaterRangeAtten=0.700000
+     DamageType=Class'BWBPAnotherPackDE.DT_MG36Assault'
+     DamageTypeHead=Class'BWBPAnotherPackDE.DT_MG36AssaultHead'
+     DamageTypeArm=Class'BWBPAnotherPackDE.DT_MG36Assault'
+     PenetrateForce=150
+     DryFireSound=(Sound=Sound'BallisticSounds2.D49.D49-DryFire',Volume=0.700000)
+     MuzzleFlashClass=Class'BallisticDE.M50FlashEmitter'
+     FlashScaleFactor=0.100000
+     BrassClass=Class'BallisticDE.Brass_Rifle'
+     BrassBone="tip"
+     BrassOffset=(X=-80.000000,Y=1.000000)
+     RecoilPerShot=128.000000
+     FireChaos=0.180000
+     FireChaosCurve=(Points=((InVal=0,OutVal=1),(InVal=0.160000,OutVal=1),(InVal=0.250000,OutVal=1.500000),(InVal=0.500000,OutVal=2.250000),(InVal=0.750000,OutVal=3.500000),(InVal=1.000000,OutVal=5.000000)))
+     XInaccuracy=4
+	 YInaccuracy=4
+     SilencedFireSound=(Sound=Sound'BWBPAnotherPackSounds.MG36.MG36-FireSilenced',Volume=1.000000,Radius=192.000000,bAtten=True)
+     BallisticFireSound=(Sound=Sound'BWBPAnotherPackSounds.MG36.MG36-FireSingle',Volume=1.000000)
+     bPawnRapidFireAnim=True
+     FireAnim="Fire"
+	 FireEndAnim=
+     FireRate=0.110000
+     AmmoClass=Class'BWBPAnotherPackDE.Ammo_68mm'
+     ShakeRotMag=(X=128.000000,Y=64.000000)
+     ShakeRotRate=(X=10000.000000,Y=10000.000000,Z=10000.000000)
+     ShakeRotTime=2.000000
+     ShakeOffsetMag=(X=-20.000000)
+     ShakeOffsetRate=(X=-1000.000000)
+     ShakeOffsetTime=2.000000
+     WarnTargetPct=0.200000
+     aimerror=900.000000
+}

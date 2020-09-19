@@ -1,0 +1,39 @@
+class IM_MG extends DKIM;
+
+defaultproperties
+{
+     HitEffects(0)=Class'BallisticDE.IE_BulletMetal'
+     HitEffects(1)=Class'BallisticDE.IE_BulletConcrete'
+     HitEffects(2)=Class'BallisticDE.IE_BulletDirt'
+     HitEffects(3)=Class'BallisticDE.IE_BulletMetal'
+     HitEffects(4)=Class'BallisticDE.IE_BulletWood'
+     HitEffects(5)=Class'BallisticDE.IE_BulletGrass'
+     HitEffects(6)=Class'XEffects.pclredsmoke'
+     HitEffects(7)=Class'BallisticDE.IE_BulletIce'
+     HitEffects(8)=Class'BallisticDE.IE_BulletSnow'
+     HitEffects(9)=Class'BallisticDE.IE_BulletWater'
+     HitEffects(10)=Class'BallisticDE.IE_BulletGlass'
+     HitDecals(0)=Class'BallisticDE.AD_BulletMetal'
+     HitDecals(1)=Class'BallisticDE.AD_BulletConcrete'
+     HitDecals(2)=Class'BallisticDE.AD_BulletDirt'
+     HitDecals(3)=Class'BallisticDE.AD_BulletMetal'
+     HitDecals(4)=Class'BallisticDE.AD_BulletWood'
+     HitDecals(5)=Class'BallisticDE.AD_BulletConcrete'
+     HitDecals(6)=Class'BallisticDE.AD_BulletConcrete'
+     HitDecals(7)=Class'BallisticDE.AD_BulletIce'
+     HitDecals(8)=Class'BallisticDE.AD_BulletDirt'
+     HitDecals(10)=Class'BallisticDE.AD_BulletConcrete'
+     HitSounds(0)=SoundGroup'BallisticSounds2.BulletImpacts.BulletMetal'
+     HitSounds(1)=SoundGroup'BallisticSounds2.BulletImpacts.BulletConcrete'
+     HitSounds(2)=SoundGroup'BallisticSounds2.BulletImpacts.BulletDirt'
+     HitSounds(3)=SoundGroup'BallisticSounds2.BulletImpacts.BulletMetal'
+     HitSounds(4)=SoundGroup'BallisticSounds2.BulletImpacts.BulletWood'
+     HitSounds(5)=SoundGroup'BallisticSounds2.BulletImpacts.BulletDirt'
+     HitSounds(6)=SoundGroup'BallisticSounds2.BulletImpacts.BulletConcrete'
+     HitSounds(7)=SoundGroup'BallisticSounds2.BulletImpacts.BulletConcrete'
+     HitSounds(8)=SoundGroup'BallisticSounds2.BulletImpacts.BulletDirt'
+     HitSounds(9)=SoundGroup'BallisticSounds2.BulletImpacts.BulletWater'
+     HitSounds(10)=SoundGroup'BallisticSounds2.BulletImpacts.BulletConcrete'
+     HitSoundVolume=1.000000
+     HitSoundRadius=188.000000
+}

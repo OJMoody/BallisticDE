@@ -1,0 +1,236 @@
+class FX_FireEffect_AbramsMG extends DKEmitter;
+
+defaultproperties
+{
+     bFlash=True
+     FlashBrightness=512.000000
+     FlashRadius=10.000000
+     FlashTimeIn=0.150000
+     FlashTimeOut=1.500000
+     FlashCurveIn=0.300000
+     FlashCurveOut=2.000000
+     SpawnSound=Sound'DKoppIISound.Fire.12mm1'
+     SpawnSoundVolume=2.000000
+     SpawnSoundRadius=700.000000
+     Begin Object Class=SpriteEmitter Name=SpriteEmitter1
+         UseCollision=True
+         FadeOut=True
+         FadeIn=True
+         RespawnDeadParticles=False
+         SpinParticles=True
+         UseSizeScale=True
+         UseRegularSizeScale=False
+         UniformSize=True
+         AutomaticInitialSpawning=False
+         Acceleration=(Z=-175.000000)
+         ExtentMultiplier=(X=0.100000,Y=0.100000,Z=0.100000)
+         MaxCollisions=(Min=1.000000,Max=1.000000)
+         ColorScale(0)=(Color=(B=255,G=128,A=255))
+         ColorScale(1)=(RelativeTime=1.000000,Color=(B=255,G=255,R=255,A=255))
+         ColorScale(2)=(RelativeTime=1.000000,Color=(B=255,G=255,R=255,A=255))
+         FadeOutStartTime=0.092400
+         FadeInEndTime=0.059400
+         CoordinateSystem=PTCS_Relative
+         MaxParticles=50
+         SpinsPerSecondRange=(X=(Min=0.100000,Max=0.100000))
+         StartSpinRange=(X=(Min=-1.000000,Max=1.000000))
+         SizeScale(0)=(RelativeSize=0.100000)
+         SizeScale(1)=(RelativeTime=0.610000,RelativeSize=0.750000)
+         SizeScale(2)=(RelativeTime=1.000000,RelativeSize=0.550000)
+         StartSizeRange=(X=(Min=20.000000,Max=20.000000),Y=(Min=20.000000,Max=20.000000),Z=(Min=20.000000,Max=20.000000))
+         InitialParticlesPerSecond=200.000000
+         Texture=Texture'1945.Effects.LensFlare03'
+         SecondsBeforeInactive=0.000000
+         LifetimeRange=(Min=0.500000,Max=0.500000)
+         StartVelocityRange=(X=(Min=100.000000,Max=1500.000000),Y=(Min=-50.000000,Max=50.000000),Z=(Min=-50.000000,Max=50.000000))
+     End Object
+     Emitters(2)=SpriteEmitter'UberSoldierVehicles.FX_FireEffect_AbramsMG.SpriteEmitter1'
+
+     Begin Object Class=MeshEmitter Name=MeshEmitter0
+         StaticMesh=StaticMesh'BallisticHardware2.R78.RifleMuzzleFlash'
+         UseMeshBlendMode=False
+         RenderTwoSided=True
+         UseParticleColor=True
+         UseCollision=True
+         UseMaxCollisions=True
+         UseColorScale=True
+         FadeOut=True
+         FadeIn=True
+         RespawnDeadParticles=False
+         SpinParticles=True
+         UseSizeScale=True
+         UseRegularSizeScale=False
+         AutomaticInitialSpawning=False
+         ExtentMultiplier=(X=0.100000,Y=0.100000,Z=0.100000)
+         DampingFactorRange=(X=(Min=0.000000,Max=0.000000),Y=(Min=0.000000,Max=0.000000),Z=(Min=0.000000,Max=0.000000))
+         MaxCollisions=(Min=1.000000,Max=1.000000)
+         ColorScale(0)=(Color=(B=255,G=64,A=255))
+         ColorScale(1)=(RelativeTime=0.332143,Color=(B=255,G=255,R=255,A=255))
+         ColorScale(2)=(RelativeTime=1.000000,Color=(B=64,G=192,R=255,A=255))
+         FadeOutStartTime=0.378000
+         FadeInEndTime=0.066000
+         CoordinateSystem=PTCS_Relative
+         StartSpinRange=(Y=(Min=0.500000,Max=0.500000))
+         SizeScale(0)=(RelativeSize=0.500000)
+         SizeScale(1)=(RelativeTime=1.000000,RelativeSize=1.000000)
+         SizeScale(2)=(RelativeTime=1.000000,RelativeSize=0.800000)
+         StartSizeRange=(X=(Min=2.500000,Max=2.500000))
+         InitialParticlesPerSecond=66.667000
+         DrawStyle=PTDS_Brighten
+         SecondsBeforeInactive=0.000000
+         LifetimeRange=(Min=0.600000,Max=0.600000)
+         StartVelocityRange=(X=(Min=3000.000000,Max=3000.000000),Y=(Min=-15.000000,Max=15.000000),Z=(Min=-15.000000,Max=15.000000))
+     End Object
+     Emitters(3)=MeshEmitter'UberSoldierVehicles.FX_FireEffect_AbramsMG.MeshEmitter0'
+
+     Begin Object Class=SpriteEmitter Name=SpriteEmitter2
+         UseCollision=True
+         UseColorScale=True
+         FadeOut=True
+         FadeIn=True
+         RespawnDeadParticles=False
+         SpinParticles=True
+         UseSizeScale=True
+         UseRegularSizeScale=False
+         UniformSize=True
+         AutomaticInitialSpawning=False
+         ExtentMultiplier=(X=0.500000,Y=0.500000,Z=0.500000)
+         DampingFactorRange=(X=(Min=0.000000,Max=0.000000),Y=(Min=0.000000,Max=0.000000),Z=(Min=0.000000,Max=0.000000))
+         MaxCollisions=(Min=1.000000,Max=1.000000)
+         ColorScale(0)=(Color=(B=255,G=128,A=255))
+         ColorScale(1)=(RelativeTime=0.300000,Color=(B=255,G=255,R=255,A=255))
+         ColorScale(2)=(RelativeTime=1.000000,Color=(G=150,R=255,A=255))
+         FadeOutStartTime=0.096000
+         FadeInEndTime=0.054000
+         CoordinateSystem=PTCS_Relative
+         SpinsPerSecondRange=(X=(Min=0.300000,Max=0.300000))
+         StartSpinRange=(X=(Min=-1.000000,Max=1.000000))
+         SizeScale(0)=(RelativeSize=0.100000)
+         SizeScale(1)=(RelativeTime=0.370000,RelativeSize=0.750000)
+         SizeScale(2)=(RelativeTime=1.000000,RelativeSize=0.300000)
+         StartSizeRange=(X=(Max=120.000000),Y=(Max=120.000000),Z=(Max=120.000000))
+         InitialParticlesPerSecond=50.000000
+         Texture=Texture'1945.Effects.fire_roar_pm_atlas'
+         TextureUSubdivisions=4
+         TextureVSubdivisions=4
+         SecondsBeforeInactive=0.000000
+         LifetimeRange=(Min=0.600000,Max=0.600000)
+         StartVelocityRange=(X=(Min=2700.000000,Max=3300.000000),Y=(Min=-50.000000,Max=50.000000),Z=(Min=-50.000000,Max=50.000000))
+     End Object
+     Emitters(4)=SpriteEmitter'UberSoldierVehicles.FX_FireEffect_AbramsMG.SpriteEmitter2'
+
+     Begin Object Class=SpriteEmitter Name=SpriteEmitter3
+         UseCollision=True
+         UseColorScale=True
+         FadeOut=True
+         FadeIn=True
+         RespawnDeadParticles=False
+         SpinParticles=True
+         UseSizeScale=True
+         UseRegularSizeScale=False
+         UniformSize=True
+         AutomaticInitialSpawning=False
+         ExtentMultiplier=(X=0.500000,Y=0.500000,Z=0.500000)
+         DampingFactorRange=(X=(Min=0.000000,Max=0.000000),Y=(Min=0.000000,Max=0.000000),Z=(Min=0.000000,Max=0.000000))
+         MaxCollisions=(Min=1.000000,Max=1.000000)
+         ColorScale(0)=(Color=(A=255))
+         ColorScale(1)=(RelativeTime=0.332143,Color=(B=255,G=255,R=255,A=255))
+         ColorScale(2)=(RelativeTime=1.000000,Color=(B=255,G=255,R=255,A=255))
+         FadeOutStartTime=0.102000
+         FadeInEndTime=0.054000
+         CoordinateSystem=PTCS_Relative
+         SpinCCWorCW=(X=1.000000)
+         SpinsPerSecondRange=(X=(Min=0.300000,Max=0.300000))
+         StartSpinRange=(X=(Min=-1.000000,Max=1.000000))
+         SizeScale(0)=(RelativeSize=0.100000)
+         SizeScale(1)=(RelativeTime=0.620000,RelativeSize=1.000000)
+         SizeScale(2)=(RelativeTime=0.870000,RelativeSize=1.000000)
+         StartSizeRange=(X=(Min=60.000000,Max=80.000000),Y=(Min=60.000000,Max=80.000000),Z=(Min=60.000000,Max=80.000000))
+         InitialParticlesPerSecond=50.000000
+         Texture=Texture'1945.Effects.fire_roar_pm_atlas'
+         TextureUSubdivisions=4
+         TextureVSubdivisions=4
+         SecondsBeforeInactive=0.000000
+         LifetimeRange=(Min=0.600000,Max=0.600000)
+         StartVelocityRange=(X=(Min=2700.000000,Max=3000.000000))
+     End Object
+     Emitters(5)=SpriteEmitter'UberSoldierVehicles.FX_FireEffect_AbramsMG.SpriteEmitter3'
+
+     Begin Object Class=SpriteEmitter Name=SpriteEmitter4
+         UseCollision=True
+         UseColorScale=True
+         FadeOut=True
+         FadeIn=True
+         RespawnDeadParticles=False
+         SpinParticles=True
+         UseSizeScale=True
+         UseRegularSizeScale=False
+         UniformSize=True
+         AutomaticInitialSpawning=False
+         ExtentMultiplier=(X=0.500000,Y=0.500000,Z=0.500000)
+         DampingFactorRange=(X=(Min=0.000000,Max=0.000000),Y=(Min=0.000000,Max=0.000000),Z=(Min=0.000000,Max=0.000000))
+         MaxCollisions=(Min=1.000000,Max=1.000000)
+         ColorScale(0)=(Color=(B=255,G=128,A=255))
+         ColorScale(1)=(RelativeTime=0.300000,Color=(B=255,G=255,R=255,A=255))
+         ColorScale(2)=(RelativeTime=1.000000,Color=(G=150,R=255,A=255))
+         FadeOutStartTime=0.096000
+         FadeInEndTime=0.054000
+         CoordinateSystem=PTCS_Relative
+         SpinsPerSecondRange=(X=(Min=0.300000,Max=0.300000))
+         StartSpinRange=(X=(Min=-1.000000,Max=1.000000))
+         SizeScale(0)=(RelativeSize=0.200000)
+         SizeScale(1)=(RelativeTime=0.370000,RelativeSize=0.750000)
+         SizeScale(2)=(RelativeTime=1.000000,RelativeSize=0.300000)
+         StartSizeRange=(X=(Min=150.000000,Max=150.000000),Y=(Min=150.000000,Max=150.000000),Z=(Min=150.000000,Max=150.000000))
+         InitialParticlesPerSecond=50.000000
+         Texture=Texture'1945.Effects.LensFlare03'
+         SecondsBeforeInactive=0.000000
+         LifetimeRange=(Min=0.600000,Max=0.600000)
+         StartVelocityRange=(X=(Min=2700.000000,Max=3300.000000),Y=(Min=-50.000000,Max=50.000000),Z=(Min=-50.000000,Max=50.000000))
+     End Object
+     Emitters(6)=SpriteEmitter'UberSoldierVehicles.FX_FireEffect_AbramsMG.SpriteEmitter4'
+
+     Begin Object Class=SpriteEmitter Name=SpriteEmitter5
+         UseCollision=True
+         UseColorScale=True
+         FadeOut=True
+         FadeIn=True
+         RespawnDeadParticles=False
+         SpinParticles=True
+         UseSizeScale=True
+         UseRegularSizeScale=False
+         UniformSize=True
+         AutomaticInitialSpawning=False
+         ExtentMultiplier=(X=0.500000,Y=0.500000,Z=0.500000)
+         DampingFactorRange=(X=(Min=0.000000,Max=0.000000),Y=(Min=0.000000,Max=0.000000),Z=(Min=0.000000,Max=0.000000))
+         MaxCollisions=(Min=1.000000,Max=1.000000)
+         ColorScale(0)=(Color=(A=255))
+         ColorScale(1)=(RelativeTime=0.332143,Color=(B=255,G=255,R=255,A=255))
+         ColorScale(2)=(RelativeTime=1.000000,Color=(B=255,G=255,R=255,A=255))
+         FadeOutStartTime=0.102000
+         FadeInEndTime=0.054000
+         CoordinateSystem=PTCS_Relative
+         SpinCCWorCW=(X=1.000000)
+         SpinsPerSecondRange=(X=(Min=0.300000,Max=0.300000))
+         StartSpinRange=(X=(Min=-1.000000,Max=1.000000))
+         SizeScale(0)=(RelativeSize=0.200000)
+         SizeScale(1)=(RelativeTime=0.620000,RelativeSize=1.000000)
+         SizeScale(2)=(RelativeTime=0.870000,RelativeSize=1.000000)
+         StartSizeRange=(X=(Min=150.000000,Max=150.000000),Y=(Min=150.000000,Max=150.000000),Z=(Min=150.000000,Max=150.000000))
+         InitialParticlesPerSecond=50.000000
+         Texture=Texture'1945.Effects.LensFlare03'
+         SecondsBeforeInactive=0.000000
+         LifetimeRange=(Min=0.600000,Max=0.600000)
+         StartVelocityRange=(X=(Min=2700.000000,Max=3000.000000))
+     End Object
+     Emitters(7)=SpriteEmitter'UberSoldierVehicles.FX_FireEffect_AbramsMG.SpriteEmitter5'
+
+     LightType=LT_Steady
+     LightEffect=LE_QuadraticNonIncidence
+     LightHue=30
+     LightSaturation=50
+     LightBrightness=255.000000
+     LightRadius=20.000000
+     bDynamicLight=True
+     AmbientGlow=255
+}

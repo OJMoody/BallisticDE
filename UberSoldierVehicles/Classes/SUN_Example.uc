@@ -1,0 +1,61 @@
+class SUN_Example extends LF_Params placeable;
+
+defaultproperties
+{
+     OverHudCorona=True
+     CoronaTexture=Texture'LF4.Corona'
+     CoronaColor=(B=255,G=255,R=255)
+     CoronaOpacity=150.000000
+     CoronaScale=3.500000
+     OverHudLensFlare=True
+     LensFlareTexture(0)=Texture'LF4.MidRing'
+     LensFlareTexture(1)=Texture'LF4.MidRing'
+     LensFlareTexture(2)=Texture'LF4.MidRing'
+     LensFlareTexture(3)=Texture'LF4.MidRing'
+     LensFlareTexture(4)=Texture'LF4.BigRing'
+     LensFlareTexture(5)=Texture'LF4.MidRing'
+     LensFlareTexture(6)=Texture'LF4.MidRing'
+     LensFlareTexture(7)=Texture'LF4.BigRing'
+     LensFlareTexture(8)=Texture'LF4.MidRing'
+     LensFlareTexture(9)=Texture'LF4.MidRing'
+     FlareColor(0)=(B=194,G=135,R=165)
+     FlareColor(1)=(B=143,G=156,R=186)
+     FlareColor(2)=(B=139,G=188,R=171)
+     FlareColor(3)=(B=255,G=255,R=255)
+     FlareColor(4)=(B=194,G=135,R=165)
+     FlareColor(5)=(B=143,G=156,R=186)
+     FlareColor(6)=(B=139,G=188,R=171)
+     FlareColor(7)=(B=255,G=255,R=255)
+     FlareColor(8)=(B=242,G=242,R=242)
+     FlareColor(9)=(B=194,G=135,R=165)
+     FlareOpacity(0)=75.000000
+     FlareOpacity(1)=128.000000
+     FlareOpacity(2)=1000.000000
+     FlareOpacity(3)=500.000000
+     FlareOpacity(4)=250.000000
+     FlareOpacity(5)=300.000000
+     FlareOpacity(6)=75.000000
+     FlareOpacity(7)=25.000000
+     FlareOpacity(8)=150.000000
+     FlareOpacity(9)=500.000000
+     FlareScale(0)=0.080000
+     FlareScale(1)=0.090000
+     FlareScale(2)=0.100000
+     FlareScale(3)=0.300000
+     FlareScale(4)=0.600000
+     FlareScale(5)=0.650000
+     FlareScale(6)=1.000000
+     FlareScale(7)=1.200000
+     FlareScale(8)=1.500000
+     FlareScale(9)=0.900000
+     FlareRange(0)=0.700000
+     FlareRange(1)=0.400000
+     FlareRange(2)=0.050000
+     FlareRange(3)=-0.200000
+     FlareRange(4)=0.100000
+     FlareRange(5)=0.300000
+     FlareRange(6)=0.900000
+     FlareRange(7)=1.200000
+     FlareRange(8)=0.600000
+     FlareRange(9)=-0.150000
+}
