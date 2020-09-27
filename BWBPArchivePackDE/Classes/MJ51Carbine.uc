@@ -400,7 +400,7 @@ defaultproperties
      ClipOutSound=(Sound=Sound'PackageSoundsArchive4A.MJ51.MJ51-MagOut',Volume=4.800000)
      ClipInFrame=0.650000
 	 WeaponModes(0)=(ModeName="Semi-Auto",ModeID="WM_SemiAuto",Value=1.000000)
-	 WeaponModes(1)=(ModeName="Burst",ModeID="WM_BigBurst",Value=3.000000)
+	 WeaponModes(1)=(ModeName="Burst Fire",ModeID="WM_Burst",Value=3.000000)
 	 WeaponModes(2)=(bUnavailable=True)
 	 WeaponModes(3)=(ModeName="Automatic",ModeID="WM_FullAuto",bUnavailable=True)
      CurrentWeaponMode=1

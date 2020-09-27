@@ -10,12 +10,12 @@ class DTRGPMortarRadius extends DT_BWExplode;
 
 defaultproperties
 {
-     DeathStrings(0)="%o was bombarded by %k's RPG."
-     DeathStrings(1)="%o flung %vs into the path of %k's RPG mortar."
+     DeathStrings(0)="%o was bombarded by %k's RGP."
+     DeathStrings(1)="%o flung %vs into the path of %k's RGP mortar."
      FemaleSuicides(0)="%o forgot where she left one of her mortar rockets."
      MaleSuicides(0)="%o forgot where he left one of his mortar rockets."
      WeaponClass=Class'BWBPArchivePackDE.RGPBazooka'
-     DeathString="%o was bombarded by %k's RPG."
+     DeathString="%o was bombarded by %k's RGP."
      FemaleSuicide="%o forgot where she left one of her mortar rockets."
      MaleSuicide="%o forgot where he left one of his mortar rockets."
      bDelayedDamage=False

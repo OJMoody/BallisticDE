@@ -90,11 +90,13 @@ simulated function FlashMuzzleFlash(byte Mode)
 defaultproperties
 {
      MuzzleFlashClass=Class'BWBPArchivePackDE.MG42FlashEmitter'
+	 AltMuzzleFlashClass=Class'BWBPArchivePackDE.MG42FlashEmitter'
      ImpactManager=Class'BallisticDE.IM_Bullet'
      BrassClass=Class'BallisticDE.Brass_MG'
      TracerClass=Class'BallisticDE.TraceEmitter_Default'
      WaterTracerClass=Class'BallisticDE.TraceEmitter_WaterBullet'
      WaterTracerMode=MU_Both
+	 FlashScale=0.700000
      FlyBySound=(Sound=SoundGroup'BallisticSounds2.FlyBys.Bullet-Whizz',Volume=0.700000)
      ReloadAnim="Reload_MG"
      ReloadAnimRate=1.500000

@@ -206,9 +206,9 @@ defaultproperties
 {
      FireSoundLoop=Sound'BWBPArchivePackSounds.SkrithStaff.SkrithStaff-Laser'
      TraceRange=(Min=10000.000000,Max=10000.000000)
-     Damage=10.000000
-     DamageHead=15.000000
-     DamageLimb=10.000000
+     Damage=8.000000
+     DamageHead=12.000000
+     DamageLimb=8.000000
      WaterRangeAtten=0.800000
      DamageType=Class'BWBPArchivePackDE.DT_SkrithStaff'
      DamageTypeHead=Class'BWBPArchivePackDE.DT_SkrithStaffHead'

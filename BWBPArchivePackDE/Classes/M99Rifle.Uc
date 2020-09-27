@@ -344,9 +344,8 @@ defaultproperties
      CrouchAimFactor=0.300000
      SprintOffSet=(Pitch=-6000,Yaw=-8192)
      AimAdjustTime=0.500000
-	 AimSpread=1024
-	 ChaosAimSpread=2048
-	 FireChaos=1
+	 AimSpread=256
+	 ChaosAimSpread=512
 	 RecoilDeclineDelay=1.500000
      ChaosDeclineTime=1.500000
      ChaosSpeedThreshold=400.000000

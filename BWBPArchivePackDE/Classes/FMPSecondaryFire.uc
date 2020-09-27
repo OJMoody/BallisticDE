@@ -41,7 +41,7 @@ defaultproperties
      HookPullForce=-10.000000
      PenetrateForce=150
      DryFireSound=(Sound=Sound'BallisticSounds2.D49.D49-DryFire',Volume=0.700000)
-     MuzzleFlashClass=Class'BallisticDE.XK2FlashEmitter'
+     MuzzleFlashClass=Class'BallisticDE.M50FlashEmitter'
      FlashScaleFactor=0.900000
      BrassClass=Class'BallisticDE.Brass_Rifle'
      BrassBone="tip"

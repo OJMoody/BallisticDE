@@ -1,12 +1,12 @@
 //=============================================================================
-// DTMJ51AssaultHead.
+// DTR9RifleHead.
 //
-// DamageType for MJ51 headshots
+// Damage type for the R9 Rifle headshots
 //
 // by Nolan "Dark Carnivour" Richert.
-// Copyright(c) 2005 RuneStorm. All Rights Reserved.
+// Copyright(c) 2007 RuneStorm. All Rights Reserved.
 //=============================================================================
-class DTMJ51AssaultHead extends DT_BWBullet;
+class DTR9RifleHead extends DT_BWBullet;
 
 // HeadShot stuff from old sniper damage ------------------
 static function IncrementKills(Controller Killer)
@@ -29,19 +29,19 @@ static function IncrementKills(Controller Killer)
 
 defaultproperties
 {
-     DeathStrings(0)="%o got %vh brain shredded by %k's MJ53."
-     DeathStrings(1)="%o lost his head thanks to %k's MJ53."
-     DeathStrings(2)="%k's MJ53 lifted %o's head off %vh shoulders."
+     DeathStrings(0)="%k shot %o's head out of the way with %kh R9."
+     DeathStrings(1)="%k levelled %kh rifle at %o and blew %vh head off."
+     DeathStrings(2)="%o caught a round from %k's R9."
+     DeathStrings(3)="%k found %o's head with %kh ranger rifle."
+     DeathStrings(4)="%o's head received a round from %k's R9."
      bHeaddie=True
-     WeaponClass=Class'BWBPArchivePackDE.MJ51Carbine'
-     DeathString="%o got %vh brain shredded by %k's MJ53."
-     FemaleSuicide="%o saw a bullet coming up the barrel of her MJ53."
-     MaleSuicide="%o saw a bullet coming up the barrel of his MJ53."
-     bFastInstantHit=True
+     DamageIdent="Sniper"
+     WeaponClass=Class'BWBPArchivePackDE.R9RangerRifle'
+     DeathString="%k shot %o's head out of the way with %kh R9."
+     FemaleSuicide="%o R9ed off her own head."
+     MaleSuicide="%o R9ed off his own head."
      bAlwaysSevers=True
      bSpecial=True
      PawnDamageSounds(0)=SoundGroup'BallisticSounds2.BulletImpacts.Headshot'
-     GibPerterbation=0.200000
-     KDamageImpulse=1000.000000
-     VehicleDamageScaling=0.650000
+     KDamageImpulse=2000.000000
 }

@@ -56,7 +56,7 @@ defaultproperties
      ImpactManager=Class'BWBPRecolorsDE.IM_ChaffGrenade'
      TrailClass=Class'BWBPRecolorsDE.ChaffTrail'
      TrailOffset=(X=-8.000000)
-     MyRadiusDamageType=Class'BWBPRecolorsDE.DTChaffGrenadeRadius'
+     MyRadiusDamageType=Class'BWBPArchivePackDE.DTChaffGrenadeRadius'
      SplashManager=Class'BallisticDE.IM_ProjWater'
      ShakeRadius=512.000000
      MotionBlurRadius=768.000000
@@ -66,7 +66,7 @@ defaultproperties
      MaxSpeed=4500.000000
      Damage=65.000000
      DamageRadius=192.000000
-     MyDamageType=Class'BWBPRecolorsDE.DTChaffGrenadeRadius'
+     MyDamageType=Class'BWBPArchivePackDE.DTChaffGrenadeRadius'
      StaticMesh=StaticMesh'BallisticRecolors4ArchiveStaticA.MJ51.MOACProjLaunched'
      DrawScale=0.120000
      bUnlit=False

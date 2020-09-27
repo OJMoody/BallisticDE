@@ -143,9 +143,9 @@ defaultproperties
      DamageHead=130.000000
      DamageLimb=65.000000
      WaterRangeAtten=0.800000
-     DamageType=Class'BallisticDE.DTR9Rifle'
-     DamageTypeHead=Class'BallisticDE.DTR9RifleHead'
-     DamageTypeArm=Class'BallisticDE.DTR9Rifle'
+     DamageType=Class'BWBPArchivePackDE.DTR9Rifle'
+     DamageTypeHead=Class'BWBPArchivePackDE.DTR9RifleHead'
+     DamageTypeArm=Class'BWBPArchivePackDE.DTR9Rifle'
      KickForce=12000
      PenetrateForce=150
      bPenetrate=True

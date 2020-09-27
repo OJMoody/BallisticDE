@@ -10,13 +10,13 @@ class DTRGPMortar extends DT_BWExplode;
 
 defaultproperties
 {
-     DeathStrings(0)="%o caught %k's RPG mortar."
-     DeathStrings(1)="%k's RPG mortar took %o to heaven."
-     DeathStrings(2)="%o took an express trip to hell thanks to %k's RPG mortar."
+     DeathStrings(0)="%o caught %k's RGP mortar."
+     DeathStrings(1)="%k's RGP mortar took %o to heaven."
+     DeathStrings(2)="%o took an express trip to hell thanks to %k's RGP mortar."
      WeaponClass=Class'BWBPArchivePackDE.RGPBazooka'
-     DeathString="%o caught %k's RPG mortar."
-     FemaleSuicide="%o caught one of her own RPG mortars."
-     MaleSuicide="%o caught one of his own RPG mortars."
+     DeathString="%o caught %k's RGP mortar."
+     FemaleSuicide="%o caught one of her own RGP mortars."
+     MaleSuicide="%o caught one of his own RGP mortars."
      bDelayedDamage=False
 	 bExtraMomentumZ=True
      GibPerterbation=0.800000

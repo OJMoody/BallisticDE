@@ -28,6 +28,7 @@ defaultproperties
      AltMuzzleFlashClass=Class'BallisticDE.XK2SilencedFlash'
      ImpactManager=Class'BallisticDE.IM_Bullet'
      AltFlashBone="tip2"
+	 Flashscale=0.5
      BrassClass=Class'BallisticDE.Brass_Pistol'
      BrassMode=MU_Both
      InstantMode=MU_Both

@@ -44,9 +44,9 @@ defaultproperties
      TraceRange=(Min=15000.000000,Max=15000.000000)
      WallPenetrationForce=24.000000
 	 
-     Damage=18.000000
-     DamageHead=23.000000
-     DamageLimb=15.000000
+     Damage=22.000000
+     DamageHead=28.000000
+     DamageLimb=22.000000
      WaterRangeAtten=0.600000
      DamageType=Class'BWBPArchivePackDE.DTP90SMG'
      DamageTypeHead=Class'BWBPArchivePackDE.DTP90SMGHead'

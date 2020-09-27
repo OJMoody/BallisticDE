@@ -17,6 +17,7 @@ defaultproperties
      DeathString="%k peppered %o's face with a plasma fusillade."
      FemaleSuicide="%o's H-VPC attacked her face."
      MaleSuicide="%o's H-VPC attacked his face."
+	 WeaponClass=Class'BWBPArchivePackDE.HVPCMk5PlasmaCannon'
      bAlwaysSevers=True
      bSpecial=True
 }

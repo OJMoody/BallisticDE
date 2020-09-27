@@ -83,7 +83,8 @@ function SetBrightness(int b, bool hit)
 
 defaultproperties
 {
-     BrassClass=Class'BWBPArchivePackDE.Brass_PUMA'
+     MuzzleFlashClass=Class'BallisticDE.M50M900FlashEmitter'
+	 BrassClass=Class'BWBPArchivePackDE.Brass_PUMA'
      bHeavy=True
      Mesh=SkeletalMesh'BWBPArchivePack2Anim.TP_Puma'
      RelativeRotation=(Pitch=32768)

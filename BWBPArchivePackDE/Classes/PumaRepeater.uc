@@ -923,8 +923,8 @@ defaultproperties
      ViewAimFactor=0.00000
      ViewRecoilFactor=0.900000
 	 FireChaos=0
-     AimSpread=128
-	 ChaosAimSpread=2048
+     AimSpread=32
+	 ChaosAimSpread=256
 	 RecoilDeclineDelay=0.200000
 	 ChaosDeclineTime=2.00000
      RecoilXCurve=(Points=(,(InVal=0.200000,OutVal=-0.100000),(InVal=0.300000,OutVal=-0.200000),(InVal=1.000000,OutVal=-0.300000)))

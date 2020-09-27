@@ -154,7 +154,7 @@ defaultproperties
      MuzzleFlashClass=Class'BallisticDE.M50M900FlashEmitter'
      BrassClass=Class'BWBPArchivePackDE.Brass_PUMA'
      BrassOffset=(X=-20.000000)
-     RecoilPerShot=1024.000000
+     RecoilPerShot=128.000000
      BallisticFireSound=(Sound=Sound'PackageSoundsArchive4A.PUMA.PUMA-Fire')
      bSplashDamage=True
      bRecommendSplashDamage=True

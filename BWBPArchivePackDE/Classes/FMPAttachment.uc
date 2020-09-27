@@ -157,13 +157,14 @@ defaultproperties
 {
      ImpactManagerAlt=Class'BWBPArchivePackDE.IM_BulletHE'
      TracerClassAlt=Class'BWBPArchivePackDE.TraceEmitter_HMG'
-     MuzzleFlashClass=Class'BallisticDE.M50FlashEmitter'
-     AltMuzzleFlashClass=Class'BallisticDE.M50FlashEmitter'
+     MuzzleFlashClass=Class'BWBPArchivePackDE.FMPFlashEmitter'
+     AltMuzzleFlashClass=Class'BWBPArchivePackDE.FMPFlashEmitter'
      ImpactManager=Class'BallisticDE.IM_Bullet'
      BrassClass=Class'BallisticDE.Brass_Rifle'
      InstantMode=MU_Both
      FlashMode=MU_Both
      LightMode=MU_Both
+	 FlashScale=0.5
      TracerClass=Class'BWBPRecolorsDE.TraceEmitter_MARS'
      TracerMix=0
      WaterTracerClass=Class'BallisticDE.TraceEmitter_WaterBullet'
