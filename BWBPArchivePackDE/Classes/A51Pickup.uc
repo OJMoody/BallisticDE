@@ -38,7 +38,7 @@ defaultproperties
      RespawnTime=20.000000
      PickupMessage="You picked up the AD-51 Reptile Corossive Grenade"
      PickupSound=Sound'BallisticSounds2.Ammo.GrenadePickup'
-     StaticMesh=StaticMesh'BWSkrithRecolorsArchive1Static.SkrithGrenadePickupHi'
+     StaticMesh=StaticMesh'BWSkrithRecolorsArchive2Static.SG.SkrithGrenadePickupHi'
      bOrientOnSlope=True
      Physics=PHYS_None
      CollisionHeight=5.600000

@@ -345,7 +345,7 @@ defaultproperties
      SprintOffSet=(Pitch=-6000,Yaw=-8192)
      AimAdjustTime=0.500000
 	 AimSpread=256
-	 ChaosAimSpread=512
+	 ChaosAimSpread=1024
 	 RecoilDeclineDelay=1.500000
      ChaosDeclineTime=1.500000
      ChaosSpeedThreshold=400.000000
