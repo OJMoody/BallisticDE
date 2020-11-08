@@ -78,7 +78,7 @@ function byte BestMode()
 
 	if (B.Skill > Rand(6))
 	{
-		if (Chaos < 0.1 || Chaos < 0.5 && VSize(B.Enemy.Location - Instigator.Location) > 500)
+		if (AimComponent.GetChaos() < 0.1 || AimComponent.GetChaos() < 0.5 && VSize(B.Enemy.Location - Instigator.Location) > 500)
 			return 1;
 	}
 	else if (FRand() > 0.75)
@@ -123,7 +123,6 @@ defaultproperties
      SpecialInfo(0)=(Info="240.0;25.0;0.9;80.0;0.7;0.7;0.4")
      BringUpSound=(Sound=Sound'BallisticSounds2.M50.M50Pullout')
      PutDownSound=(Sound=Sound'BallisticSounds2.M50.M50Putaway')
-     MagAmmo=24
      CockAnimPostReload="ReloadEndCock"
      CockSound=(Sound=Sound'BallisticSounds2.M50.M50Cock')
      ClipHitSound=(Sound=Sound'BallisticSounds2.M50.M50ClipHit')
@@ -136,25 +135,8 @@ defaultproperties
      SightOffset=(X=5.000000,Y=-7.670000,Z=18.900000)
      SightDisplayFOV=40.000000
      SightingTime=0.200000
-     CrouchAimFactor=0.000000
-     SightAimFactor=0.000000
-     SprintOffSet=(Pitch=-1000,Yaw=-2048)
-	 AimAdjustTime=0.400000
-     
-	 AimSpread=16
-	 ChaosAimSpread=512
-	 ChaosDeclineTime=0.75
 	 AIRating=0.8
 	 CurrentRating=0.8
-     
-	 ViewRecoilFactor=0.4500000
-     RecoilXCurve=(Points=(,(InVal=0.200000,OutVal=0.030000),(InVal=0.400000,OutVal=0.050000),(InVal=0.600000,OutVal=0.10000),(InVal=0.800000,OutVal=0.120000),(InVal=1.000000,OutVal=0.16)))
-     RecoilYCurve=(Points=(,(InVal=0.100000,OutVal=0.100000),(InVal=0.200000,OutVal=0.25),(InVal=0.400000,OutVal=0.500000),(InVal=0.600000,OutVal=0.600000),(InVal=1.000000,OutVal=1.000000)))
-     RecoilXFactor=0.100000
-     RecoilYFactor=0.100000
-     RecoilDeclineTime=0.5
-     RecoilDeclineDelay=0.6
-	 
      FireModeClass(0)=Class'BWBPArchivePackDE.FMPPrimaryFire'
      FireModeClass(1)=Class'BWBPArchivePackDE.FMPSecondaryFire'
      PutDownTime=0.700000
@@ -163,7 +145,6 @@ defaultproperties
      Priority=41
      CustomCrossHairTextureName="Crosshairs.HUD.Crosshair_Cross1"
      InventoryGroup=3
-	 InventorySize=12
 	 bNoCrosshairInScope=True
      PickupClass=Class'BWBPArchivePackDE.FMPPickup'
      PlayerViewOffset=(X=-5.000000,Y=12.000000,Z=-15.000000)
@@ -178,6 +159,7 @@ defaultproperties
      LightSaturation=150
      LightBrightness=150.000000
      LightRadius=4.000000
+	 ParamsClass=Class'FMPWeaponParams'
      Mesh=SkeletalMesh'BWBPArchivePack2Anim.MP40_FP'
      DrawScale=0.30000
 }

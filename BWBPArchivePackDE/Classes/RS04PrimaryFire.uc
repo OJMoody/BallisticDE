@@ -153,7 +153,7 @@ defaultproperties
      MuzzleFlashClass=Class'BallisticDE.XK2FlashEmitter'
      BrassClass=Class'BallisticDE.Brass_Pistol'
      BrassOffset=(X=-25.000000)
-     RecoilPerShot=215.000000
+     FireRecoil=215.000000
      //SilencedFireSound=(Sound=Sound'PackageSoundsArchive4.M1911.M1911-FireSil',Volume=0.800000,Radius=24.000000,bAtten=True)
      BallisticFireSound=(Sound=Sound'PackageSoundsArchive4.M1911.M1911-Fire',Volume=1.200000)
      bModeExclusive=False

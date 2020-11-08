@@ -77,12 +77,11 @@ defaultproperties
      SelectForce="SwitchToAssaultRifle"
      AIRating=0.400000
      CurrentRating=0.400000
-     Description="N-TOV Emergency Bandage||Manufacturer: N-TOV Medical Supplies|Primary: Throw|Secondary: Heal Self/Heal Other||N-TOV medical supplies are a common sight for almost every human soldier, no matter where they're stationed. Field medics often carry a small supply with them in order to patch up their allies. The bandages can be thrown, but they are more effective when applied directly."
+     Description="N-TOV Emergency Bandage||Manufacturer: N-TOV Medical Supplies||N-TOV medical supplies are a common sight for almost every human soldier, no matter where they're stationed. Field medics often carry a small supply with them in order to patch up their allies. The bandages can be thrown, but they are more effective when applied directly."
      Priority=124
      CustomCrossHairTextureName="Crosshairs.HUD.Crosshair_Cross1"
      InventoryGroup=0
      GroupOffset=21
-	 InventorySize=1
      PickupClass=Class'BWBPArchivePackDE.NTovPickup'
      PlayerViewOffset=(X=30.000000,Y=10.000000,Z=-8.000000)
      PlayerViewPivot=(Pitch=1024,Yaw=-1024)
@@ -91,6 +90,7 @@ defaultproperties
      IconMaterial=Texture'BWSkrithRecolorsArchive1Tex.NTOV.SmallIcon_NTOV'
      IconCoords=(X2=127,Y2=31)
      ItemName="N-TOV Emergency Bandage"
+	 ParamsClass=Class'NTOVWeaponParams'
      Mesh=SkeletalMesh'BWSkrithRecolors1Anim.NTOV_FPm'
      DrawScale=0.400000
 }

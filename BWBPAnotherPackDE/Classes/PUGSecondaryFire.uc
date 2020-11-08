@@ -34,11 +34,6 @@ simulated function bool CheckGrenade()
 // Check if there is ammo in clip if we use weapon's mag or is there some in inventory if we don't
 simulated function bool AllowFire()
 {
-	//Force noobs to scope.
-	if ((BW.BCRepClass.default.bSightFireOnly || class'BallisticWeapon'.default.SightsRestrictionLevel > 0) && BW.bUseSights && BW.SightingState != SS_Active && !BW.bScopeHeld && Instigator.IsLocallyControlled() && PlayerController(Instigator.Controller) != None)
-		BW.ScopeView();
-	if (!BW.bScopeView && (class'BallisticWeapon'.default.SightsRestrictionLevel > 1 || (class'BallisticWeapon'.default.SightsRestrictionLevel > 0 && BW.ZoomType != ZT_Irons)))
-		return false;
 	if (!CheckReloading())
 		return false;		// Is weapon busy reloading
 	if (!CheckWeaponMode())
@@ -88,8 +83,8 @@ defaultproperties
      MuzzleFlashClass=Class'BallisticDE.M50M900FlashEmitter'
      BrassClass=Class'BWBPAnotherPackDE.Brass_FRAGSpent'
      BrassOffset=(X=-30.000000,Y=1.000000)
-     RecoilPerShot=1048.000000
-     VelocityRecoil=100.000000
+     FireRecoil=1048.000000
+     FirePushBackForce=100.000000
      BallisticFireSound=(Sound=Sound'BWBPAnotherPackSounds.PUG.PUG-FireSlug',Volume=7.500000)
 	 bFireOnRelease=True
      bWaitForRelease=True

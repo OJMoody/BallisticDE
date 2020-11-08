@@ -17,7 +17,7 @@ simulated function SwitchScopedMode (byte NewMode)
 	if (NewMode == 2 || NewMode == 3)
 	{
 		BallisticFireSound.Sound=ScopedFireSound;
-		RecoilPerShot=512;
+		FireRecoil=128;
 		Damage = 50;
 		DamageHead = 75;
 		DamageLimb = 42;
@@ -27,7 +27,7 @@ simulated function SwitchScopedMode (byte NewMode)
 	else if (NewMode == 1 || NewMode == 0)
 	{
 		BallisticFireSound.Sound=RegularFireSound;
-		RecoilPerShot=256;
+		FireRecoil=88;
 		Damage = default.Damage;
 		DamageHead = default.DamageHead;
 		DamageLimb = default.DamageLimb;
@@ -36,7 +36,7 @@ simulated function SwitchScopedMode (byte NewMode)
 	else
 	{
 		BallisticFireSound.Sound=RegularFireSound;
-		RecoilPerShot=256;
+		FireRecoil=88;
 		Damage = default.Damage;
 		DamageHead = default.DamageHead;
 		DamageLimb = default.DamageLimb;
@@ -160,7 +160,7 @@ defaultproperties
      BrassClass=Class'BWBPAnotherPackDE.Brass_Tranq'
      BrassBone="tip"
      BrassOffset=(X=-80.000000,Y=1.000000)
-     RecoilPerShot=172.000000
+     FireRecoil=88.000000
      XInaccuracy=1.750000
      YInaccuracy=1.750000
      BallisticFireSound=(Sound=SoundGroup'BWBPAnotherPackSounds.VSK.VSK-SuperShot-Combined',Volume=1.100000,Slot=SLOT_Interact,bNoOverride=False)

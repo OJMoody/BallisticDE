@@ -80,7 +80,6 @@ if (!AllowFire())
 		Instigator.DeactivateSpawnProtection();
 	}
 	else if (!BW.default.bUseNetAim && !BW.bScopeView)
-		FireRecoil();
 
 	// client
 	if (Instigator.IsLocallyControlled())
@@ -135,7 +134,6 @@ function DoFireEffect()
 	
 	if (!bAISilent)
 		Instigator.MakeNoise(1.0);
-	FireRecoil();
 
 	TargetAngle = 0.92;
 	foreach Instigator.VisibleCollidingActors( class 'Actor', Victims, 700, Instigator.Location )
@@ -301,7 +299,7 @@ defaultproperties
 {
      DamageType=Class'BWBPOtherPackDE.DTProtonStreamer'
      MuzzleFlashClass=Class'BWBPAnotherPackDE.ParticleFlashEmitter'
-     RecoilPerShot=1.000000
+     FireRecoil=1.000000
      bPawnRapidFireAnim=True
      FireAnim="FireLoop"
      FireRate=0.070000

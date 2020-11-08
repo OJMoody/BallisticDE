@@ -11,12 +11,11 @@ class VSKTranqRifle extends BallisticWeapon;
 
 var float		lastModeChangeTime;
 
-replication
+/*replication
 {
 	reliable if (Role == ROLE_Authority)
 		ClientSwitchWeaponMode;
-
-}
+}*/
 
 simulated event PostNetBeginPlay()
 {
@@ -42,40 +41,27 @@ simulated function ClientSwitchWeaponMode (byte newMode)
 simulated event WeaponTick(float DT)
 {
 	super.WeaponTick(DT);
-
-
 		if (CurrentWeaponMode == 0)
 		{
 			FireMode[0].FireRate 	= 0.15;
-     			RecoilXFactor		= 0.3;
-     			RecoilYFactor		= 0.2;
 		}
 		else if (CurrentWeaponMode == 1)
 		{
 			FireMode[0].FireRate 	= 0.15;
-     			RecoilXFactor		= 0.3;
-     			RecoilYFactor		= 0.2;
 		}
 		else if (CurrentWeaponMode == 2)
 		{
 			FireMode[0].FireRate 	= 0.4;
-     			RecoilXFactor		= 0.2;
-     			RecoilYFactor		= 0.6;
 		}
 		else if (CurrentWeaponMode == 3)
 		{
 			FireMode[0].FireRate 	= 0.4;
-     			RecoilXFactor		= 0.2;
-     			RecoilYFactor		= 0.6;
 
 		}
 		else
 		{
 			FireMode[0].FireRate 	= BFireMode[0].default.FireRate;
-     			RecoilXFactor		= 0.3;
-     			RecoilYFactor		= 0.2;
 		}
-
 }
 
 // Secondary fire doesn't count for this weapon
@@ -131,7 +117,6 @@ defaultproperties
      SpecialInfo(0)=(Info="320.0;25.0;1.0;110.0;2.0;0.1;0.1")
      BringUpSound=(Sound=Sound'BWBPAnotherPackSounds.VSK.VSK-Draw')
      PutDownSound=(Sound=Sound'BWBPAnotherPackSounds.VSK.VSK-Holster')
-     MagAmmo=15
      CockAnimPostReload="ReloadEndCock"
      CockSound=(Sound=Sound'BWBPAnotherPackSounds.VSK.VSK-Cock',Volume=1.000000)
      ClipOutSound=(Sound=Sound'BWBPAnotherPackSounds.VSK.VSK-ClipOut',Volume=1.500000)
@@ -143,7 +128,6 @@ defaultproperties
 	 WeaponModes(2)=(bUnavailable=True)
      WeaponModes(3)=(ModeName="High Powered",ModeID="WM_FullAuto")
      CurrentWeaponMode=1
-	 RecoilDeclineDelay=0.360000
      ScopeViewTex=Texture'BWBPAnotherPackTex.552.552_Scope'
      ZoomInSound=(Sound=Sound'BallisticSounds2.R78.R78ZoomIn',Volume=0.500000,Pitch=1.000000)
      ZoomOutSound=(Sound=Sound'BallisticSounds2.R78.R78ZoomOut',Volume=0.500000,Pitch=1.000000)
@@ -153,14 +137,7 @@ defaultproperties
      bNoCrosshairInScope=True
      SightOffset=(Y=-1.700000,Z=14.000000)
      SightDisplayFOV=20.000000
-     SprintOffSet=(Pitch=-4000,Yaw=-6000)
-     ViewAimFactor=0.200000
-     ViewRecoilFactor=0.600000
-     RecoilXCurve=(Points=(,(InVal=0.200000,OutVal=0.100000),(InVal=0.400000,OutVal=0.300000),(InVal=0.800000,OutVal=-0.400000),(InVal=1.000000,OutVal=-0.200000)))
-     RecoilYCurve=(Points=(,(InVal=0.200000,OutVal=0.100000),(InVal=0.400000,OutVal=0.650000),(InVal=0.600000,OutVal=0.800000),(InVal=0.800000,OutVal=0.900000),(InVal=1.000000,OutVal=1.000000)))
-     RecoilYawFactor=0.400000
-     RecoilXFactor=0.100000
-     RecoilYFactor=0.200000
+	 
 	 ScopeXScale=1.200000
      FireModeClass(0)=Class'BWBPAnotherPackDE.VSKPrimaryFire'
      FireModeClass(1)=Class'BCoreDE.BallisticScopeFire'
@@ -170,7 +147,6 @@ defaultproperties
      CurrentRating=0.600000
      Description="VSK42 'Vampir' Tranqulizer Rifle||Manufacturer: Zavod Tochnogo Voorujeniya (ZTV Export)|Primary: Tranqulizer Dart Fire|Secondary: Zooming Scope||Vintovka Snayperskaya Kisel'eva - Paraliticheskaya. Named the Vampire due to the fact that it literally sucks the life force out of its enemies with its highly potent tranqulizer rounds. Perfect for stealthy take downs, the tactical VSP-42 and non-lethal VSK-42 are high class weapons produced in the post-war Russian Federation. The unique cased subsonic rounds of the VSK are packed with an extremely potent immobilising drug capable of dropping a juggernaut in a single shot. (Usage of more than one shot is not recommended as doses of more than 1 ml carry a 95% casualty rate in humans.) Dart velocity can be adjusted when using gas-assisted firemodes to increase range and hypodermic penetration."
      Priority=65
-	 ChaosDeclineTime=0.450000
      CustomCrossHairTextureName="Crosshairs.HUD.Crosshair_Cross1"
      InventoryGroup=9
      PickupClass=Class'BWBPAnotherPackDE.VSKPickup'
@@ -186,6 +162,7 @@ defaultproperties
      LightSaturation=150
      LightBrightness=150.000000
      LightRadius=4.000000
+	 ParamsClass=Class'VSKWeaponParams'
      Mesh=SkeletalMesh'BWBPAnotherPackAnims.FPm_Commando552'
      DrawScale=1.000000
 }

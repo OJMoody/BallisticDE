@@ -224,7 +224,7 @@ simulated function CommonStartReload (optional byte i)
 	}
 
 	if (bScopeView && Instigator.IsLocallyControlled())
-		TemporaryScopeDown(Default.SightingTime*Default.SightingTimeScale);
+		TemporaryScopeDown(Default.SightingTime);
 	for (m=0; m < NUM_FIRE_MODES; m++)
 		if (BFireMode[m] != None)
 			BFireMode[m].ReloadingGun(i);
@@ -338,24 +338,6 @@ simulated function bool PutDown()
 
 	return false;
 }
-
-
-// Change some properties when using sights...
-simulated function SetScopeBehavior()
-{
-
-	super.SetScopeBehavior();
-	bUseNetAim = default.bUseNetAim || bScopeView;
-	if (bScopeView)
-	{
-        	FireMode[0].FireAnim='SightFire';
-	}
-	else
-	{
-        	FireMode[0].FireAnim='Fire';
-	}
-}
-
 
 // HARDCODED SIGHTING TIME
 simulated function TickSighting (float DT)
@@ -568,23 +550,6 @@ defaultproperties
      bNoCrosshairInScope=True
      SightOffset=(X=6.000000,Y=-6.350000,Z=23.150000)
      SightDisplayFOV=25.000000
-     SprintOffSet=(Pitch=-3000,Yaw=-4096)
-     
-	 AimSpread=16
-	 ChaosAimSpread=728
-     ChaosDeclineTime=0.5
-     ChaosSpeedThreshold=7500.000000
-     
-	 RecoilXCurve=(Points=(,(InVal=0.100000,OutVal=0.080000),(InVal=0.25000,OutVal=0.2000),(InVal=0.3500000,OutVal=0.150000),(InVal=0.4800000,OutVal=0.20000),(InVal=0.600000,OutVal=-0.050000),(InVal=0.750000,OutVal=0.0500000),(InVal=0.900000,OutVal=0.15),(InVal=1.000000,OutVal=0.3)))
-     RecoilYCurve=(Points=(,(InVal=0.200000,OutVal=0.250000),(InVal=0.400000,OutVal=0.500000),(InVal=0.600000,OutVal=0.800000),(InVal=0.800000,OutVal=0.900000),(InVal=1.000000,OutVal=1.000000)))
-     RecoilXFactor=0.050000
-     RecoilYFactor=0.050000
-     
-	 RecoilDeclineTime=0.500000
-     RecoilDeclineDelay=0.140000
-     
-	 ViewRecoilFactor=0.4
-	 
 	 FireModeClass(0)=Class'BWBPArchivePackDE.F2000PrimaryFire'
      FireModeClass(1)=Class'BWBPArchivePackDE.F2000SecondaryFire'
      PutDownTime=0.700000
@@ -595,7 +560,6 @@ defaultproperties
      Priority=65
      HudColor=(B=255,G=175,R=125)
      CustomCrossHairTextureName="Crosshairs.HUD.Crosshair_Cross1"
-	 InventorySize=12
      InventoryGroup=4
      AttachmentClass=Class'BWBPArchivePackDE.F2000Attachment'
      PlayerViewOffset=(X=0.500000,Y=12.000000,Z=-18.000000)
@@ -609,6 +573,7 @@ defaultproperties
      LightSaturation=150
      LightBrightness=150.000000
      LightRadius=4.000000
+	 ParamsClass=Class'F2001WeaponParams'
      Mesh=SkeletalMesh'BWBPArchivePack2Anim.MARS3_FP'
      DrawScale=0.300000
 	 PickupClass=Class'BWBPArchivePackDE.F2000Pickup'

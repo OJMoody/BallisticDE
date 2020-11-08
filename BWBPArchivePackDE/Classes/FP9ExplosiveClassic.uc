@@ -650,7 +650,6 @@ defaultproperties
      BigIconMaterial=Texture'BallisticUI2.Icons.BigIcon_FP9A5'
      BigIconCoords=(Y1=24,Y2=235)
      BCRepClass=Class'BallisticDE.BallisticReplicationInfo'
-     InventorySize=3
      bWT_Hazardous=True
      bWT_Splash=True
      bWT_Grenade=True
@@ -687,6 +686,7 @@ defaultproperties
      IconMaterial=Texture'BallisticUI2.Icons.SmallIcon_FP9Explosive'
      IconCoords=(X2=127,Y2=31)
      ItemName="FP9A5-L Laser Trip Mine"
+	 ParamsClass=Class'FP9ClassicWeaponParams'
      Mesh=SkeletalMesh'BallisticAnims2.FP9Bomb'
      DrawScale=0.200000
      Skins(0)=Shader'BallisticWeapons2.Hands.Hands-Shiny'

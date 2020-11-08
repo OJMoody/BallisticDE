@@ -78,71 +78,6 @@ simulated function SendFireEffect(Actor Other, vector HitLocation, vector HitNor
 	BallisticAttachment(Weapon.ThirdPersonActor).BallisticUpdateHit(Other, HitLocation, HitNormal, Surf, MG36Carbine(Weapon).bSilenced, WaterHitLoc);
 }
 
-
-
-
-
-
-
-
-
-
-
-/*function ServerPlayFiring()
-{
-	if (MG36Carbine(Weapon) != None && MG36Carbine(Weapon).bSilenced && SilencedFireSound.Sound != None)
-		Weapon.PlayOwnedSound(SilencedFireSound.Sound,SilencedFireSound.Slot,SilencedFireSound.Volume,SilencedFireSound.bNoOverride,SilencedFireSound.Radius,SilencedFireSound.Pitch,SilencedFireSound.bAtten);
-	else if (BallisticFireSound.Sound != None)
-		Weapon.PlayOwnedSound(BallisticFireSound.Sound,BallisticFireSound.Slot,BallisticFireSound.Volume,BallisticFireSound.bNoOverride,BallisticFireSound.Radius,BallisticFireSound.Pitch,BallisticFireSound.bAtten);
-
-	if (MG36Carbine(Weapon).bSilenced)
-		Weapon.SetBoneScale (0, 1.0, MG36Carbine(Weapon).SilencerBone);
-	else
-		Weapon.SetBoneScale (0, 0.0, MG36Carbine(Weapon).SilencerBone);
-	
-	if (AimedFireAnim != '')
-	{
-		BW.SafePlayAnim(FireAnim, FireAnimRate, TweenTime, ,"FIRE");
-		if (BW.BlendFire())		
-			BW.SafePlayAnim(AimedFireAnim, FireAnimRate, TweenTime, 1, "AIMEDFIRE");
-	}
-
-	else
-	{
-		if (FireCount > 0 && Weapon.HasAnim(FireLoopAnim))
-			BW.SafePlayAnim(FireLoopAnim, FireLoopAnimRate, 0.0, ,"FIRE");
-		else BW.SafePlayAnim(FireAnim, FireAnimRate, TweenTime, ,"FIRE");
-	}
-
-	CheckClipFinished();
-}
-
-	if (MG36Carbine(Weapon) != None && MG36Carbine(Weapon).bSilenced && SilencedFireSound.Sound != None)
-	{
-		if (MG36Carbine(Weapon).CurrentWeaponMode == 0 || MG36Carbine(Weapon).CurrentWeaponMode == 1)
-			Weapon.PlayOwnedSound(SilencedFireSound.Sound,SilencedFireSound.Slot,SilencedFireSound.Volume,,SilencedFireSound.Radius,,true);
-	}
-	else if (BallisticFireSound.Sound != None)
-		Weapon.PlayOwnedSound(BallisticFireSound.Sound,BallisticFireSound.Slot,BallisticFireSound.Volume,,BallisticFireSound.Radius);
-
-	CheckClipFinished();
-}*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 //// server propagation of firing ////
 function ServerPlayFiring()
 {
@@ -205,9 +140,7 @@ simulated function SwitchSilencerMode (bool bNewMode)
 	if (bNewMode)
 	{
 		Damage *= 0.7;
-		RecoilPerShot *= 0.9;
-		BW.RecoilXFactor *= 0.6;
-		BW.RecoilYFactor *= 0.6;
+		FireRecoil *= 0.9;
 		XInaccuracy = default.XInaccuracy;
 		YInaccuracy = default.YInaccuracy;
 		DamageType=Class'DT_MG36SilAssault';
@@ -221,10 +154,8 @@ simulated function SwitchSilencerMode (bool bNewMode)
      	DamageType=Class'DT_MG36Assault';
      	DamageTypeHead=Class'DT_MG36AssaultHead';
      	DamageTypeArm=Class'DT_MG36Assault';
-		RecoilPerShot = default.RecoilPerShot;
+		FireRecoil = default.FireRecoil;
 		RangeAtten = default.RangeAtten;
-		BW.RecoilXFactor = BW.default.RecoilXFactor;
-		BW.RecoilYFactor = BW.default.RecoilYFactor;
 		XInaccuracy = default.XInaccuracy;
 		YInaccuracy = default.YInaccuracy;
 	}
@@ -295,7 +226,7 @@ defaultproperties
      BrassClass=Class'BallisticDE.Brass_Rifle'
      BrassBone="tip"
      BrassOffset=(X=-80.000000,Y=1.000000)
-     RecoilPerShot=128.000000
+     FireRecoil=128.000000
      FireChaos=0.180000
      FireChaosCurve=(Points=((InVal=0,OutVal=1),(InVal=0.160000,OutVal=1),(InVal=0.250000,OutVal=1.500000),(InVal=0.500000,OutVal=2.250000),(InVal=0.750000,OutVal=3.500000),(InVal=1.000000,OutVal=5.000000)))
      XInaccuracy=4
@@ -305,7 +236,7 @@ defaultproperties
      bPawnRapidFireAnim=True
      FireAnim="Fire"
 	 FireEndAnim=
-     FireRate=0.110000
+     FireRate=0.100000
      AmmoClass=Class'BWBPAnotherPackDE.Ammo_68mm'
      ShakeRotMag=(X=128.000000,Y=64.000000)
      ShakeRotRate=(X=10000.000000,Y=10000.000000,Z=10000.000000)

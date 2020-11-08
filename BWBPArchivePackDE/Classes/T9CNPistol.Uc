@@ -105,84 +105,6 @@ function float SuggestAttackStyle()	{	return 0.1;	}
 function float SuggestDefenseStyle()	{	return 0.5;	}
 // End AI Stuff =====
 
-
-
-// Change some properties when using sights...
-simulated function SetScopeBehavior()
-{
-	super.SetScopeBehavior();
-	bUseNetAim = bScopeView;
-	if (bScopeView)
-	{
-		AimSpread			/= 5.0;
-     		RecoilDeclineTime    /= 2.0;
-           AimAdjustTime		/= 3.0;
-		BFireMode[0].XInaccuracy = 4.5;
-		BFireMode[0].XInaccuracy = 4.5;
-	}
-	else
-	{
-		AimSpread 			= default.AimSpread;
-     		RecoilDeclineTime    = default.RecoilDeclineTime;
-           AimAdjustTime		= default.AimAdjustTime;
-		BFireMode[0].XInaccuracy = BFireMode[0].default.XInaccuracy;
-		BFireMode[0].YInaccuracy = BFireMode[0].default.YInaccuracy;
-	}
-}
-
-simulated function SetDualMode (bool bDualMode)
-{
-	AdjustUziProperties(bDualMode);
-}
-simulated function AdjustUziProperties (bool bDualMode)
-{
-//	AimAdjustTime		= default.AimAdjustTime;
-	AimSpread 			= default.AimSpread;
-	ViewAimFactor		= default.ViewAimFactor;
-	ViewRecoilFactor	= default.ViewRecoilFactor;
-	ChaosDeclineTime	= default.ChaosDeclineTime;
-	ChaosSpeedThreshold	= default.ChaosSpeedThreshold;
-	ChaosAimSpread		= default.ChaosAimSpread;
-	ChaosAimSpread 		*= BCRepClass.default.AccuracyScale;
-
-	RecoilPitchFactor	= default.RecoilPitchFactor;
-	RecoilYawFactor		= default.RecoilYawFactor;
-	RecoilXFactor		= default.RecoilXFactor;
-	RecoilYFactor		= default.RecoilYFactor;
-//	RecoilMax			= default.RecoilMax;
-	RecoilDeclineTime	= default.RecoilDeclineTime;
-
-	/*if (bDualMode)
-	{
-		if (Instigator.IsLocallyControlled() && SightingState == SS_Active)
-			StopScopeView();
-		SetBoneScale(8, 0.0, SupportHandBone);
-		if (AIController(Instigator.Controller) == None)
-			bUseSpecialAim = true;
-//		AimAdjustTime		*= 1.0;
-		AimSpread			*= 2.0;
-		ViewAimFactor		*= 0.6;
-		ViewRecoilFactor	*= 0.75;
-		ChaosDeclineTime	*= 1.2;
-		ChaosSpeedThreshold	*= 0.8;
-		ChaosAimSpread		*= 1.2;
-		RecoilPitchFactor	*= 1.2;
-		RecoilYawFactor		*= 2.0;
-		RecoilXFactor		*= 1.2;
-		RecoilYFactor		*= 1.2;
-//		RecoilMax			*= 0.5;
-		RecoilDeclineTime	*= 1.2;
-		if ((IsSlave() && Othergun.Hand >= 0) || (!IsSlave() && Hand < 0))
-			BallisticInstantFire(FireMode[0]).BallisticFireSound.Pitch=0.8;
-	}
-	else
-	{
-		SetBoneScale(8, 1.0, SupportHandBone);
-		bUseSpecialAim = false;
-	}*/
-
-}
-
 defaultproperties
 {
      AIReloadTime=1.000000
@@ -205,23 +127,8 @@ defaultproperties
      WeaponModes(3)=(ModeName="Full Auto",ModeID="WM_FullAuto")
      CurrentWeaponMode=3
      bNoCrosshairInScope=False
-     SightPivot=(Pitch=0)
      SightOffset=(X=-16.000000,Y=-2.110000,Z=9.00000)
      SightDisplayFOV=40.000000
-     SightingTime=0.250000
-     AimAdjustTime=1.200000
-     ViewAimFactor=0.050000
-     ViewRecoilFactor=0.300000
-     ChaosSpeedThreshold=850.000000
-     
-	 RecoilXCurve=(Points=(,(InVal=0.200000,OutVal=0.12),(InVal=0.300000,OutVal=0.150000),(InVal=0.4,OutVal=0.02),(InVal=0.550000,OutVal=-0.120000),(InVal=0.700000,OutVal=0.050000),(InVal=1.000000,OutVal=0.200000)))
-	 RecoilYCurve=(Points=(,(InVal=0.200000,OutVal=0.25000),(InVal=0.450000,OutVal=0.450000),(InVal=0.650000,OutVal=0.75000),(InVal=0.800000,OutVal=0.820000),(InVal=1.000000,OutVal=1.000000)))
-	 RecoilXFactor=0.10000
-	 RecoilYFactor=0.10000
-	 RecoilDeclineTime=0.750000
-	 RecoilDeclineDelay=0.550000
-	 RecoilMax=6144
-	
      FireModeClass(0)=Class'BWBPArchivePackDE.T9CNPrimaryFire'
      FireModeClass(1)=Class'BCoreDE.BallisticScopeFire'
      SelectForce="SwitchToAssaultRifle"
@@ -230,7 +137,6 @@ defaultproperties
      Priority=32
      CustomCrossHairTextureName="Crosshairs.HUD.Crosshair_Cross1"
      InventoryGroup=2
-	 InventorySize=6
      PickupClass=Class'BWBPArchivePackDE.T9CNPickup'
      PlayerViewOffset=(X=7.000000,Y=6.000000,Z=-7.000000)
      AttachmentClass=Class'BWBPArchivePackDE.T9CNAttachment'
@@ -243,6 +149,7 @@ defaultproperties
      LightSaturation=150
      LightBrightness=130.000000
      LightRadius=3.000000
+	 ParamsClass=Class'T9CNWeaponParams'
      Mesh=SkeletalMesh'BWBPArchivePack1Anim.M9_FPm'
      DrawScale=0.200000
 }

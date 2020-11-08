@@ -10,7 +10,7 @@ class AP_Tranq extends BallisticAmmoPickup;
 
 defaultproperties
 {
-     AmmoAmount=30
+     AmmoAmount=60
      InventoryType=Class'BWBPAnotherPackDE.Ammo_Tranq'
      PickupMessage="You got 30 tranquilizer darts"
      PickupSound=Sound'BWBPAnotherPackSounds.VSK.VSK-Holster'

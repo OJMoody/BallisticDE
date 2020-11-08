@@ -54,7 +54,7 @@ defaultproperties
      bUseWeaponMag=False
      MuzzleFlashClass=Class'BallisticDE.M50M900FlashEmitter'
      FlashBone="tip3"
-     RecoilPerShot=1024.000000
+     FireRecoil=1024.000000
      XInaccuracy=8.000000
      YInaccuracy=8.000000
      BallisticFireSound=(Sound=Sound'PackageSoundsArchive4A.LAW.LAW-Fire',Volume=1.200000,Slot=SLOT_Interact,bNoOverride=False)

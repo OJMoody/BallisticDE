@@ -91,12 +91,12 @@ function ServerSwitchWeaponMode (byte NewMode)
 	ParticleStreamAttachment(ThirdPersonActor).ModeColor = CurrentWeaponMode;
 }
 
-simulated function ClientSwitchWeaponModes (byte newMode)
+simulated function ClientSwitchWeaponMode (byte newMode)
 {
 	if (IsFiring())
 		return;
 		
-	Super.ClientSwitchWeaponModes(NewMode);
+	Super.ClientSwitchWeaponMode(NewMode);
 	
 	ParticleStreamAttachment(ThirdPersonActor).ModeColor = CurrentWeaponMode;
 }
@@ -314,31 +314,18 @@ defaultproperties
      SpecialInfo(0)=(Info="0.0;-15.0;-999.0;-1.0;-999.0;-999.0;-999.0")
      BringUpSound=(Sound=Sound'BWBPOtherPackSound.ProtonPack.Proton-Pullout')
      PutDownSound=(Sound=Sound'BWBPOtherPackSound.ProtonPack.Proton-Putaway')
-     MagAmmo=100
      bNonCocking=True
      WeaponModes(0)=(ModeName="Proton Stream",ModeID="WM_FullAuto")
      WeaponModes(1)=(bUnavailable=True)
      WeaponModes(2)=(bUnavailable=True)
      CurrentWeaponMode=0
-     bNotifyModeSwitch=True
+     //bNotifyModeSwitch=True
      bUseSights=False
      bNoCrosshairInScope=True
      SightPivot=(Pitch=1024,Roll=-768)
      SightOffset=(X=-24.000000,Y=-3.100000,Z=15.000000)
      SightDisplayFOV=40.000000
      SightingTime=0.200000
-     SightAimFactor=0.000000
-     SprintOffSet=(Pitch=-1024,Yaw=-1024)
-     AimSpread=16
-     ChaosDeclineTime=1.250000
-     ChaosSpeedThreshold=15000.000000
-     ChaosAimSpread=2560
-     RecoilXCurve=(Points=(,(InVal=0.100000,OutVal=0.030000),(InVal=0.200000,OutVal=-0.045000),(InVal=0.300000,OutVal=0.100000),(InVal=0.600000,OutVal=-0.200000),(InVal=0.700000,OutVal=0.250000),(InVal=1.000000)))
-     RecoilYCurve=(Points=(,(InVal=0.100000,OutVal=0.050000),(InVal=0.200000,OutVal=0.200000),(InVal=0.300000,OutVal=0.300000),(InVal=0.600000,OutVal=0.600000),(InVal=0.700000,OutVal=0.700000),(InVal=1.000000,OutVal=1.000000)))
-     RecoilXFactor=0.250000
-     RecoilYFactor=0.250000
-     RecoilDeclineTime=1.500000
-     RecoilDeclineDelay=0.250000
      FireModeClass(0)=Class'BWBPAnotherPackDE.ParticleStreamPrimaryFire'
      FireModeClass(1)=Class'BWBPAnotherPackDE.ParticleStreamSecondaryFire'
      SelectAnimRate=1.250000
@@ -360,7 +347,7 @@ defaultproperties
      AttachmentClass=Class'BWBPAnotherPackDE.ParticleStreamAttachment'
      IconMaterial=Texture'BWBPOtherPackTex2.ProtonPack.Icon_ProtonPack'
      IconCoords=(X2=127,Y2=31)
-     ItemName="E90-N Particle Accelerator mk.II"
+     ItemName="E90-N Particle Accelerator MK.II"
      LightType=LT_Pulse
      LightEffect=LE_NonIncidence
      LightHue=180
@@ -372,5 +359,6 @@ defaultproperties
      Skins(0)=Shader'BallisticWeapons2.Hands.Hands-Shiny'
      Skins(1)=Shader'BWBPOtherPackTex2.ProtonPack.proton_gun_SH1'
      SoundPitch=56
+	 ParamsClass=Class'ProtonMK2WeaponParams'
      SoundRadius=32.000000
 }

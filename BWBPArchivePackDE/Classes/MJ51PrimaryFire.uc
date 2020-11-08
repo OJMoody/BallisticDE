@@ -46,13 +46,14 @@ defaultproperties
 	 FlashScaleFactor=0.5
      BrassClass=Class'BallisticDE.Brass_Rifle'
      BrassOffset=(X=-20.000000,Y=1.000000)
-     RecoilPerShot=128.000000
+     FireRecoil=128.000000
      XInaccuracy=16.000000
      YInaccuracy=16.000000
 	 FireChaos=0.040000
      BallisticFireSound=(Sound=Sound'BWWeaponPack2Archive-Sounds.CommandoFire')
      bPawnRapidFireAnim=True
-     FireEndAnim=
+     AimedFireAnim="SightFire"
+	 FireEndAnim=
      FireRate=0.10000
      AmmoClass=Class'BWBPRecolorsDE.Ammo_556mmSTANAG'
      ShakeRotMag=(X=128.000000,Y=64.000000)

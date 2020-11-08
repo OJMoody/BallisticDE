@@ -56,10 +56,6 @@ simulated event PostNetReceive()
 		return;
 	if (bLaserOn != default.bLaserOn)
 	{
-		if (bLaserOn)
-			AimAdjustTime = default.AimAdjustTime * 1.5;
-		else
-			AimAdjustTime = default.AimAdjustTime;
 		default.bLaserOn = bLaserOn;
 		ClientSwitchLaser();
 	}
@@ -79,18 +75,6 @@ function ServerSwitchLaser(bool bNewLaserOn)
 	bUseNetAim = default.bUseNetAim || bLaserOn;
 	if (ThirdPersonActor!=None)
 		GASCAttachment(ThirdPersonActor).bLaserOn = bLaserOn;
-	if (bLaserOn)
-	{
-		AimAdjustTime = default.AimAdjustTime * 1.5;
-		ChaosAimSpread *= 0.65;
-	}
-	
-	else
-	{
-		AimAdjustTime = default.AimAdjustTime;
-		ChaosAimSpread = default.ChaosAimSpread;
-	}
-	
     if (Instigator.IsLocallyControlled())
 		ClientSwitchLaser();
 }
@@ -101,13 +85,11 @@ simulated function ClientSwitchLaser()
 	{
 		SpawnLaserDot();
 		PlaySound(LaserOnSound,,0.7,,32);
-		ChaosAimSpread *= 0.65;
 	}
 	else
 	{
 		KillLaserDot();
 		PlaySound(LaserOffSound,,0.7,,32);
-		ChaosAimSpread = default.ChaosAimSpread;
 	}
 
 	if (!IsinState('DualAction') && !IsinState('PendingDualAction'))
@@ -259,8 +241,8 @@ simulated event AnimEnd (int Channel)
 	{
 		if (MagAmmo - BFireMode[0].ConsumedLoad < 1)
 		{
-			IdleAnim = 'OpenIdle';
-			ReloadAnim = 'OpenReload';
+			IdleAnim = 'IdleOpen';
+			ReloadAnim = 'ReloadOpen';
 		}
 		else
 		{
@@ -281,25 +263,6 @@ simulated function bool HasAmmo()
 	if (Ammo[0] != None && FireMode[0] != None && Ammo[0].AmmoAmount >= FireMode[0].AmmoPerFire)
 			return true;
 	return false;	//This weapon is empty
-}
-// Change some properties when using sights...
-simulated function SetScopeBehavior()
-{
-	super.SetScopeBehavior();
-
-	bUseNetAim = default.bUseNetAim || bScopeView || bLaserOn;
-	if (MagAmmo - BFireMode[0].ConsumedLoad < 1)
-	{
-		if (bScopeView)
-			BFireMode[0].FireAnim = 'SightOpenFire';
-		else	BFireMode[0].FireAnim = 'NewOpenFire';
-	}
-	else
-	{
-		if (bScopeView)
-			BFireMode[0].FireAnim = 'SightFire';
-		else BFireMode[0].FireAnim = 'NewFire';
-	}
 }
 
 // AI Interface =====
@@ -347,7 +310,7 @@ defaultproperties
      ManualLines(0)="High Fire Rate Burst Pistol and Dagger. 4 Round Burst. Low Recoil."
      ManualLines(1)="Prepares a bludgeoning attack, which will be executed upon release. The damage of the attack increases the longer altfire is held, up to 1.5 seconds for maximum damage output. This attack inflicts more damage from behind."
      ManualLines(2)="The Weapon Function key toggles a laser sight, which reduces the spread of the weapon's hipfire, but exposes the user's position to the enemy. This laser sight makes the MD24 a strong choice for dual wielding.||Effective at close range."
-     WeaponModes(0)=(ModeName="Burst of Four",ModeID="WM_BigBurst",Value=4.000000)
+     WeaponModes(0)=(ModeName="Burst of Four",ModeID="WM_Burst",Value=4.000000)
      WeaponModes(1)=(bUnavailable=True)
      WeaponModes(2)=(ModeName="Semi-Auto",ModeID="WM_BigBurst",Value=5.000000,bUnavailable=True)
      WeaponModes(3)=(ModeName="Full Auto",ModeID="WM_FullAuto",bUnavailable=True)
@@ -366,27 +329,8 @@ defaultproperties
      bNoCrosshairInScope=True
      SightOffset=(X=-5.000000,Y=-6.350000,Z=9.700000)
      SightDisplayFOV=60.000000
-     SightingTime=0.200000
-     SightAimFactor=1
-     AimAdjustTime=0.450000
-     AimSpread=16
-	
 	 SightZoomFactor=0.85
-	 HipRecoilFactor=1
-	
-	 ViewRecoilFactor=0.6
-	 RecoilXCurve=(Points=(,(InVal=0.200000,OutVal=0.05),(InVal=0.400000,OutVal=0.10000),(InVal=0.5500000,OutVal=0.120000),(InVal=0.800000,OutVal=0.15000),(InVal=1.000000,OutVal=0.100000)))
-	 RecoilYCurve=(Points=(,(InVal=0.200000,OutVal=0.170000),(InVal=0.400000,OutVal=0.420000),(InVal=0.600000,OutVal=0.650000),(InVal=0.800000,OutVal=0.800000),(InVal=1.000000,OutVal=1.000000)))
-	 RecoilXFactor=0.15
-	 RecoilYFactor=0.3
-	 RecoilMax=4096.000000
-	 RecoilDeclineTime=0.5
-	 RecoilDeclineDelay=0.2500
-	 
 	 BobDamping=2.35
-     ChaosDeclineTime=0.450000
-     ChaosSpeedThreshold=7500.000000
-     ChaosAimSpread=512
      FireModeClass(0)=Class'BWBPAnotherPackDE.GASCPrimaryFire'
      FireModeClass(1)=Class'BCoreDE.BallisticScopeFire'
      SelectForce="SwitchToAssaultRifle"
@@ -410,6 +354,7 @@ defaultproperties
      LightSaturation=150
      LightBrightness=150.000000
      LightRadius=4.000000
+	 ParamsClass=Class'GASCWeaponParams'
      Mesh=SkeletalMesh'BWBPAnotherPackAnims2.GASC_FPm'
      DrawScale=1.000000
 }

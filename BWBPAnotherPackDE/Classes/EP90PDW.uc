@@ -38,10 +38,6 @@ simulated event PostNetReceive()
 		return;
 	if (bLaserOn != default.bLaserOn)
 	{
-		if (bLaserOn)
-			AimAdjustTime = default.AimAdjustTime * 1.5;
-		else
-			AimAdjustTime = default.AimAdjustTime;
 		default.bLaserOn = bLaserOn;
 		ClientSwitchLaser();
 	}
@@ -61,18 +57,6 @@ function ServerSwitchLaser(bool bNewLaserOn)
 	bUseNetAim = default.bUseNetAim || bLaserOn;
 	if (ThirdPersonActor!=None)
 		M806Attachment(ThirdPersonActor).bLaserOn = bLaserOn;
-	if (bLaserOn)
-	{	
-		AimAdjustTime = default.AimAdjustTime * 1.5;
-		ChaosAimSpread *= 0.65;
-	}
-
-	else
-	{
-		AimAdjustTime = default.AimAdjustTime;
-		ChaosAimSpread = default.ChaosAimSpread;
-	}
-
     if (Instigator.IsLocallyControlled())
 		ClientSwitchLaser();
 }
@@ -83,13 +67,11 @@ simulated function ClientSwitchLaser()
 	{
 		SpawnLaserDot();
 		PlaySound(LaserOnSound,,0.7,,32);
-		ChaosAimSpread *= 0.65;
 	}
 	else
 	{
 		KillLaserDot();
 		PlaySound(LaserOffSound,,0.7,,32);
-		ChaosAimSpread = default.ChaosAimSpread;
 	}
 
 	if (!IsinState('DualAction') && !IsinState('PendingDualAction'))
@@ -228,29 +210,6 @@ simulated event RenderOverlays( Canvas Canvas )
 		DrawLaserSight(Canvas);
 }
 
-/*simulated event AnimEnd (int Channel)
-{
-    local name Anim;
-    local float Frame, Rate;
-
-    GetAnimParams(0, Anim, Frame, Rate);
-
-	if (Anim == 'OpenFire' || Anim == 'Fire' || Anim == CockAnim || Anim == ReloadAnim)
-	{
-		if (MagAmmo - BFireMode[0].ConsumedLoad < 1)
-		{
-			IdleAnim = 'OpenIdle';
-			ReloadAnim = 'OpenReload';
-		}
-		else
-		{
-			IdleAnim = 'Idle';
-			ReloadAnim = 'Reload';
-		}
-	}
-	Super.AnimEnd(Channel);
-}*/
-
 // Chargebar Code
 simulated function float ChargeBar()
 {
@@ -269,13 +228,6 @@ simulated function bool HasAmmo()
 	if (Ammo[0] != None && FireMode[0] != None && Ammo[0].AmmoAmount >= FireMode[0].AmmoPerFire)
 			return true;
 	return false;	//This weapon is empty
-}
-// Change some properties when using sights...
-simulated function SetScopeBehavior()
-{
-	super.SetScopeBehavior();
-
-	bUseNetAim = default.bUseNetAim || bScopeView || bLaserOn;
 }
 
 // AI Interface =====
@@ -326,7 +278,6 @@ defaultproperties
      BringUpSound=(Sound=Sound'BWBPAnotherPackSounds.EP110.EP110-Draw')
      PutDownSound=(Sound=Sound'BallisticSounds2.M50.M50Putaway')
 	 ScopeViewTex=Texture'BWBPAnotherPackTex.Bullpup.EP110-Scope'
-     MagAmmo=25
      CockSound=(Sound=Sound'BWBPAnotherPackSounds.EP110.EP110-CockBack',Volume=2.000000)
      ClipHitSound=(Sound=Sound'BWBPAnotherPackSounds.EP110.EP110-Slap',Volume=2.000000)
      ClipOutSound=(Sound=Sound'BWBPAnotherPackSounds.EP110.EP110-PullOut',Volume=2.000000)
@@ -341,28 +292,8 @@ defaultproperties
      SightOffset=(X=-4.000000,Y=-0.250000,Z=13.600000)
      SightDisplayFOV=60.000000
 	 SightingTime=0.250000
-	 SightAimFactor=0.15
-	 AimSpread=32
-     AimAdjustTime=0.450000
-     ChaosAimSpread=512
-     RecoilYawFactor=0.200000
-	 JumpOffSet=(Pitch=1000,Yaw=-500)
-     JumpChaos=0.300000
 	 BobDamping=2.300000
 	 bNoMeshInScope=True
-	 
-     ChaosDeclineTime=0.900000
-     ChaosSpeedThreshold=7500.000000
-	 
-	 RecoilXCurve=(Points=(,(InVal=0.200000,OutVal=0.030000),(InVal=0.400000,OutVal=0.050000),(InVal=0.600000,OutVal=0.10000),(InVal=0.800000,OutVal=0.120000),(InVal=1.000000,OutVal=0.16)))
-     RecoilYCurve=(Points=(,(InVal=0.100000,OutVal=0.100000),(InVal=0.200000,OutVal=0.25),(InVal=0.400000,OutVal=0.500000),(InVal=0.600000,OutVal=0.600000),(InVal=1.000000,OutVal=1.000000)))
-     RecoilXFactor=0.150000
-     RecoilYFactor=0.150000
-     RecoilDeclineTime=0.900000
-	 RecoilDeclineDelay=0.400000
-	 ViewRecoilFactor=0.45
-	 
-	 SprintOffSet=(Pitch=-3000,Yaw=-4096)
      FireModeClass(0)=Class'BWBPAnotherPackDE.EP90PDWPrimaryFire'
      FireModeClass(1)=Class'BWBPAnotherPackDE.EP90PDWSecondaryFire'
      SelectForce="SwitchToAssaultRifle"
@@ -372,8 +303,7 @@ defaultproperties
      Priority=19
      CustomCrossHairTextureName="Crosshairs.HUD.Crosshair_Cross1"
 	 InventoryGroup=3
-	 InventorySize=12
-     GroupOffset=8
+     GroupOffset=18
      PickupClass=Class'BWBPAnotherPackDE.EP90PDWPickup'
      PlayerViewOffset=(X=5.000000,Y=5.000000,Z=-8.500000)
      AttachmentClass=Class'BWBPAnotherPackDE.EP90PDWAttachment'
@@ -386,6 +316,7 @@ defaultproperties
      LightSaturation=150
      LightBrightness=150.000000
      LightRadius=4.000000
+	 ParamsClass=Class'EP90WeaponParams'
      Mesh=SkeletalMesh'BWBPAnotherPackAnims.FPm_EP110'
      DrawScale=1.000000
 }

@@ -514,25 +514,7 @@ defaultproperties
      SightOffset=(X=-20.000000,Y=0.310000,Z=12.500000)
      SightDisplayFOV=40.000000
 	 PlayerViewOffset=(X=9.000000,Y=4.000000,Z=-7.000000)
-     CrouchAimFactor=0.600000
-     SprintOffSet=(Pitch=-3000,Yaw=-2038)
-     JumpChaos=0.500000
-     ViewAimFactor=0.350000
-     ViewRecoilFactor=0.450000
-     AimDamageThreshold=75.000000
-     ChaosSpeedThreshold=600.000000
-	 AimSpread=256
-	 ChaosAimSpread=768
-	 ChaosDeclineTime=2.5
 	 GunLength=128.000000
-     
-	 RecoilXCurve=(Points=(,(InVal=0.100000,OutVal=0.060000),(InVal=0.200000,OutVal=0.080000),(InVal=0.300000,OutVal=0.180000),(InVal=0.600000,OutVal=0.240000),(InVal=0.700000,OutVal=0.30000),(InVal=1.000000,OutVal=0.35)))
-     RecoilYCurve=(Points=(,(InVal=0.100000,OutVal=0.050000),(InVal=0.200000,OutVal=0.200000),(InVal=0.300000,OutVal=0.300000),(InVal=0.600000,OutVal=0.600000),(InVal=0.700000,OutVal=0.700000),(InVal=1.000000,OutVal=1.000000)))
-     RecoilXFactor=0.30000
-     RecoilYFactor=0.300000
-     RecoilDeclineTime=1.500000
-     RecoilDeclineDelay=0.50000
-	 
      FireModeClass(0)=Class'BWBPArchivePackDE.SkrithStaffPrimaryFire'
      FireModeClass(1)=Class'BWBPArchivePackDE.SkrithStaffSecondaryFire'
 	 MagAmmo=60
@@ -555,10 +537,10 @@ defaultproperties
      LightType=LT_Pulse
      LightEffect=LE_NonIncidence
      LightHue=180
-	 InventorySize=12
      LightSaturation=100
      LightBrightness=192.000000
      LightRadius=12.000000
+	 ParamsClass=Class'SkrithStaffWeaponParams'
 	 Mesh=SkeletalMesh'BWSkrithRecolors2Anim.FPm_SkrithStaff'
      DrawScale=1.000000
      SoundPitch=32

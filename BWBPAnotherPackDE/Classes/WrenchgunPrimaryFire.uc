@@ -154,9 +154,6 @@ simulated event ModeDoFire()
             AIController(Instigator.Controller).WeaponFireAgain(BotRefireRate, true);
         Instigator.DeactivateSpawnProtection();
     }
-    
-	if (!BW.bScopeView)
-		BW.FireChaos = FClamp(BW.FireChaos + FireChaos, 0, 1);
 		
 	BW.LastFireTime = Level.TimeSeconds;
 
@@ -294,12 +291,13 @@ defaultproperties
      ProjectileCount=8
      AimedFireEmptyAnim="SightFire"
      FireEmptyAnim="Fire"
+	 MuzzleFlashClass=Class'BallisticDE.MRT6FlashEmitter'
      FireChaos=1
 	 HipSpreadFactor=3
      SpawnOffset=(X=12.000000,Y=10.000000,Z=-15.000000)
      AimedFireAnim="SightFireCombined"
-     RecoilPerShot=1100.000000
-	 VelocityRecoil=250.000000
+     FireRecoil=1100.000000
+	 FirePushBackForce=250.000000
      XInaccuracy=375.000000
      YInaccuracy=150.000000
      BallisticFireSound=(Sound=Sound'PackageSounds4ProExp.Redwood.Redwood-Fire',Volume=1.200000)

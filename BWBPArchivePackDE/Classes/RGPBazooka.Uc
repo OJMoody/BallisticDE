@@ -202,15 +202,6 @@ defaultproperties
      SightPivot=(Yaw=-512)
      SightOffset=(X=-20.000000,Y=-9.500000,Z=9.750000)
      SightDisplayFOV=40.000000
-     SightingTime=0.300000
-     SprintOffSet=(Pitch=-6000,Yaw=-8000)
-     JumpOffSet=(Pitch=-7000)
-     AimSpread=64
-     ChaosSpeedThreshold=380.000000
-     ChaosAimSpread=256
-     RecoilYawFactor=0.000000
-     RecoilMax=512.000000
-     RecoilDeclineTime=1.000000
      FireModeClass(0)=Class'BWBPArchivePackDE.RGPPrimaryFire'
      FireModeClass(1)=Class'BCoreDE.BallisticScopeFire'
      SelectAnimRate=0.600000
@@ -239,6 +230,7 @@ defaultproperties
      LightSaturation=100
      LightBrightness=192.000000
      LightRadius=12.000000
+	 ParamsClass=Class'RGPWeaponParams'
      Mesh=SkeletalMesh'BWWeaponPackAnims.RGP7_FPm'
      DrawScale=1.200000
 }

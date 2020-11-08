@@ -9,12 +9,6 @@ class APodCapsule extends BallisticHandGrenade;
 var() float AdrenalineAmount;
 var() Sound HealSound;
 
-
-/*
-function DoExplosionEffects()
-{
-}
-*/
 function DoExplosion()
 {
 
@@ -84,7 +78,6 @@ defaultproperties
      CustomCrossHairTextureName="Crosshairs.HUD.Crosshair_Cross1"
      InventoryGroup=0
      GroupOffset=20
-	 InventorySize=1
      PickupClass=Class'BWBPArchivePackDE.APodPickup'
      PlayerViewOffset=(X=8.000000,Y=10.000000,Z=-12.000000)
      PlayerViewPivot=(Pitch=1024,Yaw=-1024)
@@ -94,5 +87,6 @@ defaultproperties
      IconCoords=(X2=127,Y2=31)
      ItemName="A-Pod Capsule"
      Mesh=SkeletalMesh'BWSkrithRecolors1Anim.APod_FPm'
+	 ParamsClass=Class'APodWeaponParams'
      DrawScale=0.400000
 }

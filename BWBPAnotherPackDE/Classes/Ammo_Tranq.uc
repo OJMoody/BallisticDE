@@ -8,8 +8,8 @@ class Ammo_Tranq extends BallisticAmmo;
 
 defaultproperties
 {
-     MaxAmmo=90
-     InitialAmount=45
+     MaxAmmo=120
+     InitialAmount=60
      bTryHeadShot=True
      IconFlashMaterial=Shader'BallisticUI2.Icons.AmmoIconsFlashing'
      PickupClass=Class'BWBPAnotherPackDE.AP_Tranq'

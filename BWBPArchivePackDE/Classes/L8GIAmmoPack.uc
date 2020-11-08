@@ -189,6 +189,7 @@ defaultproperties
      IconCoords=(X2=127,Y2=31)
      ItemName="L8 GI Ammunition Pack"
      Mesh=SkeletalMesh'BWSkrithRecolors2Anim.AmmoPack'
+	 ParamsClass=Class'L8GIWeaponParams'
      DrawScale=0.400000
      Skins(0)=Texture'BWSkrithRecolorsArchive2Tex.AmmoPack.L8GISkin'
 }

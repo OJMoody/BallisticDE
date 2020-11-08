@@ -9,21 +9,10 @@
 //=============================================================================
 class F2000PrimaryFire extends BallisticRangeAttenFire;
 	
-var bool bFiring;
-
 var() Actor						SMuzzleFlash;		// Silenced Muzzle flash stuff
 var() class<Actor>				SMuzzleFlashClass;
 var() Name						SFlashBone;
 var() float						SFlashScaleFactor;
-
-
-simulated function bool AllowFire()
-{
-	if (level.TimeSeconds < F2000AssaultRifle(Weapon).SilencerSwitchTime)
-		return false;
-	return super.AllowFire();
-}
-
 
 //Trigger muzzleflash emitter
 function FlashMuzzleFlash()
@@ -39,6 +28,24 @@ function FlashMuzzleFlash()
 
 	if (!bBrassOnCock)
 		EjectBrass();
+}
+
+function SetSuppressed(bool bSilenced)
+{
+	if (bSilenced)
+	{
+		FireRecoil *= 0.8;
+		RangeAtten *= 1.2;
+		XInaccuracy *= 0.75;
+		YInaccuracy *= 0.75;
+	}
+	else
+	{
+		FireRecoil = default.FireRecoil;
+		RangeAtten = default.RangeAtten;
+		XInaccuracy = default.XInaccuracy;
+		YInaccuracy = default.YInaccuracy;
+	}
 }
 
 // Remove effects
@@ -62,59 +69,68 @@ function InitEffects()
 
 simulated function SendFireEffect(Actor Other, vector HitLocation, vector HitNormal, int Surf, optional vector WaterHitLoc)
 {
-	BallisticAttachment(Weapon.ThirdPersonActor).BallisticUpdateHit(Other, HitLocation, HitNormal, Surf, False, WaterHitLoc);
+	BallisticAttachment(Weapon.ThirdPersonActor).BallisticUpdateHit(Other, HitLocation, HitNormal, Surf, F2000AssaultRifle(Weapon).bSilenced, WaterHitLoc);
 }
 
 function ServerPlayFiring()
 {
-		Weapon.PlayOwnedSound(BallisticFireSound.Sound,BallisticFireSound.Slot,BallisticFireSound.Volume,BallisticFireSound.bNoOverride,BallisticFireSound.Radius,BallisticFireSound.Pitch,BallisticFireSound.bAtten);
-
-    if (FireCount > 0)
-    {
-        if (Weapon.HasAnim(FireLoopAnim))
-            BW.SafePlayAnim(FireLoopAnim, FireLoopAnimRate, 0.0, ,"FIRE");
-        else
-            BW.SafePlayAnim(FireAnim, FireAnimRate, TweenTime, ,"FIRE");
-    }
-    else
-        BW.SafePlayAnim(FireAnim, FireAnimRate, TweenTime, ,"FIRE");
-
 	CheckClipFinished();
+
+	if (AimedFireAnim != '')
+	{
+		BW.SafePlayAnim(FireAnim, FireAnimRate, TweenTime, ,"FIRE");
+		if (BW.BlendFire())		
+			BW.SafePlayAnim(AimedFireAnim, FireAnimRate, TweenTime, 1, "AIMEDFIRE");
+	}
+
+	else
+	{
+		if (FireCount > 0 && Weapon.HasAnim(FireLoopAnim))
+			BW.SafePlayAnim(FireLoopAnim, FireLoopAnimRate, 0.0, ,"FIRE");
+		else BW.SafePlayAnim(FireAnim, FireAnimRate, TweenTime, ,"FIRE");
+	}
+	
+	if (F2000AssaultRifle(Weapon) != None && F2000AssaultRifle(Weapon).bSilenced && SilencedFireSound.Sound != None)
+		Weapon.PlayOwnedSound(SilencedFireSound.Sound,SilencedFireSound.Slot,SilencedFireSound.Volume,SilencedFireSound.bNoOverride,SilencedFireSound.Radius,SilencedFireSound.Pitch,SilencedFireSound.bAtten);
+	else if (BallisticFireSound.Sound != None)
+		Weapon.PlayOwnedSound(BallisticFireSound.Sound,BallisticFireSound.Slot,BallisticFireSound.Volume,BallisticFireSound.bNoOverride,BallisticFireSound.Radius,BallisticFireSound.Pitch,BallisticFireSound.bAtten);
 }
 
 //Do the spread on the client side
 function PlayFiring()
 {
-    if (FireCount > 0)
-    {
-        if (Weapon.HasAnim(FireLoopAnim))
-            BW.SafePlayAnim(FireLoopAnim, FireLoopAnimRate, 0.0, ,"FIRE");
-        else
-            BW.SafePlayAnim(FireAnim, FireAnimRate, TweenTime, ,"FIRE");
-    }
-    else
-        BW.SafePlayAnim(FireAnim, FireAnimRate, TweenTime, ,"FIRE");
-    ClientPlayForceFeedback(FireForce);  // jdf
+	if (F2000AssaultRifle(Weapon).bSilenced)
+		Weapon.SetBoneScale (0, 1.0, F2000AssaultRifle(Weapon).SilencerBone);
+	else
+		Weapon.SetBoneScale (0, 0.0, F2000AssaultRifle(Weapon).SilencerBone);
 
-    	if (!bFiring)
-		bFiring=true;
-    FireCount++;
+	if (ScopeDownOn == SDO_Fire)
+		BW.TemporaryScopeDown(0.5, 0.9);
+		
+	if (AimedFireAnim != '')
+	{
+		BW.SafePlayAnim(FireAnim, FireAnimRate, TweenTime, ,"FIRE");
+		if (BW.BlendFire())		
+			BW.SafePlayAnim(AimedFireAnim, FireAnimRate, TweenTime, 1, "AIMEDFIRE");
+	}
+
+	else
+	{
+		if (FireCount > 0 && Weapon.HasAnim(FireLoopAnim))
+			BW.SafePlayAnim(FireLoopAnim, FireLoopAnimRate, 0.0, ,"FIRE");
+		else BW.SafePlayAnim(FireAnim, FireAnimRate, TweenTime, ,"FIRE");
+	}
 	
-		Weapon.PlayOwnedSound(BallisticFireSound.Sound,BallisticFireSound.Slot,BallisticFireSound.Volume,,BallisticFireSound.Radius);
+    ClientPlayForceFeedback(FireForce);  // jdf
+    FireCount++;
+	// End code from normal PlayFiring()
 
 	CheckClipFinished();
-}
 
-function DoFireEffect()
-{
-	Super.DoFireEffect();
-	bFiring=true;
-}
-
-function StopFiring()
-{
-	bFiring=false;
-	super.StopFiring();
+	if (F2000AssaultRifle(Weapon) != None && F2000AssaultRifle(Weapon).bSilenced && SilencedFireSound.Sound != None)
+		Weapon.PlayOwnedSound(SilencedFireSound.Sound,SilencedFireSound.Slot,SilencedFireSound.Volume,,SilencedFireSound.Radius,,true);
+	else if (BallisticFireSound.Sound != None)
+		Weapon.PlayOwnedSound(BallisticFireSound.Sound,BallisticFireSound.Slot,BallisticFireSound.Volume,,BallisticFireSound.Radius);
 }
 
 defaultproperties
@@ -142,7 +158,7 @@ defaultproperties
      BrassClass=Class'BallisticDE.Brass_MG'
      BrassOffset=(X=-80.000000,Y=1.000000)
      AimedFireAnim="SightFire"
-     RecoilPerShot=140.000000
+     FireRecoil=140.000000
      FireChaos=0.020000
      FireChaosCurve=(Points=((InVal=0,OutVal=1),(InVal=0.160000,OutVal=1),(InVal=0.250000,OutVal=1.500000),(InVal=0.500000,OutVal=2.250000),(InVal=0.750000,OutVal=3.500000),(InVal=1.000000,OutVal=5.000000)))
      FireSpreadMode=FSM_Rectangle

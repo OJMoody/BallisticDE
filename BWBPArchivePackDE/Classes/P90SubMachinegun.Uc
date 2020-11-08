@@ -105,84 +105,6 @@ function float SuggestAttackStyle()	{	return 0.1;	}
 function float SuggestDefenseStyle()	{	return 0.5;	}
 // End AI Stuff =====
 
-
-
-// Change some properties when using sights...
-simulated function SetScopeBehavior()
-{
-	super.SetScopeBehavior();
-	bUseNetAim = bScopeView;
-	if (bScopeView)
-	{
-		AimSpread			/= 5.0;
-     		RecoilDeclineTime    /= 2.0;
-           AimAdjustTime		/= 3.0;
-		BFireMode[0].XInaccuracy = 4.5;
-		BFireMode[0].XInaccuracy = 4.5;
-	}
-	else
-	{
-		AimSpread 			= default.AimSpread;
-     		RecoilDeclineTime    = default.RecoilDeclineTime;
-           AimAdjustTime		= default.AimAdjustTime;
-		BFireMode[0].XInaccuracy = BFireMode[0].default.XInaccuracy;
-		BFireMode[0].YInaccuracy = BFireMode[0].default.YInaccuracy;
-	}
-}
-
-simulated function SetDualMode (bool bDualMode)
-{
-	AdjustUziProperties(bDualMode);
-}
-simulated function AdjustUziProperties (bool bDualMode)
-{
-//	AimAdjustTime		= default.AimAdjustTime;
-	AimSpread 			= default.AimSpread;
-	ViewAimFactor		= default.ViewAimFactor;
-	ViewRecoilFactor	= default.ViewRecoilFactor;
-	ChaosDeclineTime	= default.ChaosDeclineTime;
-	ChaosSpeedThreshold	= default.ChaosSpeedThreshold;
-	ChaosAimSpread		= default.ChaosAimSpread;
-	ChaosAimSpread 		*= BCRepClass.default.AccuracyScale;
-
-	RecoilPitchFactor	= default.RecoilPitchFactor;
-	RecoilYawFactor		= default.RecoilYawFactor;
-	RecoilXFactor		= default.RecoilXFactor;
-	RecoilYFactor		= default.RecoilYFactor;
-//	RecoilMax			= default.RecoilMax;
-	RecoilDeclineTime	= default.RecoilDeclineTime;
-
-	/*if (bDualMode)
-	{
-		if (Instigator.IsLocallyControlled() && SightingState == SS_Active)
-			StopScopeView();
-		SetBoneScale(8, 0.0, SupportHandBone);
-		if (AIController(Instigator.Controller) == None)
-			bUseSpecialAim = true;
-//		AimAdjustTime		*= 1.0;
-		AimSpread			*= 2.0;
-		ViewAimFactor		*= 0.6;
-		ViewRecoilFactor	*= 0.75;
-		ChaosDeclineTime	*= 1.2;
-		ChaosSpeedThreshold	*= 0.8;
-		ChaosAimSpread		*= 1.2;
-		RecoilPitchFactor	*= 1.2;
-		RecoilYawFactor		*= 2.0;
-		RecoilXFactor		*= 1.2;
-		RecoilYFactor		*= 1.2;
-//		RecoilMax			*= 0.5;
-		RecoilDeclineTime	*= 1.2;
-		if ((IsSlave() && Othergun.Hand >= 0) || (!IsSlave() && Hand < 0))
-			BallisticInstantFire(FireMode[0]).BallisticFireSound.Pitch=0.8;
-	}
-	else
-	{
-		SetBoneScale(8, 1.0, SupportHandBone);
-		bUseSpecialAim = false;
-	}*/
-
-}
-
 defaultproperties
 {
      //SupportHandBone="pasted__Root01"
@@ -196,12 +118,10 @@ defaultproperties
      SpecialInfo(0)=(Info="420.0;20.0;1.50;80.0;0.4;0.2;-999.0")
      BringUpSound=(Sound=Sound'BallisticSounds2.XK2.XK2-Pullout')
      PutDownSound=(Sound=Sound'BallisticSounds2.XK2.XK2-Putaway')
-     MagAmmo=50
      CockSound=(Sound=Sound'BWWeaponPack2Archive-Sounds.P90.P90Cock',Volume=300.500000)
      ClipOutSound=(Sound=Sound'BWWeaponPack2Archive-Sounds.P90.P90ClipInOut',Volume=300.500000)
      ClipInSound=(Sound=Sound'BWWeaponPack2Archive-Sounds.P90.P90ClipHit',Volume=300.500000)
      ClipInFrame=0.650000
-	 
      WeaponModes(1)=(ModeName="Burst of Three",bUnavailable=True)
      WeaponModes(2)=(ModeName="Burst of Six",bUnavailable=True,ModeID="WM_BigBurst",Value=6.000000)
      WeaponModes(3)=(ModeName="Full Auto",ModeID="WM_FullAuto")
@@ -210,23 +130,6 @@ defaultproperties
      SightPivot=(Pitch=-100)
      SightOffset=(X=-8.000000,Y=-0.420000,Z=12.700000)
      SightDisplayFOV=40.000000
-     SightingTime=0.250000
-     AimAdjustTime=1.200000
-     ViewAimFactor=0.050000
-     ViewRecoilFactor=0.300000
-     ChaosSpeedThreshold=850.000000
-	 AimSpread=32
-	 ChaosAimSpread=1024
-	 SprintOffSet=(Pitch=-3000,Yaw=-4000)
-     
-	 RecoilXCurve=(Points=(,(InVal=0.070000,OutVal=0.050000),(InVal=0.100000,OutVal=0.085000),(InVal=0.180000,OutVal=0.060000),(InVal=0.300000,OutVal=0.100000),(InVal=0.500000,OutVal=0.200000),(InVal=0.650000,OutVal=0.300000),(InVal=0.700000,OutVal=0.4500000),(InVal=0.850000,OutVal=0.400000),(InVal=1.000000,OutVal=0.55)))
-     RecoilYCurve=(Points=(,(InVal=0.050000,OutVal=0.070000),(InVal=0.100000,OutVal=0.120000),(InVal=0.200000,OutVal=0.200000),(InVal=0.400000,OutVal=0.400000),(InVal=0.550000,OutVal=0.650000),(InVal=0.650000,OutVal=0.750000),(InVal=0.800000,OutVal=0.820000),(InVal=1.000000,OutVal=1.000000)))
-     RecoilXFactor=0.06000
-     RecoilYFactor=0.06000
-	 RecoilDeclineTime=0.500000
-     RecoilDeclineDelay=0.150000
-	 RecoilMax=12288.000000
-	 
      FireModeClass(0)=Class'BWBPArchivePackDE.P90PrimaryFire'
      FireModeClass(1)=Class'BCoreDE.BallisticScopeFire'
      SelectForce="SwitchToAssaultRifle"
@@ -235,7 +138,6 @@ defaultproperties
      Priority=32
      CustomCrossHairTextureName="Crosshairs.HUD.Crosshair_Cross1"
      InventoryGroup=3
-	 InventorySize=12
      PickupClass=Class'BWBPArchivePackDE.P90Pickup'
      PlayerViewOffset=(X=12.000000,y=6.000000,Z=-8.200000)
      AttachmentClass=Class'BWBPArchivePackDE.P90Attachment'
@@ -248,6 +150,7 @@ defaultproperties
      LightSaturation=150
      LightBrightness=130.000000
      LightRadius=3.000000
+	 ParamsClass=Class'P90WeaponParams'
      Mesh=SkeletalMesh'BWWeaponPackAnims.P90_FPm'
      DrawScale=1.000000
 }

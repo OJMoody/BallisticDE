@@ -289,7 +289,6 @@ defaultproperties
      SpecialInfo(0)=(Info="120.0;5.0;1.5;110.00;-999.0;-999.0;-999.0")
      BringUpSound=(Sound=Sound'BallisticSounds2.XK2.XK2-Pullout')
      PutDownSound=(Sound=Sound'BallisticSounds2.XK2.XK2-Putaway')
-     MagAmmo=8
 	 ManualLines(0)="Primary: .45 ACP Fire"
      ManualLines(1)="Secondary: Silencer"
      ManualLines(2)="The USP-S MK23 is considered a match grade pistol, and is capable of making a 2-inch group at 50 yards, roughly 4 MOA. Production of the original began in 1991, and it was the basis for the HK USP, which began production in 1993. The MK23 is part of a larger weapon system that includes an attachable laser aiming module, a suppressor, and some other features such as a special high-pressure match cartridge (.45 +P ammunition). The MK23 has exceptional durability in harsh environments, being waterproof and corrosion-resistant. It uses a polygonal barrel design, which is reported to improve accuracy and durability. The firearm was tested and found to be capable of firing tens of thousands of rounds without a barrel change. It remains reliable in harsh conditions, making it suitable for use by special forces.""
@@ -306,18 +305,6 @@ defaultproperties
      SightDisplayFOV=40.000000
      SightingTime=0.250000
 	 BobDamping=2.250000
-     JumpChaos=0.025000
-     AimAdjustTime=0.350000
-     ViewAimFactor=0.400000
-     ViewRecoilFactor=0.630000
-     ChaosDeclineTime=0.4500000
-     ChaosSpeedThreshold=1400.000000
-     
-	 RecoilXFactor=0.05
-     RecoilYFactor=0.05
-     RecoilDeclineTime=0.500000
-     RecoilDeclineDelay=0.250000
-	 
      FireModeClass(0)=Class'BWBPArchivePackDE.HKMK23PrimaryFire'
      FireModeClass(1)=Class'BWBPArchivePackDE.HKMk23SilencerSwitch'
      SelectForce="SwitchToAssaultRifle"
@@ -326,7 +313,6 @@ defaultproperties
      Priority=17
      CustomCrossHairTextureName="Crosshairs.HUD.Crosshair_Cross1"
      InventoryGroup=2
-	 InventorySize=6
      GroupOffset=30
      PickupClass=Class'BWBPArchivePackDE.HKMK23Pickup'
      PlayerViewOffset=(X=5.000000,Y=7.500000,Z=-7.500000)
@@ -340,6 +326,7 @@ defaultproperties
      LightSaturation=150
      LightBrightness=130.000000
      LightRadius=3.000000
+	 ParamsClass=Class'HKMK23WeaponParams'
      Mesh=SkeletalMesh'BWWeaponPackAnims.USP_FPm'
      DrawScale=1.000000
 }

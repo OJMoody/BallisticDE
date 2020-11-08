@@ -38,7 +38,7 @@ defaultproperties
 {
      SpawnOffset=(X=10.000000,Y=10.000000,Z=-3.000000)
      MuzzleFlashClass=Class'BWBPArchivePackDE.RGPFlashEmitter'
-     RecoilPerShot=64.000000
+     FireRecoil=64.000000
      XInaccuracy=64.000000
      YInaccuracy=64.000000
 	 Firechaos=0.5

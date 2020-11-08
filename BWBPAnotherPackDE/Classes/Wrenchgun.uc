@@ -166,7 +166,7 @@ simulated function CommonStartReload (optional byte i)
 		PlayReload();
 
 	if (bScopeView && Instigator.IsLocallyControlled())
-		TemporaryScopeDown(Default.SightingTime*Default.SightingTimeScale);
+		TemporaryScopeDown(Default.SightingTime);
 	for (m=0; m < NUM_FIRE_MODES; m++)
 		if (BFireMode[m] != None)
 			BFireMode[m].ReloadingGun(i);
@@ -284,7 +284,7 @@ simulated function AnimEnded (int Channel, name anim, float frame, float rate)
 			ReloadState = RS_None;
 			ReloadFinished();
 			PlayIdle();
-			ReAim(0.05);
+			AimComponent.ReAim(0.05);
 		}
 		return;
 	}
@@ -295,7 +295,7 @@ simulated function AnimEnded (int Channel, name anim, float frame, float rate)
 		ReloadState = RS_None;
 		ReloadFinished();
 		PlayIdle();
-		ReAim(0.05);
+		AimComponent.ReAim(0.05);
 	}
 	
 	if (ReloadState == RS_GearSwitch)
@@ -469,7 +469,6 @@ defaultproperties
      MeleeFireClass=Class'BWBPAnotherPackDE.WrenchgunMeleeFire'
      BringUpSound=(Sound=Sound'BallisticSounds2.M290.M290Pullout')
      PutDownSound=(Sound=Sound'BallisticSounds2.M290.M290Putaway')
-     MagAmmo=2
      CockAnimRate=0.700000
      ReloadAnimRate=1.100000
      ClipInFrame=0.800000
@@ -484,15 +483,6 @@ defaultproperties
      GunLength=60.000000
      LongGunPivot=(Pitch=6000,Yaw=-9000,Roll=2048)
      LongGunOffset=(X=-30.000000,Y=11.000000,Z=-20.000000)
-     
-	 RecoilXCurve=(Points=(,(InVal=0.200000,OutVal=0.100000),(InVal=0.300000,OutVal=0.200000),(InVal=1.000000,OutVal=0.300000)))
-     RecoilYCurve=(Points=(,(InVal=0.300000,OutVal=0.300000),(InVal=1.000000,OutVal=1.000000)))
-     RecoilXFactor=0.200000
-     RecoilYFactor=0.200000
-     RecoilMax=8192.000000
-     RecoilDeclineTime=0.900000
-     RecoilDeclineDelay=0.400000
-	 ViewRecoilFactor=0.350000
 	 
      FireModeClass(0)=Class'BWBPAnotherPackDE.WrenchgunPrimaryFire'
      FireModeClass(1)=Class'BWBPAnotherPackDE.WrenchgunSecondaryFire'
@@ -517,6 +507,7 @@ defaultproperties
      LightSaturation=150
      LightBrightness=180.000000
      LightRadius=5.000000
+	 ParamsClass=Class'WrenchgunWeaponParams'
      Mesh=SkeletalMesh'BWBPWrenchPackAnims.WrenchGun_FP'
      DrawScale=1.250000
      Skins(0)=Shader'BallisticWeapons2.Hands.Hands-Shiny'

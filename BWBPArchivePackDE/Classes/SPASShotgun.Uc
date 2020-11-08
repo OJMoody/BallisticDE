@@ -6,7 +6,7 @@
 // by Nolan "Dark Carnivour" Richert.
 // Copyright(c) 2006 RuneStorm. All Rights Reserved.
 //=============================================================================
-class SPASShotgun extends BallisticWeapon;
+class SPASShotgun extends BallisticProShotgun;
 
 simulated function AltFire(float F)	{	FirePressed(F);	}
 
@@ -120,23 +120,8 @@ defaultproperties
      SightingTime=0.450000
      GunLength=32.000000
      LongGunPivot=(Pitch=4500,Yaw=-8000)
-     SprintOffSet=(Pitch=-1000,Yaw=-2048)
-     JumpOffSet=(Pitch=1000,Yaw=-3000)
-     JumpChaos=0.700000
-     ViewAimFactor=0.150000
-     ChaosSpeedThreshold=550.000000
 	 bNoCrosshairInScope=True
-	 AimSpread=16
-     ChaosDeclineTime=0.750000
-     ChaosAimSpread=256
-     
-	 ViewRecoilFactor=0.4
-     RecoilXCurve=(Points=(,(InVal=0.200000,OutVal=0.10000),(InVal=0.350000,OutVal=0.13000),(InVal=0.550000,OutVal=0.230000),(InVal=0.800000,OutVal=0.35000),(InVal=1.000000,OutVal=0.45)))
-     RecoilYCurve=(Points=(,(InVal=0.150000,OutVal=0.150000),(InVal=0.40000,OutVal=0.50000),(InVal=0.600000,OutVal=0.700000),(InVal=1.000000,OutVal=1.000000)))
-     RecoilXFactor=0.100000
-     RecoilYFactor=0.100000
-     RecoilDeclineTime=0.500000
-     RecoilDeclineDelay=0.75
+
 	 
      FireModeClass(0)=Class'BWBPArchivePackDE.SPASSecondaryFire'
      FireModeClass(1)=Class'BWBPArchivePackDE.SPASPrimaryFire'
@@ -148,7 +133,7 @@ defaultproperties
      Priority=36
      CustomCrossHairTextureName="Crosshairs.HUD.Crosshair_Cross1"
      InventoryGroup=7
-     GroupOffset=6
+     GroupOffset=31
      PickupClass=Class'BWBPArchivePackDE.SPASPickup'
      PlayerViewOffset=(X=5.000000,Y=3.000000,Z=-6.000000)
      AttachmentClass=Class'BWBPArchivePackDE.SPASAttachment'
@@ -161,6 +146,7 @@ defaultproperties
      LightSaturation=150
      LightBrightness=150.000000
      LightRadius=5.000000
+	 ParamsClass=Class'SPASWeaponParams'
      Mesh=SkeletalMesh'BWWeaponPackAnims.Spas_FPm'
      DrawScale=1.000000
      Skins(0)=Shader'BallisticWeapons2.Hands.Hands-Shiny'

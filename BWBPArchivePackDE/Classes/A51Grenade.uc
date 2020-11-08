@@ -87,6 +87,7 @@ defaultproperties
      AttachmentClass=Class'BWBPArchivePackDE.A51Attachment'
      IconMaterial=Texture'BWSkrithRecolorsArchive1Tex.Main.SmallIcon_SkrithGrenade'
      IconCoords=(X2=127,Y2=31)
+	 ParamsClass=Class'A51WeaponParams'
      ItemName="AD-51 Reptile Corossive Grenade"
      Mesh=SkeletalMesh'BWSkrithRecolors1Anim.SkrithGrenade'
      DrawScale=0.400000

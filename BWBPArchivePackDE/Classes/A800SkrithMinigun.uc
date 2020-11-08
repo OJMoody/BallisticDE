@@ -257,26 +257,7 @@ defaultproperties
      SightPivot=(Pitch=1024,Roll=2048)
      SightOffset=(X=-10.000000,Y=-3.830000,Z=16.900000)
      SightDisplayFOV=45.000000
-     SprintOffSet=(Pitch=-6000,Yaw=-8000)
-	 JumpOffSet=(Pitch=-4000,Yaw=3000)
 	 SightingTime=0.600000
-     AimAdjustTime=1.300000
-     AimSpread=256.000000
-     ViewAimFactor=0.200000
-     ViewRecoilFactor=0.200000
-     ChaosAimSpread=768.000000
-	 ChaosDeclineTime=1.000000
-	 SightAimFactor=1.5
-	 CrouchAimFactor=1.5
-	 
-	 RecoilXCurve=(Points=(,(InVal=0.070000,OutVal=0.050000),(InVal=0.100000,OutVal=0.085000),(InVal=0.180000,OutVal=0.060000),(InVal=0.300000,OutVal=0.100000),(InVal=0.500000,OutVal=0.200000),(InVal=0.650000,OutVal=0.300000),(InVal=0.700000,OutVal=0.4500000),(InVal=0.850000,OutVal=0.400000),(InVal=1.000000,OutVal=0.55)))
-     RecoilYCurve=(Points=(,(InVal=0.050000,OutVal=0.070000),(InVal=0.100000,OutVal=0.120000),(InVal=0.200000,OutVal=0.200000),(InVal=0.400000,OutVal=0.400000),(InVal=0.550000,OutVal=0.650000),(InVal=0.650000,OutVal=0.750000),(InVal=0.800000,OutVal=0.820000),(InVal=1.000000,OutVal=1.000000)))
-     RecoilXFactor=0.05000
-     RecoilYFactor=0.05000
-     RecoilMax=12288.000000
-     RecoilDeclineTime=1.700000
-     RecoilDeclineDelay=0.50000
-	 
      FireModeClass(0)=Class'BWBPArchivePackDE.A800MinigunPrimaryFire'
      FireModeClass(1)=Class'BWBPArchivePackDE.A800MinigunSecondaryFire'
      SelectAnimRate=1.00000
@@ -292,7 +273,6 @@ defaultproperties
      CustomCrossHairScale=1.008803
      CustomCrossHairTextureName="Crosshairs.HUD.Crosshair_Cross1"
      InventoryGroup=6
-	 InventorySize=12
      PickupClass=Class'BWBPArchivePackDE.A800MinigunPickup'
      PlayerViewOffset=(X=5.000000,Y=3.5.000000,Z=-8.000000)
 	 PlayerViewPivot=(Roll=-256)
@@ -307,6 +287,7 @@ defaultproperties
      LightSaturation=150
      LightBrightness=150.000000
      LightRadius=4.000000
+	 ParamsClass=Class'A800WeaponParams'
      Mesh=SkeletalMesh'BWSkrithRecolors2Anim.SME_FPm'
      DrawScale=1.000000
      SoundRadius=128.000000

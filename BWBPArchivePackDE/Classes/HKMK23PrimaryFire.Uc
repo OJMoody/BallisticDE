@@ -174,7 +174,7 @@ defaultproperties
      FlashScaleFactor=0.100000
      BrassClass=Class'BallisticDE.Brass_Pistol'
      BrassOffset=(X=-60.000000)
-     RecoilPerShot=220.000000
+     FireRecoil=220.000000
      FireChaos=0.280000
      XInaccuracy=108.000000
      YInaccuracy=108.000000

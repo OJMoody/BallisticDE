@@ -45,7 +45,7 @@ defaultproperties
 {
      SpawnOffset=(X=10.000000,Y=10.000000,Z=-9.000000)
      MuzzleFlashClass=Class'BallisticDE.HVCMk9RedMuzzleFlash'
-     RecoilPerShot=700.000000
+     FireRecoil=700.000000
      FireChaos=0.400000
      XInaccuracy=32.000000
      YInaccuracy=32.000000

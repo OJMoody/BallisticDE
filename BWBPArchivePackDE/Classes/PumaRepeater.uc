@@ -245,7 +245,7 @@ simulated function ClientAdjustProps(byte newMode)
 
 simulated function BringUp(optional Weapon PrevWeapon)
 {
-	if (Instigator != None && AIController(Instigator.Controller) != None)
+	/*if (Instigator != None && AIController(Instigator.Controller) != None)
 	{
 		AimSpread *= 0.30;
 		ChaosAimSpread *= 0.10;
@@ -255,7 +255,7 @@ simulated function BringUp(optional Weapon PrevWeapon)
 		ScreenStart();
 		if (!Instigator.IsLocallyControlled())
 			ClientScreenStart();
-	}
+	}*/
 
 	SetBoneScale (0, 0.0, ShieldBone);
 
@@ -306,21 +306,6 @@ simulated function bool PutDown()
 		return true;
 	}
 	return false;
-}
-
-
-// Change some properties when using sights...
-simulated function SetScopeBehavior()
-{
-	super.SetScopeBehavior();
-	if (bScopeView)
-	{
-        	FireMode[0].FireAnim='SightFire';
-	}
-	else
-	{
-        	FireMode[0].FireAnim='Fire';
-	}
 }
 
 //=====================================================
@@ -895,7 +880,7 @@ defaultproperties
      MyFontColor=(B=255,G=255,R=255,A=255)
      RangeBeepSound=Sound'MenuSounds.select3'
      ChargingSound=Sound'WeaponSounds.BaseFiringSounds.BShield1'
-     ShieldSoundVolume=220
+     ShieldSoundVolume=200
      TeamSkins(0)=(RedTex=Shader'BallisticWeapons2.Hands.RedHand-Shiny',BlueTex=Shader'BallisticWeapons2.Hands.BlueHand-Shiny')
      BigIconMaterial=Texture'BallisticRecolorsArchive5A.PUMA.BigIcon_PUMA'
      BCRepClass=Class'BallisticDE.BallisticReplicationInfo'
@@ -917,23 +902,6 @@ defaultproperties
      SightPivot=(Pitch=150)
      SightOffset=(Y=0.250000,Z=16.299999)
      GunLength=48.000000
-     SprintOffSet=(Pitch=-1000,Yaw=-2048)
-     JumpOffSet=(Pitch=1000,Yaw=-3000)
-     JumpChaos=0.700000
-     ViewAimFactor=0.00000
-     ViewRecoilFactor=0.900000
-	 FireChaos=0
-     AimSpread=32
-	 ChaosAimSpread=256
-	 RecoilDeclineDelay=0.200000
-	 ChaosDeclineTime=2.00000
-     RecoilXCurve=(Points=(,(InVal=0.200000,OutVal=-0.100000),(InVal=0.300000,OutVal=-0.200000),(InVal=1.000000,OutVal=-0.300000)))
-     RecoilYCurve=(Points=(,(InVal=0.300000,OutVal=0.500000),(InVal=1.000000,OutVal=1.000000)))
-     RecoilYawFactor=0.000000
-     RecoilXFactor=0.400000
-     RecoilYFactor=0.400000
-     RecoilMax=4096.000000
-     RecoilDeclineTime=1.500000
      FireModeClass(0)=Class'BWBPArchivePackDE.PumaPrimaryFire'
      FireModeClass(1)=Class'BWBPArchivePackDE.PumaSecondaryFire'
      PutDownTime=0.800000
@@ -945,7 +913,6 @@ defaultproperties
      Priority=245
      CustomCrossHairTextureName="Crosshairs.HUD.Crosshair_Cross1"
      InventoryGroup=8
-	 InventorySize=12
      PickupClass=Class'BWBPArchivePackDE.PumaPickup'
      PlayerViewOffset=(X=-4.000000,Y=6.000000,Z=-11.000000)
      AttachmentClass=Class'BWBPArchivePackDE.PumaAttachment'
@@ -958,6 +925,7 @@ defaultproperties
      LightSaturation=150
      LightBrightness=150.000000
      LightRadius=5.000000
+	 ParamsClass=Class'PUMAWeaponParams'
      Mesh=SkeletalMesh'BWBPArchivePack2Anim.PUMA_FP'
      DrawScale=0.350000
      Skins(0)=Shader'BallisticWeapons2.Hands.Hands-Shiny'

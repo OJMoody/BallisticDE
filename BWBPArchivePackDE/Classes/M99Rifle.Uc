@@ -56,10 +56,6 @@ simulated event PostNetReceive()
 		return;
 	if (bLaserOn != default.bLaserOn)
 	{
-		if (bLaserOn)
-			AimAdjustTime = default.AimAdjustTime * 1.5;
-		else
-			AimAdjustTime = default.AimAdjustTime;
 		default.bLaserOn = bLaserOn;
 		ClientSwitchLaser();
 	}
@@ -72,11 +68,6 @@ function ServerSwitchLaser(bool bNewLaserOn)
 	bUseNetAim = bLaserOn;
 	if (ThirdPersonActor!=None)
 		M99Attachment(ThirdPersonActor).bLaserOn = bLaserOn;
-	if (bLaserOn)
-		AimAdjustTime = default.AimAdjustTime * 1.5;
-
-	else
-		AimAdjustTime = default.AimAdjustTime;
     if (Instigator.IsLocallyControlled())
 		ClientSwitchLaser();
 }
@@ -309,12 +300,10 @@ defaultproperties
      TeamSkins(0)=(RedTex=Shader'BallisticWeapons2.Hands.RedHand-Shiny',BlueTex=Shader'BallisticWeapons2.Hands.BlueHand-Shiny')
      BigIconMaterial=Texture'BWWeaponPackArchive-Tex.M99.BigIcon_M99'
      BCRepClass=Class'BallisticDE.BallisticReplicationInfo'
-     InventorySize=12
      bWT_Bullet=True
      SpecialInfo(0)=(Info="240.0;35.0;2.0;120.0;10.0;0.0;0.0")
      BringUpSound=(Sound=Sound'BallisticSounds2.R78.R78Pullout')
      PutDownSound=(Sound=Sound'BallisticSounds2.R78.R78Putaway')
-     MagAmmo=1
      CockSound=(Sound=Sound'BWWeaponPack2Archive-Sounds.M99.M99Cock',Volume=100.500000)
      ClipHitSound=(Sound=Sound'BWWeaponPack2Archive-Sounds.M99.M99BoltClose',Volume=100.500000)
      ClipOutSound=(Sound=Sound'BWWeaponPack2Archive-Sounds.M99.M99OpenBolt',Volume=100.500000)
@@ -338,22 +327,8 @@ defaultproperties
      bNoCrosshairInScope=True
      SightPivot=(Roll=-1024)
      SightOffset=(X=-10.000000,Y=-2.000000,Z=12.000000)
-	 JumpOffSet=(Pitch=-8192,Yaw=-1024)
-     SightingTime=0.60000
      GunLength=85.000000
-     CrouchAimFactor=0.300000
-     SprintOffSet=(Pitch=-6000,Yaw=-8192)
-     AimAdjustTime=0.500000
-	 AimSpread=256
-	 ChaosAimSpread=1024
-	 RecoilDeclineDelay=1.500000
-     ChaosDeclineTime=1.500000
-     ChaosSpeedThreshold=400.000000
-     RecoilYawFactor=0.100000
-     RecoilXFactor=0.200000
-     RecoilYFactor=0.200000
-     RecoilMax=3072.000000
-     RecoilDeclineTime=1.000000
+
      FireModeClass(0)=Class'BWBPArchivePackDE.M99PrimaryFire'
      FireModeClass(1)=Class'BWBPArchivePackDE.M99SecondaryFire'
      BringUpTime=0.500000
@@ -380,6 +355,7 @@ defaultproperties
 	 ReloadAnimRate=1.000000
      LightBrightness=150.000000
      LightRadius=5.000000
+	 ParamsClass=Class'M99WeaponParams'
      Mesh=SkeletalMesh'BWWeaponPackAnims.M99_FPm'
      DrawScale=1.000000
 }

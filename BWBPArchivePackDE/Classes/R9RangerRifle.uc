@@ -14,6 +14,8 @@ class R9RangerRifle extends BallisticWeapon;
 
 var float LastModeChangeTime;
 
+#exec OBJ LOAD File=R9A_tex.utx
+
 exec simulated function SwitchWeaponMode (optional byte ModeNum)	
 {
 	if (ClientState == WS_ReadyToFire && ReloadState == RS_None) 
@@ -29,11 +31,9 @@ function ServerSwitchWeaponMode (byte NewMode)
 {
 	local int m;
 	
-	if (bPreventReload)
+	if (bPreventReload || ReloadState != RS_None)
 		return;
-	if (ReloadState != RS_None)
-		return;
-		
+
 	if (NewMode == 255)
 		NewMode = CurrentWeaponMode + 1;
 		
@@ -47,34 +47,26 @@ function ServerSwitchWeaponMode (byte NewMode)
 		else
 			NewMode++;
 	}
+
 	if (!WeaponModes[NewMode].bUnavailable)
 	{
-		CurrentWeaponMode = NewMode;
+		CommonSwitchWeaponMode(NewMode);
+		ClientSwitchWeaponMode(CurrentWeaponMode);
 		NetUpdateTime = Level.TimeSeconds - 1;
 	}
 	
-	if (bNotifyModeSwitch)
-	{
-		if (Instigator != None && !Instigator.IsLocallyControlled())
-		{
-			BFireMode[0].SwitchWeaponMode(CurrentWeaponMode);
-			BFireMode[1].SwitchWeaponMode(CurrentWeaponMode);
-		}
-		ClientSwitchWeaponModes(CurrentWeaponMode);
-	}
-	
+	// mode switch for this weapon causes a reload
 	R9Attachment(ThirdPersonActor).CurrentTracerMode = CurrentWeaponMode;
-
-	if (Instigator.IsLocallyControlled())
-		default.LastWeaponMode = CurrentWeaponMode;
 		
 	for (m=0; m < NUM_FIRE_MODES; m++)
 		if (FireMode[m] != None && FireMode[m].bIsFiring)
 			StopFire(m);
 
 	bServerReloading = true;
+
 	if (BallisticAttachment(ThirdPersonActor) != None && BallisticAttachment(ThirdPersonActor).ReloadAnim != '')
 		Instigator.SetAnimAction('ReloadGun');
+
 	CommonStartReload(0);	//Server animation
 	ClientStartReload(0);	//Client animation
 }
@@ -225,7 +217,6 @@ defaultproperties
      WeaponModes(3)=(ModeName="Phosphorous",bUnavailable=True,ModeID="WM_SemiAuto",Value=1.000000)
      WeaponModes(4)=(ModeName="Poison",bUnavailable=True,ModeID="WM_SemiAuto",Value=1.000000)
      CurrentWeaponMode=0
-     bNotifyModeSwitch=True
      FullZoomFOV=60.000000
      bNoCrosshairInScope=True
      SightPivot=(Pitch=128)
@@ -233,23 +224,6 @@ defaultproperties
      SightDisplayFOV=40.000000
      SightingTime=0.400000
      GunLength=80.000000
-     CrouchAimFactor=0.750000
-     SprintOffSet=(Pitch=-1000,Yaw=-2048)
-     AimAdjustTime=0.600000
-     ChaosSpeedThreshold=3000.000000
-	 
-	 ChaosAimSpread=768
-	 
-	 SightAimFactor=1
-	 
-	 ViewRecoilFactor=0.35
-     RecoilXCurve=(Points=(,(InVal=0.150000,OutVal=0.10000),(InVal=0.350000,OutVal=0.25000),(InVal=0.500000,OutVal=0.30000),(InVal=0.70000,OutVal=0.350000),(InVal=0.850000,OutVal=0.42000),(InVal=1.000000,OutVal=0.45)))
-     RecoilYCurve=(Points=(,(InVal=0.200000,OutVal=0.175000),(InVal=0.400000,OutVal=0.450000),(InVal=0.700000,OutVal=0.700000),(InVal=1.000000,OutVal=1.000000)))
-     RecoilXFactor=0.100000
-     RecoilYFactor=0.100000
-     RecoilDeclineDelay=0.350000
-	 RecoilDeclineTime=1.00000
-	 
      FireModeClass(0)=Class'BWBPArchivePackDE.R9PrimaryFire'
      FireModeClass(1)=Class'BWBPArchivePackDE.R9SecondaryFire'
      SelectAnimRate=1.100000
@@ -275,6 +249,7 @@ defaultproperties
      LightSaturation=150
      LightBrightness=150.000000
      LightRadius=5.000000
+	 ParamsClass=Class'R9ClassicWeaponParams'
      Mesh=SkeletalMesh'BWBPArchivePack1Anim.R9Original_FPm'
      DrawScale=0.500000
 }

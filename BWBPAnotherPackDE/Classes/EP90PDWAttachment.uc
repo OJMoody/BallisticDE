@@ -103,6 +103,7 @@ defaultproperties
 	 FlashBone="tip"
      AltFlashBone="tip"
      MuzzleFlashClass=Class'BWBPAnotherPackDE.EP90PDWFlashEmitter'
+	 AltMuzzleFlashClass=Class'BWBPAnotherPackDE.EP90PDWFlashEmitter'
      ImpactManager=Class'BWBPAnotherPackDE.IM_EP90'
      BrassClass=Class'BallisticDE.Brass_Pistol'
      TracerClass=Class'BWBPAnotherPackDE.TraceEmitter_Pulse'

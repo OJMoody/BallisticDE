@@ -51,14 +51,14 @@ defaultproperties
      BrassClass=Class'BallisticDE.Brass_Pistol'
      BrassOffset=(X=-10.000000)
      AimedFireAnim="SightFire"
-     RecoilPerShot=64.000000
+     FireRecoil=64.000000
      FireChaos=0.100000
      XInaccuracy=32.000000
      YInaccuracy=32.000000
      BallisticFireSound=(Sound=Sound'BWBPAnotherPackSounds2.GASC.GASC-Fire',Volume=0.800000)
      FireEndAnim=
      FireAnimRate=1.450000
-     FireRate=0.075000
+     FireRate=0.095000
      AmmoClass=Class'BWBPAnotherPackDE.Ammo_GASCClip'
      ShakeRotMag=(X=64.000000,Y=32.000000)
      ShakeRotRate=(X=10000.000000,Y=10000.000000,Z=10000.000000)

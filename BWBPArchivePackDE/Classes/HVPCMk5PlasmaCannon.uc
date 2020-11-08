@@ -742,18 +742,6 @@ function float SuggestAttackStyle()	{	return 0.5;	}
 function float SuggestDefenseStyle()	{	return -0.5;	}
 // End AI Stuff =====
 
-
-simulated function Rotator CalcNewAimOffset()
-{
-	local rotator R;
-
-	R = default.AimOffset;
-
-	if (!BCRepClass.default.bNoJumpOffset && SprintControl != None && SprintControl.bSprinting)
-		R += SprintOffset;
-	return R;
-}
-
 defaultproperties
 {
      VentingSound=Sound'BWBP2-Sounds.LightningGun.LG-Coolant'
@@ -765,7 +753,6 @@ defaultproperties
      AIReloadTime=0.200000
      BigIconMaterial=Texture'BallisticRecolorsArchive4.XavPlasCannon.BigIcon_Xav'
      BCRepClass=Class'BallisticDE.BallisticReplicationInfo'
-     InventorySize=12
      bWT_Hazardous=True
      bWT_Energy=True
      bWT_Super=True
@@ -777,23 +764,6 @@ defaultproperties
      SightPivot=(Pitch=768)
      SightOffset=(X=-12.000000,Z=25.000000)
      SightDisplayFOV=40.000000
-     SprintOffSet=(Pitch=-3000,Yaw=-5000)
-     AimAdjustTime=0.400000
-     
-	 AimSpread=32
-	 AimDamageThreshold=75.000000
-	 ChaosAimSpread=896
-	 ChaosDeclineTime=1.250000
-     ViewRecoilFactor=0.450000
-     
-	 RecoilXCurve=(Points=(,(InVal=0.100000,OutVal=0.010000),(InVal=0.200000,OutVal=0.050000),(InVal=0.300000,OutVal=0.070000),(InVal=0.600000,OutVal=-0.060000),(InVal=0.700000,OutVal=-0.060000),(InVal=1.000000)))
-     RecoilYCurve=(Points=(,(InVal=0.100000,OutVal=0.180000),(InVal=0.200000,OutVal=0.300000),(InVal=0.300000,OutVal=0.350000),(InVal=0.450000,OutVal=0.550000),(InVal=0.600000,OutVal=0.700000),(InVal=1.000000,OutVal=1.000000)))
-     RecoilXFactor=0.20000
-     RecoilYFactor=0.20000
-     RecoilDeclineTime=0.800000
-     RecoilDeclineDelay=0.900000
-     
-	 RecoilMax=256.000000
      FireModeClass(0)=Class'BWBPArchivePackDE.HVPCMk5PrimaryFire'
      FireModeClass(1)=Class'BWBPArchivePackDE.HVPCMk5SecondaryFire'
      PutDownTime=0.500000
@@ -819,6 +789,7 @@ defaultproperties
      LightSaturation=100
      LightBrightness=192.000000
      LightRadius=12.000000
+	 ParamsClass=Class'HVPCMk5WeaponParams'
      Mesh=SkeletalMesh'BWBP2b-Anims.Lighter'
      DrawScale=0.350000
      Skins(0)=Shader'BallisticWeapons2.Hands.Hands-Shiny'

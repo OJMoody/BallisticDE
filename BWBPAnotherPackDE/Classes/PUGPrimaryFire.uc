@@ -34,8 +34,8 @@ defaultproperties
      BrassClass=Class'BWBPAnotherPackDE.Brass_BOLT'
      BrassOffset=(X=-1.000000,Z=-1.000000)
      AimedFireAnim="SightFire"
-     RecoilPerShot=650.000000
-     VelocityRecoil=180.000000
+     FireRecoil=650.000000
+     FirePushBackForce=180.000000
      FireChaos=0.450000
      BallisticFireSound=(Sound=Sound'BWBPAnotherPackSounds.PUG.PUG-Fire',Volume=2.000000)
      FireEndAnim=

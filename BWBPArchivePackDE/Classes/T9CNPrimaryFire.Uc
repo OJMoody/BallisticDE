@@ -34,7 +34,7 @@ defaultproperties
      BrassOffset=(X=-25.000000,Z=-5.000000)
 	 AimedFireAnim="SightFire"
 	 FireAnim="Fire"
-     RecoilPerShot=80.000000
+     FireRecoil=80.000000
      XInaccuracy=96.000000
      YInaccuracy=96.000000
      BallisticFireSound=(Sound=Sound'PackageSoundsArchive4.T9CN.T9CN-FireOld',Volume=1.300000)

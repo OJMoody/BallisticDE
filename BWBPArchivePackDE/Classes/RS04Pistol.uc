@@ -116,113 +116,26 @@ simulated function SetBurstModeProps()
 	if (CurrentWeaponMode == 1)
 	{
 		BFireMode[0].FireRate = 0.04;
-		BFireMode[0].RecoilPerShot = 256;
+		BFireMode[0].FireRecoil = 256;
 		BFireMode[0].FireChaos = BFireMode[0].default.FireChaos;
 	}
 	else if (CurrentWeaponMode == 2)
 	{
 		BFireMode[0].FireRate = 0.2;
-		BFireMode[0].RecoilPerShot = 128;
+		BFireMode[0].FireRecoil = 128;
 		BFireMode[0].FireChaos = 0.1;
 	}
 	else
 	{
 		BFireMode[0].FireRate = BFireMode[0].default.FireRate;
-		BFireMode[0].RecoilPerShot = BFireMode[0].default.RecoilPerShot;
+		BFireMode[0].FireRecoil = BFireMode[0].default.FireRecoil;
 		BFireMode[0].FireChaos = BFireMode[0].default.FireChaos;
-		RecoilYawFactor=default.RecoilYawFactor;
-		RecoilPitchFactor=default.RecoilPitchFactor;
 	}
 }
 simulated function ServerSwitchWeaponMode (byte NewMode)
 {
 	super.ServerSwitchWeaponMode (NewMode);
 	SetBurstModeProps();
-}
-
-simulated function PlayerSprint (bool bSprinting)
-{
-	if (BCRepClass.default.bNoJumpOffset)
-		return;
-	if (bScopeView && Instigator.IsLocallyControlled())
-		StopScopeView();
-	if (bAimDisabled)
-		return;
-	SetNewAimOffset(CalcNewAimOffset(), AimAdjustTime);
-	Reaim(0.05, AimAdjustTime, 0.05);
-}
-
-simulated function ClientPlayerDamaged(byte DamageFactor)
-{
-	local float DF;
-	if (level.NetMode != NM_Client)
-		return;
-	DF = float(DamageFactor)/255;
-	Reaim(0.1, 0.3*AimAdjustTime, DF, DF*(-3500 + 7000 * FRand()), DF*(-3000 + 6000 * FRand()));
-	bForceReaim=true;
-}
-
-simulated function TickAim (float DT)
-{
-	super.TickAim(DT);
-	if (bAimDisabled)
-	{
-		Aim = Rot(0,0,0);
-		Recoil = 0;
-		return;
-	}
-	// Interpolate aim
-	if (bReaiming)
-	{	ReaimPhase += DT;
-		if (ReaimPhase >= ReaimTime)
-			StopAim();
-		else
-			Aim = class'BUtil'.static.RSmerp(ReaimPhase/ReaimTime, OldAim, NewAim);
-	}
-	//Fell, Reaim
-	else if (Instigator.Physics == PHYS_Falling)	{
-		if (bScopeView)		StopScopeView();
-		Reaim(DT, , 0.05);	}
-	// Moved, Reaim
-	else if (bForceReaim || GetPlayerAim() != OldLookDir || VSize(Instigator.Velocity) > 100)
-		Reaim(DT);
-
-	if (bScopeView)
-		CheckScope();
-
-	// Interpolate the AimOffset
-	if (AimOffset != NewAimOffset)
-		AimOffset = class'BUtil'.static.RSmerp(FMax(0.0,(AimOffsetTime-level.TimeSeconds)/AimAdjustTime), NewAimOffset, OldAimOffset);
-
-	// Align the gun mesh and player view
-	if (LastFireTime > Level.TimeSeconds - RecoilDeclineDelay)
-	{
-		ApplyAimRotation();
-		OldLookDir = GetPlayerAim();
-		return;
-	}
-	// Chaos decline
-	if (Chaos > 0)
-	{
-		if (Instigator.bIsCrouched)
-			Chaos -= FMin(Chaos, DT / (ChaosDeclineTime*CrouchAimFactor));
-		else
-			Chaos -= FMin(Chaos, DT / ChaosDeclineTime);
-	}
-	// Recoil Deciline
-	if (Recoil > 0)
-		Recoil -= FMin(Recoil, RecoilMax * (DT / RecoilDeclineTime));
-	// Set crosshair size
-	//if (bReaiming)
-		//CrosshairInfo.CurrentScale = FMin(1, Lerp(ReaimPhase/ReaimTime, OldChaos, NewChaos)*CrosshairChaosFactor + (Recoil/RecoilMax)) * CrosshairInfo.MaxScale * CrosshairScaleFactor;
-	//else
-		//CrosshairInfo.CurrentScale = FMin(1, NewChaos*CrosshairChaosFactor + (Recoil/RecoilMax)) * CrosshairInfo.MaxScale * CrosshairScaleFactor;
-
-	// Align the gun mesh and player view
-	ApplyAimRotation();
-
-	// Remember the player's view rotation for this tick
-	OldLookDir = GetPlayerAim();
 }
 
 simulated function PlayIdle()
@@ -278,6 +191,7 @@ simulated function Destroyed ()
 	super.Destroyed();
 }
 
+/*
 // Change some properties when using sights...
 simulated function SetScopeBehavior()
 {
@@ -293,8 +207,7 @@ simulated function SetScopeBehavior()
 		SightOffset = default.SightOffset;
 	if (Hand < 0)
 		SightOffset.Y = default.SightOffset.Y * -1;
-}
-
+}*/
 
 simulated function PlayCocking(optional byte Type)
 {
@@ -307,7 +220,7 @@ simulated function PlayCocking(optional byte Type)
 function ServerSwitchSilencer(bool bNewValue)
 {
 	BFireMode[0].bAISilent = true;
-     	BFireMode[0].RecoilPerShot=64.000000;
+     	BFireMode[0].FireRecoil=64.000000;
 }
 simulated function SwitchSilencer(bool bNewValue)
 {
@@ -581,7 +494,6 @@ defaultproperties
      BringUpSound=(Sound=Sound'PackageSoundsArchive4.M1911.RS04-Draw')
      PutDownSound=(Sound=Sound'BallisticSounds2.XK2.XK2-Putaway')
 	 bShouldDualInLoadout=False
-     MagAmmo=9
      CockSound=(Sound=Sound'BallisticSounds2.M806.M806-Cock',Volume=1.100000)
      ClipHitSound=(Sound=Sound'PackageSoundsArchive4.M1911.RS04-SlideLock',Volume=0.400000)
      ClipOutSound=(Sound=Sound'BallisticSounds3.SAR.SAR-StockOut',Volume=1.100000)
@@ -596,22 +508,8 @@ defaultproperties
 	 SightPivot=(Roll=-256)
      SightDisplayFOV=40.000000
      SightingTime=0.200000
-     SightAimFactor=0.000000
-     JumpChaos=0.250000
-     AimAdjustTime=0.550000
-     ViewAimFactor=0.000000
 	 bNoCrosshairInScope=True
-     //ChaosTurnThreshold=1000000.000000
-     
-	 RecoilXCurve=(Points=((InVal=0.0,OutVal=0.0),(InVal=0.15,OutVal=0.1),(InVal=0.35,OutVal=-0.05),(InVal=0.5,OutVal=0.12),(InVal=0.7,OutVal=0.2),(InVal=1.0,OutVal=0.3)))
-     RecoilXFactor=0.200000
-     RecoilYFactor=0.200000
-     RecoilDeclineTime=0.500000
-	 RecoilDeclineDelay=0.300000
-	 ChaosDeclineTime=0.450000
-	 HipRecoilFactor=1.75
-	 ViewRecoilFactor=0.7
-     
+
 	 FireModeClass(0)=Class'BWBPArchivePackDE.RS04PrimaryFire'
      FireModeClass(1)=Class'BWBPArchivePackDE.RS04SecondaryFire'
      PutDownTime=0.600000
@@ -622,7 +520,7 @@ defaultproperties
      Priority=155
      CustomCrossHairTextureName="Crosshairs.HUD.Crosshair_Cross1"
      InventoryGroup=2
-     GroupOffset=3
+     GroupOffset=31
      PickupClass=Class'BWBPArchivePackDE.RS04Pickup'
      PlayerViewOffset=(Y=9.000000,Z=-14.000000)
      AttachmentClass=Class'BWBPArchivePackDE.RS04Attachment'
@@ -635,6 +533,7 @@ defaultproperties
      LightSaturation=150
      LightBrightness=130.000000
      LightRadius=3.000000
+	 ParamsClass=Class'RS04WeaponParams'
      Mesh=SkeletalMesh'BWBPArchivePack1Anim.RS04_FPm'
      DrawScale=0.350000
      Skins(0)=Shader'BallisticWeapons2.Hands.Hands-Shiny'

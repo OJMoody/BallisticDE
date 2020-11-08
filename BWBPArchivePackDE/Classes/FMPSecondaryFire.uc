@@ -46,7 +46,7 @@ defaultproperties
      BrassClass=Class'BallisticDE.Brass_Rifle'
      BrassBone="tip"
      BrassOffset=(X=-50.000000,Y=1.000000)
-     RecoilPerShot=128.000000
+     FireRecoil=128.000000
 	 FireChaos=0.04
      XInaccuracy=32.000000
      YInaccuracy=32.000000

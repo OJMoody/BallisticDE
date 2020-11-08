@@ -56,8 +56,8 @@ defaultproperties
      SpawnOffset=(X=400.000000,Y=7.000000,Z=-9.000000)
      MuzzleFlashClass=Class'BWBPArchivePackDE.A73FlashEmitter'
      FlashScaleFactor=0.400000
-     RecoilPerShot=650.000000
-     VelocityRecoil=15.000000
+     FireRecoil=650.000000
+     FirePushBackForce=15.000000
      XInaccuracy=32.000000
      YInaccuracy=32.000000
 	 FireChaos=0.500000

@@ -43,7 +43,7 @@ simulated function SwitchCannonMode (byte NewMode)
         XInaccuracy=default.XInaccuracy;
         YInaccuracy=default.YInaccuracy;
 		FireChaos=default.FireChaos;
-        RecoilPerShot=default.RecoilPerShot;
+        FireRecoil=default.FireRecoil;
         bSplashDamage=false;
 		FireAnim='Fire';
         bRecommendSplashDamage=false;
@@ -59,7 +59,7 @@ simulated function SwitchCannonMode (byte NewMode)
         YInaccuracy=default.YInaccuracy;
 		FireChaos=0.5;
 		FireAnim='FireBomb';
-        RecoilPerShot=1024;
+        FireRecoil=1024;
         bSplashDamage=true;
         bRecommendSplashDamage=true;
     }
@@ -78,7 +78,7 @@ defaultproperties
      PowerFireSound=Sound'PackageSoundsArchive4.A73E.A73E-Power'
      SpawnOffset=(X=10.000000,Y=10.000000,Z=-9.000000)
      MuzzleFlashClass=Class'BallisticDE.E23FlashEmitter'
-     RecoilPerShot=128.000000
+     FireRecoil=128.000000
      XInaccuracy=64.000000
      YInaccuracy=64.000000
 	 FireChaos=0.25000

@@ -323,21 +323,6 @@ defaultproperties
      SightOffset=(X=10.000000,Y=-1.160000,Z=20.900000)
      SightDisplayFOV=40.000000
      GunLength=48.000000
-     JumpOffSet=(Pitch=1000,Yaw=-500)
-     JumpChaos=0.300000
-     AimAdjustTime=0.600000
-     ViewAimFactor=0.300000
-     ViewRecoilFactor=0.300000
-	 
-	 AimSpread=256
-     ChaosDeclineTime=2.000000
-     ChaosSpeedThreshold=2000.000000
-	 
-     RecoilXFactor=0.20000
-     RecoilYFactor=0.300000
-     RecoilDeclineDelay=0.500000
-     RecoilMax=2096.000000
-     RecoilDeclineTime=0.700000
      FireModeClass(0)=Class'BWBPAnotherPackDE.PUGPrimaryFire'
      FireModeClass(1)=Class'BWBPAnotherPackDE.PUGSecondaryFire'
      PutDownTime=0.900000
@@ -355,13 +340,13 @@ defaultproperties
      IconMaterial=Texture'BWBPAnotherPackTex.PUG12.SmallIcon_PUG12'
      IconCoords=(X2=127,Y2=31)
      ItemName="PUG-M2 Riot Supression Cannon"
-	 SprintOffSet=(Pitch=-6000,Yaw=-8000)
      LightType=LT_Pulse
      LightEffect=LE_NonIncidence
      LightHue=30
      LightSaturation=150
      LightBrightness=150.000000
      LightRadius=4.000000
+	 ParamsClass=Class'PUGWeaponParams'
      Mesh=SkeletalMesh'BWBPAnotherPackAnims.FPm_Pug12'
      DrawScale=1.600000
 }

@@ -245,9 +245,8 @@ simulated function UpdatePawnList()
 	}
 }
 
-simulated function SetScopeView(bool bNewValue)
+/*simulated function SetScopeView(bool bNewValue)
 {
-
 	bScopeView = bNewValue;
 	if (!bScopeView)
 	{
@@ -261,7 +260,7 @@ simulated function SetScopeView(bool bNewValue)
 
 	if (!bNewValue && Target != None)
 		class'BUtil'.static.PlayFullSound(self, NVOffSound);
-}
+}*/
 
 simulated function SetNVLight(bool bOn)
 {
@@ -561,7 +560,6 @@ function float SuggestDefenseStyle()	{	return 0.5;	}
 
 defaultproperties
 {
-     AimDisplacementDurationMult=1.25
 	 PlayerSpeedFactor=0.75
 	 PlayerJumpFactor=0.75
 	 AIReloadTime=4.000000
@@ -594,7 +592,6 @@ defaultproperties
      SpecialInfo(0)=(Info="240.0;25.0;0.9;80.0;0.7;0.7;0.4")
      BringUpSound=(Sound=Sound'BallisticSounds2.M925.M925-Pullout')
      PutDownSound=(Sound=Sound'BallisticSounds2.M925.M925-Putaway')
-     MagAmmo=125
      CockSound=(Sound=Sound'BWBPAnotherPackSounds.MG36.MG36-Cock',Volume=2.000000)
      ClipOutSound=(Sound=Sound'BWBPAnotherPackSounds.MG36.MG36-MagOut',Volume=2.400000)
      ClipInSound=(Sound=Sound'BWBPAnotherPackSounds.MG36.MG36-MagIn',Volume=2.400000)
@@ -607,24 +604,7 @@ defaultproperties
 	 ScopeViewTex=Texture'BWBPAnotherPackTex.MG36.MG36-Scope'
      SightOffset=(X=-15.000000,Y=-0.350000,Z=12.300000)
      SightDisplayFOV=25.000000
-     SprintOffSet=(Pitch=-3072,Yaw=-4096)
-	 SightAimFactor=0.40000
-	 JumpOffSet=(Pitch=-6000,Yaw=2000)
-	 CrouchAimFactor=0.700000
      FullZoomFOV=45
-	 AimSpread=256
-     ChaosDeclineTime=1.250000
-     ChaosSpeedThreshold=15000.000000
-     ChaosAimSpread=1024
-     
-	 ViewRecoilFactor=0.300000
-	 RecoilXCurve=(Points=(,(InVal=0.200000,OutVal=0.200000),(InVal=0.300000,OutVal=0.40000),(InVal=0.500000,OutVal=0.550000),(InVal=0.700000,OutVal=0.70000),(InVal=1.000000)))
-	 RecoilYCurve=(Points=(,(InVal=0.150000,OutVal=0.120000),(InVal=0.300000,OutVal=0.300000),(InVal=0.500000,OutVal=0.550000),(InVal=0.750000,OutVal=0.750000),(InVal=1.000000,OutVal=1.000000)))
-	 RecoilXFactor=0.1
-	 RecoilYFactor=0.2
-	 RecoilMax=12288.000000
-	 RecoilDeclineTime=1.500000
-	 RecoilDeclineDelay=0.40000
 	 
      FireModeClass(0)=Class'BWBPAnotherPackDE.MG36PrimaryFire'
      FireModeClass(1)=Class'BWBPAnotherPackDE.MG36SecondaryFire'
@@ -655,6 +635,7 @@ defaultproperties
      LightSaturation=150
      LightBrightness=150.000000
      LightRadius=4.000000
+	 ParamsClass=Class'MG36WeaponParams'
      Mesh=SkeletalMesh'BWBPAnotherPackAnims.FPm_MG36'
      DrawScale=1.000000
 }

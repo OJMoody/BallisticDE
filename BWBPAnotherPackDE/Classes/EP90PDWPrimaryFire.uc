@@ -44,11 +44,11 @@ defaultproperties
      BrassClass=Class'BallisticDE.Brass_Pistol'
      BrassBone="tip"
      BrassOffset=(X=-30.000000,Y=1.000000)
-     RecoilPerShot=150.000000
+     FireRecoil=150.000000
      FireChaos=0.150000
 	 XInaccuracy=32
 	 YInaccuracy=32
-     BallisticFireSound=(Sound=Sound'BWBPANotherPackSounds.EP110.EP110-Fire',Volume=9.500000,Slot=SLOT_Interact,bNoOverride=False)
+     BallisticFireSound=(Sound=Sound'BWBPAnotherPackSounds.EP110.EP110-Fire',Volume=9.500000,Slot=SLOT_Interact,bNoOverride=False)
      FireEndAnim=
      FireRate=0.125000
      FireAnimRate=1

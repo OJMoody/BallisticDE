@@ -146,7 +146,6 @@ simulated event ModeDoFire()
     }
     
 	if (!BW.bScopeView)
-		BW.FireChaos = FClamp(BW.FireChaos + FireChaos, 0, 1);
 		
 	BW.LastFireTime = Level.TimeSeconds;
 
@@ -288,9 +287,10 @@ defaultproperties
 	 HipSpreadFactor=6
      SpawnOffset=(X=12.000000,Y=10.000000,Z=-15.000000)
      AimedFireAnim="SightFireCombined"
-     RecoilPerShot=1100.000000
+     FireRecoil=1100.000000
      XInaccuracy=64.000000
      YInaccuracy=32.000000
+	 MuzzleFlashClass=Class'BallisticDE.MRT6FlashEmitter'
      BallisticFireSound=(Sound=Sound'PackageSounds4ProExp.Redwood.SuperMagnum-Fire',Volume=1.200000)
      bTossed=True
      FireAnim="FireCombined"

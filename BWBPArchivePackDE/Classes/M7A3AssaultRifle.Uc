@@ -70,7 +70,6 @@ defaultproperties
      SpecialInfo(0)=(Info="340.0;30.0;1.2;60.0;0.9;0.0;0.0")
      BringUpSound=(Sound=Sound'BallisticSounds2.R78.R78Pullout')
      PutDownSound=(Sound=Sound'BallisticSounds2.R78.R78Putaway')
-     MagAmmo=35
      CockAnimRate=1.250000
      CockSound=(Sound=Sound'BWWeaponPack2Archive-Sounds.M7A3.Cock',Volume=350.500000)
      ClipHitSound=(Sound=Sound'BWWeaponPack2Archive-Sounds.M7A3.Reload3',Volume=350.500000)
@@ -89,21 +88,6 @@ defaultproperties
      GunLength=16.000000
      LongGunPivot=(Pitch=2000,Yaw=-1024)
      LongGunOffset=(X=-20.000000,Y=0.000000,Z=-15.000000)
-     CrouchAimFactor=0.900000
-     JumpOffSet=(Pitch=1000,Yaw=-500)
-     JumpChaos=0.300000
-     AimAdjustTime=0.350000
-     ViewRecoilFactor=0.350000
-     ChaosDeclineTime=1.000000
-     ChaosSpeedThreshold=1200.000000
-	 SprintOffSet=(Pitch=-3000,Yaw=-4000)
-     
-	 RecoilXCurve=(Points=(,(InVal=0.200000,OutVal=0.030000),(InVal=0.400000,OutVal=0.050000),(InVal=0.600000,OutVal=0.10000),(InVal=0.800000,OutVal=0.120000),(InVal=1.000000,OutVal=0.16)))
-     RecoilYCurve=(Points=(,(InVal=0.100000,OutVal=0.100000),(InVal=0.200000,OutVal=0.25),(InVal=0.400000,OutVal=0.500000),(InVal=0.600000,OutVal=0.600000),(InVal=1.000000,OutVal=1.000000)))
-     RecoilXFactor=0.150000
-     RecoilYFactor=0.150000
-     RecoilDeclineTime=0.800000
-	 RecoilDeclineDelay=0.120000
      
 	 FireModeClass(0)=Class'BWBPArchivePackDE.M7A3PrimaryFire'
      FireModeClass(1)=Class'BCoreDE.BallisticScopeFire'
@@ -117,7 +101,6 @@ defaultproperties
      Priority=33
      CustomCrossHairTextureName="Crosshairs.HUD.Crosshair_Cross1"
      InventoryGroup=3
-	 InventorySize=12
      PickupClass=Class'BWBPArchivePackDE.M7A3Pickup'
      PlayerViewOffset=(X=10.000000,Y=5.500000,Z=-7.000000)
      AttachmentClass=Class'BWBPArchivePackDE.M7A3Attachment'
@@ -130,6 +113,7 @@ defaultproperties
      LightSaturation=150
      LightBrightness=150.000000
      LightRadius=5.000000
+	 ParamsClass=Class'M7A3WeaponParams'
      Mesh=SkeletalMesh'BWWeaponPackAnims.M7A3_FPm'
      DrawScale=1.0000000
 }

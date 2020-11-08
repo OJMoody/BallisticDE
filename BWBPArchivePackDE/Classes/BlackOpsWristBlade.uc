@@ -119,7 +119,6 @@ defaultproperties
      Description="X5W Black Ops Wrist Blade||Manufacturer: Enravion Combat Solutions|Primary: Slash|Secondary: Prepared Slash|Special: Block||A rare variant of the X5 short combat sword, the X5W is a special edition wrist blade developed for the UTC Black Ops paramilitary forces. Given to the elite assassination squads during the Skrith wars, this blade proved itself many times in close quarters combat. It is constructed using modern forging techniques and the highest quality materials, is built to last and is one of the only blades capable of standing its own against a charging Skrith warrior. Don't leave home without one."
      DisplayFOV=65.000000
      Priority=12
-	 InventorySize=2
      CenteredOffsetY=7.000000
      CenteredRoll=0
      CustomCrossHairTextureName="Crosshairs.HUD.Crosshair_Cross1"
@@ -131,6 +130,7 @@ defaultproperties
      IconMaterial=Texture'BallisticRecolorsArchive4.BlkOpsBlade.SmallIcon_WristBld'
      IconCoords=(X2=127,Y2=31)
      ItemName="X5W Black Ops Blade"
+	 ParamsClass=Class'BOBWeaponParams'
      Mesh=SkeletalMesh'BWBPArchivePack1Anim.BlackOpsWristBladeM'
      DrawScale=1.250000
 }

@@ -210,7 +210,8 @@ defaultproperties
      DamageHead=12.000000
      DamageLimb=8.000000
      WaterRangeAtten=0.800000
-     DamageType=Class'BWBPArchivePackDE.DT_SkrithStaff'
+     FireRecoil=5.000000
+	 DamageType=Class'BWBPArchivePackDE.DT_SkrithStaff'
      DamageTypeHead=Class'BWBPArchivePackDE.DT_SkrithStaffHead'
      DamageTypeArm=Class'BWBPArchivePackDE.DT_SkrithStaff'
      PenetrateForce=200

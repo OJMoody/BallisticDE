@@ -61,7 +61,7 @@ defaultproperties
      FlashScaleFactor=0.050000
      BrassClass=Class'BallisticDE.Brass_Pistol'
      BrassOffset=(X=-25.000000,Z=-5.000000)
-     RecoilPerShot=80.000000
+     FireRecoil=80.000000
      XInaccuracy=8.000000
      YInaccuracy=8.000000
      BallisticFireSound=(Sound=Sound'BWWeaponPack2Archive-Sounds.P90.P90Fire',Volume=1.300000)

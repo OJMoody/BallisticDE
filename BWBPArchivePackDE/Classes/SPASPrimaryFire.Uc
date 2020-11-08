@@ -39,8 +39,8 @@ defaultproperties
      MuzzleFlashClass=Class'BallisticDE.MRT6FlashEmitter'
      BrassClass=Class'BallisticDE.Brass_Shotgun'
      bBrassOnCock=True
-     RecoilPerShot=900.000000
-	 VelocityRecoil=180.000000
+     FireRecoil=900.000000
+	 FirePushBackForce=180.000000
      FireChaos=0.500000
      XInaccuracy=190.000000
      YInaccuracy=270.000000

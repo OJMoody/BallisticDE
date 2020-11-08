@@ -112,12 +112,6 @@ simulated event AnimEnd (int Channel)
 
 simulated function BringUp(optional Weapon PrevWeapon)
 {
-	if (Instigator != None && AIController(Instigator.Controller) != None)
-	{
-		AimSpread *= 0.30;
-		ChaosAimSpread *= 0.000;
-	}
-
 	if (bFirstDraw && MagAmmo > 0)
 	{
      	BringUpTime=2.0;
@@ -135,7 +129,6 @@ simulated function BringUp(optional Weapon PrevWeapon)
 		SetBoneScale (0, 0.0, GrenBone);
 		SetBoneScale (1, 0.0, GrenBoneBase);
 	}
-	
 	if (MagAmmo - BFireMode[0].ConsumedLoad < 1)
 	{
 
@@ -143,14 +136,11 @@ simulated function BringUp(optional Weapon PrevWeapon)
 		SetBoneScale(3,0.0,BulletBone2);
 		ReloadAnim = 'ReloadEmpty';
 	}
-	
 	else
 	{
 		ReloadAnim = 'Reload';
 	}
-
 	super.BringUp(PrevWeapon);
-
 }
 
 simulated function bool PutDown()
@@ -255,25 +245,6 @@ simulated function IndirectLaunch()
 //	StartFire(1);
 }
 
-
-// Change some properties when using sights...
-simulated function SetScopeBehavior()
-{
-	super.SetScopeBehavior();
-	bUseNetAim = default.bUseNetAim || bScopeView;
-	if (bScopeView)
-	{
-//		SightAimFactor = 0.0;
-        	FireMode[0].FireAnim='SightFire';
-	}
-	else
-	{
-//		SightAimFactor = default.ViewRecoilFactor;
-        	FireMode[0].FireAnim='Fire';
-	}
-}
-
-
 // HARDCODED SIGHTING TIME
 simulated function TickSighting (float DT)
 {
@@ -342,7 +313,7 @@ function byte BestMode()
 
 	if (B.Skill > Rand(6))
 	{
-		if (Chaos < 0.1 || Chaos < 0.5 && VSize(B.Enemy.Location - Instigator.Location) > 500)
+		if (AimComponent.GetChaos() < 0.1 || AimComponent.GetChaos() < 0.5 && VSize(B.Enemy.Location - Instigator.Location) > 500)
 			return 1;
 	}
 	else if (FRand() > 0.75)
@@ -410,23 +381,6 @@ defaultproperties
      SightingTime=0.200000
      GunLength=50.000000
      LongGunOffset=(X=10.000000)
-     CrouchAimFactor=0.000000
-     SightAimFactor=0.000000
-     SprintOffSet=(Pitch=-3500,Yaw=-3000,Roll=3000)
-	 
-	 AimSpread=16
-	 ChaosDeclineTime=1.250000
-     ChaosAimSpread=128
-	 
-     ViewRecoilFactor=0.150000
-	 
-     RecoilXCurve=(Points=(,(InVal=0.100000,OutVal=0.100000),(InVal=0.250000,OutVal=0.180000),(InVal=0.400000,OutVal=0.30000),(InVal=0.800000,OutVal=0.40000),(InVal=1.000000,OutVal=0.60000)))
-     RecoilYCurve=(Points=(,(InVal=0.150000,OutVal=0.180000),(InVal=0.300000,OutVal=0.320000),(InVal=0.500000,OutVal=0.5000),(InVal=0.750000,OutVal=0.750000),(InVal=1.000000,OutVal=1.000000)))
-     RecoilXFactor=0.100000
-     RecoilYFactor=0.075000
-     RecoilDeclineTime=1.000000
-     RecoilDeclineDelay=0.200000
-	 
      FireModeClass(0)=Class'BWBPArchivePackDE.MJ51PrimaryFire'
      FireModeClass(1)=Class'BWBPArchivePackDE.MJ51SecondaryFire'
      IdleAnimRate=0.200000
@@ -453,6 +407,7 @@ defaultproperties
      LightSaturation=150
      LightBrightness=150.000000
      LightRadius=4.000000
+	 ParamsClass=Class'MJ51WeaponParams'
      Mesh=SkeletalMesh'BWBPArchivePack2Anim.M4A1Carbine_FPm'
      DrawScale=0.30000
 }

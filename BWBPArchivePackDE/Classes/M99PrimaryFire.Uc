@@ -72,9 +72,6 @@ simulated event ModeDoFire()
             AIController(Instigator.Controller).WeaponFireAgain(BotRefireRate, true);
         Instigator.DeactivateSpawnProtection();
     }
-    
-	if (!BW.bScopeView)
-		BW.FireChaos = FClamp(BW.FireChaos + FireChaos, 0, 1);
 		
 	BW.LastFireTime = Level.TimeSeconds;
 
@@ -176,9 +173,6 @@ function PlayFiring()
 defaultproperties
 {
      TraceRange=(Min=30000.000000,Max=30000.000000)
-	 XInaccuracy=0
-	 YInaccuracy=0
-	 FireChaos=0.2
 	 WallPenetrationForce=768.000000
 	 AimedFireEmptyAnim="Fire"
      FireEmptyAnim="Fire"
@@ -197,7 +191,7 @@ defaultproperties
      BrassClass=Class'BWBPArchivePackDE.Brass_50BMG'
      bBrassOnCock=True
      BrassOffset=(X=-10.000000,Y=1.000000,Z=-1.000000)
-     RecoilPerShot=7000
+     FireRecoil=7000
      BallisticFireSound=(Sound=Sound'BWWeaponPack2Archive-Sounds.M99.M99FireNew',Volume=10.00000)
      FireRate=2.000000
 	 ScopeDownOn=SDO_Never

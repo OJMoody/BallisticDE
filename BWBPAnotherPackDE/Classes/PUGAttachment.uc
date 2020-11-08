@@ -39,6 +39,7 @@ defaultproperties
      AltFlashBone="Tip2"
 	 TracerMode=MU_Primary
 	 PrePivot=(Z=2.000000)
+	 FlashScale=0.200000
      BrassClass=Class'BWBPAnotherPackDE.Brass_BOLT'
      BrassMode=MU_Both
      FlashMode=MU_Both

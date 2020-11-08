@@ -123,16 +123,19 @@ simulated event ModeDoFire()
 
 defaultproperties
 {
-     ChargeSound=(Sound=Sound'BWBPANotherPackSounds.EP110.EP110-OverCharge',Volume=2.00000)
+     ChargeSound=(Sound=Sound'BWBPAnotherPackSounds.EP110.EP110-OverCharge',Volume=2.00000)
      ChargeSoundPitch=32
      ChargeTime=0.8500000
      MuzzleFlashClass=Class'BWBPAnotherPackDE.EP90PDWFlashEmitter'
 	 DryFireSound=(Sound=Sound'PackageSounds4Pro.LS14.Gauss-Empty',Volume=1.200000)
 	 TraceRange=(Max=6000.000000)
+	 DamageType=Class'BWBPAnotherPackDE.DTEP90PDW'
+     DamageTypeHead=Class'BWBPAnotherPackDE.DTEP90PDWHead'
+     DamageTypeArm=Class'BWBPAnotherPackDE.DTEP90PDW'
 	 Damage=50
 	 DamageLimb=50
 	 DamageHead=50
-     RecoilPerShot=960.000000
+     FireRecoil=960.000000
      FireChaos=0.320000
      FireChaosCurve=(Points=((InVal=0,OutVal=1),(InVal=0.160000,OutVal=1),(InVal=0.250000,OutVal=1.500000),(InVal=0.500000,OutVal=2.250000),(InVal=0.750000,OutVal=3.500000),(InVal=1.000000,OutVal=5.000000)))
      BallisticFireSound=(Sound=Sound'BWBPANotherPackSounds.EP110.EP110-Overblast',Volume=7.800000)

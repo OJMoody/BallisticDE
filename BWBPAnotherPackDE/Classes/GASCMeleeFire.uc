@@ -22,6 +22,22 @@ function PlayPreFire()
 	GASCPistol(Weapon).bStriking = true;
 }
 
+function PlayFiring()
+{
+	if (BW.MagAmmo - ConsumedLoad < 1)
+	{
+		FireAnim = 'MeleeStabOpen';
+		PreFireAnim = 'MeleePrepOpen';
+	}
+	else
+	{
+		FireAnim = 'MeleeStab';
+		PreFireAnim = 'MeleePrep';
+	}
+	super.PlayFiring();
+}
+
+
 defaultproperties
 {
      SwipePoints(0)=(offset=(Pitch=2048,Yaw=2048))
