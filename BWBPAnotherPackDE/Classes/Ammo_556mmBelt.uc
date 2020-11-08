@@ -10,8 +10,8 @@ class Ammo_556mmBelt extends BallisticAmmo;
 
 defaultproperties
 {
-     MaxAmmo=160
-     InitialAmount=80
+     MaxAmmo=170
+     InitialAmount=85
      IconFlashMaterial=Shader'BallisticUI2.Icons.AmmoIconsFlashing'
      PickupClass=Class'BWBPAnotherPackDE.AP_M575Belt'
      IconMaterial=Texture'BallisticUI2.Icons.AmmoIconPage'

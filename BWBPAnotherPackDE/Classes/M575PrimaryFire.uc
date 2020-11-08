@@ -55,14 +55,14 @@ defaultproperties
      BrassClass=Class'BallisticDE.Brass_MG'
      BrassOffset=(X=6.000000,Y=10.000000)
      AimedFireAnim="SightFire"
-     RecoilPerShot=80.000000
+     FireRecoil=80.000000
      FireChaosCurve=(Points=((InVal=0,OutVal=1),(InVal=0.240000,OutVal=1),(InVal=0.350000,OutVal=1.500000),(InVal=0.660000,OutVal=2.250000),(InVal=1.000000,OutVal=3.500000)))
      XInaccuracy=16.000000
      YInaccuracy=16.000000
      BallisticFireSound=(Sound=Sound'BWBPAnotherPackSounds.M575.M575-Fire',Volume=1.600000,Slot=SLOT_Interact,bNoOverride=False)
      bPawnRapidFireAnim=True
      FireEndAnim=
-     FireRate=0.085000
+     FireRate=0.082000
      AmmoClass=Class'BWBPAnotherPackDE.Ammo_556mmBelt'
      ShakeRotMag=(X=64.000000,Y=64.000000,Z=128.000000)
      ShakeRotRate=(X=10000.000000,Y=10000.000000,Z=10000.000000)

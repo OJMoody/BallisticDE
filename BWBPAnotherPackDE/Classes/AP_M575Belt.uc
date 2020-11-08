@@ -10,7 +10,7 @@ class AP_M575Belt extends BallisticAmmoPickup;
 
 defaultproperties
 {
-     AmmoAmount=80
+     AmmoAmount=85
      InventoryType=Class'BWBPAnotherPackDE.Ammo_556mmBelt'
      PickupMessage="You picked up a belt of M575 bullets."
      PickupSound=Sound'BallisticSounds2.Ammo.MGBoxPickup'

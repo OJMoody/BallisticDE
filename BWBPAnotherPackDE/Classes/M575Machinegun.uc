@@ -40,24 +40,6 @@ simulated function PostNetBeginPlay()
 	super.PostNetBeginPlay();
 }
 
-/*function InitWeaponFromTurret(BallisticTurret Turret)
-{
-	bNeedCock = false;
-	Ammo[0].AmmoAmount = Turret.AmmoAmount[0];
-	if (!Instigator.IsLocallyControlled())
-		ClientInitWeaponFromTurret(Turret);
-}*/
-
-/*simulated function ClientInitWeaponFromTurret(BallisticTurret Turret)
-{
-	bNeedCock=false;
-}*/
-
-simulated function TickAim(float DT)
-{
-	Super(BallisticWeapon).TickAim(DT);
-}
-
 simulated event Tick(float DT)
 {
 	if (bScopeAnimEnded)
@@ -373,39 +355,6 @@ function float GetAIRating()
 	return class'BUtil'.static.ReverseDistanceAtten(Rating, 0.75, Dist, 1024, 2048); 
 }
 
-simulated function SetScopeBehavior()
-{
-	bUseNetAim = default.bUseNetAim || bScopeView;
-		
-	if (bScopeView)
-	{
-		ViewAimFactor = 1.0;
-		ViewRecoilFactor = 1.0;
-		AimAdjustTime *= 2;
-		AimSpread = 0;
-		ChaosAimSpread *= SightAimFactor;
-		ChaosDeclineTime *= 2.0;
-		ChaosSpeedThreshold *= 0.5;
-	}
-	else
-	{
-		//PositionSights will handle this for clients
-		if(Level.NetMode == NM_DedicatedServer)
-		{
-			ViewAimFactor = default.ViewAimFactor;
-			ViewRecoilFactor = default.ViewRecoilFactor;
-		}
-
-		AimAdjustTime = default.AimAdjustTime;
-		AimSpread = default.AimSpread;
-		AimSpread *= BCRepClass.default.AccuracyScale;
-		ChaosAimSpread = default.ChaosAimSpread;
-		ChaosAimSpread *= BCRepClass.default.AccuracyScale;
-		ChaosDeclineTime = default.ChaosDeclineTime;
-		ChaosSpeedThreshold = default.ChaosSpeedThreshold;
-	}
-}
-
 simulated function float ChargeBar()
 {
 	return IceCharge/20.0f;
@@ -456,7 +405,6 @@ defaultproperties
      SpecialInfo(0)=(Info="300.0;25.0;0.7;-1.0;0.4;0.4;-999.0")
      BringUpSound=(Sound=Sound'BallisticSounds2.M353.M353-Pullout')
      PutDownSound=(Sound=Sound'BallisticSounds2.M353.M353-Putaway')
-     MagAmmo=80
      CockAnimRate=1.250000
      CockSound=(Sound=Sound'BallisticSounds2.M353.M353-Cock')
      ReloadAnim="ReloadStart"
@@ -476,20 +424,6 @@ defaultproperties
 	 bShowChargingBar=True
      SightPivot=(Pitch=128)
      SightOffset=(X=-2.000000,Y=-0.375000,Z=13.220000)
-     SightingTime=0.550000
-     SightAimFactor=0.700000
-     SprintOffSet=(Pitch=-6000,Yaw=-8000)
-     AimSpread=128
-     ViewRecoilFactor=0.450000
-     ChaosDeclineTime=1.600000
-     ChaosAimSpread=1024
-     RecoilXCurve=(Points=(,(InVal=0.070000,OutVal=0.050000),(InVal=0.100000,OutVal=0.085000),(InVal=0.180000,OutVal=0.060000),(InVal=0.300000,OutVal=0.100000),(InVal=0.500000,OutVal=0.200000),(InVal=0.650000,OutVal=0.300000),(InVal=0.700000,OutVal=0.4500000),(InVal=0.850000,OutVal=0.400000),(InVal=1.000000,OutVal=0.55)))
-     RecoilYCurve=(Points=(,(InVal=0.050000,OutVal=0.070000),(InVal=0.100000,OutVal=0.120000),(InVal=0.200000,OutVal=0.200000),(InVal=0.400000,OutVal=0.400000),(InVal=0.550000,OutVal=0.650000),(InVal=0.650000,OutVal=0.750000),(InVal=0.800000,OutVal=0.820000),(InVal=1.000000,OutVal=1.000000)))
-     RecoilXFactor=0.05000
-     RecoilYFactor=0.05000
-     RecoilMax=12288.000000
-     RecoilDeclineTime=0.500000
-     RecoilDeclineDelay=0.150000
      FireModeClass(0)=Class'BWBPAnotherPackDE.M575PrimaryFire'
      FireModeClass(1)=Class'BWBPAnotherPackDE.M575SecondaryFire'
      SelectAnimRate=1.350000
@@ -516,6 +450,7 @@ defaultproperties
      LightSaturation=150
      LightBrightness=150.000000
      LightRadius=4.000000
+	 ParamsClass=Class'M575WeaponParams'
      Mesh=SkeletalMesh'BWBPAnotherPackAnims.FPm_M575'
      DrawScale=1.000000
 }

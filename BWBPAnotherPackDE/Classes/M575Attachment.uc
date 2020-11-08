@@ -66,11 +66,11 @@ simulated function Vector GetTipLocation()
     local Coords C;
 
 	if (Instigator != None && Instigator.IsFirstPerson() && PlayerController(Instigator.Controller).ViewTarget == Instigator)
-		C =Instigator.Weapon.GetBoneCoords('muzzle');
+		C =Instigator.Weapon.GetBoneCoords('Muzzle');
 	else if (BallisticTurret(Instigator) != None)
-		C = Instigator.GetBoneCoords('muzzle');
+		C = Instigator.GetBoneCoords('Muzzle');
 	else
-		C = GetBoneCoords('muzzle');
+		C = GetBoneCoords('Muzzle');
 	if (Instigator != None && VSize(C.Origin - Instigator.Location) > 250)
 		return Instigator.Location;
     return C.Origin;
@@ -97,7 +97,7 @@ simulated function Vector GetEjectorLocation(optional out Rotator EjectorAngle)
     return C.Origin;
 }
 
-simulated function FlashMuzzleFlash(byte Mode)
+/*simulated function FlashMuzzleFlash(byte Mode)
 {
 	local rotator R;
 
@@ -130,7 +130,7 @@ simulated function FlashMuzzleFlash(byte Mode)
 		MuzzleFlash.Trigger(self, Instigator);
 		if (bRandomFlashRoll)	SetBoneRotation(FlashBone, R, 0, 1.f);
 	}
-}
+}*/
 
 // Spawn a tracer and water tracer
 simulated function SpawnTracer(byte Mode, Vector V)
@@ -251,6 +251,7 @@ defaultproperties
      IceTracerClass=Class'BallisticDE.TraceEmitter_Freeze'
      IceImpactManager=Class'BallisticDE.IM_FreezeHit'
 	 MuzzleFlashClass=Class'BWBPAnotherPackDE.M575FlashEmitter'
+	 AltMuzzleFlashClass=Class'BWBPAnotherPackDE.M575FlashEmitter'
      ImpactManager=Class'BallisticDE.IM_Bullet'
      BrassClass=Class'BallisticDE.Brass_MG'
      TracerClass=Class'BallisticDE.TraceEmitter_Default'
@@ -261,10 +262,10 @@ defaultproperties
      InstantMode=MU_Both
      FlashMode=MU_Both
 	 TracerMix=-3
+	 FlashBone="Muzzle"
      FlyBySound=(Sound=SoundGroup'BallisticSounds2.FlyBys.Bullet-Whizz',Volume=0.700000)
      ReloadAnim="Reload_MG"
      ReloadAnimRate=1.500000
-	 FlashBone="Muzzle"
      bHeavy=True
      bRapidFire=True
      Mesh=SkeletalMesh'BWBPAnotherPackAnims.M575_TPm'
