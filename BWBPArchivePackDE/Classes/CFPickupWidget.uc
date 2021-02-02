@@ -185,8 +185,8 @@ simulated event Destroyed()
 
 defaultproperties
 {
-     LicensePlate=ScriptedTexture'CFMutatorTex.Controls.PickupWidget-ST'
-     LicensePlateBackground=Texture'CFMutatorTex.Controls.PickupWidgetBG'
+     LicensePlate=ScriptedTexture'BWBP_SKC_TexExp.PickupWidget.PickupWidget-ST'
+     LicensePlateBackground=Texture'BWBP_SKC_TexExp.PickupWidget.PickupWidgetBG'
      LicensePlateName="Init"
      MagAmmo=-1
      InventoryGroupNameL(0)="- Melee -"
@@ -201,7 +201,7 @@ defaultproperties
      InventoryGroupNameL(9)="- Grenade / Explosive -"
      InventoryGroupNameL(10)="- Misc -"
      DrawType=DT_StaticMesh
-     StaticMesh=StaticMesh'CFMutatorStatics.Controls.PickupWidget'
+     StaticMesh=StaticMesh'BWBP_SKC_StaticExp.PickupWidget.PickupWidgetStatic'
      bHidden=True
      bAlwaysRelevant=True
      RemoteRole=ROLE_SimulatedProxy

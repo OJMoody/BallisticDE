@@ -99,12 +99,12 @@ function float SuggestDefenseStyle()
 defaultproperties
 {
      PlayerSpeedFactor=1.100000
-     TeamSkins(0)=(RedTex=Shader'BallisticWeapons2.Hands.RedHand-Shiny',BlueTex=Shader'BallisticWeapons2.Hands.BlueHand-Shiny')
-     BigIconMaterial=Texture'BallisticRecolorsArchive4.BlkOpsBlade.BigIcon_WristBld'
+     TeamSkins(0)=(RedTex=Shader'BW_Core_WeaponTex.Hands.RedHand-Shiny',BlueTex=Shader'BW_Core_WeaponTex.Hands.BlueHand-Shiny')
+     BigIconMaterial=Texture'BWBP_SKC_TexExp.BlkOpsBlade.BigIcon_WristBld'
      BCRepClass=Class'BallisticDE.BallisticReplicationInfo'
      SpecialInfo(0)=(Info="360.0;10.0;-999.0;-1.0;-999.0;-999.0;-999.0")
-     BringUpSound=(Sound=Sound'BallisticSounds2.EKS43.EKS-Pullout')
-     PutDownSound=(Sound=Sound'BallisticSounds2.EKS43.EKS-Putaway')
+     BringUpSound=(Sound=Sound'BW_Core_WeaponSound.EKS43.EKS-Pullout')
+     PutDownSound=(Sound=Sound'BW_Core_WeaponSound.EKS43.EKS-Putaway')
      MagAmmo=1
      bNoMag=True
      GunLength=0.000000
@@ -127,10 +127,10 @@ defaultproperties
      PlayerViewOffset=(X=35.000000,Y=50.000000,Z=-40.000000)
      BobDamping=1.000000
      AttachmentClass=Class'BWBPArchivePackDE.BlackOpsWristBladeAttachment'
-     IconMaterial=Texture'BallisticRecolorsArchive4.BlkOpsBlade.SmallIcon_WristBld'
+     IconMaterial=Texture'BWBP_SKC_TexExp.BlkOpsBlade.SmallIcon_WristBld'
      IconCoords=(X2=127,Y2=31)
      ItemName="X5W Black Ops Blade"
 	 ParamsClass=Class'BOBWeaponParams'
-     Mesh=SkeletalMesh'BWBPArchivePack1Anim.BlackOpsWristBladeM'
+     Mesh=SkeletalMesh'BWBP_SKC_AnimExp.FPm_BOB'
      DrawScale=1.250000
 }

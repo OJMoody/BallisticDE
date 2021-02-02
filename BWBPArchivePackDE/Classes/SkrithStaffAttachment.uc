@@ -174,7 +174,7 @@ simulated function Timer()
 defaultproperties
 {
      MuzzleFlashClass=Class'BWBPArchivePackDE.SkrithStaffFlashEmitter'
-	 Mesh=SkeletalMesh'BWSkrithRecolors2Anim.TPm_Staff'
+	 Mesh=SkeletalMesh'BWBP_SWC_Anims.SkrithStaff_TPm'
 	 TracerMode=MU_None
      InstantMode=MU_Secondary
      bRapidFire=True

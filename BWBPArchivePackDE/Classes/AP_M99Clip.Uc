@@ -13,8 +13,8 @@ defaultproperties
      AmmoAmount=5
      InventoryType=Class'BWBPArchivePackDE.Ammo_50ECSRifle'
      PickupMessage="You got 3 rounds of .55 Cal Rifle ammo for the M99-ECS"
-     PickupSound=Sound'BallisticSounds2.Ammo.ClipPickup'
-     StaticMesh=StaticMesh'BallisticHardware2.Ammo.R78Clip'
+     PickupSound=Sound'BW_Core_WeaponSound.Ammo.ClipPickup'
+     StaticMesh=StaticMesh'BW_Core_WeaponStatic.Ammo.R78Clip'
      DrawScale=0.300000
      CollisionRadius=8.000000
      CollisionHeight=14.000000

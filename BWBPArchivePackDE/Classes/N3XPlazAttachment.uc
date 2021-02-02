@@ -61,15 +61,15 @@ simulated function DoShockWave()
 
 defaultproperties
 {
-     DischargeSound=Sound'BWBP2-Sounds.LightningGun.LG-WaterDischarge'
+     DischargeSound=Sound'BW_Core_WeaponSound.LightningGun.LG-WaterDischarge'
      MeleeAltStrikeAnim="Punchies_UppercutRight"
      ImpactManager=Class'BallisticDE.IM_MRS138TazerHit'
      BrassMode=MU_None
      InstantMode=MU_Both
      FlashMode=MU_None
      LightMode=MU_None
-	 AmbientSound=Sound'PackageSoundsArchive4.NEX.NEX-Idle'
-	 Mesh=SkeletalMesh'BWBPArchivePack1Anim.TPm_NEXPlasEdge'
+	 AmbientSound=Sound'BWBP_SKC_SoundsExp.NEX.NEX-Idle'
+	 Mesh=SkeletalMesh'BWBP_SKC_AnimExp.NEX_TPm'
      DrawScale=0.130000
 	 bFullVolume=True
      SoundVolume=255

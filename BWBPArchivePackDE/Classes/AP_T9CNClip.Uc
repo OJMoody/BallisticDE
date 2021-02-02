@@ -13,8 +13,8 @@ defaultproperties
      AmmoAmount=24
      InventoryType=Class'BWBPArchivePackDE.Ammo_9mmT9CN'
      PickupMessage="You got 2 12 round 9mm clips"
-     PickupSound=Sound'BallisticSounds2.Ammo.ClipPickup'
-     StaticMesh=StaticMesh'BWBP4-Hardware.Glock.Glock-Ammo'
+     PickupSound=Sound'BW_Core_WeaponSound.Ammo.ClipPickup'
+     StaticMesh=StaticMesh'BW_Core_WeaponStatic.Glock.Glock-Ammo'
      DrawScale=0.160000
 	 PrePivot=(Z=50.000000)
      CollisionRadius=8.000000

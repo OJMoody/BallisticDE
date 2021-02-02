@@ -22,9 +22,9 @@ defaultproperties
      TracerMix=-3
      WaterTracerClass=Class'BallisticDE.TraceEmitter_WaterBullet'
      WaterTracerMode=MU_Both
-     FlyBySound=(Sound=SoundGroup'BallisticSounds2.FlyBys.Bullet-Whizz',Volume=0.700000)
+     FlyBySound=(Sound=SoundGroup'BW_Core_WeaponSound.FlyBys.Bullet-Whizz',Volume=0.700000)
      bRapidFire=True
      bAltRapidFire=True
-     Mesh=SkeletalMesh'BWBPArchivePack1Anim.TP_M9'
+     Mesh=SkeletalMesh'BWBP_SKC_AnimExp.T9CN_TPm'
      DrawScale=0.150000
 }

@@ -11,9 +11,9 @@ defaultproperties
 {
      MaxAmmo=64
      InitialAmount=32
-     IconFlashMaterial=Shader'BWWeaponPackArchive-Tex.MK23.AmmoIcon_MK23Flash'
+     IconFlashMaterial=Shader'BWBP_JCF_Tex.MK23.AmmoIcon_MK23Flash'
      PickupClass=Class'BWBPArchivePackDE.AP_45ACP'
-     IconMaterial=Texture'BWWeaponPackArchive-Tex.MK23.AmmoIcon_MK23'
+     IconMaterial=Texture'BWBP_JCF_Tex.MK23.AmmoIcon_MK23'
      IconCoords=(X2=63,Y2=63)
      ItemName="45. ACP Bullets"
 }

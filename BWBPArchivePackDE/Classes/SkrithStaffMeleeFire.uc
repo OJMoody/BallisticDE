@@ -10,8 +10,6 @@ class SkrithStaffMeleeFire extends BallisticMeleeFire;
 
 defaultproperties
 {
-     DamageHead=75.000000
-     DamageLimb=75.000000
      DamageType=Class'BWBPArchivePackDE.DT_SkrithStaffStab'
      DamageTypeHead=Class'BWBPArchivePackDE.DT_SkrithStaffStabHead'
      DamageTypeArm=Class'BWBPArchivePackDE.DT_SkrithStaffStab'
@@ -22,7 +20,7 @@ defaultproperties
      bReleaseFireOnDie=False
      bIgnoreReload=True
      ScopeDownOn=SDO_PreFire
-     BallisticFireSound=(Sound=Sound'BallisticSounds3.A73.A73Stab',Volume=0.5,Radius=32.000000,bAtten=True)
+     BallisticFireSound=(Sound=Sound'BW_Core_WeaponSound.A73.A73Stab',Volume=0.5,Radius=32.000000,bAtten=True)
      bAISilent=True
      bFireOnRelease=True
      PreFireAnim="PrepStab"

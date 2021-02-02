@@ -27,8 +27,6 @@ defaultproperties
      ImpactManager=Class'BallisticDE.IM_Shell'
      TraceRange=(Min=4000.000000,Max=6000.000000)
      Damage=9.000000
-     DamageHead=9.000000
-     DamageLimb=9.000000
      RangeAtten=0.300000
      DamageType=Class'BWBPArchivePackDE.DTSPASShotgun'
      DamageTypeHead=Class'BWBPArchivePackDE.DTSPASShotgunHead'
@@ -45,7 +43,7 @@ defaultproperties
      XInaccuracy=190.000000
      YInaccuracy=270.000000
 	 FlashScaleFactor=0.1
-     BallisticFireSound=(Sound=Sound'BWWeaponPack2Archive-Sounds.DE.Fire_SPAS_Cock',Volume=1.500000)
+     BallisticFireSound=(Sound=Sound'BWBP_JCF_Sounds.DE.Fire_SPAS_Cock',Volume=1.500000)
 	 FireAnim="FireCock"
 	 AimedFireAnim="SightFireCock"
 	 FireEndAnim=

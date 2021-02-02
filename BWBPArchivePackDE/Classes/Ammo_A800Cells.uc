@@ -12,9 +12,9 @@ defaultproperties
 {
      MaxAmmo=360
      InitialAmount=180
-     IconFlashMaterial=Shader'BWSkrithRecolorsArchive2Tex.SkrithMinigun.AmmoIcon_SkrithBigCellFlash'
+     IconFlashMaterial=Shader'BWBP_SWC_Tex.SkrithMinigun.AmmoIcon_SkrithBigCellFlash'
      PickupClass=Class'BallisticDE.AP_A73Clip'
-     IconMaterial=Texture'BWSkrithRecolorsArchive2Tex.SkrithMinigun.AmmoIcon_SkrithBigCell'
+     IconMaterial=Texture'BWBP_SWC_Tex.SkrithMinigun.AmmoIcon_SkrithBigCell'
      IconCoords=(X1=256,Y1=64,X2=319,Y2=127)
      ItemName="Skrith Heavy Cell Ammo"
 }

@@ -19,7 +19,6 @@ defaultproperties
      bCanBeBlocked=True
      ShieldDamage=15
      DamageIdent="Melee"
-     bDisplaceAim=True
      AimDisplacementDamageThreshold=25
      AimDisplacementDuration=0.500000
      DamageDescription=",Blunt,Electro"
@@ -32,7 +31,7 @@ defaultproperties
      bInstantHit=True
      bCauseConvulsions=True
      bNeverSevers=True
-     PawnDamageSounds(0)=SoundGroup'BWAddPack-RS-Sounds.MRS38.RSS-ElectroFlesh'
+     PawnDamageSounds(0)=SoundGroup'BW_Core_WeaponSound.MRS38.RSS-ElectroFlesh'
      DamageOverlayMaterial=Shader'XGameShaders.PlayerShaders.LightningHit'
      DamageOverlayTime=0.900000
      GibPerterbation=0.250000

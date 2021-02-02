@@ -4,10 +4,10 @@
 class HVPCMk5Pickup extends BallisticWeaponPickup
 	placeable;
 
-#exec OBJ LOAD FILE=BallisticRecolorsArchive4.utx
-#exec OBJ LOAD FILE=BWBP2-Tex.utx
-#exec OBJ LOAD FILE=BWBP2-FX.utx
-#exec OBJ LOAD FILE=BWBP2Hardware.usx
+#exec OBJ LOAD FILE=BWBP_SKC_TexExp.utx
+#exec OBJ LOAD FILE=BWBP_SKC_Tex.utx
+#exec OBJ LOAD FILE=BW_Core_WeaponTex.utx
+#exec OBJ LOAD FILE=BW_Core_WeaponStatic.usx
 
 
 var float	HeatLevel;
@@ -28,38 +28,38 @@ function InitDroppedPickupFor(Inventory Inv)
 
 simulated function UpdatePrecacheMaterials()
 {
-	Level.AddPrecacheMaterial(Texture'BallisticRecolorsArchive4.XavPlasCannon.Xav-SkinMk2');
-	Level.AddPrecacheMaterial(Texture'BWBP2-Tex.Lighter.LightGlassSkin');
-	Level.AddPrecacheMaterial(Texture'BallisticRecolorsArchive4.XavPlasCannon.XavPackSkin');
-	Level.AddPrecacheMaterial(Texture'BallisticRecolorsArchive4.XavPlasCannon.XavAmmoSkin');
-	Level.AddPrecacheMaterial(Texture'BWBP2-FX.Particles.SparkA1');
-	Level.AddPrecacheMaterial(Texture'BWBP2-FX.Particles.FlareC2');
-	Level.AddPrecacheMaterial(Texture'BWBP2-FX.Particles.LightningBolt2');
-	Level.AddPrecacheMaterial(Texture'BWBP2-FX.Particles.LightningBoltCut2');
+	Level.AddPrecacheMaterial(Texture'BWBP_SKC_TexExp.XavPlasCannon.Xav-SkinMk2');
+	Level.AddPrecacheMaterial(Texture'BW_Core_WeaponTex.Lighter.LightGlassSkin');
+	Level.AddPrecacheMaterial(Texture'BWBP_SKC_Tex.XavPlasCannon.XavPackSkin');
+	Level.AddPrecacheMaterial(Texture'BWBP_SKC_Tex.XavPlasCannon.XavAmmoSkin');
+	Level.AddPrecacheMaterial(Texture'BW_Core_WeaponTex.Particles.SparkA1');
+	Level.AddPrecacheMaterial(Texture'BW_Core_WeaponTex.Particles.FlareC2');
+	Level.AddPrecacheMaterial(Texture'BW_Core_WeaponTex.Particles.LightningBolt2');
+	Level.AddPrecacheMaterial(Texture'BW_Core_WeaponTex.Particles.LightningBoltCut2');
 }
 simulated function UpdatePrecacheStaticMeshes()
 {
-	Level.AddPrecacheStaticMesh(StaticMesh'BWBP2Hardware.LightningGun.LighterAmmo');
-	Level.AddPrecacheStaticMesh(StaticMesh'BWBP2Hardware.LightningGun.LighterPack');
-	Level.AddPrecacheStaticMesh(StaticMesh'BWBP2Hardware.LightningGun.LighterPickupHD');
-	Level.AddPrecacheStaticMesh(StaticMesh'BWBP2Hardware.LightningGun.LighterPickupLD');
+	Level.AddPrecacheStaticMesh(StaticMesh'BW_Core_WeaponStatic.LightningGun.LighterAmmo');
+	Level.AddPrecacheStaticMesh(StaticMesh'BW_Core_WeaponStatic.LightningGun.LighterPack');
+	Level.AddPrecacheStaticMesh(StaticMesh'BW_Core_WeaponStatic.LightningGun.LighterPickupHD');
+	Level.AddPrecacheStaticMesh(StaticMesh'BW_Core_WeaponStatic.LightningGun.LighterPickupLD');
 }
 
 defaultproperties
 {
      bOnSide=False
-     LowPolyStaticMesh=StaticMesh'BWBP2Hardware.LightningGun.LighterPickupLD'
+     LowPolyStaticMesh=StaticMesh'BW_Core_WeaponStatic.LightningGun.LighterPickupLD'
      PickupDrawScale=0.250000
      InventoryType=Class'BWBPArchivePackDE.HVPCMk5PlasmaCannon'
      RespawnTime=20.000000
      PickupMessage="You got the High-Voltage Plasma Cannon Mk5"
-     PickupSound=Sound'BWBP2-Sounds.LightningGun.LG-Putaway'
-     StaticMesh=StaticMesh'BWBP2Hardware.LightningGun.LighterPickupHD'
+     PickupSound=Sound'BW_Core_WeaponSound.LightningGun.LG-Putaway'
+     StaticMesh=StaticMesh'BW_Core_WeaponStatic.LightningGun.LighterPickupHD'
      Physics=PHYS_None
      DrawScale=0.400000
      PrePivot=(Z=-3.000000)
-     Skins(0)=Texture'BallisticRecolorsArchive4.XavPlasCannon.Xav-SkinMk2'
-     Skins(1)=FinalBlend'BWBP2-Tex.Lighter.LightGlassFinal'
-     Skins(2)=Texture'BallisticRecolorsArchive4.XavPlasCannon.XavPackSkin'
+     Skins(0)=Texture'BWBP_SKC_TexExp.XavPlasCannon.Xav-SkinMk2'
+     Skins(1)=FinalBlend'BW_Core_WeaponTex.Lighter.LightGlassFinal'
+     Skins(2)=Texture'BWBP_SKC_Tex.XavPlasCannon.XavPackSkin'
      CollisionHeight=4.500000
 }

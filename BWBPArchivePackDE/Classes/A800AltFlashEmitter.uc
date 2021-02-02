@@ -19,7 +19,7 @@ defaultproperties
      DisableDGV(2)=1
      bAutoInit=False
      Begin Object Class=MeshEmitter Name=MeshEmitter1
-         StaticMesh=StaticMesh'BallisticHardware2.A73.A73MuzzleFlash'
+         StaticMesh=StaticMesh'BW_Core_WeaponStatic.A73.A73MuzzleFlash'
          UseMeshBlendMode=False
          RenderTwoSided=True
          UseParticleColor=True

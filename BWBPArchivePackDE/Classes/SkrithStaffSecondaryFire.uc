@@ -204,11 +204,9 @@ simulated function SendFireEffect(Actor Other, vector HitLocation, vector HitNor
 
 defaultproperties
 {
-     FireSoundLoop=Sound'BWBPArchivePackSounds.SkrithStaff.SkrithStaff-Laser'
+     FireSoundLoop=Sound'BWBP_SWC_Sounds.SkrithStaff.SkrithStaff-Laser'
      TraceRange=(Min=10000.000000,Max=10000.000000)
      Damage=8.000000
-     DamageHead=12.000000
-     DamageLimb=8.000000
      WaterRangeAtten=0.800000
      FireRecoil=5.000000
 	 DamageType=Class'BWBPArchivePackDE.DT_SkrithStaff'
@@ -222,7 +220,7 @@ defaultproperties
 	 XInaccuracy=2.000000
      YInaccuracy=2.000000
 	 FlashBone="Muzzle"
-     BallisticFireSound=(Sound=Sound'BWBP4-Sounds.VPR.VPR-Fire',Volume=1.200000,Slot=SLOT_Interact,bNoOverride=False)
+     BallisticFireSound=(Sound=Sound'BW_Core_WeaponSound.VPR.VPR-Fire',Volume=1.200000,Slot=SLOT_Interact,bNoOverride=False)
      bPawnRapidFireAnim=True
      FireAnim=
      AimedFireAnim="SecFireLoopSight"

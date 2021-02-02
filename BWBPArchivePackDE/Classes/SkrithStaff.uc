@@ -490,18 +490,18 @@ simulated function ClientSwitchCannonMode (byte newMode)
 
 defaultproperties
 {
-     //TeamSkins(0)=(RedTex=Shader'BallisticWeapons2.Hands.RedHand-Shiny',BlueTex=Shader'BallisticWeapons2.Hands.BlueHand-Shiny')
-     UsedAmbientSound=Sound'BallisticSounds2.A73.A73Hum1'
-     BigIconMaterial=Texture'BWSkrithRecolorsArchive2Tex.SkrithStaff.BigIcon_SkrithStaff'
+     //TeamSkins(0)=(RedTex=Shader'BW_Core_WeaponTex.Hands.RedHand-Shiny',BlueTex=Shader'BW_Core_WeaponTex.Hands.BlueHand-Shiny')
+     UsedAmbientSound=Sound'BW_Core_WeaponSound.A73.A73Hum1'
+     BigIconMaterial=Texture'BWBP_SWC_Tex.SkrithStaff.BigIcon_SkrithStaff'
      BCRepClass=Class'BallisticDE.BallisticReplicationInfo'
      bWT_RapidProj=True
      bWT_Energy=True
      SpecialInfo(0)=(Info="300.0;25.0;0.5;85.0;0.2;0.2;0.2")
-     BringUpSound=(Sound=Sound'BallisticSounds2.A73.A73Pullout')
-     PutDownSound=(Sound=Sound'BallisticSounds2.A73.A73Putaway')
-     ClipHitSound=(Sound=Sound'BallisticSounds2.A73.A73-ClipHit')
-     ClipOutSound=(Sound=Sound'BallisticSounds2.A73.A73-ClipOut')
-     ClipInSound=(Sound=Sound'BallisticSounds2.A73.A73-ClipIn')
+     BringUpSound=(Sound=Sound'BW_Core_WeaponSound.A73.A73Pullout')
+     PutDownSound=(Sound=Sound'BW_Core_WeaponSound.A73.A73Putaway')
+     ClipHitSound=(Sound=Sound'BW_Core_WeaponSound.A73.A73-ClipHit')
+     ClipOutSound=(Sound=Sound'BW_Core_WeaponSound.A73.A73-ClipOut')
+     ClipInSound=(Sound=Sound'BW_Core_WeaponSound.A73.A73-ClipIn')
      ClipInFrame=0.700000
      bNonCocking=True
      WeaponModes(0)=(ModeName="Plasma Charge",ModeID="WM_FullAuto")
@@ -531,7 +531,7 @@ defaultproperties
      PickupClass=Class'BWBPArchivePackDE.SkrithStaffPickup'
      BobDamping=1.600000
      AttachmentClass=Class'BWBPArchivePackDE.SkrithStaffAttachment'
-     IconMaterial=Texture'BWSkrithRecolorsArchive2Tex.SkrithStaff.SmallIcon_SkrithStaff'
+     IconMaterial=Texture'BWBP_SWC_Tex.SkrithStaff.SmallIcon_SkrithStaff'
      IconCoords=(X2=127,Y2=31)
      ItemName="Skrith Shillelagh"
      LightType=LT_Pulse
@@ -541,7 +541,7 @@ defaultproperties
      LightBrightness=192.000000
      LightRadius=12.000000
 	 ParamsClass=Class'SkrithStaffWeaponParams'
-	 Mesh=SkeletalMesh'BWSkrithRecolors2Anim.FPm_SkrithStaff'
+	 Mesh=SkeletalMesh'BWBP_SWC_Anims.FPm_SkrithStaff'
      DrawScale=1.000000
      SoundPitch=32
      SoundRadius=32.000000

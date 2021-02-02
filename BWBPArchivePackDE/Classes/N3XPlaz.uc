@@ -410,13 +410,13 @@ defaultproperties
      PulseCharge=10.000000
      PulseInterval=0.500000
      HealRatio=5.000000
-     PulseSound=Sound'BWBP2-Sounds2.LightningGun.LG-FireLoop'
+     PulseSound=Sound'BW_Core_WeaponSound.LightningGun.LG-FireLoop'
      PulseDamageType=Class'BWBPArchivePackDE.DTShockN3XPulse'
-	 BringUpSound=(Sound=Sound'PackageSoundsArchive4.NEX.NEX-Pullout',Volume=2.000000)
-	 PutDownSound=(Sound=Sound'BWBPSomeOtherPackSounds.FlameSword.FlameSword-Unequip',Volume=2.000000)
+	 BringUpSound=(Sound=Sound'BWBP_SKC_Sounds.NEX.NEX-Pullout',Volume=2.000000)
+	 PutDownSound=(Sound=Sound'BWBP_OP_Sounds.FlameSword.FlameSword-Unequip',Volume=2.000000)
      PlayerSpeedFactor=1.100000
-     TeamSkins(0)=(RedTex=Shader'BallisticWeapons2.Hands.RedHand-Shiny',BlueTex=Shader'BallisticWeapons2.Hands.BlueHand-Shiny')
-     BigIconMaterial=Texture'BallisticRecolorsArchive4.NEX.BigIcon_Nex'
+     TeamSkins(0)=(RedTex=Shader'BW_Core_WeaponTex.Hands.RedHand-Shiny',BlueTex=Shader'BW_Core_WeaponTex.Hands.BlueHand-Shiny')
+     BigIconMaterial=Texture'BWBP_SKC_TexExp.NEX.BigIcon_Nex'
      BigIconCoords=(X1=96,Y1=10,X2=418,Y2=245)
      BCRepClass=Class'BallisticDE.BallisticReplicationInfo'
      bWT_Heal=True
@@ -448,11 +448,11 @@ defaultproperties
      PickupClass=Class'BWBPArchivePackDE.N3XPlazPickup'
      PlayerViewOffset=(X=40.000000,Z=-10.000000)
      AttachmentClass=Class'BWBPArchivePackDE.N3XPlazAttachment'
-     IconMaterial=Texture'BallisticRecolorsArchive4.NEX.SmallIcon_Nex'
+     IconMaterial=Texture'BWBP_SKC_TexExp.NEX.SmallIcon_Nex'
      IconCoords=(X2=127,Y2=31)
      ItemName="N3X Plaz Edge Sword"
 	 ParamsClass=Class'N3XWeaponParams'
-     Mesh=SkeletalMesh'BWBPArchivePack1Anim.FPm_NEXPlasEdge'
+     Mesh=SkeletalMesh'BWBP_SKC_AnimExp.FPm_NEX'
      DrawScale=3.000000
      bFullVolume=True
      SoundVolume=64

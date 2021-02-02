@@ -23,7 +23,7 @@ class DCTVThorShellTrail extends BallisticEmitter;
          SizeScale(1)=(RelativeTime=1.000000,RelativeSize=3.000000)
          StartSizeRange=(X=(Min=20.000000,Max=25.000000))
          DrawStyle=PTDS_Brighten
-         Texture=Texture'BallisticEffects.Particles.Smoke3'
+         Texture=Texture'BW_Core_WeaponTex.Particles.Smoke3'
          SecondsBeforeInactive=0.000000
          LifetimeRange=(Min=3.500000,Max=3.500000)
      End Object
@@ -44,7 +44,7 @@ defaultproperties
          StartLocationOffset=(X=-10.000000)
          StartSizeRange=(X=(Min=35.000000,Max=35.000000),Y=(Min=60.000000,Max=60.000000),Z=(Min=60.000000,Max=60.000000))
          InitialParticlesPerSecond=20.000000
-         Texture=Texture'BallisticEffects.Particles.DirtSpray'
+         Texture=Texture'BW_Core_WeaponTex.Particles.DirtSpray'
          SecondsBeforeInactive=0.000000
          LifetimeRange=(Min=0.100000,Max=0.100000)
          StartVelocityRange=(X=(Min=-1.000000,Max=-1.000000))
@@ -60,7 +60,7 @@ defaultproperties
          MaxParticles=2
          StartLocationOffset=(X=20.000000)
          StartSizeRange=(X=(Min=60.000000,Max=60.000000),Y=(Min=60.000000,Max=60.000000),Z=(Min=60.000000,Max=60.000000))
-         Texture=Texture'BallisticEffects.Particles.HotFlareA1'
+         Texture=Texture'BW_Core_WeaponTex.Particles.HotFlareA1'
          SecondsBeforeInactive=0.000000
          LifetimeRange=(Min=0.100000,Max=0.100000)
      End Object
@@ -78,7 +78,7 @@ defaultproperties
          MaxParticles=1
          StartSizeRange=(X=(Min=30.000000,Max=30.000000))
          InitialParticlesPerSecond=5000.000000
-         Texture=Texture'BWBP4Vehicle-Tex.ThorTank.TankTrail'
+         Texture=Texture'BWBP_Vehicles_Tex.ThorTank.TankTrail'
          SecondsBeforeInactive=0.000000
          LifetimeRange=(Min=1000.000000,Max=1000.000000)
      End Object

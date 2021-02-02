@@ -63,18 +63,18 @@ function float SuggestDefenseStyle()	{	return 0.8;	}
 
 defaultproperties
 {
-     TeamSkins(0)=(RedTex=Shader'BallisticWeapons2.Hands.RedHand-Shiny',BlueTex=Shader'BallisticWeapons2.Hands.BlueHand-Shiny')
-     BigIconMaterial=Texture'BWWeaponPackArchive-Tex.M7A3.BigIcon_M7A3'
+     TeamSkins(0)=(RedTex=Shader'BW_Core_WeaponTex.Hands.RedHand-Shiny',BlueTex=Shader'BW_Core_WeaponTex.Hands.BlueHand-Shiny')
+     BigIconMaterial=Texture'BWBP_JCF_Tex.M7A3.BigIcon_M7A3'
      BCRepClass=Class'BallisticDE.BallisticReplicationInfo'
      bWT_Bullet=True
      SpecialInfo(0)=(Info="340.0;30.0;1.2;60.0;0.9;0.0;0.0")
-     BringUpSound=(Sound=Sound'BallisticSounds2.R78.R78Pullout')
-     PutDownSound=(Sound=Sound'BallisticSounds2.R78.R78Putaway')
+     BringUpSound=(Sound=Sound'BW_Core_WeaponSound.R78.R78Pullout')
+     PutDownSound=(Sound=Sound'BW_Core_WeaponSound.R78.R78Putaway')
      CockAnimRate=1.250000
-     CockSound=(Sound=Sound'BWWeaponPack2Archive-Sounds.M7A3.Cock',Volume=350.500000)
-     ClipHitSound=(Sound=Sound'BWWeaponPack2Archive-Sounds.M7A3.Reload3',Volume=350.500000)
-     ClipOutSound=(Sound=Sound'BWWeaponPack2Archive-Sounds.M7A3.Reload1',Volume=350.500000)
-     ClipInSound=(Sound=Sound'BWWeaponPack2Archive-Sounds.M7A3.Reload2',Volume=350.500000)
+     CockSound=(Sound=Sound'BWBP_JCF_Sounds.M7A3.Cock',Volume=350.500000)
+     ClipHitSound=(Sound=Sound'BWBP_JCF_Sounds.M7A3.Reload3',Volume=350.500000)
+     ClipOutSound=(Sound=Sound'BWBP_JCF_Sounds.M7A3.Reload1',Volume=350.500000)
+     ClipInSound=(Sound=Sound'BWBP_JCF_Sounds.M7A3.Reload2',Volume=350.500000)
      ClipInFrame=0.650000
      WeaponModes(0)=(ModeName="Single Fire")
      WeaponModes(1)=(bUnavailable=True)
@@ -104,7 +104,7 @@ defaultproperties
      PickupClass=Class'BWBPArchivePackDE.M7A3Pickup'
      PlayerViewOffset=(X=10.000000,Y=5.500000,Z=-7.000000)
      AttachmentClass=Class'BWBPArchivePackDE.M7A3Attachment'
-     IconMaterial=Texture'BWWeaponPackArchive-Tex.M7A3.SmallIcon_M7A3'
+     IconMaterial=Texture'BWBP_JCF_Tex.M7A3.SmallIcon_M7A3'
      IconCoords=(X2=127,Y2=35)
      ItemName="M7A3 Sub-Machine Rifle"
      LightType=LT_Pulse
@@ -114,6 +114,6 @@ defaultproperties
      LightBrightness=150.000000
      LightRadius=5.000000
 	 ParamsClass=Class'M7A3WeaponParams'
-     Mesh=SkeletalMesh'BWWeaponPackAnims.M7A3_FPm'
+     Mesh=SkeletalMesh'BWBP_JCF_Anims.FPm_M7A3'
      DrawScale=1.0000000
 }

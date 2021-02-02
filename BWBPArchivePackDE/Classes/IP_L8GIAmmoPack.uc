@@ -162,5 +162,4 @@ simulated event Tick(float DT)
 defaultproperties
 {
      RespawnTime=0.000000
-     Skins(0)=Texture'BWSkrithRecolorsArchive2Tex.AmmoPack.L8GISkin'
 }

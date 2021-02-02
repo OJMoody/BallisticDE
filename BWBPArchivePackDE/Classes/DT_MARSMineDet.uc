@@ -17,7 +17,7 @@ defaultproperties
      FemaleSuicides(1)="%o found out why her MARS mine had stopped pulsing."
      MaleSuicides(0)="%o tried to fetch his dying MARS mine."
      MaleSuicides(1)="%o found out why his MARS mine had stopped pulsing."
-     WeaponClass=Class'BWBPArchivePackDE.F2000AssaultRifle'
+     WeaponClass=Class'BWBPArchivePackDE.MARS4AssaultRifle'
      DeathString="%o ignored all the warning signs of %k's MARS mine."
      FemaleSuicide="%o found out why her MARS mine had stopped pulsing."
      MaleSuicide="%o found out why his MARS mine had stopped pulsing."

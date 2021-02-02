@@ -14,7 +14,7 @@ defaultproperties
      SpawnOffset=(X=25.000000,Y=10.000000,Z=2.000000)
      BrassBone="tip"
      BrassOffset=(X=-20.000000,Z=-2.000000)
-     BallisticFireSound=(Sound=Sound'BallisticSounds2.NRP57.NRP57-Throw',Radius=32.000000,bAtten=True)
+     BallisticFireSound=(Sound=Sound'BW_Core_WeaponSound.NRP57.NRP57-Throw',Radius=32.000000,bAtten=True)
      PreFireAnim="PrepThrow"
      FireAnim="Throw"
      AmmoClass=Class'BWBPArchivePackDE.Ammo_A51Grenades'

@@ -292,6 +292,6 @@ defaultproperties
      bRapidFire=True
 	 FlashScale=0.100000
 	 PrePivot=(Z=-4.000000)
-     Mesh=SkeletalMesh'BWSkrithRecolors2Anim.SME_TPm'
+     Mesh=SkeletalMesh'BWBP_SWC_Anims.SME_TPm'
      DrawScale=1.000000
 }

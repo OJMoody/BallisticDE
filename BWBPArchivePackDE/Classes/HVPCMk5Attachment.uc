@@ -372,7 +372,7 @@ simulated function InstantFireEffects(byte Mode)
 
 defaultproperties
 {
-     DischargeSound=Sound'BWBP2-Sounds.LightningGun.LG-WaterDischarge'
+     DischargeSound=Sound'BW_Core_WeaponSound.LightningGun.LG-WaterDischarge'
      AltMuzzleFlashClass=Class'BWBPArchivePackDE.HVPCMuzzleFlash'
      ImpactManager=Class'BallisticDE.IM_HVCRedLightning'
      bDoWaterSplash=False
@@ -380,8 +380,8 @@ defaultproperties
      TracerClass=Class'BallisticDE.TraceEmitter_HVCRedLightning'
      bHeavy=True
      bRapidFire=True
-     Mesh=SkeletalMesh'BWBP2b-Anims.HVC-3rd'
+     Mesh=SkeletalMesh'BW_Core_WeaponAnim.HVC_TPm'
      DrawScale=0.150000
-     Skins(0)=Texture'BallisticRecolorsArchive4.XavPlasCannon.Xav-SkinMk2'
-     Skins(1)=FinalBlend'BWBP2-Tex.Lighter.LightGlassFinal'
+     Skins(0)=Texture'BWBP_SKC_TexExp.XavPlasCannon.Xav-SkinMk2'
+     Skins(1)=FinalBlend'BW_Core_WeaponTex.Lighter.LightGlassFinal'
 }

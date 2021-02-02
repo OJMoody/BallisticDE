@@ -4,7 +4,7 @@
 //=============================================================================
 class NTOVBandage extends BallisticHandGrenade;
 
-#exec OBJ LOAD FILE=..\StaticMeshes\BWSkrithRecolorsArchive2Static.usx
+#exec OBJ LOAD FILE=..\StaticMeshes\BWBP_SWC_Static.usx
 
 var() float HealAmount;
 var() Sound HealSound;
@@ -58,20 +58,20 @@ exec simulated function WeaponSpecial(optional byte i)
 defaultproperties
 {
      HealAmount=10.000000
-     HealSound=Sound'BallisticSounds2.Health.NTovPickup'
+     HealSound=Sound'BW_Core_WeaponSound.Health.NTovPickup'
      HeldDamage=200
      HeldRadius=250
      HeldMomentum=55000
      GrenadeSmokeClass=Class'BallisticDE.NRP57Trail'
-     ClipReleaseSound=(Sound=Sound'BallisticSounds3.NRP57.NRP57-ClipOut',Volume=0.500000,Radius=48.000000,Pitch=1.000000,bAtten=True)
-     PinPullSound=(Sound=Sound'BallisticSounds2.M50.M50CamDie')
-     TeamSkins(0)=(RedTex=Shader'BallisticWeapons2.Hands.RedHand-Shiny',BlueTex=Shader'BallisticWeapons2.Hands.BlueHand-Shiny')
-     BigIconMaterial=Texture'BWSkrithRecolorsArchive1Tex.NTOV.BigIcon_NTOV'
+     ClipReleaseSound=(Sound=Sound'BW_Core_WeaponSound.NRP57.NRP57-ClipOut',Volume=0.500000,Radius=48.000000,Pitch=1.000000,bAtten=True)
+     PinPullSound=(Sound=Sound'BW_Core_WeaponSound.M50.M50CamDie')
+     TeamSkins(0)=(RedTex=Shader'BW_Core_WeaponTex.Hands.RedHand-Shiny',BlueTex=Shader'BW_Core_WeaponTex.Hands.BlueHand-Shiny')
+     BigIconMaterial=Texture'BWBP_SWC_Tex.NTOV.BigIcon_NTOV'
      BCRepClass=Class'BallisticDE.BallisticReplicationInfo'
      bWT_Grenade=True
      SpecialInfo(0)=(Info="0.0;5.0;-999.0;25.0;-999.0;0.0;0.5")
-     BringUpSound=(Sound=Sound'BallisticSounds2.NRP57.NRP57-Pullout')
-     PutDownSound=(Sound=Sound'BallisticSounds2.NRP57.NRP57-Putaway')
+     BringUpSound=(Sound=Sound'BW_Core_WeaponSound.NRP57.NRP57-Pullout')
+     PutDownSound=(Sound=Sound'BW_Core_WeaponSound.NRP57.NRP57-Putaway')
      FireModeClass(0)=Class'BWBPArchivePackDE.NTOVSecondaryFire'
      FireModeClass(1)=Class'BWBPArchivePackDE.NTOVSecondaryFire'
      SelectForce="SwitchToAssaultRifle"
@@ -87,10 +87,10 @@ defaultproperties
      PlayerViewPivot=(Pitch=1024,Yaw=-1024)
      BobDamping=1.000000
      AttachmentClass=Class'BWBPArchivePackDE.NTOVAttachment'
-     IconMaterial=Texture'BWSkrithRecolorsArchive1Tex.NTOV.SmallIcon_NTOV'
+     IconMaterial=Texture'BWBP_SWC_Tex.NTOV.SmallIcon_NTOV'
      IconCoords=(X2=127,Y2=31)
      ItemName="N-TOV Emergency Bandage"
 	 ParamsClass=Class'NTOVWeaponParams'
-     Mesh=SkeletalMesh'BWSkrithRecolors1Anim.NTOV_FPm'
+     Mesh=SkeletalMesh'BWBP_SWC_Anims.FPm_NTOV'
      DrawScale=0.400000
 }

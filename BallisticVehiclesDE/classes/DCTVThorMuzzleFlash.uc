@@ -49,7 +49,7 @@ defaultproperties
          StartSizeRange=(X=(Min=150.000000,Max=300.000000),Y=(Min=150.000000,Max=300.000000),Z=(Min=150.000000,Max=300.000000))
          InitialParticlesPerSecond=5000.000000
          DrawStyle=PTDS_AlphaBlend
-         Texture=Texture'BallisticEffects2.Particles.NewSmoke1e'
+         Texture=Texture'BW_Core_WeaponTex.Particles.NewSmoke1e'
          SecondsBeforeInactive=0.000000
          LifetimeRange=(Min=3.000000,Max=3.000000)
          StartVelocityRange=(X=(Max=200.000000),Y=(Min=-500.000000,Max=500.000000),Z=(Min=-15.000000,Max=15.000000))
@@ -58,7 +58,7 @@ defaultproperties
      Emitters(0)=SpriteEmitter'BallisticVehiclesDE.DCTVThorMuzzleFlash.SpriteEmitter0'
 
      Begin Object Class=MeshEmitter Name=MeshEmitter0
-         StaticMesh=StaticMesh'BallisticHardware2.G5.BazookaMuzzleFlash'
+         StaticMesh=StaticMesh'BW_Core_WeaponStatic.G5.BazookaMuzzleFlash'
          UseMeshBlendMode=False
          RenderTwoSided=True
          UseParticleColor=True
@@ -84,7 +84,7 @@ defaultproperties
      Emitters(1)=MeshEmitter'BallisticVehiclesDE.DCTVThorMuzzleFlash.MeshEmitter0'
 
      Begin Object Class=MeshEmitter Name=MeshEmitter1
-         StaticMesh=StaticMesh'BallisticHardware2.G5.BazookaMuzzleFlash'
+         StaticMesh=StaticMesh'BW_Core_WeaponStatic.G5.BazookaMuzzleFlash'
          UseMeshBlendMode=False
          RenderTwoSided=True
          UseParticleColor=True
@@ -125,7 +125,7 @@ defaultproperties
          StartLocationOffset=(X=20.000000,Y=-32.000000)
          StartSizeRange=(X=(Min=120.000000,Max=120.000000),Y=(Min=120.000000,Max=120.000000),Z=(Min=120.000000,Max=120.000000))
          InitialParticlesPerSecond=10000.000000
-         Texture=Texture'BallisticEffects.Particles.FlareB2'
+         Texture=Texture'BW_Core_WeaponTex.Particles.FlareB2'
          SecondsBeforeInactive=0.000000
          LifetimeRange=(Min=0.200000,Max=0.200000)
      End Object
@@ -147,7 +147,7 @@ defaultproperties
          StartLocationOffset=(X=20.000000,Y=32.000000)
          StartSizeRange=(X=(Min=120.000000,Max=120.000000),Y=(Min=120.000000,Max=120.000000),Z=(Min=120.000000,Max=120.000000))
          InitialParticlesPerSecond=10000.000000
-         Texture=Texture'BallisticEffects.Particles.FlareB2'
+         Texture=Texture'BW_Core_WeaponTex.Particles.FlareB2'
          SecondsBeforeInactive=0.000000
          LifetimeRange=(Min=0.200000,Max=0.200000)
      End Object

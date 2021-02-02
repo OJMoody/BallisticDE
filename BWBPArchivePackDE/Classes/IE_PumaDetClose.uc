@@ -202,7 +202,7 @@ defaultproperties
      Emitters(6)=MeshEmitter'BWBPArchivePackDE.IE_PumaDetClose.MeshEmitter3'
 
      Begin Object Class=MeshEmitter Name=MeshEmitter4
-         StaticMesh=StaticMesh'BallisticRecolors4ArchiveStaticA.PUMA.ShieldShard'
+         StaticMesh=StaticMesh'BWBP_SKC_StaticExp.PUMA.ShieldShard'
          UseParticleColor=True
          UseCollision=True
          FadeOut=True
@@ -244,7 +244,7 @@ defaultproperties
          SizeScale(2)=(RelativeTime=1.000000,RelativeSize=1.000000)
          StartSizeRange=(X=(Min=350.000000,Max=350.000000),Y=(Min=350.000000,Max=350.000000),Z=(Min=350.000000,Max=350.000000))
          InitialParticlesPerSecond=5000.000000
-         Texture=Texture'BWBP2-FX.Particles.ElectroShock'
+         Texture=Texture'BW_Core_WeaponTex.Particles.ElectroShock'
          SecondsBeforeInactive=0.000000
          LifetimeRange=(Min=0.400000,Max=0.400000)
      End Object

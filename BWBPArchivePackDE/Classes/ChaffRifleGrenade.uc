@@ -67,7 +67,7 @@ defaultproperties
      Damage=65.000000
      DamageRadius=192.000000
      MyDamageType=Class'BWBPArchivePackDE.DTChaffGrenadeRadius'
-     StaticMesh=StaticMesh'BallisticRecolors4ArchiveStaticA.MJ51.MOACProjLaunched'
+     StaticMesh=StaticMesh'BWBP_SKC_StaticExp.MJ51.MOACProjLaunched'
      DrawScale=0.120000
      bUnlit=False
 }

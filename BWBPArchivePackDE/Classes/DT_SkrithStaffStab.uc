@@ -20,7 +20,7 @@ defaultproperties
      MaleSuicide="%o cut himself on his Shillelagh."
      bArmorStops=False
      bNeverSevers=True
-     PawnDamageSounds(0)=Sound'BallisticSounds2.A73.A73StabFlesh'
+     PawnDamageSounds(0)=Sound'BW_Core_WeaponSound.A73.A73StabFlesh'
      KDamageImpulse=2000.000000
      VehicleDamageScaling=0.500000
 }

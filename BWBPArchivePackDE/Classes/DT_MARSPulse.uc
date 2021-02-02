@@ -22,7 +22,7 @@ defaultproperties
      MaleSuicides(0)="%o strobed out."
      MaleSuicides(1)="%o was fatally attracted to his pretty MARS mine."
      MaleSuicides(2)="%o basked in the blue glow of his MARS mine."
-     WeaponClass=Class'BWBPArchivePackDE.F2000AssaultRifle'
+     WeaponClass=Class'BWBPArchivePackDE.MARS4AssaultRifle'
      DeathString="%o basked in %k's pretty blue MARS pulsewaves."
      FemaleSuicide="%o strobed out."
      MaleSuicide="%o strobed out."

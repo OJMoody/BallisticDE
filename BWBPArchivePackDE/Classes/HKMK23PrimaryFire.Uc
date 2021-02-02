@@ -161,9 +161,7 @@ defaultproperties
      SFlashBone="tip2"
      SFlashScaleFactor=0.200000
      TraceRange=(Max=6000.000000)
-     Damage=32.000000
-     DamageHead=44.000000
-     DamageLimb=32.000000
+     Damage=26.000000
      DamageType=Class'BWBPArchivePackDE.DTHKMK23Pistol'
      DamageTypeHead=Class'BWBPArchivePackDE.DTHKMK23PistolHead'
      DamageTypeArm=Class'BWBPArchivePackDE.DTHKMK23Pistol'
@@ -178,8 +176,8 @@ defaultproperties
      FireChaos=0.280000
      XInaccuracy=108.000000
      YInaccuracy=108.000000
-     SilencedFireSound=(Sound=Sound'BWWeaponPack2Archive-Sounds.MK23.MkFire_2',Volume=1.500000,Radius=24.000000,bAtten=True)
-     BallisticFireSound=(Sound=Sound'BWWeaponPack2Archive-Sounds.DE.MkFire_1',Volume=1.300000)
+     SilencedFireSound=(Sound=Sound'BWBP_JCF_Sounds.MK23.MkFire_2',Volume=1.500000,Radius=24.000000,bAtten=True)
+     BallisticFireSound=(Sound=Sound'BWBP_JCF_Sounds.DE.MkFire_1',Volume=1.300000)
      bPawnRapidFireAnim=True
      FireRate=0.210000
 	 FireAnimRate=1.400000

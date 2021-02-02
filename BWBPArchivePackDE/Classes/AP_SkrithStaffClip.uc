@@ -23,11 +23,11 @@ defaultproperties
      AmmoAmount=120
      InventoryType=Class'BWBPArchivePackDE.Ammo_SSCells'
      PickupMessage="You picked up an energy cell"
-     PickupSound=Sound'BallisticSounds2.Ammo.A73CellPickup'
-     StaticMesh=StaticMesh'BallisticHardware2.Ammo.A73Clip'
+     PickupSound=Sound'BW_Core_WeaponSound.Ammo.A73CellPickup'
+     StaticMesh=StaticMesh'BW_Core_WeaponStatic.Ammo.A73Clip'
      DrawScale=0.300000
-     Skins(0)=Texture'BallisticRecolorsArchive5.A73b.A73BAmmoSkin'
-     Skins(1)=Texture'BallisticRecolorsArchive5.A73b.A73BAmmoSkin'
+     Skins(0)=Texture'BWBP_SKC_Tex.A73b.A73BAmmoSkin'
+     Skins(1)=Texture'BWBP_SKC_Tex.A73b.A73BAmmoSkin'
      CollisionRadius=8.000000
      CollisionHeight=4.800000
 }

@@ -174,23 +174,23 @@ simulated function RocketDie(Actor Rocket)
 defaultproperties
 {
      PlayerSpeedFactor=0.850000
-     TeamSkins(0)=(RedTex=Shader'BallisticWeapons2.Hands.RedHand-Shiny',BlueTex=Shader'BallisticWeapons2.Hands.BlueHand-Shiny')
+     TeamSkins(0)=(RedTex=Shader'BW_Core_WeaponTex.Hands.RedHand-Shiny',BlueTex=Shader'BW_Core_WeaponTex.Hands.BlueHand-Shiny')
      AIReloadTime=4.000000
-     BigIconMaterial=Texture'BWWeaponPackArchive-Tex.rgp.BigIcon_RPG'
+     BigIconMaterial=Texture'BWBP_JCF_Tex.rgp.BigIcon_RPG'
      BCRepClass=Class'BallisticDE.BallisticReplicationInfo'
      bWT_Hazardous=True
      bWT_Splash=True
      bWT_Projectile=True
      bWT_Super=True
      SpecialInfo(0)=(Info="400.0;35.0;1.0;100.0;0.9;0.0;1.5")
-     BringUpSound=(Sound=Sound'BallisticSounds2.G5.G5-Pullout')
-     PutDownSound=(Sound=Sound'BallisticSounds2.G5.G5-Putaway')
+     BringUpSound=(Sound=Sound'BW_Core_WeaponSound.G5.G5-Pullout')
+     PutDownSound=(Sound=Sound'BW_Core_WeaponSound.G5.G5-Putaway')
      MagAmmo=4
-     CockSound=(Sound=Sound'BallisticSounds2.G5.G5-Lever')
+     CockSound=(Sound=Sound'BW_Core_WeaponSound.G5.G5-Lever')
      ReloadAnim="ReloadLoop"
      ReloadAnimRate=1.150000
-     ClipOutSound=(Sound=Sound'BWWeaponPack2Archive-Sounds.RPG.Reload',Volume=2.500000)
-     ClipInSound=(Sound=Sound'BWWeaponPack2Archive-Sounds.RPG.Reload',Volume=2.000000)
+     ClipOutSound=(Sound=Sound'BWBP_JCF_Sounds.RPG.Reload',Volume=2.500000)
+     ClipInSound=(Sound=Sound'BWBP_JCF_Sounds.RPG.Reload',Volume=2.000000)
      bShovelLoad=True
 	 bCanSkipReload=True
      StartShovelAnim="ReloadStart"
@@ -221,7 +221,7 @@ defaultproperties
      PlayerViewOffset=(X=10.000000,Y=8.000000,Z=-8.000000)
      BobDamping=1.800000
      AttachmentClass=Class'BWBPArchivePackDE.RGPAttachment'
-     IconMaterial=Texture'BWWeaponPackArchive-Tex.rgp.SmallIcon_RPG'
+     IconMaterial=Texture'BWBP_JCF_Tex.rgp.SmallIcon_RPG'
      IconCoords=(X2=127,Y2=35)
      ItemName="RGP-7 Soldier Rocket Launcher"
      LightType=LT_Pulse
@@ -231,6 +231,6 @@ defaultproperties
      LightBrightness=192.000000
      LightRadius=12.000000
 	 ParamsClass=Class'RGPWeaponParams'
-     Mesh=SkeletalMesh'BWWeaponPackAnims.RGP7_FPm'
+     Mesh=SkeletalMesh'BWBP_JCF_Anims.FPm_RGP'
      DrawScale=1.200000
 }

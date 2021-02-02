@@ -7,14 +7,14 @@ class NTOVPickup extends BallisticWeaponPickup
 defaultproperties
 {
      bOnSide=False
-     LowPolyStaticMesh=StaticMesh'BWSkrithRecolorsArchive2Static.NTOV.NTovPickup'
+     LowPolyStaticMesh=StaticMesh'BWBP_SWC_Static.NTOV.NTovPickup'
      PickupDrawScale=0.500000
      bWeaponStay=False
      InventoryType=Class'BWBPArchivePackDE.NTOVBandage'
      RespawnTime=20.000000
      PickupMessage="You picked up the N-TOV Emergency Bandage"
-     PickupSound=Sound'BallisticSounds2.Health.NTovPickup'
-     StaticMesh=StaticMesh'BWSkrithRecolorsArchive2Static.NTOV.NTovPickup'
+     PickupSound=Sound'BW_Core_WeaponSound.Health.NTovPickup'
+     StaticMesh=StaticMesh'BWBP_SWC_Static.NTOV.NTovPickup'
      bOrientOnSlope=True
      Physics=PHYS_None
      CollisionRadius=8.000000

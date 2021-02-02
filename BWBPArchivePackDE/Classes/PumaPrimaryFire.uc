@@ -155,7 +155,7 @@ defaultproperties
      BrassClass=Class'BWBPArchivePackDE.Brass_PUMA'
      BrassOffset=(X=-20.000000)
      FireRecoil=128.000000
-     BallisticFireSound=(Sound=Sound'PackageSoundsArchive4A.PUMA.PUMA-Fire')
+     BallisticFireSound=(Sound=Sound'BWBP_SKC_SoundsExp.PUMA.PUMA-Fire')
      bSplashDamage=True
      bRecommendSplashDamage=True
      bTossed=True

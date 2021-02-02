@@ -37,7 +37,7 @@ defaultproperties
      DeathString="%o waddled into %k's noxious acid pool and melted."
      FemaleSuicide="%o dissolved herself in her own gooey A51 acid pool."
      MaleSuicide="%o dissolved himself in his own gooey A51 acid pool."
-     PawnDamageSounds(0)=Sound'BallisticSounds_25.Reptile.Rep_PlayerImpact'
+     PawnDamageSounds(0)=Sound'BW_Core_WeaponSound.Reptile.Rep_PlayerImpact'
      VehicleDamageScaling=1.000000
      TransientSoundVolume=2.000000
 }

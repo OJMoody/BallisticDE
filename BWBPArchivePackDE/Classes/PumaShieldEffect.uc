@@ -1,6 +1,6 @@
 class PumaShieldEffect extends Actor;
 
-#exec OBJ LOAD FILE=BallisticRecolorsArchive5A.utx
+#exec OBJ LOAD FILE=BWBP_SKC_TexExp.utx
 
 var float Brightness, DesiredBrightness;
 var() Material		MatShot;
@@ -36,14 +36,14 @@ defaultproperties
 {
      Brightness=250.000000
      DesiredBrightness=250.000000
-     MatShot=Shader'BallisticRecolorsArchive5A.PUMA.PUMA-ShieldSDO'
-     MatDam=Shader'BallisticRecolorsArchive5A.PUMA.PUMA-ShieldSDR'
+     MatShot=Shader'BWBP_SKC_Tex.PUMA.PUMA-ShieldSDO'
+     MatDam=Shader'BWBP_SKC_Tex.PUMA.PUMA-ShieldSDR'
      DrawType=DT_StaticMesh
-     StaticMesh=StaticMesh'BallisticRecolors4ArchiveStaticA.PUMA.PumaShield'
+     StaticMesh=StaticMesh'BWBP_SKC_Static.PUMA.PumaShield'
      bHidden=True
      bOnlyOwnerSee=True
      RemoteRole=ROLE_None
-     Skins(0)=Shader'BallisticRecolorsArchive5A.PUMA.PUMA-ShieldSD'
+     Skins(0)=Shader'BWBP_SKC_Tex.PUMA.PUMA-ShieldSD'
      AmbientGlow=250
      bUnlit=True
 }

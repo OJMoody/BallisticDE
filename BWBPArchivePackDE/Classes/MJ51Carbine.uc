@@ -354,21 +354,21 @@ defaultproperties
      GrenadeLoadAnim="LoadGrenade"
      GrenBone="Grenade"
      GrenBoneBase="GrenadeHandle"
-     GrenSlideSound=Sound'PackageSoundsArchive4A.MJ51.MJ51-GrenLock'
-     ClipInSoundEmpty=Sound'PackageSoundsArchive4A.MJ51.MJ51-MagInEmpty'
+     GrenSlideSound=Sound'BWBP_SKC_SoundsExp.MJ51.MJ51-GrenLock'
+     ClipInSoundEmpty=Sound'BWBP_SKC_SoundsExp.MJ51.MJ51-MagInEmpty'
      BulletBone="Bullet1"
      BulletBone2="Bullet2"
-     TeamSkins(0)=(RedTex=Shader'BallisticWeapons2.Hands.RedHand-Shiny',BlueTex=Shader'BallisticWeapons2.Hands.BlueHand-Shiny')
+     TeamSkins(0)=(RedTex=Shader'BW_Core_WeaponTex.Hands.RedHand-Shiny',BlueTex=Shader'BW_Core_WeaponTex.Hands.BlueHand-Shiny')
      AIReloadTime=1.000000
-     BigIconMaterial=Texture'BallisticRecolorsArchive5A.M4A1.BigIcon_M4'
+     BigIconMaterial=Texture'BWBP_SKC_TexExp.M4A1.BigIcon_M4'
      BCRepClass=Class'BallisticDE.BallisticReplicationInfo'
      bWT_Bullet=True
      SpecialInfo(0)=(Info="240.0;20.0;0.9;75.0;0.8;0.7;0.2")
-     BringUpSound=(Sound=Sound'PackageSoundsArchive4A.MJ51.MJ51-PullOut',Volume=2.200000)
-     PutDownSound=(Sound=Sound'PackageSoundsArchive4A.MJ51.MJ51-Putaway',Volume=2.200000)
-     CockSound=(Sound=Sound'PackageSoundsArchive4A.MJ51.MJ51-Cock',Volume=2.200000)
-     ClipHitSound=(Sound=Sound'PackageSoundsArchive4A.MJ51.MJ51-MagIn',Volume=4.800000)
-     ClipOutSound=(Sound=Sound'PackageSoundsArchive4A.MJ51.MJ51-MagOut',Volume=4.800000)
+     BringUpSound=(Sound=Sound'BWBP_SKC_Sounds.MJ51.MJ51-PullOut',Volume=2.200000)
+     PutDownSound=(Sound=Sound'BWBP_SKC_Sounds.MJ51.MJ51-Putaway',Volume=2.200000)
+     CockSound=(Sound=Sound'BWBP_SKC_SoundsExp.MJ51.MJ51-Cock',Volume=2.200000)
+     ClipHitSound=(Sound=Sound'BWBP_SKC_SoundsExp.MJ51.MJ51-MagIn',Volume=4.800000)
+     ClipOutSound=(Sound=Sound'BWBP_SKC_SoundsExp.MJ51.MJ51-MagOut',Volume=4.800000)
      ClipInFrame=0.650000
 	 WeaponModes(0)=(ModeName="Semi-Auto",ModeID="WM_SemiAuto",Value=1.000000)
 	 WeaponModes(1)=(ModeName="Burst Fire",ModeID="WM_Burst",Value=3.000000)
@@ -398,7 +398,7 @@ defaultproperties
      PlayerViewOffset=(X=-8.000000,Y=10.000000,Z=-14.000000)
      BobDamping=2.000000
      AttachmentClass=Class'BWBPArchivePackDE.MJ51Attachment'
-     IconMaterial=Texture'BallisticRecolorsArchive5A.M4A1.SmallIcon_M4'
+     IconMaterial=Texture'BWBP_SKC_TexExp.M4A1.SmallIcon_M4'
      IconCoords=(X2=127,Y2=31)
      ItemName="MJ53 Carbine"
      LightType=LT_Pulse
@@ -408,6 +408,6 @@ defaultproperties
      LightBrightness=150.000000
      LightRadius=4.000000
 	 ParamsClass=Class'MJ51WeaponParams'
-     Mesh=SkeletalMesh'BWBPArchivePack2Anim.M4A1Carbine_FPm'
+     Mesh=SkeletalMesh'BWBP_SKC_AnimExp.FPm_MJ55A3'
      DrawScale=0.30000
 }

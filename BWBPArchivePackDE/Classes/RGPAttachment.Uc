@@ -136,6 +136,6 @@ defaultproperties
      BrassMode=MU_None
      InstantMode=MU_None
      bRapidFire=True
-     Mesh=SkeletalMesh'BWWeaponPackAnims.RPG-3rd'
+     Mesh=SkeletalMesh'BWBP_JCF_Anims.RGP_TPm'
      DrawScale=0.230000
 }

@@ -136,12 +136,10 @@ defaultproperties
      SMuzzleFlashClass=Class'BallisticDE.XK2SilencedFlash'
      SFlashBone="tip"
      SFlashScaleFactor=1.000000
-     ClassicFireSound=Sound'PackageSoundsArchive4.M1911.M1911-FireOld'
-     AltFireSound=Sound'PackageSoundsArchive4.M1911.M1911-Fire2'
+     ClassicFireSound=Sound'BWBP_SKC_Sounds.M1911.M1911-FireOld'
+     AltFireSound=Sound'BWBP_SKC_Sounds.M1911.M1911-Fire2'
      TraceRange=(Max=5500.000000)
-     Damage=30
-     DamageHead=42
-     DamageLimb=30
+     Damage=28
      RangeAtten=0.900000
      WaterRangeAtten=0.500000
      DamageType=Class'BWBPArchivePackDE.DTM1911Pistol'
@@ -154,8 +152,8 @@ defaultproperties
      BrassClass=Class'BallisticDE.Brass_Pistol'
      BrassOffset=(X=-25.000000)
      FireRecoil=215.000000
-     //SilencedFireSound=(Sound=Sound'PackageSoundsArchive4.M1911.M1911-FireSil',Volume=0.800000,Radius=24.000000,bAtten=True)
-     BallisticFireSound=(Sound=Sound'PackageSoundsArchive4.M1911.M1911-Fire',Volume=1.200000)
+     //SilencedFireSound=(Sound=Sound'BWBP_SKC_Sounds.M1911.M1911-FireSil',Volume=0.800000,Radius=24.000000,bAtten=True)
+     BallisticFireSound=(Sound=Sound'BWBP_SKC_Sounds.M1911.M1911-Fire',Volume=1.200000)
      bModeExclusive=False
      FireEndAnim=
      FireRate=0.180000

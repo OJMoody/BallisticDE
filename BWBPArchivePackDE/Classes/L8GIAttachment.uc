@@ -11,6 +11,6 @@ class L8GIAttachment extends BallisticGrenadeAttachment;
 defaultproperties
 {
      GrenadeSmokeClass=Class'BallisticDE.NRP57Trail'
-     Mesh=SkeletalMesh'BWSkrithRecolors2Anim.AmmoPack3rd'
+     Mesh=SkeletalMesh'BWBP_SWC_Anims.AmmoPack_TPm'
      DrawScale=0.30000
 }

@@ -12,9 +12,9 @@ defaultproperties
 {
      MaxAmmo=1
      InitialAmount=1
-     IconFlashMaterial=Shader'BWSkrithRecolorsArchive2Tex.AmmoPack.AmmoIcon_AmmoPackFlash'
+     IconFlashMaterial=Shader'BWBP_SWC_Tex.AmmoPack.AmmoIcon_AmmoPackFlash'
      PickupClass=Class'BWBPArchivePackDE.L8GIPickup'
-     IconMaterial=Texture'BWSkrithRecolorsArchive2Tex.AmmoPack.AmmoIcon_AmmoPack'
+     IconMaterial=Texture'BWBP_SWC_Tex.AmmoPack.AmmoIcon_AmmoPack'
      IconCoords=(Y1=64,X2=63,Y2=127)
      ItemName="L8 GI Ammo Pack"
 }

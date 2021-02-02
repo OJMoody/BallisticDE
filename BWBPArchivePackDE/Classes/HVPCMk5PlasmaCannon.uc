@@ -744,21 +744,21 @@ function float SuggestDefenseStyle()	{	return -0.5;	}
 
 defaultproperties
 {
-     VentingSound=Sound'BWBP2-Sounds.LightningGun.LG-Coolant'
-     OverHeatSound=Sound'PackageSoundsArchive4.XavPlas.Xav-Overload'
+     VentingSound=Sound'BW_Core_WeaponSound.LightningGun.LG-Coolant'
+     OverHeatSound=Sound'BWBP_SKC_Sounds.XavPlas.Xav-Overload'
      PlayerSpeedFactor=0.800000
      PlayerJumpFactor=0.700000
-     TeamSkins(0)=(RedTex=Shader'BallisticWeapons2.Hands.RedHand-Shiny',BlueTex=Shader'BallisticWeapons2.Hands.BlueHand-Shiny')
-     UsedAmbientSound=Sound'BWBP2-Sounds.LightningGun.LG-Ambient'
+     TeamSkins(0)=(RedTex=Shader'BW_Core_WeaponTex.Hands.RedHand-Shiny',BlueTex=Shader'BW_Core_WeaponTex.Hands.BlueHand-Shiny')
+     UsedAmbientSound=Sound'BW_Core_WeaponSound.LightningGun.LG-Ambient'
      AIReloadTime=0.200000
-     BigIconMaterial=Texture'BallisticRecolorsArchive4.XavPlasCannon.BigIcon_Xav'
+     BigIconMaterial=Texture'BWBP_SKC_TexExp.XavPlasCannon.BigIcon_Xav'
      BCRepClass=Class'BallisticDE.BallisticReplicationInfo'
      bWT_Hazardous=True
      bWT_Energy=True
      bWT_Super=True
      SpecialInfo(0)=(Info="360.0;50.0;1.0;90.0;0.0;0.5;1.0")
-     BringUpSound=(Sound=Sound'PackageSoundsArchive4.XavPlas.Xav-Select',Volume=2.200000)
-     PutDownSound=(Sound=Sound'BWBP2-Sounds.LightningGun.LG-Putaway',Volume=0.600000)
+     BringUpSound=(Sound=Sound'BWBP_SKC_Sounds.XavPlas.Xav-Select',Volume=2.200000)
+     PutDownSound=(Sound=Sound'BW_Core_WeaponSound.LightningGun.LG-Putaway',Volume=0.600000)
      bNoMag=True
      WeaponModes(1)=(bUnavailable=True,Value=4.000000)
      SightPivot=(Pitch=768)
@@ -780,7 +780,7 @@ defaultproperties
      PlayerViewOffset=(X=-3.000000,Y=9.500000,Z=-9.500000)
      BobDamping=1.600000
      AttachmentClass=Class'BWBPArchivePackDE.HVPCMk5Attachment'
-     IconMaterial=Texture'BallisticRecolorsArchive4.XavPlasCannon.SmallIcon_Xav'
+     IconMaterial=Texture'BWBP_SKC_TexExp.XavPlasCannon.SmallIcon_Xav'
      IconCoords=(X2=127,Y2=31)
      ItemName="H-V Plasma Cannon Mk5"
      LightType=LT_Pulse
@@ -790,10 +790,10 @@ defaultproperties
      LightBrightness=192.000000
      LightRadius=12.000000
 	 ParamsClass=Class'HVPCMk5WeaponParams'
-     Mesh=SkeletalMesh'BWBP2b-Anims.Lighter'
+     Mesh=SkeletalMesh'BW_Core_WeaponAnim.FPm_HVC'
      DrawScale=0.350000
-     Skins(0)=Shader'BallisticWeapons2.Hands.Hands-Shiny'
-     Skins(1)=Texture'BallisticRecolorsArchive4.XavPlasCannon.Xav-SkinMk2'
+     Skins(0)=Shader'BW_Core_WeaponTex.Hands.Hands-Shiny'
+     Skins(1)=Texture'BWBP_SKC_TexExp.XavPlasCannon.Xav-SkinMk2'
      bFullVolume=True
      SoundVolume=64
      SoundRadius=128.000000

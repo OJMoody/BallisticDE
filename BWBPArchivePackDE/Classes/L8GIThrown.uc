@@ -220,7 +220,7 @@ function int GetHealMax(Pawn P)
 }
 
 
-//     StaticMesh=StaticMesh'BallisticHardware2.FP7.FP7Proj'
+//     StaticMesh=StaticMesh'BW_Core_WeaponStatic.FP7.FP7Proj'
 //     TrailClass=Class'BallisticDE.NRP57Trail'
 
 defaultproperties
@@ -228,7 +228,7 @@ defaultproperties
 	 Speed=600.000000
 	 MaxSpeed=600.000000
      HealingAmount=5
-     HealSound=Sound'BallisticSounds2.Ammo.AmmoPackPickup'
+     HealSound=Sound'BW_Core_WeaponSound.Ammo.AmmoPackPickup'
      RandomSpin=1024.000000
      bNoInitialSpin=True
      ImpactDamage=10.000000
@@ -238,10 +238,9 @@ defaultproperties
      Damage=0.000000
      DamageRadius=250.000000
      MyDamageType=Class'BWBPArchivePackDE.DTAmmoPack'
-     ImpactSound=SoundGroup'BallisticSounds2.NRP57.NRP57-Concrete'
-     StaticMesh=StaticMesh'BallisticHardware2.Ammo.AmmoPackHi'
+     ImpactSound=SoundGroup'BW_Core_WeaponSound.NRP57.NRP57-Concrete'
+     StaticMesh=StaticMesh'BW_Core_WeaponStatic.Ammo.AmmoPackHi'
      DrawScale=0.350000
-     Skins(0)=Texture'BWSkrithRecolorsArchive2Tex.AmmoPack.L8GISkin'
      CollisionRadius=16.000000
      CollisionHeight=15.000000
      bBounce=True

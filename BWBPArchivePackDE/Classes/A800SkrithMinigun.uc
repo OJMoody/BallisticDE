@@ -230,24 +230,24 @@ function float SuggestDefenseStyle()	{	return 0.8;	}
 
 defaultproperties
 {
-     BarrelSpinSound=Sound'BallisticSounds2.XMV-850.XMV-BarrelSpinLoop'
-     BarrelStopSound=Sound'BallisticSounds2.XMV-850.XMV-BarrelStop'
-     BarrelStartSound=Sound'BallisticSounds2.XMV-850.XMV-BarrelStart'
+     BarrelSpinSound=Sound'BW_Core_WeaponSound.XMV-850.XMV-BarrelSpinLoop'
+     BarrelStopSound=Sound'BW_Core_WeaponSound.XMV-850.XMV-BarrelStop'
+     BarrelStartSound=Sound'BW_Core_WeaponSound.XMV-850.XMV-BarrelStart'
      PlayerSpeedFactor=0.780000
      PlayerJumpFactor=0.750000
-     TeamSkins(0)=(RedTex=Shader'BallisticWeapons2.Hands.RedHand-Shiny',BlueTex=Shader'BallisticWeapons2.Hands.BlueHand-Shiny')
+     TeamSkins(0)=(RedTex=Shader'BW_Core_WeaponTex.Hands.RedHand-Shiny',BlueTex=Shader'BW_Core_WeaponTex.Hands.BlueHand-Shiny')
      AIReloadTime=4.000000
-     BigIconMaterial=Texture'BWSkrithRecolorsArchive2Tex.SkrithMinigun.BigIcon_SkrithMinigun'
+     BigIconMaterial=Texture'BWBP_SWC_Tex.SkrithMinigun.BigIcon_SkrithMinigun'
      BCRepClass=Class'BallisticDE.BallisticReplicationInfo'
      bWT_Machinegun=True
      bWT_Super=True
      SpecialInfo(0)=(Info="480.0;60.0;2.0;100.0;0.5;0.5;0.5")
-     BringUpSound=(Sound=Sound'BallisticSounds2.XMV-850.XMV-Pullout')
-     PutDownSound=(Sound=Sound'BallisticSounds2.XMV-850.XMV-Putaway')
+     BringUpSound=(Sound=Sound'BW_Core_WeaponSound.XMV-850.XMV-Pullout')
+     PutDownSound=(Sound=Sound'BW_Core_WeaponSound.XMV-850.XMV-Putaway')
      MagAmmo=90
-     ClipHitSound=(Sound=Sound'BallisticSounds2.A73.A73-ClipHit')
-     ClipOutSound=(Sound=Sound'BallisticSounds2.A73.A73-ClipOut')
-     ClipInSound=(Sound=Sound'BallisticSounds2.A73.A73-ClipIn')
+     ClipHitSound=(Sound=Sound'BW_Core_WeaponSound.A73.A73-ClipHit')
+     ClipOutSound=(Sound=Sound'BW_Core_WeaponSound.A73.A73-ClipOut')
+     ClipInSound=(Sound=Sound'BW_Core_WeaponSound.A73.A73-ClipIn')
      ClipInFrame=0.650000
      bNonCocking=True
      WeaponModes(0)=(bUnavailable=True)
@@ -278,7 +278,7 @@ defaultproperties
 	 PlayerViewPivot=(Roll=-256)
      BobDamping=2.200000
      AttachmentClass=Class'BWBPArchivePackDE.A800MinigunAttachment'
-     IconMaterial=Texture'BWSkrithRecolorsArchive2Tex.SkrithMinigun.SmallIcon_SkrithMinigun'
+     IconMaterial=Texture'BWBP_SWC_Tex.SkrithMinigun.SmallIcon_SkrithMinigun'
      IconCoords=(X2=127,Y2=31)
      ItemName="Y11 Skrith Warthog"
      LightType=LT_Pulse
@@ -288,7 +288,7 @@ defaultproperties
      LightBrightness=150.000000
      LightRadius=4.000000
 	 ParamsClass=Class'A800WeaponParams'
-     Mesh=SkeletalMesh'BWSkrithRecolors2Anim.SME_FPm'
+     Mesh=SkeletalMesh'BWBP_SWC_Anims.FPm_SME'
      DrawScale=1.000000
      SoundRadius=128.000000
 }

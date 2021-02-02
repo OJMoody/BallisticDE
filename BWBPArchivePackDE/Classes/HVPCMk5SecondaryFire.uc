@@ -38,7 +38,7 @@ defaultproperties
      FireChaos=0.025000
      XInaccuracy=16.000000
      YInaccuracy=16.000000
-     BallisticFireSound=(Sound=Sound'PackageSoundsArchive4.XavPlas.Xav-FireAlt',Volume=2.000000,Slot=SLOT_Interact,bNoOverride=False)
+     BallisticFireSound=(Sound=Sound'BWBP_SKC_Sounds.XavPlas.Xav-FireAlt',Volume=2.000000,Slot=SLOT_Interact,bNoOverride=False)
      FireAnim="Fire2"
      FireEndAnim=
      FireRate=0.175000

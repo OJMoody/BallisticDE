@@ -31,8 +31,6 @@ defaultproperties
 	 WallPenetrationForce=18.000000
      
 	 Damage=26
-     DamageHead=42
-     DamageLimb=26
      RangeAtten=0.900000
      WaterRangeAtten=0.700000
      DamageType=Class'BWBPArchivePackDE.DTMJ51Assault'
@@ -41,7 +39,7 @@ defaultproperties
      KickForce=18000
      PenetrateForce=150
      bPenetrate=True
-     DryFireSound=(Sound=Sound'BallisticSounds2.D49.D49-DryFire',Volume=0.700000)
+     DryFireSound=(Sound=Sound'BW_Core_WeaponSound.D49.D49-DryFire',Volume=0.700000)
      MuzzleFlashClass=Class'BWBPArchivePackDE.MJ51FlashEmitter'
 	 FlashScaleFactor=0.5
      BrassClass=Class'BallisticDE.Brass_Rifle'
@@ -50,7 +48,7 @@ defaultproperties
      XInaccuracy=16.000000
      YInaccuracy=16.000000
 	 FireChaos=0.040000
-     BallisticFireSound=(Sound=Sound'BWWeaponPack2Archive-Sounds.CommandoFire')
+     BallisticFireSound=(Sound=Sound'BWBP_SKC_SoundsExp.MJ51.MJ55-Fire')
      bPawnRapidFireAnim=True
      AimedFireAnim="SightFire"
 	 FireEndAnim=

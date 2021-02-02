@@ -4,30 +4,30 @@
 class SkrithStaffPickup extends BallisticWeaponPickup
 	placeable;
 
-#exec OBJ LOAD FILE=BallisticWeapons2.utx
-#exec OBJ LOAD FILE=..\Textures\BWSkrithRecolorsArchive2Tex.utx
-#exec OBJ LOAD FILE=..\StaticMeshes\BWSkrithRecolorsArchive2Static.usx
+#exec OBJ LOAD FILE=BW_Core_WeaponTex.utx
+#exec OBJ LOAD FILE=..\Textures\BWBP_SWC_Tex.utx
+#exec OBJ LOAD FILE=..\StaticMeshes\BWBP_SWC_Static.usx
 
 
 simulated function UpdatePrecacheMaterials()
 {
-	Level.AddPrecacheMaterial(Texture'BWSkrithRecolorsArchive2Tex.SkrithStaff.SkrithStaffBladeSkin');
-	Level.AddPrecacheMaterial(Texture'BWSkrithRecolorsArchive2Tex.SkrithStaff.SkrithStaffSkinA');
-	Level.AddPrecacheMaterial(Texture'BWSkrithRecolorsArchive2Tex.SkrithStaff.SkrithStaffSkinB');
+	//Level.AddPrecacheMaterial(Texture'BWBP_SWC_Tex.SkrithStaff.SkrithStaffBladeSkin');
+	//Level.AddPrecacheMaterial(Texture'BWBP_SWC_Tex.SkrithStaff.SkrithStaffSkinA');
+	//Level.AddPrecacheMaterial(Texture'BWBP_SWC_Tex.SkrithStaff.SkrithStaffSkinB');
 }
 simulated function UpdatePrecacheStaticMeshes()
 {
-	Level.AddPrecacheStaticMesh(StaticMesh'BWSkrithRecolorsArchive2Static.SkrithStaff.SkrithStaffPick');
+	Level.AddPrecacheStaticMesh(StaticMesh'BWBP_SWC_Static.SkrithStaff.SkrithStaff_Weapon');
 }
 
 defaultproperties
 {
-     LowPolyStaticMesh=StaticMesh'BWSkrithRecolorsArchive2Static.SkrithStaff.SkrithStaff_Weapon'
+     LowPolyStaticMesh=StaticMesh'BWBP_SWC_Static.SkrithStaff.SkrithStaff_Weapon'
      InventoryType=Class'BWBPArchivePackDE.SkrithStaff'
      RespawnTime=20.000000
      PickupMessage="You picked up the Skrith Shillelagh"
-     PickupSound=Sound'BallisticSounds2.A73.A73Putaway'
-     StaticMesh=StaticMesh'BWSkrithRecolorsArchive2Static.SkrithStaff.SkrithStaff_Weapon'
+     PickupSound=Sound'BW_Core_WeaponSound.A73.A73Putaway'
+     StaticMesh=StaticMesh'BWBP_SWC_Static.SkrithStaff.SkrithStaff_Weapon'
      Physics=PHYS_None
      DrawScale=0.100000
      CollisionHeight=4.500000

@@ -439,10 +439,10 @@ defaultproperties
      LaserDamageType=Class'BallisticDE.DTFP9BombLaser'
      ShotDamageType=Class'BallisticDE.DTFP9BombShot'
      Health=15
-     LaserOnSound=Sound'BallisticSounds2.FP9A5.FP9-LaserOn'
-     LaserOffSound=Sound'BallisticSounds2.FP9A5.FP9-LaserOff'
+     LaserOnSound=Sound'BW_Core_WeaponSound.FP9A5.FP9-LaserOn'
+     LaserOffSound=Sound'BW_Core_WeaponSound.FP9A5.FP9-LaserOff'
      OldLaserRange=-1.000000
-     LaserSkin=Shader'BallisticWeapons2.FP9A5.FP9LCDActiveSD'
+     LaserSkin=Shader'BW_Core_WeaponTex.FP9A5.FP9LCDActiveSD'
      BombDetonateDelay=4.000000
      DetonateOn=DT_None
      DampenFactor=0.500000
@@ -457,7 +457,6 @@ defaultproperties
      SplashManager=Class'BallisticDE.IM_ProjWater'
      ShakeRadius=1200.000000
      MotionBlurRadius=1024.000000
-     bCoverPenetrator=True
      ShakeRotMag=(X=512.000000,Y=400.000000)
      ShakeRotRate=(X=3000.000000,Z=3000.000000)
      ShakeOffsetMag=(X=20.000000,Y=30.000000,Z=30.000000)
@@ -466,15 +465,15 @@ defaultproperties
      DamageRadius=512.000000
      MomentumTransfer=90000.000000
      MyDamageType=Class'BallisticDE.DTNRP57Grenade'
-     ImpactSound=SoundGroup'BallisticSounds2.FP9A5.FP9-Bounce'
-     StaticMesh=StaticMesh'BallisticHardware2.FP9.FP9Proj'
+     ImpactSound=SoundGroup'BW_Core_WeaponSound.FP9A5.FP9-Bounce'
+     StaticMesh=StaticMesh'BW_Core_WeaponStatic.FP9.FP9Proj'
      bNetTemporary=False
      bAlwaysRelevant=True
      LifeSpan=0.000000
      DrawScale=0.250000
-     Skins(0)=Texture'BallisticWeapons2.FP9A5.FP9Bomb'
-     Skins(1)=Texture'BallisticWeapons2.FP9A5.FP9Chain'
-     Skins(2)=Shader'BallisticWeapons2.FP9A5.FP9LCDArmedSD'
+     Skins(0)=Texture'BW_Core_WeaponTex.FP9A5.FP9Bomb'
+     Skins(1)=Texture'BW_Core_WeaponTex.FP9A5.FP9Chain'
+     Skins(2)=Shader'BW_Core_WeaponTex.FP9A5.FP9LCDArmedSD'
      bUnlit=False
      CollisionRadius=6.000000
      CollisionHeight=8.000000

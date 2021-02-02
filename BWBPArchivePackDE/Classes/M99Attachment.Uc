@@ -123,7 +123,7 @@ defaultproperties
      TracerClass=Class'BWBPArchivePackDE.TraceEmitter_M99ECS'
      WaterTracerClass=Class'BallisticDE.TraceEmitter_WaterBullet'
      WaterTracerMode=MU_Both
-     FlyBySound=(Sound=SoundGroup'BallisticSounds2.FlyBys.Bullet-Whizz',Volume=0.700000)
-     Mesh=SkeletalMesh'BWWeaponPackAnims.M99Rifle-3rd'
+     FlyBySound=(Sound=SoundGroup'BW_Core_WeaponSound.FlyBys.Bullet-Whizz',Volume=0.700000)
+     Mesh=SkeletalMesh'BWBP_JCF_Anims.M99_TPm'
      DrawScale=0.190000
 }

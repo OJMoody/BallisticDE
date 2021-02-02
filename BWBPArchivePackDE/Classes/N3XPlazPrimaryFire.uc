@@ -134,17 +134,15 @@ function bool IsValidHealTarget(Pawn Target)
 
 defaultproperties
 {
-     DischargedFireSound=(Sound=Sound'BallisticSounds3.M763.M763Swing',Radius=32.000000,bAtten=True)
+     DischargedFireSound=(Sound=Sound'BW_Core_WeaponSound.M763.M763Swing',Radius=32.000000,bAtten=True)
      FatiguePerStrike=0.015000
      Damage=80.000000
-     DamageHead=80.000000
-     DamageLimb=80.000000
      DamageType=Class'BWBPArchivePackDE.DTShockN3X'
      DamageTypeHead=Class'BWBPArchivePackDE.DTShockN3X'
      DamageTypeArm=Class'BWBPArchivePackDE.DTShockN3X'
      KickForce=20000
      bUseWeaponMag=False
-     BallisticFireSound=(Sound=SoundGroup'PackageSoundsArchive4.NEX.NEX-Slash',Radius=32.000000,bAtten=True)
+     BallisticFireSound=(Sound=SoundGroup'BWBP_SKC_SoundsExp.NEX.NEX-SlashAttack',Radius=32.000000,bAtten=True)
      bAISilent=True
      FireAnim="Chop3"
      FireAnimRate=1.650000

@@ -13,10 +13,9 @@ defaultproperties
      AmmoAmount=3
      InventoryType=Class'BWBPArchivePackDE.Ammo_NTov'
      PickupMessage="You picked up 3 N-TOV bandages"
-     PickupSound=Sound'BallisticSounds2.Health.NTovPickup'
-     StaticMesh=StaticMesh'BWSkrithRecolorsArchive2Static.NTOV.NTovPickup'
+     PickupSound=Sound'BW_Core_WeaponSound.Health.NTovPickup'
+     StaticMesh=StaticMesh'BWBP_SWC_Static.NTOV.NTovPickup'
      DrawScale=0.500000
-     Skins(0)=Texture'BWSkrithRecolorsArchive2Tex.NTOV.NTOVSkin'
      CollisionRadius=12.000000
      CollisionHeight=5.000000
 }

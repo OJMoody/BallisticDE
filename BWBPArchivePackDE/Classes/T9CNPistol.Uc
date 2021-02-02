@@ -108,19 +108,19 @@ function float SuggestDefenseStyle()	{	return 0.5;	}
 defaultproperties
 {
      AIReloadTime=1.000000
-     BigIconMaterial=Texture'BallisticRecolorsArchive4.T9CN.BigIcon_BerSilver'
+     BigIconMaterial=Texture'BWBP_SKC_TexExp.T9CN.BigIcon_BerSilver'
      BCRepClass=Class'BallisticDE.BallisticReplicationInfo'
      bWT_Bullet=True
      bWT_Machinegun=True
      SpecialInfo(0)=(Info="420.0;20.0;1.50;80.0;0.4;0.2;-999.0")
-     BringUpSound=(Sound=Sound'BallisticSounds2.XK2.XK2-Pullout')
-     PutDownSound=(Sound=Sound'BallisticSounds2.XK2.XK2-Putaway')
+     BringUpSound=(Sound=Sound'BW_Core_WeaponSound.XK2.XK2-Pullout')
+     PutDownSound=(Sound=Sound'BW_Core_WeaponSound.XK2.XK2-Putaway')
      MagAmmo=18
 	 BobDamping=2.200000
-     CockSound=(Sound=Sound'PackageSoundsArchive4.T9CN.T9CN-Cock',Volume=300.500000)
-     ClipHitSound=(Sound=Sound'PackageSoundsArchive4.T9CN.T9CN-SlideBack',Volume=1.500000)
-	 ClipOutSound=(Sound=Sound'PackageSoundsArchive4.T9CN.T9CN-ClipOut',Volume=300.500000)
-     ClipInSound=(Sound=Sound'PackageSoundsArchive4.T9CN.T9CN-ClipIn',Volume=300.500000)
+     CockSound=(Sound=Sound'BWBP_SKC_SoundsExp.T9CN.T9CN-Cock',Volume=300.500000)
+     ClipHitSound=(Sound=Sound'BWBP_SKC_SoundsExp.T9CN.T9CN-SlideBack',Volume=1.500000)
+	 ClipOutSound=(Sound=Sound'BWBP_SKC_SoundsExp.T9CN.T9CN-ClipOut',Volume=300.500000)
+     ClipInSound=(Sound=Sound'BWBP_SKC_SoundsExp.T9CN.T9CN-ClipIn',Volume=300.500000)
      ClipInFrame=0.650000
      WeaponModes(1)=(ModeName="Burst of Three",bUnavailable=True)
      WeaponModes(2)=(ModeName="Burst of Six",bUnavailable=True,ModeID="WM_BigBurst",Value=6.000000)
@@ -140,7 +140,7 @@ defaultproperties
      PickupClass=Class'BWBPArchivePackDE.T9CNPickup'
      PlayerViewOffset=(X=7.000000,Y=6.000000,Z=-7.000000)
      AttachmentClass=Class'BWBPArchivePackDE.T9CNAttachment'
-     IconMaterial=Texture'BallisticRecolorsArchive4.T9CN.SmallIcon_BerSilver'
+     IconMaterial=Texture'BWBP_SKC_TexExp.T9CN.SmallIcon_BerSilver'
      IconCoords=(X2=127,Y2=32)
      ItemName="T9CN Automatic Pistol"
      LightType=LT_Pulse
@@ -150,6 +150,6 @@ defaultproperties
      LightBrightness=130.000000
      LightRadius=3.000000
 	 ParamsClass=Class'T9CNWeaponParams'
-     Mesh=SkeletalMesh'BWBPArchivePack1Anim.M9_FPm'
+     Mesh=SkeletalMesh'BWBP_SKC_AnimExp.FPm_T9CN'
      DrawScale=0.200000
 }

@@ -43,10 +43,7 @@ defaultproperties
 	 RangeAtten=0.35
      TraceRange=(Min=15000.000000,Max=15000.000000)
      WallPenetrationForce=24.000000
-	 
-     Damage=22.000000
-     DamageHead=28.000000
-     DamageLimb=22.000000
+     Damage=21.000000
      WaterRangeAtten=0.600000
      DamageType=Class'BWBPArchivePackDE.DTP90SMG'
      DamageTypeHead=Class'BWBPArchivePackDE.DTP90SMGHead'
@@ -54,8 +51,8 @@ defaultproperties
      KickForce=5000
      PenetrateForce=180
      bPenetrate=True
-     ClipFinishSound=(Sound=Sound'BallisticSounds3.Misc.ClipEnd-2',Volume=0.800000,Radius=48.000000,bAtten=True)
-     DryFireSound=(Sound=Sound'BallisticSounds3.Misc.DryPistol',Volume=0.700000)
+     ClipFinishSound=(Sound=Sound'BW_Core_WeaponSound.Misc.ClipEnd-2',Volume=0.800000,Radius=48.000000,bAtten=True)
+     DryFireSound=(Sound=Sound'BW_Core_WeaponSound.Misc.DryPistol',Volume=0.700000)
      bDryUncock=True
      MuzzleFlashClass=Class'BWBPArchivePackDE.P90FlashEmitter'
      FlashScaleFactor=0.050000
@@ -64,7 +61,7 @@ defaultproperties
      FireRecoil=80.000000
      XInaccuracy=8.000000
      YInaccuracy=8.000000
-     BallisticFireSound=(Sound=Sound'BWWeaponPack2Archive-Sounds.P90.P90Fire',Volume=1.300000)
+     BallisticFireSound=(Sound=Sound'BWBP_JCF_Sounds.P90.P90Fire',Volume=1.300000)
      bPawnRapidFireAnim=True
 	 FireAnim="Fire"
 	 AimedFireAnim="SightFire"

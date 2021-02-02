@@ -50,15 +50,15 @@ defaultproperties
      RotationsPerSecond=1.000000
      bInstantRotation=False
      bAmbientFireSound=False
-     RedSkin=Texture'BWBP4Vehicle-Tex.ThorTank.MG'
-     BlueSkin=Texture'BWBP4Vehicle-Tex.ThorTank.MG'
+     RedSkin=Texture'BWBP_Vehicles_Tex.ThorTank.MG'
+     BlueSkin=Texture'BWBP_Vehicles_Tex.ThorTank.MG'
      FireInterval=0.150000
      EffectEmitterClass=Class'BallisticVehiclesDE.DCTVMGFlash'
      AmbientEffectEmitterClass=None
-     FireSoundClass=Sound'BWBP4Vehicle-Sounds.ThorTank.ThorTankMG'
+     FireSoundClass=Sound'BWBP_Vehicles_Sound.ThorTank.ThorTankMG'
      FireSoundVolume=512.000000
      DamageType=Class'BallisticVehiclesDE.DT_ThorTankMG'
      DamageMin=30
      DamageMax=40
-     Mesh=SkeletalMesh'BWBP4Vehicle-Anims.ThorTankMG'
+     Mesh=SkeletalMesh'BWBP_Vehicles_Anim.ThorTankMG'
 }

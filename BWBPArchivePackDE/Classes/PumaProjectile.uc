@@ -177,12 +177,12 @@ defaultproperties
      DamageRadius=300.000000
      MomentumTransfer=10000.000000
      MyDamageType=Class'BWBPArchivePackDE.DT_PUMAGrenade'
-     ImpactSound=Sound'BWAddPack-RS-Sounds.MRS38.RSS-ElectroHit1'
+     ImpactSound=Sound'BW_Core_WeaponSound.MRS38.RSS-ElectroHit1'
      LightHue=180
      LightSaturation=100
      LightBrightness=160.000000
      LightRadius=8.000000
-     StaticMesh=StaticMesh'BallisticRecolors4StaticPro.Bulldog.Frag12Proj'
+     StaticMesh=StaticMesh'BWBP_SKC_Static.Bulldog.Frag12Proj'
      LifeSpan=16.000000
      DrawScale=1.5000000
 }

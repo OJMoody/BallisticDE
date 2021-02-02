@@ -8,5 +8,5 @@ class LaserActor_SSRed extends LaserActor;
 
 defaultproperties
 {
-     Skins(0)=FinalBlend'BWBP4-Tex.Glock.LaserFB'
+     Skins(0)=FinalBlend'BW_Core_WeaponTex.Glock.LaserFB'
 }

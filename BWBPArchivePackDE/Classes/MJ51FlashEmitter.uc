@@ -16,7 +16,7 @@ simulated event PostBeginPlay()
 defaultproperties
 {
      Begin Object Class=MeshEmitter Name=MeshEmitter0
-         StaticMesh=StaticMesh'BallisticRecolors4ArchiveStaticA.MJ51.MJ51MuzzleFlash'
+         StaticMesh=StaticMesh'BWBP_SKC_StaticExp.MJ51.MJ51MuzzleFlash'
          UseMeshBlendMode=False
          RenderTwoSided=True
          UseParticleColor=True
@@ -65,7 +65,7 @@ defaultproperties
          StartLocationOffset=(X=14.000000)
          StartSizeRange=(X=(Min=140.000000,Max=140.000000),Y=(Min=140.000000,Max=140.000000),Z=(Min=140.000000,Max=140.000000))
          DrawStyle=PTDS_Brighten
-         Texture=Texture'BallisticEffects.Particles.FlareB1'
+         Texture=Texture'BW_Core_WeaponTex.Particles.FlareB1'
          SecondsBeforeInactive=0.000000
          LifetimeRange=(Min=0.300000,Max=0.300000)
          SpawnOnTriggerRange=(Min=1.000000,Max=1.000000)
@@ -74,7 +74,7 @@ defaultproperties
      Emitters(1)=SpriteEmitter'BWBPArchivePackDE.MJ51FlashEmitter.SpriteEmitter0'
 
      Begin Object Class=MeshEmitter Name=MeshEmitter1
-         StaticMesh=StaticMesh'BallisticHardware2.Effects.FBlast'
+         StaticMesh=StaticMesh'BW_Core_WeaponStatic.Effects.FBlast'
          UseMeshBlendMode=False
          RenderTwoSided=True
          UseParticleColor=True
@@ -126,7 +126,7 @@ defaultproperties
          SizeScale(2)=(RelativeTime=1.000000,RelativeSize=5.000000)
          StartSizeRange=(X=(Min=3.000000,Max=4.000000),Y=(Min=3.000000,Max=4.000000),Z=(Min=3.000000,Max=4.000000))
          DrawStyle=PTDS_AlphaBlend
-         Texture=Texture'BallisticEffects2.Particles.SmokeWisp-Alpha'
+         Texture=Texture'BW_Core_WeaponTex.Particles.SmokeWisp-Alpha'
          TextureUSubdivisions=4
          TextureVSubdivisions=2
          SecondsBeforeInactive=0.000000
@@ -157,7 +157,7 @@ defaultproperties
          StartSpinRange=(X=(Min=-1.000000,Max=1.000000))
          StartSizeRange=(X=(Min=10.000000,Max=20.000000),Y=(Min=10.000000,Max=20.000000),Z=(Min=10.000000,Max=20.000000))
          DrawStyle=PTDS_AlphaBlend
-         Texture=Texture'BallisticEffects2.Particles.NewSmoke1g'
+         Texture=Texture'BW_Core_WeaponTex.Particles.NewSmoke1g'
          SecondsBeforeInactive=0.000000
          LifetimeRange=(Min=0.900000,Max=0.900000)
          SpawnOnTriggerRange=(Min=1.000000,Max=1.000000)

@@ -7,14 +7,14 @@ class APodPickup extends BallisticWeaponPickup
 defaultproperties
 {
      bOnSide=False
-     LowPolyStaticMesh=StaticMesh'BWSkrithRecolorsArchive2Static.APod.APodPickup'
+     LowPolyStaticMesh=StaticMesh'BWBP_SWC_Static.APod.APodPickup'
      PickupDrawScale=0.150000
      bWeaponStay=False
      InventoryType=Class'BWBPArchivePackDE.APodCapsule'
      RespawnTime=20.000000
      PickupMessage="You picked up the A-Pod Adrenaline Capsule"
-     PickupSound=Sound'BallisticSounds2.Health.AdrenalinPickup'
-     StaticMesh=StaticMesh'BWSkrithRecolorsArchive2Static.APod.APodPickup'
+     PickupSound=Sound'BW_Core_WeaponSound.Health.AdrenalinPickup'
+     StaticMesh=StaticMesh'BWBP_SWC_Static.APod.APodPickup'
      bOrientOnSlope=True
      Physics=PHYS_None
      DrawScale=0.150000

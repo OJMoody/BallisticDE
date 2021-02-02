@@ -12,9 +12,9 @@ defaultproperties
 {
      MaxAmmo=120
      InitialAmount=60
-     IconFlashMaterial=Shader'BWBP4-Tex.Glock.AmmoIcon_GlockClipsFlash'
+     IconFlashMaterial=Shader'BW_Core_WeaponTex.Glock.AmmoIcon_GlockClipsFlash'
      PickupClass=Class'BWBPArchivePackDE.AP_T9CNClip'
-     IconMaterial=Texture'BWBP4-Tex.Glock.AmmoIcon_GlockClips'
+     IconMaterial=Texture'BW_Core_WeaponTex.Glock.AmmoIcon_GlockClips'
      IconCoords=(X2=63,Y2=63)
      ItemName="9mm JHP Bullets"
 }

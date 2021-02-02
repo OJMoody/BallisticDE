@@ -25,8 +25,6 @@ defaultproperties
      SwipePoints(5)=(Weight=1,offset=(Pitch=-1500,Yaw=-1500))
      WallHitPoint=4
      Damage=75
-     DamageHead=75
-     DamageLimb=75
      DamageType=Class'BWBPArchivePackDE.DTBOBTorsoLunge'
      DamageTypeHead=Class'BWBPArchivePackDE.DTBOBHeadLunge'
      DamageTypeArm=Class'BWBPArchivePackDE.DTBOBTorsoLunge'
@@ -34,7 +32,7 @@ defaultproperties
      HookStopFactor=1.700000
      HookPullForce=100.000000
      bReleaseFireOnDie=False
-     BallisticFireSound=(Sound=SoundGroup'BallisticSounds3.UZI.Melee',Volume=2.500000,Radius=32.000000,bAtten=True)
+     BallisticFireSound=(Sound=SoundGroup'BW_Core_WeaponSound.UZI.Melee',Volume=2.500000,Radius=32.000000,bAtten=True)
      bAISilent=True
      bFireOnRelease=True
      PreFireAnim="PrepHack"

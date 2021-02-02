@@ -82,14 +82,14 @@ defaultproperties
      AimedOffset=(X=28.000000,Y=28.000000,Z=34.000000)
      DownwardBias=16.000000
      DrawType=DT_StaticMesh
-     StaticMesh=StaticMesh'BallisticRecolors4ArchiveStaticA.PUMA.PumaShield'
+     StaticMesh=StaticMesh'BWBP_SKC_Static.PUMA.PumaShield'
      bHidden=True
      bReplicateInstigator=True
      Physics=PHYS_Trailer
      RemoteRole=ROLE_SimulatedProxy
      DrawScale=1.500000
-     Skins(0)=FinalBlend'BallisticRecolorsArchive5A.PUMA.PUMAShield3rdFB'
-     Skins(1)=FinalBlend'BallisticRecolorsArchive5A.PUMA.PUMAShieldRip3rdFB'
+     Skins(0)=FinalBlend'BWBP_SKC_Tex.PUMA.PUMAShield3rdFB'
+     Skins(1)=FinalBlend'BWBP_SKC_Tex.PUMA.PUMAShieldRip3rdFB'
      AmbientGlow=250
      bUnlit=True
      bOwnerNoSee=True

@@ -15,8 +15,6 @@ defaultproperties
      CutOffDistance=1024.000000
      CutOffStartRange=476.000000
      Damage=14.000000
-     DamageHead=20.000000
-     DamageLimb=14.000000
      RangeAtten=0.500000
      WaterRangeAtten=0.600000
      DamageType=Class'BWBPArchivePackDE.DTT9CN'
@@ -25,8 +23,8 @@ defaultproperties
      KickForce=5000
      PenetrateForce=180
      bPenetrate=True
-     ClipFinishSound=(Sound=Sound'BallisticSounds3.Misc.ClipEnd-2',Volume=0.800000,Radius=48.000000,bAtten=True)
-     DryFireSound=(Sound=Sound'BallisticSounds3.Misc.DryPistol',Volume=0.700000)
+     ClipFinishSound=(Sound=Sound'BW_Core_WeaponSound.Misc.ClipEnd-2',Volume=0.800000,Radius=48.000000,bAtten=True)
+     DryFireSound=(Sound=Sound'BW_Core_WeaponSound.Misc.DryPistol',Volume=0.700000)
      bDryUncock=True
      MuzzleFlashClass=Class'BWBPArchivePackDE.T9CNFlashEmitter'
      FlashScaleFactor=0.500000
@@ -37,7 +35,7 @@ defaultproperties
      FireRecoil=80.000000
      XInaccuracy=96.000000
      YInaccuracy=96.000000
-     BallisticFireSound=(Sound=Sound'PackageSoundsArchive4.T9CN.T9CN-FireOld',Volume=1.300000)
+     BallisticFireSound=(Sound=Sound'BWBP_SKC_SoundsExp.T9CN.T9CN-FireOld',Volume=1.300000)
      bPawnRapidFireAnim=True
      FireRate=0.100000
      AmmoClass=Class'BWBPArchivePackDE.Ammo_9mmT9CN'

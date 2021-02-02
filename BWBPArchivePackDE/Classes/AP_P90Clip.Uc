@@ -13,8 +13,8 @@ defaultproperties
      AmmoAmount=100
      InventoryType=Class'BWBPArchivePackDE.Ammo_57Nato'
      PickupMessage="You got 2 50 round 5.7mm clips"
-     PickupSound=Sound'BallisticSounds2.Ammo.ClipPickup'
-     StaticMesh=StaticMesh'BWWeaponPackArchive-Static.P90.P90Ammo'
+     PickupSound=Sound'BW_Core_WeaponSound.Ammo.ClipPickup'
+     StaticMesh=StaticMesh'BWBP_JCF_Static.P90.P90Ammo'
      DrawScale=2.350000
      CollisionRadius=8.000000
      CollisionHeight=5.200000

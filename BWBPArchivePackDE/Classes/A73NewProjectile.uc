@@ -157,8 +157,6 @@ defaultproperties
      TrailClass=Class'BallisticDE.A73TrailEmitter'
      MyRadiusDamageType=Class'BWBPArchivePackDE.DTA800MG'
      bUsePositionalDamage=True
-     DamageHead=40.000000
-     DamageLimb=16.000000
      DamageTypeHead=Class'BWBPArchivePackDE.DTA800MGHead'
      SplashManager=Class'BallisticDE.IM_ProjWater'
      Speed=5500.000000
@@ -171,9 +169,9 @@ defaultproperties
      LightSaturation=100
      LightBrightness=192.000000
      LightRadius=6.000000
-     StaticMesh=StaticMesh'BallisticHardware2.A73.A73Projectile'
+     StaticMesh=StaticMesh'BW_Core_WeaponStatic.A73.A73Projectile'
      bDynamicLight=True
-     AmbientSound=Sound'BallisticSounds2.A73.A73ProjFly'
+     AmbientSound=Sound'BW_Core_WeaponSound.A73.A73ProjFly'
      LifeSpan=4.000000
      Style=STY_Additive
      SoundVolume=255

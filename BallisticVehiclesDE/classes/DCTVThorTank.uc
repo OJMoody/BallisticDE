@@ -350,7 +350,7 @@ function bool RecommendLongRangedAttack()
 defaultproperties
 {
      TreadTurnScale=8.000000
-     MovingIdleSound=Sound'BWBP4Vehicle-Sounds.ThorTank.ThorTankMove'
+     MovingIdleSound=Sound'BWBP_Vehicles_Sound.ThorTank.ThorTankMove'
      ThorDustOffSets(0)=(X=-130.000000,Y=-130.000000,Z=-22.000000)
      ThorDustOffSets(1)=(X=-130.000000,Y=130.000000,Z=-22.000000)
      ThorDustOffSets(2)=(X=92.000000,Y=130.000000,Z=-22.000000)
@@ -426,12 +426,12 @@ defaultproperties
      LateralDampFactor=0.900000
      DriverWeapons(0)=(WeaponClass=Class'BallisticVehiclesDE.DCTVThorTankCannon',WeaponBone="TurretWeapon")
      PassengerWeapons(0)=(WeaponPawnClass=Class'BallisticVehiclesDE.DCTVThorTankMGPawn',WeaponBone="TankMGWeapon")
-     RedSkin=Texture'BWBP4Vehicle-Tex.ThorTank.Tank'
-     BlueSkin=Texture'BWBP4Vehicle-Tex.ThorTank.TankBlue'
-     IdleSound=Sound'BWBP4Vehicle-Sounds.ThorTank.ThorTankRun'
-     StartUpSound=Sound'BWBP4Vehicle-Sounds.ThorTank.ThorTankStart'
-     ShutDownSound=Sound'BWBP4Vehicle-Sounds.ThorTank.ThorTankStop'
-     DestroyedVehicleMesh=StaticMesh'BWBP4Vehicle-HW.ThorTank.ThorBustedTank'
+     RedSkin=Texture'BWBP_Vehicles_Tex.ThorTank.Tank'
+     BlueSkin=Texture'BWBP_Vehicles_Tex.ThorTank.TankBlue'
+     IdleSound=Sound'BWBP_Vehicles_Sound.ThorTank.ThorTankRun'
+     StartUpSound=Sound'BWBP_Vehicles_Sound.ThorTank.ThorTankStart'
+     ShutDownSound=Sound'BWBP_Vehicles_Sound.ThorTank.ThorTankStop'
+     DestroyedVehicleMesh=StaticMesh'BWBP_Vehicles_Static.ThorTank.ThorBustedTank'
      DisintegrationEffectClass=Class'BallisticVehiclesDE.DCTVThorDisintegration'
      DisintegrationHealth=-300.000000
      FireImpulse=(X=-150000.000000)
@@ -450,9 +450,9 @@ defaultproperties
      WaterDamage=0.000000
      HealthMax=1500.000000
      Health=1500
-     Mesh=SkeletalMesh'BWBP4Vehicle-Anims.ThorTank'
-     Skins(1)=TexScaler'BWBP4Vehicle-Tex.ThorTank.TrackScaler'
-     Skins(2)=TexScaler'BWBP4Vehicle-Tex.ThorTank.TrackScaler'
+     Mesh=SkeletalMesh'BWBP_Vehicles_Anim.ThorTank'
+     Skins(1)=TexScaler'BWBP_Vehicles_Tex.ThorTank.TrackScaler'
+     Skins(2)=TexScaler'BWBP_Vehicles_Tex.ThorTank.TrackScaler'
      bFullVolume=True
      SoundVolume=255
      Begin Object Class=KarmaParamsRBFull Name=KParams1

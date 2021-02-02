@@ -24,7 +24,7 @@ event ModeDoFire()
 	//if (Trace(HitLoc,HitNorm,Start + vector(Instigator.GetViewRotation()) * 120, Start, true) == None)
     	if (T != None && (xPawn(T) != None && Instigator.GetTeamNum() == xPawn(T).GetTeamNum() && level.Game.bTeamGame) )
 	{
-		//BallisticFireSound.Sound = Sound'BallisticSounds2.FP9A5.FP9-Throw';
+		//BallisticFireSound.Sound = Sound'BW_Core_WeaponSound.FP9A5.FP9-Throw';
     		FireAnim = 'UseOnAlly';
     	}
     	else

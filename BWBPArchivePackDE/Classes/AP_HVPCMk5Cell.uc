@@ -13,11 +13,11 @@ defaultproperties
      AmmoAmount=50
      InventoryType=Class'BWBPArchivePackDE.Ammo_HVPCCells'
      PickupMessage="You got an E-115 Plasma Cell"
-     PickupSound=Sound'BWBP2-Sounds.LightningGun.LG-AmmoPickup'
-     StaticMesh=StaticMesh'BWBP2Hardware.LightningGun.LighterAmmo'
+     PickupSound=Sound'BW_Core_WeaponSound.LightningGun.LG-AmmoPickup'
+     StaticMesh=StaticMesh'BW_Core_WeaponStatic.LightningGun.LighterAmmo'
      DrawScale=0.250000
-     Skins(0)=Texture'BallisticRecolorsArchive4.XavPlasCannon.XavPackSkin'
-     Skins(1)=Texture'BallisticRecolorsArchive4.XavPlasCannon.XavAmmoSkin'
+     Skins(0)=Texture'BWBP_SKC_Tex.XavPlasCannon.XavPackSkin'
+     Skins(1)=Texture'BWBP_SKC_Tex.XavPlasCannon.XavAmmoSkin'
      CollisionRadius=8.000000
      CollisionHeight=4.800000
 }

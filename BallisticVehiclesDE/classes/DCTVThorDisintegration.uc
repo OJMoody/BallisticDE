@@ -110,7 +110,7 @@ defaultproperties
      Emitters(4)=SpriteEmitter'BallisticVehiclesDE.DCTVThorDisintegration.SpriteEmitter66'
 
      Begin Object Class=MeshEmitter Name=MeshEmitter43
-         StaticMesh=StaticMesh'BWBP4Vehicle-HW.ThorTank.ThorBustedTurret'
+         StaticMesh=StaticMesh'BWBP_Vehicles_Static.ThorTank.ThorBustedTurret'
          RespawnDeadParticles=False
          SpinParticles=True
          AutomaticInitialSpawning=False
@@ -185,7 +185,7 @@ defaultproperties
      Emitters(7)=MeshEmitter'BallisticVehiclesDE.DCTVThorDisintegration.MeshEmitter45'
 
      Begin Object Class=MeshEmitter Name=MeshEmitter6
-         StaticMesh=StaticMesh'BWBP4Vehicle-HW.ThorTank.ThorBustedWheel'
+         StaticMesh=StaticMesh'BWBP_Vehicles_Static.ThorTank.ThorBustedWheel'
          UseMeshBlendMode=False
          UseParticleColor=True
          UseCollision=True
@@ -215,7 +215,7 @@ defaultproperties
      Emitters(8)=MeshEmitter'BallisticVehiclesDE.DCTVThorDisintegration.MeshEmitter6'
 
      Begin Object Class=MeshEmitter Name=MeshEmitter7
-         StaticMesh=StaticMesh'BWBP4Vehicle-HW.ThorTank.ThorBustedWheel'
+         StaticMesh=StaticMesh'BWBP_Vehicles_Static.ThorTank.ThorBustedWheel'
          UseMeshBlendMode=False
          UseParticleColor=True
          UseCollision=True
@@ -245,7 +245,7 @@ defaultproperties
      Emitters(9)=MeshEmitter'BallisticVehiclesDE.DCTVThorDisintegration.MeshEmitter7'
 
      Begin Object Class=MeshEmitter Name=MeshEmitter8
-         StaticMesh=StaticMesh'BWBP4Vehicle-HW.ThorTank.ThorBustedWheel'
+         StaticMesh=StaticMesh'BWBP_Vehicles_Static.ThorTank.ThorBustedWheel'
          UseMeshBlendMode=False
          UseParticleColor=True
          UseCollision=True

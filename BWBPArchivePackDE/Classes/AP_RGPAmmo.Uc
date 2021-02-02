@@ -13,8 +13,8 @@ defaultproperties
      AmmoAmount=1
      InventoryType=Class'BWBPArchivePackDE.Ammo_RPG'
      PickupMessage="You picked up a PG-7VL HEAP Rocket"
-     PickupSound=Sound'BallisticSounds2.Ammo.RocketPickup'
-     StaticMesh=StaticMesh'BWWeaponPackArchive-Static.RPG.Rocket'
+     PickupSound=Sound'BW_Core_WeaponSound.Ammo.RocketPickup'
+     StaticMesh=StaticMesh'BWBP_JCF_Static.RPG.Rocket'
      DrawScale=0.500000
      CollisionRadius=8.000000
      CollisionHeight=5.000000

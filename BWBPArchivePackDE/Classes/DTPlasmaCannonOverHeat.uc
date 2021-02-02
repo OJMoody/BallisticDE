@@ -28,7 +28,7 @@ defaultproperties
      MaleSuicides(0)="%o melted his hands with the H-VPC."
      MaleSuicides(1)="%o redlined a plasma cannon."
      MaleSuicides(2)="%o's H-VPC fused to his hands."
-     BloodManagerName="BallisticFix.BloodMan_Lightning"
+     BloodManagerName="BallisticDE.BloodMan_Lightning"
      DamageDescription=",Electro,Hazard"
      WeaponClass=Class'BWBPArchivePackDE.HVPCMk5PlasmaCannon'
      DeathString="%o was overheated by %k."

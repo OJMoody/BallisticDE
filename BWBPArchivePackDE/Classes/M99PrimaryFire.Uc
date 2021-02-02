@@ -176,9 +176,7 @@ defaultproperties
 	 WallPenetrationForce=768.000000
 	 AimedFireEmptyAnim="Fire"
      FireEmptyAnim="Fire"
-     Damage=125.000000
-     DamageHead=250.000000
-     DamageLimb=100.000000
+     Damage=135.000000
      WaterRangeAtten=0.800000
      DamageType=Class'BWBPArchivePackDE.DTM99Rifle'
      DamageTypeHead=Class'BWBPArchivePackDE.DTM99RifleHead'
@@ -192,7 +190,7 @@ defaultproperties
      bBrassOnCock=True
      BrassOffset=(X=-10.000000,Y=1.000000,Z=-1.000000)
      FireRecoil=7000
-     BallisticFireSound=(Sound=Sound'BWWeaponPack2Archive-Sounds.M99.M99FireNew',Volume=10.00000)
+     BallisticFireSound=(Sound=Sound'BWBP_JCF_Sounds.M99.M99FireNew',Volume=10.00000)
      FireRate=2.000000
 	 ScopeDownOn=SDO_Never
      AmmoClass=Class'BWBPArchivePackDE.Ammo_50ECSRifle'

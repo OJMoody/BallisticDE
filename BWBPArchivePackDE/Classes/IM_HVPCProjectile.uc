@@ -12,7 +12,7 @@ defaultproperties
 {
      HitEffects(0)=Class'BWBPArchivePackDE.IE_HVPCGeneral'
      HitDecals(0)=Class'BallisticDE.AD_HVCRedDecal'
-     HitSounds(0)=Sound'PackageSoundsArchive4.XavPlas.Xav-Impact'
+     HitSounds(0)=Sound'BWBP_SKC_Sounds.XavPlas.Xav-Impact'
      HitSoundVolume=1.400000
      HitSoundRadius=256.000000
 }

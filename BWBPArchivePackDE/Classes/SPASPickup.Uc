@@ -6,13 +6,13 @@ class SPASPickup extends BallisticWeaponPickup
 
 defaultproperties
 {
-     LowPolyStaticMesh=StaticMesh'BWWeaponPackArchive-Static.SPAS.SPAS12'
+     LowPolyStaticMesh=StaticMesh'BWBP_JCF_Static.SPAS.SPAS12'
      PickupDrawScale=0.600000
      InventoryType=Class'BWBPArchivePackDE.SPASShotgun'
      RespawnTime=20.000000
      PickupMessage="You picked up the SPAS Semi-Auto Shotgun"
-     PickupSound=Sound'BallisticSounds2.M763.M763Putaway'
-     StaticMesh=StaticMesh'BWWeaponPackArchive-Static.SPAS.SPAS12'
+     PickupSound=Sound'BW_Core_WeaponSound.M763.M763Putaway'
+     StaticMesh=StaticMesh'BWBP_JCF_Static.SPAS.SPAS12'
      Physics=PHYS_None
      CollisionHeight=3.000000
 }

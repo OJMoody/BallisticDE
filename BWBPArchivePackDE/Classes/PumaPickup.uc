@@ -10,13 +10,13 @@ class PumaPickup extends BallisticWeaponPickup
 
 defaultproperties
 {
-     LowPolyStaticMesh=StaticMesh'BallisticRecolors4ArchiveStaticA.PUMA.PumaPickup'
+     LowPolyStaticMesh=StaticMesh'BWBP_SKC_StaticExp.PUMA.PumaPickup'
      PickupDrawScale=0.200000
      InventoryType=Class'BWBPArchivePackDE.PumaRepeater'
      RespawnTime=20.000000
      PickupMessage="You picked up the PUMA-77 Repeater"
-     PickupSound=Sound'PackageSoundsArchive4A.PUMA.PUMA-Pickup'
-     StaticMesh=StaticMesh'BallisticRecolors4ArchiveStaticA.PUMA.PumaPickup'
+     PickupSound=Sound'BWBP_SKC_SoundsExp.PUMA.PUMA-Pickup'
+     StaticMesh=StaticMesh'BWBP_SKC_StaticExp.PUMA.PumaPickup'
      Physics=PHYS_None
      DrawScale=0.220000
      CollisionHeight=4.000000

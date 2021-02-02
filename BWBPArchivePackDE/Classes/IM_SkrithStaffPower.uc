@@ -10,7 +10,7 @@ defaultproperties
 {
      HitEffects(0)=Class'BWBPArchivePackDE.IE_SkrithStaffPower'
      HitDecals(0)=Class'BWBPArchivePackDE.AD_SkrithStaffPower'
-     HitSounds(0)=Sound'PackageSoundsArchive4.A73E.A73E-PowerImpact'
+     HitSounds(0)=Sound'BWBP_SKC_SoundsExp.A73E.A73E-PowerImpact'
      HitSoundVolume=1.300000
      HitSoundRadius=256.000000
 }

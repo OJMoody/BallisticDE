@@ -43,7 +43,7 @@ defaultproperties
 {
      SpawnOffset=(X=15.000000,Y=10.000000,Z=-9.000000)
      MuzzleFlashClass=Class'BWBPArchivePackDE.MJ51AltFlashEmitter'
-     BallisticFireSound=(Sound=Sound'PackageSoundsArchive4A.MJ51.MJ51Carbine-GrenLaunch',Volume=2.200000)
+     BallisticFireSound=(Sound=Sound'BWBP_SKC_SoundsExp.MJ51.MJ51Carbine-GrenLaunch',Volume=2.200000)
      bSplashDamage=True
      bRecommendSplashDamage=True
      bTossed=True

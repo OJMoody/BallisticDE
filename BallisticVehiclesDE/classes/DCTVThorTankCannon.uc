@@ -96,7 +96,7 @@ simulated event Tick(float DT)
 
 defaultproperties
 {
-     TurretTurnSound=Sound'BWBP4Vehicle-Sounds.ThorTank.ThorTankTurret'
+     TurretTurnSound=Sound'BWBP_Vehicles_Sound.ThorTank.ThorTankTurret'
      YawBone="Turret"
      PitchBone="Cannon"
      PitchUpLimit=8000
@@ -104,13 +104,13 @@ defaultproperties
      WeaponFireAttachmentBone="Muzzle"
      WeaponFireOffset=0.000000
      RotationsPerSecond=0.080000
-     RedSkin=Texture'BWBP4Vehicle-Tex.ThorTank.Tank'
-     BlueSkin=Texture'BWBP4Vehicle-Tex.ThorTank.TankBlue'
+     RedSkin=Texture'BWBP_Vehicles_Tex.ThorTank.Tank'
+     BlueSkin=Texture'BWBP_Vehicles_Tex.ThorTank.TankBlue'
      EffectEmitterClass=Class'BallisticVehiclesDE.DCTVThorMuzzleFlash'
-     FireSoundClass=Sound'BWBP4Vehicle-Sounds.ThorTank.ThorTankCannon'
+     FireSoundClass=Sound'BWBP_Vehicles_Sound.ThorTank.ThorTankCannon'
      ProjectileClass=Class'BallisticVehiclesDE.DCTVThorTankShell'
      AIInfo(0)=(bTossed=True)
-     Mesh=SkeletalMesh'BWBP4Vehicle-Anims.ThorTankTurret'
+     Mesh=SkeletalMesh'BWBP_Vehicles_Anim.ThorTankTurret'
      SoundVolume=192
      SoundPitch=32
 }

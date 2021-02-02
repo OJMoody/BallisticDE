@@ -21,6 +21,6 @@ defaultproperties
      bArmorStops=False
      bAlwaysSevers=True
      bSpecial=True
-     PawnDamageSounds(0)=Sound'BallisticSounds2.A73.A73StabFlesh'
+     PawnDamageSounds(0)=Sound'BW_Core_WeaponSound.A73.A73StabFlesh'
      KDamageImpulse=2000.000000
 }

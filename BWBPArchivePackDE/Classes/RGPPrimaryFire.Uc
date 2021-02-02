@@ -43,7 +43,7 @@ defaultproperties
      YInaccuracy=64.000000
 	 Firechaos=0.5
 	 AimedFireAnim="SightFire"
-     BallisticFireSound=(Sound=Sound'BWWeaponPack2Archive-Sounds.RPG.Fire',Volume=450.500000)
+     BallisticFireSound=(Sound=Sound'BWBP_JCF_Sounds.RPG.Fire',Volume=450.500000)
      bSplashDamage=False
      bRecommendSplashDamage=True
      FireRate=0.800000

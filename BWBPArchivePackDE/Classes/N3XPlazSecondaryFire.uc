@@ -230,18 +230,16 @@ function PlayFiring()
 
 defaultproperties
 {
-     DischargedFireSound=(Sound=Sound'BallisticSounds3.M763.M763Swing',Radius=32.000000,bAtten=True)
+     DischargedFireSound=(Sound=Sound'BW_Core_WeaponSound.M763.M763Swing',Radius=32.000000,bAtten=True)
      FatiguePerStrike=0.250000
      bCanBackstab=False
      Damage=80.000000
-     DamageHead=80.000000
-     DamageLimb=80.000000
      DamageType=Class'BWBPArchivePackDE.DTShockN3XAlt'
      DamageTypeHead=Class'BWBPArchivePackDE.DTShockN3XAlt'
      DamageTypeArm=Class'BWBPArchivePackDE.DTShockN3XAlt'
      KickForce=500
      bUseWeaponMag=False
-     BallisticFireSound=(Sound=SoundGroup'BWAddPack-RS-Sounds.MRS38.RSS-ElectroSwing',Radius=32.000000,bAtten=True)
+     BallisticFireSound=(Sound=SoundGroup'BW_Core_WeaponSound.MRS38.RSS-ElectroSwing',Radius=32.000000,bAtten=True)
      bAISilent=True
      PreFireAnim="PrepSlash"
      FireAnim="Slash"

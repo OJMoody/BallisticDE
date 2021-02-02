@@ -9,7 +9,7 @@ defaultproperties
 {
      HitEffects(0)=Class'BWBPArchivePackDE.IE_PumaDetClose'
      HitDecals(0)=Class'BallisticDE.AD_HVCRedDecal'
-     HitSounds(0)=Sound'PackageSoundsArchive4A.PUMA.PUMA-ShieldExplode'
+     HitSounds(0)=Sound'BWBP_SKC_SoundsExp.PUMA.PUMA-ShieldExplode'
      HitSoundVolume=2.000000
      HitSoundRadius=512.000000
 }

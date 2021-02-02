@@ -19,7 +19,7 @@ defaultproperties
      MaleSuicides(0)="%o took out his anger on his MARS mine."
      MaleSuicides(1)="%o successfully combined bullets and volatile shock mines."
      MaleSuicides(2)="%o tried to stop the MARS mine at his feet by shooting it."
-     WeaponClass=Class'BWBPArchivePackDE.F2000AssaultRifle'
+     WeaponClass=Class'BWBPArchivePackDE.MARS4AssaultRifle'
      DeathString="%o hastened %o's death with a MARS shock combo."
      FemaleSuicide="%o took out her anger on her MARS mine."
      MaleSuicide="%o took out his anger on his MARS mine."

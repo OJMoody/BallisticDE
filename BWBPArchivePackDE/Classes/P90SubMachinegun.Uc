@@ -108,19 +108,19 @@ function float SuggestDefenseStyle()	{	return 0.5;	}
 defaultproperties
 {
      //SupportHandBone="pasted__Root01"
-     TeamSkins(0)=(RedTex=Shader'BallisticWeapons2.Hands.RedHand-Shiny',BlueTex=Shader'BallisticWeapons2.Hands.BlueHand-Shiny')
+     TeamSkins(0)=(RedTex=Shader'BW_Core_WeaponTex.Hands.RedHand-Shiny',BlueTex=Shader'BW_Core_WeaponTex.Hands.BlueHand-Shiny')
      AIReloadTime=1.000000
-     BigIconMaterial=Texture'BWWeaponPackArchive-Tex.P90.BigIcon_P90'
+     BigIconMaterial=Texture'BWBP_JCF_Tex.P90.BigIcon_P90'
      SightFXClass=Class'BWBPArchivePackDE.P90SightDot'
      BCRepClass=Class'BallisticDE.BallisticReplicationInfo'
      bWT_Bullet=True
      bWT_Machinegun=True
      SpecialInfo(0)=(Info="420.0;20.0;1.50;80.0;0.4;0.2;-999.0")
-     BringUpSound=(Sound=Sound'BallisticSounds2.XK2.XK2-Pullout')
-     PutDownSound=(Sound=Sound'BallisticSounds2.XK2.XK2-Putaway')
-     CockSound=(Sound=Sound'BWWeaponPack2Archive-Sounds.P90.P90Cock',Volume=300.500000)
-     ClipOutSound=(Sound=Sound'BWWeaponPack2Archive-Sounds.P90.P90ClipInOut',Volume=300.500000)
-     ClipInSound=(Sound=Sound'BWWeaponPack2Archive-Sounds.P90.P90ClipHit',Volume=300.500000)
+     BringUpSound=(Sound=Sound'BW_Core_WeaponSound.XK2.XK2-Pullout')
+     PutDownSound=(Sound=Sound'BW_Core_WeaponSound.XK2.XK2-Putaway')
+     CockSound=(Sound=Sound'BWBP_JCF_Sounds.P90.P90Cock',Volume=300.500000)
+     ClipOutSound=(Sound=Sound'BWBP_JCF_Sounds.P90.P90ClipInOut',Volume=300.500000)
+     ClipInSound=(Sound=Sound'BWBP_JCF_Sounds.P90.P90ClipHit',Volume=300.500000)
      ClipInFrame=0.650000
      WeaponModes(1)=(ModeName="Burst of Three",bUnavailable=True)
      WeaponModes(2)=(ModeName="Burst of Six",bUnavailable=True,ModeID="WM_BigBurst",Value=6.000000)
@@ -141,7 +141,7 @@ defaultproperties
      PickupClass=Class'BWBPArchivePackDE.P90Pickup'
      PlayerViewOffset=(X=12.000000,y=6.000000,Z=-8.200000)
      AttachmentClass=Class'BWBPArchivePackDE.P90Attachment'
-     IconMaterial=Texture'BWWeaponPackArchive-Tex.P90.SmallIcon_P90'
+     IconMaterial=Texture'BWBP_JCF_Tex.P90.SmallIcon_P90'
      IconCoords=(X2=127,Y2=34)
      ItemName="P90 Arctic Control Unit"
      LightType=LT_Pulse
@@ -151,6 +151,6 @@ defaultproperties
      LightBrightness=130.000000
      LightRadius=3.000000
 	 ParamsClass=Class'P90WeaponParams'
-     Mesh=SkeletalMesh'BWWeaponPackAnims.P90_FPm'
+     Mesh=SkeletalMesh'BWBP_JCF_Anims.FPm_P90'
      DrawScale=1.000000
 }

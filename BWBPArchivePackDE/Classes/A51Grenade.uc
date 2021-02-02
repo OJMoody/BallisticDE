@@ -4,7 +4,7 @@
 //=============================================================================
 class A51Grenade extends BallisticHandGrenade;
 
-#exec OBJ LOAD FILE=..\StaticMeshes\BWSkrithRecolorsArchive1Static.usx
+#exec OBJ LOAD FILE=..\StaticMeshes\BWBP_SWC_Static.usx
 /*
 function DoExplosionEffects()
 {
@@ -33,8 +33,8 @@ function DoExplosion()
 
 simulated function UpdatePrecacheStaticMeshes()
 {
-	Level.AddPrecacheStaticMesh(StaticMesh'BWSkrithRecolorsArchive1Static.SkrithGrenadeProj');
-	Level.AddPrecacheStaticMesh(StaticMesh'BWSkrithRecolorsArchive1Static.SkrithGrenadePickupHi');
+	Level.AddPrecacheStaticMesh(StaticMesh'BWBP_SWC_Static.SkrithGrenadeProj');
+	Level.AddPrecacheStaticMesh(StaticMesh'BWBP_SWC_Static.SkrithGrenadePickupHi');
 
 }
 
@@ -58,17 +58,17 @@ defaultproperties
      HeldMomentum=55000
      HeldDamageType=Class'BWBPArchivePackDE.DTA51Held'
      GrenadeSmokeClass=Class'BallisticDE.NRP57Trail'
-     ClipReleaseSound=(Sound=Sound'BallisticSounds2.M806.M806LSight',Volume=1.500000,Radius=48.000000,Pitch=1.000000,bAtten=True)
+     ClipReleaseSound=(Sound=Sound'BW_Core_WeaponSound.M806.M806LSight',Volume=1.500000,Radius=48.000000,Pitch=1.000000,bAtten=True)
      PinPullSound=(Sound=Sound'2K4MenuSounds.Generic.msfxDrag',Volume=5.000000)
-     TeamSkins(0)=(RedTex=Shader'BallisticWeapons2.Hands.RedHand-Shiny',BlueTex=Shader'BallisticWeapons2.Hands.BlueHand-Shiny')
-     BigIconMaterial=Texture'BWSkrithRecolorsArchive1Tex.Main.BigIcon_SkrithGrenade'
+     TeamSkins(0)=(RedTex=Shader'BW_Core_WeaponTex.Hands.RedHand-Shiny',BlueTex=Shader'BW_Core_WeaponTex.Hands.BlueHand-Shiny')
+     BigIconMaterial=Texture'BWBP_SWC_Tex.Main.BigIcon_SkrithGrenade'
      BCRepClass=Class'BallisticDE.BallisticReplicationInfo'
      bWT_Hazardous=True
      bWT_Splash=True
      bWT_Grenade=True
      SpecialInfo(0)=(Info="0.0;5.0;-999.0;25.0;-999.0;0.0;0.5")
-     BringUpSound=(Sound=Sound'BallisticSounds2.NRP57.NRP57-Pullout')
-     PutDownSound=(Sound=Sound'BallisticSounds2.NRP57.NRP57-Putaway')
+     BringUpSound=(Sound=Sound'BW_Core_WeaponSound.NRP57.NRP57-Pullout')
+     PutDownSound=(Sound=Sound'BW_Core_WeaponSound.NRP57.NRP57-Putaway')
      FireModeClass(0)=Class'BWBPArchivePackDE.A51PrimaryFire'
      FireModeClass(1)=Class'BWBPArchivePackDE.A51SecondaryFire'
      SelectAnimRate=1.000000
@@ -85,10 +85,10 @@ defaultproperties
      PlayerViewPivot=(Pitch=1024,Yaw=-1024)
      BobDamping=1.000000
      AttachmentClass=Class'BWBPArchivePackDE.A51Attachment'
-     IconMaterial=Texture'BWSkrithRecolorsArchive1Tex.Main.SmallIcon_SkrithGrenade'
+     IconMaterial=Texture'BWBP_SWC_Tex.Main.SmallIcon_SkrithGrenade'
      IconCoords=(X2=127,Y2=31)
 	 ParamsClass=Class'A51WeaponParams'
      ItemName="AD-51 Reptile Corossive Grenade"
-     Mesh=SkeletalMesh'BWSkrithRecolors1Anim.SkrithGrenade'
+     Mesh=SkeletalMesh'BWBP_SWC_Anims.FPm_SkrithGrenade'
      DrawScale=0.400000
 }

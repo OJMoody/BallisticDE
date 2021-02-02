@@ -23,8 +23,8 @@ defaultproperties
      AmmoAmount=200
      InventoryType=Class'BWBPArchivePackDE.Ammo_A800Cells'
      PickupMessage="You picked up a Skrith energy cell"
-     PickupSound=Sound'BallisticSounds2.Ammo.A73CellPickup'
-     StaticMesh=StaticMesh'BWSkrithRecolorsArchive2Static.SkrithMinigun.SkrithBigCellPick'
+     PickupSound=Sound'BW_Core_WeaponSound.Ammo.A73CellPickup'
+     StaticMesh=StaticMesh'BWBP_SWC_Static.SkrithMinigun.SkrithBigCellPick'
      DrawScale=0.300000
      CollisionRadius=8.000000
      CollisionHeight=4.800000

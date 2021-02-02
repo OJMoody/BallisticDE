@@ -36,13 +36,11 @@ defaultproperties
      SliceAnims(3)="Slash4"
      TraceRange=(Min=100.000000,Max=100.000000)
      Damage=60
-     DamageHead=60
-     DamageLimb=60
      DamageType=Class'BWBPArchivePackDE.DTBOBTorso'
      DamageTypeHead=Class'BWBPArchivePackDE.DTBOBHead'
      DamageTypeArm=Class'BWBPArchivePackDE.DTBOBLimb'
      KickForce=100
-     BallisticFireSound=(Sound=SoundGroup'BallisticSounds3.UZI.Melee',Volume=2.100000,Radius=32.000000,bAtten=True)
+     BallisticFireSound=(Sound=SoundGroup'BW_Core_WeaponSound.UZI.Melee',Volume=2.100000,Radius=32.000000,bAtten=True)
      bAISilent=True
      FireAnim="Slash1"
      FireAnimRate=0.900000

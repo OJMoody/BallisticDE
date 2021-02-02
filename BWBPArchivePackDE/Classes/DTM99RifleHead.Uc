@@ -40,6 +40,6 @@ defaultproperties
      bArmorStops=False
      bAlwaysSevers=True
      bSpecial=True
-     PawnDamageSounds(0)=SoundGroup'BallisticSounds2.BulletImpacts.Headshot'
+     PawnDamageSounds(0)=SoundGroup'BW_Core_WeaponSound.BulletImpacts.Headshot'
      KDamageImpulse=2000.000000
 }

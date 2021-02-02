@@ -13,10 +13,9 @@ defaultproperties
      AmmoAmount=2
      InventoryType=Class'BWBPArchivePackDE.Ammo_APod'
      PickupMessage="You picked up 2 A-Pod Capsules"
-     PickupSound=Sound'BallisticSounds2.Health.AdrenalinPickup'
-     StaticMesh=StaticMesh'BWSkrithRecolorsArchive2Static.APod.APodPickup'
+     PickupSound=Sound'BW_Core_WeaponSound.Health.AdrenalinPickup'
+     StaticMesh=StaticMesh'BWBP_SWC_Static.APod.APodPickup'
      DrawScale=0.150000
-     Skins(0)=Texture'BWSkrithRecolorsArchive1Tex.APod.APodSkin'
      CollisionRadius=12.000000
      CollisionHeight=5.000000
 }

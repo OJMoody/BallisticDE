@@ -12,8 +12,6 @@ defaultproperties
 {
      TraceRange=(Min=10000.000000,Max=12000.000000)
      Damage=20.000000
-     DamageHead=32.000000
-     DamageLimb=18.000000
      RangeAtten=0.800000
      WaterRangeAtten=0.800000
      DamageType=Class'BWBPArchivePackDE.DTM7A3Rifle'
@@ -22,8 +20,8 @@ defaultproperties
      KickForce=10000
      PenetrateForce=450
      bPenetrate=True
-     ClipFinishSound=(Sound=Sound'BallisticSounds3.Misc.ClipEnd-1',Volume=0.800000,Radius=48.000000,bAtten=True)
-     DryFireSound=(Sound=Sound'BallisticSounds3.Misc.DryRifle',Volume=0.700000)
+     ClipFinishSound=(Sound=Sound'BW_Core_WeaponSound.Misc.ClipEnd-1',Volume=0.800000,Radius=48.000000,bAtten=True)
+     DryFireSound=(Sound=Sound'BW_Core_WeaponSound.Misc.DryRifle',Volume=0.700000)
      bCockAfterEmpty=True
      MuzzleFlashClass=Class'BWBPArchivePackDE.M7A3FlashEmitter'
      FlashScaleFactor=0.100000
@@ -35,7 +33,7 @@ defaultproperties
      FireChaos=0.10000
      XInaccuracy=32.000000
      YInaccuracy=32.000000
-     BallisticFireSound=(Sound=Sound'BWBPArchivePackSounds.M7A3.MP44-Fire',Volume=1.200000)
+     BallisticFireSound=(Sound=Sound'BWBP_SKC_SoundsExp.M7A3.MP44-Fire',Volume=1.200000)
      bPawnRapidFireAnim=True
      FireEndAnim=
      FireRate=0.095000

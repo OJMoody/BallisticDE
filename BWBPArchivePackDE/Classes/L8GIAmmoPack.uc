@@ -4,32 +4,18 @@
 //=============================================================================
 class L8GIAmmoPack extends BallisticHandGrenade;
 
-#exec OBJ LOAD FILE=..\StaticMeshes\BWSkrithRecolorsArchive2Static.usx
-
 var() float HealAmount;
 var() Sound HealSound;
 
-/*
-function DoExplosionEffects()
-{
-}
-*/
 function DoExplosion()
 {
 
 }
 
-
-/*simulated*/ function Notify_SupplySelf()
+function Notify_SupplySelf()
 {
-
-
 	PlaySound(HealSound, SLOT_Interact );
-	//Instigator.Controller.AwardAdrenaline(AdrenalineAmount);
-	//xPawn(Owner).GiveAmmo(xPawn(Owner),vect(0,0,0),vect(0,0,0),vect(0,0,0),0,0);
 	xPawn(Owner).GiveHealth(HealAmount,xPawn(Owner).SuperHealthMax);
-	//if (Role == ROLE_Authority)
-	//	L8GISecondaryFire(BFireMode[1]).NotifiedDoFireEffect();
 	GotoState('GiveAmmoSelf');
 	Ammo[0].UseAmmo (1, True);
 }
@@ -153,24 +139,24 @@ exec simulated function WeaponSpecial(optional byte i)
 defaultproperties
 {
      HealAmount=5.000000
-     HealSound=Sound'BallisticSounds2.Ammo.AmmoPackPickup'
+     HealSound=Sound'BW_Core_WeaponSound.Ammo.AmmoPackPickup'
      HeldDamage=200
      HeldRadius=250
      HeldMomentum=55000
      GrenadeSmokeClass=Class'BallisticDE.NRP57Trail'
-     ClipReleaseSound=(Sound=Sound'BallisticSounds3.NRP57.NRP57-ClipOut',Volume=0.500000,Radius=48.000000,Pitch=1.000000,bAtten=True)
-     PinPullSound=(Sound=Sound'BallisticSounds2.M50.M50CamDie')
+     ClipReleaseSound=(Sound=Sound'BW_Core_WeaponSound.NRP57.NRP57-ClipOut',Volume=0.500000,Radius=48.000000,Pitch=1.000000,bAtten=True)
+     PinPullSound=(Sound=Sound'BW_Core_WeaponSound.M50.M50CamDie')
      PinBone=
      ClipBone=
      SmokeBone=
      PlayerSpeedFactor=0.750000
-     TeamSkins(0)=(RedTex=Shader'BallisticWeapons2.Hands.RedHand-Shiny',BlueTex=Shader'BallisticWeapons2.Hands.BlueHand-Shiny',SkinNum=15)
-     BigIconMaterial=Texture'BWSkrithRecolorsArchive2Tex.AmmoPack.BigIcon_AmmoPack'
+     TeamSkins(0)=(RedTex=Shader'BW_Core_WeaponTex.Hands.RedHand-Shiny',BlueTex=Shader'BW_Core_WeaponTex.Hands.BlueHand-Shiny',SkinNum=15)
+     BigIconMaterial=Texture'BWBP_SWC_Tex.AmmoPack.BigIcon_AmmoPack'
      BCRepClass=Class'BallisticDE.BallisticReplicationInfo'
      bWT_Grenade=True
      SpecialInfo(0)=(Info="0.0;5.0;-999.0;25.0;-999.0;0.0;0.5")
-     BringUpSound=(Sound=Sound'BallisticSounds2.NRP57.NRP57-Pullout')
-     PutDownSound=(Sound=Sound'BallisticSounds2.NRP57.NRP57-Putaway')
+     BringUpSound=(Sound=Sound'BW_Core_WeaponSound.NRP57.NRP57-Pullout')
+     PutDownSound=(Sound=Sound'BW_Core_WeaponSound.NRP57.NRP57-Putaway')
      FireModeClass(0)=Class'BWBPArchivePackDE.L8GIPrimaryFire'
      FireModeClass(1)=Class'BWBPArchivePackDE.L8GISecondaryFire'
      SelectForce="SwitchToAssaultRifle"
@@ -185,11 +171,10 @@ defaultproperties
      PlayerViewPivot=(Pitch=1024,Yaw=-1024)
      BobDamping=1.000000
      AttachmentClass=Class'BWBPArchivePackDE.L8GIAttachment'
-     IconMaterial=Texture'BWSkrithRecolorsArchive2Tex.AmmoPack.SmallIcon_AmmoPack'
+     IconMaterial=Texture'BWBP_SWC_Tex.AmmoPack.SmallIcon_AmmoPack'
      IconCoords=(X2=127,Y2=31)
      ItemName="L8 GI Ammunition Pack"
-     Mesh=SkeletalMesh'BWSkrithRecolors2Anim.AmmoPack'
+     Mesh=SkeletalMesh'BWBP_SWC_Anims.FPm_AmmoPack'
 	 ParamsClass=Class'L8GIWeaponParams'
      DrawScale=0.400000
-     Skins(0)=Texture'BWSkrithRecolorsArchive2Tex.AmmoPack.L8GISkin'
 }

@@ -11,6 +11,6 @@ class APodAttachment extends BallisticGrenadeAttachment;
 defaultproperties
 {
      GrenadeSmokeClass=Class'BallisticDE.NRP57Trail'
-     Mesh=SkeletalMesh'BWSkrithRecolors1Anim.TPm_Apod'
+     Mesh=SkeletalMesh'BWBP_SWC_Anims.Apod_TPm'
      DrawScale=0.300000
 }

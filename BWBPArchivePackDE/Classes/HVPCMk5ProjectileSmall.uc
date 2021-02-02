@@ -151,8 +151,6 @@ defaultproperties
      TrailClass=Class'BWBPArchivePackDE.HVPCSmallTrailEmitter'
      MyRadiusDamageType=Class'BWBPArchivePackDE.DTPlasmaChargeSmall'
      bUsePositionalDamage=True
-     DamageHead=65
-     DamageLimb=20
      DamageTypeHead=Class'BWBPArchivePackDE.DTPlasmaChargeHeadSmall'
      SplashManager=Class'BallisticDE.IM_ProjWater'
      Speed=200.000000
@@ -166,13 +164,13 @@ defaultproperties
      LightSaturation=100
      LightBrightness=192.000000
      LightRadius=12.000000
-     StaticMesh=StaticMesh'BallisticHardware2.A73.A73Projectile'
+     StaticMesh=StaticMesh'BW_Core_WeaponStatic.A73.A73Projectile'
      bDynamicLight=True
-     AmbientSound=Sound'BallisticSounds2.A73.A73ProjFly'
+     AmbientSound=Sound'BW_Core_WeaponSound.A73.A73ProjFly'
      LifeSpan=6.000000
      DrawScale3D=(X=0.250000,Y=1.500000,Z=1.500000)
-     Skins(0)=FinalBlend'BallisticRecolorsArchive5.A73b.A73BProjFinal'
-     Skins(1)=FinalBlend'BallisticRecolorsArchive5.A73b.A73BProj2Final'
+     Skins(0)=FinalBlend'BWBP_SKC_Tex.A73b.A73BProjFinal'
+     Skins(1)=FinalBlend'BWBP_SKC_Tex.A73b.A73BProj2Final'
      Style=STY_Additive
      SoundVolume=255
      SoundRadius=75.000000

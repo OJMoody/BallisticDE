@@ -94,17 +94,17 @@ function float SuggestDefenseStyle()
 
 defaultproperties
 {
-     TeamSkins(0)=(RedTex=Shader'BallisticWeapons2.Hands.RedHand-Shiny',BlueTex=Shader'BallisticWeapons2.Hands.BlueHand-Shiny')
-     BigIconMaterial=Texture'BWWeaponPackArchive-Tex.SPAS.BigIcon_SPAS'
+     TeamSkins(0)=(RedTex=Shader'BW_Core_WeaponTex.Hands.RedHand-Shiny',BlueTex=Shader'BW_Core_WeaponTex.Hands.BlueHand-Shiny')
+     BigIconMaterial=Texture'BWBP_JCF_Tex.SPAS.BigIcon_SPAS'
      BCRepClass=Class'BallisticDE.BallisticReplicationInfo'
      bWT_Shotgun=True
      SpecialInfo(0)=(Info="240.0;30.0;1.5;100.0;0.0;2.0;-999.0")
-     BringUpSound=(Sound=Sound'BallisticSounds2.M763.M763Pullout')
-     PutDownSound=(Sound=Sound'BallisticSounds2.M763.M763Putaway')
+     BringUpSound=(Sound=Sound'BW_Core_WeaponSound.M763.M763Pullout')
+     PutDownSound=(Sound=Sound'BW_Core_WeaponSound.M763.M763Putaway')
      MagAmmo=10
-     CockSound=(Sound=Sound'BWAddPack-RS-Sounds.MRS38.RSS-Cock',Volume=0.800000)
+     CockSound=(Sound=Sound'BW_Core_WeaponSound.MRS38.RSS-Cock',Volume=0.800000)
      ReloadAnim="ReloadLoop"
-     ClipInSound=(Sound=Sound'BWAddPack-RS-Sounds.MRS38.RSS-ShellIn')
+     ClipInSound=(Sound=Sound'BW_Core_WeaponSound.MRS38.RSS-ShellIn')
      ClipInFrame=0.375000
      bCockOnEmpty=True
      bCanSkipReload=True
@@ -137,7 +137,7 @@ defaultproperties
      PickupClass=Class'BWBPArchivePackDE.SPASPickup'
      PlayerViewOffset=(X=5.000000,Y=3.000000,Z=-6.000000)
      AttachmentClass=Class'BWBPArchivePackDE.SPASAttachment'
-     IconMaterial=Texture'BWWeaponPackArchive-Tex.SPAS.SmallIcon_SPAS'
+     IconMaterial=Texture'BWBP_JCF_Tex.SPAS.SmallIcon_SPAS'
      IconCoords=(X2=127,Y2=30)
      ItemName="SPAS-12 Automatic Shotgun"
      LightType=LT_Pulse
@@ -147,7 +147,7 @@ defaultproperties
      LightBrightness=150.000000
      LightRadius=5.000000
 	 ParamsClass=Class'SPASWeaponParams'
-     Mesh=SkeletalMesh'BWWeaponPackAnims.Spas_FPm'
+     Mesh=SkeletalMesh'BWBP_JCF_Anims.FPm_Spas'
      DrawScale=1.000000
-     Skins(0)=Shader'BallisticWeapons2.Hands.Hands-Shiny'
+     Skins(0)=Shader'BW_Core_WeaponTex.Hands.Hands-Shiny'
 }

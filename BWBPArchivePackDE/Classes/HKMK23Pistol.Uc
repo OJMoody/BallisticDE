@@ -276,26 +276,26 @@ defaultproperties
      SilencerBone="Silencer"
      SilencerOnAnim="SilencerOn"
      SilencerOffAnim="SilencerOff"
-     SilencerOnSound=Sound'BallisticSounds2.XK2.XK2-SilenceOn'
-     SilencerOffSound=Sound'BallisticSounds2.XK2.XK2-SilenceOff'
-     SilencerOnTurnSound=Sound'BWAddPack-RS-Sounds.Pistol.RSP-SilencerTurn'
-     SilencerOffTurnSound=Sound'BWAddPack-RS-Sounds.Pistol.RSP-SilencerTurn'
-     TeamSkins(0)=(RedTex=Shader'BallisticWeapons2.Hands.RedHand-Shiny',BlueTex=Shader'BallisticWeapons2.Hands.BlueHand-Shiny')
+     SilencerOnSound=Sound'BW_Core_WeaponSound.XK2.XK2-SilenceOn'
+     SilencerOffSound=Sound'BW_Core_WeaponSound.XK2.XK2-SilenceOff'
+     SilencerOnTurnSound=Sound'BW_Core_WeaponSound.Pistol.RSP-SilencerTurn'
+     SilencerOffTurnSound=Sound'BW_Core_WeaponSound.Pistol.RSP-SilencerTurn'
+     TeamSkins(0)=(RedTex=Shader'BW_Core_WeaponTex.Hands.RedHand-Shiny',BlueTex=Shader'BW_Core_WeaponTex.Hands.BlueHand-Shiny')
      AIReloadTime=1.000000
-     BigIconMaterial=Texture'BWWeaponPackArchive-Tex.MK23.BigIcon_MK23'
+     BigIconMaterial=Texture'BWBP_JCF_Tex.MK23.BigIcon_MK23'
      BCRepClass=Class'BallisticDE.BallisticReplicationInfo'
      bWT_Bullet=True
 	 bNoCrosshairInScope=True
      SpecialInfo(0)=(Info="120.0;5.0;1.5;110.00;-999.0;-999.0;-999.0")
-     BringUpSound=(Sound=Sound'BallisticSounds2.XK2.XK2-Pullout')
-     PutDownSound=(Sound=Sound'BallisticSounds2.XK2.XK2-Putaway')
+     BringUpSound=(Sound=Sound'BW_Core_WeaponSound.XK2.XK2-Pullout')
+     PutDownSound=(Sound=Sound'BW_Core_WeaponSound.XK2.XK2-Putaway')
 	 ManualLines(0)="Primary: .45 ACP Fire"
      ManualLines(1)="Secondary: Silencer"
      ManualLines(2)="The USP-S MK23 is considered a match grade pistol, and is capable of making a 2-inch group at 50 yards, roughly 4 MOA. Production of the original began in 1991, and it was the basis for the HK USP, which began production in 1993. The MK23 is part of a larger weapon system that includes an attachable laser aiming module, a suppressor, and some other features such as a special high-pressure match cartridge (.45 +P ammunition). The MK23 has exceptional durability in harsh environments, being waterproof and corrosion-resistant. It uses a polygonal barrel design, which is reported to improve accuracy and durability. The firearm was tested and found to be capable of firing tens of thousands of rounds without a barrel change. It remains reliable in harsh conditions, making it suitable for use by special forces.""
-     CockSound=(Sound=Sound'BWWeaponPack2Archive-Sounds.MK23.mk23_cock',Volume=2.300000)
-     ClipHitSound=(Sound=Sound'BWBP4-Sounds.Glock.Glk-ClipHit',Volume=0.700000)
-     ClipOutSound=(Sound=Sound'BWWeaponPack2Archive-Sounds.MK23.MKClipOut',Volume=1.300000)
-     ClipInSound=(Sound=Sound'BWWeaponPack2Archive-Sounds.MK23.MKClipIn',Volume=1.300000)
+     CockSound=(Sound=Sound'BWBP_JCF_Sounds.MK23.mk23_cock',Volume=2.300000)
+     ClipHitSound=(Sound=Sound'BW_Core_WeaponSound.Glock.Glk-ClipHit',Volume=0.700000)
+     ClipOutSound=(Sound=Sound'BWBP_JCF_Sounds.MK23.MKClipOut',Volume=1.300000)
+     ClipInSound=(Sound=Sound'BWBP_JCF_Sounds.MK23.MKClipIn',Volume=1.300000)
      ClipInFrame=0.650000
      WeaponModes(1)=(bUnavailable=True)
      WeaponModes(2)=(bUnavailable=True)
@@ -317,7 +317,7 @@ defaultproperties
      PickupClass=Class'BWBPArchivePackDE.HKMK23Pickup'
      PlayerViewOffset=(X=5.000000,Y=7.500000,Z=-7.500000)
      AttachmentClass=Class'BWBPArchivePackDE.HKMK23Attachment'
-     IconMaterial=Texture'BWWeaponPackArchive-Tex.MK23.SmallIcon_MK23'
+     IconMaterial=Texture'BWBP_JCF_Tex.MK23.SmallIcon_MK23'
      IconCoords=(X2=127,Y2=31)
      ItemName="USP-S 23 Handgun"
      LightType=LT_Pulse
@@ -327,6 +327,6 @@ defaultproperties
      LightBrightness=130.000000
      LightRadius=3.000000
 	 ParamsClass=Class'HKMK23WeaponParams'
-     Mesh=SkeletalMesh'BWWeaponPackAnims.USP_FPm'
+     Mesh=SkeletalMesh'BWBP_JCF_Anims.FPm_HKM'
      DrawScale=1.000000
 }

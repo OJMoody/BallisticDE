@@ -11,6 +11,6 @@ class NTOVAttachment extends BallisticGrenadeAttachment;
 defaultproperties
 {
      GrenadeSmokeClass=Class'BallisticDE.NRP57Trail'
-     Mesh=SkeletalMesh'BWSkrithRecolors1Anim.TPm_NTOV'
+     Mesh=SkeletalMesh'BWBP_SWC_Anims.NTOV_TPm'
      DrawScale=0.300000
 }

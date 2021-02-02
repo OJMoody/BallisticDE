@@ -18,7 +18,7 @@ defaultproperties
          MaxParticles=1
          StartLocationOffset=(X=-10.000000,Y=-7.325000,Z=0.000000)
          StartSizeRange=(X=(Min=2.500000,Max=2.500000),Y=(Min=2.500000,Max=2.500000),Z=(Min=2.500000,Max=2.500000))
-         Texture=Texture'BWWeaponPackArchive-Tex.P90.P90-Sight'
+         Texture=Texture'BWBP_JCF_Tex.P90.P90-Sight'
          LifetimeRange=(Min=1.000000,Max=1.000000)
      End Object
      Emitters(0)=SpriteEmitter'BWBPArchivePackDE.P90SightDot.SpriteEmitter0'

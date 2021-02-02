@@ -12,6 +12,6 @@ defaultproperties
 {
      ExplodeManager=Class'BWBPArchivePackDE.IM_AcidGrenade'
      GrenadeSmokeClass=Class'BallisticDE.NRP57Trail'
-     Mesh=SkeletalMesh'BWSkrithRecolors1Anim.SkrithGrenade-3rd'
+     Mesh=SkeletalMesh'BWBP_SWC_Anims.SkrithGrenade_TPm'
      DrawScale=0.300000
 }
