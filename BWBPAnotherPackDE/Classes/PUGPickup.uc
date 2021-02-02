@@ -7,18 +7,18 @@
 class PUGPickup extends BallisticWeaponPickup
 	placeable;
 
-#exec OBJ LOAD FILE=BallisticRecolors3TexPro.utx
-#exec OBJ LOAD FILE=BallisticHardware2.usx
+#exec OBJ LOAD FILE=BWBP_SKC_TexExp.utx
+#exec OBJ LOAD FILE=BW_Core_WeaponStatic.usx
 
 defaultproperties
 {
-     LowPolyStaticMesh=StaticMesh'BWBPAnotherPackStatics.PUG.Pickup_PUG12_Weapon'
+     LowPolyStaticMesh=StaticMesh'BWBP_CC_Static.PUG.Pickup_PUG12_Weapon'
      PickupDrawScale=0.100000
      InventoryType=Class'BWBPAnotherPackDE.PUGAssaultCannon'
      RespawnTime=10.000000
      PickupMessage="You picked up the PUG-M2 Riot Suppression Cannon"
-     PickupSound=Sound'BallisticSounds2.M806.M806Putaway'
-     StaticMesh=StaticMesh'BWBPAnotherPackStatics.PUG.Pickup_PUG12_Weapon'
+     PickupSound=Sound'BW_Core_WeaponSound.M806.M806Putaway'
+     StaticMesh=StaticMesh'BWBP_CC_Static.PUG.Pickup_PUG12_Weapon'
      Physics=PHYS_None
      DrawScale=0.100000
      CollisionHeight=4.000000

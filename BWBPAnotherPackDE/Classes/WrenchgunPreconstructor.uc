@@ -18,7 +18,7 @@ simulated function PostBeginPlay()
 {
 	Super.PostBeginPlay();
 	
-	PlaySound(Sound'BWBPOtherPackSound.Wrench.electric_burst_6', ,1);
+	PlaySound(Sound'BWBP_OP_Sounds.Wrench.electric_burst_6', ,1);
 }
 
 function Initialize(class<Actor> InClass, float ConstructionTime)
@@ -53,7 +53,7 @@ event TakeDamage(int Damage, Pawn EventInstigator, vector HitLocation, vector Mo
 	
 	if (Health < 1)
 	{
-		PlaySound(Sound'BWBPOtherPackSound.Wrench.artifact_assembled_3', ,1);
+		PlaySound(Sound'BWBP_OP_Sounds.Wrench.artifact_assembled_3', ,1);
 		bDie=True;
 		bTearOff=True;
 		Kill();
@@ -65,7 +65,7 @@ simulated function TornOff()
 	SetCollision(false,false,false);
 	if (!bDie)
 		Spawn(class'WrenchWarpEndEmitter');
-	PlaySound(Sound'BWBPOtherPackSound.Wrench.artifact_assembled_3', ,1);
+	PlaySound(Sound'BWBP_OP_Sounds.Wrench.artifact_assembled_3', ,1);
 	Kill();
 }
 
@@ -77,7 +77,7 @@ function Timer()
 	if (Level.NetMode != NM_DedicatedServer && !bDie)
 	{
 		Spawn(class'WrenchWarpEndEmitter');
-		PlaySound(Sound'BWBPOtherPackSound.Wrench.artifact_assembled_3', ,1);
+		PlaySound(Sound'BWBP_OP_Sounds.Wrench.artifact_assembled_3', ,1);
 	}
 	GoToState('SpawnIn');
 }
@@ -263,7 +263,7 @@ defaultproperties
      Emitters(4)=SpriteEmitter'BWBPAnotherPackDE.WrenchgunPreconstructor.SpriteEmitter7'
 
      RemoteRole=ROLE_SimulatedProxy
-     AmbientSound=Sound'BWBPOtherPackSound.Wrench.Hum10'
+     AmbientSound=Sound'BWBP_OP_Sounds.Wrench.Hum10'
      bCanBeDamaged=True
      SoundVolume=255
      SoundRadius=128.000000

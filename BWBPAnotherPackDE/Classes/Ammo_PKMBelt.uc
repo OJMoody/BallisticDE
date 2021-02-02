@@ -12,9 +12,9 @@ defaultproperties
 {
      MaxAmmo=150
      InitialAmount=75
-     IconFlashMaterial=Shader'BallisticUI2.Icons.AmmoIconsFlashing'
+     IconFlashMaterial=Shader'BW_Core_WeaponTex.Icons.AmmoIconsFlashing'
      PickupClass=Class'BWBPAnotherPackDE.AP_PKMBelt'
-     IconMaterial=Texture'BallisticUI2.Icons.AmmoIconPage'
+     IconMaterial=Texture'BW_Core_WeaponTex.Icons.AmmoIconPage'
      IconCoords=(X1=256,X2=319,Y2=63)
      ItemName="7.62mm MG Belt Ammo"
 }

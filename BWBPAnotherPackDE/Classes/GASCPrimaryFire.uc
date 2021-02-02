@@ -35,10 +35,7 @@ defaultproperties
      CutOffStartRange=512.000000
      TraceRange=(Min=4000.000000,Max=4000.000000)
      WallPenetrationForce=8.000000
-     
      Damage=26.000000
-     DamageHead=44.000000
-     DamageLimb=26.000000
      RangeAtten=0.200000
      WaterRangeAtten=0.500000
      DamageType=Class'BWBPAnotherPackDE.DTGASCPistol'
@@ -55,7 +52,7 @@ defaultproperties
      FireChaos=0.100000
      XInaccuracy=32.000000
      YInaccuracy=32.000000
-     BallisticFireSound=(Sound=Sound'BWBPAnotherPackSounds2.GASC.GASC-Fire',Volume=0.800000)
+     BallisticFireSound=(Sound=Sound'BWBP_CC_Sounds.GASC.GASC-Fire',Volume=0.800000)
      FireEndAnim=
      FireAnimRate=1.450000
      FireRate=0.095000

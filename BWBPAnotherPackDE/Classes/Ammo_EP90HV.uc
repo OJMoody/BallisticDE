@@ -12,9 +12,9 @@ defaultproperties
 {
      MaxAmmo=200
      InitialAmount=100
-     IconFlashMaterial=Shader'BallisticUI2.Icons.AmmoIcon_M806Flash'
+     IconFlashMaterial=Shader'BW_Core_WeaponTex.Icons.AmmoIcon_M806Flash'
      PickupClass=Class'BWBPAnotherPackDE.AP_EP90Clip'
-     IconMaterial=Texture'BallisticUI2.Icons.AmmoIcon_M806'
+     IconMaterial=Texture'BW_Core_WeaponTex.Icons.AmmoIcon_M806'
      IconCoords=(X2=64,Y2=64)
      ItemName=".45 High Velocity Bullets"
 }

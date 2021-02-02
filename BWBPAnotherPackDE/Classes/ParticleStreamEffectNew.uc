@@ -1,6 +1,6 @@
 class ParticleStreamEffectNew extends xEmitter;
 
-#exec OBJ LOAD FILE=BWBPOtherPackTex4.utx
+#exec OBJ LOAD FILE=BWBP_OP_Tex.utx
 
 var Vector	StartEffect, EndEffect;
 var byte	Links, OldLinks;
@@ -49,11 +49,11 @@ simulated function SetColor()
 {
 	if (!bAltColor)
 	{
-		Skins[0] = TexPanner'BWBPOtherPackTex4.ProtonPack.ProtonRedPanner';
+		Skins[0] = TexPanner'BWBP_OP_Tex.ProtonPack.ProtonRedPanner';
 	}
 	else
 	{
-		Skins[0] = TexPanner'BWBPOtherPackTex4.ProtonPack.ProtonBluePanner';
+		Skins[0] = TexPanner'BWBP_OP_Tex.ProtonPack.ProtonBluePanner';
 	}
 }
 
@@ -285,6 +285,6 @@ defaultproperties
      bNetTemporary=False
      bReplicateInstigator=True
      RemoteRole=ROLE_SimulatedProxy
-     Skins(0)=TexPanner'BWBPOtherPackTex4.ProtonPack.ProtonRedPanner'
+     Skins(0)=TexPanner'BWBP_OP_Tex.ProtonPack.ProtonRedPanner'
      Style=STY_Additive
 }

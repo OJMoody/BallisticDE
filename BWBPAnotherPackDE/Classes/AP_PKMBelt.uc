@@ -13,8 +13,8 @@ defaultproperties
      AmmoAmount=75
      InventoryType=Class'BWBPAnotherPackDE.Ammo_PKMBelt'
      PickupMessage="You picked up a belt of PKM bullets."
-     PickupSound=Sound'BallisticSounds2.Ammo.MGBoxPickup'
-     StaticMesh=StaticMesh'BallisticHardware2.Ammo.MachinegunBox'
+     PickupSound=Sound'BW_Core_WeaponSound.Ammo.MGBoxPickup'
+     StaticMesh=StaticMesh'BW_Core_WeaponStatic.Ammo.MachinegunBox'
      CollisionRadius=8.000000
      CollisionHeight=5.500000
 }

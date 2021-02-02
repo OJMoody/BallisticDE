@@ -12,9 +12,9 @@ defaultproperties
 {
      MaxAmmo=8
      InitialAmount=2
-     IconFlashMaterial=Shader'BallisticRecolors3TexPro.SRAC.AmmoIcon_FRAGFlash'
+     IconFlashMaterial=Shader'BWBP_SKC_TexExp.SRAC.AmmoIcon_FRAGFlash'
      PickupClass=Class'BWBPAnotherPackDE.AP_Frag12Box'
-     IconMaterial=Texture'BallisticRecolors3TexPro.SRAC.AmmoIcon_FRAG'
+     IconMaterial=Texture'BWBP_SKC_TexExp.SRAC.AmmoIcon_FRAG'
      IconCoords=(X2=64,Y2=64)
      ItemName="Riot Toxic Grenades"
 }

@@ -49,10 +49,10 @@ defaultproperties
      AmmoAmount=24
      InventoryType=Class'BWBPAnotherPackDE.Ammo_10GaugeDart'
      PickupMessage="You picked up 24 flechette shells for the Riot Supression Cannon"
-     PickupSound=Sound'BallisticSounds2.Ammo.ShotBoxPickup'
-     StaticMesh=StaticMesh'BallisticHardware2.Ammo.M763ShellBox'
+     PickupSound=Sound'BW_Core_WeaponSound.Ammo.ShotBoxPickup'
+     StaticMesh=StaticMesh'BW_Core_WeaponStatic.Ammo.M763ShellBox'
      DrawScale=0.300000
-     Skins(0)=Texture'BallisticRecolors4TexPro.M1014.M1014ShellBox'
+     Skins(0)=Texture'BWBP_SKC_Tex.M1014.M1014ShellBox'
      CollisionRadius=8.000000
      CollisionHeight=4.500000
 }

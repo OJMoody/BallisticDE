@@ -46,5 +46,5 @@ defaultproperties
      DamageRadius=96.000000
      MomentumTransfer=00000.000000
      MyDamageType=Class'BWBPAnotherPackDE.DTSRACFRAG'
-     StaticMesh=StaticMesh'BallisticRecolors4StaticPro.Bulldog.Frag12Proj'
+     StaticMesh=StaticMesh'BWBP_SKC_Static.Bulldog.Frag12Proj'
 }

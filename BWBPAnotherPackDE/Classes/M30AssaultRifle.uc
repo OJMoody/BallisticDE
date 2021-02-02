@@ -250,11 +250,11 @@ simulated function bool HasAmmo()
 defaultproperties
 {
      BarrelSpinSound=Sound'IndoorAmbience.Machinery14'
-     BarrelStopSound=Sound'BallisticSounds2.XMV-850.XMV-BarrelStop'
-     BarrelStartSound=Sound'BallisticSounds2.XMV-850.XMV-BarrelStart'
-	 TeamSkins(0)=(RedTex=Shader'BallisticWeapons2.Hands.RedHand-Shiny',BlueTex=Shader'BallisticWeapons2.Hands.BlueHand-Shiny')
+     BarrelStopSound=Sound'BW_Core_WeaponSound.XMV-850.XMV-BarrelStop'
+     BarrelStartSound=Sound'BW_Core_WeaponSound.XMV-850.XMV-BarrelStart'
+	 TeamSkins(0)=(RedTex=Shader'BW_Core_WeaponTex.Hands.RedHand-Shiny',BlueTex=Shader'BW_Core_WeaponTex.Hands.BlueHand-Shiny')
      AIReloadTime=1.000000
-     BigIconMaterial=Texture'BWBPAnotherPackTex2.AR.ARBigIcon'
+     BigIconMaterial=Texture'BWBP_CC_Tex.AR.ARBigIcon'
      BigIconCoords=(X1=16,Y1=30)
      BCRepClass=Class'BallisticDE.BallisticReplicationInfo'
      bWT_Bullet=True
@@ -263,14 +263,14 @@ defaultproperties
      ManualLines(1)="Automatic Gauss fire. High Power, Slower fire rate and Lower recoil."
      ManualLines(2)="Effective at medium range."
      SpecialInfo(0)=(Info="240.0;25.0;0.9;85.0;0.1;0.9;0.4")
-     BringUpSound=(Sound=Sound'BallisticSounds2.M50.M50Pullout')
-     PutDownSound=(Sound=Sound'BallisticSounds2.M50.M50Putaway')
+     BringUpSound=(Sound=Sound'BW_Core_WeaponSound.M50.M50Pullout')
+     PutDownSound=(Sound=Sound'BW_Core_WeaponSound.M50.M50Putaway')
      CockAnimPostReload="Cock"
      CockAnimRate=1.400000
-     CockSound=(Sound=Sound'BallisticSounds2.M50.M50Cock')
-     ClipHitSound=(Sound=Sound'BallisticSounds2.M50.M50ClipHit')
-     ClipOutSound=(Sound=Sound'BallisticSounds2.M50.M50ClipOut')
-     ClipInSound=(Sound=Sound'BallisticSounds2.M50.M50ClipIn')
+     CockSound=(Sound=Sound'BW_Core_WeaponSound.M50.M50Cock')
+     ClipHitSound=(Sound=Sound'BW_Core_WeaponSound.M50.M50ClipHit')
+     ClipOutSound=(Sound=Sound'BW_Core_WeaponSound.M50.M50ClipOut')
+     ClipInSound=(Sound=Sound'BW_Core_WeaponSound.M50.M50ClipIn')
      ClipInFrame=0.700000
      bAltTriggerReload=True
 	 bShowChargingBar=True
@@ -281,20 +281,18 @@ defaultproperties
 	 
 	 // originally XMV is 1200 RPM on its base firemode, so its rotation speed is 0.33. (3600 RPM = 1.00 rot speed)
 	 // so divide desired RPM by 3600 to get rot speed
-	 
 	 RotationSpeeds(0)=0.17 // 612 RPM
 	 RotationSpeeds(1)=0.34 // 1224 RPM
 	 RotationSpeeds(2)=0.51 // 1836 RPM
 	 
 	 CurrentWeaponMode=0
-	 
      bNoCrosshairInScope=True
      SightPivot=(Pitch=64)
      SightOffset=(X=-10.000000,Y=-0.500000,Z=12.500000)
      SightDisplayFOV=25.000000
      GunLength=16.000000
 	 SightFXClass=Class'BWBPAnotherPackDE.M30SightLEDs'
-	 ScopeViewTex=Texture'BWBPAnotherPackTex2.AR.M30A1-Scope'
+	 ScopeViewTex=Texture'BWBP_CC_Tex.AR.M30A1-Scope'
 	 bNoMeshInScope=True
      FireModeClass(0)=Class'BWBPAnotherPackDE.M30PrimaryFire'
      FireModeClass(1)=Class'BWBPAnotherPackDE.M30SecondaryFire'
@@ -316,7 +314,7 @@ defaultproperties
      PlayerViewOffset=(X=5.000000,Y=4.750000,Z=-8.000000)
      BobDamping=2.000000
      AttachmentClass=Class'BWBPAnotherPackDE.M30Attachment'
-     IconMaterial=Texture'BWBPAnotherPackTex2.AR.ARSmallIcon'
+     IconMaterial=Texture'BWBP_CC_Tex.AR.ARSmallIcon'
      IconCoords=(X2=127,Y2=31)
      ItemName="ZX-98 Reaper Gauss Rifle"
      LightType=LT_Pulse
@@ -326,6 +324,6 @@ defaultproperties
      LightBrightness=150.000000
      LightRadius=4.000000
 	 ParamsClass=Class'ZX98WeaponParams'
-     Mesh=SkeletalMesh'BWBPAnotherPackAnims2.AR_FPm'
+     Mesh=SkeletalMesh'BWBP_CC_Anim.FPm_ZX98'
      DrawScale=0.200000
 }

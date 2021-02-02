@@ -6,12 +6,12 @@ class VSKPickup extends BallisticWeaponPickup
 
 defaultproperties
 {
-     LowPolyStaticMesh=StaticMesh'BallisticHardware2.M50.M50PickupLo'
+     LowPolyStaticMesh=StaticMesh'BWBP_SKC_StaticExp.VSK.Pickup_VSK'
      InventoryType=Class'BWBPAnotherPackDE.VSKTranqRifle'
      RespawnTime=20.000000
      PickupMessage="You picked up the VSK-42 Tranquilizer"
-     PickupSound=Sound'BallisticSounds2.M50.M50Putaway'
-     StaticMesh=StaticMesh'BWBPAnotherPackStatics.552Commando.Pickup_552Commando'
+     PickupSound=Sound'BW_Core_WeaponSound.M50.M50Putaway'
+     StaticMesh=StaticMesh'BWBP_SKC_StaticExp.VSK.Pickup_VSK'
      Physics=PHYS_None
      DrawScale=0.100000
      CollisionHeight=4.000000

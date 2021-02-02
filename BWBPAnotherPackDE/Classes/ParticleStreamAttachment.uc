@@ -77,7 +77,7 @@ simulated function PostNetBeginPlay()
 	Super.PostNetBeginPlay();
 	Pack = Spawn(class'ParticleStreamPack');
 	if (Instigator.GetTeamNum() == 1)
-		Pack.Skins[0]=Shader'BWBPOtherPackTex2.Proton_pack_SH_1';
+		Pack.Skins[0]=Shader'BWBP_OP_Tex.Proton_pack_SH_1';
 	if (Instigator != None)
 		Instigator.AttachToBone(Pack,'Spine');
 	Pack.SetBoneScale(0, 0.0001, 'Bone03');
@@ -220,8 +220,8 @@ simulated function Tick(float DT)
 
 defaultproperties
 {
-     StreamAmbientSound=Sound'BWBPOtherPackSound.ProtonPack.Proton-FireLoop'
-     StreamAmbientSoundAlt=Sound'BWBPOtherPackSound.ProtonPack.Proton-FireLoopAlt'
+     StreamAmbientSound=Sound'BWBP_OP_Sounds.ProtonPack.Proton-FireLoop'
+     StreamAmbientSoundAlt=Sound'BWBP_OP_Sounds.ProtonPack.Proton-FireLoopAlt'
      BoostMuzzleFlashClass=Class'BWBPAnotherPackDE.ParticleFlashEmitterBoost'
      MuzzleFlashClass=Class'BWBPAnotherPackDE.ParticleFlashEmitter'
      AltMuzzleFlashClass=Class'BWBPAnotherPackDE.ParticleFlashEmitterAlt'
@@ -234,7 +234,7 @@ defaultproperties
      ReloadAnim="Reload_MG"
      ReloadAnimRate=1.700000
      bRapidFire=True
-     Mesh=SkeletalMesh'BWBPOtherPackAnim.ProtonPack_TP'
+     Mesh=SkeletalMesh'BWBP_OP_Anim.ProtonPack_TPm'
      DrawScale=0.900000
      bFullVolume=True
      SoundVolume=255

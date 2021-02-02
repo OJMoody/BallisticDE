@@ -14,7 +14,6 @@ defaultproperties
      DeathStrings(0)="%o was beaten like an egg by %k and %kh GASC."
      DeathStrings(1)="%k used %kh GASC pistol to tenderise %o."
      DamageIdent="Melee"
-     bDisplaceAim=True
      AimDisplacementDuration=0.500000
      WeaponClass=Class'BWBPAnotherPackDE.GASCPistol'
      DeathString="%o was beaten like an egg by %k's GASC."

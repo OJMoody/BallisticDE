@@ -5,9 +5,9 @@ class PKMPickup extends BallisticWeaponPickup
 	placeable;
 	
 /*
-#exec OBJ LOAD FILE=BWBPAnotherPackTex.utx
-#exec OBJ LOAD FILE=BallisticEffects.utx
-#exec OBJ LOAD FILE=BWBPAnotherPackStatic.usx
+#exec OBJ LOAD FILE=BWBP_CC_Tex.utx
+#exec OBJ LOAD FILE=BW_Core_WeaponTex.utx
+#exec OBJ LOAD FILE=BWBP_CC_Static.usx
 
 //===========================================================================
 // StaticPrecache
@@ -17,37 +17,37 @@ class PKMPickup extends BallisticWeaponPickup
 //===========================================================================
 static function StaticPrecache(LevelInfo L)
 {
-	L.AddPrecacheMaterial(Texture'BWBPAnotherPackTex.PKM.PKM-Main');
-	L.AddPrecacheMaterial(Texture'BWBPAnotherPackTex.PKM.PKM-Spec');
-	L.AddPrecacheStaticMesh(StaticMesh'BallisticHardware2.M353.M353MuzzleFlash');
+	L.AddPrecacheMaterial(Texture'BWBP_CC_Tex.PKM.PKM-Main');
+	L.AddPrecacheMaterial(Texture'BWBP_CC_Tex.PKM.PKM-Spec');
+	L.AddPrecacheStaticMesh(StaticMesh'BW_Core_WeaponStatic.M353.M353MuzzleFlash');
 }
 
 simulated function UpdatePrecacheMaterials()
 {
-	Level.AddPrecacheMaterial(Texture'BWBPAnotherPackTex.PKM.PKM-Main');
-	Level.AddPrecacheMaterial(Texture'BWBPAnotherPackTex.PKM.PKM-Spec');
+	Level.AddPrecacheMaterial(Texture'BWBP_CC_Tex.PKM.PKM-Main');
+	Level.AddPrecacheMaterial(Texture'BWBP_CC_Tex.PKM.PKM-Spec');
 }
 
 simulated function UpdatePrecacheStaticMeshes()
 {
-	Level.AddPrecacheStaticMesh(StaticMesh'BallisticHardware2.M353.M353MuzzleFlash');
-	Level.AddPrecacheStaticMesh(StaticMesh'BallisticHardware2.Ammo.MachinegunBox');
-	Level.AddPrecacheStaticMesh(StaticMesh'BallisticHardware2.M353.M353PickupHi');
-	Level.AddPrecacheStaticMesh(StaticMesh'BallisticHardware2.M353.M353PickupLo');
+	Level.AddPrecacheStaticMesh(StaticMesh'BW_Core_WeaponStatic.M353.M353MuzzleFlash');
+	Level.AddPrecacheStaticMesh(StaticMesh'BW_Core_WeaponStatic.Ammo.MachinegunBox');
+	Level.AddPrecacheStaticMesh(StaticMesh'BW_Core_WeaponStatic.M353.M353PickupHi');
+	Level.AddPrecacheStaticMesh(StaticMesh'BW_Core_WeaponStatic.M353.M353PickupLo');
 }
 */
 
 defaultproperties
 {
      bOnSide=False
-     LowPolyStaticMesh=StaticMesh'BWBPAnotherPackStatics.PKMA.PKMA-Main'
+     LowPolyStaticMesh=StaticMesh'BWBP_CC_Static.PKMA.PKMA-Main'
      PickupDrawScale=0.100000
      StandUp=(Y=0.800000)
      InventoryType=Class'BWBPAnotherPackDE.PKMMachinegun'
      RespawnTime=20.000000
      PickupMessage="You picked up the PKMA machinegun."
-     PickupSound=Sound'BallisticSounds2.M353.M353-Putaway'
-     StaticMesh=StaticMesh'BWBPAnotherPackStatics.PKMA.PKMA-Main'
+     PickupSound=Sound'BW_Core_WeaponSound.M353.M353-Putaway'
+     StaticMesh=StaticMesh'BWBP_CC_Static.PKMA.PKMA-Main'
      bOrientOnSlope=True
      Physics=PHYS_None
      DrawScale=0.100000

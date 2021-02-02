@@ -44,6 +44,6 @@ defaultproperties
      BrassMode=MU_Both
      FlashMode=MU_Both
      TracerClass=Class'BWBPAnotherPackDE.TraceEmitter_Flechette'
-     Mesh=SkeletalMesh'BWBPAnotherPackAnims.PUG12_TPm'
+     Mesh=SkeletalMesh'BWBP_CC_Anim.PUG12_TPm'
      DrawScale=1.000000
 }

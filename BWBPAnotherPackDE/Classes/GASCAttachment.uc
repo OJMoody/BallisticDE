@@ -136,12 +136,12 @@ defaultproperties
      TracerClass=Class'BallisticDE.TraceEmitter_Pistol'
      TracerChance=0.600000
      WaterTracerClass=Class'BallisticDE.TraceEmitter_WaterBullet'
-     FlyBySound=(Sound=SoundGroup'BallisticSounds2.FlyBys.Bullet-Whizz',Volume=0.700000)
+     FlyBySound=(Sound=SoundGroup'BW_Core_WeaponSound.FlyBys.Bullet-Whizz',Volume=0.700000)
      ReloadAnim="Reload_Pistol"
      CockingAnim="Cock_RearPull"
      ReloadAnimRate=1.400000
      CockAnimRate=0.800000
      bRapidFire=True
-     Mesh=SkeletalMesh'BWBPAnotherPackAnims2.TPm_GASC'
+     Mesh=SkeletalMesh'BWBP_CC_Anim.GASC_TPm'
      DrawScale=1.000000
 }

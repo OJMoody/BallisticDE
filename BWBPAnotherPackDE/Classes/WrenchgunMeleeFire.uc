@@ -19,8 +19,6 @@ defaultproperties
      SwipePoints(6)=(offset=(Pitch=-3000))
      WallHitPoint=4
      Damage=80.000000
-     DamageHead=80.000000
-     DamageLimb=80.000000
      DamageType=Class'BWBPAnotherPackDE.DTWrenchgunMelee'
      DamageTypeHead=Class'BWBPAnotherPackDE.DTWrenchgunMeleeHead'
      DamageTypeArm=Class'BWBPAnotherPackDE.DTWrenchgunMelee'
@@ -28,7 +26,7 @@ defaultproperties
      bUseWeaponMag=False
      bReleaseFireOnDie=False
      ScopeDownOn=SDO_PreFire
-     BallisticFireSound=(Sound=Sound'BWBP4-Sounds.Marlin.Mar-Melee',Radius=32.000000,bAtten=True)
+     BallisticFireSound=(Sound=Sound'BW_Core_WeaponSound.Marlin.Mar-Melee',Radius=32.000000,bAtten=True)
      bAISilent=True
      bFireOnRelease=True
      PreFireAnim="PrepWrench"

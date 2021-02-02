@@ -8,8 +8,6 @@ class WrenchgunWrenchShot extends WrenchgunWrench;
 
 defaultproperties
 {
-     DamageHead=12.000000
-     DamageLimb=12.000000
      Damage=12.000000
      MomentumTransfer=17000.000000
      DrawScale=0.500000

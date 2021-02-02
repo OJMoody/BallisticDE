@@ -113,8 +113,6 @@ defaultproperties
     WallPenetrationForce=24.000000
     
     Damage=14.000000
-    DamageHead=28.000000
-    DamageLimb=14.000000
     RangeAtten=0.200000
     WaterRangeAtten=0.600000
     DamageType=Class'BallisticDE.DTXK2Freeze'
@@ -123,8 +121,8 @@ defaultproperties
     KickForce=500
     PenetrateForce=150
     bPenetrate=True
-    ClipFinishSound=(Sound=Sound'BallisticSounds3.Misc.ClipEnd-2',Volume=0.800000,Radius=72.000000,bAtten=True)
-    DryFireSound=(Sound=Sound'BallisticSounds3.Misc.DryPistol',Volume=0.700000)
+    ClipFinishSound=(Sound=Sound'BW_Core_WeaponSound.Misc.ClipEnd-2',Volume=0.800000,Radius=72.000000,bAtten=True)
+    DryFireSound=(Sound=Sound'BW_Core_WeaponSound.Misc.DryPistol',Volume=0.700000)
     bDryUncock=True
 	FlashBone="Muzzle"
     MuzzleFlashClass=Class'BWBPAnotherPackDE.M575FlashEmitter'
@@ -137,8 +135,8 @@ defaultproperties
     FireChaosCurve=(Points=((InVal=0,OutVal=1),(InVal=0.240000,OutVal=1),(InVal=0.350000,OutVal=1.500000),(InVal=0.660000,OutVal=2.250000),(InVal=1.000000,OutVal=3.500000)))
     XInaccuracy=16.000000
     YInaccuracy=16.000000
-    BallisticFireSound=(Sound=Sound'BWBPAnotherPackSounds.M575.M575-Fire',Volume=0.700000,Radius=384.000000,Pitch=1.400000)
-	IceSound=(Sound=Sound'BallisticSounds2.A42.A42-Impact',Volume=1.200000,Radius=1024.000000,Pitch=1.000000,bNoOverride=True)
+    BallisticFireSound=(Sound=Sound'BWBP_OP_Sounds.M575.M575-Fire',Volume=0.700000,Radius=384.000000,Pitch=1.400000)
+	IceSound=(Sound=Sound'BW_Core_WeaponSound.A42.A42-Impact',Volume=1.200000,Radius=1024.000000,Pitch=1.000000,bNoOverride=True)
     bPawnRapidFireAnim=True
     FireRate=0.090000
     AmmoClass=Class'BWBPAnotherPackDE.Ammo_556mmBelt'

@@ -13,8 +13,8 @@ defaultproperties
      AmmoAmount=85
      InventoryType=Class'BWBPAnotherPackDE.Ammo_556mmBelt'
      PickupMessage="You picked up a belt of M575 bullets."
-     PickupSound=Sound'BallisticSounds2.Ammo.MGBoxPickup'
-     StaticMesh=StaticMesh'BWBPAnotherPackStatics.M575.Pickup_M575_Magazine'
+     PickupSound=Sound'BW_Core_WeaponSound.Ammo.MGBoxPickup'
+     StaticMesh=StaticMesh'BWBP_OP_Static.M575.Pickup_M575_Magazine'
      CollisionRadius=8.000000
      CollisionHeight=5.500000
 	 DrawScale=0.1

@@ -70,7 +70,7 @@ defaultproperties
          StartSizeRange=(X=(Min=70.000000,Max=84.000000),Y=(Min=70.000000,Max=84.000000),Z=(Min=70.000000,Max=84.000000))
          InitialParticlesPerSecond=50000.000000
          DrawStyle=PTDS_AlphaBlend
-         Texture=Texture'BallisticEffects.Particles.Smoke6'
+         Texture=Texture'BW_Core_WeaponTex.Particles.Smoke6'
          SecondsBeforeInactive=0.000000
          LifetimeRange=(Min=8.000000,Max=8.000000)
          StartVelocityRadialRange=(Min=-500.000000,Max=-300.000000)
@@ -97,7 +97,7 @@ defaultproperties
          StartSizeRange=(X=(Min=140.000000,Max=140.000000),Y=(Min=70.000000,Max=70.000000),Z=(Min=70.000000,Max=70.000000))
          InitialParticlesPerSecond=50000.000000
          DrawStyle=PTDS_Brighten
-         Texture=Texture'BallisticEffects.Particles.Shockwave'
+         Texture=Texture'BW_Core_WeaponTex.Particles.Shockwave'
          SecondsBeforeInactive=0.000000
          LifetimeRange=(Min=0.500000,Max=0.500000)
      End Object
@@ -119,7 +119,7 @@ defaultproperties
          StartSizeRange=(X=(Min=140.000000,Max=140.000000),Y=(Min=70.000000,Max=70.000000),Z=(Min=70.000000,Max=70.000000))
          InitialParticlesPerSecond=50000.000000
          DrawStyle=PTDS_Brighten
-         Texture=Texture'BallisticEffects.Particles.Shockwave'
+         Texture=Texture'BW_Core_WeaponTex.Particles.Shockwave'
          SecondsBeforeInactive=0.000000
          LifetimeRange=(Min=0.500000,Max=0.500000)
      End Object
@@ -145,7 +145,7 @@ defaultproperties
          StartSizeRange=(X=(Min=2.500000,Max=5.000000),Y=(Min=50.000000,Max=50.000000),Z=(Min=50.000000,Max=50.000000))
          InitialParticlesPerSecond=50000.000000
          DrawStyle=PTDS_Brighten
-         Texture=Texture'BallisticEffects.Particles.Explode2'
+         Texture=Texture'BW_Core_WeaponTex.Particles.Explode2'
          SecondsBeforeInactive=0.000000
          LifetimeRange=(Min=2.000000,Max=2.000000)
          StartVelocityRange=(Z=(Min=50.000000,Max=150.000000))
@@ -201,7 +201,7 @@ defaultproperties
          StartSizeRange=(X=(Min=2.500000,Max=5.000000),Y=(Min=50.000000,Max=50.000000),Z=(Min=50.000000,Max=50.000000))
          InitialParticlesPerSecond=50000.000000
          DrawStyle=PTDS_Brighten
-         Texture=Texture'BallisticEffects.Particles.FlareB1'
+         Texture=Texture'BW_Core_WeaponTex.Particles.FlareB1'
          TextureUSubdivisions=1
          TextureVSubdivisions=1
          SubdivisionStart=1
@@ -246,7 +246,7 @@ defaultproperties
          StartSizeRange=(X=(Min=70.000000,Max=119.000000),Y=(Min=70.000000,Max=119.000000),Z=(Min=70.000000,Max=119.000000))
          InitialParticlesPerSecond=50000.000000
          DrawStyle=PTDS_AlphaBlend
-         Texture=Texture'BallisticEffects.Particles.Smoke6'
+         Texture=Texture'BW_Core_WeaponTex.Particles.Smoke6'
          SecondsBeforeInactive=0.000000
          LifetimeRange=(Min=12.000000,Max=12.000000)
          StartVelocityRange=(X=(Min=-35.000000,Max=35.000000),Y=(Min=-35.000000,Max=35.000000),Z=(Min=-35.000000,Max=35.000000))
@@ -280,7 +280,7 @@ defaultproperties
          StartSizeRange=(X=(Min=2.500000,Max=5.000000),Y=(Min=50.000000,Max=50.000000),Z=(Min=50.000000,Max=50.000000))
          InitialParticlesPerSecond=50000.000000
          DrawStyle=PTDS_Brighten
-         Texture=Texture'BallisticEffects.Particles.Explode2'
+         Texture=Texture'BW_Core_WeaponTex.Particles.Explode2'
          TextureUSubdivisions=1
          TextureVSubdivisions=1
          SecondsBeforeInactive=0.000000

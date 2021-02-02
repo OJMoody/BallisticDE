@@ -112,7 +112,7 @@ defaultproperties
 	 TracerMix=0
      TracerClass=Class'BallisticDE.TraceEmitter_Default'
      WaterTracerClass=Class'BallisticDE.TraceEmitter_WaterBullet'
-     FlyBySound=(Sound=SoundGroup'BallisticSounds2.FlyBys.Bullet-Whizz',Volume=0.700000)
+     FlyBySound=(Sound=SoundGroup'BW_Core_WeaponSound.FlyBys.Bullet-Whizz',Volume=0.700000)
      ReloadAnim="Reload_AR"
      IdleHeavyAnim="PistolHip_Idle"
      IdleRifleAnim="PistolAimed_Idle"
@@ -122,7 +122,7 @@ defaultproperties
      RapidAimedFireAnim="PistolAimed_Burst"	 
      bHeavy=True
      bRapidFire=True
-     Mesh=SkeletalMesh'BWBPAnotherPackAnims2.TPm_AR'
+     Mesh=SkeletalMesh'BWBP_CC_Anim.ZX98_TPm'
      RelativeLocation=(Z=1.000000)
      RelativeRotation=(Pitch=32768)
 	 PrePivot=(z=-3)

@@ -302,20 +302,20 @@ function DisableShield()
 
 defaultproperties
 {
-     ShieldOnSound=Sound'BWBPOtherPackSound.ProtonPack.Proton-Putaway'
-     ShieldOffSound=Sound'BWBPOtherPackSound.ProtonPack.Proton-Pullout'
+     ShieldOnSound=Sound'BWBP_OP_Sounds.ProtonPack.Proton-Putaway'
+     ShieldOffSound=Sound'BWBP_OP_Sounds.ProtonPack.Proton-Pullout'
      MaxStreamRange=1500.000000
-     TeamSkins(0)=(RedTex=Shader'BallisticWeapons2.Hands.RedHand-Shiny',BlueTex=Shader'BallisticWeapons2.Hands.BlueHand-Shiny')
-     BigIconMaterial=Texture'BWBPOtherPackTex2.ProtonPack.BigIcon_ProtonPack'
+     TeamSkins(0)=(RedTex=Shader'BW_Core_WeaponTex.Hands.RedHand-Shiny',BlueTex=Shader'BW_Core_WeaponTex.Hands.BlueHand-Shiny')
+     BigIconMaterial=Texture'BWBP_OP_Tex.ProtonPack.BigIcon_ProtonPack'
      BigIconCoords=(Y1=32,X2=512,Y2=225)
      BCRepClass=Class'BallisticDE.BallisticReplicationInfo'
      bWT_Energy=True
      bWT_Heal=True
      SpecialInfo(0)=(Info="0.0;-15.0;-999.0;-1.0;-999.0;-999.0;-999.0")
-     BringUpSound=(Sound=Sound'BWBPOtherPackSound.ProtonPack.Proton-Pullout')
-     PutDownSound=(Sound=Sound'BWBPOtherPackSound.ProtonPack.Proton-Putaway')
+     BringUpSound=(Sound=Sound'BWBP_OP_Sounds.ProtonPack.Proton-Pullout')
+     PutDownSound=(Sound=Sound'BWBP_OP_Sounds.ProtonPack.Proton-Putaway')
      bNonCocking=True
-     WeaponModes(0)=(ModeName="Proton Stream",ModeID="WM_FullAuto")
+     WeaponModes(0)=(ModeName="Gravity Proton Stream",ModeID="WM_FullAuto")
      WeaponModes(1)=(bUnavailable=True)
      WeaponModes(2)=(bUnavailable=True)
      CurrentWeaponMode=0
@@ -345,7 +345,7 @@ defaultproperties
      PlayerViewOffset=(X=40.000000,Y=15.000000,Z=-20.000000)
      PlayerViewPivot=(Pitch=1024,Yaw=-1024)
      AttachmentClass=Class'BWBPAnotherPackDE.ParticleStreamAttachment'
-     IconMaterial=Texture'BWBPOtherPackTex2.ProtonPack.Icon_ProtonPack'
+     IconMaterial=Texture'BWBP_OP_Tex.ProtonPack.Icon_ProtonPack'
      IconCoords=(X2=127,Y2=31)
      ItemName="E90-N Particle Accelerator MK.II"
      LightType=LT_Pulse
@@ -354,10 +354,10 @@ defaultproperties
      LightSaturation=100
      LightBrightness=192.000000
      LightRadius=12.000000
-     Mesh=SkeletalMesh'BWBPOtherPackAnim.ProtonPack_FP'
+     Mesh=SkeletalMesh'BWBP_OP_Anim.FPm_ProtonPack'
      DrawScale=0.600000
-     Skins(0)=Shader'BallisticWeapons2.Hands.Hands-Shiny'
-     Skins(1)=Shader'BWBPOtherPackTex2.ProtonPack.proton_gun_SH1'
+     Skins(0)=Shader'BW_Core_WeaponTex.Hands.Hands-Shiny'
+     Skins(1)=Shader'BWBP_OP_Tex.ProtonPack.proton_gun_SH1'
      SoundPitch=56
 	 ParamsClass=Class'ProtonMK2WeaponParams'
      SoundRadius=32.000000

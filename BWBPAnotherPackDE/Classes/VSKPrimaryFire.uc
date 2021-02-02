@@ -19,8 +19,6 @@ simulated function SwitchScopedMode (byte NewMode)
 		BallisticFireSound.Sound=ScopedFireSound;
 		FireRecoil=128;
 		Damage = 50;
-		DamageHead = 75;
-		DamageLimb = 42;
 		FireChaos = 0.1;
 	}
 	
@@ -29,8 +27,6 @@ simulated function SwitchScopedMode (byte NewMode)
 		BallisticFireSound.Sound=RegularFireSound;
 		FireRecoil=88;
 		Damage = default.Damage;
-		DamageHead = default.DamageHead;
-		DamageLimb = default.DamageLimb;
 		FireChaos = 0.05;
 	}
 	else
@@ -38,8 +34,6 @@ simulated function SwitchScopedMode (byte NewMode)
 		BallisticFireSound.Sound=RegularFireSound;
 		FireRecoil=88;
 		Damage = default.Damage;
-		DamageHead = default.DamageHead;
-		DamageLimb = default.DamageLimb;
 		FireChaos = 0.05;
 	}
 	if (Weapon.bBerserk)
@@ -141,19 +135,17 @@ function bool DoTazerBlurEffect(Actor Victim)
 
 defaultproperties
 {
-     ScopedFireSound=SoundGroup'BWBPAnotherPackSounds.VSK.VSK-SuperShot-Combined'
-     RegularFireSound=SoundGroup'BWBPAnotherPackSounds.VSK.VSK-Shot-Combined'
+     ScopedFireSound=SoundGroup'BWBP_SKC_SoundsExp.VSK.VSK-SuperShot'
+     RegularFireSound=SoundGroup'BWBP_SKC_SoundsExp.VSK.VSK-Shot'
      TraceRange=(Min=12000.000000,Max=15000.000000)
 	 WallPenetrationForce=0
      Damage=35
-     DamageHead=50
-     DamageLimb=28
      DamageType=Class'BWBPAnotherPackDE.DT_VSKTranq'
      DamageTypeHead=Class'BWBPAnotherPackDE.DT_VSKTranqHead'
      DamageTypeArm=Class'BWBPAnotherPackDE.DT_VSKTranq'
      KickForce=20000
      PenetrateForce=150
-     DryFireSound=(Sound=Sound'BallisticSounds2.D49.D49-DryFire',Volume=0.700000)
+     DryFireSound=(Sound=Sound'BW_Core_WeaponSound.D49.D49-DryFire',Volume=0.700000)
      bCockAfterEmpty=True
      MuzzleFlashClass=Class'BWBPAnotherPackDE.VSKSilencedFlash'
      FlashScaleFactor=0.080000
@@ -163,7 +155,7 @@ defaultproperties
      FireRecoil=88.000000
      XInaccuracy=1.750000
      YInaccuracy=1.750000
-     BallisticFireSound=(Sound=SoundGroup'BWBPAnotherPackSounds.VSK.VSK-SuperShot-Combined',Volume=1.100000,Slot=SLOT_Interact,bNoOverride=False)
+     BallisticFireSound=(Sound=SoundGroup'BWBP_SKC_SoundsExp.VSK.VSK-SuperShot',Volume=1.100000,Slot=SLOT_Interact,bNoOverride=False)
      bAISilent=True
      bPawnRapidFireAnim=True
      FireEndAnim=

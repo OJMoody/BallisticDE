@@ -260,7 +260,7 @@ function DoFireEffect()
 
 //	SendFireEffect(none, Vector(Aim)*TraceRange.Max, StartTrace, 0);
 
-	Super(WeaponFire).DoFireEffect();
+	Super(BallisticFire).DoFireEffect();;
 }
 
 // ModeDoFire from WeaponFire.uc, but with a few changes
@@ -329,8 +329,6 @@ defaultproperties
 	 TraceRange=(Min=15000.000000,Max=20000.000000)
      WallPenetrationForce=128.000000
      Damage=55.000000
-     DamageHead=80.000000
-     DamageLimb=55.000000
      RangeAtten=0.350000
      WaterRangeAtten=0.800000
      DamageType=Class'BWBPAnotherPackDE.DTM30Gauss'
@@ -339,8 +337,8 @@ defaultproperties
      PenetrateForce=512
      bPenetrate=True
      RunningSpeedThresh=1000.000000
-     ClipFinishSound=(Sound=Sound'BallisticSounds3.Misc.ClipEnd-1',Volume=0.800000,Radius=48.000000,bAtten=True)
-     DryFireSound=(Sound=Sound'BallisticSounds3.Misc.DryRifle',Volume=0.700000)
+     ClipFinishSound=(Sound=Sound'BW_Core_WeaponSound.Misc.ClipEnd-1',Volume=0.800000,Radius=48.000000,bAtten=True)
+     DryFireSound=(Sound=Sound'BW_Core_WeaponSound.Misc.DryRifle',Volume=0.700000)
      bCockAfterEmpty=True
      MuzzleFlashClass=Class'BWBPAnotherPackDE.M30SFlashEmitter'
      FlashBone="tip"
@@ -351,7 +349,7 @@ defaultproperties
      XInaccuracy=64.000000
      YInaccuracy=64.000000
 	 AmmoPerFire=4
-     BallisticFireSound=(Sound=Sound'PackageSounds4Pro.M30A2.M50A2-SilenceFire',Volume=6.700000)
+     BallisticFireSound=(Sound=Sound'BWBP_SKC_Sounds.M30A2.M50A2-SilenceFire',Volume=6.700000)
      bPawnRapidFireAnim=True
 	 FireAnim="ChargedFire"
      PreFireAnim=

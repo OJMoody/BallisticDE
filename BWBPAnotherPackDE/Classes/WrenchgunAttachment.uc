@@ -276,7 +276,7 @@ simulated function EjectBrass(byte Mode);
 
 defaultproperties
 {
-     FireClass=Class'BWBPRecolorsDE.CoachGunPrimaryFire'
+     FireClass=Class'BWBPAnotherPackDE.WrenchgunPrimaryFire'
      MuzzleFlashClass=Class'BallisticDE.MRT6FlashEmitter'
      ImpactManager=Class'BallisticDE.IM_Shell'
      MeleeImpactManager=Class'BallisticDE.IM_GunHit'
@@ -289,7 +289,7 @@ defaultproperties
      LightMode=MU_Both
      TracerClass=Class'BallisticDE.TraceEmitter_Shotgun'
      ReloadAnim="Reload_MuzzlePistol"
-     Mesh=SkeletalMesh'BWBPWrenchPackAnims.Wrenchgun_Third'
+     Mesh=SkeletalMesh'BWBP_CC_Anim.Wrenchgun_TPm'
      RelativeLocation=(X=5.000000,Z=4.000000)
      RelativeRotation=(Pitch=32768)
      DrawScale=0.450000

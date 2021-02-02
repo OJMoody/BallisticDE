@@ -177,23 +177,23 @@ simulated event RenderOverlays (Canvas C)
 	if (bThermal)
 	{
 
-    		C.DrawTile(Texture'BallisticRecolors4TexPro.MARS.MARS-ScopeRed', (C.SizeX - C.SizeY)/2, C.SizeY, 0, 0, 1, 1);
+    		C.DrawTile(Texture'BWBP_SKC_Tex.MARS.MARS-ScopeRed', (C.SizeX - C.SizeY)/2, C.SizeY, 0, 0, 1, 1);
 
         	C.SetPos((C.SizeX - C.SizeY)/2, C.OrgY);
-        	C.DrawTile(Texture'BallisticRecolors4TexPro.MARS.MARS-ScopeRed', C.SizeY, C.SizeY, 0, 0, 1024, 1024);
+        	C.DrawTile(Texture'BWBP_SKC_Tex.MARS.MARS-ScopeRed', C.SizeY, C.SizeY, 0, 0, 1024, 1024);
 
         	C.SetPos(C.SizeX - (C.SizeX - C.SizeY)/2, C.OrgY);
-        	C.DrawTile(Texture'BallisticRecolors4TexPro.MARS.MARS-ScopeRed', (C.SizeX - C.SizeY)/2, C.SizeY, 0, 0, 1, 1);
+        	C.DrawTile(Texture'BWBP_SKC_Tex.MARS.MARS-ScopeRed', (C.SizeX - C.SizeY)/2, C.SizeY, 0, 0, 1, 1);
 	}
 	else if (bMeatVision)
 	{
-    		C.DrawTile(Texture'BallisticRecolors4TexPro.MARS.MARS-ScopeTarget', (C.SizeX - C.SizeY)/2, C.SizeY, 0, 0, 1, 1);
+    		C.DrawTile(Texture'BWBP_SKC_Tex.MARS.MARS-ScopeTarget', (C.SizeX - C.SizeY)/2, C.SizeY, 0, 0, 1, 1);
 
         	C.SetPos((C.SizeX - C.SizeY)/2, C.OrgY);
-        	C.DrawTile(Texture'BallisticRecolors4TexPro.MARS.MARS-ScopeTarget', C.SizeY, C.SizeY, 0, 0, 1024, 1024);
+        	C.DrawTile(Texture'BWBP_SKC_Tex.MARS.MARS-ScopeTarget', C.SizeY, C.SizeY, 0, 0, 1024, 1024);
 
         	C.SetPos(C.SizeX - (C.SizeX - C.SizeY)/2, C.OrgY);
-        	C.DrawTile(Texture'BallisticRecolors4TexPro.MARS.MARS-ScopeTarget', (C.SizeX - C.SizeY)/2, C.SizeY, 0, 0, 1, 1);
+        	C.DrawTile(Texture'BWBP_SKC_Tex.MARS.MARS-ScopeTarget', (C.SizeX - C.SizeY)/2, C.SizeY, 0, 0, 1, 1);
 	}
 	else
 	{
@@ -289,11 +289,11 @@ simulated event DrawMeatVisionMode (Canvas C)
 	C.Style = ERenderStyle.STY_Modulated;
 	C.SetPos((C.SizeX - C.SizeY)/2, C.OrgY);
 	C.SetDrawColor(255,255,255,255);
-	C.DrawTile(FinalBlend'BallisticRecolors4TexPro.MARS.F2000TargetFinal', (C.SizeY*1.3333333) * 0.75, C.SizeY, 0, 0, 1024, 1024);
+	C.DrawTile(FinalBlend'BWBP_SKC_Tex.MARS.F2000TargetFinal', (C.SizeY*1.3333333) * 0.75, C.SizeY, 0, 0, 1024, 1024);
 
 	// Draw some panning lines
 	C.SetPos(C.OrgX, C.OrgY);
-	//C.DrawTile(FinalBlend'BallisticUI2.M75.M75LinesFinal', C.SizeX, C.SizeY, 0, 0, 512, 512);
+	//C.DrawTile(FinalBlend'BW_Core_WeaponTex.M75.M75LinesFinal', C.SizeX, C.SizeY, 0, 0, 512, 512);
 
     C.Style = ERenderStyle.STY_Alpha;
 	
@@ -309,7 +309,7 @@ simulated event DrawMeatVisionMode (Canvas C)
 	C.SetPos(V.X, V.Y);
 	V2 = C.WorldToScreen(Target.Location + Y*Target.CollisionRadius - Z*Target.CollisionHeight);
 	C.SetDrawColor(160,185,200,255);
-      C.DrawTileStretched(Texture'BallisticRecolors3TexPro.X82.X82Targetbox', (V2.X - V.X) + 32*ScaleFactor, (V2.Y - V.Y) + 32*ScaleFactor);
+      C.DrawTileStretched(Texture'BWBP_SKC_Tex.X82.X82Targetbox', (V2.X - V.X) + 32*ScaleFactor, (V2.Y - V.Y) + 32*ScaleFactor);
 
     V3 = C.WorldToScreen(Target.Location - Z*Target.CollisionHeight);
 }
@@ -325,7 +325,7 @@ simulated event DrawThermalMode (Canvas C)
 	// Draw Spinning Sweeper thing
 	C.SetPos((C.SizeX - C.SizeY)/2, C.OrgY);
 	C.SetDrawColor(255,255,255,255);
-	C.DrawTile(FinalBlend'BallisticRecolors4TexPro.MARS.F2000IRNVFinal', (C.SizeY*ImageScaleRatio) * 0.75, C.SizeY, 0, 0, 1024, 1024);
+	C.DrawTile(FinalBlend'BWBP_SKC_Tex.MARS.F2000IRNVFinal', (C.SizeY*ImageScaleRatio) * 0.75, C.SizeY, 0, 0, 1024, 1024);
 }
 
 simulated function AdjustThermalView(bool bNewValue)
@@ -566,12 +566,12 @@ defaultproperties
 	 ManualLines(0)="Higher DPS than comparable weapons, but awkward recoil and highly visible tracers."
      ManualLines(1)="Attaches or remvoes the suppressor. When active, the suppressor reduces recoil and noise output and hides the muzzle flash, but reduces range."
      ManualLines(2)="The Weapon Function key switches between various integrated scopes.|The Normal scope offers clear vision.|The Night Vision scope (green) illuminates the environment and shows enemies in orange.|The Infrared scope (red) highlights enemies with a box, even underwater or through smoke or trees.||Effective at medium range."
-     ThermalOnSound=(Sound=Sound'BallisticSounds2.M75.M75ThermalOn',Volume=0.500000,Pitch=1.000000)
-     ThermalOffSound=(Sound=Sound'BallisticSounds2.M75.M75ThermalOff',Volume=0.500000,Pitch=1.000000)
-     NVOnSound=(Sound=Sound'PackageSounds4Pro.AH104.AH104-SightOn',Volume=1.600000,Pitch=0.900000)
-     NVOffSound=(Sound=Sound'PackageSounds4Pro.AH104.AH104-SightOff',Volume=1.600000,Pitch=0.900000)
-	 WallVisionSkin=FinalBlend'BallisticEffects.M75.OrangeFinal'
-     Flaretex=FinalBlend'BallisticEffects.M75.OrangeFlareFinal'
+     ThermalOnSound=(Sound=Sound'BW_Core_WeaponSound.M75.M75ThermalOn',Volume=0.500000,Pitch=1.000000)
+     ThermalOffSound=(Sound=Sound'BW_Core_WeaponSound.M75.M75ThermalOff',Volume=0.500000,Pitch=1.000000)
+     NVOnSound=(Sound=Sound'BWBP_SKC_Sounds.AH104.AH104-SightOn',Volume=1.600000,Pitch=0.900000)
+     NVOffSound=(Sound=Sound'BWBP_SKC_Sounds.AH104.AH104-SightOff',Volume=1.600000,Pitch=0.900000)
+	 WallVisionSkin=FinalBlend'BW_Core_WeaponTex.M75.OrangeFinal'
+     Flaretex=FinalBlend'BW_Core_WeaponTex.M75.OrangeFlareFinal'
      ThermalRange=2500.000000
 	 SilencerBone="Silencer"
 	 ZoomType=ZT_Logarithmic
@@ -579,29 +579,29 @@ defaultproperties
      MaxZoom=5.000000
 	 ZoomStages=3
 	 SightingTime=0.850000
-     SilencerOnSound=Sound'BallisticSounds2.XK2.XK2-SilenceOn'
-     SilencerOffSound=Sound'BallisticSounds2.XK2.XK2-SilenceOff'
+     SilencerOnSound=Sound'BW_Core_WeaponSound.XK2.XK2-SilenceOn'
+     SilencerOffSound=Sound'BW_Core_WeaponSound.XK2.XK2-SilenceOff'
      SilencerOnAnim="SilencerOn"
      SilencerOffAnim="SilencerOff"
      Description="Despite being a relic from the old world, the MG36 still remains a deadly modular weapon to this day.  While it can be a carbine, the machinegun form is a popular choice among the troops to lay down suppressive fire while being able to reload far more quicker than a belt-fed LMG.  Plus with dual scopes and a threaded barrel to attach suppressors, the MG36 is a worthy candidate to hold key positions and thin out hordes of Krao."
-	 TeamSkins(0)=(RedTex=Shader'BallisticWeapons2.Hands.RedHand-Shiny',BlueTex=Shader'BallisticWeapons2.Hands.BlueHand-Shiny')
-     BigIconMaterial=Texture'BWBPAnotherPackTex.MG36.MG36_LargeIcon'
+	 TeamSkins(0)=(RedTex=Shader'BW_Core_WeaponTex.Hands.RedHand-Shiny',BlueTex=Shader'BW_Core_WeaponTex.Hands.BlueHand-Shiny')
+     BigIconMaterial=Texture'BWBP_SKC_TexExp.MG36.MG36_LargeIcon'
      BigIconCoords=(Y1=36,Y2=225)
      BCRepClass=Class'BallisticDE.BallisticReplicationInfo'
      bWT_Bullet=True
      SpecialInfo(0)=(Info="240.0;25.0;0.9;80.0;0.7;0.7;0.4")
-     BringUpSound=(Sound=Sound'BallisticSounds2.M925.M925-Pullout')
-     PutDownSound=(Sound=Sound'BallisticSounds2.M925.M925-Putaway')
-     CockSound=(Sound=Sound'BWBPAnotherPackSounds.MG36.MG36-Cock',Volume=2.000000)
-     ClipOutSound=(Sound=Sound'BWBPAnotherPackSounds.MG36.MG36-MagOut',Volume=2.400000)
-     ClipInSound=(Sound=Sound'BWBPAnotherPackSounds.MG36.MG36-MagIn',Volume=2.400000)
+     BringUpSound=(Sound=Sound'BW_Core_WeaponSound.M925.M925-Pullout')
+     PutDownSound=(Sound=Sound'BW_Core_WeaponSound.M925.M925-Putaway')
+     CockSound=(Sound=Sound'BWBP_SKC_SoundsExp.JSOC.JSOC-Cock',Volume=2.000000)
+     ClipOutSound=(Sound=Sound'BWBP_SKC_SoundsExp.JSOC.JSOC-MagOut',Volume=2.400000)
+     ClipInSound=(Sound=Sound'BWBP_SKC_SoundsExp.JSOC.JSOC-MagIn',Volume=2.400000)
      ClipInFrame=0.650000
      WeaponModes(0)=(bUnavailable=True)
      WeaponModes(1)=(Value=4.000000)
      WeaponModes(3)=(bUnavailable=True)
      bNoCrosshairInScope=True
 	 bNoMeshInScope=True
-	 ScopeViewTex=Texture'BWBPAnotherPackTex.MG36.MG36-Scope'
+	 ScopeViewTex=Texture'BWBP_SKC_TexExp.MG36.G36ScopeView'
      SightOffset=(X=-15.000000,Y=-0.350000,Z=12.300000)
      SightDisplayFOV=25.000000
      FullZoomFOV=45
@@ -626,7 +626,7 @@ defaultproperties
      PlayerViewOffset=(X=5.000000,Y=5.000000,Z=-9.000000)
      BobDamping=2.000000
      AttachmentClass=Class'BWBPAnotherPackDE.MG36Attachment'
-     IconMaterial=Texture'BWBPAnotherPackTex.MG36.MG36_SmallIcon'
+     IconMaterial=Texture'BWBP_SKC_TexExp.MG36.MG36_SmallIcon'
      IconCoords=(X2=127,Y2=31)
      ItemName="MG36 Night Ops Machinegun"
      LightType=LT_Pulse
@@ -636,6 +636,6 @@ defaultproperties
      LightBrightness=150.000000
      LightRadius=4.000000
 	 ParamsClass=Class'MG36WeaponParams'
-     Mesh=SkeletalMesh'BWBPAnotherPackAnims.FPm_MG36'
+     Mesh=SkeletalMesh'BWBP_SKC_AnimExp.FPm_MG36'
      DrawScale=1.000000
 }

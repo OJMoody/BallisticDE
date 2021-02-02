@@ -290,26 +290,26 @@ function float SuggestDefenseStyle()	{	return 0.0;	}
 
 defaultproperties
 {
-     GrenOpenSound=Sound'BallisticSounds2.M50.M50GrenOpen'
-     GrenLoadSound=Sound'BallisticSounds2.M50.M50GrenLoad'
-     GrenCloseSound=Sound'BallisticSounds2.M50.M50GrenClose'
+     GrenOpenSound=Sound'BW_Core_WeaponSound.M50.M50GrenOpen'
+     GrenLoadSound=Sound'BW_Core_WeaponSound.M50.M50GrenLoad'
+     GrenCloseSound=Sound'BW_Core_WeaponSound.M50.M50GrenClose'
 	 GrenadeLoadAnim="ReloadGrenade"
      PlayerSpeedFactor=0.900000
      PlayerJumpFactor=0.900000
-     TeamSkins(0)=(RedTex=Shader'BallisticWeapons2.Hands.RedHand-Shiny',BlueTex=Shader'BallisticWeapons2.Hands.BlueHand-Shiny')
+     TeamSkins(0)=(RedTex=Shader'BW_Core_WeaponTex.Hands.RedHand-Shiny',BlueTex=Shader'BW_Core_WeaponTex.Hands.BlueHand-Shiny')
      AIReloadTime=1.500000
-     BigIconMaterial=Texture'BWBPAnotherPackTex.PUG12.BigIcon_PUG12'
+     BigIconMaterial=Texture'BWBP_CC_Tex.PUG12.BigIcon_PUG12'
      BCRepClass=Class'BallisticDE.BallisticReplicationInfo'
      bWT_Bullet=True
      SpecialInfo(0)=(Info="120.0;15.0;0.8;70.0;0.75;0.5;0.0")
-     BringUpSound=(Sound=Sound'PackageSounds4Pro.Bulldog.Bulldog-PullOut',Volume=1.600000)
-     PutDownSound=(Sound=Sound'PackageSounds4Pro.Bulldog.Bulldog-PutAway',Volume=1.400000)
+     BringUpSound=(Sound=Sound'BWBP_SKC_Sounds.Bulldog.Bulldog-PullOut',Volume=1.600000)
+     PutDownSound=(Sound=Sound'BWBP_SKC_Sounds.Bulldog.Bulldog-PutAway',Volume=1.400000)
      MagAmmo=15
-     CockSound=(Sound=Sound'BWBPAnotherPackSounds.PUG.PUG-Cock',Volume=4.000000)
+     CockSound=(Sound=Sound'BWBP_CC_Sounds.PUG.PUG-Cock',Volume=4.000000)
      ReloadAnim="Reload"
-     ClipHitSound=(Sound=Sound'PackageSounds4Pro.Bulldog.Bulldog-MagHit')
-     ClipOutSound=(Sound=Sound'PackageSounds4Pro.Bulldog.Bulldog-MagOut',Volume=1.000000)
-     ClipInSound=(Sound=Sound'PackageSounds4Pro.Bulldog.Bulldog-MagIn',Volume=1.700000)
+     ClipHitSound=(Sound=Sound'BWBP_SKC_Sounds.Bulldog.Bulldog-MagHit')
+     ClipOutSound=(Sound=Sound'BWBP_SKC_Sounds.Bulldog.Bulldog-MagOut',Volume=1.000000)
+     ClipInSound=(Sound=Sound'BWBP_SKC_Sounds.Bulldog.Bulldog-MagIn',Volume=1.700000)
      ClipInFrame=0.650000
      bCockOnEmpty=True
      bNeedCock=False
@@ -337,7 +337,7 @@ defaultproperties
      PlayerViewOffset=(X=12.000000,Y=8.000000,Z=-16.000000)
      BobDamping=1.600000
      AttachmentClass=Class'BWBPAnotherPackDE.PUGAttachment'
-     IconMaterial=Texture'BWBPAnotherPackTex.PUG12.SmallIcon_PUG12'
+     IconMaterial=Texture'BWBP_CC_Tex.PUG12.SmallIcon_PUG12'
      IconCoords=(X2=127,Y2=31)
      ItemName="PUG-M2 Riot Supression Cannon"
      LightType=LT_Pulse
@@ -347,6 +347,6 @@ defaultproperties
      LightBrightness=150.000000
      LightRadius=4.000000
 	 ParamsClass=Class'PUGWeaponParams'
-     Mesh=SkeletalMesh'BWBPAnotherPackAnims.FPm_Pug12'
+     Mesh=SkeletalMesh'BWBP_CC_Anim.FPm_Pug12'
      DrawScale=1.600000
 }

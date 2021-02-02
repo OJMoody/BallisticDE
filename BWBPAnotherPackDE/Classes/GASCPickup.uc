@@ -8,19 +8,15 @@
 class GASCPickup extends BallisticHandgunPickup
 	placeable;
 
-#exec OBJ LOAD FILE=BallisticWeapons2.utx
-#exec OBJ LOAD FILE=BallisticEffects.utx
-#exec OBJ LOAD FILE=BallisticHardware2.usx
-
 defaultproperties
 {
-     LowPolyStaticMesh=StaticMesh'BWBPAnotherPackStatics2.GASC.GASC_Pickup_Weapon'
+     LowPolyStaticMesh=StaticMesh'BWBP_CC_Static.GASC.GASC_Pickup_Weapon'
      PickupDrawScale=0.100000
      InventoryType=Class'BWBPAnotherPackDE.GASCPistol'
      RespawnTime=10.000000
      PickupMessage="You picked up the Gaucho and Stallion"
-     PickupSound=Sound'BallisticSounds2.M806.M806Putaway'
-     StaticMesh=StaticMesh'BWBPAnotherPackStatics2.GASC.GASC_Pickup_Weapon'
+     PickupSound=Sound'BW_Core_WeaponSound.M806.M806Putaway'
+     StaticMesh=StaticMesh'BWBP_CC_Static.GASC.GASC_Pickup_Weapon'
      Physics=PHYS_None
      DrawScale=0.100000
      CollisionHeight=4.000000

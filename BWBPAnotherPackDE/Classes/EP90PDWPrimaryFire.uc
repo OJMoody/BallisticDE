@@ -28,14 +28,12 @@ defaultproperties
      CutOffStartRange=1800.000000
      TraceRange=(Max=6000.000000)
      Damage=26.000000
-     DamageHead=40.000000
-     DamageLimb=26.000000
      RangeAtten=0.30000
      WaterRangeAtten=0.500000
      DamageType=Class'BWBPAnotherPackDE.DTEP90PDW'
      DamageTypeHead=Class'BWBPAnotherPackDE.DTEP90PDWHead'
      DamageTypeArm=Class'BWBPAnotherPackDE.DTEP90PDW'
-	 DryFireSound=(Sound=Sound'PackageSounds4Pro.LS14.Gauss-Empty',Volume=1.200000)
+	 DryFireSound=(Sound=Sound'BWBP_SKC_Sounds.LS14.Gauss-Empty',Volume=1.200000)
      KickForce=6000
      PenetrateForce=150
      bPenetrate=True
@@ -48,7 +46,7 @@ defaultproperties
      FireChaos=0.150000
 	 XInaccuracy=32
 	 YInaccuracy=32
-     BallisticFireSound=(Sound=Sound'BWBPAnotherPackSounds.EP110.EP110-Fire',Volume=9.500000,Slot=SLOT_Interact,bNoOverride=False)
+     BallisticFireSound=(Sound=Sound'BWBP_CC_Sounds.EP110.EP110-Fire',Volume=9.500000,Slot=SLOT_Interact,bNoOverride=False)
      FireEndAnim=
      FireRate=0.125000
      FireAnimRate=1

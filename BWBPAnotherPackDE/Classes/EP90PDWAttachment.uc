@@ -114,7 +114,7 @@ defaultproperties
      LightMode=MU_Both
      WaterTracerClass=Class'BallisticDE.TraceEmitter_WaterBullet'
      WaterTracerMode=MU_Both
-     FlyBySound=(Sound=Sound'PackageSounds4Pro.LS14.Gauss-FlyBy',Volume=0.700000)
-     Mesh=SkeletalMesh'BWBPAnotherPackAnims.EP110_TPm'
+     FlyBySound=(Sound=Sound'BWBP_SKC_Sounds.LS14.Gauss-FlyBy',Volume=0.700000)
+     Mesh=SkeletalMesh'BWBP_CC_Anim.EP110_TPm'
      DrawScale=1.000000
 }

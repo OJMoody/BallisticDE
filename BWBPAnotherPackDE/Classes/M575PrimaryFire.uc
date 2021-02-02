@@ -37,8 +37,6 @@ defaultproperties
      WallPenetrationForce=24.000000
      
      Damage=20.000000
-     DamageHead=40.000000
-     DamageLimb=20.000000
 	 
      WaterRangeAtten=0.800000
      DamageType=Class'BWBPAnotherPackDE.DTM575MG'
@@ -47,7 +45,7 @@ defaultproperties
      KickForce=2000
      PenetrateForce=150
      bPenetrate=True
-     DryFireSound=(Sound=Sound'BallisticSounds3.Misc.DryRifle',Volume=0.700000)
+     DryFireSound=(Sound=Sound'BW_Core_WeaponSound.Misc.DryRifle',Volume=0.700000)
      bCockAfterEmpty=True
      MuzzleFlashClass=Class'BWBPAnotherPackDE.M575FlashEmitter'
 	 FlashBone="Muzzle"
@@ -59,7 +57,7 @@ defaultproperties
      FireChaosCurve=(Points=((InVal=0,OutVal=1),(InVal=0.240000,OutVal=1),(InVal=0.350000,OutVal=1.500000),(InVal=0.660000,OutVal=2.250000),(InVal=1.000000,OutVal=3.500000)))
      XInaccuracy=16.000000
      YInaccuracy=16.000000
-     BallisticFireSound=(Sound=Sound'BWBPAnotherPackSounds.M575.M575-Fire',Volume=1.600000,Slot=SLOT_Interact,bNoOverride=False)
+     BallisticFireSound=(Sound=Sound'BWBP_OP_Sounds.M575.M575-Fire',Volume=1.600000,Slot=SLOT_Interact,bNoOverride=False)
      bPawnRapidFireAnim=True
      FireEndAnim=
      FireRate=0.082000

@@ -13,8 +13,8 @@ defaultproperties
      AmmoAmount=60
      InventoryType=Class'BWBPAnotherPackDE.Ammo_Tranq'
      PickupMessage="You got 30 tranquilizer darts"
-     PickupSound=Sound'BWBPAnotherPackSounds.VSK.VSK-Holster'
-     StaticMesh=StaticMesh'BallisticRecolors4StaticProExp.PS9M.PS9MAmmo'
+     PickupSound=Sound'BWBP_SKC_Sounds.VSK.VSK-Holster'
+     StaticMesh=StaticMesh'BWBP_SKC_Static.PS9M.PS9MAmmo'
      DrawScale=0.400000
      CollisionRadius=8.000000
      CollisionHeight=5.200000

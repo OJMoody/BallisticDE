@@ -299,12 +299,12 @@ function float SuggestDefenseStyle()	{	return -0.8;	}
 
 defaultproperties
 {
-     LaserOnSound=Sound'BallisticSounds2.M806.M806LSight'
-     LaserOffSound=Sound'BallisticSounds2.M806.M806LSight'
+     LaserOnSound=Sound'BW_Core_WeaponSound.M806.M806LSight'
+     LaserOffSound=Sound'BW_Core_WeaponSound.M806.M806LSight'
      BulletBone="Bullet"
-     TeamSkins(0)=(RedTex=Shader'BallisticWeapons2.Hands.RedHand-Shiny',BlueTex=Shader'BallisticWeapons2.Hands.BlueHand-Shiny')
+     TeamSkins(0)=(RedTex=Shader'BW_Core_WeaponTex.Hands.RedHand-Shiny',BlueTex=Shader'BW_Core_WeaponTex.Hands.BlueHand-Shiny')
      AIReloadTime=1.500000
-     BigIconMaterial=Texture'BWBPAnotherPackTex2.GASC.BigIcon_GASC'
+     BigIconMaterial=Texture'BWBP_CC_Tex.GASC.BigIcon_GASC'
      BCRepClass=Class'BallisticDE.BallisticReplicationInfo'
      bWT_Bullet=True
      ManualLines(0)="High Fire Rate Burst Pistol and Dagger. 4 Round Burst. Low Recoil."
@@ -316,14 +316,14 @@ defaultproperties
      WeaponModes(3)=(ModeName="Full Auto",ModeID="WM_FullAuto",bUnavailable=True)
 	 SpecialInfo(0)=(Info="120.0;10.0;-999.0;25.0;0.0;0.0;-999.0")
      MeleeFireClass=Class'BWBPAnotherPackDE.GASCMeleeFire'
-     BringUpSound=(Sound=Sound'BallisticSounds2.M806.M806Pullout')
-     PutDownSound=(Sound=Sound'BallisticSounds2.M806.M806Putaway')
+     BringUpSound=(Sound=Sound'BW_Core_WeaponSound.M806.M806Pullout')
+     PutDownSound=(Sound=Sound'BW_Core_WeaponSound.M806.M806Putaway')
      MagAmmo=16
-     CockSound=(Sound=Sound'BallisticSounds_25.MD24.MD24_Cock',Volume=0.675000)
+     CockSound=(Sound=Sound'BW_Core_WeaponSound.MD24.MD24_Cock',Volume=0.675000)
      ReloadAnimRate=1.350000
-     ClipHitSound=(Sound=Sound'BWBPAnotherPackSounds2.GASC.GASC-SlideBack',Volume=0.800000)
-     ClipOutSound=(Sound=Sound'BWBPAnotherPackSounds2.GASC.GASC-ClipOut',Volume=1.500000)
-     ClipInSound=(Sound=Sound'BWBPAnotherPackSounds2.GASC.GASC-ClipIn',Volume=1.500000)
+     ClipHitSound=(Sound=Sound'BWBP_CC_Sounds.GASC.GASC-SlideBack',Volume=0.800000)
+     ClipOutSound=(Sound=Sound'BWBP_CC_Sounds.GASC.GASC-ClipOut',Volume=1.500000)
+     ClipInSound=(Sound=Sound'BWBP_CC_Sounds.GASC.GASC-ClipIn',Volume=1.500000)
      ClipInFrame=0.580000
      CurrentWeaponMode=0
      bNoCrosshairInScope=True
@@ -345,7 +345,7 @@ defaultproperties
      PickupClass=Class'BWBPAnotherPackDE.GASCPickup'
      PlayerViewOffset=(X=6.500000,Y=6.000000,Z=-6.500000)
      AttachmentClass=Class'BWBPAnotherPackDE.GASCAttachment'
-     IconMaterial=Texture'BWBPAnotherPackTex2.GASC.SmallIcon_GASC'
+     IconMaterial=Texture'BWBP_CC_Tex.GASC.SmallIcon_GASC'
      IconCoords=(X2=127,Y2=31)
      ItemName="Gaucho and Stallion"
      LightType=LT_Pulse
@@ -355,6 +355,6 @@ defaultproperties
      LightBrightness=150.000000
      LightRadius=4.000000
 	 ParamsClass=Class'GASCWeaponParams'
-     Mesh=SkeletalMesh'BWBPAnotherPackAnims2.GASC_FPm'
+     Mesh=SkeletalMesh'BWBP_CC_Anim.FPm_GASC'
      DrawScale=1.000000
 }

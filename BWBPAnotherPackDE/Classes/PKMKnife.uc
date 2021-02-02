@@ -69,15 +69,13 @@ defaultproperties
      bRandomStartRotaion=False
      bUsePositionalDamage=True
 	 bIgnoreTerminalVelocity=True
-     DamageHead=135.000000
-     DamageLimb=90.000000
      DamageTypeHead=Class'BWBPAnotherPackDE.DTX8KnifeMGLaunchedHead'
      bWarnEnemy=False
      Speed=8500.000000
      MaxSpeed=8500.000000
-     Damage=90.000000
+     Damage=70.000000
      MyDamageType=Class'BWBPAnotherPackDE.DTX8KnifeMGLaunched'
-     StaticMesh=StaticMesh'BallisticRecolors4StaticPro.X8.X8Proj'
+     StaticMesh=StaticMesh'BWBP_SKC_Static.X8.X8Proj'
      Physics=PHYS_Falling
      LifeSpan=0.000000
      DrawScale=0.150000

@@ -37,7 +37,7 @@ defaultproperties
      FireRecoil=650.000000
      FirePushBackForce=180.000000
      FireChaos=0.450000
-     BallisticFireSound=(Sound=Sound'BWBPAnotherPackSounds.PUG.PUG-Fire',Volume=2.000000)
+     BallisticFireSound=(Sound=Sound'BWBP_CC_Sounds.PUG.PUG-Fire',Volume=2.000000)
      FireEndAnim=
      FireAnimRate=1.300000
      FireRate=0.300000

@@ -85,7 +85,7 @@ defaultproperties
      BrassOffset=(X=-30.000000,Y=1.000000)
      FireRecoil=1048.000000
      FirePushBackForce=100.000000
-     BallisticFireSound=(Sound=Sound'BWBPAnotherPackSounds.PUG.PUG-FireSlug',Volume=7.500000)
+     BallisticFireSound=(Sound=Sound'BWBP_CC_Sounds.PUG.PUG-FireSlug',Volume=7.500000)
 	 bFireOnRelease=True
      bWaitForRelease=True
      bSplashDamage=True

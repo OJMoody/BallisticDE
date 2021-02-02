@@ -10,7 +10,6 @@ defaultproperties
 		YRandFactor=0.15000
 		DeclineTime=0.160000
 		DeclineDelay=0.400000
-		MaxRecoil=512
 	End Object
 
 	Begin Object Class=AimParams Name=ArenaAimParams

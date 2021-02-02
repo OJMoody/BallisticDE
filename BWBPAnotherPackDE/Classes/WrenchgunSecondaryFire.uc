@@ -291,7 +291,7 @@ defaultproperties
      XInaccuracy=64.000000
      YInaccuracy=32.000000
 	 MuzzleFlashClass=Class'BallisticDE.MRT6FlashEmitter'
-     BallisticFireSound=(Sound=Sound'PackageSounds4ProExp.Redwood.SuperMagnum-Fire',Volume=1.200000)
+     BallisticFireSound=(Sound=Sound'BWBP_SKC_Sounds.Redwood.SuperMagnum-Fire',Volume=1.200000)
      bTossed=True
      FireAnim="FireCombined"
      FireAnimRate=0.800000

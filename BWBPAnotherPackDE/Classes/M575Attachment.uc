@@ -261,13 +261,15 @@ defaultproperties
 	 BrassMode=MU_Both
      InstantMode=MU_Both
      FlashMode=MU_Both
+	 TrackAnimMode=MU_None
 	 TracerMix=-3
 	 FlashBone="Muzzle"
-     FlyBySound=(Sound=SoundGroup'BallisticSounds2.FlyBys.Bullet-Whizz',Volume=0.700000)
+     FlyBySound=(Sound=SoundGroup'BW_Core_WeaponSound.FlyBys.Bullet-Whizz',Volume=0.700000)
      ReloadAnim="Reload_MG"
+	 CockingAnim="Cock_RearPull"
      ReloadAnimRate=1.500000
      bHeavy=True
      bRapidFire=True
-     Mesh=SkeletalMesh'BWBPAnotherPackAnims.M575_TPm'
+     Mesh=SkeletalMesh'BWBP_OP_Anim.M575_TPm'
      DrawScale=1.000000
 }

@@ -264,24 +264,24 @@ function float SuggestDefenseStyle()	{	return -0.8;	}
 
 defaultproperties
 {
-     LaserOnSound=Sound'BallisticSounds2.M806.M806LSight'
-     LaserOffSound=Sound'BallisticSounds2.M806.M806LSight'
-     TeamSkins(0)=(RedTex=Shader'BallisticWeapons2.Hands.RedHand-Shiny',BlueTex=Shader'BallisticWeapons2.Hands.BlueHand-Shiny')
+     LaserOnSound=Sound'BW_Core_WeaponSound.M806.M806LSight'
+     LaserOffSound=Sound'BW_Core_WeaponSound.M806.M806LSight'
+     TeamSkins(0)=(RedTex=Shader'BW_Core_WeaponTex.Hands.RedHand-Shiny',BlueTex=Shader'BW_Core_WeaponTex.Hands.BlueHand-Shiny')
      AIReloadTime=1.500000
 	 ZoomType=ZT_Fixed
 	 FullZoomFOV=70
-     BigIconMaterial=Texture'BWBPAnotherPackTex.Bullpup.BigIcon_Bullpup'
+     BigIconMaterial=Texture'BWBP_CC_Tex.Bullpup.BigIcon_Bullpup'
      BCRepClass=Class'BallisticDE.BallisticReplicationInfo'
 	 bWT_Bullet=True
 	 bShowChargingBar=True
      SpecialInfo(0)=(Info="0.0;8.0;-999.0;25.0;0.0;0.0;-999.0")
-     BringUpSound=(Sound=Sound'BWBPAnotherPackSounds.EP110.EP110-Draw')
-     PutDownSound=(Sound=Sound'BallisticSounds2.M50.M50Putaway')
-	 ScopeViewTex=Texture'BWBPAnotherPackTex.Bullpup.EP110-Scope'
-     CockSound=(Sound=Sound'BWBPAnotherPackSounds.EP110.EP110-CockBack',Volume=2.000000)
-     ClipHitSound=(Sound=Sound'BWBPAnotherPackSounds.EP110.EP110-Slap',Volume=2.000000)
-     ClipOutSound=(Sound=Sound'BWBPAnotherPackSounds.EP110.EP110-PullOut',Volume=2.000000)
-     ClipInSound=(Sound=Sound'BWBPAnotherPackSounds.EP110.EP110-PutIn',Volume=2.000000)
+     BringUpSound=(Sound=Sound'BWBP_CC_Sounds.EP110.EP110-Draw')
+     PutDownSound=(Sound=Sound'BW_Core_WeaponSound.M50.M50Putaway')
+	 ScopeViewTex=Texture'BWBP_CC_Tex.Bullpup.EP110-Scope'
+     CockSound=(Sound=Sound'BWBP_CC_Sounds.EP110.EP110-CockBack',Volume=2.000000)
+     ClipHitSound=(Sound=Sound'BWBP_CC_Sounds.EP110.EP110-Slap',Volume=2.000000)
+     ClipOutSound=(Sound=Sound'BWBP_CC_Sounds.EP110.EP110-PullOut',Volume=2.000000)
+     ClipInSound=(Sound=Sound'BWBP_CC_Sounds.EP110.EP110-PutIn',Volume=2.000000)
      ClipInFrame=0.650000
 	 WeaponModes(0)=(ModeName="Full Auto",ModeID="WM_FullAuto")
 	 WeaponModes(1)=(ModeName="Burst of Three",ModeID="WM_BigBurst",Value=3.000000)
@@ -307,7 +307,7 @@ defaultproperties
      PickupClass=Class'BWBPAnotherPackDE.EP90PDWPickup'
      PlayerViewOffset=(X=5.000000,Y=5.000000,Z=-8.500000)
      AttachmentClass=Class'BWBPAnotherPackDE.EP90PDWAttachment'
-     IconMaterial=Texture'BWBPAnotherPackTex.Bullpup.SmallIcon_Bullpup'
+     IconMaterial=Texture'BWBP_CC_Tex.Bullpup.SmallIcon_Bullpup'
      IconCoords=(X2=127,Y2=31)
      ItemName="EP110 Photon PDW"
      LightType=LT_Pulse
@@ -317,6 +317,6 @@ defaultproperties
      LightBrightness=150.000000
      LightRadius=4.000000
 	 ParamsClass=Class'EP90WeaponParams'
-     Mesh=SkeletalMesh'BWBPAnotherPackAnims.FPm_EP110'
+     Mesh=SkeletalMesh'BWBP_CC_Anim.FPm_EP110'
      DrawScale=1.000000
 }

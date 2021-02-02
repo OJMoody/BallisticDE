@@ -14,7 +14,6 @@ defaultproperties
      DeathStrings(1)="%o was wrenched down by %k's wrenchgun wrench."
      DeathStrings(2)="%k's wrenchgun wrenched a couple of %o's ribs."
      DamageIdent="Melee"
-     bDisplaceAim=True
      AimDisplacementDamageThreshold=60
      AimDisplacementDuration=1.700000
      WeaponClass=Class'BWBPAnotherPackDE.Wrenchgun'

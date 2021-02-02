@@ -1,27 +1,27 @@
 //=============================================================================
-// Ammo_M46Grenades.
+// Ammo_BRINKGrenades.
 //
-// Ammo for the M46 Proximity Grenade launcher
+// Ammo for the BRINK Shockwave GL
 //
 // by Logan "BlackEagle" Richert.
 // uses code by Nolan "Dark Carnivour" Richert.
 // Copyright© 2011 RuneStorm. All Rights Reserved.
 //=============================================================================
-class Ammo_M46Grenades extends BallisticAmmo;
+class Ammo_BRINKGrenades extends BallisticAmmo;
 
-var M46AssaultRifle		DaM46;
-var Ammo_M46Clip Bullets;
+var BRINKAssaultRifle		DaF2K;
+var Ammo_545mmSTANAG Bullets;
 
 function bool HandlePickupQuery( pickup Item )
 {
-	if ( Item.IsA('AP_M46Clip') )
+	if ( Item.IsA('AP_BRINKClip') )
 	{
 		if (Bullets==None)
 		{
-			Bullets = Ammo_M46Clip(Pawn(Owner).FindInventoryType(class'Ammo_M46Clip'));
+			Bullets = Ammo_545mmSTANAG(Pawn(Owner).FindInventoryType(class'Ammo_545mmSTANAG'));
 			if (Bullets == None)
 			{
-				Bullets = spawn(class'Ammo_M46Clip',Owner,,,rot(0,0,0));
+				Bullets = spawn(class'Ammo_545mmSTANAG',Owner,,,rot(0,0,0));
 				Bullets.GiveTo( Pawn(Owner), Item );
 			}
 		}
@@ -46,8 +46,8 @@ function bool HandlePickupQuery( pickup Item )
 	}
 	else if (Super.HandlePickupQuery(Item))
 	{
-		if (DaM46 != None)
-			DaM46.GrenadePickedUp();
+		if (DaF2K != None)
+			DaF2k.GrenadePickedUp();
 		return true;
 	}
 	return false;
@@ -55,11 +55,11 @@ function bool HandlePickupQuery( pickup Item )
 
 defaultproperties
 {
-     MaxAmmo=4
+     MaxAmmo=3
      InitialAmount=2
-     IconFlashMaterial=Shader'BallisticTextures_25.OA-AR.AmmoIcon_OAARFlash'
-     PickupClass=Class'BallisticDE.AP_M46Clip'
-     IconMaterial=Texture'BallisticTextures_25.OA-AR.AmmoIcon_OAAR'
+     IconFlashMaterial=Shader'BW_Core_WeaponTex.OA-AR.AmmoIcon_OAARFlash'
+     PickupClass=Class'BWBPAnotherPackDE.AP_STANAGShockwave'
+     IconMaterial=Texture'BW_Core_WeaponTex.OA-AR.AmmoIcon_OAAR'
      IconCoords=(X2=64,Y2=64)
-     ItemName="M46 Proximity Grenades"
+     ItemName="BRINK Grenades"
 }

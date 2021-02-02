@@ -12,9 +12,9 @@ defaultproperties
 {
      MaxAmmo=120
      InitialAmount=80
-     IconFlashMaterial=Shader'BWBPAnotherPackTex2.AR.ARAmmoIconFlash'
+     IconFlashMaterial=Shader'BWBP_CC_Tex.AR.ARAmmoIconFlash'
      PickupClass=Class'BWBPAnotherPackDE.AP_M30Clip'
-     IconMaterial=Texture'BWBPAnotherPackTex2.AR.ARAmmoIcon'
+     IconMaterial=Texture'BWBP_CC_Tex.AR.ARAmmoIcon'
      IconCoords=(X2=64,Y2=64)
      ItemName="7.62mm Caseless Ammo"
 }

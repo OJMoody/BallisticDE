@@ -6,12 +6,12 @@ class M30Pickup extends BallisticWeaponPickup
 
 defaultproperties
 {
-     LowPolyStaticMesh=StaticMesh'BWBPAnotherPackStatics2.AR.AR_Pickup_Main'
+     LowPolyStaticMesh=StaticMesh'BWBP_CC_Static.AR.AR_Pickup_Main'
      InventoryType=Class'BWBPAnotherPackDE.M30AssaultRifle'
      RespawnTime=20.000000
      PickupMessage="You picked up the ZX98 Reaper Gauss Minigun."
-     PickupSound=Sound'BallisticSounds2.M50.M50Putaway'
-     StaticMesh=StaticMesh'BWBPAnotherPackStatics2.AR.AR_Pickup_Main'
+     PickupSound=Sound'BW_Core_WeaponSound.M50.M50Putaway'
+     StaticMesh=StaticMesh'BWBP_CC_Static.AR.AR_Pickup_Main'
      Physics=PHYS_None
 	 DrawScale=0.1
      CollisionHeight=4.000000

@@ -47,8 +47,6 @@ defaultproperties
      SwipePoints(4)=(Weight=3,offset=(Pitch=-2048,Yaw=-2048))
      TraceRange=(Min=140.000000,Max=140.000000)
      Damage=90.000000
-     DamageHead=90.000000
-     DamageLimb=90.000000
      DamageType=Class'BWBPAnotherPackDE.DTGASCMelee'
      DamageTypeHead=Class'BWBPAnotherPackDE.DTGASCMelee'
      DamageTypeArm=Class'BWBPAnotherPackDE.DTGASCMelee'
@@ -59,7 +57,7 @@ defaultproperties
      bReleaseFireOnDie=False
      bIgnoreReload=True
      ScopeDownOn=SDO_PreFire
-     BallisticFireSound=(Sound=SoundGroup'BallisticSounds_25.X4.X4_Melee',Volume=0.5,Radius=32.000000,bAtten=True)
+     BallisticFireSound=(Sound=SoundGroup'BW_Core_WeaponSound.X4.X4_Melee',Volume=0.5,Radius=32.000000,bAtten=True)
      bAISilent=True
      bFireOnRelease=True
      PreFireAnim="MeleePrep"

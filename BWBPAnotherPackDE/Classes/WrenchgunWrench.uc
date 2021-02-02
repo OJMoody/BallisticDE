@@ -67,8 +67,6 @@ defaultproperties
 {
      ImpactManager=Class'BallisticDE.IM_GunHit'
      bUsePositionalDamage=True
-     DamageHead=66.000000
-     DamageLimb=44.000000
      DamageTypeHead=Class'BWBPAnotherPackDE.DTWrenchgunShotHead'
      bWarnEnemy=False
      Speed=8500.000000
@@ -76,7 +74,7 @@ defaultproperties
      Damage=44.000000
      MomentumTransfer=75000.000000
      MyDamageType=Class'BWBPAnotherPackDE.DTWrenchgunShot'
-     StaticMesh=StaticMesh'BWBPOtherPackStatic.Wrench.WrenchPickup'
+     StaticMesh=StaticMesh'BWBP_OP_Static.Wrench.WrenchPickup'
      Physics=PHYS_Falling
      LifeSpan=0.000000
      bIgnoreTerminalVelocity=True

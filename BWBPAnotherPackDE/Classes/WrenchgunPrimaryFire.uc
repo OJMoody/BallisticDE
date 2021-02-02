@@ -300,7 +300,7 @@ defaultproperties
 	 FirePushBackForce=250.000000
      XInaccuracy=375.000000
      YInaccuracy=150.000000
-     BallisticFireSound=(Sound=Sound'PackageSounds4ProExp.Redwood.Redwood-Fire',Volume=1.200000)
+     BallisticFireSound=(Sound=Sound'BWBP_SKC_Sounds.Redwood.Redwood-Fire',Volume=1.200000)
      bTossed=True
      FireAnim="FireCombined"
      FireAnimRate=0.800000

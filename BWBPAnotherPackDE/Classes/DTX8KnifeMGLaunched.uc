@@ -13,9 +13,8 @@ defaultproperties
      DeathStrings(0)="%k showed %o how in %kh country, KNIFE SHOOTS YOU."
      DeathStrings(1)="%k hit the wrong trigger and pegged %o with a knife."
      DeathStrings(2)="%o mistakenly brought a gun to %k's ballistic knife fight."
-     SimpleKillString="X8 Ballistic Knife Launched"
+     SimpleKillString="PKMA - X8 Ballistic Knife"
      bCanBeBlocked=False
-     bDisplaceAim=False
      WeaponClass=Class'BWBPAnotherPackDE.PKMMachinegun'
      DeathString="%k showed %o how in %kh country, KNIFE SHOOTS YOU."
      FemaleSuicide="%o played Russian roulette with her knife launcher."

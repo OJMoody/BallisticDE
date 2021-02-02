@@ -108,19 +108,19 @@ function float SuggestDefenseStyle()	{	return 0.8;	}
 
 defaultproperties
 {
-     TeamSkins(0)=(RedTex=Shader'BallisticWeapons2.Hands.RedHand-Shiny',BlueTex=Shader'BallisticWeapons2.Hands.BlueHand-Shiny')
+     TeamSkins(0)=(RedTex=Shader'BW_Core_WeaponTex.Hands.RedHand-Shiny',BlueTex=Shader'BW_Core_WeaponTex.Hands.BlueHand-Shiny')
      AIReloadTime=1.000000
-     BigIconMaterial=Texture'BWBPAnotherPackTex.552.552_Icon_Large'
+     BigIconMaterial=Texture'BWBP_SKC_TexExp.552.552_Icon_Large'
      SightFXClass=Class'BallisticDE.M50SightLEDs'
      BCRepClass=Class'BallisticDE.BallisticReplicationInfo'
      bWT_Bullet=True
      SpecialInfo(0)=(Info="320.0;25.0;1.0;110.0;2.0;0.1;0.1")
-     BringUpSound=(Sound=Sound'BWBPAnotherPackSounds.VSK.VSK-Draw')
-     PutDownSound=(Sound=Sound'BWBPAnotherPackSounds.VSK.VSK-Holster')
+     BringUpSound=(Sound=Sound'BWBP_SKC_SoundsExp.VSK.VSK-Draw')
+     PutDownSound=(Sound=Sound'BWBP_SKC_Sounds.VSK.VSK-Holster')
      CockAnimPostReload="ReloadEndCock"
-     CockSound=(Sound=Sound'BWBPAnotherPackSounds.VSK.VSK-Cock',Volume=1.000000)
-     ClipOutSound=(Sound=Sound'BWBPAnotherPackSounds.VSK.VSK-ClipOut',Volume=1.500000)
-     ClipInSound=(Sound=Sound'BWBPAnotherPackSounds.VSK.VSK-ClipIn',Volume=1.500000)
+     CockSound=(Sound=Sound'BWBP_SKC_SoundsExp.VSK.VSK-Cock',Volume=1.000000)
+     ClipOutSound=(Sound=Sound'BWBP_SKC_SoundsExp.VSK.VSK-ClipOut',Volume=1.500000)
+     ClipInSound=(Sound=Sound'BWBP_SKC_SoundsExp.VSK.VSK-ClipIn',Volume=1.500000)
      ClipInFrame=0.650000
      bNeedCock=False
 	 WeaponModes(0)=(bUnavailable=True)
@@ -128,9 +128,9 @@ defaultproperties
 	 WeaponModes(2)=(bUnavailable=True)
      WeaponModes(3)=(ModeName="High Powered",ModeID="WM_FullAuto")
      CurrentWeaponMode=1
-     ScopeViewTex=Texture'BWBPAnotherPackTex.552.552_Scope'
-     ZoomInSound=(Sound=Sound'BallisticSounds2.R78.R78ZoomIn',Volume=0.500000,Pitch=1.000000)
-     ZoomOutSound=(Sound=Sound'BallisticSounds2.R78.R78ZoomOut',Volume=0.500000,Pitch=1.000000)
+     ScopeViewTex=Texture'BWBP_SKC_TexExp.VSK.VSKScopeView'
+     ZoomInSound=(Sound=Sound'BW_Core_WeaponSound.R78.R78ZoomIn',Volume=0.500000,Pitch=1.000000)
+     ZoomOutSound=(Sound=Sound'BW_Core_WeaponSound.R78.R78ZoomOut',Volume=0.500000,Pitch=1.000000)
 	 ZoomType=ZT_Fixed
 	 FullZoomFOV=50
      bNoMeshInScope=True
@@ -153,7 +153,7 @@ defaultproperties
      PlayerViewOffset=(X=10.000000,Y=6.000000,Z=-8.200000)
      BobDamping=2.000000
      AttachmentClass=Class'BWBPAnotherPackDE.VSKAttachment'
-     IconMaterial=Texture'BWBPAnotherPackTex.552.552_Icon_Small'
+     IconMaterial=Texture'BWBP_SKC_TexExp.552.552_Icon_Small'
      IconCoords=(X2=127,Y2=31)
      ItemName="VSK-42 Tranquilizer"
      LightType=LT_Pulse
@@ -163,6 +163,6 @@ defaultproperties
      LightBrightness=150.000000
      LightRadius=4.000000
 	 ParamsClass=Class'VSKWeaponParams'
-     Mesh=SkeletalMesh'BWBPAnotherPackAnims.FPm_Commando552'
+     Mesh=SkeletalMesh'BWBP_SKC_AnimExp.FPm_VSK42'
      DrawScale=1.000000
 }

@@ -77,28 +77,28 @@ function Notify_BarrierDeploy()
 	if (CooldownTime > level.TimeSeconds)
 	{
 		Instigator.ClientMessage("Barrier is still recharging.");
-		PlayerController(Instigator.Controller).ClientPlaySound(Sound'BWBPOtherPackSound.Wrench.EnergyStationError', ,1);
+		PlayerController(Instigator.Controller).ClientPlaySound(Sound'BWBP_OP_Sounds.Wrench.EnergyStationError', ,1);
 		return;
 	}
 	
 	if (HitActor == None || !HitActor.bWorldGeometry)
 	{
 		Instigator.ClientMessage("Must target an unoccupied surface.");
-		PlayerController(Instigator.Controller).ClientPlaySound(Sound'BWBPOtherPackSound.Wrench.EnergyStationError', ,1);
+		PlayerController(Instigator.Controller).ClientPlaySound(Sound'BWBP_OP_Sounds.Wrench.EnergyStationError', ,1);
 		return;
 	}
 	
 	if (HitLoc == vect(0,0,0))
 	{
 		Instigator.ClientMessage("Out of range.");
-		PlayerController(Instigator.Controller).ClientPlaySound(Sound'BWBPOtherPackSound.Wrench.EnergyStationError', ,1);
+		PlayerController(Instigator.Controller).ClientPlaySound(Sound'BWBP_OP_Sounds.Wrench.EnergyStationError', ,1);
 		return;
 	}
 	
 	if (Deployables.CheckSlope && HitNorm dot vect(0,0,1) < 0.1)
 	{
 		Instigator.ClientMessage("Surface is too steep for construction.");
-		PlayerController(Instigator.Controller).ClientPlaySound(Sound'BWBPOtherPackSound.Wrench.EnergyStationError', ,1);
+		PlayerController(Instigator.Controller).ClientPlaySound(Sound'BWBP_OP_Sounds.Wrench.EnergyStationError', ,1);
 		return;
 	}
 	
@@ -111,7 +111,7 @@ function Notify_BarrierDeploy()
 	!FastTrace(Start + DeployableZOffset, Start + DeployableZOffset + Deployables.dClass.default.CollisionRadius * vect(0,1,0)))
 	{
 		Instigator.ClientMessage("Insufficient space for construction.");
-		PlayerController(Instigator.Controller).ClientPlaySound(Sound'BWBPOtherPackSound.Wrench.EnergyStationError', ,1);
+		PlayerController(Instigator.Controller).ClientPlaySound(Sound'BWBP_OP_Sounds.Wrench.EnergyStationError', ,1);
 		return;
 	}
 		
@@ -457,8 +457,8 @@ defaultproperties
 {
      LastShellBone="ShellR"
      Deployables=(dClass=Class'BWBPAnotherPackDE.WrenchgunEnergyBarrier',WarpInTime=0.500000,CooldownDelay=2.000000,dDescription="A five-second barrier of infinite durability.")
-     TeamSkins(0)=(RedTex=Shader'BallisticWeapons2.Hands.RedHand-Shiny',BlueTex=Shader'BallisticWeapons2.Hands.BlueHand-Shiny')
-     BigIconMaterial=Texture'BWBPWrenchPackTex.Wrenchgun.BigIcon_Wrenchgun'
+     TeamSkins(0)=(RedTex=Shader'BW_Core_WeaponTex.Hands.RedHand-Shiny',BlueTex=Shader'BW_Core_WeaponTex.Hands.BlueHand-Shiny')
+     BigIconMaterial=Texture'BWBP_CC_Tex.Wrenchgun.BigIcon_Wrenchgun'
      BigIconCoords=(Y1=35,Y2=225)
      BCRepClass=Class'BallisticDE.BallisticReplicationInfo'
      bWT_Shotgun=True
@@ -467,8 +467,8 @@ defaultproperties
      ManualLines(2)="Special deploys a five-second barrier of infinite durability."
      SpecialInfo(0)=(Info="160.0;10.0;0.3;40.0;0.0;1.0;0.0")
      MeleeFireClass=Class'BWBPAnotherPackDE.WrenchgunMeleeFire'
-     BringUpSound=(Sound=Sound'BallisticSounds2.M290.M290Pullout')
-     PutDownSound=(Sound=Sound'BallisticSounds2.M290.M290Putaway')
+     BringUpSound=(Sound=Sound'BW_Core_WeaponSound.M290.M290Pullout')
+     PutDownSound=(Sound=Sound'BW_Core_WeaponSound.M290.M290Putaway')
      CockAnimRate=0.700000
      ReloadAnimRate=1.100000
      ClipInFrame=0.800000
@@ -498,7 +498,7 @@ defaultproperties
      PickupClass=Class'BWBPAnotherPackDE.WrenchgunPickup'
      PlayerViewOffset=(X=-10.000000,Y=20.000000,Z=-30.000000)
      AttachmentClass=Class'BWBPRecolorsDE.CoachGunAttachment'
-     IconMaterial=Texture'BallisticRecolors4TexPro.CoachGun.SmallIcon_Coach'
+     IconMaterial=Texture'BWBP_SKC_Tex.CoachGun.SmallIcon_Coach'
      IconCoords=(X2=127,Y2=40)
      ItemName="Redwood Wrenchgun"
      LightType=LT_Pulse
@@ -508,11 +508,11 @@ defaultproperties
      LightBrightness=180.000000
      LightRadius=5.000000
 	 ParamsClass=Class'WrenchgunWeaponParams'
-     Mesh=SkeletalMesh'BWBPWrenchPackAnims.WrenchGun_FP'
+     Mesh=SkeletalMesh'BWBP_CC_Anim.FPm_WrenchGun'
      DrawScale=1.250000
-     Skins(0)=Shader'BallisticWeapons2.Hands.Hands-Shiny'
-     Skins(1)=Texture'BallisticRecolors4TexPro.CoachGun.DBL-Main'
-     Skins(2)=Texture'BWBPWrenchPackTex.Wrenchgun.WrenchShells'
-     Skins(3)=Texture'BWBPWrenchPackTex.Wrenchgun.WrenchShells'
-     Skins(4)=Shader'BWBPOtherPackTex.Wrench.WrenchShader'
+     Skins(0)=Shader'BW_Core_WeaponTex.Hands.Hands-Shiny'
+     Skins(1)=Texture'BWBP_SKC_Tex.CoachGun.DBL-Main'
+     Skins(2)=Texture'BWBP_CC_Tex.Wrenchgun.WrenchShells'
+     Skins(3)=Texture'BWBP_CC_Tex.Wrenchgun.WrenchShells'
+     Skins(4)=Shader'BWBP_OP_Tex.Wrench.WrenchShader'
 }

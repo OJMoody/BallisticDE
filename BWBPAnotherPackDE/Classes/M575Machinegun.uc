@@ -381,18 +381,18 @@ defaultproperties
 {
 	 ScopeOnAnim="ScopeOn"
      ScopeOffAnim="ScopeOff"
-	 ScopeScopeViewTex=Texture'BWBPAnotherPackTex.M575.M575Scope'
+	 ScopeScopeViewTex=Texture'BWBP_OP_Tex.M575.M575Scope'
 	 ScopeOnRot=(Roll=0)
 	 ScopeOffRot=(Roll=-21845)
-     BoxOnSound=(Sound=Sound'BallisticSounds2.M353.M353-BoxOn')
-     BoxOffSound=(Sound=Sound'BallisticSounds2.M353.M353-BoxOff')
-     FlapUpSound=(Sound=Sound'BallisticSounds2.M353.M353-FlapUp')
-     FlapDownSound=(Sound=Sound'BallisticSounds2.M353.M353-FlapDown')
+     BoxOnSound=(Sound=Sound'BW_Core_WeaponSound.M353.M353-BoxOn')
+     BoxOffSound=(Sound=Sound'BW_Core_WeaponSound.M353.M353-BoxOff')
+     FlapUpSound=(Sound=Sound'BW_Core_WeaponSound.M353.M353-FlapUp')
+     FlapDownSound=(Sound=Sound'BW_Core_WeaponSound.M353.M353-FlapDown')
      PlayerSpeedFactor=0.90000
      PlayerJumpFactor=0.900000
-     TeamSkins(0)=(RedTex=Shader'BallisticWeapons2.Hands.RedHand-Shiny',BlueTex=Shader'BallisticWeapons2.Hands.BlueHand-Shiny')
+     TeamSkins(0)=(RedTex=Shader'BW_Core_WeaponTex.Hands.RedHand-Shiny',BlueTex=Shader'BW_Core_WeaponTex.Hands.BlueHand-Shiny')
      AIReloadTime=4.000000
-     BigIconMaterial=Texture'BWBPAnotherPackTex.M575.BigIcon_M575'
+     BigIconMaterial=Texture'BWBP_OP_Tex.M575.BigIcon_M575'
      BigIconCoords=(Y1=50,Y2=240)
      SightFXClass=Class'BWBPAnotherPackDE.M575SightLEDs'
      BCRepClass=Class'BallisticDE.BallisticReplicationInfo'
@@ -403,16 +403,16 @@ defaultproperties
      ManualLines(2)="Enable the Hybrid Scope. While the hybrid scope is enabled, you will have access to a fixed 2X Scope, which can be taken off when out of combat."
 	 ManualLines(3)="In response to not just the regular UTC troops demanding a new LMG, but also the ODST troops finding the M353 to be inadequate in stopping skrith dead in their tracks, Enravion updated the platform into the new M575 Machine Gun. In addition to firing 7.62mm rounds instead of the old 5.56mm rounds, the M575 also has rail support for all the optics one could ever ask for; when the weapon first debuted, it came with a C-All Red Dot Sight along with a 2x magnifier scope. While the M353 is still hanging around, it is slated to be phased by the M575 within 6 months if all goes well."
      SpecialInfo(0)=(Info="300.0;25.0;0.7;-1.0;0.4;0.4;-999.0")
-     BringUpSound=(Sound=Sound'BallisticSounds2.M353.M353-Pullout')
-     PutDownSound=(Sound=Sound'BallisticSounds2.M353.M353-Putaway')
+     BringUpSound=(Sound=Sound'BW_Core_WeaponSound.M353.M353-Pullout')
+     PutDownSound=(Sound=Sound'BW_Core_WeaponSound.M353.M353-Putaway')
      CockAnimRate=1.250000
-     CockSound=(Sound=Sound'BallisticSounds2.M353.M353-Cock')
+     CockSound=(Sound=Sound'BW_Core_WeaponSound.M353.M353-Cock')
      ReloadAnim="ReloadStart"
      ReloadAnimRate=1.450000
 	 CockingBringUpTime=1.400000
 	 SightFXBone="Muzzle"
-     ClipOutSound=(Sound=Sound'BallisticSounds2.M353.M353-ShellOut')
-     ClipInSound=(Sound=Sound'BallisticSounds2.M353.M353-ShellIn')
+     ClipOutSound=(Sound=Sound'BW_Core_WeaponSound.M353.M353-ShellOut')
+     ClipInSound=(Sound=Sound'BW_Core_WeaponSound.M353.M353-ShellIn')
      ClipInFrame=0.650000
      bCockOnEmpty=True
      WeaponModes(0)=(bUnavailable=True)
@@ -441,7 +441,7 @@ defaultproperties
      PickupClass=Class'BWBPAnotherPackDE.M575Pickup'
      PlayerViewOffset=(X=5.000000,Y=4.000000,Z=-7.000000)
      AttachmentClass=Class'BWBPAnotherPackDE.M575Attachment'
-     IconMaterial=Texture'BWBPAnotherPackTex.M575.SmallIcon_M575'
+     IconMaterial=Texture'BWBP_OP_Tex.M575.SmallIcon_M575'
      IconCoords=(X2=127,Y2=31)
      ItemName="M575 Ice Guardian Machinegun"
      LightType=LT_Pulse
@@ -451,6 +451,6 @@ defaultproperties
      LightBrightness=150.000000
      LightRadius=4.000000
 	 ParamsClass=Class'M575WeaponParams'
-     Mesh=SkeletalMesh'BWBPAnotherPackAnims.FPm_M575'
+     Mesh=SkeletalMesh'BWBP_OP_Anim.FPm_M575'
      DrawScale=1.000000
 }

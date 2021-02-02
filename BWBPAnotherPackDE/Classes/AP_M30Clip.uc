@@ -13,8 +13,8 @@ defaultproperties
      AmmoAmount=80
      InventoryType=Class'BWBPAnotherPackDE.Ammo_M30'
      PickupMessage="You picked up ZX98 rounds."
-     PickupSound=Sound'BallisticSounds2.Ammo.ClipPickup'
-     StaticMesh=StaticMesh'BWBPAnotherPackStatics2.AR.AR_Pickup_Mag'
+     PickupSound=Sound'BW_Core_WeaponSound.Ammo.ClipPickup'
+     StaticMesh=StaticMesh'BWBP_CC_Static.AR.AR_Pickup_Mag'
      DrawScale=0.100000
      CollisionRadius=8.000000
      CollisionHeight=5.200000
