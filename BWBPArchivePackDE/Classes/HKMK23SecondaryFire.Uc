@@ -8,12 +8,6 @@
 //=============================================================================
 class HKMK23SecondaryFire extends BallisticFire;
 
-//event ModeDoFire()
-//{
-//	if (Weapon.Role == ROLE_Authority)
-//		HKMK23Pistol(Weapon).ServerSwitchlaser(!HKMK23Pistol(Weapon).bLaserOn);
-//}
-
 defaultproperties
 {
      bUseWeaponMag=False

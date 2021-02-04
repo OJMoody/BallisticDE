@@ -113,9 +113,9 @@ function PlayFiring()
 {
         if (BW.MagAmmo - ConsumedLoad < 1)
         {
-          BW.IdleAnim = 'IdleOpen';
-          BW.ReloadAnim = 'ReloadOpen';
-          FireAnim = 'FireOpen';
+          BW.IdleAnim = 'OpenIdle';
+          BW.ReloadAnim = 'OpenReload';
+          FireAnim = 'OpenFire';
           AimedFireAnim = 'SightFireOpen';
         }
       else
@@ -158,8 +158,9 @@ function PlayFiring()
 defaultproperties
 {
      SMuzzleFlashClass=Class'BallisticDE.XK2SilencedFlash'
-     SFlashBone="tip2"
-     SFlashScaleFactor=0.200000
+     SFlashBone="Joint11"
+	 FlashBone="Joint8"
+     SFlashScaleFactor=1.000000
      TraceRange=(Max=6000.000000)
      Damage=26.000000
      DamageType=Class'BWBPArchivePackDE.DTHKMK23Pistol'
@@ -169,13 +170,13 @@ defaultproperties
      PenetrateForce=135
      bPenetrate=True
      MuzzleFlashClass=Class'BallisticDE.XK2FlashEmitter'
-     FlashScaleFactor=0.100000
+     FlashScaleFactor=0.950000
      BrassClass=Class'BallisticDE.Brass_Pistol'
      BrassOffset=(X=-60.000000)
      FireRecoil=220.000000
      FireChaos=0.280000
-     XInaccuracy=108.000000
-     YInaccuracy=108.000000
+     XInaccuracy=32.000000
+     YInaccuracy=32.000000
      SilencedFireSound=(Sound=Sound'BWBP_JCF_Sounds.MK23.MkFire_2',Volume=1.500000,Radius=24.000000,bAtten=True)
      BallisticFireSound=(Sound=Sound'BWBP_JCF_Sounds.DE.MkFire_1',Volume=1.300000)
      bPawnRapidFireAnim=True

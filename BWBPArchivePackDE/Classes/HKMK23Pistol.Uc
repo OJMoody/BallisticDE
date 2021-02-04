@@ -19,6 +19,7 @@ var() sound		SilencerOffSound;		//
 var() sound		SilencerOnTurnSound;	// Silencer screw on sound
 var() sound		SilencerOffTurnSound;	//
 var() float		SilencerSwitchTime;		//
+var   Rotator	TipRotation;
 
 replication
 {
@@ -28,6 +29,11 @@ replication
 
 simulated function bool SlaveCanUseMode(int Mode) {return Mode == 0;}
 simulated function bool MasterCanSendMode(int Mode) {return Mode == 0;}
+
+simulated function PostNetBeginPlay()
+{
+	SetBoneRotation('Joint8',TipRotation);
+}
 
 simulated function PlayIdle()
 {
@@ -88,39 +94,6 @@ exec simulated function WeaponSpecial(optional byte i)
 	//AdjustGunProperties();
 }
 
-/*simulated function AdjustGunProperties ()
-{
-//	AimAdjustTime		= default.AimAdjustTime;
-	AimSpread 			= default.AimSpread;
-	RecoilMax			= default.RecoilMax;
-	ChaosDeclineTime	= default.ChaosDeclineTime;
-	ChaosSpeedThreshold	= default.ChaosSpeedThreshold;
-	ChaosAimSpread		= default.ChaosAimSpread;
-	RecoilPitchFactor	= default.RecoilPitchFactor;
-	RecoilYawFactor		= default.RecoilYawFactor;
-	RecoilXFactor		= default.RecoilXFactor;
-	RecoilYFactor		= default.RecoilYFactor;
-//	RecoilMax			= default.RecoilMax;
-
-	if (bSilenced)
-	{
-		BFireMode[0].RecoilPerShot = 1024;
-		CrouchAimFactor		= 0.65;
-		RecoilMax			*= 0.5;
-		RecoilYawFactor		*= 0.7;
-		ChaosDeclineTime	*= 1.2;
-		RecoilXFactor		*= 0.6;
-		RecoilYFactor		*= 0.6;
-		ChaosSpeedThreshold	*= 0.8;
-	}
-	else
-	{
-		BFireMode[0].RecoilPerShot = BFireMode[0].default.RecoilPerShot;
-		CrouchAimFactor		= default.CrouchAimFactor;
-	}
-}*/
-
-
 simulated function SwitchSilencer(bool bNewValue)
 {
 	if (bNewValue)
@@ -159,13 +132,17 @@ simulated function BringUp(optional Weapon PrevWeapon)
 
 	if (MagAmmo - BFireMode[0].ConsumedLoad < 1)
 	{
-		IdleAnim = 'IdleOpen';
-		ReloadAnim = 'ReloadOpen';
+		IdleAnim = 'OpenIdle';
+		ReloadAnim = 'OpenReload';
+		SelectAnim = 'PulloutOpen';
+		PutDownAnim = 'PutawayOpen';
 	}
 	else
 	{
 		IdleAnim = 'Idle';
 		ReloadAnim = 'Reload';
+		SelectAnim = 'Pullout';
+		PutDownAnim = 'Putaway';
 	}
 
 	if (AIController(Instigator.Controller) != None)
@@ -188,13 +165,17 @@ simulated event AnimEnd (int Channel)
 	{
 		if (MagAmmo - BFireMode[0].ConsumedLoad < 1)
 		{
-			IdleAnim = 'IdleOpen';
-			ReloadAnim = 'ReloadOpen';
+			IdleAnim = 'OpenIdle';
+			ReloadAnim = 'OpenReload';
+			SelectAnim = 'PulloutOpen';
+			PutDownAnim = 'PutawayOpen';
 		}
 		else
 		{
 			IdleAnim = 'Idle';
 			ReloadAnim = 'Reload';
+			SelectAnim = 'Pullout';
+			PutDownAnim = 'Putaway';
 		}
 	}
 	Super.AnimEnd(Channel);
@@ -273,7 +254,8 @@ static function class<Pickup> RecommendAmmoPickup(int Mode)
 
 defaultproperties
 {
-     SilencerBone="Silencer"
+     TipRotation=(Yaw=-32768)
+	 SilencerBone="Joint10"
      SilencerOnAnim="SilencerOn"
      SilencerOffAnim="SilencerOff"
      SilencerOnSound=Sound'BW_Core_WeaponSound.XK2.XK2-SilenceOn'
@@ -289,9 +271,11 @@ defaultproperties
      SpecialInfo(0)=(Info="120.0;5.0;1.5;110.00;-999.0;-999.0;-999.0")
      BringUpSound=(Sound=Sound'BW_Core_WeaponSound.XK2.XK2-Pullout')
      PutDownSound=(Sound=Sound'BW_Core_WeaponSound.XK2.XK2-Putaway')
+	 BringUpTime=0.7
+	 SelectAnimRate=1.2
 	 ManualLines(0)="Primary: .45 ACP Fire"
      ManualLines(1)="Secondary: Silencer"
-     ManualLines(2)="The USP-S MK23 is considered a match grade pistol, and is capable of making a 2-inch group at 50 yards, roughly 4 MOA. Production of the original began in 1991, and it was the basis for the HK USP, which began production in 1993. The MK23 is part of a larger weapon system that includes an attachable laser aiming module, a suppressor, and some other features such as a special high-pressure match cartridge (.45 +P ammunition). The MK23 has exceptional durability in harsh environments, being waterproof and corrosion-resistant. It uses a polygonal barrel design, which is reported to improve accuracy and durability. The firearm was tested and found to be capable of firing tens of thousands of rounds without a barrel change. It remains reliable in harsh conditions, making it suitable for use by special forces.""
+     ManualLines(2)="The USP-S MK23 is considered a match grade pistol, and is capable of making a 2-inch group at 50 yards, roughly 4 MOA. Production of the original began in 1991, and it was the basis for the HK USP, which began production in 1993. The MK23 is part of a larger weapon system that includes an attachable laser aiming module, a suppressor, and some other features such as a special high-pressure match cartridge (.45 +P ammunition). The MK23 has exceptional durability in harsh environments, being waterproof and corrosion-resistant. It uses a polygonal barrel design, which is reported to improve accuracy and durability. The firearm was tested and found to be capable of firing tens of thousands of rounds without a barrel change. It remains reliable in harsh conditions, making it suitable for use by special forces."
      CockSound=(Sound=Sound'BWBP_JCF_Sounds.MK23.mk23_cock',Volume=2.300000)
      ClipHitSound=(Sound=Sound'BW_Core_WeaponSound.Glock.Glk-ClipHit',Volume=0.700000)
      ClipOutSound=(Sound=Sound'BWBP_JCF_Sounds.MK23.MKClipOut',Volume=1.300000)
@@ -301,7 +285,7 @@ defaultproperties
      WeaponModes(2)=(bUnavailable=True)
      CurrentWeaponMode=0
      SightPivot=(Pitch=-70)
-     SightOffset=(X=-10.000000,Y=-2.100000,Z=9.000000)
+     SightOffset=(X=-25.000000,Y=9.750000,Z=7.700000)
      SightDisplayFOV=40.000000
      SightingTime=0.250000
 	 BobDamping=2.250000
@@ -315,11 +299,11 @@ defaultproperties
      InventoryGroup=2
      GroupOffset=30
      PickupClass=Class'BWBPArchivePackDE.HKMK23Pickup'
-     PlayerViewOffset=(X=5.000000,Y=7.500000,Z=-7.500000)
+     PlayerViewOffset=(X=15.000000,Y=-3.000000,Z=-8.000000)
      AttachmentClass=Class'BWBPArchivePackDE.HKMK23Attachment'
      IconMaterial=Texture'BWBP_JCF_Tex.MK23.SmallIcon_MK23'
      IconCoords=(X2=127,Y2=31)
-     ItemName="USP-S 23 Handgun"
+     ItemName=".45 MK23 Handgun"
      LightType=LT_Pulse
      LightEffect=LE_NonIncidence
      LightHue=30
@@ -327,6 +311,6 @@ defaultproperties
      LightBrightness=130.000000
      LightRadius=3.000000
 	 ParamsClass=Class'HKMK23WeaponParams'
-     Mesh=SkeletalMesh'BWBP_JCF_Anims.FPm_HKM'
-     DrawScale=1.000000
+     Mesh=SkeletalMesh'BWBP_JCF_Anims.FPm_HKMK'
+     DrawScale=0.300000
 }

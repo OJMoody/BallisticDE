@@ -230,7 +230,7 @@ simulated function AnimEnded (int Channel, name anim, float frame, float rate)
 	}
 	
 	//Phase out Channel 1 if a sight fire animation has just ended.
-	if (anim == BFireMode[0].AimedFireAnim || anim == CoachGunPrimaryFire(FireMode[0]).AimedFireEmptyAnim)
+	if (anim == BFireMode[0].AimedFireAnim || anim == WrenchgunPrimaryFire(FireMode[0]).AimedFireEmptyAnim)
 	{
 		AnimBlendParams(1, 0);
 		//Cut the basic fire anim if it's too long.

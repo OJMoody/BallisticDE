@@ -44,7 +44,7 @@ simulated event WeaponTick(float DT)
 	super.WeaponTick(DT);
 	if (GlowFX != None)
 	{
-		GRS9AmbientFX(GlowFX).SetReadyIndicator (FireMode[1]!=None && !FireMode[1].IsFiring() && level.TimeSeconds - GRS9SecondaryFire(FireMode[1]).StopFireTime >= 0.8 && LaserAmmo > 0);
+		GRSXXAmbientFX(GlowFX).SetReadyIndicator (FireMode[1]!=None && !FireMode[1].IsFiring() && level.TimeSeconds - GRSXXSecondaryFire(FireMode[1]).StopFireTime >= 0.8 && LaserAmmo > 0);
 		if (FireMode[1]!=None && FireMode[1].IsFiring())
 		{
 			GRSXXAmbientFX(GlowFX).SetRedIndicator (2);

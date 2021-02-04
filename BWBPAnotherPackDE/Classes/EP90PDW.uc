@@ -102,7 +102,7 @@ simulated function BringUp(optional Weapon PrevWeapon)
 	}*/
 
 	if ( ThirdPersonActor != None )
-		M806Attachment(ThirdPersonActor).bLaserOn = bLaserOn;
+		EP90PDWAttachment(ThirdPersonActor).bLaserOn = bLaserOn;
 }
 
 simulated function KillLaserDot()

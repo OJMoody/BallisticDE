@@ -112,6 +112,14 @@ defaultproperties
      InstantMode=MU_Both
      FlashMode=MU_Both
      LightMode=MU_Both
+     IdleHeavyAnim="RifleHip_Idle"
+     IdleRifleAnim="RifleAimed_Idle"
+     SingleFireAnim="RifleHip_Fire"
+     SingleAimedFireAnim="RifleAimed_Fire"
+     RapidFireAnim="RifleHip_Burst"
+     RapidAimedFireAnim="RifleAimed_Burst"
+	 ReloadAnim="Reload_AR"
+	 CockingAnim="Cock_RearPull"	 
      WaterTracerClass=Class'BallisticDE.TraceEmitter_WaterBullet'
      WaterTracerMode=MU_Both
      FlyBySound=(Sound=Sound'BWBP_SKC_Sounds.LS14.Gauss-FlyBy',Volume=0.700000)

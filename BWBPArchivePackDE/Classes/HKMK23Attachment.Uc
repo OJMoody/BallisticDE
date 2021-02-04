@@ -8,8 +8,6 @@
 //=============================================================================
 class HKMK23Attachment extends HandgunAttachment;
 
-
-
 simulated event ThirdPersonEffects()
 {
     if ( Level.NetMode != NM_DedicatedServer && Instigator != None)

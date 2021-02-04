@@ -297,7 +297,7 @@ defaultproperties
      AttachmentClass=Class'BWBPAnotherPackDE.FMPAttachment'
      IconMaterial=Texture'BWBP_SKC_TexExp.MP40.SmallIcon_MP40'
      IconCoords=(X2=127,Y2=31)
-     ItemName="FMPA-2012 Machine Pistol"
+     ItemName="FMP-2012 Machine Pistol"
      LightType=LT_Pulse
      LightEffect=LE_NonIncidence
      LightHue=30
