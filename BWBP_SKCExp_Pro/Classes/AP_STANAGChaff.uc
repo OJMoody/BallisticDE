@@ -46,9 +46,9 @@ simulated function Destroyed()
 
 defaultproperties
 {
-     AltAmmoClass=Class'BWBPRecolorsPro.ChaffPickup'
+     AltAmmoClass=Class'BWBP_SKC_Pro.ChaffPickup'
      AmmoAmount=60
-     InventoryType=Class'BWBPRecolorsPro.Ammo_556mmSTANAG'
+     InventoryType=Class'BWBP_SKC_Pro.Ammo_556mmSTANAG'
      PickupMessage="You got two 30 round 5.56mm CAP magazines"
      PickupSound=Sound'BW_Core_WeaponSound.Ammo.ClipPickup'
      StaticMesh=StaticMesh'BWBP_SKC_StaticExp.MJ51.M4MagazinePickup'

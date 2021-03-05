@@ -81,9 +81,9 @@ function GiveTo(Pawn Other, optional Pickup Pickup)
 	if ( Instigator.FindInventoryType(class'BCGhostWeapon') != None ) //ghosts are scary
 	return;
 
-	if(Instigator.FindInventoryType(class'BWBPRecolorsPro.ChaffGrenadeWeapon')!=None )
+	if(Instigator.FindInventoryType(class'BWBP_SKC_Pro.ChaffGrenadeWeapon')!=None )
 	{
-		W = Spawn(class'BWBPRecolorsPro.ChaffGrenadeWeapon',,,Instigator.Location);
+		W = Spawn(class'BWBP_SKC_Pro.ChaffGrenadeWeapon',,,Instigator.Location);
 		if( W != None)
 		{
 			W.GiveTo(Instigator);
@@ -360,7 +360,7 @@ defaultproperties
      BulletBone2="Bullet2"
      SpecialInfo(0)=(Info="240.0;20.0;0.9;75.0;0.8;0.7;0.2")
      AIReloadTime=1.000000
-     ParamsClass=Class'BWBP_SKCExp_Pro.MJ51WeaponParams'
+     ParamsClasses(0)=Class'BWBP_SKCExp_Pro.MJ51WeaponParams'
      BCRepClass=Class'BallisticProV55.BallisticReplicationInfo'
      TeamSkins(0)=(RedTex=Shader'BW_Core_WeaponTex.Hands.RedHand-Shiny',BlueTex=Shader'BW_Core_WeaponTex.Hands.BlueHand-Shiny')
      BigIconMaterial=Texture'BWBP_SKC_TexExp.M4A1.BigIcon_M4'

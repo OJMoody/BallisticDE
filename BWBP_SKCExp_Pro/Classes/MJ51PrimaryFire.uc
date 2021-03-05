@@ -52,7 +52,7 @@ defaultproperties
      bPawnRapidFireAnim=True
      FireEndAnim=
      FireRate=0.100000
-     AmmoClass=Class'BWBPRecolorsPro.Ammo_556mmSTANAG'
+     AmmoClass=Class'BWBP_SKC_Pro.Ammo_556mmSTANAG'
      ShakeRotMag=(X=128.000000,Y=64.000000)
      ShakeRotRate=(X=10000.000000,Y=10000.000000,Z=10000.000000)
      ShakeRotTime=2.000000

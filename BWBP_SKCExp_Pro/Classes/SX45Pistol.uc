@@ -438,7 +438,7 @@ defaultproperties
 	bNoCrosshairInScope=True
 	SightOffset=(y=-3.140000,Z=14.300000)
 	SightDisplayFOV=60.000000
-	ParamsClass=Class'SX45WeaponParams'
+	ParamsClasses(0)=Class'SX45WeaponParams'
 	FireModeClass(0)=Class'BWBP_SKCExp_Pro.SX45PrimaryFire'
 	FireModeClass(1)=Class'BWBP_SKCExp_Pro.SX45SecondaryFire'
 	SelectForce="SwitchToAssaultRifle"

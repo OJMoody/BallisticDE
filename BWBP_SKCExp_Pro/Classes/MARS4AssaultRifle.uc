@@ -574,7 +574,7 @@ defaultproperties
      LightSaturation=150
      LightBrightness=150.000000
      LightRadius=4.000000
-	 ParamsClass=Class'MARS4WeaponParams'
+	 ParamsClasses(0)=Class'MARS4WeaponParams'
      Mesh=SkeletalMesh'BWBP_SKC_Anim.FPm_MARS3'
      DrawScale=0.300000
 	 PickupClass=Class'BWBP_SKCExp_Pro.MARS4Pickup'

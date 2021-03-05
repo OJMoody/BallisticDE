@@ -130,7 +130,7 @@ defaultproperties
      IconMaterial=Texture'BWBP_SKC_TexExp.BlkOpsBlade.SmallIcon_WristBld'
      IconCoords=(X2=127,Y2=31)
      ItemName="X5W Black Ops Blade"
-	 ParamsClass=Class'BOBWeaponParams'
+	 ParamsClasses(0)=Class'BOBWeaponParams'
      Mesh=SkeletalMesh'BWBP_SKC_AnimExp.FPm_BOB'
      DrawScale=1.250000
 }

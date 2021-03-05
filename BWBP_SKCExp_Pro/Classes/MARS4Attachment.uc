@@ -45,7 +45,7 @@ simulated function PostNetBeginPlay()
 
 defaultproperties
 {
-     MuzzleFlashClass=Class'BWBPRecolorsPro.MARSFlashEmitter'
+     MuzzleFlashClass=Class'BWBP_SKC_Pro.MARSFlashEmitter'
      AltMuzzleFlashClass=Class'BallisticProV55.XK2SilencedFlash'
      ImpactManager=Class'BallisticProV55.IM_Bullet'
      BrassClass=Class'BallisticProV55.Brass_Rifle'

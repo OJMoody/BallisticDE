@@ -1,20 +1,20 @@
-class FMPAWeaponParams extends BallisticWeaponParams;
+class AR23WeaponParams extends BallisticWeaponParams;
 
 defaultproperties
 {
 	Begin Object Class=RecoilParams Name=ArenaRecoilParams
 		XCurve=(Points=(,(InVal=0.200000,OutVal=0.030000),(InVal=0.400000,OutVal=0.050000),(InVal=0.600000,OutVal=0.10000),(InVal=0.800000,OutVal=0.120000),(InVal=1.000000,OutVal=0.16)))
 		YCurve=(Points=(,(InVal=0.100000,OutVal=0.100000),(InVal=0.200000,OutVal=0.25),(InVal=0.400000,OutVal=0.500000),(InVal=0.600000,OutVal=0.600000),(InVal=1.000000,OutVal=1.000000)))
-		XRandFactor=0.100000
-		YRandFactor=0.100000
+		XRandFactor=0.200000
+		YRandFactor=0.300000
 		DeclineTime=0.500000
 		DeclineDelay=0.45000
-		ViewBindFactor=0.45
+		ViewBindFactor=0.60
 	End Object
 
 	Begin Object Class=AimParams Name=ArenaAimParams
 		AimSpread=(Min=16,Max=256)
-		SprintOffset=(Pitch=-1000,Yaw=-2000)
+		SprintOffSet=(Pitch=-1000,Yaw=-2048)
 		ChaosDeclineTime=0.75
 		ChaosDeclineDelay=0.1
 	End Object

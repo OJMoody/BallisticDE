@@ -146,7 +146,7 @@ defaultproperties
      ImpactManager=Class'BWBP_SKCExp_Pro.IM_HVPCProjectileSmall'
      PenetrateManager=Class'BWBP_SKCExp_Pro.IM_HVPCProjectileSmall'
      bPenetrate=True
-     bRandomStartRotaion=False
+     bRandomStartRotation=False
      AccelSpeed=150000.000000
      TrailClass=Class'BWBP_SKCExp_Pro.HVPCSmallTrailEmitter'
      MyRadiusDamageType=Class'BWBP_SKCExp_Pro.DTPlasmaChargeSmall'

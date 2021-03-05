@@ -281,15 +281,15 @@ defaultproperties
      MuzzleFlashClass=Class'BWBP_SKCExp_Pro.FMPFlashEmitter'
 	 ImpactManager=Class'BallisticProV55.IM_Bullet'
      
-	 MuzzleFlashClassRed=Class'BWBPRecolorsPro.SRXFlashEmitter'
+	 MuzzleFlashClassRed=Class'BWBP_SKC_Pro.SRXFlashEmitter'
      MuzzleFlashClassGreen=Class'BallisticProV55.A500FlashEmitter'
 	 
-	 TracerClass=Class'BWBPRecolorsPro.TraceEmitter_MARS'
-     TracerClassRed=Class'BWBPRecolorsPro.TraceEmitter_HMG'
-     TracerClassGreen=Class'BWBPRecolorsPro.TraceEmitter_Tranq'
+	 TracerClass=Class'BWBP_SKC_Pro.TraceEmitter_MARS'
+     TracerClassRed=Class'BWBP_SKC_Pro.TraceEmitter_HMG'
+     TracerClassGreen=Class'BWBP_SKC_Pro.TraceEmitter_Tranq'
 	 
      ImpactManagerRed=Class'BWBP_SKCExp_Pro.IM_BulletHE'
-     ImpactManagerGreen=Class'BWBPRecolorsPro.IM_BulletAcid'
+     ImpactManagerGreen=Class'BWBP_SKC_Pro.IM_BulletAcid'
 	 
      BrassClass=Class'BallisticProV55.Brass_Rifle'
      InstantMode=MU_Both

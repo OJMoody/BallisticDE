@@ -133,7 +133,6 @@ defaultproperties
      ZoomOutSound=(Sound=Sound'BW_Core_WeaponSound.R78.R78ZoomOut',Volume=0.500000,Pitch=1.000000)
 	 ZoomType=ZT_Fixed
 	 FullZoomFOV=50
-     bNoMeshInScope=True
      bNoCrosshairInScope=True
      SightOffset=(Y=-1.700000,Z=14.000000)
      SightDisplayFOV=20.000000
@@ -162,7 +161,7 @@ defaultproperties
      LightSaturation=150
      LightBrightness=150.000000
      LightRadius=4.000000
-	 ParamsClass=Class'VSKWeaponParams'
+	 ParamsClasses(0)=Class'VSKWeaponParams'
      Mesh=SkeletalMesh'BWBP_SKC_AnimExp.FPm_VSK42'
      DrawScale=1.000000
 }

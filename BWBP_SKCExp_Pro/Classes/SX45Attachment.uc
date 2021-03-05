@@ -391,7 +391,7 @@ defaultproperties
      FlashMode=MU_Both
      TracerClass=Class'BallisticProV55.TraceEmitter_Default'
 	 TracerClassAmp1=Class'BWBP_SKCExp_Pro.TraceEmitter_FreezeBig'
-     TracerClassAmp2=Class'BWBPRecolorsPro.TraceEmitter_HMG'
+     TracerClassAmp2=Class'BWBP_SKC_Pro.TraceEmitter_HMG'
 	 ImpactManagerAmp1=Class'BWBP_SKCExp_Pro.IM_BulletFrostHE'
      ImpactManagerAmp2=Class'BWBP_SKCExp_Pro.IM_BulletRad'
      TracerMix=-3

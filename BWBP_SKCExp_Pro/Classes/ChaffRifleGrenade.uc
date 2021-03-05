@@ -52,9 +52,9 @@ defaultproperties
      bAlignToVelocity=True
      DetonateDelay=1.000000
      ImpactDamage=90
-     ImpactDamageType=Class'BWBPRecolorsPro.DTChaffGrenade'
-     ImpactManager=Class'BWBPRecolorsPro.IM_ChaffGrenade'
-     TrailClass=Class'BWBPRecolorsPro.ChaffTrail'
+     ImpactDamageType=Class'BWBP_SKC_Pro.DTChaffGrenade'
+     ImpactManager=Class'BWBP_SKC_Pro.IM_ChaffGrenade'
+     TrailClass=Class'BWBP_SKC_Pro.ChaffTrail'
      TrailOffset=(X=-8.000000)
      MyRadiusDamageType=Class'BWBP_SKCExp_Pro.DTChaffGrenadeRadius'
      SplashManager=Class'BallisticProV55.IM_ProjWater'

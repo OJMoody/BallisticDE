@@ -151,7 +151,7 @@ defaultproperties
      PenetrateForce=150
      DryFireSound=(Sound=Sound'BW_Core_WeaponSound.D49.D49-DryFire',Volume=0.700000)
      bCockAfterEmpty=True
-     MuzzleFlashClass=Class'BWBPRecolorsPro.MARSFlashEmitter'
+     MuzzleFlashClass=Class'BWBP_SKC_Pro.MARSFlashEmitter'
      FlashScaleFactor=0.500000
      BrassClass=Class'BallisticProV55.Brass_MG'
      BrassOffset=(X=-80.000000,Y=1.000000)
@@ -167,7 +167,7 @@ defaultproperties
      bPawnRapidFireAnim=True
      FireEndAnim=
      FireRate=0.080000
-     AmmoClass=Class'BWBPRecolorsPro.Ammo_545mmSTANAG'
+     AmmoClass=Class'BWBP_SKC_Pro.Ammo_545mmSTANAG'
      ShakeRotMag=(X=128.000000,Y=64.000000)
      ShakeRotRate=(X=10000.000000,Y=10000.000000,Z=10000.000000)
      ShakeRotTime=2.000000

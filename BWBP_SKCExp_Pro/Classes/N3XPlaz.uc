@@ -451,7 +451,7 @@ defaultproperties
      IconMaterial=Texture'BWBP_SKC_TexExp.NEX.SmallIcon_Nex'
      IconCoords=(X2=127,Y2=31)
      ItemName="N3X Plaz Edge Sword"
-	 ParamsClass=Class'N3XWeaponParams'
+	 ParamsClasses(0)=Class'N3XWeaponParams'
      Mesh=SkeletalMesh'BWBP_SKC_AnimExp.FPm_NEX'
      DrawScale=3.000000
      bFullVolume=True

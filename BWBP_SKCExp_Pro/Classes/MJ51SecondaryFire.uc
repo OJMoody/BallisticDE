@@ -50,7 +50,7 @@ defaultproperties
      FireAnim="FireGrenade"
      FireForce="AssaultRifleAltFire"
      FireRate=0.600000
-     AmmoClass=Class'BWBPRecolorsPro.Ammo_Chaff'
+     AmmoClass=Class'BWBP_SKC_Pro.Ammo_Chaff'
      ShakeRotTime=2.000000
      ShakeOffsetMag=(X=-20.000000)
      ShakeOffsetRate=(X=-1000.000000)

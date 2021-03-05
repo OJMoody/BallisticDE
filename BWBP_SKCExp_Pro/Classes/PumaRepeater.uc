@@ -925,7 +925,7 @@ defaultproperties
      LightSaturation=150
      LightBrightness=150.000000
      LightRadius=5.000000
-	 ParamsClass=Class'PUMAWeaponParams'
+	 ParamsClasses(0)=Class'PUMAWeaponParams'
      Mesh=SkeletalMesh'BWBP_SKC_AnimExp.FPm_PUMA'
      DrawScale=0.350000
      Skins(0)=Shader'BW_Core_WeaponTex.Hands.Hands-Shiny'

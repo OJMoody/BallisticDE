@@ -555,7 +555,7 @@ defaultproperties
 	bNoCrosshairInScope=True
 	SightOffset=(X=-15.000000,Z=6.600000)
 	SightDisplayFOV=60.000000
-	ParamsClass=Class'GRSXXWeaponParams'
+	ParamsClasses(0)=Class'GRSXXWeaponParams'
 	FireModeClass(0)=Class'BWBP_SKCExp_Pro.GRSXXPrimaryFire'
 	FireModeClass(1)=Class'BWBP_SKCExp_Pro.GRSXXSecondaryFire'
 	SelectAnimRate=1.250000

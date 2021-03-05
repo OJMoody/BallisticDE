@@ -138,10 +138,10 @@ simulated event RenderOverlays (Canvas C)
 		PlayAnim(ZoomOutAnim);
 	}
 
-    	if (bThermal)
+    if (bThermal)
 		DrawThermalMode(C);
 
-	if (!bNoMeshInScope)
+	if (ZoomType == ZT_Irons)
 	{
 		Super.RenderOverlays(C);
 		if (SightFX != None)
@@ -270,7 +270,7 @@ simulated function SetNVLight(bool bOn)
 	{
 		if (NVLight == None)
 		{
-			NVLight = Spawn(class'BX85NVLight',,,Instigator.location);
+			NVLight = Spawn(class'MARSNVLight',,,Instigator.location);
 			NVLight.SetBase(Instigator);
 		}
 		NVLight.bDynamicLight = true;
@@ -600,7 +600,6 @@ defaultproperties
      WeaponModes(1)=(Value=4.000000)
      WeaponModes(3)=(bUnavailable=True)
      bNoCrosshairInScope=True
-	 bNoMeshInScope=True
 	 ScopeViewTex=Texture'BWBP_SKC_TexExp.MG36.G36ScopeView'
      SightOffset=(X=-15.000000,Y=-0.350000,Z=12.300000)
      SightDisplayFOV=25.000000
@@ -635,7 +634,7 @@ defaultproperties
      LightSaturation=150
      LightBrightness=150.000000
      LightRadius=4.000000
-	 ParamsClass=Class'MG36WeaponParams'
+	 ParamsClasses(0)=Class'MG36WeaponParams'
      Mesh=SkeletalMesh'BWBP_SKC_AnimExp.FPm_MG36'
      DrawScale=1.000000
 }
