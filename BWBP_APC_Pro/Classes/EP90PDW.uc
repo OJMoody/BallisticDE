@@ -293,7 +293,6 @@ defaultproperties
      SightDisplayFOV=60.000000
 	 SightingTime=0.250000
 	 BobDamping=2.300000
-	 bNoMeshInScope=True
      FireModeClass(0)=Class'BWBP_APC_Pro.EP90PDWPrimaryFire'
      FireModeClass(1)=Class'BWBP_APC_Pro.EP90PDWSecondaryFire'
      SelectForce="SwitchToAssaultRifle"
@@ -316,7 +315,7 @@ defaultproperties
      LightSaturation=150
      LightBrightness=150.000000
      LightRadius=4.000000
-	 ParamsClass=Class'EP90WeaponParams'
+	 ParamsClasses(0)=Class'EP90PDWWeaponParamsArena'
      Mesh=SkeletalMesh'BWBP_CC_Anim.FPm_EP110'
      DrawScale=1.000000
 }

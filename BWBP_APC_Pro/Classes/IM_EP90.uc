@@ -11,6 +11,6 @@ class IM_EP90 extends BCImpactManager;
 defaultproperties
 {
      HitEffects(0)=Class'BWBP_APC_Pro.IE_EP90'
-     HitDecals(0)=Class'BWBPRecolorsPro.AD_LS14A'
+     HitDecals(0)=Class'BWBP_SKC_Pro.AD_LS14A'
      HitSounds(0)=Sound'BWBP_SKC_Sounds.LS14.Gauss-Impact'
 }

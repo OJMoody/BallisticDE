@@ -126,33 +126,14 @@ defaultproperties
      ChargeSound=(Sound=Sound'BWBP_CC_Sounds.EP110.EP110-OverCharge',Volume=2.00000)
      ChargeSoundPitch=32
      ChargeTime=0.8500000
-     MuzzleFlashClass=Class'BWBP_APC_Pro.EP90PDWFlashEmitter'
 	 DryFireSound=(Sound=Sound'BWBP_SKC_Sounds.LS14.Gauss-Empty',Volume=1.200000)
-	 TraceRange=(Max=6000.000000)
-	 DamageType=Class'BWBP_APC_Pro.DTEP90PDW'
-     DamageTypeHead=Class'BWBP_APC_Pro.DTEP90PDWHead'
-     DamageTypeArm=Class'BWBP_APC_Pro.DTEP90PDW'
-	 Damage=50
-     FireRecoil=960.000000
-     FireChaos=0.320000
-     FireChaosCurve=(Points=((InVal=0,OutVal=1),(InVal=0.160000,OutVal=1),(InVal=0.250000,OutVal=1.500000),(InVal=0.500000,OutVal=2.250000),(InVal=0.750000,OutVal=3.500000),(InVal=1.000000,OutVal=5.000000)))
-     BallisticFireSound=(Sound=Sound'BWBP_CC_Sounds.EP110.EP110-Overblast',Volume=7.800000)
 	 bPawnRapidFireAnim=True
      bFireOnRelease=True
-     MaxHoldTime=2.50000
-	 FireAnim="Fire"
-	 AimedFireAnim="SightFire"
-	 FlashScaleFactor=0.100000
-     FireEndAnim=
-     FireRate=1.200000
-     AmmoClass=Class'BWBP_APC_Pro.Ammo_EP90HV'
-     AmmoPerFire=5
+	 AmmoClass=Class'BWBP_APC_Pro.Ammo_EP90HV'
      ShakeRotMag=(X=32.000000,Y=8.000000)
      ShakeRotRate=(X=10000.000000,Y=10000.000000,Z=10000.000000)
      ShakeRotTime=1.500000
      ShakeOffsetMag=(X=-3.000000)
      ShakeOffsetRate=(X=-1000.000000)
      ShakeOffsetTime=1.500000
-     BotRefireRate=0.250000
-     WarnTargetPct=0.500000
 }

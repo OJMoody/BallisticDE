@@ -358,7 +358,7 @@ defaultproperties
 	SightDisplayFOV=55.000000
 	SightPivot=(Pitch=128)
 	GunLength=48.000000
-	ParamsClass=Class'FM13WeaponParams'
+	ParamsClasses(0)=Class'FM13ShotgunWeaponParamsArena'
 	FireModeClass(0)=Class'BWBP_APC_Pro.FM13PrimaryFire'
 	FireModeClass(1)=Class'BWBP_APC_Pro.FM13SecondaryFire'
 	AIRating=0.750000

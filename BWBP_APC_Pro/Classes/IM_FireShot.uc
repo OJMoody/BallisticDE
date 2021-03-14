@@ -10,14 +10,14 @@ class IM_FireShot extends IM_Bullet;
 
 defaultproperties
 {
-     HitEffects(0)=Class'BWBPRecolorsPro.IE_BulletExpConcrete'
-     HitEffects(1)=Class'BWBPRecolorsPro.IE_BulletExpConcrete'
-     HitEffects(2)=Class'BWBPRecolorsPro.IE_BulletExpDirt'
-     HitEffects(3)=Class'BWBPRecolorsPro.IE_BulletExpMetal'
-     HitEffects(4)=Class'BWBPRecolorsPro.IE_BulletExpWood'
-     HitEffects(5)=Class'BWBPRecolorsPro.IE_BulletExpGrass'
-     HitEffects(7)=Class'BWBPRecolorsPro.IE_BulletExpIce'
-     HitEffects(8)=Class'BWBPRecolorsPro.IE_BulletExpSnow'
+     HitEffects(0)=Class'BWBP_SKC_Pro.IE_BulletExpConcrete'
+     HitEffects(1)=Class'BWBP_SKC_Pro.IE_BulletExpConcrete'
+     HitEffects(2)=Class'BWBP_SKC_Pro.IE_BulletExpDirt'
+     HitEffects(3)=Class'BWBP_SKC_Pro.IE_BulletExpMetal'
+     HitEffects(4)=Class'BWBP_SKC_Pro.IE_BulletExpWood'
+     HitEffects(5)=Class'BWBP_SKC_Pro.IE_BulletExpGrass'
+     HitEffects(7)=Class'BWBP_SKC_Pro.IE_BulletExpIce'
+     HitEffects(8)=Class'BWBP_SKC_Pro.IE_BulletExpSnow'
      HitDecals(0)=Class'BallisticProV55.AD_BigBulletConcrete'
      HitDecals(1)=Class'BallisticProV55.AD_BigBulletConcrete'
      HitDecals(3)=Class'BallisticProV55.AD_BigBulletMetal'

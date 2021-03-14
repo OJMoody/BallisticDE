@@ -321,15 +321,13 @@ simulated function SetScopeProperties()
 		ZoomType = ZT_Fixed;
 		SightingTime = 0.6;
 		ScopeViewTex = ScopeScopeViewTex;
-		bNoMeshInScope = true;
 		FullZoomFOV = 50;
 	}
 	else
 	{
 		ZoomType = ZT_Irons;
-		ScopeViewTex=None;
+		ScopeViewTex = None;
 		SightingTime = default.SightingTime;
-		bNoMeshInScope = false;
 	}
 }
 
@@ -439,7 +437,7 @@ defaultproperties
      CustomCrossHairTextureName="Crosshairs.HUD.Crosshair_Cross1"
      InventoryGroup=6
      PickupClass=Class'BWBP_APC_Pro.M575Pickup'
-     PlayerViewOffset=(X=5.000000,Y=4.000000,Z=-7.000000)
+     PlayerViewOffset=(X=5.000000,Y=4.000000,Z=-7.800000)
      AttachmentClass=Class'BWBP_APC_Pro.M575Attachment'
      IconMaterial=Texture'BWBP_OP_Tex.M575.SmallIcon_M575'
      IconCoords=(X2=127,Y2=31)
@@ -450,7 +448,7 @@ defaultproperties
      LightSaturation=150
      LightBrightness=150.000000
      LightRadius=4.000000
-	 ParamsClass=Class'M575WeaponParams'
+	 ParamsClasses(0)=Class'M575MachinegunWeaponParamsArena'
      Mesh=SkeletalMesh'BWBP_OP_Anim.FPm_M575'
      DrawScale=1.000000
 }
