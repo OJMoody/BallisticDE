@@ -70,4 +70,5 @@ defaultproperties
      StaticMesh=StaticMesh'BWBP_SKC_StaticExp.MJ51.MOACProjLaunched'
      DrawScale=0.120000
      bUnlit=False
+	 ModeIndex=1
 }

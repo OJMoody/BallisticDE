@@ -17,7 +17,8 @@
 // Grenades can be proximity airburst at a slow RoF, or dumb/timer det at high RoF.
 // Gun has a working range finder.
 //
-// by Nolan "Dark Carnivour" Richert.
+// by Sarge with netcode by Azarael
+// based on code by Nolan "Dark Carnivour" Richert.
 // Copyright(c) 2005 RuneStorm. All Rights Reserved.
 //=============================================================================
 class PUMARepeater extends BallisticWeapon;
@@ -926,6 +927,7 @@ defaultproperties
      LightBrightness=150.000000
      LightRadius=5.000000
 	 ParamsClasses(0)=Class'PUMAWeaponParams'
+	 ParamsClasses(1)=Class'PUMAWeaponParamsClassic'
      Mesh=SkeletalMesh'BWBP_SKC_AnimExp.FPm_PUMA'
      DrawScale=0.350000
      Skins(0)=Shader'BW_Core_WeaponTex.Hands.Hands-Shiny'

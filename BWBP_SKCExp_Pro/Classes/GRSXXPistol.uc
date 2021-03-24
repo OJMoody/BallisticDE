@@ -551,11 +551,12 @@ defaultproperties
 	ClipOutSound=(Sound=Sound'BW_Core_WeaponSound.Glock.Glk-ClipOut')
 	ClipInSound=(Sound=Sound'BW_Core_WeaponSound.Glock.Glk-ClipIn')
 	ClipInFrame=0.650000
-	WeaponModes(0)=(bUnavailable=True)
+//	WeaponModes(0)=(bUnavailable=True)
 	bNoCrosshairInScope=True
 	SightOffset=(X=-15.000000,Z=6.600000)
 	SightDisplayFOV=60.000000
 	ParamsClasses(0)=Class'GRSXXWeaponParams'
+	ParamsClasses(1)=Class'GRSXXWeaponParamsClassic'
 	FireModeClass(0)=Class'BWBP_SKCExp_Pro.GRSXXPrimaryFire'
 	FireModeClass(1)=Class'BWBP_SKCExp_Pro.GRSXXSecondaryFire'
 	SelectAnimRate=1.250000

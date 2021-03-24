@@ -24,7 +24,7 @@ defaultproperties
      InventoryType=Class'BWBP_SKCExp_Pro.AH104Pistol'
      RespawnTime=10.000000
      PickupMessage="You picked up the AH104 Handcannon"
-     PickupSound=Sound'BallisticSounds2.M806.M806Putaway'
+     PickupSound=Sound'BW_Core_WeaponSound.M806.M806Putaway'
      StaticMesh=StaticMesh'BallisticHardware2.AM67.PickupLD'
      Physics=PHYS_None
      DrawScale=0.400000

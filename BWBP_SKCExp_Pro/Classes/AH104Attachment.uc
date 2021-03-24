@@ -14,14 +14,206 @@ var   LaserActor			Laser;		//The laser actor
 var   Rotator				LaserRot;
 var   BallisticWeapon      Heavy;
 
+var	RX22ASpray		Flame;
+var 	byte					FlameCount, FlameCountOld;
+var 	AH104FireHit 		FlameHitFX;
+
+struct SingeSpot
+{
+	var vector	Loc;			// The spot
+	var float	Time;			// Time of hit
+};
+var   array<SingeSpot> SingeSpots;	// To prevent many decals on the same spot (they're pretty expensive!)
+
+var BUtil.FullSound AltFlyBySound;
+
 replication
 {
 	reliable if ( Role==ROLE_Authority )
 		bLaserOn;
+	reliable if (Role==ROLE_Authority && bNetDirty)
+		FlameCount;
 	unreliable if ( Role==ROLE_Authority )
 		LaserRot;
 }
 
+simulated function Vector GetAltTipLocation()
+{
+	return GetBoneCoords('tip2').Origin;
+}
+
+simulated event PostNetReceive()
+{
+	if (FlameCount != FlameCountOld)
+	{
+		FlameCountOld = FlameCount;
+		FlameFireEffects();
+	}
+	
+	super.PostNetReceive();
+}
+
+//No flash for alt (flame and gas)
+simulated function FlashMuzzleFlash(byte Mode)
+{
+	if (Mode != 0)
+		return;
+
+	super.FlashMuzzleFlash(Mode);
+}
+
+simulated event Timer()
+{
+	super.Timer();
+	StopSpray();
+}
+
+simulated function InstantFireEffects(byte Mode)
+{
+	if (level.NetMode == NM_DedicatedServer)
+		return;
+
+	if (Mode == 0)
+		Super.InstantFireEffects(Mode);
+}
+
+// Play flyby sound effects
+simulated function FlyByEffects(byte Mode, Vector HitLoc)
+{
+	local Vector TipLoc, ViewLoc, PointX, Dir;
+	local float DotResult, XDist;
+
+	if (Level.DetailMode < DM_High || !class'BallisticMod'.default.bBulletFlybys || FlyBySound.Sound == None)
+		return;
+	if (FlyByMode == MU_None || (FlyByMode == MU_Secondary && Mode == 0) || (FlyByMode == MU_Primary && Mode != 0))
+		return;
+
+	TipLoc = GetTipLocation();
+	if (level.GetLocalPlayerController().ViewTarget != None)
+		ViewLoc = level.GetLocalPlayerController().ViewTarget.Location;
+	else
+		ViewLoc = level.GetLocalPlayerController().Location;
+
+	Dir = Normal(HitLoc-TipLoc);
+	// >>> Find PointX which will be the point closest to ViewLoc on the traceline
+	DotResult = Dir Dot Normal(ViewLoc-TipLoc);
+	if (DotResult < 0)
+		return;	// No sound effect if view is back behind where the line starts!
+	XDist = DotResult * VSize(ViewLoc-TipLoc);
+	PointX = TipLoc + Dir * XDist;
+	// <<<
+	if (VSize(PointX-ViewLoc) > FlybyRange)
+		return;	// View too far from line
+	if (XDist < 256 || XDist > VSize(HitLoc-TipLoc) - 128)
+		return;	// PointX is not actually on the line!
+
+	FlyBySound.Pitch = 0.85 + 0.3 * FRand();
+	if (Mode == 0)
+		class'BCFlyByActor'.static.SoundOff(self, FlyBySound, PointX, XDist/FlyByBulletSpeed);
+	else class'BCFlyByActor'.static.SoundOff(self, AltFlyBySound, PointX, XDist/FlyByBulletSpeed);
+}
+
+simulated function StopSpray()
+{
+	if (Flame != None)
+	{
+		Flame.Kill();
+		Flame.bHidden = false;
+		Flame = None;
+	}
+	if (Instigator != None && AH104Pistol(Instigator.Weapon) != None)
+		Instigator.Weapon.AmbientSound = None;
+}
+
+simulated event Destroyed()
+{
+	if (Flame != None)
+		Flame.Kill();
+	if (Laser != None)
+		Laser.Destroy();
+		
+	super.Destroyed();
+}
+
+function AH104UpdateFlameHit(Actor HitActor, vector HitLocation, vector HitNormal)
+{
+	mHitNormal = HitNormal;
+	mHitActor = HitActor;
+	mHitLocation = HitLocation;
+	FlameCount++;
+	NetUpdateTime = Level.TimeSeconds - 1;
+	FlameFireEffects();
+}
+
+simulated function FlameFireEffects()
+{
+	local vector Dir;
+	local int i;
+	local float HitDelay;
+
+    if ( Level.NetMode == NM_DedicatedServer || Instigator == None)
+    	return;
+
+	//Weapon light
+	FlashWeaponLight(0);
+	//Play pawn anims
+	PlayPawnFiring(0);
+
+	if (MuzzleFlash == None)
+		class'BUtil'.static.InitMuzzleFlash (MuzzleFlash, MuzzleFlashClass, DrawScale*FlashScale, self, FlashBone);
+
+	if (Flame == None)
+		Flame = Spawn(class'RX22ASpray',Instigator,,GetTipLocation(), rotator(mHitLocation - GetTipLocation()));
+		
+	if (Instigator.IsFirstPerson())
+	{}
+//		Flame.bHidden = true;
+	else
+	{
+		Flame.bHidden = false;
+		Flame.SetLocation(GetTipLocation());
+		Flame.SetRotation(Rotator(mHitLocation - Flame.Location));
+	}
+	
+	Flame.SetFlameRange(VSize(mHitLocation - Flame.Location));
+	
+	if (AH104Pistol(Instigator.Weapon) != None)
+		AH104Pistol(Instigator.Weapon).Flame = Flame;
+	FlyByEffects(0, mHitLocation);
+	
+	if (level.NetMode == NM_Client)
+	{
+		Dir = Normal(mHitLocation - Instigator.Location);
+		mHitActor = Trace(mHitLocation, mHitNormal, mHitLocation + Dir * 10, mHitLocation - Dir * 10, false);
+	}
+	
+	if (mHitActor != None)
+	{
+		HitDelay = VSize(Instigator.Location - mHitLocation) / 1400;
+		if (FlameHitFX == None || FlameHitFX.bLost)
+			FlameHitFX = Spawn(class'AH104FireHit',,,mHitLocation, rotator(mHitNormal));
+		
+		if (FlameHitFX != None)
+			FlameHitFX.AddHit(mHitLocation, mHitNormal, level.TimeSeconds + HitDelay);
+
+		for(i=0;i<SingeSpots.length;i++)
+			if (SingeSpots[i].Time < level.TimeSeconds - 10)
+			{
+				SingeSpots.Remove(i,1);
+				i--;
+			}
+			else if (VSize(SingeSpots[i].Loc-mHitLocation) < 128)
+				break;
+		if (i>=SingeSpots.length)
+		{
+			i = SingeSpots.length;
+			SingeSpots.length = i + 1;
+			SingeSpots[i].Loc = mHitLocation;
+			SingeSpots[i].Time = level.TimeSeconds;
+			class'IM_RX22AScorch'.static.StartSpawn(mHitLocation, mHitNormal, 0, self, HitDelay);
+		}
+	}
+}
 
 simulated function Tick(float DT)
 {
@@ -80,25 +272,20 @@ simulated function Tick(float DT)
 	Laser.SetDrawScale3D(Scale3D);
 }
 
-    function InitFor(Inventory I)
-    {
-       Super.InitFor(I);
-
-       if (BallisticWeapon(I) != None)
-          Heavy = BallisticWeapon(I);
-    }
-
-simulated function Destroyed()
+function InitFor(Inventory I)
 {
-	if (Laser != None)
-		Laser.Destroy();
-	Super.Destroyed();
+   Super.InitFor(I);
+
+   if (BallisticWeapon(I) != None)
+	  Heavy = BallisticWeapon(I);
 }
+
 
 defaultproperties
 {
-//     MuzzleFlashClass=Class'BWBP_SKC_Fix.AH104FlashEmitter'
-//     AltMuzzleFlashClass=Class'BWBP_SKC_Fix.AH104FlashEmitter'
+//     MuzzleFlashClass=Class'BWBP_SKCExp_Pro.AH104FlashEmitter'
+//     AltMuzzleFlashClass=Class'BWBP_SKCExp_Pro.AH104FlashEmitter'
+     AltFlyBySound=(Sound=Sound'BW_Core_WeaponSound.RX22A.RX22A-FlyBy',Volume=0.700000)
      ImpactManager=Class'BWBP_SKC_Pro.IM_ExpBullet'
      AltFlashBone="ejector"
      BrassClass=Class'BallisticProV55.Brass_Pistol'

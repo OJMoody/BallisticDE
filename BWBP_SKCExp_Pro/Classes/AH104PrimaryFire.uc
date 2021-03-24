@@ -29,7 +29,7 @@ function ApplyDamage(Actor Victim, int Damage, Pawn Instigator, vector HitLocati
 	
 	if (Victim.bProjTarget)
 	{
-		BW.TargetedHurtRadius(SplashDamage, SplashDamageRadius, class'DTAH104Pistol', 200, HitLocation, Pawn(Victim));
+		BW.TargetedHurtRadius(SplashDamage, SplashDamageRadius, class'DT_AH104Pistol', 200, HitLocation, Pawn(Victim));
 	}
 }
 
@@ -53,13 +53,13 @@ defaultproperties
 	 SplashDamageRadius=32
      RangeAtten=0.350000
      WaterRangeAtten=0.600000
-     DamageType=Class'BWBP_SKCExp_Pro.DTAH104Pistol'
-     DamageTypeHead=Class'BWBP_SKCExp_Pro.DTAH104PistolHead'
-     DamageTypeArm=Class'BWBP_SKCExp_Pro.DTAH104Pistol'
+     DamageType=Class'BWBP_SKCExp_Pro.DT_AH104Pistol'
+     DamageTypeHead=Class'BWBP_SKCExp_Pro.DT_AH104PistolHead'
+     DamageTypeArm=Class'BWBP_SKCExp_Pro.DT_AH104Pistol'
      KickForce=35000
      PenetrateForce=250
      bPenetrate=True
-     DryFireSound=(Sound=Sound'BallisticSounds2.D49.D49-DryFire',Volume=0.700000)
+     DryFireSound=(Sound=Sound'BW_Core_WeaponSound.D49.D49-DryFire',Volume=0.700000)
      bDryUncock=True
      MuzzleFlashClass=Class'BallisticProV55.M925FlashEmitter'
      FlashScaleFactor=1.100000
@@ -72,6 +72,7 @@ defaultproperties
      YInaccuracy=3.000000
      BallisticFireSound=(Sound=Sound'BWBP_SKC_SoundsExp.AH104.AH104-Super',Volume=7.100000)
      FireEndAnim=
+	 AimedFireAnim="SightFire"
      TweenTime=0.000000
      AmmoClass=Class'BWBP_SKCExp_Pro.Ammo_600HEAP'
      ShakeRotMag=(X=128.000000,Y=64.000000)

@@ -313,7 +313,8 @@ defaultproperties
      LightSaturation=150
      LightBrightness=150.000000
      LightRadius=4.000000
-	 ParamsClasses(0)=Class'FMPAWeaponParams'
+	 ParamsClasses(0)=Class'FMPWeaponParams'
+	 ParamsClasses(1)=Class'FMPWeaponParamsClassic'
      Mesh=SkeletalMesh'BWBP_SKC_AnimExp.FPm_MP40'
      DrawScale=0.30000
 	 Skins(0)=Shader'BW_Core_WeaponTex.Hands.Hands-Shiny'

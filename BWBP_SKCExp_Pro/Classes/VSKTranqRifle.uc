@@ -162,6 +162,7 @@ defaultproperties
      LightBrightness=150.000000
      LightRadius=4.000000
 	 ParamsClasses(0)=Class'VSKWeaponParams'
+	 ParamsClasses(1)=Class'VSKWeaponParamsClassic'
      Mesh=SkeletalMesh'BWBP_SKC_AnimExp.FPm_VSK42'
      DrawScale=1.000000
 }

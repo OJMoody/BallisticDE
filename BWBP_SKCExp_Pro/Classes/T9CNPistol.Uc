@@ -150,6 +150,7 @@ defaultproperties
      LightBrightness=130.000000
      LightRadius=3.000000
 	 ParamsClasses(0)=Class'T9CNWeaponParams'
+	 ParamsClasses(1)=Class'T9CNWeaponParamsClassic'
      Mesh=SkeletalMesh'BWBP_SKC_AnimExp.FPm_T9CN'
      DrawScale=0.200000
 }
