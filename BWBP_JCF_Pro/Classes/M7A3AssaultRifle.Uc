@@ -68,18 +68,17 @@ defaultproperties
      BCRepClass=Class'BallisticProV55.BallisticReplicationInfo'
      bWT_Bullet=True
      SpecialInfo(0)=(Info="340.0;30.0;1.2;60.0;0.9;0.0;0.0")
-     BringUpSound=(Sound=Sound'BW_Core_WeaponSound.R78.R78Pullout')
-     PutDownSound=(Sound=Sound'BW_Core_WeaponSound.R78.R78Putaway')
+     BringUpSound=(Sound=Sound'BWBP_JCF_Sounds.M7A3.M7A3_Pickup')
+     PutDownSound=(Sound=Sound'BWBP_JCF_Sounds.M7A3.M7A3_Select')
      CockAnimRate=1.250000
      CockSound=(Sound=Sound'BWBP_JCF_Sounds.M7A3.Cock',Volume=350.500000)
-     ClipHitSound=(Sound=Sound'BWBP_JCF_Sounds.M7A3.Reload3',Volume=350.500000)
-     ClipOutSound=(Sound=Sound'BWBP_JCF_Sounds.M7A3.Reload1',Volume=350.500000)
-     ClipInSound=(Sound=Sound'BWBP_JCF_Sounds.M7A3.Reload2',Volume=350.500000)
+     ClipHitSound=(Sound=Sound'BWBP_JCF_Sounds.M7A3.M7A3_Mag_Hit',Volume=350.500000)
+     ClipOutSound=(Sound=Sound'BWBP_JCF_Sounds.M7A3.M7A3_Mag_Out',Volume=350.500000)
+     ClipInSound=(Sound=Sound'BWBP_JCF_Sounds.M7A3.M7A3_Mag_In',Volume=350.500000)
      ClipInFrame=0.650000
      WeaponModes(0)=(ModeName="Single Fire")
      WeaponModes(1)=(bUnavailable=True)
      FullZoomFOV=50.000000
-     bNoMeshInScope=False
      bNoCrosshairInScope=True
      SightOffset=(X=-10.000000,Y=-0.30000,Z=11.280000)
      SightDisplayFOV=38.000000
@@ -113,7 +112,7 @@ defaultproperties
      LightSaturation=150
      LightBrightness=150.000000
      LightRadius=5.000000
-	 ParamsClass=Class'M7A3WeaponParams'
+	 ParamsClasses(0)=Class'M7A3AssaultRifleWeaponParamsArena'
      Mesh=SkeletalMesh'BWBP_JCF_Anims.FPm_M7A3'
      DrawScale=1.0000000
 }

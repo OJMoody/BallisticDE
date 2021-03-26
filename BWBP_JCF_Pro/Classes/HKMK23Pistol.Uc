@@ -290,7 +290,7 @@ defaultproperties
      SightingTime=0.250000
 	 BobDamping=2.250000
      FireModeClass(0)=Class'BWBP_JCF_Pro.HKMK23PrimaryFire'
-     FireModeClass(1)=Class'BWBP_JCF_Pro.HKMk23SilencerSwitch'
+     FireModeClass(1)=Class'BWBP_JCF_Pro.HKMk23SecondaryFire'
      SelectForce="SwitchToAssaultRifle"
      AIRating=0.400000
      Description="USP-S MK23 .45 Handgun||Manufacturer: Classic Weapons Industries|Primary: .45 ACP Fire|Secondary: Silencer||The MK23 is considered a match grade pistol, and is capable of making a 2-inch group at 50 yards, roughly 4 MOA. Production of the original began in 1991, and it was the basis for the HK USP, which began production in 1993. The MK23 is part of a larger weapon system that includes an attachable laser aiming module, a suppressor, and some other features such as a special high-pressure match cartridge (.45 +P ammunition). The MK23 has exceptional durability in harsh environments, being waterproof and corrosion-resistant. It uses a polygonal barrel design, which is reported to improve accuracy and durability. The firearm was tested and found to be capable of firing tens of thousands of rounds without a barrel change. It remains reliable in harsh conditions, making it suitable for use by special forces."
@@ -310,7 +310,7 @@ defaultproperties
      LightSaturation=150
      LightBrightness=130.000000
      LightRadius=3.000000
-	 ParamsClass=Class'HKMK23WeaponParams'
+	 ParamsClasses(0)=Class'MD24WeaponParams'
      Mesh=SkeletalMesh'BWBP_JCF_Anims.FPm_HKMK'
      DrawScale=0.300000
 }

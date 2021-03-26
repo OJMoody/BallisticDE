@@ -49,7 +49,7 @@ simulated function Tick(float DT)
 		return;
 
 	if (Laser == None)
-		Laser = Spawn(class'BWBPRecolorsPro.LaserActor_LAW',,,Location);
+		Laser = Spawn(class'BWBP_SKC_Pro.LaserActor_LAW',,,Location);
 
 	if (bLaserOn != bOldLaserOn)
 		bOldLaserOn = bLaserOn;

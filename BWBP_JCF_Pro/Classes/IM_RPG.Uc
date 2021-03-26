@@ -39,7 +39,7 @@ defaultproperties
 {
      SurfaceRange=384.000000
      MinFluidDepth=128.000000
-     HitEffects(0)=Class'BWBPOtherPackPro.IE_AkeronBlast'
+     HitEffects(0)=Class'BWBP_OP_Pro.IE_AkeronBlast'
      HitDecals(0)=Class'BallisticProV55.AD_Explosion'
      HitSounds(0)=Sound'BWBP_JCF_Sounds.RPG.RPGExplode'
      HitSoundVolume=1.000000

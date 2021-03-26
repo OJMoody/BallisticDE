@@ -106,7 +106,7 @@ simulated function BringUp(optional Weapon PrevWeapon)
 {
 	Super.BringUp(PrevWeapon);
 	if (Instigator != None && Laser == None && PlayerController(Instigator.Controller) != None)
-		Laser = Spawn(class'BWBPRecolorsPro.LaserActor_LAW');
+		Laser = Spawn(class'BWBP_SKC_Pro.LaserActor_LAW');
 	if (Instigator != None && LaserDot == None && PlayerController(Instigator.Controller) != None)
 		SpawnLaserDot();
 	if (Instigator != None && AIController(Instigator.Controller) != None)
@@ -323,7 +323,6 @@ defaultproperties
      ZoomInSound=(Sound=Sound'BW_Core_WeaponSound.R78.R78ZoomIn',Volume=0.500000,Pitch=1.000000)
      ZoomOutSound=(Sound=Sound'BW_Core_WeaponSound.R78.R78ZoomOut',Volume=0.500000,Pitch=1.000000)
      FullZoomFOV=2.000000
-     bNoMeshInScope=True
      bNoCrosshairInScope=True
      SightPivot=(Roll=-1024)
      SightOffset=(X=-10.000000,Y=-2.000000,Z=12.000000)
@@ -355,7 +354,7 @@ defaultproperties
 	 ReloadAnimRate=1.000000
      LightBrightness=150.000000
      LightRadius=5.000000
-	 ParamsClass=Class'M99WeaponParams'
+	 ParamsClasses(0)=Class'M99RifleWeaponParamsArena'
      Mesh=SkeletalMesh'BWBP_JCF_Anims.FPm_M99'
      DrawScale=1.000000
 }
