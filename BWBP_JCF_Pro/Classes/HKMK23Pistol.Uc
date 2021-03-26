@@ -8,7 +8,7 @@
 // by Nolan "Dark Carnivour" Richert.
 // Copyright(c) 2005 RuneStorm. All Rights Reserved.
 //=============================================================================
-class HKMK23Pistol extends BallisticWeapon;
+class HKMK23Pistol extends BallisticHandgun;
 
 var   bool		bSilenced;				// Silencer on. Silenced
 var() name		SilencerBone;			// Bone to use for hiding silencer
@@ -30,9 +30,15 @@ replication
 simulated function bool SlaveCanUseMode(int Mode) {return Mode == 0;}
 simulated function bool MasterCanSendMode(int Mode) {return Mode == 0;}
 
-simulated function PostNetBeginPlay()
+simulated state PendingSwitchSilencer extends PendingDualAction
 {
-	SetBoneRotation('Joint8',TipRotation);
+	simulated function BeginState()	{	OtherGun.LowerHandGun();	}
+	simulated function HandgunLowered (BallisticHandgun Other)	{ global.HandgunLowered(Other); if (Other == Othergun) WeaponSpecial();	}
+	simulated event AnimEnd(int Channel)
+	{
+		Othergun.RaiseHandGun();
+		global.AnimEnd(Channel);
+	}
 }
 
 simulated function PlayIdle()
@@ -45,57 +51,55 @@ simulated function PlayIdle()
 }
 
 
-simulated function vector ConvertFOVs (vector InVec, float InFOV, float OutFOV, float Distance)
-{
-	local vector ViewLoc, Outvec, Dir, X, Y, Z;
-	local rotator ViewRot;
-
-	ViewLoc = Instigator.Location + Instigator.EyePosition();
-	ViewRot = Instigator.GetViewRotation();
-	Dir = InVec - ViewLoc;
-	GetAxes(ViewRot, X, Y, Z);
-
-    OutVec.X = Distance / tan(OutFOV * PI / 360);
-    OutVec.Y = (Dir dot Y) * (Distance / tan(InFOV * PI / 360)) / (Dir dot X);
-    OutVec.Z = (Dir dot Z) * (Distance / tan(InFOV * PI / 360)) / (Dir dot X);
-    OutVec = OutVec >> ViewRot;
-
-	return OutVec + ViewLoc;
-}
-
 simulated function PlayCocking(optional byte Type)
 {
 	if (Type == 2)
 		PlayAnim('ReloadEndCock', CockAnimRate, 0.2);
 	else
-	    PlayAnim(CockAnim, CockAnimRate, 0.2);
+		PlayAnim(CockAnim, CockAnimRate, 0.2);
 }
 
 function ServerSwitchSilencer(bool bNewValue)
 {
-	SilencerSwitchTime = level.TimeSeconds + 1.5;
 	bSilenced = bNewValue;
 	BFireMode[0].bAISilent = bSilenced;
-	//AdjustGunProperties();
+	SwitchSilencer(bSilenced);
+	if (bSilenced)
+		BFireMode[0].FireRecoil *= 0.85;
+	else BFireMode[0].FireRecoil = BFireMode[0].default.FireRecoil;
 }
 
-//simulated function DoWeaponSpecial(optional byte i)
 exec simulated function WeaponSpecial(optional byte i)
 {
-	if (level.TimeSeconds < SilencerSwitchTime || ReloadState != RS_None)
+	if (ReloadState != RS_None || SightingState != SS_None)
+		return;
+	if (bIsPendingHandGun || PendingHandGun!=None)
 		return;
 	if (Clientstate != WS_ReadyToFire)
 		return;
+	if (Othergun != None)
+	{
+		if (Othergun.Clientstate != WS_ReadyToFire)
+			return;
+		if (IsinState('DualAction'))
+			return;
+		if (!Othergun.IsinState('Lowered'))
+		{
+			GotoState('PendingSwitchSilencer');
+			return;
+		}
+	}
 	TemporaryScopeDown(0.5);
-	SilencerSwitchTime = level.TimeSeconds + 1.5;
 	bSilenced = !bSilenced;
 	ServerSwitchSilencer(bSilenced);
 	SwitchSilencer(bSilenced);
-	//AdjustGunProperties();
 }
-
 simulated function SwitchSilencer(bool bNewValue)
 {
+	if(Role == ROLE_Authority)
+		bServerReloading=False;
+	ReloadState = RS_GearSwitch;
+	
 	if (bNewValue)
 		PlayAnim(SilencerOnAnim);
 	else
@@ -125,7 +129,6 @@ simulated function Notify_SilencerHide()
 {
 	SetBoneScale (0, 0.0, SilencerBone);
 }
-
 simulated function BringUp(optional Weapon PrevWeapon)
 {
 	Super.BringUp(PrevWeapon);
@@ -134,15 +137,11 @@ simulated function BringUp(optional Weapon PrevWeapon)
 	{
 		IdleAnim = 'OpenIdle';
 		ReloadAnim = 'OpenReload';
-		SelectAnim = 'PulloutOpen';
-		PutDownAnim = 'PutawayOpen';
 	}
 	else
 	{
 		IdleAnim = 'Idle';
 		ReloadAnim = 'Reload';
-		SelectAnim = 'Pullout';
-		PutDownAnim = 'Putaway';
 	}
 
 	if (AIController(Instigator.Controller) != None)
@@ -167,15 +166,11 @@ simulated event AnimEnd (int Channel)
 		{
 			IdleAnim = 'OpenIdle';
 			ReloadAnim = 'OpenReload';
-			SelectAnim = 'PulloutOpen';
-			PutDownAnim = 'PutawayOpen';
 		}
 		else
 		{
 			IdleAnim = 'Idle';
 			ReloadAnim = 'Reload';
-			SelectAnim = 'Pullout';
-			PutDownAnim = 'Putaway';
 		}
 	}
 	Super.AnimEnd(Channel);
@@ -218,34 +213,35 @@ function byte BestMode()
 {
 	return 0;
 }
+
 function float GetAIRating()
 {
 	local Bot B;
-	local float Result, Dist;
-	local vector Dir;
-
+	
+	local float Dist;
+	local float Rating;
+	
 	B = Bot(Instigator.Controller);
-	if ( (B == None) || (B.Enemy == None) )
-		return Super.GetAIRating();
+	
+	if ( B == None )
+		return AIRating;
 
-	Dir = B.Enemy.Location - Instigator.Location;
-	Dist = VSize(Dir);
+	Rating = Super.GetAIRating();
+	
+	if (B.Enemy == None)
+		return Rating;
 
-	Result = Super.GetAIRating();
-	if (Dist > 500)
-		Result += 0.2;
-	else if (B.Enemy.Weapon != None && B.Enemy.Weapon.bMeleeWeapon)
-		Result -= 0.05 * B.Skill;
-	if (Dist > 1000)
-		Result -= (Dist-1000) / 4000;
-
-	return Result;
+	Dist = VSize(B.Enemy.Location - Instigator.Location);
+	
+	return class'BUtil'.static.DistanceAtten(Rating, 0.35, Dist, 768, 2048); 
 }
+
 // tells bot whether to charge or back off while using this weapon
 function float SuggestAttackStyle()	{	return 0.1;	}
 // tells bot whether to charge or back off while defending against this weapon
 function float SuggestDefenseStyle()	{	return 0.5;	}
 // End AI Stuff =====
+
 
 static function class<Pickup> RecommendAmmoPickup(int Mode)
 {
@@ -310,7 +306,8 @@ defaultproperties
      LightSaturation=150
      LightBrightness=130.000000
      LightRadius=3.000000
-	 ParamsClasses(0)=Class'MD24WeaponParams'
+	 ParamsClasses(0)=Class'BallisticProV55.MD24WeaponParams'
+	 ParamsClasses(1)=Class'BWBP_JCF_Pro.HKMK23PistolWeaponParamsClassic'
      Mesh=SkeletalMesh'BWBP_JCF_Anims.FPm_HKMK'
      DrawScale=0.300000
 }

@@ -112,7 +112,8 @@ defaultproperties
      LightSaturation=150
      LightBrightness=150.000000
      LightRadius=5.000000
-	 ParamsClasses(0)=Class'M7A3AssaultRifleWeaponParamsArena'
+	 ParamsClasses(0)=Class'BWBP_JCF_Pro.M7A3AssaultRifleWeaponParamsArena'
+	 ParamsClasses(1)=Class'BWBP_JCF_Pro.M7A3AssaultRifleWeaponParamsClassic'
      Mesh=SkeletalMesh'BWBP_JCF_Anims.FPm_M7A3'
      DrawScale=1.0000000
 }

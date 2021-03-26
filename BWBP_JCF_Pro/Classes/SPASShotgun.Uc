@@ -146,7 +146,8 @@ defaultproperties
      LightSaturation=150
      LightBrightness=150.000000
      LightRadius=5.000000
-	 ParamsClasses(0)=Class'SPASShotgunWeaponParamsArena'
+	 ParamsClasses(0)=Class'BWBP_JCF_Pro.SPASShotgunWeaponParamsArena'
+	 ParamsClasses(1)=Class'BWBP_JCF_Pro.SPASShotgunWeaponParamsClassic'
      Mesh=SkeletalMesh'BWBP_JCF_Anims.FPm_Spas'
      DrawScale=1.000000
      Skins(0)=Shader'BW_Core_WeaponTex.Hands.Hands-Shiny'

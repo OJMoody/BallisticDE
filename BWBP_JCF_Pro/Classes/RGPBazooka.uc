@@ -230,7 +230,8 @@ defaultproperties
      LightSaturation=100
      LightBrightness=192.000000
      LightRadius=12.000000
-	 ParamsClasses(0)=Class'RGPBazookaWeaponParamsArena'
+	 ParamsClasses(0)=Class'BWBP_JCF_Pro.RGPBazookaWeaponParamsArena'
+	 ParamsClasses(1)=Class'BWBP_JCF_Pro.RGPBazookaWeaponParamsClassic'
      Mesh=SkeletalMesh'BWBP_JCF_Anims.FPm_RGP'
      DrawScale=1.200000
 }

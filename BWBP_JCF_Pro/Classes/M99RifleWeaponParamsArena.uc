@@ -29,31 +29,6 @@ defaultproperties
 	End Object
 		
 	//=================================================================
-	// SECONDARY FIRE
-	//=================================================================	
-	
-	Begin Object Class=FireEffectParams Name=ArenaSecondaryEffectParams
-		SpreadMode=None
-		MuzzleFlashClass=None
-		FlashScaleFactor=None
-		FireSound=None
-		Recoil=None
-		Chaos=None
-		PushbackForce=None
-		Inaccuracy=None
-		SplashDamage=None
-		RecommendSplashDamage=None
-		BotRefireRate=0.300000
-		WarnTargetPct=None
-	End Object
-		
-	Begin Object Class=FireParams Name=ArenaSecondaryFireParams
-		FireInterval=0.700000
-		AmmoPerFire=0
-	FireEffectParams(0)=FireEffectParams'ArenaSecondaryEffectParams'
-	End Object
-		
-	//=================================================================
 	// RECOIL
 	//=================================================================
 
@@ -99,7 +74,6 @@ defaultproperties
 		RecoilParams(0)=RecoilParams'ArenaRecoilParams'
 		AimParams(0)=AimParams'ArenaAimParams'
 		FireParams(0)=FireParams'ArenaPrimaryFireParams'
-		AltFireParams(0)=FireParams'ArenaSecondaryFireParams'
 	End Object
 	Layouts(0)=WeaponParams'ArenaParams'
 

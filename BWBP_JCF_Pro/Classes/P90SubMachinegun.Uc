@@ -151,7 +151,8 @@ defaultproperties
      LightSaturation=150
      LightBrightness=130.000000
      LightRadius=3.000000
-	 ParamsClasses(0)=Class'P90SubMachinegunWeaponParamsArena'
+	 ParamsClasses(0)=Class'BWBP_JCF_Pro.P90SubMachinegunWeaponParamsArena'
+	 ParamsClasses(1)=Class'BWBP_JCF_Pro.P90SubMachinegunWeaponParamsClassic'
      Mesh=SkeletalMesh'BWBP_JCF_Anims.FPm_P90'
      DrawScale=1.000000
 }
