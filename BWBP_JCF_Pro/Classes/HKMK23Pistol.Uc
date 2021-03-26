@@ -30,6 +30,12 @@ replication
 simulated function bool SlaveCanUseMode(int Mode) {return Mode == 0;}
 simulated function bool MasterCanSendMode(int Mode) {return Mode == 0;}
 
+simulated function PostBeginPlay()
+{
+	SetBoneRotation('Joint8',TipRotation);
+	super.PostBeginPlay();
+}
+
 simulated state PendingSwitchSilencer extends PendingDualAction
 {
 	simulated function BeginState()	{	OtherGun.LowerHandGun();	}
@@ -260,6 +266,7 @@ defaultproperties
      SilencerOffTurnSound=Sound'BW_Core_WeaponSound.Pistol.RSP-SilencerTurn'
      TeamSkins(0)=(RedTex=Shader'BW_Core_WeaponTex.Hands.RedHand-Shiny',BlueTex=Shader'BW_Core_WeaponTex.Hands.BlueHand-Shiny')
      AIReloadTime=1.000000
+	 bShouldDualInLoadout=False
      BigIconMaterial=Texture'BWBP_JCF_Tex.MK23.BigIcon_MK23'
      BCRepClass=Class'BallisticProV55.BallisticReplicationInfo'
      bWT_Bullet=True
@@ -306,7 +313,7 @@ defaultproperties
      LightSaturation=150
      LightBrightness=130.000000
      LightRadius=3.000000
-	 ParamsClasses(0)=Class'BallisticProV55.MD24WeaponParams'
+	 ParamsClasses(0)=Class'BWBP_JCF_Pro.HKMK23PistolWeaponParamsArena'
 	 ParamsClasses(1)=Class'BWBP_JCF_Pro.HKMK23PistolWeaponParamsClassic'
      Mesh=SkeletalMesh'BWBP_JCF_Anims.FPm_HKMK'
      DrawScale=0.300000
