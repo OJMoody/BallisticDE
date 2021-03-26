@@ -534,6 +534,7 @@ defaultproperties
      LightBrightness=130.000000
      LightRadius=3.000000
 	 ParamsClasses(0)=Class'RS04WeaponParams'
+	 ParamsClasses(1)=Class'RS04WeaponParamsClassic'
      Mesh=SkeletalMesh'BWBP_SKC_AnimExp.FPm_RS04'
      DrawScale=0.350000
      Skins(0)=Shader'BW_Core_WeaponTex.Hands.Hands-Shiny'

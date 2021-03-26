@@ -790,6 +790,7 @@ defaultproperties
      LightBrightness=192.000000
      LightRadius=12.000000
 	 ParamsClasses(0)=Class'HVPCMk5WeaponParams'
+	 ParamsClasses(1)=Class'HVPCMk5WeaponParamsClassic'
      Mesh=SkeletalMesh'BW_Core_WeaponAnim.FPm_HVC'
      DrawScale=0.350000
      Skins(0)=Shader'BW_Core_WeaponTex.Hands.Hands-Shiny'

@@ -13,7 +13,7 @@ defaultproperties
      AmmoAmount=14
      InventoryType=Class'BWBP_SKCExp_Pro.Ammo_600HEAP'
      PickupMessage="You got 14 .600 HEAP rounds"
-     PickupSound=Sound'BallisticSounds2.Ammo.ClipPickup'
+     PickupSound=Sound'BW_Core_WeaponSound.Ammo.ClipPickup'
      StaticMesh=StaticMesh'BallisticHardware2.D49.D49AmmoBox'
      DrawScale=0.400000
      PrePivot=(Z=75.000000)

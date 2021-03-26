@@ -1,16 +1,11 @@
 //=============================================================================
-// MG36Carbine
+// JSOCMachineGun
 //
-// An accurate and controllable carbine that is absolutely tricked out.
-// Has a holosight, laser, silencer, and flashlight!
+// A rapid fire, but inaccurate machine gun. Has two scope settings and bipod.
+// Low zoom scope is an unmagified Red Dot Sight, High Zoom is a 3x G36 scope.
 //
-// Uses sledgehammer rounds that slow down enemies. Comes with low ammo and low
-// reserve ammo.
-//
-// Has less range and power than long barreled rifles.
-// Has better accuracy and control than fellow long barrel rifles.
-//
-// by Sarge.
+// Gun code by Sergeant Kelly
+// Ballisic Weapon Code by Dark Carnivour
 // Copyright(c) 2005 RuneStorm. All Rights Reserved.
 //=============================================================================
 class MG36Carbine extends BallisticWeapon;
@@ -583,7 +578,8 @@ defaultproperties
      SilencerOffSound=Sound'BW_Core_WeaponSound.XK2.XK2-SilenceOff'
      SilencerOnAnim="SilencerOn"
      SilencerOffAnim="SilencerOff"
-     Description="Despite being a relic from the old world, the MG36 still remains a deadly modular weapon to this day.  While it can be a carbine, the machinegun form is a popular choice among the troops to lay down suppressive fire while being able to reload far more quicker than a belt-fed LMG.  Plus with dual scopes and a threaded barrel to attach suppressors, the MG36 is a worthy candidate to hold key positions and thin out hordes of Krao."
+     //Description="Despite being a relic from the old world, the MG36 still remains a deadly modular weapon to this day.  While it can be a carbine, the machinegun form is a popular choice among the troops to lay down suppressive fire while being able to reload far more quicker than a belt-fed LMG.  Plus with dual scopes and a threaded barrel to attach suppressors, the MG36 is a worthy candidate to hold key positions and thin out hordes of Krao."
+     Description="Mk.88 Light Support Weapon||Manufacturer: Majestic Firearms 12|Primary: 5.56mm Rifle Rounds|Secondary: Attach Suppressor|Special: Mount Bipod (Unscoped)/ Activate NV (Scoped)||A limited production weapon, the Mk.88 was Majestic's first foray into infantry support weaponry. After the first Skrith war jump-started the ballistic weapons business, Majestic Firearms 12 designed the Mk.88 to replace the aging M353's still in use by the UTC. The fast-firing and powerful Mk.88 was well received by troops, however its high recoil and prohibitive cost prevented it from seeing mainstream adoption. The Mk.88 currently sees limited service in special operations units and private military groups."
 	 TeamSkins(0)=(RedTex=Shader'BW_Core_WeaponTex.Hands.RedHand-Shiny',BlueTex=Shader'BW_Core_WeaponTex.Hands.BlueHand-Shiny')
      BigIconMaterial=Texture'BWBP_SKC_TexExp.MG36.MG36_LargeIcon'
      BigIconCoords=(Y1=36,Y2=225)
@@ -627,7 +623,7 @@ defaultproperties
      AttachmentClass=Class'BWBP_SKCExp_Pro.MG36Attachment'
      IconMaterial=Texture'BWBP_SKC_TexExp.MG36.MG36_SmallIcon'
      IconCoords=(X2=127,Y2=31)
-     ItemName="MG36 Night Ops Machinegun"
+     ItemName="Mk.88 LSW"
      LightType=LT_Pulse
      LightEffect=LE_NonIncidence
      LightHue=30
@@ -635,6 +631,7 @@ defaultproperties
      LightBrightness=150.000000
      LightRadius=4.000000
 	 ParamsClasses(0)=Class'MG36WeaponParams'
+	 ParamsClasses(1)=Class'MG36WeaponParamsClassic'
      Mesh=SkeletalMesh'BWBP_SKC_AnimExp.FPm_MG36'
      DrawScale=1.000000
 }

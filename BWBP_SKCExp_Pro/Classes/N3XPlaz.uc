@@ -452,6 +452,7 @@ defaultproperties
      IconCoords=(X2=127,Y2=31)
      ItemName="N3X Plaz Edge Sword"
 	 ParamsClasses(0)=Class'N3XWeaponParams'
+	 ParamsClasses(1)=Class'NEXWeaponParamsClassic'
      Mesh=SkeletalMesh'BWBP_SKC_AnimExp.FPm_NEX'
      DrawScale=3.000000
      bFullVolume=True
