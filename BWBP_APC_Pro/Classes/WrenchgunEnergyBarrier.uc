@@ -72,7 +72,7 @@ function bool BlocksShotAt(Actor Other)
 
 defaultproperties
 {
-     EffectWhenDestroyed=Class'BWBPOtherPackPro.WrenchWarpEndEmitter'
+     EffectWhenDestroyed=Class'BWBP_OP_Pro.WrenchWarpEndEmitter'
      StaticMesh=StaticMesh'BWBP_OP_Static.Wrench.EnergyWall'
      bStasis=False
      bNetInitialRotation=True

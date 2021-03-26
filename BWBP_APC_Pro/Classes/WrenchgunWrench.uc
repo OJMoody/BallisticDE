@@ -65,7 +65,8 @@ simulated singular function HitWall(vector HitNormal, actor Wall)
 
 defaultproperties
 {
-     ImpactManager=Class'BallisticProV55.IM_GunHit'
+     ModeIndex=1
+	 ImpactManager=Class'BallisticProV55.IM_GunHit'
      bUsePositionalDamage=True
      DamageTypeHead=Class'BWBP_APC_Pro.DTWrenchgunShotHead'
      bWarnEnemy=False

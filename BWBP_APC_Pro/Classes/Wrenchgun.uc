@@ -483,7 +483,6 @@ defaultproperties
      GunLength=60.000000
      LongGunPivot=(Pitch=6000,Yaw=-9000,Roll=2048)
      LongGunOffset=(X=-30.000000,Y=11.000000,Z=-20.000000)
-	 
      FireModeClass(0)=Class'BWBP_APC_Pro.WrenchgunPrimaryFire'
      FireModeClass(1)=Class'BWBP_APC_Pro.WrenchgunSecondaryFire'
      SelectAnimRate=2.000000
@@ -497,7 +496,7 @@ defaultproperties
      InventoryGroup=7
      PickupClass=Class'BWBP_APC_Pro.WrenchgunPickup'
      PlayerViewOffset=(X=-10.000000,Y=20.000000,Z=-30.000000)
-     AttachmentClass=Class'BWBPRecolorsPro.CoachGunAttachment'
+     AttachmentClass=Class'BWBP_APC_Pro.WrenchgunAttachment'
      IconMaterial=Texture'BWBP_SKC_Tex.CoachGun.SmallIcon_Coach'
      IconCoords=(X2=127,Y2=40)
      ItemName="Redwood Wrenchgun"
@@ -507,7 +506,7 @@ defaultproperties
      LightSaturation=150
      LightBrightness=180.000000
      LightRadius=5.000000
-	 ParamsClass=Class'WrenchgunWeaponParams'
+	 ParamsClasses(0)=Class'WrenchgunWeaponParamsArena'
      Mesh=SkeletalMesh'BWBP_CC_Anim.FPm_WrenchGun'
      DrawScale=1.250000
      Skins(0)=Shader'BW_Core_WeaponTex.Hands.Hands-Shiny'

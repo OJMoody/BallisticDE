@@ -336,7 +336,7 @@ defaultproperties
      SelectForce="SwitchToAssaultRifle"
      AIRating=0.600000
      CurrentRating=0.600000
-     Description="An interesting pair of weapons, a pistol and a dagger.  The GP-X22 “Gaucho” is no stranger to the public, a burst fire pistol that was supposed to be in the civilian market for it’s self-defense prowess. It didn’t pan out as there were more deadly options to protect the user, but it did find use in the hands of various scouts across the universe. The dagger, however, is an enigma all on it’s own, speculated that it came from the 1800’s, wielded by a member of Tchernobog’s clan before one of his own turned on him and killed him.  Known as the “Stallion,” it has been paired with the Gaucho to become a deadly duo in CQB."
+     Description="An interesting pair of weapons, a pistol and a dagger.  The GP-X22 'Gaucho' is no stranger to the public, a burst fire pistol that was supposed to be in the civilian market for it’s self-defense prowess. It didn’t pan out as there were more deadly options to protect the user, but it did find use in the hands of various scouts across the universe. The dagger, however, is an enigma all on it’s own, speculated that it came from the 1800’s, wielded by a member of Tchernobog’s clan before one of his own turned on him and killed him.  Known as the 'Stallion,' it has been paired with the Gaucho to become a deadly duo in CQB."
      Priority=19
      HudColor=(B=25,G=0,R=150)
      CustomCrossHairTextureName="Crosshairs.HUD.Crosshair_Cross1"
@@ -354,7 +354,7 @@ defaultproperties
      LightSaturation=150
      LightBrightness=150.000000
      LightRadius=4.000000
-	 ParamsClass=Class'GASCWeaponParams'
+	 ParamsClasses(0)=Class'GASCPistolWeaponParamsArena'
      Mesh=SkeletalMesh'BWBP_CC_Anim.FPm_GASC'
      DrawScale=1.000000
 }

@@ -282,7 +282,6 @@ defaultproperties
      ImpactDamage=90
      ImpactDamageType=Class'BWBP_JCF_Pro.DTRGPBazookaRadius'
      ImpactManager=Class'BWBP_JCF_Pro.IM_RPG'
-     bRandomStartRotaion=False
      AccelSpeed=18000.000000
      TrailClass=Class'BWBP_JCF_Pro.RGPRocketTrail'
      TrailOffset=(X=-14.000000)

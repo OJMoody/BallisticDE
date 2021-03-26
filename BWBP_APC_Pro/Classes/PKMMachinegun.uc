@@ -379,7 +379,7 @@ defaultproperties
      LightSaturation=150
      LightBrightness=150.000000
      LightRadius=4.000000
-	 ParamsClass=Class'PKMWeaponParams'
+	 ParamsClasses(0)=Class'PKMMachinegunWeaponParamsArena'
      Mesh=SkeletalMesh'BWBP_CC_Anim.FPm_PKMA'
      DrawScale=0.250000
 }
