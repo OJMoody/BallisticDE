@@ -354,7 +354,8 @@ defaultproperties
 	 ReloadAnimRate=1.000000
      LightBrightness=150.000000
      LightRadius=5.000000
-	 ParamsClasses(0)=Class'M99RifleWeaponParamsArena'
+	 ParamsClasses(0)=Class'BWBP_JCF_Pro.M99RifleWeaponParamsArena'
+	 ParamsClasses(1)=Class'BWBP_JCF_Pro.M99RifleWeaponParamsClassic'
      Mesh=SkeletalMesh'BWBP_JCF_Anims.FPm_M99'
      DrawScale=1.000000
 }
