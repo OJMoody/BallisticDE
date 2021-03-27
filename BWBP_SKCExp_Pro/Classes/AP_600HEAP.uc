@@ -14,7 +14,7 @@ defaultproperties
      InventoryType=Class'BWBP_SKCExp_Pro.Ammo_600HEAP'
      PickupMessage="You got 14 .600 HEAP rounds"
      PickupSound=Sound'BW_Core_WeaponSound.Ammo.ClipPickup'
-     StaticMesh=StaticMesh'BallisticHardware2.D49.D49AmmoBox'
+     StaticMesh=StaticMesh'BW_Core_WeaponStatic.D49.D49AmmoBox'
      DrawScale=0.400000
      PrePivot=(Z=75.000000)
      Skins(0)=Texture'BWBP_SKC_TexExp.AH104.AH104AmmoSkin'

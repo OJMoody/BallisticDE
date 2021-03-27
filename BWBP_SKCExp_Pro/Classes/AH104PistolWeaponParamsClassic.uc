@@ -2,7 +2,6 @@ class AH104PistolWeaponParamsClassic extends BallisticWeaponParams;
 
 defaultproperties
 {
-
     //=================================================================
     // PRIMARY FIRE
     //=================================================================	

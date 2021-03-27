@@ -194,8 +194,8 @@ static function FireModeStats GetStats()
 
 defaultproperties
 {
-	FlameEndSound=(Sound=Sound'BWBP_SKC_SoundsExpX.AH104.AH104-FlameLoopEnd',Volume=0.500000,Radius=64.000000,Slot=SLOT_Interact,Pitch=1.000000,bAtten=True)
-	FireSoundLoop=Sound'BWBP_SKC_SoundsExpX.AH104.AH104-FlameLoop'
+	FlameEndSound=(Sound=Sound'BWBP_SKC_SoundsExp.AH104.AH104-FlameLoopEnd',Volume=0.500000,Radius=64.000000,Slot=SLOT_Interact,Pitch=1.000000,bAtten=True)
+	FireSoundLoop=Sound'BWBP_SKC_SoundsExp.AH104.AH104-FlameLoop'
 	FlashBone="'"
 	FireAnim="FireAltContinuous"
 	FireChaos=0.050000
@@ -205,8 +205,8 @@ defaultproperties
 	FireRate=0.050000
 	AmmoClass=Class'BallisticProV55.BallisticProV55.Ammo_FlamerGas'
 	AmmoPerFire=0
-	BallisticFireSound=(Sound=Sound'BWBP_SKC_SoundsExpX.AH104.AH104-FlameLoopStart',Volume=1.350000)
-	DryFireSound=(Sound=Sound'BWBP_SKC_SoundsExpX.AH104.AH104-FlameDryFire',Volume=1.350000)
+	BallisticFireSound=(Sound=Sound'BWBP_SKC_SoundsExp.AH104.AH104-FlameLoopStart',Volume=1.350000)
+	DryFireSound=(Sound=Sound'BWBP_SKC_SoundsExp.AH104.AH104-FlameDryFire',Volume=1.350000)
 	ShakeRotMag=(X=64.000000,Y=64.000000,Z=64.000000)
 	ShakeRotRate=(X=10000.000000,Y=10000.000000,Z=10000.000000)
 	ShakeRotTime=2.000000

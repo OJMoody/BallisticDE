@@ -468,16 +468,15 @@ simulated function float ChargeBar()
 
 defaultproperties
 {
-	DrumInSound=(Sound=Sound'BWBP_SKC_SoundsExpX.AH104.AH104-FlameMagIn',Volume=1.100000,Radius=64.000000,Slot=SLOT_Interact,Pitch=1.000000,bAtten=True)
-	DrumOutSound=(Sound=Sound'BWBP_SKC_SoundsExpX.AH104.AH104-FlameMagOut',Volume=1.100000,Radius=64.000000,Slot=SLOT_Interact,Pitch=1.000000,bAtten=True)
+	DrumInSound=(Sound=Sound'BWBP_SKC_SoundsExp.AH104.AH104-FlameMagIn',Volume=1.100000,Radius=64.000000,Slot=SLOT_Interact,Pitch=1.000000,bAtten=True)
+	DrumOutSound=(Sound=Sound'BWBP_SKC_SoundsExp.AH104.AH104-FlameMagOut',Volume=1.100000,Radius=64.000000,Slot=SLOT_Interact,Pitch=1.000000,bAtten=True)
 	ReloadAltAnim="ReloadAlt"
 	LaserOnSound=Sound'BWBP_SKC_Sounds.AH104.AH104-SightOn'
 	LaserOffSound=Sound'BWBP_SKC_Sounds.AH104.AH104-SightOff'
 	PlayerSpeedFactor=1.000000
-	TeamSkins(0)=(RedTex=Shader'BallisticWeapons2.Hands.RedHand-Shiny',BlueTex=Shader'BallisticWeapons2.Hands.BlueHand-Shiny')
+	TeamSkins(0)=(RedTex=Shader'BW_Core_WeaponTex.Hands.RedHand-Shiny',BlueTex=Shader'BW_Core_WeaponTex.Hands.BlueHand-Shiny')
 	AIReloadTime=1.500000
 	BigIconMaterial=Texture'BWBP_SKC_TexExp.AH104.BigIcon_AH104'
-	SightFXClass=Class'BallisticProV55.AM67SightLEDs'
 	BCRepClass=Class'BallisticProV55.BallisticReplicationInfo'
 	bWT_Bullet=True
 	SpecialInfo(0)=(Info="120.0;15.0;0.8;70.0;0.75;0.5;0.0")
@@ -498,7 +497,7 @@ defaultproperties
 	SightOffset=(X=-15.000000,Y=-0.400000,Z=11.500000)
 	SightDisplayFOV=40.000000
 	GunLength=4.000000
-	ParamsClasses(0)=Class'AH104PistolWeaponParams'
+	ParamsClasses(0)=Class'AH104PistolWeaponParamsArena'
 	ParamsClasses(1)=Class'AH104PistolWeaponParamsClassic'
 	FireModeClass(0)=Class'BWBP_SKCExp_Pro.AH104PrimaryFire'
 	FireModeClass(1)=Class'BWBP_SKCExp_Pro.AH104SecondaryFire'
@@ -513,7 +512,7 @@ defaultproperties
 	GroupOffset=12
 	PickupClass=Class'BWBP_SKCExp_Pro.AH104Pickup'
 	PlayerViewOffset=(X=5.000000,Y=5.000000,Z=-9.000000)
-	BobDamping=1.200000
+	BobDamping=2.300000
 	AttachmentClass=Class'BWBP_SKCExp_Pro.AH104Attachment'
 	IconMaterial=Texture'BWBP_SKC_TexExp.AH104.SmallIcon_AH104'
 	IconCoords=(X2=127,Y2=31)

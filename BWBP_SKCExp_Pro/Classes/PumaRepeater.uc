@@ -926,7 +926,7 @@ defaultproperties
      LightSaturation=150
      LightBrightness=150.000000
      LightRadius=5.000000
-	 ParamsClasses(0)=Class'PUMAWeaponParams'
+	 ParamsClasses(0)=Class'PumaRepeaterWeaponParamsArena'
 	 ParamsClasses(1)=Class'PUMAWeaponParamsClassic'
      Mesh=SkeletalMesh'BWBP_SKC_AnimExp.FPm_PUMA'
      DrawScale=0.350000

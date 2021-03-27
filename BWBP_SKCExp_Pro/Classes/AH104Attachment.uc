@@ -283,8 +283,8 @@ function InitFor(Inventory I)
 
 defaultproperties
 {
-//     MuzzleFlashClass=Class'BWBP_SKCExp_Pro.AH104FlashEmitter'
-//     AltMuzzleFlashClass=Class'BWBP_SKCExp_Pro.AH104FlashEmitter'
+	 //MuzzleFlashClass=Class'BWBP_SKCExp_Pro.AH104FlashEmitter'
+	 //AltMuzzleFlashClass=Class'BWBP_SKCExp_Pro.AH104FlashEmitter'
      AltFlyBySound=(Sound=Sound'BW_Core_WeaponSound.RX22A.RX22A-FlyBy',Volume=0.700000)
      ImpactManager=Class'BWBP_SKC_Pro.IM_ExpBullet'
      AltFlashBone="ejector"
@@ -294,6 +294,6 @@ defaultproperties
      WaterTracerClass=Class'BallisticProV55.TraceEmitter_WaterBullet'
      WaterTracerMode=MU_Both
      FlyBySound=(Sound=Sound'BWBP_SKC_Sounds.AH104.AH104-FlyBy',Volume=1.500000)
-     Mesh=SkeletalMesh'BallisticAnims2.AM67-3rd'
+     Mesh=SkeletalMesh'BW_Core_WeaponAnim.AM67_TPm'
      DrawScale=0.140000
 }

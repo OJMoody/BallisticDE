@@ -9,8 +9,6 @@
 //=============================================================================
 class HVPCMk5PlasmaCannon extends BallisticWeapon;
 
-
-
 var float		HeatLevel;			// Current Heat level, duh...
 var bool		bIsVenting;			// Busy venting
 var() Sound		VentingSound;		// Sound to loop when venting
@@ -789,7 +787,7 @@ defaultproperties
      LightSaturation=100
      LightBrightness=192.000000
      LightRadius=12.000000
-	 ParamsClasses(0)=Class'HVPCMk5WeaponParams'
+	 ParamsClasses(0)=Class'HVPCMk5PlasmaCannonWeaponParamsArena'
 	 ParamsClasses(1)=Class'HVPCMk5WeaponParamsClassic'
      Mesh=SkeletalMesh'BW_Core_WeaponAnim.FPm_HVC'
      DrawScale=0.350000

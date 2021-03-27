@@ -360,8 +360,6 @@ defaultproperties
      BulletBone2="Bullet2"
      SpecialInfo(0)=(Info="240.0;20.0;0.9;75.0;0.8;0.7;0.2")
      AIReloadTime=1.000000
-     ParamsClasses(0)=Class'BWBP_SKCExp_Pro.MJ51WeaponParams'
-     ParamsClasses(1)=Class'BWBP_SKCExp_Pro.MJ51WeaponParamsClassic'
      BCRepClass=Class'BallisticProV55.BallisticReplicationInfo'
      TeamSkins(0)=(RedTex=Shader'BW_Core_WeaponTex.Hands.RedHand-Shiny',BlueTex=Shader'BW_Core_WeaponTex.Hands.BlueHand-Shiny')
      BigIconMaterial=Texture'BWBP_SKC_TexExp.M4A1.BigIcon_M4'
@@ -410,5 +408,7 @@ defaultproperties
      LightBrightness=150.000000
      LightRadius=4.000000
      Mesh=SkeletalMesh'BWBP_SKC_AnimExp.FPm_MJ55A3'
+	 ParamsClasses(0)=Class'MJ51CarbineWeaponParamsArena'
+     ParamsClasses(1)=Class'MJ51WeaponParamsClassic'
      DrawScale=0.300000
 }
