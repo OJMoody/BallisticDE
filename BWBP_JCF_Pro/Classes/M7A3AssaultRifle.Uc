@@ -71,7 +71,7 @@ defaultproperties
      BringUpSound=(Sound=Sound'BWBP_JCF_Sounds.M7A3.M7A3_Pickup')
      PutDownSound=(Sound=Sound'BWBP_JCF_Sounds.M7A3.M7A3_Select')
      CockAnimRate=1.250000
-     CockSound=(Sound=Sound'BWBP_JCF_Sounds.M7A3.Cock',Volume=350.500000)
+     CockSound=(Sound=Sound'BWBP_JCF_Sounds.M7A3.M7A3-Cock',Volume=350.500000)
      ClipHitSound=(Sound=Sound'BWBP_JCF_Sounds.M7A3.M7A3_Mag_Hit',Volume=350.500000)
      ClipOutSound=(Sound=Sound'BWBP_JCF_Sounds.M7A3.M7A3_Mag_Out',Volume=350.500000)
      ClipInSound=(Sound=Sound'BWBP_JCF_Sounds.M7A3.M7A3_Mag_In',Volume=350.500000)
