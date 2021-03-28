@@ -5,7 +5,18 @@
 // adapting code by Nolan "Dark Carnivour" Richert
 // Aspects of which are copyright (c) 2006 RuneStorm. All rights reserved.
 //=============================================================================
-class AH104FlameProjectile extends RSDarkFlameProjectile;
+class AH104FlameProjectile extends BallisticProjectile;
+
+var   Vector			EndPoint, StartPoint;
+var   array<actor>		AlreadyHit;
+var   bool				bHitWall;
+
+function InitFlame(vector End)
+{
+	EndPoint = End;
+	StartPoint = Location;
+//	LifeSpan = VSize(FireDir) / 3000;
+}
 
 event Tick(float DT)
 {
@@ -70,10 +81,20 @@ simulated function Penetrate(Actor Other, Vector HitLocation)
 
 defaultproperties
 {
-     MyRadiusDamageType=Class'BWBP_SKCExp_Pro.DT_AH104Burned'
+     ModeIndex=1
+     bPenetrate=True
+	 MyRadiusDamageType=Class'BWBP_SKCExp_Pro.DT_AH104Burned'
+     Speed=3000.000000
      Damage=8.000000
+     DamageRadius=192.000000
+     MomentumTransfer=0.000000
      MyDamageType=Class'BWBP_SKCExp_Pro.DT_AH104Burned'
+     bHidden=True
+     RemoteRole=ROLE_None
      LifeSpan=0.300000
      CollisionRadius=28.000000
      CollisionHeight=28.000000
+     bCollideWorld=False
+     bBlockZeroExtentTraces=False
+     bBlockNonZeroExtentTraces=False
 }

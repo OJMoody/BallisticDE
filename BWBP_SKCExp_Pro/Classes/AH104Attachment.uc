@@ -210,7 +210,7 @@ simulated function FlameFireEffects()
 			SingeSpots.length = i + 1;
 			SingeSpots[i].Loc = mHitLocation;
 			SingeSpots[i].Time = level.TimeSeconds;
-			class'IM_RX22AScorch'.static.StartSpawn(mHitLocation, mHitNormal, 0, self, HitDelay);
+			class'IM_AH104Scorch'.static.StartSpawn(mHitLocation, mHitNormal, 0, self, HitDelay);
 		}
 	}
 }

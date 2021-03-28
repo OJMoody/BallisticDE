@@ -8,7 +8,7 @@
 // adapting code by Nolan "Dark Carnivour" Richert
 // Aspects of which are copyright (c) 2006 RuneStorm. All rights reserved.
 //=============================================================================
-class AH104SecondaryFire extends BallisticFire;
+class AH104SecondaryFire extends BallisticInstantFire;
 
 var  	Actor						MuzzleFlame;
 var   	bool						bIgnited;
@@ -199,9 +199,7 @@ defaultproperties
 	FlashBone="'"
 	FireAnim="FireAltContinuous"
 	FireChaos=0.050000
-	//BallisticFireSound=(Volume=0.600000,Slot=SLOT_Interact,bNoOverride=False)
 	bPawnRapidFireAnim=True
-	//FireAnim=
 	FireRate=0.050000
 	AmmoClass=Class'BallisticProV55.BallisticProV55.Ammo_FlamerGas'
 	AmmoPerFire=0

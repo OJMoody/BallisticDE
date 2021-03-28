@@ -128,5 +128,5 @@ defaultproperties
      bRapidFire=True
      bAltRapidFire=True
      Mesh=SkeletalMesh'BWBP_JCF_Anims.M7A3_TPm'
-     DrawScale=0.250000
+     DrawScale=0.350000
 }
