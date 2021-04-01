@@ -346,7 +346,7 @@ defaultproperties
      LightSaturation=150
      LightBrightness=150.000000
      LightRadius=4.000000
-	 ParamsClass=Class'PUGWeaponParams'
+	 ParamsClasses(0)=Class'PUGAssaultCannonWeaponParamsArena'
      Mesh=SkeletalMesh'BWBP_CC_Anim.FPm_Pug12'
      DrawScale=1.600000
 }

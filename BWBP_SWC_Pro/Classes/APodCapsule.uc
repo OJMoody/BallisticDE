@@ -87,6 +87,6 @@ defaultproperties
      IconCoords=(X2=127,Y2=31)
      ItemName="A-Pod Capsule"
      Mesh=SkeletalMesh'BWBP_SWC_Anims.FPm_APod'
-	 ParamsClass=Class'APodWeaponParams'
+	 ParamsClasses(0)=Class'ApodCapsuleWeaponParamsArena'
      DrawScale=0.400000
 }

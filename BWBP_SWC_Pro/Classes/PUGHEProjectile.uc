@@ -129,7 +129,7 @@ defaultproperties
      DetonateDelay=0.150000
      ImpactDamage=55
      ImpactDamageType=Class'BWBP_SWC_Pro.DTBulldog'
-     ImpactManager=Class'BWBPRecolorsPro.IM_SlugHE'
+     ImpactManager=Class'BWBP_SKC_Pro.IM_SlugHE'
      AccelSpeed=3000.000000
      TrailClass=Class'BWBP_SWC_Pro.PUGFireTrail'
      TrailOffset=(X=-8.000000)

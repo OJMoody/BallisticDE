@@ -87,7 +87,7 @@ defaultproperties
      AttachmentClass=Class'BWBP_SWC_Pro.A51Attachment'
      IconMaterial=Texture'BWBP_SWC_Tex.Main.SmallIcon_SkrithGrenade'
      IconCoords=(X2=127,Y2=31)
-	 ParamsClass=Class'A51WeaponParams'
+	 ParamsClasses(0)=Class'A51GrenadeWeaponParamsArena'
      ItemName="AD-51 Reptile Corossive Grenade"
      Mesh=SkeletalMesh'BWBP_SWC_Anims.FPm_SkrithGrenade'
      DrawScale=0.400000

@@ -152,7 +152,6 @@ defaultproperties
      ImpactManager=Class'BWBP_SWC_Pro.IM_A800Projectile'
      PenetrateManager=Class'BWBP_SWC_Pro.IM_A800Projectile'
      bPenetrate=True
-     bRandomStartRotaion=False
      AccelSpeed=100000.000000
      TrailClass=Class'BallisticProV55.A73TrailEmitter'
      MyRadiusDamageType=Class'BWBP_SWC_Pro.DTA800MG'

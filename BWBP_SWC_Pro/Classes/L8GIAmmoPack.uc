@@ -175,6 +175,6 @@ defaultproperties
      IconCoords=(X2=127,Y2=31)
      ItemName="L8 GI Ammunition Pack"
      Mesh=SkeletalMesh'BWBP_SWC_Anims.FPm_AmmoPack'
-	 ParamsClass=Class'L8GIWeaponParams'
+	 ParamsClasses(0)=Class'L8GIAmmoPackWeaponParamsArena'
      DrawScale=0.400000
 }
