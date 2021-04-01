@@ -490,7 +490,6 @@ defaultproperties
 	ClipInSound=(Sound=Sound'BWBP_SKC_SoundsExp.AH104.AH104-ClipIn',Volume=1.100000)
 	ClipInFrame=0.650000
 	bCockOnEmpty=True
-	bNeedCock=True
 	WeaponModes(1)=(ModeName="Laser-Auto",bUnavailable=True,Value=7.000000)
 	WeaponModes(2)=(bUnavailable=True)
 	CurrentWeaponMode=0

@@ -9,6 +9,8 @@
 //=============================================================================
 class M7A3AssaultRifle extends BallisticWeapon;
 
+var M7A3TazerEffect TazerEffect;
+
 simulated function PlayCocking(optional byte Type)
 {
 	if (Type == 2 && HasAnim(CockAnimPostReload))
@@ -31,6 +33,50 @@ simulated function bool HasAmmo()
 	if (Ammo[0] != None && FireMode[0] != None && Ammo[0].AmmoAmount >= FireMode[0].AmmoPerFire)
 			return true;
 	return false;	//This weapon is empty
+}
+
+//===========================================================================
+// Tazer implementation.
+//===========================================================================
+simulated function RenderOverlays (Canvas C)
+{
+	Super.RenderOverlays(C);
+
+	if (TazerEffect != None)
+	{
+		TazerEffect.bHidden = true;
+		TazerEffect.SetLocation(ConvertFOVs(GetBoneCoords('Tazer').Origin, DisplayFOV, Instigator.Controller.FovAngle, 96));
+		C.DrawActor(TazerEffect, false, false, Instigator.Controller.FovAngle);
+	}
+}
+
+simulated function WeaponTick (float DT)
+{
+	super.WeaponTick(DT);
+
+	if (TazerEffect != None && !Instigator.IsFirstPerson() && AIController(Instigator.Controller) == None)
+	{
+		TazerEffect.bHidden = False;
+		TazerEffect.SetLocation(BallisticAttachment(ThirdPersonActor).GetTipLocation());
+	}
+}
+
+simulated function vector ConvertFOVs (vector InVec, float InFOV, float OutFOV, float Distance)
+{
+	local vector ViewLoc, Outvec, Dir, X, Y, Z;
+	local rotator ViewRot;
+
+	ViewLoc = Instigator.Location + Instigator.EyePosition();
+	ViewRot = Instigator.GetViewRotation();
+	Dir = InVec - ViewLoc;
+	GetAxes(ViewRot, X, Y, Z);
+
+    OutVec.X = Distance / tan(OutFOV * PI / 360);
+    OutVec.Y = (Dir dot Y) * (Distance / tan(InFOV * PI / 360)) / (Dir dot X);
+    OutVec.Z = (Dir dot Z) * (Distance / tan(InFOV * PI / 360)) / (Dir dot X);
+    OutVec = OutVec >> ViewRot;
+
+	return OutVec + ViewLoc;
 }
 
 // AI Interface =====
@@ -89,7 +135,7 @@ defaultproperties
      LongGunOffset=(X=-20.000000,Y=0.000000,Z=-15.000000)
      BobDamping=2.25
 	 FireModeClass(0)=Class'BWBP_JCF_Pro.M7A3PrimaryFire'
-     FireModeClass(1)=Class'BCoreProV55.BallisticScopeFire'
+     FireModeClass(1)=Class'BWBP_JCF_Pro.M7A3SecondaryFire'
      BringUpTime=0.500000
      SelectForce="SwitchToAssaultRifle"
      AIRating=0.600000

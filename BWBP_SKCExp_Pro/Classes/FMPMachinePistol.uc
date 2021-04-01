@@ -313,7 +313,7 @@ defaultproperties
      LightSaturation=150
      LightBrightness=150.000000
      LightRadius=4.000000
-	 ParamsClasses(0)=Class'FMPWeaponParams'
+	 ParamsClasses(0)=Class'FMPMachinePistolWeaponParamsArena'
 	 ParamsClasses(1)=Class'FMPWeaponParamsClassic'
      Mesh=SkeletalMesh'BWBP_SKC_AnimExp.FPm_MP40'
      DrawScale=0.30000
