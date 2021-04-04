@@ -26,6 +26,27 @@ replication
 simulated function bool SlaveCanUseMode(int Mode) {return Mode == 0;}
 simulated function bool MasterCanSendMode(int Mode) {return Mode == 0;}
 
+exec simulated function WeaponSpecial(optional byte i)
+{
+	bLaserOn = !bLaserOn;
+	ServerSwitchLaser(bLaserOn);
+	if (bLaserOn)
+	{
+		PlaySound(LaserOnSound,,0.7,,32);
+		if (LaserDot == None)
+			LaserDot = Spawn(class'M99LaserDot',self,,location);
+		class'BallisticEmitter'.static.ScaleEmitter(LaserDot, DrawScale);
+		SpawnLaserDot();
+	}
+	else
+	{
+		PlaySound(LaserOffSound,,0.7,,32);
+		if (LaserDot != None)
+			LaserDot.Destroy();
+		KillLaserDot();
+	}
+}
+
 simulated function PlayIdle()
 {
 	super.PlayIdle();
@@ -88,20 +109,6 @@ simulated function ClientSwitchLaser()
 	bUseNetAim = bLaserOn;
 }
 
-//Draw special weapon info on the hud
-/*simulated function NewDrawWeaponInfo(Canvas C, float YPos)
-{
-	if (bLaserOn)	{
-		CrosshairCfg.Color1.A /= 2;
-		CrosshairCfg.Color2.A /= 2;
-	}
-	Super.NewDrawWeaponInfo (C, YPos);
-
-	if (bLaserOn)	{
-		CrosshairCfg.Color1.A = default.CrosshairCfg.Color1.A ;
-		CrosshairCfg.Color2.A = default.CrosshairCfg.Color2.A ;
-	}
-}*/
 simulated function BringUp(optional Weapon PrevWeapon)
 {
 	Super.BringUp(PrevWeapon);
@@ -265,6 +272,76 @@ simulated function bool MayNeedReload(byte Mode, float Load)
 	return bNeedReload;
 }
 
+function Notify_Deploy()
+{
+	local vector HitLoc, HitNorm, Start, End;
+	local actor T;
+	local Rotator CompressedEq;
+    local BallisticTurret Turret;
+    local float Forward;
+
+	if (Role < ROLE_Authority)
+		return;
+	if (Instigator.HeadVolume.bWaterVolume)
+		return;
+	// Trace forward and then down. make sure turret is being deployed:
+	//   on world geometry, at least 30 units away, on level ground, not on the other side of an obstacle
+	Start = Instigator.Location + Instigator.EyePosition();
+	for (Forward=75;Forward>=45;Forward-=15)
+	{
+		End = Start + vector(Instigator.Rotation) * Forward;
+		T = Trace(HitLoc, HitNorm, End, Start, true, vect(6,6,6));
+		if (T != None && VSize(HitLoc - Start) < 30)
+			return;
+		if (T == None)
+			HitLoc = End;
+		End = HitLoc - vect(0,0,100);
+		T = Trace(HitLoc, HitNorm, End, HitLoc, true, vect(6,6,6));
+		if (T != None && (T.bWorldGeometry && (Sandbag(T) == None || Sandbag(T).AttachedWeapon == None)) && HitNorm.Z >= 0.9 && FastTrace(HitLoc, Start))
+			break;
+		if (Forward <= 45)
+			return;
+	}
+
+	FireMode[1].bIsFiring = false;
+   	FireMode[1].StopFiring();
+
+	if(Sandbag(T) != None)
+	{
+		HitLoc = T.Location;
+		HitLoc.Z += class'M99Turret'.default.CollisionHeight + 35;
+	}
+	
+	else
+	{
+		HitLoc.Z += class'M99Turret'.default.CollisionHeight - 9;
+	}
+
+	CompressedEq = Instigator.Rotation;
+		
+	//Rotator compression causes disparity between server and client rotations,
+	//which then plays hob with the turret's aim.
+	//Do the compression first then use that to spawn the turret.
+	
+	CompressedEq.Pitch = (CompressedEq.Pitch >> 8) & 255;
+	CompressedEq.Yaw = (CompressedEq.Yaw >> 8) & 255;
+	CompressedEq.Pitch = (CompressedEq.Pitch << 8);
+	CompressedEq.Yaw = (CompressedEq.Yaw << 8);
+
+    Turret = Spawn(class'M99Turret', None,, HitLoc, Instigator.Rotation);
+
+    if (Turret != None)
+    {
+    	if (Sandbag(T) != None)
+			Sandbag(T).AttachedWeapon = Turret;
+		Turret.InitDeployedTurretFor(self);
+		Turret.TryToDrive(Instigator);
+		Destroy();
+    }
+    else
+		log("Notify_Deploy: Could not spawn turret for M99 ECS Anti-Material Rifle.");
+}
+
 // AI Interface =====
 function byte BestMode()	{	return 0;	}
 
@@ -329,7 +406,7 @@ defaultproperties
      GunLength=85.000000
 
      FireModeClass(0)=Class'BWBP_JCF_Pro.M99PrimaryFire'
-     FireModeClass(1)=Class'BWBP_JCF_Pro.M99SecondaryFire'
+     FireModeClass(1)=Class'BWBP_JCF_Pro.M99DeployFire'
      BringUpTime=0.500000
      SelectForce="SwitchToAssaultRifle"
      AIRating=0.600000
