@@ -1,4 +1,4 @@
-class AR23WeaponParamsClassic extends BallisticWeaponParams;
+class AR23WeaponParamsArena extends BallisticWeaponParams;
 
 defaultproperties
 {
@@ -8,7 +8,7 @@ defaultproperties
     //=================================================================	
 	
 	
-		Begin Object Class=InstantEffectParams Name=ClassicPrimaryEffectParams
+		Begin Object Class=InstantEffectParams Name=ArenaPrimaryEffectParams
 			TraceRange=(Min=12000.000000,Max=15000.000000)
 			WaterTraceRange=12000.0
 			DecayRange=(Min=0.0,Max=0.0)
@@ -19,7 +19,7 @@ defaultproperties
 			DamageTypeHead=Class'BWBP_SKCExp_Pro.DT_AR23HRHead'
 			DamageTypeArm=Class'BWBP_SKCExp_Pro.DT_AR23HR'
 			PenetrationEnergy=48.000000
-			PenetrateForce=250
+			PenetrateForce=300
 			bPenetrate=True
 			PDamageFactor=0.6
 			WallPDamageFactor=0.4
@@ -27,17 +27,17 @@ defaultproperties
 			MuzzleFlashClass=Class'BallisticProV55.M925FlashEmitter'
 			FlashScaleFactor=0.500000
 			FireSound=(Sound=SoundGroup'BWBP_SKC_SoundsExp.AR23.AR23-HFire',Volume=1.750000,Slot=SLOT_Interact,bNoOverride=False)
-			Recoil=512.000000
-			Chaos=-1.0
-			Inaccuracy=(X=1,Y=1)
+			Recoil=450.000000
+			Chaos=0.150000
 			WarnTargetPct=0.200000
 		End Object
 
-		Begin Object Class=FireParams Name=ClassicPrimaryFireParams
+		Begin Object Class=FireParams Name=ArenaPrimaryFireParams
+			AimedFireAnim='SightFire'
 			FireInterval=0.170000
 			BurstFireRateFactor=1.00
 			FireEndAnim=	
-		FireEffectParams(0)=InstantEffectParams'ClassicPrimaryEffectParams'
+		FireEffectParams(0)=InstantEffectParams'ArenaPrimaryEffectParams'
 		End Object
 		
     //=================================================================
@@ -45,14 +45,14 @@ defaultproperties
     //=================================================================	
 	
 	
-		Begin Object Class=ShotgunEffectParams Name=ClassicSecondaryEffectParams
+		Begin Object Class=ShotgunEffectParams Name=ArenaSecondaryEffectParams
 			TraceRange=(Min=2000.000000,Max=4000.000000)
 			WaterTraceRange=5000.0
 			RangeAtten=0.300000
-			TraceCount=36
+			TraceCount=30
 			TracerClass=Class'BallisticProV55.TraceEmitter_Shotgun'
 			ImpactManager=Class'BallisticProV55.IM_Shell'
-			Damage=25
+			Damage=4
 			LimbMult=1.0
 			DamageType=Class'BWBP_SKCExp_Pro.DT_AR23Flak'
 			DamageTypeHead=Class'BWBP_SKCExp_Pro.DT_AR23Flak'
@@ -70,57 +70,60 @@ defaultproperties
 			WarnTargetPct=0.300000	
 		End Object
 
-		Begin Object Class=FireParams Name=ClassicSecondaryFireParams
+		Begin Object Class=FireParams Name=ArenaSecondaryFireParams
 			FireInterval=2.500000
 			BurstFireRateFactor=1.00
-			PreFireAnim="PrepBigFire"
-			FireAnim="FireBig2"	
-			FireEffectParams(0)=ShotgunEffectParams'ClassicSecondaryEffectParams'
+			PreFireAnim="GrenadePrepSight"
+			FireAnim="GrenadeFireSight"	
+			FireEffectParams(0)=ShotgunEffectParams'ArenaSecondaryEffectParams'
 		End Object
 		
 	//=================================================================
 	// RECOIL
 	//=================================================================
 
-	Begin Object Class=RecoilParams Name=ClassicRecoilParams
-		XCurve=(Points=(,(InVal=1.000000,OutVal=1.000000)))
-		XRandFactor=0.200000
-		YRandFactor=0.300000
-		MaxRecoil=2048.000000
-		ViewBindFactor=0.600000
-		HipMultiplier=1.000000
-		CrouchMultiplier=0.500000
-		bViewDecline=True
+	Begin Object Class=RecoilParams Name=ArenaRecoilParams
+		ViewBindFactor=0.250000
+		CrouchMultiplier=0.700000
+		XCurve=(Points=(,(InVal=0.200000,OutVal=0.200000),(InVal=0.300000,OutVal=0.40000),(InVal=0.500000,OutVal=0.550000),(InVal=0.700000,OutVal=0.70000),(InVal=1.000000)))
+		YCurve=(Points=(,(InVal=0.150000,OutVal=0.120000),(InVal=0.300000,OutVal=0.300000),(InVal=0.500000,OutVal=0.550000),(InVal=0.750000,OutVal=0.750000),(InVal=1.000000,OutVal=1.000000)))
+		XRandFactor=0.07
+		YRandFactor=0.07
+		MaxRecoil=12288.000000
+		DeclineTime=1.500000
+		DeclineDelay=0.40000
 	End Object
 
 	//=================================================================
 	// AIM
 	//=================================================================
 
-	Begin Object Class=AimParams Name=ClassicAimParams
-		AimSpread=(Min=16,Max=2560)
-		CrouchMultiplier=0.500000
-		ADSMultiplier=0.700000
-		ViewBindFactor=0.200000
-		SprintChaos=0.400000
-		ChaosDeclineTime=2.000000
+	Begin Object Class=AimParams Name=ArenaAimParams
+		AimSpread=(Min=384,Max=1280)
+		SprintOffset=(Pitch=-6000,Yaw=-8000)
+		JumpOffset=(Pitch=-6000,Yaw=-4000)
+		ADSMultiplier=0.40000
+		AimAdjustTime=0.400000
+		ChaosDeclineTime=1.750000
 	End Object
     
 	//=================================================================
 	// BASIC PARAMS
 	//=================================================================	
 	
-	Begin Object Class=WeaponParams Name=ClassicParams
-		InventorySize=35
-		SightMoveSpeedFactor=0.500000
+	Begin Object Class=WeaponParams Name=ArenaParams
+		PlayerJumpFactor=0.85
+		PlayerSpeedFactor=0.85
+		InventorySize=12
+		SightMoveSpeedFactor=0.800000
+		SightingTime=0.550000
+		DisplaceDurationMult=1.2
 		MagAmmo=18
-		SightOffset=(X=5,Y=-8.550000,Z=18.500000)
-		RecoilParams(0)=RecoilParams'ClassicRecoilParams'
-		AimParams(0)=AimParams'ClassicAimParams'
-		FireParams(0)=FireParams'ClassicPrimaryFireParams'
-		AltFireParams(0)=FireParams'ClassicSecondaryFireParams'
+		SightOffset=(X=-10,Y=-0.000000,Z=15.500000)
+		RecoilParams(0)=RecoilParams'ArenaRecoilParams'
+		AimParams(0)=AimParams'ArenaAimParams'
+		FireParams(0)=FireParams'ArenaPrimaryFireParams'
+		AltFireParams(0)=FireParams'ArenaSecondaryFireParams'
 	End Object
-	Layouts(0)=WeaponParams'ClassicParams'
-
-
+	Layouts(0)=WeaponParams'ArenaParams'
 }
