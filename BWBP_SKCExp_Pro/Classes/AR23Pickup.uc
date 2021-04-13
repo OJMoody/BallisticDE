@@ -15,7 +15,7 @@ defaultproperties
      InventoryType=Class'BWBP_SKCExp_Pro.AR23HeavyRifle'
      RespawnTime=20.000000
      PickupMessage="You picked up the AR23 'Punisher' Heavy Rifle"
-     PickupSound=Sound'BallisticSounds2.M50.M50Putaway'
+     PickupSound=Sound'BW_Core_WeaponSound.M50.M50Putaway'
      StaticMesh=StaticMesh'BallisticHardware_25.OA-AR.OA-AR_PickupHi'
      Physics=PHYS_None
      DrawScale=0.400000

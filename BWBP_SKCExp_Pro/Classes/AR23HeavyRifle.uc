@@ -287,12 +287,12 @@ defaultproperties
      IronSightBone2="IronSight2"
      ReflexSightBone="ReflexSight"
 	 GrenadeLoadAnim="ReloadKnife"
-     GrenOpenSound=Sound'BallisticSounds2.M50.M50GrenOpen'
-     GrenLoadSound=Sound'BallisticSounds2.M50.M50GrenLoad'
-     GrenCloseSound=Sound'BallisticSounds2.M50.M50GrenClose'
-     TeamSkins(0)=(RedTex=Shader'BallisticWeapons2.Hands.RedHand-Shiny',BlueTex=Shader'BallisticWeapons2.Hands.BlueHand-Shiny')
+     GrenOpenSound=Sound'BW_Core_WeaponSound.M50.M50GrenOpen'
+     GrenLoadSound=Sound'BW_Core_WeaponSound.M50.M50GrenLoad'
+     GrenCloseSound=Sound'BW_Core_WeaponSound.M50.M50GrenClose'
+     TeamSkins(0)=(RedTex=Shader'BW_Core_WeaponTex.Hands.RedHand-Shiny',BlueTex=Shader'BW_Core_WeaponTex.Hands.BlueHand-Shiny')
      AIReloadTime=1.000000
-     BigIconMaterial=Texture'BallisticTextures_25.OA-AR.BigIcon_OAAR'
+     BigIconMaterial=Texture'BW_Core_WeaponTex.OA-AR.BigIcon_OAAR'
      //BallisticInventoryGroup=6
      BCRepClass=Class'BallisticProV55.BallisticReplicationInfo'
      bWT_Bullet=True
@@ -300,24 +300,25 @@ defaultproperties
      bWT_Machinegun=True
      bWT_Projectile=True
      SpecialInfo(0)=(Info="240.0;25.0;0.9;80.0;0.7;0.7;0.4")
-     BringUpSound=(Sound=Sound'BallisticSounds2.M50.M50Pullout')
-     PutDownSound=(Sound=Sound'BallisticSounds2.M50.M50Putaway')
+     BringUpSound=(Sound=Sound'BW_Core_WeaponSound.M50.M50Pullout')
+     PutDownSound=(Sound=Sound'BW_Core_WeaponSound.M50.M50Putaway')
      MagAmmo=18
      bCockOnEmpty=False
      //CockAnimPostReload="ReloadEndCock"
-     CockSound=(Sound=Sound'BallisticSounds_25.OA-AR.OA-AR_Cock',Volume=1.100000)
-     ClipHitSound=(Sound=Sound'BallisticSounds_25.OA-AR.OA-AR_ClipHit',Volume=1.000000)
-     ClipOutSound=(Sound=Sound'BallisticSounds_25.OA-AR.OA-AR_ClipOut',Volume=1.000000)
-     ClipInSound=(Sound=Sound'BallisticSounds_25.OA-AR.OA-AR_ClipIn',Volume=1.000000)
+     CockSound=(Sound=Sound'BW_Core_WeaponSound.OA-AR.OA-AR_Cock',Volume=1.100000)
+     ClipHitSound=(Sound=Sound'BW_Core_WeaponSound.OA-AR.OA-AR_ClipHit',Volume=1.000000)
+     ClipOutSound=(Sound=Sound'BW_Core_WeaponSound.OA-AR.OA-AR_ClipOut',Volume=1.000000)
+     ClipInSound=(Sound=Sound'BW_Core_WeaponSound.OA-AR.OA-AR_ClipIn',Volume=1.000000)
      ClipInFrame=0.700000
      bNeedCock=True
      ParamsClasses(0)=Class'AR23WeaponParams'
+     ParamsClasses(1)=Class'AR23WeaponParamsClassic'
 	 
      //ZoomInAnim="ZoomIn"
      //ZoomOutAnim="ZoomOut"
-     //ScopeViewTex=Texture'BWBP3-Tex.SRS900.SRS900ScopeView'
-     //ZoomInSound=(Sound=Sound'BallisticSounds2.R78.R78ZoomIn',Volume=0.500000,Pitch=1.000000)
-     //ZoomOutSound=(Sound=Sound'BallisticSounds2.R78.R78ZoomOut',Volume=0.500000,Pitch=1.000000)
+     //ScopeViewTex=Texture'BW_Core_WeaponTex.SRS900.SRS900ScopeView'
+     //ZoomInSound=(Sound=Sound'BW_Core_WeaponSound.R78.R78ZoomIn',Volume=0.500000,Pitch=1.000000)
+     //ZoomOutSound=(Sound=Sound'BW_Core_WeaponSound.R78.R78ZoomOut',Volume=0.500000,Pitch=1.000000)
      FullZoomFOV=55.000000
      //bNoMeshInScope=False
      bNoCrosshairInScope=True
@@ -350,7 +351,7 @@ defaultproperties
      PlayerViewPivot=(Pitch=384)
      BobDamping=2.000000
      AttachmentClass=Class'BWBP_SKCExp_Pro.AR23Attachment'
-     IconMaterial=Texture'BallisticTextures_25.OA-AR.SmallIcon_OAAR'
+     IconMaterial=Texture'BW_Core_WeaponTex.OA-AR.SmallIcon_OAAR'
      IconCoords=(X2=127,Y2=31)
      ItemName="AR23 Heavy Rifle"
      LightType=LT_Pulse
