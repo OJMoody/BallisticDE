@@ -283,8 +283,8 @@ function float SuggestDefenseStyle()	{	return 0.5;	}
 
 defaultproperties
 {
-     IronSightBone="IronSight"
-     IronSightBone2="IronSight2"
+     IronSightBone="IronsFront"
+     IronSightBone2="IronsRear"
      ReflexSightBone="ReflexSight"
 	 GrenadeLoadAnim="GrenadeReload"
      GrenOpenSound=Sound'BW_Core_WeaponSound.M50.M50GrenOpen'
