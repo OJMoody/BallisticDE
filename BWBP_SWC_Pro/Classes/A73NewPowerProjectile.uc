@@ -146,6 +146,7 @@ simulated function ProcessTouch (Actor Other, vector HitLocation)
 
 defaultproperties
 {
+	 ModeIndex=1
 	 DetonateOn=DT_Impact
 	 bNoInitialSpin=True
      bAlignToVelocity=True

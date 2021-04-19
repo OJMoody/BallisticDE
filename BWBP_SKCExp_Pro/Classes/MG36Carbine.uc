@@ -630,7 +630,7 @@ defaultproperties
      LightSaturation=150
      LightBrightness=150.000000
      LightRadius=4.000000
-	 ParamsClasses(0)=Class'MG36WeaponParams'
+	 ParamsClasses(0)=Class'MG36CarbineWeaponParamsArena'
 	 ParamsClasses(1)=Class'MG36WeaponParamsClassic'
      Mesh=SkeletalMesh'BWBP_SKC_AnimExp.FPm_MG36'
      DrawScale=1.000000

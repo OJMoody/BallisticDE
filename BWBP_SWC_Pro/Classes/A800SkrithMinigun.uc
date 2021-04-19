@@ -287,7 +287,7 @@ defaultproperties
      LightSaturation=150
      LightBrightness=150.000000
      LightRadius=4.000000
-	 ParamsClass=Class'A800WeaponParams'
+	 ParamsClasses(0)=Class'A800SkrithMinigunWeaponParamsArena'
      Mesh=SkeletalMesh'BWBP_SWC_Anims.FPm_SME'
      DrawScale=1.000000
      SoundRadius=128.000000

@@ -46,6 +46,6 @@ defaultproperties
      WaterTracerClass=Class'BallisticProV55.TraceEmitter_WaterBullet'
      FlyBySound=(Sound=SoundGroup'BW_Core_WeaponSound.FlyBys.Bullet-Whizz',Volume=0.700000)
      bRapidFire=True
-     Mesh=SkeletalMesh'BallisticAnims_25.OA-AR_3rd'
+     Mesh=SkeletalMesh'BW_Core_WeaponAnim.M50_TPm'
      DrawScale=0.275000
 }

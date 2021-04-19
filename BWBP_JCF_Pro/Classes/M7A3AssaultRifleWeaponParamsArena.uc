@@ -32,6 +32,28 @@ defaultproperties
 	End Object
 		
 	//=================================================================
+    // SECONDARY FIRE
+    //=================================================================	
+	
+	Begin Object Class=ProjectileEffectParams Name=ArenaSecondaryEffectParams
+		ProjectileClass=Class'BWBP_JCF_Pro.M7A3TazerProj'
+		SpawnOffset=(X=15.000000,Y=10.000000,Z=-9.000000)
+		Speed=10240.000000
+		Damage=5
+		BotRefireRate=0.300000
+		WarnTargetPct=0.300000	
+		FireSound=(Sound=Sound'BWBP_OP_Sounds.PD97.BloodhoundTazerFire',Volume=2.250000)
+	End Object
+
+	Begin Object Class=FireParams Name=ArenaSecondaryFireParams
+		FireInterval=0.900000
+		AmmoPerFire=0
+		PreFireAnim=
+		FireAnim="DartFireSingle"	
+		FireEffectParams(0)=ProjectileEffectParams'ArenaSecondaryEffectParams'
+	End Object	
+		
+	//=================================================================
 	// RECOIL
 	//=================================================================
 

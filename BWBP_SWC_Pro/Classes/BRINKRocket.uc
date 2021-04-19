@@ -61,11 +61,11 @@ simulated event Landed( vector HitNormal )
 
 	if (Pawn(Other) != None && (PlayerImpactType == PIT_Detonate || DetonateOn == DT_Impact))
 		ApplySlowdown(Pawn(Other), Damage/8);
-}
+}*/
 
 // Special HurtRadius function. This will hurt everyone except the chosen victim.
 // Useful if you want to spare a directly hit enemy from the radius damage
-function TargetedHurtRadius( float DamageAmount, float DamageRadius, class<DamageType> DamageType, float Momentum, vector HitLocation, Optional actor Victim )
+/*function TargetedHurtRadius( float DamageAmount, float DamageRadius, class<DamageType> DamageType, float Momentum, vector HitLocation, Optional actor Victim )
 {
 	local actor Victims;
 	local float damageScale, DmgRadiusScale, dist;
@@ -122,7 +122,7 @@ function TargetedHurtRadius( float DamageAmount, float DamageRadius, class<Damag
 		 }
 	 }
 	bHurtEntry = false;
-}
+}*/
 
 function ApplySlowdown(pawn Other, float Damage)
 {
@@ -137,12 +137,12 @@ function ApplySlowdown(pawn Other, float Damage)
 	}
 	
 	Slow.AddSlow(0.7, Damage);
-}*/
+}
 
 defaultproperties
 {
-     bRandomStartRotaion=False
-     TrailClass=Class'BallisticProV55.MRLTrailEmitter'
+     ModeIndex=1
+	 TrailClass=Class'BallisticProV55.MRLTrailEmitter'
      TrailOffset=(X=-4.000000)
      MyRadiusDamageType=Class'BWBP_SWC_Pro.DTBRINKGrenade'
      ImpactManager=Class'BWBP_SWC_Pro.IM_BRINKGrenade'

@@ -15,7 +15,17 @@ var   Rotator				LaserRot;
 var	  BallisticWeapon		myWeap;
 var Vector		SpawnOffset;
 
+var Pawn TazerHit, OldTazerHit;
+var M7A3TazerEffect TazerEffect;
+
 replication
+{
+	reliable if (Role == ROLE_Authority)
+		TazerHit;
+}
+
+
+/*replication
 {
 	reliable if ( Role==ROLE_Authority )
 		bLaserOn;
@@ -109,6 +119,95 @@ simulated function Tick(float DT)
 	Scale3D.Y = 1;
 	Scale3D.Z = 1;
 	Laser.SetDrawScale3D(Scale3D);
+}*/
+
+//===========================================================================
+// PostNetReceive
+//
+// Notifies clients of targets
+//===========================================================================
+simulated function PostNetReceive()
+{
+	if (TazerHit != OldTazerHit)
+	{
+		OldTazerHit = TazerHit;
+		if (TazerHit != None)
+			GotTarget(TazerHit);
+		else
+		{
+			TazerEffect.Kill();
+			TazerEffect = None;
+			if (M7A3AssaultRifle(Instigator.Weapon) != None)
+				M7A3AssaultRifle(Instigator.Weapon).TazerEffect = None;
+		}
+	}
+	
+	Super.PostNetReceive();
+}
+
+//===========================================================================
+ // GotTarget
+ //
+ // Called from secondary fire on tazer hit.
+//===========================================================================
+simulated function GotTarget(Pawn A)
+{
+	if (level.NetMode == NM_DedicatedServer || level.NetMode == NM_ListenServer)
+		TazerHit = A;
+	if (TazerEffect == None)
+	{
+		TazerEffect = spawn(class'M7A3TazerEffect', self,,,rot(0,0,0));
+		if (M7A3AssaultRifle(Instigator.Weapon) != None)
+			M7A3AssaultRifle(Instigator.Weapon).TazerEffect = TazerEffect;
+		TazerEffect.SetTarget(A);
+		TazerEffect.Instigator = Instigator;
+		TazerEffect.UpdateTargets();
+	}
+	else
+		TazerEffect.SetTarget(A);
+}
+
+//===========================================================================
+ // TazeEnd
+ //
+ // Called from secondary fire on release of altfire key or from tazereffect on loss of target.
+//===========================================================================
+simulated function TazeEnd()
+{
+	if (level.NetMode == NM_DedicatedServer || level.NetMode == NM_ListenServer)
+		TazerHit = None;
+	if (TazerEffect != None)
+	{
+		TazerEffect.KillFlashes();
+		TazerEffect.SetTimer(0.0, false);
+		TazerEffect.Kill();
+
+		if (M7A3AssaultRifle(Instigator.Weapon) != None)
+			M7A3AssaultRifle(Instigator.Weapon).TazerEffect = None;
+	}
+}
+
+simulated function Tick(float DT)
+{
+	super.Tick(DT);
+
+	if (Level.NetMode == NM_DedicatedServer)
+		return;
+	
+	if (TazerEffect != None && !Instigator.IsFirstPerson())
+		TazerEffect.SetLocation(GetBoneCoords('tip2').Origin);
+}
+
+simulated function Destroyed()
+{
+	if (TazerEffect != None)
+	{
+		TazerEffect.KillFlashes();
+		TazerEffect.SetTimer(0.0, false);
+		TazerEffect.Kill();
+	}
+	
+	Super.Destroyed();
 }
 
 defaultproperties
@@ -128,5 +227,5 @@ defaultproperties
      bRapidFire=True
      bAltRapidFire=True
      Mesh=SkeletalMesh'BWBP_JCF_Anims.M7A3_TPm'
-     DrawScale=0.250000
+     DrawScale=0.350000
 }

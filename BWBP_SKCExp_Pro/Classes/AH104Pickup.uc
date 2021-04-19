@@ -5,7 +5,6 @@ class AH104Pickup extends BallisticHandgunPickup
 	placeable;
 
 #exec OBJ LOAD FILE=BWBP_SKC_Tex.utx
-#exec OBJ LOAD FILE=BallisticHardware2.usx
 
 simulated function UpdatePrecacheMaterials()
 {
@@ -13,19 +12,19 @@ simulated function UpdatePrecacheMaterials()
 }
 simulated function UpdatePrecacheStaticMeshes()
 {
-	Level.AddPrecacheStaticMesh(StaticMesh'BallisticHardware2.M806.PistolMuzzleFlash');
-	Level.AddPrecacheStaticMesh(StaticMesh'BallisticHardware2.AM67.AM67Clips');
+	Level.AddPrecacheStaticMesh(StaticMesh'BW_Core_WeaponStatic.M806.PistolMuzzleFlash');
+	Level.AddPrecacheStaticMesh(StaticMesh'BW_Core_WeaponStatic.AM67.AM67Clips');
 }
 
 defaultproperties
 {
-     LowPolyStaticMesh=StaticMesh'BallisticHardware2.AM67.PickupLD'
+     LowPolyStaticMesh=StaticMesh'BW_Core_WeaponStatic.AM67.PickupLD'
      PickupDrawScale=0.190000
      InventoryType=Class'BWBP_SKCExp_Pro.AH104Pistol'
      RespawnTime=10.000000
      PickupMessage="You picked up the AH104 Handcannon"
      PickupSound=Sound'BW_Core_WeaponSound.M806.M806Putaway'
-     StaticMesh=StaticMesh'BallisticHardware2.AM67.PickupLD'
+     StaticMesh=StaticMesh'BW_Core_WeaponStatic.AM67.PickupLD'
      Physics=PHYS_None
      DrawScale=0.400000
      PrePivot=(Y=-26.000000)

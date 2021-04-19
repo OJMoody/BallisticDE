@@ -22,6 +22,13 @@ replication
 		LaserRot;
 }
 
+simulated Event PostNetBeginPlay()
+{
+	super.PostNetBeginPlay();
+	if (BallisticTurret(Instigator) != None)
+		bHidden=true;
+}
+
 function InitFor(Inventory I)
 {
 	Super.InitFor(I);
@@ -125,5 +132,5 @@ defaultproperties
      WaterTracerMode=MU_Both
      FlyBySound=(Sound=SoundGroup'BW_Core_WeaponSound.FlyBys.Bullet-Whizz',Volume=0.700000)
      Mesh=SkeletalMesh'BWBP_JCF_Anims.M99_TPm'
-     DrawScale=0.190000
+     DrawScale=0.350000
 }
