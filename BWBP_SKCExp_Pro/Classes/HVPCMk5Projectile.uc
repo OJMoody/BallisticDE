@@ -147,7 +147,7 @@ defaultproperties
      PenetrateManager=Class'BWBP_SKCExp_Pro.IM_HVPCProjectile'
      bPenetrate=True
      bRandomStartRotation=False
-     AccelSpeed=90000.000000
+	 AccelSpeed=90000.000000
      TrailClass=Class'BWBP_SKCExp_Pro.A73BTrailEmitter'
      MyRadiusDamageType=Class'BWBP_SKCExp_Pro.DTPlasmaCharge'
      bUsePositionalDamage=True

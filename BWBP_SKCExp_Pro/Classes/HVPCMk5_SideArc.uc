@@ -64,5 +64,5 @@ defaultproperties
      End Object
      Emitters(1)=BeamEmitter'BWBP_SKCExp_Pro.HVPCMk5_SideArc.BeamEmitter2'
 
-     bNoDelete=False
+	 bNoDelete=False
 }
