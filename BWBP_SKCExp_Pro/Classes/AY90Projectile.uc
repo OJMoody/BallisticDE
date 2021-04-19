@@ -1,14 +1,13 @@
 //=============================================================================
-// HVPCBoltPlasmaRedMk5HVPCBlueGreen
+// AY90Projectile.
 //
-// Massive damage red plasma bolt. Explodes terrorists like it's Wednesday.
-//
+// Simple projectile for the elite A762.2.
 // Added healing of vehicles and Powercores to replace linkgun in Onslaught
 //
 // by Nolan "Dark Carnivour" Richert.
 // Copyright(c) 2005 RuneStorm. All Rights Reserved.
 //=============================================================================
-class HVPCMk5Projectile extends BallisticProjectile;
+class AY90Projectile extends BallisticProjectile;
 
 var vector					StartLocation;
 var bool					bScaleDone;
@@ -17,6 +16,25 @@ simulated function PostBeginPlay()
 {
 	Super.PostBeginPlay();
 	StartLocation = Location;
+}
+
+// Projectile grows as it comes out the gun...
+simulated function Tick(float DT)
+{
+	local vector DS;
+
+	if (bScaleDone)
+		return;
+
+	DS.X = VSize(Location-StartLocation)/(384*DrawScale);
+	DS.Y = 0.5;
+	DS.Z = 0.5;
+	if (DS.X >= 1)
+	{
+		DS.X = 1;
+		bScaleDone=true;
+	}
+	SetDrawScale3D(DS);
 }
 
 // A73 heals vehicles and PowerCores
@@ -30,7 +48,7 @@ simulated function DoDamage(Actor Other, vector HitLocation)
 	{
 		AdjustedDamage = default.Damage * Instigator.DamageScaling;
 		if (Instigator.HasUDamage())
-			AdjustedDamage *= 2;
+			AdjustedDamage *= 4;
 	}
 
 	HealObjective = DestroyableObjective(Other);
@@ -48,23 +66,6 @@ simulated function DoDamage(Actor Other, vector HitLocation)
 		return;
 	}
 	super.DoDamage(Other, HitLocation);
-}
-
-// Hit something interesting
-simulated function ProcessTouch (Actor Other, vector HitLocation)
-{
-	if (Other == None || (!bCanHitOwner && (Other == Instigator || Other == Owner)) || RSDarkProjectile(Other)!=None || RSDarkFastProjectile(Other)!=None)
-		return;
-
-	if (Role == ROLE_Authority && Other != HitActor)		// Do damage for direct hits
-		DoDamage(Other, HitLocation);
-	if (Pawn(Other) != None && Pawn(Other).Health <= 0)
-		PenetrateManager.static.StartSpawn(HitLocation, Other.Location-HitLocation, 2, Level.GetLocalPlayerController(), 4/*HF_NoDecals*/);
-	else
-		PenetrateManager.static.StartSpawn(HitLocation, Other.Location-HitLocation, 1, Level.GetLocalPlayerController(), 4/*HF_NoDecals*/);
-	ImpactManager = None;
-	HitActor = Other;
-	Explode(HitLocation, vect(0,0,1));
 }
 
 simulated function Explode(vector HitLocation, vector HitNormal)
@@ -101,7 +102,7 @@ simulated function HitWall(vector HitNormal, actor Wall)
 	{
 		AdjustedDamage = Damage * Instigator.DamageScaling;
 		if (Instigator.HasUDamage())
-			AdjustedDamage *= 2;
+			AdjustedDamage *= 4;
 		HealVehicle.HealDamage(AdjustedDamage, Instigator.Controller, myDamageType);
 		BlowUp(Location + ExploWallOut * HitNormal);
 
@@ -143,37 +144,40 @@ simulated function DestroyEffects()
 
 defaultproperties
 {
-     ImpactManager=Class'BWBP_SKCExp_Pro.IM_HVPCProjectile'
-     PenetrateManager=Class'BWBP_SKCExp_Pro.IM_HVPCProjectile'
+     ImpactManager=Class'BWBP_SKCExp_Pro.IM_A73BProjectile'
+     PenetrateManager=Class'BWBP_SKCExp_Pro.IM_A73BProjectile'
      bPenetrate=True
-     bRandomStartRotation=False
-     AccelSpeed=90000.000000
+    // bRandomStartRotaion=False
+     bTearOnExplode=False
+     AccelSpeed=70000.000000
      TrailClass=Class'BWBP_SKCExp_Pro.A73BTrailEmitter'
-     MyRadiusDamageType=Class'BWBP_SKCExp_Pro.DTPlasmaCharge'
+     MyRadiusDamageType=Class'BWBP_SKCExp_Pro.DTA73BSkrith'
      bUsePositionalDamage=True
-     DamageTypeHead=Class'BWBP_SKCExp_Pro.DTPlasmaChargeHead'
+     Damage=40
+     HeadMult=2.0
+     LimbMult=0.5
+     DamageTypeHead=Class'BWBP_SKCExp_Pro.DTA73BSkrithHead'
      SplashManager=Class'BallisticProV55.IM_ProjWater'
-     Speed=50.000000
-     MaxSpeed=8000.000000
-     Damage=75.000000
-     DamageRadius=265.000000
-     MomentumTransfer=65000.000000
-     MyDamageType=Class'BWBP_SKCExp_Pro.DTPlasmaCharge'
+     Speed=85.000000
+     MaxSpeed=4500.000000
+     DamageRadius=96.000000
+     MomentumTransfer=150.000000
+     MyDamageType=Class'BWBP_SKCExp_Pro.DTA73BSkrith'
      LightType=LT_Steady
      LightEffect=LE_QuadraticNonIncidence
-     LightSaturation=70
+     LightHue=10
+     LightSaturation=50
      LightBrightness=192.000000
-     LightRadius=12.000000
+     LightRadius=6.000000
      StaticMesh=StaticMesh'BW_Core_WeaponStatic.A73.A73Projectile'
      bDynamicLight=True
      AmbientSound=Sound'BW_Core_WeaponSound.A73.A73ProjFly'
-     LifeSpan=6.000000
-     DrawScale3D=(X=0.500000,Y=3.000000,Z=3.000000)
+     LifeSpan=4.000000
      Skins(0)=FinalBlend'BWBP_SKC_Tex.A73b.A73BProjFinal'
      Skins(1)=FinalBlend'BWBP_SKC_Tex.A73b.A73BProj2Final'
      Style=STY_Additive
      SoundVolume=255
      SoundRadius=75.000000
      bFixedRotationDir=True
-     RotationRate=(Roll=12384)
+     RotationRate=(Roll=16384)
 }

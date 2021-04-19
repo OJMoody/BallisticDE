@@ -48,7 +48,7 @@ defaultproperties
      TracerClass=Class'BallisticProV55.TraceEmitter_Shotgun'
      ImpactManager=Class'BallisticProV55.IM_Shell'
      TraceRange=(Min=2000.000000,Max=4000.000000)
-	 Damage=4.000000
+	 Damage=25.000000
      HeadMult=1.4f
      LimbMult=1.0f
      RangeAtten=0.300000
@@ -63,8 +63,8 @@ defaultproperties
      BallisticFireSound=(Sound=SoundGroup'BWBP_SKC_Sounds.Misc.FLAK-Fire',Volume=1.800000)
      bFireOnRelease=True
      bModeExclusive=False
-     PreFireAnim="GrenadePrep"
-     FireAnim="GrenadeFire"
+     PreFireAnim="PrepBigFire"
+     FireAnim="FireBig2"
      FireForce="AssaultRifleAltFire"
      FireRate=2.500000
      AmmoClass=Class'BallisticProV55.Ammo_M46Grenades'

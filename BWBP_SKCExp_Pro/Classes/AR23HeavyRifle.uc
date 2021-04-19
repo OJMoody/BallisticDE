@@ -18,6 +18,7 @@ var() Sound		GrenLoadSound;		//
 var() Sound		GrenCloseSound;		//
 var() name		IronSightBone;		
 var() name		IronSightBone2;			
+var() name		IronSightBone3;			
 var() name		ReflexSightBone;			
 
 replication
@@ -81,9 +82,9 @@ simulated event AnimEnd (int Channel)
 	}
 	else
 		IdleTweenTime=default.IdleTweenTime;
-	if (Anim == FireMode[1].FireAnim && !AR23SecondaryFire(FireMode[1]).bLoaded)
-		LoadGrenade();
-	else
+	//if (Anim == FireMode[1].FireAnim && !AR23SecondaryFire(FireMode[1]).bLoaded)
+	//	LoadGrenade();
+	//else
 		Super.AnimEnd(Channel);
 }
 
@@ -150,7 +151,7 @@ function bool BotShouldReloadGrenade ()
 
 simulated function BringUp(optional Weapon PrevWeapon)
 {
-	SetBoneScale (0, 0.0, IronSightBone);
+	SetBoneScale (0, 0.0, IronSightBone2);
 	Super.BringUp(PrevWeapon);
 
 }
@@ -285,7 +286,8 @@ defaultproperties
 {
      IronSightBone="IronsFront"
      IronSightBone2="IronsRear"
-     ReflexSightBone="ReflexSight"
+     IronSightBone3="GLIrons"
+     ReflexSightBone="Holo"
 	 GrenadeLoadAnim="GrenadeReload"
      GrenOpenSound=Sound'BW_Core_WeaponSound.M50.M50GrenOpen'
      GrenLoadSound=Sound'BW_Core_WeaponSound.M50.M50GrenLoad'
@@ -310,7 +312,7 @@ defaultproperties
      ClipOutSound=(Sound=Sound'BW_Core_WeaponSound.OA-AR.OA-AR_ClipOut',Volume=1.000000)
      ClipInSound=(Sound=Sound'BW_Core_WeaponSound.OA-AR.OA-AR_ClipIn',Volume=1.000000)
      ClipInFrame=0.700000
-     ParamsClasses(0)=Class'AR23WeaponParamsArena'
+     bNeedCock=True
      ParamsClasses(1)=Class'AR23WeaponParamsClassic'
 	 
      //ZoomInAnim="ZoomIn"
@@ -321,7 +323,8 @@ defaultproperties
      FullZoomFOV=55.000000
      //bNoMeshInScope=False
      bNoCrosshairInScope=True
-     SightOffset=(X=5,Y=-8.550000,Z=18.500000)
+     //SightOffset=(X=5,Y=-8.550000,Z=18.500000)
+     SightOffset=(X=4.000000,Y=0.000000,Z=15.0000000)
 	 SightPivot=(Pitch=-1024,Yaw=0,Roll=0)
      SightDisplayFOV=40.000000
      //CrosshairCfg=(Pic1=Texture'BW_Core_WeaponTex.Crosshairs.Misc9',Pic2=Texture'BW_Core_WeaponTex.Crosshairs.A73OutA',USize1=256,VSize1=256,USize2=256,VSize2=256,Color1=(G=255,R=129,A=140),StartSize1=84,StartSize2=26)
@@ -345,7 +348,7 @@ defaultproperties
      CustomCrossHairTextureName="Crosshairs.HUD.Crosshair_Cross1"
      InventoryGroup=6
      PickupClass=Class'BWBP_SKCExp_Pro.AR23Pickup'
-     PlayerViewOffset=(X=8.000000,Y=6.50000,Z=-12.000000)
+     PlayerViewOffset=(X=7.000000,Y=7.00000,Z=-12.000000)
      PlayerViewPivot=(Pitch=384)
      BobDamping=2.000000
      AttachmentClass=Class'BWBP_SKCExp_Pro.AR23Attachment'

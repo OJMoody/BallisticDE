@@ -8,7 +8,7 @@
 // by Nolan "Dark Carnivour" Richert.
 // Copyright(c) 2005 RuneStorm. All Rights Reserved.
 //=============================================================================
-class HVPCMk5Projectile extends BallisticProjectile;
+class AY90BoltProjectileFast extends BallisticProjectile;
 
 var vector					StartLocation;
 var bool					bScaleDone;
@@ -146,16 +146,18 @@ defaultproperties
      ImpactManager=Class'BWBP_SKCExp_Pro.IM_HVPCProjectile'
      PenetrateManager=Class'BWBP_SKCExp_Pro.IM_HVPCProjectile'
      bPenetrate=True
-     bRandomStartRotation=False
+     //bRandomStartRotaion=False
      AccelSpeed=90000.000000
      TrailClass=Class'BWBP_SKCExp_Pro.A73BTrailEmitter'
      MyRadiusDamageType=Class'BWBP_SKCExp_Pro.DTPlasmaCharge'
      bUsePositionalDamage=True
+     Damage=75
+     HeadMult=1.5
+     LimbMult=0.5
      DamageTypeHead=Class'BWBP_SKCExp_Pro.DTPlasmaChargeHead'
      SplashManager=Class'BallisticProV55.IM_ProjWater'
      Speed=50.000000
      MaxSpeed=8000.000000
-     Damage=75.000000
      DamageRadius=265.000000
      MomentumTransfer=65000.000000
      MyDamageType=Class'BWBP_SKCExp_Pro.DTPlasmaCharge'
