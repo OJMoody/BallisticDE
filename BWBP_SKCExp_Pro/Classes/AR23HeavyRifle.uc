@@ -17,8 +17,8 @@ var() Sound		GrenOpenSound;		//Sounds for grenade reloading
 var() Sound		GrenLoadSound;		//
 var() Sound		GrenCloseSound;		//
 var() name		IronSightBone;		
-var() name		IronSightBone2;			
-var() name		IronSightBone3;			
+var() name		IronSightBone2;
+var() name		IronSightBone3;				
 var() name		ReflexSightBone;			
 
 replication
@@ -312,7 +312,7 @@ defaultproperties
      ClipOutSound=(Sound=Sound'BW_Core_WeaponSound.OA-AR.OA-AR_ClipOut',Volume=1.000000)
      ClipInSound=(Sound=Sound'BW_Core_WeaponSound.OA-AR.OA-AR_ClipIn',Volume=1.000000)
      ClipInFrame=0.700000
-     bNeedCock=True
+     ParamsClasses(0)=Class'AR23WeaponParamsArena'
      ParamsClasses(1)=Class'AR23WeaponParamsClassic'
 	 
      //ZoomInAnim="ZoomIn"
@@ -323,8 +323,6 @@ defaultproperties
      FullZoomFOV=55.000000
      //bNoMeshInScope=False
      bNoCrosshairInScope=True
-     //SightOffset=(X=5,Y=-8.550000,Z=18.500000)
-     SightOffset=(X=4.000000,Y=0.000000,Z=15.0000000)
 	 SightPivot=(Pitch=-1024,Yaw=0,Roll=0)
      SightDisplayFOV=40.000000
      //CrosshairCfg=(Pic1=Texture'BW_Core_WeaponTex.Crosshairs.Misc9',Pic2=Texture'BW_Core_WeaponTex.Crosshairs.A73OutA',USize1=256,VSize1=256,USize2=256,VSize2=256,Color1=(G=255,R=129,A=140),StartSize1=84,StartSize2=26)

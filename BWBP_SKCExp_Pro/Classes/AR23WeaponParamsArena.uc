@@ -73,8 +73,9 @@ defaultproperties
 		Begin Object Class=FireParams Name=ArenaSecondaryFireParams
 			FireInterval=2.500000
 			BurstFireRateFactor=1.00
-			PreFireAnim="GrenadePrepAimed"
-			FireAnim="GrenadeFireAimed"	
+			PreFireAnim="GrenadePrep"
+			FireAnim="GrenadeFire"
+			AimedFireAnim="GrenadeFireAimed"
 			FireEffectParams(0)=ShotgunEffectParams'ArenaSecondaryEffectParams'
 		End Object
 		

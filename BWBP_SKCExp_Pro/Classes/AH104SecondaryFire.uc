@@ -8,7 +8,7 @@
 // adapting code by Nolan "Dark Carnivour" Richert
 // Aspects of which are copyright (c) 2006 RuneStorm. All rights reserved.
 //=============================================================================
-class AH104SecondaryFire extends BallisticFire;
+class AH104SecondaryFire extends BallisticInstantFire;
 
 var  	Actor						MuzzleFlame;
 var   	bool						bIgnited;
