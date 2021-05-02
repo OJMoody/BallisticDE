@@ -147,7 +147,7 @@ defaultproperties
      ImpactManager=Class'BWBP_SWC_Pro.IM_SkrithStaffProjectile'
      PenetrateManager=Class'BWBP_SWC_Pro.IM_SkrithStaffProjectile'
      bPenetrate=True
-     bRandomStartRotaion=False
+     bRandomStartRotation=False
      AccelSpeed=100000.000000
      TrailClass=Class'BWBP_SWC_Pro.SkrithStaffTrailEmitter'
      MyRadiusDamageType=Class'BWBP_SWC_Pro.DT_SkrithStaff'

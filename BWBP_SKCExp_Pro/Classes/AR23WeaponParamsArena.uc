@@ -12,9 +12,7 @@ defaultproperties
 			TraceRange=(Min=12000.000000,Max=15000.000000)
 			WaterTraceRange=12000.0
 			DecayRange=(Min=0.0,Max=0.0)
-			Damage=60
-			HeadMult=3.0
-			LimbMult=0.7
+			Damage=55
 			DamageType=Class'BWBP_SKCExp_Pro.DT_AR23HR'
 			DamageTypeHead=Class'BWBP_SKCExp_Pro.DT_AR23HRHead'
 			DamageTypeArm=Class'BWBP_SKCExp_Pro.DT_AR23HR'
@@ -52,7 +50,7 @@ defaultproperties
 			TraceCount=30
 			TracerClass=Class'BallisticProV55.TraceEmitter_Shotgun'
 			ImpactManager=Class'BallisticProV55.IM_Shell'
-			Damage=4
+			Damage=5
 			LimbMult=1.0
 			DamageType=Class'BWBP_SKCExp_Pro.DT_AR23Flak'
 			DamageTypeHead=Class'BWBP_SKCExp_Pro.DT_AR23Flak'
@@ -63,9 +61,9 @@ defaultproperties
 			PDamageFactor=0.6
 			WallPDamageFactor=0.4
 			FireSound=(Sound=SoundGroup'BWBP_SKC_Sounds.Misc.FLAK-Fire',Volume=1.800000)
-			Recoil=2048.000000
+			Recoil=768.000000
 			Chaos=-1.0
-			Inaccuracy=(X=1600,Y=1600)
+			Inaccuracy=(X=400,Y=400)
 			BotRefireRate=0.300000
 			WarnTargetPct=0.300000	
 		End Object

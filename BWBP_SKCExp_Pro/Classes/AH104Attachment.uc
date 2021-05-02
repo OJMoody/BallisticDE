@@ -294,6 +294,6 @@ defaultproperties
      WaterTracerClass=Class'BallisticProV55.TraceEmitter_WaterBullet'
      WaterTracerMode=MU_Both
      FlyBySound=(Sound=Sound'BWBP_SKC_Sounds.AH104.AH104-FlyBy',Volume=1.500000)
-     Mesh=SkeletalMesh'BW_Core_WeaponAnim.AM67_TPm'
-     DrawScale=0.140000
+     Mesh=SkeletalMesh'BWBP_SKC_AnimExp.AH104_TPm'
+     DrawScale=1.000000
 }

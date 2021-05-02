@@ -19,6 +19,7 @@ defaultproperties
 		Recoil=100
 		BotRefireRate=0.300000
 		WarnTargetPct=0.050000
+		Inaccuracy=(X=0,Y=0)
 	End Object
 
 	Begin Object Class=FireParams Name=ArenaPrimaryFireParams
@@ -47,7 +48,7 @@ defaultproperties
 	//=================================================================
 
 	Begin Object Class=AimParams Name=ArenaAimParams
-		AimSpread=(Min=32,Max=128)
+		AimSpread=(Min=0,Max=0)
 		SprintOffset=(Pitch=-1000,Yaw=-2048)
 		JumpOffset=(Pitch=-6000,Yaw=-8000)
 		ADSMultiplier=0.15
@@ -63,7 +64,7 @@ defaultproperties
 	Begin Object Class=WeaponParams Name=ArenaParams
 		InventorySize=12
 		SightMoveSpeedFactor=0.8
-		SightingTime=0.50000		
+		SightingTime=0.010000		
 		DisplaceDurationMult=1.25
 		MagAmmo=1
 		PlayerSpeedFactor=0.850000

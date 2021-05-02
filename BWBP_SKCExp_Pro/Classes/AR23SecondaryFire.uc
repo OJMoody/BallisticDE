@@ -7,7 +7,7 @@
 // uses code by Nolan "Dark Carnivour" Richert.
 // Copyright© 2011 RuneStorm. All Rights Reserved.
 //=============================================================================
-class AR23SecondaryFire extends BallisticShotgunFire;
+class AR23SecondaryFire extends BallisticProShotgunFire;
 
 var   bool		bLoaded;
 

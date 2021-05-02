@@ -236,7 +236,7 @@ defaultproperties
     ClipInSound=(Sound=Sound'BWBP_JCF_Sounds.M99.M99Cartridge',Volume=100.500000)
 	SightingTime=0.000001
 	GunLength=0.000000
-    bUseSights=False
+    bUseSights=True
 	bUseSpecialAim=True
 	ParamsClasses(0)=Class'M99TW_WeaponParams'
 	SelectAnim="Deploy"

@@ -294,8 +294,7 @@ defaultproperties
      GrenCloseSound=Sound'BW_Core_WeaponSound.M50.M50GrenClose'
      TeamSkins(0)=(RedTex=Shader'BW_Core_WeaponTex.Hands.RedHand-Shiny',BlueTex=Shader'BW_Core_WeaponTex.Hands.BlueHand-Shiny')
      AIReloadTime=1.000000
-     BigIconMaterial=Texture'BW_Core_WeaponTex.OA-AR.BigIcon_OAAR'
-     //BallisticInventoryGroup=6
+     BigIconMaterial=Texture'BWBP_SKC_TexExp.AR23.BigIcon_AR23'
      BCRepClass=Class'BallisticProV55.BallisticReplicationInfo'
      bWT_Bullet=True
      bWT_Splash=True
@@ -306,7 +305,6 @@ defaultproperties
      PutDownSound=(Sound=Sound'BW_Core_WeaponSound.M50.M50Putaway')
      MagAmmo=18
      bCockOnEmpty=False
-     //CockAnimPostReload="ReloadEndCock"
      CockSound=(Sound=Sound'BW_Core_WeaponSound.OA-AR.OA-AR_Cock',Volume=1.100000)
      ClipHitSound=(Sound=Sound'BW_Core_WeaponSound.OA-AR.OA-AR_ClipHit',Volume=1.000000)
      ClipOutSound=(Sound=Sound'BW_Core_WeaponSound.OA-AR.OA-AR_ClipOut',Volume=1.000000)
@@ -314,25 +312,10 @@ defaultproperties
      ClipInFrame=0.700000
      ParamsClasses(0)=Class'AR23WeaponParamsArena'
      ParamsClasses(1)=Class'AR23WeaponParamsClassic'
-	 
-     //ZoomInAnim="ZoomIn"
-     //ZoomOutAnim="ZoomOut"
-     //ScopeViewTex=Texture'BW_Core_WeaponTex.SRS900.SRS900ScopeView'
-     //ZoomInSound=(Sound=Sound'BW_Core_WeaponSound.R78.R78ZoomIn',Volume=0.500000,Pitch=1.000000)
-     //ZoomOutSound=(Sound=Sound'BW_Core_WeaponSound.R78.R78ZoomOut',Volume=0.500000,Pitch=1.000000)
      FullZoomFOV=55.000000
-     //bNoMeshInScope=False
      bNoCrosshairInScope=True
 	 SightPivot=(Pitch=-1024,Yaw=0,Roll=0)
      SightDisplayFOV=40.000000
-     //CrosshairCfg=(Pic1=Texture'BW_Core_WeaponTex.Crosshairs.Misc9',Pic2=Texture'BW_Core_WeaponTex.Crosshairs.A73OutA',USize1=256,VSize1=256,USize2=256,VSize2=256,Color1=(G=255,R=129,A=140),StartSize1=84,StartSize2=26)
-     //CrouchAimFactor=0.500000
-     //ViewAimFactor=0.200000
-     //ViewRecoilFactor=0.600000
-     //RecoilXCurve=(Points=(,(InVal=0.200000,OutVal=0.000000),(InVal=0.400000,OutVal=-0.300000),(InVal=0.600000,OutVal=0.400000),(InVal=0.800000,OutVal=-0.500000),(InVal=1.000000)))
-     //RecoilYCurve=(Points=(,(InVal=0.100000,OutVal=0.150000),(InVal=0.250000,OutVal=0.500000),(InVal=0.300000,OutVal=0.700000),(InVal=0.600000,OutVal=0.800000),(InVal=1.000000,OutVal=1.000000)))
-     //RecoilXFactor=0.200000
-     //RecoilYFactor=0.300000
      FireModeClass(0)=Class'BWBP_SKCExp_Pro.AR23PrimaryFire'
      FireModeClass(1)=Class'BWBP_SKCExp_Pro.AR23SecondaryFire'
      PutDownTime=0.700000
@@ -350,7 +333,7 @@ defaultproperties
      PlayerViewPivot=(Pitch=384)
      BobDamping=2.000000
      AttachmentClass=Class'BWBP_SKCExp_Pro.AR23Attachment'
-     IconMaterial=Texture'BW_Core_WeaponTex.OA-AR.SmallIcon_OAAR'
+     IconMaterial=Texture'BWBP_SKC_TexExp.AR23.SmallIcon_AR23'
      IconCoords=(X2=127,Y2=31)
      ItemName="AR23 Heavy Rifle"
      LightType=LT_Pulse

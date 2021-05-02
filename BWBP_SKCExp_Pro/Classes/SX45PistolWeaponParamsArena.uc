@@ -4,10 +4,10 @@ defaultproperties
 {
 
 	//=================================================================
-	// PRIMARY FIRE
+	// FIRE PARAMS WEAPON MODE 0 - STANDARD
 	//=================================================================	
 	
-	Begin Object Class=InstantEffectParams Name=ArenaPrimaryEffectParams
+	Begin Object Class=InstantEffectParams Name=ArenaStandardPrimaryEffectParams
 		TraceRange=(Min=4000.000000,Max=4000.000000)
 		RangeAtten=0.3
 		Damage=32
@@ -26,39 +26,76 @@ defaultproperties
 		BotRefireRate=0.750000
 	End Object
 
-	Begin Object Class=FireParams Name=ArenaPrimaryFireParams
+	Begin Object Class=FireParams Name=ArenaStandardPrimaryFireParams
 		FireInterval=0.20000
 		FireEndAnim=
 		AimedFireAnim="SightFire"
 		FireAnimRate=1	
-	FireEffectParams(0)=InstantEffectParams'ArenaPrimaryEffectParams'
+	FireEffectParams(0)=InstantEffectParams'ArenaStandardPrimaryEffectParams'
 	End Object
 		
 	//=================================================================
-	// SECONDARY FIRE
+	// FIRE PARAMS WEAPON MODE 1 - CRYOGENIC
 	//=================================================================	
 	
-	Begin Object Class=FireEffectParams Name=ArenaSecondaryEffectParams
-		SpreadMode=None
-		MuzzleFlashClass=None
-		FlashScaleFactor=None
-		FireSound=None
-		Recoil=None
-		Chaos=None
-		PushbackForce=None
-		Inaccuracy=None
-		SplashDamage=None
-		RecommendSplashDamage=None
-		BotRefireRate=0.300000
-		WarnTargetPct=None
+	Begin Object Class=InstantEffectParams Name=ArenaCryoPrimaryEffectParams
+		TraceRange=(Min=4000.000000,Max=4000.000000)
+		RangeAtten=0.3
+		Damage=28
+		HeadMult=1.5f
+		LimbMult=0.5f
+		DamageType=Class'BWBP_SKCExp_Pro.DTSX45Pistol'
+		DamageTypeHead=Class'BWBP_SKCExp_Pro.DTSX45PistolHead'
+		DamageTypeArm=Class'BWBP_SKCExp_Pro.DTSX45Pistol'
+		PenetrateForce=135
+		bPenetrate=True
+		MuzzleFlashClass=Class'BWBP_SKCExp_Pro.SX45FlashEmitter'
+		FlashScaleFactor=0.06
+		FireSound=(Sound=Sound'BWBP_SKC_SoundsExp.SX45.SX45-FrostFire',Volume=1.200000)
+		Recoil=512.000000
+		Chaos=0.250000
+		BotRefireRate=0.750000
 	End Object
-		
-	Begin Object Class=FireParams Name=ArenaSecondaryFireParams
-		FireInterval=0.700000
-		AmmoPerFire=0
-	FireEffectParams(0)=FireEffectParams'ArenaSecondaryEffectParams'
+
+	Begin Object Class=FireParams Name=ArenaCryoPrimaryFireParams
+		FireInterval=0.240000
+		FireEndAnim=
+		AimedFireAnim="SightFire"
+		FireAnimRate=1	
+	FireEffectParams(0)=InstantEffectParams'ArenaCryoPrimaryEffectParams'
 	End Object
-		
+	
+//=================================================================
+	// FIRE PARAMS WEAPON MODE 2 - RADIATION
+	//=================================================================	
+	
+	Begin Object Class=InstantEffectParams Name=ArenaRadPrimaryEffectParams
+		TraceRange=(Min=4000.000000,Max=4000.000000)
+		RangeAtten=0.3
+		Damage=22
+		HeadMult=1.5f
+		LimbMult=0.5f
+		DamageType=Class'BWBP_SKCExp_Pro.DTSX45Pistol'
+		DamageTypeHead=Class'BWBP_SKCExp_Pro.DTSX45PistolHead'
+		DamageTypeArm=Class'BWBP_SKCExp_Pro.DTSX45Pistol'
+		PenetrateForce=135
+		bPenetrate=True
+		MuzzleFlashClass=Class'BWBP_SKCExp_Pro.SX45FlashEmitter'
+		FlashScaleFactor=0.9
+		FireSound=(Sound=Sound'BWBP_SKC_SoundsExp.SX45.SX45-RadFire',Volume=1.200000)
+		Recoil=128.000000
+		Chaos=0.250000
+		BotRefireRate=0.750000
+	End Object
+
+	Begin Object Class=FireParams Name=ArenaRadPrimaryFireParams
+		FireInterval=0.500000
+		FireEndAnim=
+		AimedFireAnim="SightFire"
+		FireAnimRate=1	
+	FireEffectParams(0)=InstantEffectParams'ArenaRadPrimaryEffectParams'
+	End Object
+
 	//=================================================================
 	// RECOIL
 	//=================================================================
@@ -94,7 +131,9 @@ defaultproperties
 		SightOffset=(y=-3.140000,Z=14.300000)
 		RecoilParams(0)=RecoilParams'ArenaRecoilParams'
 		AimParams(0)=AimParams'ArenaAimParams'
-		FireParams(0)=FireParams'ArenaPrimaryFireParams'
+		FireParams(0)=FireParams'ArenaStandardPrimaryFireParams'
+		FireParams(1)=FireParams'ArenaCryoPrimaryFireParams'
+		FireParams(2)=FireParams'ArenaRadPrimaryFireParams'
 		AltFireParams(0)=FireParams'ArenaSecondaryFireParams'
 	End Object
 	Layouts(0)=WeaponParams'ArenaParams'
