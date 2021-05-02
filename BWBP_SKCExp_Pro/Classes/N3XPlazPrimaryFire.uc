@@ -8,69 +8,25 @@
 //=============================================================================
 class N3XPlazPrimaryFire extends BallisticMeleeFire;
 
-var bool bPunchLeft;
-var BUtil.FullSound DischargedFireSound;
+var() float 	MinDamage, MaxDamage;
 
-event ModeDoFire()
+var() Array<name> SliceAnims;
+var int SliceAnim;
+
+function ApplyDamage(Actor Target, int Damage, Pawn Instigator, vector HitLocation, vector MomentumDir, class<DamageType> DamageType)
 {
-	local float f;
+	Damage = FClamp(MinDamage, MinDamage + (N3XPlaz(BW).HeatLevel * (MaxDamage - MinDamage))/(N3XPlaz(BW).MaxHeat), MaxDamage);
+	super.ApplyDamage(Target, Damage, Instigator, HitLocation, MomentumDir, DamageType);
+}
+
+simulated event ModeDoFire()
+{
+	FireAnim = SliceAnims[SliceAnim];
+	SliceAnim++;
+	if (SliceAnim >= SliceAnims.Length)
+		SliceAnim = 0;
 
 	Super.ModeDoFire();
-
-	f = FRand();
-	if (f > 0.50)
-	{
-		if (bPunchLeft)
-			FireAnim = 'Chop3';
-		else
-			FireAnim = 'Chop4';		
-	}
-	else
-	{
-		if (bPunchLeft)
-			FireAnim = 'Chop1';
-		else
-			FireAnim = 'Chop2';	
-	}
-
-	if (bPunchLeft)
-		bPunchLeft=False;
-	else
-		bPunchLeft=True;	
-}
-
-//// server propagation of firing ////
-function ServerPlayFiring()
-{
-	if (N3XPlaz(BW).bDischarged)
-		Weapon.PlayOwnedSound(DischargedFireSound.Sound,BallisticFireSound.Slot,BallisticFireSound.Volume,BallisticFireSound.bNoOverride,BallisticFireSound.Radius,BallisticFireSound.Pitch,BallisticFireSound.bAtten);
-	else if (BallisticFireSound.Sound != None)
-		Weapon.PlayOwnedSound(BallisticFireSound.Sound,BallisticFireSound.Slot,BallisticFireSound.Volume,BallisticFireSound.bNoOverride,BallisticFireSound.Radius,BallisticFireSound.Pitch,BallisticFireSound.bAtten);
-
-	CheckClipFinished();
-
-	if (FireCount > 0 && Weapon.HasAnim(FireLoopAnim))
-		BW.SafePlayAnim(FireLoopAnim, FireLoopAnimRate, 0.0, ,"FIRE");
-	else BW.SafePlayAnim(FireAnim, FireAnimRate, TweenTime, ,"FIRE");
-}
-
-//Do the spread on the client side
-function PlayFiring()
-{		
-	if (FireCount > 0 && Weapon.HasAnim(FireLoopAnim))
-		BW.SafePlayAnim(FireLoopAnim, FireLoopAnimRate, 0.0, ,"FIRE");
-	else BW.SafePlayAnim(FireAnim, FireAnimRate, TweenTime, ,"FIRE");
-	
-    ClientPlayForceFeedback(FireForce);  // jdf
-    FireCount++;
-	// End code from normal PlayFiring()
-
-	if (N3XPlaz(BW).bDischarged)
-			Weapon.PlayOwnedSound(DischargedFireSound.Sound,BallisticFireSound.Slot,BallisticFireSound.Volume,BallisticFireSound.bNoOverride,BallisticFireSound.Radius,BallisticFireSound.Pitch,BallisticFireSound.bAtten);
-	else if (BallisticFireSound.Sound != None)
-		Weapon.PlayOwnedSound(BallisticFireSound.Sound,BallisticFireSound.Slot,BallisticFireSound.Volume,BallisticFireSound.bNoOverride,BallisticFireSound.Radius,BallisticFireSound.Pitch,BallisticFireSound.bAtten);
-
-	CheckClipFinished();
 }
 
 simulated function bool HasAmmo()
@@ -78,65 +34,15 @@ simulated function bool HasAmmo()
 	return true;
 }
 
-function ApplyDamage(Actor Target, int Damage, Pawn Instigator, vector HitLocation, vector MomentumDir, class<DamageType> DamageType)
-{
-	local int PrevHealth;
-	local BallisticPawn BPawn;
-
-	if (Mover(Target) != None || Vehicle(Target) != None)
-		return;
-
-	BPawn = BallisticPawn(Target);
-
-	if(IsValidHealTarget(BPawn))
-	{
-		if (N3XPlaz(BW).ElectroCharge >= 30)
-		{
-			PrevHealth = BPawn.Health;
-			BPawn.GiveAttributedHealth(15, BPawn.HealthMax, Instigator);
-			N3XPlaz(Weapon).PointsHealed += BPawn.Health - PrevHealth;
-			N3XPlaz(BW).ElectroCharge -= 30;
-			N3XPlaz(BW).LastRegen = Level.TimeSeconds + 0.5;
-		}
-		return;
-	}
-
-	if (N3XPlaz(Weapon).ElectroCharge < 15)
-		Damage /= 3;
-
-	super.ApplyDamage (Target, Damage, Instigator, HitLocation, MomentumDir, DamageType);
-	
-	if (N3XPlaz(BW).ElectroCharge >= 30)
-		N3XPlaz(BW).ElectroCharge -= 30;
-
-	N3XPlaz(BW).LastRegen = Level.TimeSeconds + 0.5;
-}
-
-function bool IsValidHealTarget(Pawn Target)
-{
-	if(Target==None||Target==Instigator)
-		return false;
-
-	if(Target.Health<=0)
-		return false;
-	
-	if (!Target.bProjTarget)
-		return false;
-
-	if(!Level.Game.bTeamGame)
-		return false;
-
-	if(Vehicle(Target)!=None)
-		return false;
-
-	return (Target.Controller!=None && Instigator.Controller.SameTeamAs(Target.Controller));
-}
-
 defaultproperties
 {
-     DischargedFireSound=(Sound=Sound'BW_Core_WeaponSound.M763.M763Swing',Radius=32.000000,bAtten=True)
-     FatiguePerStrike=0.015000
-     Damage=80.000000
+	 SliceAnims(0)="Chop1"
+     SliceAnims(1)="Chop2"
+     SliceAnims(2)="Chop3"
+     SliceAnims(3)="Chop4"
+     FatiguePerStrike=0
+	 MinDamage=40.000000
+	 MaxDamage=100.000000
      DamageType=Class'BWBP_SKCExp_Pro.DTShockN3X'
      DamageTypeHead=Class'BWBP_SKCExp_Pro.DTShockN3X'
      DamageTypeArm=Class'BWBP_SKCExp_Pro.DTShockN3X'

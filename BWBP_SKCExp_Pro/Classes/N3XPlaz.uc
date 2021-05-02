@@ -9,314 +9,230 @@
 //==============================================================================
 class N3XPlaz extends BallisticMeleeWeapon;
 
-var() int			ElectroCharge;
-var() float			DeflectionAmount;
-var() float			PulseCharge;
-var() float			PulseInterval;
-var	float 			LastPulse;
-var	float 			LastRecharge;
-var	Actor			LSparks;
-var	Actor			RSparks;
-var	float			PointsHealed;	// Counter to keep track of points healed, will not exceed 50 x HealRatio (will not regenerate more than 50HP before healing again)
-var()	float			HealRatio;		// How many points medic must heal for every 1 HP regenerated
-var	float			LastRegen;
-var() Sound		PulseSound;	
-var	bool			bSetAmbient;
-var	bool			bDischarged;
-var class<DamageType> PulseDamageType;
+var bool			bOverheat;
+var() Sound			OverHeatSound;		//For vents
+var() Sound			VentingSound;		//For DA MAGNETS
+var Sound      		ShieldHitSound;
+var float			HeatLevel;			// Current Heat level, duh...
+var float			MaxHeat;
 
-simulated function bool HasAmmo()
-{
-    return true;
-}
-  
-simulated function float ChargeBar()
-{
-	return float(MagAmmo)/100.0f;
-}
+var Actor			Arc;				// The top arcs
 
-simulated function BringUp(optional Weapon PrevWeapon)
+var   float			MagnetSwitchTime, MagnetSwitchFireRate;
+var   name			MagnetOpenAnim;
+var   name			MagnetCloseAnim;
+var   name			MagnetForceCloseAnim;
+var   bool			bMagnetOpen;
+
+replication
 {
-	Super.BringUp(PrevWeapon);
-	if (LSparks != None)
-		LSparks.Destroy();
-	if (RSparks != None)
-		RSparks.Destroy();
-	if (Instigator.IsLocallyControlled() && level.DetailMode == DM_SuperHigh && class'BallisticMod'.default.EffectsDetailMode >= 2)
-    {
-    	LSparks = None;
-		class'BUtil'.static.InitMuzzleFlash (LSparks, class'N3XPlazTazerEffect', DrawScale, self, 'EmitterBase');		
-	}
-	
-	//bMedicVision = True;	// MedicVision
+	reliable if (Role == ROLE_Authority)
+		ClientSetHeat;
 }
 
 simulated event Destroyed()
 {
-	if (LSparks != None)
-		LSparks.Destroy();
-	if (RSparks != None)
-		RSparks.Destroy();		
-	super.Destroyed();
+	if (Arc != None)
+		Arc.Destroy();
+		
+	Super.Destroyed();
+}
+
+simulated function BringUp(optional Weapon PrevWeapon)
+{
+	bMagnetOpen=false;
+	
+	Super.BringUp(PrevWeapon);
+}
+
+simulated function bool PutDown()
+{
+	if (super.PutDown())
+	{
+		if (bMagnetOpen)
+		{
+			bMagnetOpen=false;
+			AdjustMagnetProperties();
+		}
+		if (Arc != None)	Arc.Destroy();
+		return true;
+	}
+	return false;
+}
+
+// Magnet Code ================================================================================
+
+exec simulated function WeaponSpecial(optional byte i)
+{
+	if (bOverheat)
+		return;
+	if (level.TimeSeconds < MagnetSwitchTime || ReloadState != RS_None)
+		return;
+	if (Clientstate != WS_ReadyToFire)
+		return;
+
+	bMagnetOpen = !bMagnetOpen;
+
+	ReloadState = RS_GearSwitch;
+
+	TemporaryScopeDown(0.4);
+	MagnetSwitchTime = level.TimeSeconds + MagnetSwitchFireRate;
+	PlayMagnetSwitching(bMagnetOpen);
+	AdjustMagnetProperties();
+	if (Level.NetMode == NM_Client)
+		ServerWeaponSpecial(byte(bMagnetOpen));
+}
+
+function ServerWeaponSpecial (byte i)
+{
+	if (bOverheat)
+		return;
+	
+	bMagnetOpen = bool(i);
+	PlayMagnetSwitching(bMagnetOpen);
+	AdjustMagnetProperties();
+}
+
+//Animation for magnet
+simulated function PlayMagnetSwitching(bool bOpen)
+{
+	if (bOpen)
+		PlayAnim(MagnetOpenAnim);
+	else
+		PlayAnim(MagnetCloseAnim);
+}
+
+simulated function Overheat(bool bForceClose)
+{
+	if (bForceClose)
+		PlayAnim(MagnetForceCloseAnim);
+	else
+		PlayAnim(MagnetCloseAnim);
+
+	ReloadState = RS_GearSwitch;
+	bMagnetOpen=false;
+	MagnetSwitchTime = level.TimeSeconds + 5;	//delay before magnet can be turned on again
+	class'BallisticDamageType'.static.GenericHurt (Instigator, 80, None, Instigator.Location, vect(0,0,0), class'DT_M2020Overheat');
+	AdjustMagnetProperties();
+}
+
+simulated function AdjustMagnetProperties ()
+{
+	if (bMagnetOpen)
+	{
+		if (Arc == None)
+			class'bUtil'.static.InitMuzzleFlash(Arc, class'BWBP_SKCExp_Pro.N3XBladeEffect', DrawScale, self, 'EmitterBase');
+			
+		Instigator.AmbientSound = VentingSound;
+		AddSpeedModification(0.7);
+	}
+	else
+	{
+		if (Arc != None)
+			Emitter(Arc).kill();
+
+		Instigator.AmbientSound = UsedAmbientSound;
+		RemoveSpeedModification(1);
+	}
+	
+}
+
+simulated event WeaponTick (float DT)
+{
+	if (bOverheat && Heatlevel == 0.2)
+		Overheat(false);
+	super.WeaponTick(DT);
 }
 
 simulated event Tick (float DT)
 {
-	if (MagAmmo >= 10 && bDischarged)
-	{
-		if (Instigator.IsLocallyControlled() && level.DetailMode == DM_SuperHigh && class'BallisticMod'.default.EffectsDetailMode >= 2)
-		{
-			LSparks = None;
-			class'BUtil'.static.InitMuzzleFlash (LSparks, class'N3XPlazTazerEffect', DrawScale, self, 'EmitterBase');
-			bDischarged = False;			
-		}
-	}
-	
-	else if (MagAmmo < 10 && !bDischarged)
-	{
-		if (LSparks != None)
-			Emitter(LSparks).Kill();
-		LSparks = None;
-		if (RSparks != None)
-			Emitter(RSparks).Kill();
-		RSparks = None;
-		bDischarged = True;
-	}
-	
-	super.Tick(DT);
-	
-	if (Role == ROLE_Authority)
-	{
-		if (ElectroCharge < default.ElectroCharge && !bBlocked && Level.TimeSeconds > LastRecharge)
-		{
-			ElectroCharge = Min(150, ElectroCharge + 5);
-			LastRecharge = Level.TimeSeconds + 1.5;
-		}
-		MagAmmo = ElectroCharge;
-	}
-	
-
-}
-
-simulated event WeaponTick(float DT)
-{
-	super.WeaponTick(DT);
-
-	if (Role < ROLE_Authority)
-		return;
-		
-	if (Level.TimeSeconds > LastPulse)
-	{
-		if (bBlocked && ElectroCharge >= PulseCharge)
-		{
-			if (!bSetAmbient)
-			{
-				bPlayAmbient(True);
-				bSetAmbient = True;
-			}
-			
-			ElectroPulseWave(5, 350, class'DTShockN3X', 10000, Instigator.Location);
-			LastPulse = Level.TimeSeconds + PulseInterval;
-			ElectroCharge -= PulseCharge;			
-			N3XPlazAttachment(ThirdPersonActor).DoWave(false);
-		}
-		
-		else if (bSetAmbient)
-		{
-			bPlayAmbient(False);
-			bSetAmbient = False;
-		}		
-	}
-	
-	if (Level.TimeSeconds > LastRegen)
-	{
-		LastRegen = Level.TimeSeconds + 0.50;		
-		if (PointsHealed >= HealRatio && Instigator.Health < Instigator.HealthMax * 1.20)
-		{
-			if (PointsHealed > 250)
-				PointsHealed = 250;	
-			Instigator.Health++;
-			PointsHealed -= HealRatio;
-		}
-	}
-}	
-
-simulated function bPlayAmbient( bool bPulseOn)
-{
-	if (bPulseOn)
-	{
-		Instigator.AmbientSound = PulseSound;
-		Instigator.SoundVolume = 128;
-	}
+	if (bMagnetOpen)
+		AddHeat(DT*200, false);
+	else if (Heatlevel > 0)
+		Heatlevel = FMax(HeatLevel - (DT*200) * 5f, 0);
 	else
-	{
-		Instigator.AmbientSound = None;
-		Instigator.SoundVolume = 0;
-	}		
-}
-	
-function ElectroPulseWave( float DamageAmount, float DamageRadius, class<DamageType> DamageType, float Momentum, vector ShockWaveStart)
-{
-	local actor Victims;
-	local float damageScale, dist;
-	local vector dir;
-	local BallisticPawn PulseTarget;
-	local int PrevHealth;
+		Heatlevel = 0;
 
-	if( bHurtEntry )
-		return;
-
-	bHurtEntry = true;
-	foreach VisibleCollidingActors( class 'Actor', Victims, DamageRadius, ShockWaveStart )
-	{
-		// don't let blast damage affect fluid - VisibleCollisingActors doesn't really work for them - jag
-		if(Victims != Self && (Victims.Role == ROLE_Authority) && Victims.bCanBeDamaged && (!Victims.IsA('FluidSurfaceInfo')) && Victims != Instigator)
-		{
-			PulseTarget=BallisticPawn(Victims);
-			if(IsValidHealTarget(PulseTarget))
-			{
-				PrevHealth = PulseTarget.Health;			
-				DamageAmount = 0;
-				PulseTarget.GiveAttributedHealth(5, 100, Instigator);
-				PointsHealed += PulseTarget.Health - PrevHealth;						
-				continue;
-			}
-			else
-			{
-				dir = Victims.Location - ShockWaveStart;
-				dist = FMax(1,VSize(dir));
-				dir = dir/dist;
-				damageScale = 1 - FMax(0,(dist - Victims.CollisionRadius)/DamageRadius);
-				
-				class'BallisticDamageType'.static.GenericHurt
-				(
-					Victims,
-					damageScale * DamageAmount,
-					Instigator,
-					Victims.Location - 0.5 * (Victims.CollisionHeight + Victims.CollisionRadius) * dir,
-					damageScale * Momentum * dir,
-					PulseDamageType
-				);
-			}
-		}
-	}
-	bHurtEntry = false;
-}
-
-function ElectroShockWave( float DamageAmount, float DamageRadius, class<DamageType> DamageType, float Momentum, vector ShockWaveStart)
-{
-	local actor Victims;
-	local float damageScale, dist, finalDamage;
-	local vector dir;
-	local BallisticPawn ShockTarget;
-	local int PrevHealth;
-
-	if( bHurtEntry )
-		return;
-
-	bHurtEntry = true;
-	foreach VisibleCollidingActors( class 'Actor', Victims, DamageRadius, ShockWaveStart )
-	{
-		// don't let blast damage affect fluid - VisibleCollisingActors doesn't really work for them - jag
-		if(Victims != Self && (Victims.Role == ROLE_Authority) && Victims.bCanBeDamaged && (!Victims.IsA('FluidSurfaceInfo')) && Victims != Instigator)
-		{
-			ShockTarget=BallisticPawn(Victims);
-			if(IsValidHealTarget(ShockTarget))
-			{
-				PrevHealth = ShockTarget.Health;
-				DamageAmount = 0;
-				ShockTarget.GiveAttributedHealth(15, 100, Instigator);
-				PointsHealed += ShockTarget.Health - PrevHealth;	
-				continue;
-			}
-			else
-			{
-				dir = Victims.Location - ShockWaveStart;
-				dist = FMax(1,VSize(dir));
-				dir = dir/dist;
-				damageScale = FClamp(1 - (dist - Victims.CollisionRadius)/DamageRadius, 0, 1);
-				finalDamage = damageScale * DamageAmount;
-				
-				class'BallisticDamageType'.static.GenericHurt
-				(
-					Victims,
-					finalDamage,
-					Instigator,
-					Victims.Location - 0.5 * (Victims.CollisionHeight + Victims.CollisionRadius) * dir,
-					damageScale * Momentum * dir,
-					DamageType
-				);
-			}
-		}
-	}
-	bHurtEntry = false;
-}
-
-function bool IsValidHealTarget(Pawn PulseTarget)
-{
-	if(PulseTarget==None||PulseTarget==Instigator)
-		return False;
-
-	if(PulseTarget.Health<=0)
-		return False;
-
-	if(!Level.Game.bTeamGame)
-		return False;
-
-	if(Vehicle(PulseTarget)!=None)
-		return False;
-
-	return (PulseTarget.Controller!=None&&Instigator.Controller.SameTeamAs(PulseTarget.Controller));
+	super.Tick(DT);
 }
 
 function AdjustPlayerDamage( out int Damage, Pawn InstigatedBy, Vector HitLocation, out Vector Momentum, class<DamageType> DamageType)
 {
-	local int Drain;
+    local vector HitNormal;
+
+	if( !DamageType.default.bLocationalHit )
+        return;
+		
+	if (class<BallisticDamageType>(DamageType) != None && !class<BallisticDamageType>(DamageType).default.bMetallic)
+		return;
+
+    if ( CheckReflect(HitLocation, HitNormal, 0) )
+    {
+		AddHeat(Damage*5, false);
+
+		Damage /= 5;
+		Momentum /= 5;
+		
+		PlaySound(ShieldHitSound, SLOT_None);
+    }
 	
-	if (ElectroCharge > 0 &&
-	bBlocked && 
-	!IsFiring() && 
-	level.TimeSeconds > LastFireTime + 1 && 
-	class<BallisticDamageType>(DamageType) != None && 
-	Normal(HitLocation-(Instigator.Location+Instigator.EyePosition())) Dot Vector(Instigator.GetViewRotation()) > 0.4)
+	Super.AdjustPlayerDamage(Damage, InstigatedBy, HitLocation, Momentum, DamageType);
+}
+
+function bool CheckReflect( Vector HitLocation, out Vector RefNormal, int AmmoDrain )
+{
+    local Vector HitDir;
+    local Vector FaceDir;
+
+    if (!bMagnetOpen) 
+		return false;
+
+    FaceDir = Vector(Instigator.Controller.Rotation);
+    HitDir = Normal(Instigator.Location - HitLocation + Vect(0,0,8));
+
+    RefNormal = FaceDir;
+
+	//scalar "dot" product returns product of norm of both vectors (in this case, their size is 1) multiplied by the cosine of the angle between them
+	//reversing this convention, we get the protection arc angle = 180-arccos(X), so we measure a cone with slant angle X, around the player's face
+	//eg. 180-arccos(-0.37) = 68 degree protection arc (original value), so cos(180-68)=-0.37 is the value to use
+
+    if ( FaceDir dot HitDir < -0.37 )	// 68 degree protection arc
+        return true;
+
+    return false;
+}
+
+simulated function AddHeat(float Amount, bool bReplicate)
+{
+	HeatLevel = FClamp(HeatLevel+Amount, 0, MaxHeat);
+	
+	if (bReplicate && !Instigator.IsLocallyControlled())
+		ClientSetHeat(HeatLevel);
+		
+	if (HeatLevel == MaxHeat && bMagnetOpen)
 	{
-		if (class<BallisticDamageType>(DamageType).default.bCanBeBlocked)
-			Damage = 0;
-		else
-		{
-			if (Damage - DeflectionAmount < 0)
-			{
-				Drain = Damage * 0.25;
-				Damage = 0;
-			}
-			else
-			{
-				Drain = DeflectionAmount * 0.25;
-				Damage -= DeflectionAmount;
-			}
-			ElectroCharge = Max(ElectroCharge - Drain, 0);
-		}
-		BallisticAttachment(ThirdPersonActor).UpdateBlockHit();		
+		PlaySound(OverHeatSound,,3.7,,32);
+		Overheat(true);
 	}
-	super.AdjustPlayerDamage( Damage, InstigatedBy, HitLocation, Momentum, DamageType);
 }
 
-simulated function bool MayNeedReload(byte Mode, float Load)
+simulated function ClientSetHeat(float NewHeat)
 {
-	return false;
+	HeatLevel = NewHeat;
+	
+	if (HeatLevel == MaxHeat && bMagnetOpen)
+	{
+		PlaySound(OverHeatSound,,3.7,,32);
+		Overheat(true);
+	}
 }
 
-function ServerStartReload (optional byte i);
-
-simulated function string GetHUDAmmoText(int Mode)
+simulated function float ChargeBar()
 {
-	return "";
+	return (HeatLevel/MaxHeat);
 }
 
-simulated function float AmmoStatus(optional int Mode)
-{
-    return float(MagAmmo) / float(default.MagAmmo);
-}
+//End Magnet Code ================================================================================
 
 // AI Interface =====
 function bool CanAttack(Actor Other)
@@ -405,13 +321,15 @@ function float SuggestDefenseStyle()
 
 defaultproperties
 {
-     ElectroCharge=100
-     DeflectionAmount=35.000000
-     PulseCharge=10.000000
-     PulseInterval=0.500000
-     HealRatio=5.000000
-     PulseSound=Sound'BW_Core_WeaponSound.LightningGun.LG-FireLoop'
-     PulseDamageType=Class'BWBP_SKCExp_Pro.DTShockN3XPulse'
+	 OverheatSound=Sound'BWBP_SKC_Sounds.XavPlas.Xav-Overload'
+	 VentingSound=Sound'BWBP_SKC_Sounds.M2020.M2020-IdleShield'
+	 ShieldHitSound=ProceduralSound'WeaponSounds.ShieldGun.ShieldReflection'
+	 MaxHeat=4000.000000	//20 seconds * 20 = 4000. this change is to avoid precision errors with adding epsilon of heat
+	 MagnetSwitchFireRate=2.000000
+	 MagnetOpenAnim="TurnOnOff"
+	 MagnetCloseAnim="TurnOnOff"
+	 MagnetForceCloseAnim="Asplode"
+	 
 	 BringUpSound=(Sound=Sound'BWBP_SKC_Sounds.NEX.NEX-Pullout',Volume=2.000000)
 	 PutDownSound=(Sound=Sound'BWBP_OP_Sounds.FlameSword.FlameSword-Unequip',Volume=2.000000)
      PlayerSpeedFactor=1.100000

@@ -12,7 +12,6 @@ var bool	bStarted;
 
 var float	NextTVUpdateTime;
 
-
 //Do the spread on the client side
 function PlayFiring()
 {
@@ -51,6 +50,24 @@ simulated event PostBeginPlay()
 	super.PostBeginPlay();
 }
 
+event ModeTick(float DT)
+{
+	local float DesiredFireRate;
+
+	OldFireRate = FireRate;
+
+	if (Minigun.BarrelSpeed <= 0)
+		FireRate = 1.0;
+	else
+	{
+		DesiredFireRate = (FMin(1.0 / (60 * (1 + 0.25*int(BW.bBerserk)) * Minigun.BarrelSpeed), 1));
+		FireRate = DesiredFireRate;
+	}
+	NextFireTime += FireRate - OldFireRate;
+
+	super.ModeTick(DT);
+}
+
 defaultproperties
 {
      SpawnOffset=(X=1.000000,Y=5.000000,Z=-5.000000)
@@ -65,7 +82,7 @@ defaultproperties
      BallisticFireSound=(Sound=Sound'BWBP_SKC_SoundsExp.A73E.A73E-Fire',Slot=SLOT_Interact,bNoOverride=False)
      bPawnRapidFireAnim=True
      TweenTime=0.000000
-     FireRate=0.075000
+     FireRate=0.175000
      AmmoClass=Class'BWBP_SWC_Pro.Ammo_A800Cells'
      ShakeRotMag=(X=64.000000,Y=64.000000,Z=128.000000)
      ShakeRotRate=(X=10000.000000,Y=10000.000000,Z=10000.000000)

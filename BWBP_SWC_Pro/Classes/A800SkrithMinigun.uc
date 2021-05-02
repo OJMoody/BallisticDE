@@ -80,16 +80,6 @@ simulated event WeaponTick (float DT)
 
 	SetBoneRotation('BarrelArray', BT);
 
-	/*if (CurrentWeaponMode == 0)
-		DesiredSpeed = 0.2;
-	else if (CurrentWeaponMode == 1)
-		DesiredSpeed = 0.4;
-	else if (CurrentWeaponMode == 2)
-		DesiredSpeed = 0.7;
-	else// (CurrentWeaponMode == 3)
-		DesiredSpeed = 1.0;*/
-	DesiredSpeed = 0.28;//0.15; before 8/27/16
-
 	super.WeaponTick(DT);
 }
 
@@ -117,7 +107,7 @@ simulated event Tick (float DT)
 	}
 	else if (BarrelSpeed > 0)
 	{
-		BarrelSpeed = FMax(BarrelSpeed-0.1*DT, 0.01);
+		BarrelSpeed = FMax(BarrelSpeed-0.25*DT, 0.01);
 		OldBarrelTurn = BarrelTurn;
 		BarrelTurn += BarrelSpeed * 655360 * DT;
 		if (BarrelSpeed <= 0.025 && int(OldBarrelTurn/10922.66667) < int(BarrelTurn/10922.66667))
@@ -181,6 +171,11 @@ simulated function bool HasAmmo()
 	if (Ammo[0] != None && FireMode[0] != None && Ammo[0].AmmoAmount >= FireMode[0].AmmoPerFire || Ammo[1] != None && FireMode[1] != None && Ammo[1].AmmoAmount >= FireMode[1].AmmoPerFire)
 			return true;
 	return false;	//This weapon is empty
+}
+
+simulated function float ChargeBar()
+{
+     return BarrelSpeed / DesiredSpeed;
 }
 
 // AI Interface =====
@@ -254,6 +249,7 @@ defaultproperties
      WeaponModes(1)=(ModeName="1200 RPM",bUnavailable=True,ModeID="WM_FullAuto")
      WeaponModes(2)=(ModeName="Rapid Fire")
      WeaponModes(3)=(ModeName="3600 RPM",bUnavailable=True,ModeID="WM_FullAuto")
+	 DesiredSpeed=0.33
      SightPivot=(Pitch=1024,Roll=2048)
      SightOffset=(X=-10.000000,Y=-3.830000,Z=16.900000)
      SightDisplayFOV=45.000000
@@ -291,4 +287,5 @@ defaultproperties
      Mesh=SkeletalMesh'BWBP_SWC_Anims.FPm_SME'
      DrawScale=1.000000
      SoundRadius=128.000000
+	 bShowChargingBar=True
 }
