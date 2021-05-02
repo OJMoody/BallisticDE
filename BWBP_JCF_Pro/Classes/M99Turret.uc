@@ -88,7 +88,7 @@ defaultproperties
      CameraElevation=5.000000
      GunBone="Weapon"
      PivotBone="StandPivot"
-     DriverBackOff=110.000000
+     DriverBackOff=120.000000
      bDrawDriverInTP=True
      VehicleNameString="M99 Mounted ECS Anti-MaterialRifle"
      Mesh=SkeletalMesh'BWBP_JCF_Anims.M99_Turret_TPm'
