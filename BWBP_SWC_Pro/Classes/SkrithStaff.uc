@@ -24,66 +24,17 @@ replication
 simulated event RenderOverlays (Canvas C)
 {
 	local Vector X, Y, Z;
-    if (!bScopeView)
-    {
         WeaponRenderOverlays(C);
         if (SightFX != None)
-            RenderSightFX(C);
+			RenderSightFX(C);
         DrawLaserSight(C);
         return;
-    }
-    if (!bNoMeshInScope)
-    {
-        WeaponRenderOverlays(C);
-        if (SightFX != None)
-            RenderSightFX(C);
-        DrawLaserSight(C);
-    }
-    else
-    {
-        GetViewAxes(X, Y, Z);
-        if (BFireMode[0].MuzzleFlash != None)
-        {
-            BFireMode[0].MuzzleFlash.SetLocation(Instigator.Location + Instigator.EyePosition() + X * SMuzzleFlashOffset.X + Z * SMuzzleFlashOffset.Z);
-            BFireMode[0].MuzzleFlash.SetRotation(Instigator.GetViewRotation());
-            C.DrawActor(BFireMode[0].MuzzleFlash, false, false, DisplayFOV);
-        }
-        if (BFireMode[1].MuzzleFlash != None)
-        {
-            BFireMode[1].MuzzleFlash.SetLocation(Instigator.Location + Instigator.EyePosition() + X * SMuzzleFlashOffset.X + Z * SMuzzleFlashOffset.Z);
-            BFireMode[1].MuzzleFlash.SetRotation(Instigator.GetViewRotation());
-            C.DrawActor(BFireMode[1].MuzzleFlash, false, false, DisplayFOV);
-        }
-        SetLocation(Instigator.Location + Instigator.CalcDrawOffset(self));
-        SetRotation(Instigator.GetViewRotation());
-    }
-    DrawLaserSight(C);
-    
     C.ColorModulate.W = 1;
-    if (ScopeViewTex != None)
-    {
-        C.SetPos(C.OrgX, C.OrgY);
-        C.SetDrawColor(255,255,255,255);
-        C.DrawTile(ScopeViewTex, (C.SizeX - C.SizeY * 1.33)/2, C.SizeY, 0, 0, 1, 1024);
-
-        C.SetPos((C.SizeX - C.SizeY*1.33)/2, C.OrgY);
-        C.DrawTile(ScopeViewTex, C.SizeY * 1.33, C.SizeY, 0, 0, 1024, 1024);
-
-        C.SetPos(C.SizeX - (C.SizeX - C.SizeY*1.33)/2, C.OrgY);
-        C.DrawTile(ScopeViewTex, (C.SizeX - C.SizeY * 1.33)/2, C.SizeY, 0, 0, 1, 1024);
-    }
 }
-
-/*simulated event RenderOverlays (Canvas C)
-{
-	DrawLaserSight(C);
-	super.RenderOverlays(C);
-}*/
 
 simulated event PostNetBeginPlay()
 {
 	super.PostNetBeginPlay();
-	//E23PrimaryFire(FireMode[0]).SwitchWeaponMode(CurrentWeaponMode);
 	if (Laser == None)
 		Laser = spawn(class'LaserActor_SSRed');
 }
@@ -540,7 +491,7 @@ defaultproperties
      LightSaturation=100
      LightBrightness=192.000000
      LightRadius=12.000000
-	 ParamsClass=Class'SkrithStaffWeaponParams'
+	 ParamsClasses(0)=Class'SkrithStaffWeaponParamsArena'
 	 Mesh=SkeletalMesh'BWBP_SWC_Anims.FPm_SkrithStaff'
      DrawScale=1.000000
      SoundPitch=32

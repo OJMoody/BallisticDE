@@ -220,9 +220,9 @@ simulated function DestroyEffects()
 
 defaultproperties
 {
-     ImpactManager=Class'BWBP_SWC_Pro.IM_SkrithStaffPower'
+	 ImpactManager=Class'BWBP_SWC_Pro.IM_SkrithStaffPower'
      PenetrateManager=Class'BWBP_SWC_Pro.IM_SkrithStaffPower'
-     bRandomStartRotaion=False
+     bRandomStartRotation=False
      TrailClass=Class'BWBP_SWC_Pro.SkrithStaffPowerTrail'
      MyRadiusDamageType=Class'BWBP_SWC_Pro.DT_SkrithStaffPower'
      bTearOnExplode=False
