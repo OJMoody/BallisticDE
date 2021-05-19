@@ -303,8 +303,8 @@ defaultproperties
      MaxZoom=16.000000
      ZoomStages=2
      GunLength=80.000000
-     ParamsClasses(0)=Class'R9000EWeaponParams'
-     ParamsClasses(1)=Class'R9000EWeaponParams'
+     ParamsClasses(0)=Class'R9000EWeaponParamsArena'
+     ParamsClasses(1)=Class'R9000EWeaponParamsClassic'
      FireModeClass(0)=Class'BWBP_APC_Pro.R9000EPrimaryFire'
      FireModeClass(1)=Class'BCoreProV55.BallisticScopeFire'
      BringUpTime=0.500000
@@ -312,7 +312,7 @@ defaultproperties
      AIRating=0.800000
      CurrentRating=0.800000
      bSniping=True
-     Description="Originally taken from the design of a bird hunting rifle, the R78 'Raven', is a favourite among military snipers and commando corps. Used to a great extent by the expert marksmen of the New European Army, the Raven, is extremely reliable and capable of incredible damage in a single shot. The added long distance sniping scope makes the R78 one of the most deadly weapons. Of course, the gun is only as good as the soldier using it, with a low clip capacity, long reload times and it's terrible ineffectiveness in close quarters combat."
+     Description="Precision weapons often haven't had the need to get with the times, that was until the second Skrith war broke out. While the regular marksman weapons and sniper rifles did their job against high value targets, the ever-changing situation eventually cultivated a need to upgrade their long ranged capabilities.  Enravion, hearing the call, managed to upgrade their old R98 platform into a new breed, the R9000-E 'Chimera' Modular Sniper Rifle or 'MSR' for short. In addition to much needed upgrades like being chambered in .338 Lapua Magnum, cold bore floating barrel and picatinny rails, the Chimera earns it's nickname for its ability to accept the AMP system that's prevalent on several weapon systems already. Though it can be outfitted for different environments, the traditional long rifle is the way to go, with the amp to either ignite Krao or fry Cryons with radiation, the Chimera is a force to be reckoned with."
      DisplayFOV=55.000000
      Priority=33
      HudColor=(B=50,G=50,R=200)
@@ -324,7 +324,7 @@ defaultproperties
      AttachmentClass=Class'BWBP_APC_Pro.R9000EAttachment'
      IconMaterial=Texture'BW_Core_WeaponTex.Icons.SmallIcon_R78'
      IconCoords=(X2=127,Y2=31)
-     ItemName="R9000E Falcon Sniper Rifle"
+     ItemName="R9000-E 'Chimera' Modular Sniper Rifle"
      LightType=LT_Pulse
      LightEffect=LE_NonIncidence
      LightHue=30

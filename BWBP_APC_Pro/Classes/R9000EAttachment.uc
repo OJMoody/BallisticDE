@@ -136,8 +136,8 @@ simulated function SpawnTracer(byte Mode, Vector V)
 defaultproperties
 {
 	 TracerClasses(0)=Class'BallisticProV55.TraceEmitter_Default'
-     TracerClasses(1)=Class'BallisticProV55.TraceEmitter_Freeze'
-     TracerClasses(2)=Class'BallisticProV55.TraceEmitter_R9Laser'
+     TracerClasses(1)=Class'BWBP_APC_Pro.TraceEmitter_R9000Incendiary'
+     TracerClasses(2)=Class'BWBP_APC_Pro.TraceEmitter_RAD'
      ImpactManagers(0)=Class'BallisticProV55.IM_Bullet'
      ImpactManagers(1)=Class'BWBP_APC_Pro.IM_BulletHE'
      ImpactManagers(2)=Class'BWBP_APC_Pro.IM_BulletRad'

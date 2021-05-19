@@ -104,7 +104,7 @@ defaultproperties
 {
 	Duration=6.000000
 	MaxDuration=12.000000
-	Damage=4.000000
+	Damage=8.000000
 	DamageType=Class'BWBP_OP_Pro.DTRaygunPlague'
     Begin Object Class=SpriteEmitter Name=SpriteEmitter0
         UseColorScale=True
@@ -133,7 +133,7 @@ defaultproperties
         StartVelocityRadialRange=(Min=20.000000,Max=250.000000)
         GetVelocityDirectionFrom=PTVD_AddRadial
     End Object
-     Emitters(0)=SpriteEmitter'BWBP_APC_Pro.R9000EPlagueEffect.SpriteEmitter0'
+     Emitters(0)=SpriteEmitter'BWBP_OP_Pro.R9000EPlagueEffect.SpriteEmitter0'
 
     Begin Object Class=SpriteEmitter Name=SpriteEmitter1
         FadeOut=True
@@ -161,7 +161,7 @@ defaultproperties
         StartVelocityRadialRange=(Min=20.000000,Max=250.000000)
         GetVelocityDirectionFrom=PTVD_AddRadial
     End Object
-     Emitters(1)=SpriteEmitter'BWBP_APC_Pro.R9000EPlagueEffect.SpriteEmitter1'
+     Emitters(1)=SpriteEmitter'BWBP_OP_Pro.R9000EPlagueEffect.SpriteEmitter1'
 
     Begin Object Class=SpriteEmitter Name=SpriteEmitter2
         UseColorScale=True
@@ -183,7 +183,7 @@ defaultproperties
         Texture=Texture'AW-2004Particles.Weapons.PlasmaStar'
         LifetimeRange=(Min=1.000000,Max=1.000000)
     End Object
-     Emitters(2)=SpriteEmitter'BWBP_APC_Pro.R9000EPlagueEffect.SpriteEmitter2'
+     Emitters(2)=SpriteEmitter'BWBP_OP_Pro.R9000EPlagueEffect.SpriteEmitter2'
 
      AutoDestroy=True
      Physics=PHYS_Trailer

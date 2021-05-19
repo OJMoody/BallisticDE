@@ -95,7 +95,7 @@ defaultproperties
      Fuel=4.000000
      MaxFuel=8.000000
      Damage=9.000000
-     DamageType=Class'BWBP_SKC_Pro.DT_AS50Immolation'
+     DamageType=Class'BWBP_APC_Pro.DTR9000EImmolation'
      Begin Object Class=SpriteEmitter Name=SpriteEmitter11
          UseColorScale=True
          FadeOut=True

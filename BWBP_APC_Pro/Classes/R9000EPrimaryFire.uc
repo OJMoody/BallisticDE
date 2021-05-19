@@ -163,8 +163,8 @@ defaultproperties
 	Damage=100.000000
     HeadMult=1.5f
     LimbMult=0.9f
-	IncFireSound=(Sound=Sound'BW_Core_WeaponSound.A42.A42-Impact',Volume=0.700000,Radius=384.000000,Pitch=1.400000)
-    RADFireSound=(Sound=Sound'BW_Core_WeaponSound.R9.EnergyRelayExplode',Volume=3.000000,Radius=256.000000)
+	IncFireSound=(Sound=Sound'BW_Core_WeaponSound.FlyBys.Whizzing3',Volume=0.700000,Radius=384.000000,Pitch=1.400000)
+    RADFireSound=(Sound=Sound'BW_Core_WeaponSound.DarkStar.Dark-Fire2',Volume=0.700000,Radius=256.000000,Pitch=0.700000)
 	WaterRangeAtten=0.800000
 	DamageType=Class'BallisticProV55.DTR78Rifle'
 	DamageTypeHead=Class'BallisticProV55.DTR78RifleHead'
