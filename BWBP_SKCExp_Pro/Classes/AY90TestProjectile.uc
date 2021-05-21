@@ -212,7 +212,7 @@ defaultproperties
      LightSaturation=20
      LightBrightness=160.000000
      LightRadius=12.000000
-     StaticMesh=StaticMesh'BWBP4-Hardware.DarkStar.DarkProjBig'
+     StaticMesh=StaticMesh'BW_Core_WeaponStatic.DarkStar.DarkProjBig'
      //bNetTemporary=False
      //bSkipActorPropertyReplication=True
      //bOnlyDirtyReplication=True

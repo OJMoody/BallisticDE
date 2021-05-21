@@ -40,8 +40,8 @@ defaultproperties
      BallisticFireSound=(Sound=SoundGroup'BW_Core_WeaponSound.EKS43.EKS-Slash',Radius=32.000000,bAtten=True)
      bAISilent=True
      bFireOnRelease=True
-     PreFireAnim="PrepStab"
-     FireAnim="Stab"
+     PreFireAnim="PrepMeleeFire"
+     FireAnim="MeleeFire"
      TweenTime=0.000000
      FireRate=0.300000
      AmmoClass=Class'BallisticProV55.Ammo_Cells'

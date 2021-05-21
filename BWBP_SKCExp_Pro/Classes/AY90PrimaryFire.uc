@@ -70,17 +70,17 @@ defaultproperties
 {
      ChargeTime=4.000000
      AutoFireTime=5.000000
-     ChargeSound=Sound'BWBP_SKC_SoundsExpX.SkrithBow.SkrithBow-BoltCharge'
-     ChargeFireSound=Sound'BWBP_SKC_SoundsExpX.SkrithBow.SkrithBow-BoltBlast'
-     MaxChargeFireSound=Sound'BWBP_SKC_SoundsExpX.SkrithBow.SkrithBow-BoltBlastMax'
+     ChargeSound=Sound'BWBP_SKC_Sounds.SkrithBow.SkrithBow-BoltCharge'
+     ChargeFireSound=Sound'BWBP_SKC_Sounds.SkrithBow.SkrithBow-BoltBlast'
+     MaxChargeFireSound=Sound'BWBP_SKC_Sounds.SkrithBow.SkrithBow-BoltBlastMax'
      SpawnOffset=(X=10.000000,Y=10.000000,Z=-9.000000)
      MuzzleFlashClass=Class'BWBP_SKCExp_Pro.A73BFlashEmitter'
      //RecoilPerShot=256.000000
      //XInaccuracy=9.000000
      //YInaccuracy=6.000000
      AmmoPerFire=5
-     BallisticFireSound=(Sound=SoundGroup'BWBP_SKC_SoundsExpX.SkrithBow.SkrithBow-BoltFire',Volume=1.200000,Slot=SLOT_Interact,bNoOverride=False)
-	      bFireOnRelease=True
+     BallisticFireSound=(Sound=SoundGroup'BWBP_SKC_Sounds.SkrithBow.SkrithBow-BoltShot',Volume=1.200000,Slot=SLOT_Interact,bNoOverride=False)
+	 bFireOnRelease=True
      FireEndAnim=
      TweenTime=0.000000
      FireRate=1.000000

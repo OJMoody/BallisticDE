@@ -1,4 +1,4 @@
-class AY90WeaponParamsClassic extends BallisticWeaponParams;
+class AY90WeaponParamsArena extends BallisticWeaponParams;
 
 defaultproperties
 {
@@ -8,7 +8,7 @@ defaultproperties
     //=================================================================	
 	
 	
-		Begin Object Class=ProjectileEffectParams Name=ClassicPrimaryEffectParams
+		Begin Object Class=ProjectileEffectParams Name=ArenaPrimaryEffectParams
 			ProjectileClass=Class'BWBP_SKCExp_Pro.AY90BoltProjectile'
 			SpawnOffset=(X=10.000000,Y=10.000000,Z=-9.000000)
 			Speed=2000.000000
@@ -27,12 +27,13 @@ defaultproperties
 			WarnTargetPct=0.200000	
 		End Object
 
-		Begin Object Class=FireParams Name=ClassicPrimaryFireParams
+		Begin Object Class=FireParams Name=ArenaPrimaryFireParams
 			FireInterval=1.000000
 			AmmoPerFire=5
 			BurstFireRateFactor=1.00
+			AimedFireAnim="SightFire"
 			FireEndAnim=	
-		FireEffectParams(0)=ProjectileEffectParams'ClassicPrimaryEffectParams'
+		FireEffectParams(0)=ProjectileEffectParams'ArenaPrimaryEffectParams'
 		End Object
 		
     //=================================================================
@@ -40,7 +41,7 @@ defaultproperties
     //=================================================================	
 	
 	
-		Begin Object Class=ProjectileEffectParams Name=ClassicSecondaryEffectParams
+		Begin Object Class=ProjectileEffectParams Name=ArenaSecondaryEffectParams
 			ProjectileClass=Class'AY90Projectile'
 			SpawnOffset=(X=10.000000,Y=10.000000,Z=-9.000000)
 			Speed=85.000000
@@ -58,18 +59,19 @@ defaultproperties
 			WarnTargetPct=0.500000	
 		End Object
 
-		Begin Object Class=FireParams Name=ClassicSecondaryFireParams
+		Begin Object Class=FireParams Name=ArenaSecondaryFireParams
 			FireInterval=1.000000
 			AmmoPerFire=5
-			BurstFireRateFactor=1.00	
-		FireEffectParams(0)=ProjectileEffectParams'ClassicSecondaryEffectParams'
+			BurstFireRateFactor=1.00
+			AimedFireAnim="SightFire"
+		FireEffectParams(0)=ProjectileEffectParams'ArenaSecondaryEffectParams'
 		End Object
 		
 	//=================================================================
 	// RECOIL
 	//=================================================================
 
-	Begin Object Class=RecoilParams Name=ClassicRecoilParams
+	Begin Object Class=RecoilParams Name=ArenaRecoilParams
 		XCurve=(Points=(,(InVal=0.100000,OutVal=0.010000),(InVal=0.150000,OutVal=0.100000),(InVal=0.250000,OutVal=0.200000),(InVal=0.600000,OutVal=-0.200000),(InVal=0.700000,OutVal=-0.250000),(InVal=1.000000,OutVal=0.100000)))
 		YCurve=(Points=(,(InVal=0.100000,OutVal=0.090000),(InVal=0.150000,OutVal=0.150000),(InVal=0.250000,OutVal=0.120000),(InVal=0.600000,OutVal=-0.150000),(InVal=0.700000,OutVal=0.050000),(InVal=500000.000000,OutVal=0.500000)))
 		PitchFactor=0.800000
@@ -88,7 +90,7 @@ defaultproperties
 	// AIM
 	//=================================================================
 
-	Begin Object Class=AimParams Name=ClassicAimParams
+	Begin Object Class=AimParams Name=ArenaAimParams
 		AimSpread=(Min=16,Max=1740)
 		CrouchMultiplier=0.600000
 		ADSMultiplier=0.700000
@@ -103,17 +105,17 @@ defaultproperties
 	// BASIC PARAMS
 	//=================================================================	
 	
-	Begin Object Class=WeaponParams Name=ClassicParams
+	Begin Object Class=WeaponParams Name=ArenaParams
 		InventorySize=35
 		SightMoveSpeedFactor=0.500000
-		SightOffset=(Y=4.700000,Z=8.000000)
+		SightOffset=(Y=4.700000,Z=7.050000)
 		SightPivot=(Pitch=768)
-		RecoilParams(0)=RecoilParams'ClassicRecoilParams'
-		AimParams(0)=AimParams'ClassicAimParams'
-		FireParams(0)=FireParams'ClassicPrimaryFireParams'
-		AltFireParams(0)=FireParams'ClassicSecondaryFireParams'
+		RecoilParams(0)=RecoilParams'ArenaRecoilParams'
+		AimParams(0)=AimParams'ArenaAimParams'
+		FireParams(0)=FireParams'ArenaPrimaryFireParams'
+		AltFireParams(0)=FireParams'ArenaSecondaryFireParams'
 	End Object
-	Layouts(0)=WeaponParams'ClassicParams'
+	Layouts(0)=WeaponParams'ArenaParams'
 
 
 }

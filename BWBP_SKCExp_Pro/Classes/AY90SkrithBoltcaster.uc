@@ -354,10 +354,9 @@ simulated function float ChargeBar()
 
 defaultproperties
 {
-     TeamSkins(0)=(RedTex=Shader'BallisticWeapons2.Hands.RedHand-Shiny',BlueTex=Shader'BallisticWeapons2.Hands.BlueHand-Shiny')
+     TeamSkins(0)=(RedTex=Shader'BW_Core_WeaponTex.Hands.RedHand-Shiny',BlueTex=Shader'BW_Core_WeaponTex.Hands.BlueHand-Shiny')
      UsedAmbientSound=Sound'BW_Core_WeaponSound.A73.A73Hum1'
      BigIconMaterial=Texture'BWBP_SKC_Tex.A73b.BigIcon_A73E'
-     //BallisticInventoryGroup=5
      BCRepClass=Class'BallisticProV55.BallisticReplicationInfo'
      bWT_RapidProj=True
      bWT_Energy=True
@@ -384,21 +383,23 @@ defaultproperties
      //CrouchAimFactor=0.600000
      //SprintOffSet=(Pitch=-500,Yaw=-1024)
      //JumpChaos=0.500000
-//     ViewAimFactor=0.350000
+	 //ViewAimFactor=0.350000
      //ViewRecoilFactor=0.450000
      //AimDamageThreshold=75.000000
-    //ChaosSpeedThreshold=600.000000
-    // ChaosAimSpread=(X=(Min=-1740.000000,Max=1740.000000),Y=(Min=-1306.000000,Max=1306.000000))
-    // RecoilXCurve=(Points=(,(InVal=0.100000,OutVal=0.010000),(InVal=0.150000,OutVal=0.100000),(InVal=0.250000,OutVal=0.200000),(InVal=0.600000,OutVal=-0.200000),(InVal=0.700000,OutVal=-0.250000),(InVal=1.000000,OutVal=0.100000)))
+     //ChaosSpeedThreshold=600.000000
+     //ChaosAimSpread=(X=(Min=-1740.000000,Max=1740.000000),Y=(Min=-1306.000000,Max=1306.000000))
+     //RecoilXCurve=(Points=(,(InVal=0.100000,OutVal=0.010000),(InVal=0.150000,OutVal=0.100000),(InVal=0.250000,OutVal=0.200000),(InVal=0.600000,OutVal=-0.200000),(InVal=0.700000,OutVal=-0.250000),(InVal=1.000000,OutVal=0.100000)))
      //RecoilYCurve=(Points=(,(InVal=0.100000,OutVal=0.090000),(InVal=0.150000,OutVal=0.150000),(InVal=0.250000,OutVal=0.120000),(InVal=0.600000,OutVal=-0.150000),(InVal=0.700000,OutVal=0.050000),(InVal=500000.000000,OutVal=0.500000)))
-    // RecoilPitchFactor=0.800000
-    // RecoilYawFactor=0.800000
+     //RecoilPitchFactor=0.800000
+     //RecoilYawFactor=0.800000
      //RecoilXFactor=0.300000
-    // RecoilYFactor=0.300000
+     //RecoilYFactor=0.300000
      //RecoilMax=1024.000000
-    // RecoilDeclineTime=1.500000
-     ParamsClasses(0)=Class'AY90WeaponParamsClassic'
+     //RecoilDeclineTime=1.500000
+     ParamsClasses(0)=Class'AY90WeaponParamsArena'
      ParamsClasses(1)=Class'AY90WeaponParamsClassic'
+	 ParamsClasses(2)=Class'AY90WeaponParamsClassic'
+	 ParamsClasses(3)=Class'AY90WeaponParamsClassic'
      FireModeClass(0)=Class'BWBP_SKCExp_Pro.AY90PrimaryFire'
      FireModeClass(1)=Class'BWBP_SKCExp_Pro.AY90SecondaryFire'
      BringUpTime=0.500000
@@ -409,11 +410,12 @@ defaultproperties
      Description="AY90 Skrith Boltcaster||Manufacturer: Unknown Skrith Engineers|Primary: Energy Bolt|Secondary: Blade Stab||The A73-E is a specialized version of the Skrith standard rifle and is rarely seen on the battlefield. Aside from the red tint, the Elite model is very similar in appearance to the standard. Scans show, however, that this special version fires projectiles at roughly 3 times the standard heat level and has an odd permanent electrical charge coursing through the blades. If encountered in the field, it is advised to report the occurrence to HQ immediately for testing."
      Priority=92
      CustomCrossHairTextureName="Crosshairs.HUD.Crosshair_Cross1"
-     InventoryGroup=5
+     InventoryGroup=9
      GroupOffset=14
      PickupClass=Class'BWBP_SKCExp_Pro.AY90Pickup'
      PlayerViewOffset=(X=5.000000,Y=2.000000,Z=-6.000000)
-     BobDamping=1.600000
+     BobDamping=2.200000
+	 MeleeFireClass=Class'BWBP_SKCExp_Pro.AY90MeleeFire'
      AttachmentClass=Class'BWBP_SKCExp_Pro.AY90Attachment'
      IconMaterial=Texture'BWBP_SKC_Tex.A73b.SmallIcon_A73E'
      IconCoords=(X2=127,Y2=31)
@@ -424,9 +426,8 @@ defaultproperties
      LightSaturation=100
      LightBrightness=192.000000
      LightRadius=12.000000
-     Mesh=SkeletalMesh'BWBP_SKC_AnimExpX.SKBow_FP'
+     Mesh=SkeletalMesh'BWBP_SKC_Anim.FPm_SkrithCrossbow'
      DrawScale=0.188000
-//     SoundPitch=32
      bFullVolume=True
      SoundVolume=255
      SoundRadius=256.000000
