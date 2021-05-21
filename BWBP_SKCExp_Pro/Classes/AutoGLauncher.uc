@@ -228,7 +228,7 @@ defaultproperties
 	SightPivot=(Pitch=512)
 	SightOffset=(X=-30.000000,Y=12.450000,Z=14.850000)
 	GunLength=48.000000
-	ParamsClasses(0)=Class'AutoGLWeaponParamsClassic'
+	ParamsClasses(0)=Class'AutoGLWeaponParamsArena'
 	ParamsClasses(1)=Class'AutoGLWeaponParamsClassic'
 	FireModeClass(0)=Class'AutoGLPrimaryFire'
 	FireModeClass(1)=Class'AutoGLPrimaryFire'
