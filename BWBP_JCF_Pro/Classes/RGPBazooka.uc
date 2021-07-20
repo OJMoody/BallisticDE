@@ -218,7 +218,7 @@ defaultproperties
      CustomCrossHairTextureName="Crosshairs.HUD.Crosshair_Cross1"
      InventoryGroup=8
      PickupClass=Class'BWBP_JCF_Pro.RGPPickup'
-     PlayerViewOffset=(X=10.000000,Y=8.000000,Z=-8.000000)
+     PlayerViewOffset=(X=15.000000,Y=8.000000,Z=-8.000000)
      BobDamping=1.800000
      AttachmentClass=Class'BWBP_JCF_Pro.RGPAttachment'
      IconMaterial=Texture'BWBP_JCF_Tex.rgp.SmallIcon_RPG'
