@@ -6,7 +6,6 @@ defaultproperties
     // PRIMARY FIRE
     //=================================================================	
 	
-	
 		Begin Object Class=ShotgunEffectParams Name=ArenaPrimaryEffectParams
 			TraceRange=(Min=3072.000000,Max=3072.000000)
 			RangeAtten=0.15000
@@ -23,6 +22,8 @@ defaultproperties
 			Chaos=0.30000
 			BotRefireRate=0.7
 			WarnTargetPct=0.5	
+			SpreadMode=FSM_Rectangle
+			Inaccuracy=(X=200,Y=200)
 			FireSound=(Sound=Sound'BWBP_CC_Sounds.FM13.FM13-Fire',Volume=1.300000)
 		End Object
 
@@ -67,7 +68,6 @@ defaultproperties
 
 	Begin Object Class=RecoilParams Name=ArenaRecoilParams
 		ViewBindFactor=0.25
-		CrouchMultiplier=0.800000
 		XCurve=(Points=(,(InVal=0.200000,OutVal=0.10000),(InVal=0.350000,OutVal=0.13000),(InVal=0.550000,OutVal=0.230000),(InVal=0.800000,OutVal=0.35000),(InVal=1.000000,OutVal=0.45)))
 		YCurve=(Points=(,(InVal=0.150000,OutVal=0.150000),(InVal=0.40000,OutVal=0.50000),(InVal=0.600000,OutVal=0.700000),(InVal=1.000000,OutVal=1.000000)))
 		XRandFactor=0.100000

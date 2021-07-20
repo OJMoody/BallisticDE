@@ -24,6 +24,7 @@ defaultproperties
 		FireSound=(Sound=Sound'BWBP_JCF_Sounds.DE.Fire_SPAS',Volume=1.500000)
 		Recoil=650.000000
 		Chaos=0.3
+		Inaccuracy=(X=190,Y=270)
 		BotRefireRate=0.900000
 		WarnTargetPct=0.500000	
 	End Object
@@ -54,6 +55,7 @@ defaultproperties
 		MuzzleFlashClass=Class'BallisticProV55.MRT6FlashEmitter'
 		FlashScaleFactor=0.1
 		FireSound=(Sound=Sound'BWBP_JCF_Sounds.DE.Fire_SPAS_Cock',Volume=1.500000)
+		Inaccuracy=(X=190,Y=540)
 		Recoil=900.000000
 		Chaos=0.500000
 		BotRefireRate=0.900000
