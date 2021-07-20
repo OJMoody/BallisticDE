@@ -13,37 +13,41 @@ defaultproperties
 		Damage=100
 		DamageRadius=250.000000
 		FireSound=(Sound=Sound'BW_Core_WeaponSound.NRP57.NRP57-Throw',Radius=32.000000,bAtten=True)	
+		Speed=1400.000000
+        MaxSpeed=1500.000000
+		HeadMult=1.0
+		LimbMult=1.0
+        BotRefireRate=0.4
+        WarnTargetPct=0.75
 	End Object
 
 	Begin Object Class=FireParams Name=ArenaPrimaryFireParams
 		PreFireAnim="PrepThrow"
 		FireAnim="Throw"	
-	FireEffectParams(0)=ProjectileEffectParams'ArenaPrimaryEffectParams'
+		FireEffectParams(0)=ProjectileEffectParams'ArenaPrimaryEffectParams'
 	End Object
 		
 	//=================================================================
 	// SECONDARY FIRE
 	//=================================================================	
 	
-	Begin Object Class=FireEffectParams Name=ArenaSecondaryEffectParams
-		SpreadMode=None
-		MuzzleFlashClass=None
-		FlashScaleFactor=None
-		FireSound=None
-		Recoil=None
-		Chaos=None
-		PushbackForce=None
-		Inaccuracy=None
-		SplashDamage=None
-		RecommendSplashDamage=None
-		BotRefireRate=None
-		WarnTargetPct=None
+	Begin Object Class=ProjectileEffectParams Name=ArenaSecondaryEffectParams
+		ProjectileClass=Class'BWBP_SWC_Pro.A51Rolled'
+		SpawnOffset=(Z=-14.000000)
+        Speed=1000.000000
+        MaxSpeed=1500.000000
+		Damage=100.000000
+		DamageRadius=250.000000
+		HeadMult=1.0
+		LimbMult=1.0
+		WarnTargetPct=0.500000
+		FireSound=(Sound=Sound'BW_Core_WeaponSound.NRP57.NRP57-Throw',Radius=32.000000,bAtten=True)	
 	End Object
 		
 	Begin Object Class=FireParams Name=ArenaSecondaryFireParams
 		PreFireAnim="PrepRoll"
 		FireAnim="Roll"
-	FireEffectParams(0)=FireEffectParams'ArenaSecondaryEffectParams'
+		FireEffectParams(0)=ProjectileEffectParams'ArenaSecondaryEffectParams'
 	End Object
 		
 	//=================================================================

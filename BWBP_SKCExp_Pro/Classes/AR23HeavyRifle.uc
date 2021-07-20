@@ -314,7 +314,7 @@ defaultproperties
      ParamsClasses(1)=Class'AR23WeaponParamsClassic'
      FullZoomFOV=55.000000
      bNoCrosshairInScope=True
-	 SightPivot=(Pitch=-1024,Yaw=0,Roll=0)
+	 SightPivot=(Pitch=-800,Yaw=0,Roll=0)
      SightDisplayFOV=40.000000
      FireModeClass(0)=Class'BWBP_SKCExp_Pro.AR23PrimaryFire'
      FireModeClass(1)=Class'BWBP_SKCExp_Pro.AR23SecondaryFire'

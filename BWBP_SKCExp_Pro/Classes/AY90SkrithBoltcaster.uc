@@ -419,7 +419,7 @@ defaultproperties
      AttachmentClass=Class'BWBP_SKCExp_Pro.AY90Attachment'
      IconMaterial=Texture'BWBP_SKC_Tex.A73b.SmallIcon_A73E'
      IconCoords=(X2=127,Y2=31)
-     ItemName="AY90 Skrith Boltcaster"
+     ItemName="[B] AY90 Skrith Boltcaster"
      LightType=LT_Pulse
      LightEffect=LE_NonIncidence
      LightHue=180

@@ -261,7 +261,7 @@ defaultproperties
 	AttachmentClass=Class'BWBP_SWC_Pro.MDKAttachment'
 	IconMaterial=Texture'BWBP_SWC_Tex.Icons.SmallIcon_MDK'
 	IconCoords=(X2=127,Y2=31)
-	ItemName="MDK Modular Machine Pistol"
+	ItemName="[B] MDK Modular Machine Pistol"
 	LightType=LT_Pulse
 	LightEffect=LE_NonIncidence
 	LightHue=30

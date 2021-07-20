@@ -82,7 +82,9 @@ defaultproperties
 		SightMoveSpeedFactor=0.500000
 		SightingTime=0.25
 		MagAmmo=45
-		SightOffset=(X=-4.000000,Y=10.700000,Z=11.100000)
+		WeaponBoneScales(0)=(BoneName="RDS",Slot=14,Scale=0f)
+		WeaponBoneScales(1)=(BoneName="Scope",Slot=16,Scale=1f)
+		SightOffset=(X=-10.000000,Y=-0.45000,Z=11.300000)
 		RecoilParams(0)=RecoilParams'ClassicRecoilParams'
 		AimParams(0)=AimParams'ClassicAimParams'
 		FireParams(0)=FireParams'ClassicPrimaryFireParams'

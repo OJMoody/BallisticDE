@@ -32,7 +32,7 @@ defaultproperties
 		Begin Object Class=FireParams Name=ClassicPrimaryFireParams
 			FireInterval=0.900000
 			BurstFireRateFactor=1.00
-			FireAnim="FireAlt"	
+			AimedFireAnim="SightFire"	
 		FireEffectParams(0)=ProjectileEffectParams'ClassicPrimaryEffectParams'
 		End Object
 		
@@ -74,7 +74,8 @@ defaultproperties
 		InventorySize=35
 		SightMoveSpeedFactor=0.500000
 		MagAmmo=6
-		SightOffset=(X=-25.000000,Z=19.500000)
+		SightOffset=(Y=0.250000,Z=16.299999)
+		SightPivot=(Pitch=150)
 		RecoilParams(0)=RecoilParams'ClassicRecoilParams'
 		AimParams(0)=AimParams'ClassicAimParams'
 		FireParams(0)=FireParams'ClassicPrimaryFireParams'

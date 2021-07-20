@@ -38,7 +38,7 @@ defaultproperties
 	Begin Object Class=FireParams Name=ClassicPrimaryFireParams
 		FireInterval=0.500000
 		BurstFireRateFactor=1.00
-		FireAnim=FireSemi
+		AimedFireAnim="SightFire"
 		FireEndAnim=	
 	FireEffectParams(0)=ShotgunEffectParams'ClassicPrimaryEffectParams'
 	End Object
@@ -78,7 +78,9 @@ defaultproperties
 	Begin Object Class=FireParams Name=ClassicSecondaryFireParams
 		FireInterval=0.850000
 		BurstFireRateFactor=1.00
-		FireEndAnim=	
+		FireAnim="FireCock"
+		FireEndAnim=
+		AimedFireAnim="SightFireCock"	
 	FireEffectParams(0)=ShotgunEffectParams'ClassicSecondaryEffectParams'
 	End Object
 		
@@ -124,7 +126,7 @@ defaultproperties
 		SightMoveSpeedFactor=0.500000
 		SightingTime=0.450000
 		MagAmmo=8
-		SightOffset=(X=-20.000000,Y=12.700000,Z=11.500000)
+		SightOffset=(X=-4.000000,Y=-0.130000,Z=9.400000)
 		RecoilParams(0)=RecoilParams'ClassicRecoilParams'
 		AimParams(0)=AimParams'ClassicAimParams'
 		FireParams(0)=FireParams'ClassicPrimaryFireParams'

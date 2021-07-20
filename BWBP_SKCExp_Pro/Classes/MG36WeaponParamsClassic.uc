@@ -81,7 +81,7 @@ defaultproperties
 		InventorySize=40
 		SightMoveSpeedFactor=0.500000
 		MagAmmo=100
-		SightOffset=(X=10.000000,Y=-0.500000,Z=25.000000)
+		SightOffset=(X=-15.000000,Y=-0.350000,Z=12.300000)
 		ZoomType=ZT_Logarithmic
 		RecoilParams(0)=RecoilParams'ClassicRecoilParams'
 		AimParams(0)=AimParams'ClassicAimParams'

@@ -239,6 +239,7 @@ defaultproperties
     bUseSights=True
 	bUseSpecialAim=True
 	ParamsClasses(0)=Class'M99TW_WeaponParams'
+	ParamsClasses(1)=Class'M99TW_WeaponParams'
 	SelectAnim="Deploy"
     BringUpTime=1.000000
 	bCanThrow=False
