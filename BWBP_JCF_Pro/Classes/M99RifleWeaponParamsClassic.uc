@@ -80,8 +80,9 @@ defaultproperties
 		SightMoveSpeedFactor=0.500000
 		SightingTime=0.900000
 		MagAmmo=1
-		SightOffset=(X=-4.000000,Y=11.00000,Z=20.500000)
+		SightOffset=(X=-10.000000,Y=-2.000000,Z=12.000000)
 		SightPivot=(Roll=-1024)
+		ZoomType=ZT_Smooth
 		RecoilParams(0)=RecoilParams'ClassicRecoilParams'
 		AimParams(0)=AimParams'ClassicAimParams'
 		FireParams(0)=FireParams'ClassicPrimaryFireParams'
