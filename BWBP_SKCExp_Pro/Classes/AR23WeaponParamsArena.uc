@@ -44,28 +44,25 @@ defaultproperties
 	
 	
 		Begin Object Class=ShotgunEffectParams Name=ArenaSecondaryEffectParams
-			TraceRange=(Min=2000.000000,Max=4000.000000)
+			TraceRange=(Min=2560.000000,Max=2560.000000)
 			WaterTraceRange=5000.0
-			RangeAtten=0.300000
-			TraceCount=30
-			TracerClass=Class'BallisticProV55.TraceEmitter_Shotgun'
+			TraceCount=10
+			TracerClass=Class'BallisticProV55.TraceEmitter_MRTsix'
 			ImpactManager=Class'BallisticProV55.IM_Shell'
-			Damage=5
-			LimbMult=1.0
+			Damage=12
 			DamageType=Class'BWBP_SKCExp_Pro.DT_AR23Flak'
 			DamageTypeHead=Class'BWBP_SKCExp_Pro.DT_AR23Flak'
 			DamageTypeArm=Class'BWBP_SKCExp_Pro.DT_AR23Flak'
-			PenetrationEnergy=16.000000
-			PenetrateForce=500
+			PenetrateForce=100
 			bPenetrate=True
-			PDamageFactor=0.6
-			WallPDamageFactor=0.4
-			FireSound=(Sound=SoundGroup'BWBP_SKC_Sounds.Misc.FLAK-Fire',Volume=1.800000)
+			MuzzleFlashClass=Class'BallisticProV55.MRT6FlashEmitter'
+			FlashScaleFactor=2
 			Recoil=768.000000
-			Chaos=-1.0
-			Inaccuracy=(X=400,Y=400)
+			Chaos=0.25
+			Inaccuracy=(X=256,Y=256)
 			BotRefireRate=0.300000
 			WarnTargetPct=0.300000	
+			FireSound=(Sound=SoundGroup'BWBP_SKC_Sounds.Misc.FLAK-Fire',Volume=1.800000)
 		End Object
 
 		Begin Object Class=FireParams Name=ArenaSecondaryFireParams

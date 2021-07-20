@@ -26,9 +26,6 @@ defaultproperties
      LimbMult=0.5f
 	 
      WaterRangeAtten=0.800000
-     DamageType=Class'BallisticProV55.DTM925MG'
-     DamageTypeHead=Class'BallisticProV55.DTM925MGHEad'
-     DamageTypeArm=Class'BallisticProV55.DTM925MG'
      KickForce=16000
      PenetrateForce=250
      bPenetrate=True
@@ -49,7 +46,7 @@ defaultproperties
 	 AimedFireAnim="Fire"
      TweenTime=0.000000
      FireRate=0.170000
-     AmmoClass=Class'BallisticProV55.Ammo_50CalBelt'
+     AmmoClass=Class'BWBP_SKCExp_Pro.Ammo_AR23Bullets'
      ShakeRotMag=(X=256.000000,Y=128.000000)
      ShakeRotRate=(X=10000.000000,Y=10000.000000,Z=10000.000000)
      ShakeRotTime=2.000000
