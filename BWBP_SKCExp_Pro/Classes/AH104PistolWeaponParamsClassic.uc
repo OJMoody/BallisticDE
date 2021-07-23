@@ -44,11 +44,12 @@ defaultproperties
     //=================================================================	
 	
 	
-		Begin Object Class=FireEffectParams Name=ClassicSecondaryEffectParams
+		Begin Object Class=ProjectileEffectParams Name=ClassicSecondaryEffectParams
 			SpreadMode=None
 			FireSound=(Volume=1.000000,Radius=255.000000,Pitch=1.000000,bNoOverride=True)
 			Recoil=0.0
-			Chaos=-1.0
+			Chaos=0.05
+			Damage=12.000000
 			BotRefireRate=0.300000
 		End Object
 		
@@ -56,7 +57,7 @@ defaultproperties
 			FireInterval=0.200000
 			AmmoPerFire=0
 			BurstFireRateFactor=1.00
-			FireEffectParams(0)=FireEffectParams'ClassicSecondaryEffectParams'
+			FireEffectParams(0)=ProjectileEffectParams'ClassicSecondaryEffectParams'
 		End Object
 		
 	//=================================================================
@@ -101,7 +102,7 @@ defaultproperties
 		InventorySize=35
 		SightMoveSpeedFactor=0.500000
 		MagAmmo=7
-		SightOffset=(X=-15.000000,Y=-0.700000,Z=12.300000)
+		SightOffset=(X=-30.000000,Y=-1.500000,Z=15.000000)
 		SightPivot=(Pitch=1024,Roll=-1024)
 		RecoilParams(0)=RecoilParams'ClassicRecoilParams'
 		AimParams(0)=AimParams'ClassicAimParams'
