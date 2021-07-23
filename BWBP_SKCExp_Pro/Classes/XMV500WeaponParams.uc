@@ -2,6 +2,52 @@ class XMV500WeaponParams extends BallisticWeaponParams;
 
 defaultproperties
 {    
+	 
+    //=================================================================
+    // PRIMARY FIRE
+    //=================================================================	
+	
+	Begin Object Class=InstantEffectParams Name=ArenaPrimaryEffectParams
+		TraceRange=(Min=12000.000000,Max=12000.000000)
+		RangeAtten=0.35
+		Damage=20
+		DamageType=Class'BWBP_SKCExp_Pro.DTXMV500MG'
+		DamageTypeHead=Class'BWBP_SKCExp_Pro.DTXMV500MGHead'
+		DamageTypeArm=Class'BWBP_SKCExp_Pro.DTXMV500MG'
+		PenetrateForce=150
+		bPenetrate=True
+		MuzzleFlashClass=Class'BallisticProV55.XMV850FlashEmitter'
+		FlashScaleFactor=0.800000
+		Recoil=24.000000
+		Chaos=0.120000
+		WarnTargetPct=0.200000
+		FireSound=(Sound=SoundGroup'BWBP_SKC_SoundsExp.550.Mini-Fire',Slot=SLOT_Interact,bNoOverride=False)
+	End Object
+
+	Begin Object Class=FireParams Name=ArenaPrimaryFireParams
+		FireInterval=0.050000	
+		FireEffectParams(0)=InstantEffectParams'ArenaPrimaryEffectParams'
+	End Object
+		
+    //=================================================================
+    // SECONDARY FIRE
+    //=================================================================	
+	
+	Begin Object Class=FireEffectParams Name=ArenaSecondaryEffectParams
+		BotRefireRate=0.300000
+	End Object
+	
+	Begin Object Class=FireParams Name=ArenaSecondaryFireParams
+		FireInterval=0.700000
+		AmmoPerFire=0
+		FireAnim="Undeploy"
+		FireEffectParams(0)=FireEffectParams'ArenaSecondaryEffectParams'
+	End Object
+	
+	//=================================================================
+	// RECOIL
+	//=================================================================
+
 	Begin Object Class=RecoilParams Name=ArenaRecoilParams
 		ViewBindFactor=0.1
 		CrouchMultiplier=0.75
@@ -13,6 +59,10 @@ defaultproperties
 		DeclineTime=2.500000
 	End Object
 
+	//=================================================================
+	// AIM
+	//=================================================================
+
 	Begin Object Class=AimParams Name=ArenaAimParams
 		SprintOffSet=(Pitch=-6000,Yaw=-8000)
 		JumpOffSet=(Pitch=-6000,Yaw=2000)
@@ -21,16 +71,24 @@ defaultproperties
 		ChaosSpeedThreshold=350.000000
 	End Object
 
+	//=================================================================
+	// BASIC PARAMS
+	//=================================================================
+	
 	Begin Object Class=WeaponParams Name=ArenaParams
+		SightPivot=(Pitch=700,Roll=2048)
+		SightOffset=(X=8.000000,Y=-5.000000,Z=28.000000)
 		DisplaceDurationMult=1.4
 		PlayerSpeedFactor=0.800000
 		PlayerJumpFactor=0.800000
-		MagAmmo=300
+		MagAmmo=800
 		SightingTime=0.6
 		SightMoveSpeedFactor=0.9
         InventorySize=12
 		RecoilParams(0)=RecoilParams'ArenaRecoilParams'
 		AimParams(0)=AimParams'ArenaAimParams'
+		FireParams(0)=FireParams'ArenaPrimaryFireParams'
+		AltFireParams(0)=FireParams'ArenaSecondaryFireParams'
     End Object 
     Layouts(0)=WeaponParams'ArenaParams'
 }

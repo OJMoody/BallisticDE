@@ -66,7 +66,6 @@ defaultproperties
      BrassClass=Class'BallisticProV55.Brass_Pistol'
      BrassBone="tip"
      BrassOffset=(X=-30.000000,Y=1.000000)
-//     VelocityRecoil=175.000000
      FireChaos=-10.000000
      XInaccuracy=3.000000
      YInaccuracy=3.000000

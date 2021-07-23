@@ -637,7 +637,7 @@ defaultproperties
      PlayerJumpFactor=0.750000
      TeamSkins(0)=(RedTex=Shader'BW_Core_WeaponTex.Hands.RedHand-Shiny',BlueTex=Shader'BW_Core_WeaponTex.Hands.BlueHand-Shiny',SkinNum=1)
      AIReloadTime=4.000000
-     //BigIconMaterial=Texture'BWBP_SKC_TexExp.XMV500.BigIcon_XMV500'
+     BigIconMaterial=Texture'BWBP_SKC_TexExp.XMV500.BigIcon_XMV500'
      BCRepClass=Class'BallisticProV55.BallisticReplicationInfo'
      bWT_Bullet=True
      bWT_Machinegun=True
@@ -690,7 +690,7 @@ defaultproperties
      PlayerViewOffset=(X=5.000000,Y=0.000000,Z=-30.000000)
      BobDamping=1.400000
      AttachmentClass=Class'BWBP_SKCExp_Pro.XMV500MinigunAttachment'
-     //IconMaterial=Texture'BWBP_SKC_TexExp.XMV500.SmallIcon_XMV500'
+     IconMaterial=Texture'BWBP_SKC_TexExp.XMV500.SmallIcon_XMV500'
      IconCoords=(X2=127,Y2=25)
      ItemName="[B] XMB-500 Smart Minigun"
      LightType=LT_Pulse

@@ -10,7 +10,7 @@ class Ammo_MinigunINC extends BallisticAmmo;
 
 defaultproperties
 {
-     MaxAmmo=1600
+     MaxAmmo=800
      InitialAmount=0
      IconFlashMaterial=Shader'BW_Core_WeaponTex.Icons.AmmoIcon_MinigunFlash'
      PickupClass=Class'BWBP_SKCExp_Pro.AP_XMV500Ammo'

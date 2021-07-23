@@ -297,7 +297,7 @@ function DoFireEffect()
 	if (!AllowFire() || XMV500Minigun(Weapon).bRunOffsetting)
 	{
 		if (Instigator != None)
-			Instigator.TakeDamage(Rand(2), Instigator, Instigator.Location, -Vector(Instigator.GetViewRotation())*4000, class'DTXMVCHEAT');
+			Instigator.TakeDamage(Rand(2), Instigator, Instigator.Location, -Vector(Instigator.GetViewRotation())*4000, class'DTXMV500MG');
 	}
 
 }
@@ -355,7 +355,7 @@ simulated event ModeDoFire()
 	if (!AllowFire() || XMV500Minigun(Weapon).bRunOffsetting)
 	{
 	if (Instigator != None)
-		Instigator.TakeDamage(2, Instigator, Instigator.Location, -Vector(Instigator.GetViewRotation())*4000, class'DTXMVCHEAT');
+		Instigator.TakeDamage(2, Instigator, Instigator.Location, -Vector(Instigator.GetViewRotation())*4000, class'DTXMV500MG');
 	}
 
 	BW.bNeedReload = BW.MayNeedReload(ThisModeNum, ConsumedLoad);
