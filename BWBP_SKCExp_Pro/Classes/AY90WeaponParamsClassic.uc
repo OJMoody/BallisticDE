@@ -20,7 +20,7 @@ defaultproperties
 			LimbMult=0.500000
 			SpreadMode=FSM_Rectangle
 			MuzzleFlashClass=Class'BWBP_SKCExp_Pro.A73BFlashEmitter'
-			FireSound=(Sound=SoundGroup'BWBP_SKC_SoundsExpX.SkrithBow.SkrithBow-BoltFire',Volume=1.200000,Slot=SLOT_Interact,bNoOverride=False)
+			FireSound=(Sound=SoundGroup'BWBP_SKC_Sounds.SkrithBow.SkrithBow-BoltShot',Volume=1.200000,Slot=SLOT_Interact,bNoOverride=False)
 			Recoil=256.000000
 			Chaos=-1.0
 			Inaccuracy=(X=9,Y=6)
@@ -51,7 +51,7 @@ defaultproperties
 			MomentumTransfer=150.000000
 			HeadMult=2.5
 			LimbMult=0.5
-			FireSound=(Sound=Sound'BWBP_SKC_SoundsExpX.SkirthBow.SkrithBow-WaveFire',Volume=1.700000)
+			FireSound=(Sound=Sound'BWBP_SKC_Sounds.SkirthBow.SkrithBow-WaveFire',Volume=1.700000)
 			Recoil=0.0
 			Chaos=-1.0
 			Inaccuracy=(X=2000,Y=10)

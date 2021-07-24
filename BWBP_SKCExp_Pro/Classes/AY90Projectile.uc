@@ -144,10 +144,11 @@ simulated function DestroyEffects()
 
 defaultproperties
 {
-     ImpactManager=Class'BWBP_SKCExp_Pro.IM_A73BProjectile'
+     ModeIndex=1
+	 ImpactManager=Class'BWBP_SKCExp_Pro.IM_A73BProjectile'
      PenetrateManager=Class'BWBP_SKCExp_Pro.IM_A73BProjectile'
      bPenetrate=True
-    // bRandomStartRotaion=False
+     //bRandomStartRotaion=False
      bTearOnExplode=False
      AccelSpeed=70000.000000
      TrailClass=Class'BWBP_SKCExp_Pro.A73BTrailEmitter'

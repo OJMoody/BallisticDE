@@ -4,7 +4,7 @@ defaultproperties
 {
 
     //=================================================================
-    // PRIMARY FIRE
+    // PRIMARY FIRE - Automatic
     //=================================================================	
 	
 	
@@ -41,6 +41,64 @@ defaultproperties
 		FireEffectParams(0)=InstantEffectParams'ClassicPrimaryEffectParams'
 		End Object
 		
+	//=================================================================
+    // FIRE PARAMS WEAPON MODE 1 - INCENDIARY AMP
+    //=================================================================	
+	
+	
+		Begin Object Class=InstantEffectParams Name=ClassicIncPrimaryEffectParams
+			TraceRange=(Min=9000.000000,Max=9000.000000)
+			RangeAtten=0.700000
+			Damage=35
+			DamageType=Class'BWBP_SKCExp_Pro.DT_MP40'
+			DamageTypeHead=Class'BWBP_SKCExp_Pro.DT_MP40Head'
+			DamageTypeArm=Class'BWBP_SKCExp_Pro.DT_MP40'
+			PenetrateForce=150
+			HookStopFactor=0.200000
+			HookPullForce=-10.000000
+			MuzzleFlashClass=Class'BallisticProV55.M50FlashEmitter'
+			FlashScaleFactor=1.100000
+			FireSound=(Sound=Sound'BWBP_SKC_SoundsExp.MP40.MP40-HotFire',Volume=1.600000)
+			Recoil=512.000000
+			Chaos=0.030000
+		End Object
+
+		Begin Object Class=FireParams Name=ClassicIncPrimaryFireParams
+			FireInterval=0.235000
+			FireEndAnim=
+			AimedFireAnim="SightFire"
+		FireEffectParams(0)=InstantEffectParams'ClassicIncPrimaryEffectParams'
+		End Object
+		
+	//=================================================================
+    // FIRE PARAMS WEAPON MODE 2 - CORROSIVE AMP
+    //=================================================================	
+	
+	
+		Begin Object Class=InstantEffectParams Name=ClassicCorrosivePrimaryEffectParams
+			TraceRange=(Min=9000.000000,Max=9000.000000)
+			RangeAtten=0.700000
+			Damage=20
+			DamageType=Class'BWBP_SKCExp_Pro.DT_MP40'
+			DamageTypeHead=Class'BWBP_SKCExp_Pro.DT_MP40Head'
+			DamageTypeArm=Class'BWBP_SKCExp_Pro.DT_MP40'
+			PenetrateForce=150
+			HookStopFactor=0.200000
+			HookPullForce=-10.000000
+			MuzzleFlashClass=Class'BallisticProV55.A500FlashEmitter'
+			FlashScaleFactor=0.400000
+			FireSound=(Sound=Sound'BWBP_SKC_SoundsExp.MP40.MP40-AcidFire',Volume=1.000000)
+			Recoil=60.000000
+			Chaos=0.030000
+		End Object
+
+		Begin Object Class=FireParams Name=ClassicCorrosivePrimaryFireParams
+			FireInterval=0.100000
+			FireEndAnim=
+			AimedFireAnim="SightFire"
+		FireEffectParams(0)=InstantEffectParams'ClassicCorrosivePrimaryEffectParams'
+		End Object
+		
     //=================================================================
     // SECONDARY FIRE
     //=================================================================	
@@ -61,7 +119,7 @@ defaultproperties
 		End Object
 		
 	//=================================================================
-	// RECOIL
+	// RECOIL - Automatic
 	//=================================================================
 
 	Begin Object Class=RecoilParams Name=ClassicRecoilParams
@@ -77,6 +135,36 @@ defaultproperties
 		HipMultiplier=1.000000
 		CrouchMultiplier=0.500000
 		bViewDecline=True
+	End Object
+	
+	//=================================================================
+	// RECOIL PARAMS WEAPON MODE 1 - INCENDIARY AMP
+	//=================================================================
+
+	Begin Object Class=RecoilParams Name=ClassicIncRecoilParams
+		XCurve=(Points=(,(InVal=0.200000,OutVal=0.030000),(InVal=0.400000,OutVal=0.050000),(InVal=0.600000,OutVal=0.10000),(InVal=0.800000,OutVal=0.120000),(InVal=1.000000,OutVal=0.16)))
+		YCurve=(Points=(,(InVal=0.100000,OutVal=0.100000),(InVal=0.200000,OutVal=0.25),(InVal=0.400000,OutVal=0.500000),(InVal=0.600000,OutVal=0.600000),(InVal=1.000000,OutVal=1.000000)))
+		XRandFactor=0.100000
+		YRandFactor=0.100000
+		DeclineTime=0.500000
+		DeclineDelay=0.45000
+		ViewBindFactor=0.45
+		CrouchMultiplier=0.800000
+	End Object
+	
+	//=================================================================
+	// RECOIL PARAMS WEAPON MODE 2 - CORROSIVE AMP
+	//=================================================================
+
+	Begin Object Class=RecoilParams Name=ClassicCorrosiveRecoilParams
+		XCurve=(Points=(,(InVal=0.200000,OutVal=0.030000),(InVal=0.400000,OutVal=0.050000),(InVal=0.600000,OutVal=0.10000),(InVal=0.800000,OutVal=0.120000),(InVal=1.000000,OutVal=0.16)))
+		YCurve=(Points=(,(InVal=0.100000,OutVal=0.100000),(InVal=0.200000,OutVal=0.25),(InVal=0.400000,OutVal=0.500000),(InVal=0.600000,OutVal=0.600000),(InVal=1.000000,OutVal=1.000000)))
+		XRandFactor=0.100000
+		YRandFactor=0.100000
+		DeclineTime=0.500000
+		DeclineDelay=0.45000
+		ViewBindFactor=0.45
+		CrouchMultiplier=0.800000
 	End Object
 
 	//=================================================================
@@ -104,8 +192,12 @@ defaultproperties
 		SightOffset=(X=5.000000,Y=-7.670000,Z=18.900000)
 		SightPivot=(YAW=10)
 		RecoilParams(0)=RecoilParams'ClassicRecoilParams'
+		RecoilParams(1)=RecoilParams'ClassicIncRecoilParams'
+		RecoilParams(2)=RecoilParams'ClassicCorrosiveRecoilParams'
 		AimParams(0)=AimParams'ClassicAimParams'
 		FireParams(0)=FireParams'ClassicPrimaryFireParams'
+		FireParams(1)=FireParams'ClassicIncPrimaryFireParams'
+		FireParams(2)=FireParams'ClassicCorrosivePrimaryFireParams'
 		AltFireParams(0)=FireParams'ClassicSecondaryFireParams'
 	End Object
 	Layouts(0)=WeaponParams'ClassicParams'

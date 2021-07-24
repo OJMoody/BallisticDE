@@ -92,6 +92,8 @@ defaultproperties
         InventorySize=12
 		SightingTime=0.250000
 		SightOffset=(X=-10.000000,Y=-0.45000,Z=10.720000)
+		WeaponBoneScales(0)=(BoneName="Scope",Slot=15,Scale=0f)
+		WeaponBoneScales(1)=(BoneName="RDS",Slot=17,Scale=1f)
 		RecoilParams(0)=RecoilParams'ArenaRecoilParams'
 		AimParams(0)=AimParams'ArenaAimParams'
 		FireParams(0)=FireParams'ArenaPrimaryFireParams'

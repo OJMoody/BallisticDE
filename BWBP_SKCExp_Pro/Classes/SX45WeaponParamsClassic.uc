@@ -4,7 +4,7 @@ defaultproperties
 {
 
     //=================================================================
-    // PRIMARY FIRE
+    // PRIMARY FIRE - STANDARD
     //=================================================================	
 	
 	
@@ -40,6 +40,70 @@ defaultproperties
 			FireEndAnim=	
 		FireEffectParams(0)=InstantEffectParams'ClassicPrimaryEffectParams'
 		End Object
+		
+	//=================================================================
+	// FIRE PARAMS WEAPON MODE 1 - CRYOGENIC
+	//=================================================================	
+	
+	Begin Object Class=InstantEffectParams Name=ClassicCryoPrimaryEffectParams
+		TraceRange=(Min=4000.000000,Max=4000.000000)
+		RangeAtten=0.3
+		Damage=45
+		HeadMult=1.5f
+		LimbMult=0.5f
+		DamageType=Class'BWBP_SKCExp_Pro.DTSX45Pistol'
+		DamageTypeHead=Class'BWBP_SKCExp_Pro.DTSX45PistolHead'
+		DamageTypeArm=Class'BWBP_SKCExp_Pro.DTSX45Pistol'
+		PenetrateForce=135
+		bPenetrate=True
+		MuzzleFlashClass=Class'BWBP_SKCExp_Pro.SX45FlashEmitter'
+		FlashScaleFactor=0.06
+		FireSound=(Sound=Sound'BWBP_SKC_SoundsExp.SX45.SX45-FrostFire',Volume=1.200000)
+		Recoil=512.000000
+		Chaos=0.250000
+		BotRefireRate=0.750000
+	End Object
+
+	Begin Object Class=FireParams Name=ClassicCryoPrimaryFireParams
+		FireInterval=0.150000
+		FireEndAnim=
+		AimedFireAnim="SightFire"
+		FireAnimRate=1	
+	FireEffectParams(0)=InstantEffectParams'ClassicCryoPrimaryEffectParams'
+	End Object
+	
+	//=================================================================
+	// FIRE PARAMS WEAPON MODE 2 - RADIATION
+	//=================================================================	
+	
+	Begin Object Class=InstantEffectParams Name=ClassicRadPrimaryEffectParams
+		TraceRange=(Min=4000.000000,Max=4000.000000)
+		RangeAtten=0.3
+		Damage=54
+		HeadMult=1.5f
+		LimbMult=0.5f
+		DamageType=Class'BWBP_SKCExp_Pro.DTSX45Pistol'
+		DamageTypeHead=Class'BWBP_SKCExp_Pro.DTSX45PistolHead'
+		DamageTypeArm=Class'BWBP_SKCExp_Pro.DTSX45Pistol'
+		PenetrateForce=135
+		bPenetrate=True
+		MuzzleFlashClass=Class'BWBP_SKCExp_Pro.SX45FlashEmitter'
+		FlashScaleFactor=0.9
+		FireSound=(Sound=Sound'BWBP_SKC_SoundsExp.SX45.SX45-RadFire',Volume=1.200000)
+		Recoil=128.000000
+		Chaos=0.250000
+		BotRefireRate=0.750000
+	End Object
+
+	Begin Object Class=FireParams Name=ClassicRadPrimaryFireParams
+		FireInterval=0.340000
+		FireEndAnim=
+		AimedFireAnim="SightFire"
+		FireAnimRate=1	
+	FireEffectParams(0)=InstantEffectParams'ClassicRadPrimaryEffectParams'
+	End Object
+
+		
 		
 	//=================================================================
 	// RECOIL
@@ -84,10 +148,12 @@ defaultproperties
 		SightMoveSpeedFactor=0.500000
 		SightingTime=0.200000
 		MagAmmo=15
-		SightOffset=(X=-11.000000,Y=-3.650000,Z=16.800000)
+		SightOffset=(y=-3.140000,Z=14.300000)
 		RecoilParams(0)=RecoilParams'ClassicRecoilParams'
 		AimParams(0)=AimParams'ClassicAimParams'
 		FireParams(0)=FireParams'ClassicPrimaryFireParams'
+		FireParams(1)=FireParams'ClassicCryoPrimaryFireParams'
+		FireParams(2)=FireParams'ClassicRadPrimaryFireParams'
 	End Object
 	Layouts(0)=WeaponParams'ClassicParams'
 

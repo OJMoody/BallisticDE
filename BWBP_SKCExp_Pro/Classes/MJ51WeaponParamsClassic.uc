@@ -115,6 +115,10 @@ defaultproperties
 		SightMoveSpeedFactor=0.500000
 		SightingTime=0.200000
 		SightOffset=(X=0.000000,Y=-6.450000,Z=20.500000)
+		WeaponModes(0)=(ModeName="Automatic",ModeID="WM_FullAuto")
+		WeaponModes(1)=(bUnavailable=True)
+		WeaponModes(2)=(bUnavailable=True)
+		WeaponModes(3)=(bUnavailable=True)
 		RecoilParams(0)=RecoilParams'ClassicRecoilParams'
 		AimParams(0)=AimParams'ClassicAimParams'
 		FireParams(0)=FireParams'ClassicPrimaryFireParams'

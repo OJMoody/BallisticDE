@@ -19,7 +19,7 @@ simulated function PlayPreFire()
 {
 	Weapon.AmbientSound = ChargeSound;
 	//if (!BW.bScopeView)
-		BW.SafeLoopAnim('PreFire', 0.15, TweenTime, ,"IDLE");
+		BW.SafeLoopAnim('PreFire', 0.15, TweenTime, ,"FireIDLE");
 }
 
 simulated event ModeDoFire()
@@ -100,18 +100,18 @@ defaultproperties
 {
      ChargeTime=4.000000
      AutoFireTime=5.000000
-     ChargeSound=Sound'BWBP_SKC_SoundsExpX.SkirthBow.SkrithBow-WaveCharge'
-     ChargeFireSound=Sound'BWBP_SKC_SoundsExpX.SkrithBow.SkrithBow-WaveBlast'
-     MaxChargeFireSound=Sound'BWBP_SKC_SoundsExpX.SkrithBow.SkrithBow-WaveBlastMax'
+     ChargeSound=Sound'BWBP_SKC_Sounds.SkirthBow.SkrithBow-BlastCharge'
+     ChargeFireSound=Sound'BWBP_SKC_Sounds.SkrithBow.SkrithBow-WaveBlast'
+     MaxChargeFireSound=Sound'BWBP_SKC_Sounds.SkrithBow.SkrithBow-WaveBlastMax'
 	 bFireOnRelease=True
 	 ProjectileClass=Class'AY90Projectile'
      ProjectileCount=5
 	 AmmoPerFire=5
-    // FireRate=1.000000
-     BallisticFireSound=(Sound=Sound'BWBP_SKC_SoundsExpX.SkirthBow.SkrithBow-WaveFire',Volume=1.700000)
-    // XInaccuracy=2000
+     //FireRate=1.000000
+     BallisticFireSound=(Sound=Sound'BWBP_SKC_Sounds.SkirthBow.SkrithBow-WaveFire',Volume=1.700000)
+     //XInaccuracy=2000
      //YInaccuracy=10
-    // VelocityRecoil=800.000000
+     //VelocityRecoil=800.000000
      SpawnOffset=(X=10.000000,Y=10.000000,Z=-9.000000)
      FireSpreadMode=FSM_Circle
 }
