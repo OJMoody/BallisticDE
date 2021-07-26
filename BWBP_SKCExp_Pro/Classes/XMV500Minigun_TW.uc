@@ -180,6 +180,6 @@ defaultproperties
 	Priority=1
 	PlayerViewOffset=(Y=0.000000)
 	ItemName="[B] XMB-500 Smart Minigun Turret"
-	Mesh=SkeletalMesh'BW_Core_WeaponAnim.FPm_XMV850Turret'
+	Mesh=SkeletalMesh'BWBP_SKC_AnimExp.FPm_XMB501Turret'
 	DrawScale=0.350000
 }
