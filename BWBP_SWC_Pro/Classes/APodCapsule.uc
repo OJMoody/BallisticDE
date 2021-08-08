@@ -49,11 +49,9 @@ exec simulated function WeaponSpecial(optional byte i)
 {
 }
 
-//  CrosshairCfg=(Pic1=Texture'BallisticUI2.Crosshairs.NRP57OutA',Pic2=Texture'BallisticUI2.Crosshairs.NRP57InA',USize1=256,VSize1=256,USize2=256,VSize2=256,Color1=(B=255,R=0,A=128),Color2=(B=200,G=128,R=128,A=212),StartSize1=98,StartSize2=101)
-
 defaultproperties
 {
-     AdrenalineAmount=10.000000
+     AdrenalineAmount=15.000000
      HealSound=Sound'BW_Core_WeaponSound.Health.AdrenalinPickup'
      GrenadeSmokeClass=Class'BallisticProV55.NRP57Trail'
      ClipReleaseSound=(Sound=Sound'BW_Core_WeaponSound.NRP57.NRP57-ClipOut',Volume=0.500000,Radius=48.000000,Pitch=1.000000,bAtten=True)
