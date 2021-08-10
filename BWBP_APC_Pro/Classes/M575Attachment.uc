@@ -37,7 +37,7 @@ simulated Event PostNetBeginPlay()
 		return;
 	if (DirectImpactCount != OldDirectImpactCount)
 	{
-		DoDirectHit(DirectImpact.HitLoc, class'BUtil'.static.ByteToNorm(DirectImpact.HitNorm), DirectImpact.HitSurf);
+		DoDirectHit(0, DirectImpact.HitLoc, class'BUtil'.static.ByteToNorm(DirectImpact.HitNorm), DirectImpact.HitSurf);
 		OldDirectImpactCount = DirectImpactCount;
 	}
 	if (FireCount != OldFireCount)
@@ -61,7 +61,7 @@ simulated Event PostNetBeginPlay()
 }
 
 // Return the location of the muzzle.
-simulated function Vector GetTipLocation()
+simulated function Vector GetModeTipLocation(optional byte Mode)
 {
     local Coords C;
 
@@ -147,7 +147,7 @@ simulated function SpawnTracer(byte Mode, Vector V)
 	if (Mode == 1)
 		return;
 
-	TipLoc = GetTipLocation();
+	TipLoc = GetModeTipLocation();
 	Dist = VSize(V - TipLoc);
 
 	// Count shots to determine if it's time to spawn a tracer
@@ -169,23 +169,23 @@ simulated function SpawnTracer(byte Mode, Vector V)
 			bThisShot=true;					}
 	}
 	// Spawn a tracer
-	if (TracerClass != None && bThisShot && (TracerChance >= 1 || FRand() < TracerChance))
+	if (ModeInfos[Mode].TracerClass != None && bThisShot && (TracerChance >= 1 || FRand() < TracerChance))
 	{
 		if (Dist > 200)
 		{
 			if (FiringMode == 2)
-				Tracer = Spawn(IceTracerClass, self, , TipLoc, Rotator(V - TipLoc));
-			else Tracer = Spawn(TracerClass, self, , TipLoc, Rotator(V - TipLoc));
+				Tracer = ModeInfos[Mode].IceTracerClass, self, , TipLoc, Rotator(V - TipLoc));
+			else Tracer = ModeInfos[Mode].TracerClass, self, , TipLoc, Rotator(V - TipLoc));
 		}
 		if (Tracer != None)
 			Tracer.Initialize(Dist);
 	}
 	// Spawn under water bullet effect
-	if ( Instigator != None && Instigator.PhysicsVolume.bWaterVolume && level.DetailMode == DM_SuperHigh && WaterTracerClass != None &&
+	if ( Instigator != None && Instigator.PhysicsVolume.bWaterVolume && level.DetailMode == DM_SuperHigh && ModeInfos[Mode].WaterTracerClass != None &&
 		 WaterTracerMode != MU_None && (WaterTracerMode == MU_Both || (WaterTracerMode == MU_Secondary && Mode != 0) || (WaterTracerMode == MU_Primary && Mode == 0)))
 	{
 		if (!Instigator.PhysicsVolume.TraceThisActor(WLoc, WNorm, TipLoc, V))
-			Tracer = Spawn(WaterTracerClass, self, , TipLoc, Rotator(WLoc - TipLoc));
+			Tracer = Spawn(ModeInfos[Mode].WaterTracerClass, self, , TipLoc, Rotator(WLoc - TipLoc));
 		if (Tracer != None)
 			Tracer.Initialize(VSize(WLoc - TipLoc));
 	}
@@ -212,13 +212,13 @@ simulated function InstantFireEffects(byte Mode)
 
 		if (WallPenetrates != 0)				{
 			WallPenetrates = 0;
-			DoWallPenetrate(Start, mHitLocation);	}
+			DoWallPenetrate(Mode, Start, mHitLocation);	}
 
 		Dir = Normal(mHitLocation - Start);
 		mHitActor = Trace (HitLocation, mHitNormal, mHitLocation + Dir*10, mHitLocation - Dir*10, false,, HitMat);
 		// Check for water and spawn splash
 		if (ImpactManager!= None && bDoWaterSplash)
-			DoWaterTrace(Start, mHitLocation);
+			DoWaterTrace(Mode, Start, mHitLocation);
 
 		if (mHitActor == None)
 			return;

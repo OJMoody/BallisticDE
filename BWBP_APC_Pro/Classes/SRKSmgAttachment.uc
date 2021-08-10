@@ -1,24 +1,63 @@
 //=============================================================================
-// EP110Attachment.
+// MJ51Attachment.
 //
-// 3rd person weapon attachment for EP110 Bullpup
+// 3rd person weapon attachment for MJ51 Carbine
 //
 // by Nolan "Dark Carnivour" Richert.
 // Copyright(c) 2005 RuneStorm. All Rights Reserved.
 //=============================================================================
-class EP90PDWAttachment extends HandgunAttachment;
+class SRKSmgAttachment extends BallisticAttachment;
 
 var   bool					bLaserOn;	//Is laser currently active
 var   bool					bOldLaserOn;//Old bLaserOn
 var   LaserActor			Laser;		//The laser actor
 var   Rotator				LaserRot;
+var	  BallisticWeapon		myWeap;
+var bool		bGrenadier;
+var bool		bOldGrenadier;
 
 replication
 {
 	reliable if ( Role==ROLE_Authority )
-		bLaserOn;
+		bLaserOn, bGrenadier;
 	unreliable if ( Role==ROLE_Authority )
 		LaserRot;
+}
+
+simulated event PostNetReceive()
+{
+	if (bGrenadier != bOldGrenadier)
+	{
+		bOldGrenadier = bGrenadier;
+		if (bGrenadier)
+			SetBoneScale (0, 1.0, 'Grenade');
+		else
+			SetBoneScale (0, 0.0, 'Grenade');
+	}
+	Super.PostNetReceive();
+}
+
+simulated event PostBeginPlay()
+{
+	super.PostBeginPlay();
+	SetBoneScale (0, 0.0, 'Grenade');
+}
+
+function IAOverride(bool bGrenadier)
+{
+	if (bGrenadier)
+		SetBoneScale (0, 1.0, 'Grenade');
+	else
+		SetBoneScale (0, 0.0, 'Grenade');
+}
+
+
+function InitFor(Inventory I)
+{
+	Super.InitFor(I);
+
+	if (BallisticWeapon(I) != None)
+		myWeap = BallisticWeapon(I);
 }
 
 simulated function Tick(float DT)
@@ -29,18 +68,18 @@ simulated function Tick(float DT)
 
 	Super.Tick(DT);
 
-	if (bLaserOn && Role == ROLE_Authority && Handgun != None)
+	if (bLaserOn && Role == ROLE_Authority && myWeap != None)
 	{
 		LaserRot = Instigator.GetViewRotation();
-		LaserRot += Handgun.GetAimPivot();
-		LaserRot += Handgun.GetRecoilPivot();
+		LaserRot += myWeap.GetAimPivot();
+		LaserRot += myWeap.GetRecoilPivot();
 	}
 
 	if (Level.NetMode == NM_DedicatedServer)
 		return;
 
 	if (Laser == None)
-		Laser = Spawn(class'LaserActor_Third',,,Location);
+		Laser = Spawn(class'BallisticProV55.LaserActor_Third',,,Location);
 
 	if (bLaserOn != bOldLaserOn)
 		bOldLaserOn = bLaserOn;
@@ -63,7 +102,8 @@ simulated function Tick(float DT)
 		Start = Location;
 	X = LaserRot;
 
-	Loc = GetModeTipLocation();
+//	Loc = GetModeTipLocation();
+	Loc = GetBoneCoords('tip').Origin;
 
 	End = Start + (Vector(X)*5000);
 	Other = Trace (HitLocation, HitNormal, End, Start, true);
@@ -85,44 +125,23 @@ simulated function Destroyed()
 	Super.Destroyed();
 }
 
-simulated function InstantFireEffects(byte Mode)
-{
-    if (Mode == 0)
-        ImpactManager = default.ImpactManager;
-    else
-    {
-        ImpactManager = class'IM_EMPRocket';
-    }
-    super.InstantFireEffects(Mode);
-}
-
 defaultproperties
 {
-	 PrePivot=(Z=-3.000000)
-	 FlashScale=0.100000
-	 FlashBone="tip"
-     AltFlashBone="tip"
-     MuzzleFlashClass=Class'BWBP_APC_Pro.EP90PDWFlashEmitter'
-	 AltMuzzleFlashClass=Class'BWBP_APC_Pro.EP90PDWFlashEmitter'
-     ImpactManager=Class'BWBP_APC_Pro.IM_EP90'
-     BrassClass=Class'BallisticProV55.Brass_Pistol'
-     TracerClass=Class'BWBP_APC_Pro.TraceEmitter_Pulse'
-     TracerChance=1.000000
-	 TracerMode=MU_Both
+     MuzzleFlashClass=Class'BallisticProV55.M50FlashEmitter'
+     AltMuzzleFlashClass=Class'BallisticProV55.M50FlashEmitter'
+     ImpactManager=Class'BallisticProV55.IM_Bullet'
+     FlashScale=0.500000
+     BrassClass=Class'BallisticProV55.Brass_Rifle'
      InstantMode=MU_Both
      FlashMode=MU_Both
      LightMode=MU_Both
-     IdleHeavyAnim="RifleHip_Idle"
-     IdleRifleAnim="RifleAimed_Idle"
-     SingleFireAnim="RifleHip_Fire"
-     SingleAimedFireAnim="RifleAimed_Fire"
-     RapidFireAnim="RifleHip_Burst"
-     RapidAimedFireAnim="RifleAimed_Burst"
-	 ReloadAnim="Reload_AR"
-	 CockingAnim="Cock_RearPull"	 
+     TracerClass=Class'BallisticProV55.TraceEmitter_Default'
      WaterTracerClass=Class'BallisticProV55.TraceEmitter_WaterBullet'
      WaterTracerMode=MU_Both
-     FlyBySound=(Sound=Sound'BWBP_SKC_Sounds.LS14.Gauss-FlyBy',Volume=0.700000)
+     FlyBySound=(Sound=SoundGroup'BW_Core_WeaponSound.FlyBys.Bullet-Whizz',Volume=0.700000)
+     bRapidFire=True
      Mesh=SkeletalMesh'BWBP_CC_Anim.EP110_TPm'
-     DrawScale=1.000000
+     RelativeRotation=(Pitch=32768)
+     DrawScale=0.450000
+     PrePivot=(Y=-1.000000,Z=-5.000000)
 }

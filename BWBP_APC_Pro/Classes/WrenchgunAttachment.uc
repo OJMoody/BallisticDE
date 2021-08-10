@@ -35,7 +35,7 @@ simulated event PostNetReceive()
 		
 	if (DirectImpactCount != OldDirectImpactCount)
 	{
-		DoDirectHit(DirectImpact.HitLoc, class'BUtil'.static.ByteToNorm(DirectImpact.HitNorm), DirectImpact.HitSurf);
+		DoDirectHit(0, DirectImpact.HitLoc, class'BUtil'.static.ByteToNorm(DirectImpact.HitNorm), DirectImpact.HitSurf);
 		OldDirectImpactCount = DirectImpactCount;
 	}
 	if (FireCount != OldFireCount)
@@ -130,12 +130,12 @@ simulated function ShotgunFireEffects(byte Mode)
 			mHitActor = Trace (HitLocation, mHitNormal, End, Start, false,, HitMat);
 			if (mHitActor == None)
 			{
-				DoWaterTrace(Start, End);
+				DoWaterTrace(0, Start, End);
 				SpawnTracer(Mode, End);
 			}
 			else
 			{
-				DoWaterTrace(Start, HitLocation);
+				DoWaterTrace(0, Start, HitLocation);
 				SpawnTracer(Mode, HitLocation);
 			}
 
@@ -164,7 +164,7 @@ simulated function SpawnTracer(byte Mode, Vector V)
 	if (Level.DetailMode < DM_High || class'BallisticMod'.default.EffectsDetailMode == 0)
 		return;
 
-	TipLoc = GetTipLocation();
+	TipLoc = GetModeTipLocation();
 	Dist = VSize(V - TipLoc);
 
 	// Count shots to determine if it's time to spawn a tracer
@@ -207,7 +207,7 @@ simulated function SpawnTracer(byte Mode, Vector V)
 }
 
 // Return the location of the muzzle.
-simulated function Vector GetTipLocation()
+simulated function Vector GetModeTipLocation(optional byte Mode)
 {
     local Coords C;
 

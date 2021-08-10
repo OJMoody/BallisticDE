@@ -511,7 +511,7 @@ defaultproperties
 	SelectForce="SwitchToAssaultRifle"
 	AIRating=0.600000
 	CurrentRating=0.6
-	Description="A fine and reliable weapon, produced by a rather new company, the 10mm RS8 pistol is bound for success. Featuring a 14 round, 10mm magazine, laser sight and silencer, as well as an effective closer range, 3-round burst fire mode. Use the laser sight to see exactly where your gun is aimed, and the silencer when stealth and quietness are required. The RS8 being a fairly recent firearm, first manufactured during the second-war, has not seen as much action as other older pistols, and some critics say it won't be able to stand up to a Cryon, let alone a Skrith!"
+	Description="Every weapon has it's pros and cons, the X3 and the RS8 being prime examples. The former being a handy tool in close quarters combat while the latter is decent for stealth and ranged engagements, but when both are used at the same time; it shores up their weaknesses. The X3 can slice and stab through armor for the RS8 to deal better damage while the RS8 can take down targets that are out of the X3’s range.  Elite soldiers of the UTC Commando Corp have started using both weapons in tandem for covert operations that demand the situation to either keep enemies at arms reach or up close and personal."
 	Priority=17
 	HudColor=(B=255,G=200,R=200)
 	CustomCrossHairTextureName="Crosshairs.HUD.Crosshair_Cross1"
@@ -522,7 +522,7 @@ defaultproperties
 	AttachmentClass=Class'BWBP_APC_Pro.RS8X3Attachment'
 	IconMaterial=Texture'BW_Core_WeaponTex.RS8.SmallIcon_RS8'
 	IconCoords=(X2=127,Y2=31)
-	ItemName="[B] RS8X3 Pistol/Knife Combo"
+	ItemName="RS8X3 Pistol/Knife Combo"
 	LightType=LT_Pulse
 	LightEffect=LE_NonIncidence
 	LightHue=30

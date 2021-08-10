@@ -524,7 +524,6 @@ defaultproperties
 	bAltTriggerReload=True
 	WeaponModes(0)=(bUnavailable=True)
 	bNoCrosshairInScope=False
-	SightPivot=(Pitch=450)
 	SightOffset=(X=15.000000,Y=13.575000,Z=22.1000)
 	GunLength=16.000000
 	ParamsClasses(0)=Class'ProtoWeaponParams' 
@@ -554,7 +553,7 @@ defaultproperties
 	AttachmentClass=Class'BWBP_APC_Pro.ProtoAttachment'
 	IconMaterial=Texture'BWBP_SKC_Tex.CYLO.SmallIcon_CYLOMK3'
 	IconCoords=(X2=127,Y2=31)
-	ItemName="[B] Proto SMG"
+	ItemName="[B] FC-01B PROTO SMG"
 	LightType=LT_Pulse
 	LightEffect=LE_NonIncidence
 	LightHue=30
