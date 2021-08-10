@@ -42,7 +42,7 @@ function InitFor(Inventory I)
 		myWeap = BallisticWeapon(I);
 }
 
-simulated function Vector GetTipLocation()
+simulated function Vector GetModeTipLocation()
 {
     local Vector X, Y, Z, Loc;
 
@@ -105,7 +105,7 @@ simulated function Tick(float DT)
 		Start = Location;
 	X = LaserRot;
 
-//	Loc = GetTipLocation();
+//	Loc = GetModeTipLocation();
 	Loc = GetBoneCoords('tip2').Origin;
 
 	End = Start + (Vector(X)*5000);

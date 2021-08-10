@@ -102,7 +102,7 @@ simulated function Destroyed()
 }
 
 
-/*simulated function Vector GetTipLocation()
+/*simulated function Vector GetModeTipLocation()
 {
     local Coords C;
     local Vector X, Y, Z;
