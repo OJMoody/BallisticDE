@@ -174,8 +174,8 @@ simulated function SpawnTracer(byte Mode, Vector V)
 		if (Dist > 200)
 		{
 			if (FiringMode == 2)
-				Tracer = ModeInfos[Mode].IceTracerClass, self, , TipLoc, Rotator(V - TipLoc));
-			else Tracer = ModeInfos[Mode].TracerClass, self, , TipLoc, Rotator(V - TipLoc));
+				Tracer = Spawn(IceTracerClass, self, , TipLoc, Rotator(V - TipLoc));
+			else Tracer = Spawn(ModeInfos[Mode].TracerClass, self, , TipLoc, Rotator(V - TipLoc));
 		}
 		if (Tracer != None)
 			Tracer.Initialize(Dist);

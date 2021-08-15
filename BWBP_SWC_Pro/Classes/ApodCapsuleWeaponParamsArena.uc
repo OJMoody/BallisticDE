@@ -8,7 +8,7 @@ defaultproperties
 	//=================================================================	
 	
 	Begin Object Class=MeleeEffectParams Name=ArenaPrimaryEffectParams
-		Damage=15
+		Damage=0
 	End Object
 		
 	Begin Object Class=FireParams Name=ArenaPrimaryFireParams

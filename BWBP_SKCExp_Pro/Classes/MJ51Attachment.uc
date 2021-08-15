@@ -51,7 +51,6 @@ function IAOverride(bool bGrenadier)
 		SetBoneScale (0, 0.0, 'Grenade');
 }
 
-
 function InitFor(Inventory I)
 {
 	Super.InitFor(I);
@@ -102,7 +101,7 @@ simulated function Tick(float DT)
 		Start = Location;
 	X = LaserRot;
 
-//	Loc = GetTipLocation();
+//	Loc = GetModeTipLocation();
 	Loc = GetBoneCoords('tip2').Origin;
 
 	End = Start + (Vector(X)*5000);
