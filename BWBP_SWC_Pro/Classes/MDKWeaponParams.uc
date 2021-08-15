@@ -12,9 +12,9 @@ defaultproperties
 		Damage=20
 		HeadMult=1.4f
 		LimbMult=0.6f
-		DamageType=Class'BallisticProV55.DTXK2SMG'
-		DamageTypeHead=Class'BallisticProV55.DTXK2SMGHead'
-		DamageTypeArm=Class'BallisticProV55.DTXK2SMG'
+		DamageType=Class'BWBP_SWC_Pro.DTMDKSMG'
+		DamageTypeHead=Class'BWBP_SWC_Pro.DTMDKSMGHead'
+		DamageTypeArm=Class'BWBP_SWC_Pro.DTMDKSMG'
 		PenetrateForce=150
 		bPenetrate=True
 		MuzzleFlashClass=Class'BWBP_SWC_Pro.MDKFlashEmitter'
@@ -27,31 +27,6 @@ defaultproperties
 		FireInterval=0.09000
 		AimedFireAnim="SightFire"	
 		FireEffectParams(0)=InstantEffectParams'ArenaPrimaryEffectParams'
-	End Object
-		
-    //=================================================================
-    // SECONDARY FIRE
-    //=================================================================	
-	
-	Begin Object Class=InstantEffectParams Name=ArenaSecondaryEffectParams
-		RangeAtten=0.200000
-		Damage=14
-		DamageType=Class'BallisticProV55.DTXK2Freeze'
-		DamageTypeHead=Class'BallisticProV55.DTXK2Freeze'
-		DamageTypeArm=Class'BallisticProV55.DTXK2Freeze'
-		PenetrateForce=150
-		bPenetrate=True
-		MuzzleFlashClass=Class'BWBP_SWC_Pro.MDKFlashEmitter'
-		FlashScaleFactor=0.250000
-		Recoil=98.000000
-		Chaos=0.050000
-		FireSound=(Sound=Sound'BW_Core_WeaponSound.A42.A42-Impact',Volume=0.700000,Radius=384.000000,Pitch=1.400000)
-	End Object
-
-	Begin Object Class=FireParams Name=ArenaSecondaryFireParams
-		FireInterval=0.090000
-		AimedFireAnim="SightFire"	
-		FireEffectParams(0)=InstantEffectParams'ArenaSecondaryEffectParams'
 	End Object
 		
 	//=================================================================
@@ -86,7 +61,6 @@ defaultproperties
 	//=================================================================	
 
 	Begin Object Class=WeaponParams Name=ArenaParams
-		//PlayerViewOffset=(X=30.000000,Y=12.000000,Z=-30.000000)
 		SightPivot=(Pitch=16)
 		SightOffset=(X=-10.000000,Y=-0.050000,Z=41.000000)
 		DisplaceDurationMult=0.75
