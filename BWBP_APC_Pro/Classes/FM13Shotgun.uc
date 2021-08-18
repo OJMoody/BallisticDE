@@ -339,6 +339,7 @@ defaultproperties
 	CockSound=(Sound=Sound'BWBP_CC_Sounds.FM13.FM13-Cock')
 	ReloadAnim="ReloadLoop"
 	ReloadAnimRate=1.100000
+	BringUpTime=1.400000
 	ClipInSound=(Sound=Sound'BW_Core_WeaponSound.M763.M763LoadShell1')
 	ClipInFrame=0.375000
 	bCockOnEmpty=True
