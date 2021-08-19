@@ -166,10 +166,10 @@ defaultproperties
 	ParamsClasses(4)=Class'XMV500TW_WeaponParams'
 	FireModeClass(0)=Class'BWBP_SKCExp_Pro.XMV500TW_PrimaryFire'
 	WeaponModes(0)=(ModeName="600 RPM",ModeID="WM_FullAuto")
-    WeaponModes(1)=(ModeName="1200 RPM",ModeID="WM_FullAuto")
-    WeaponModes(2)=(ModeName="2400 RPM",ModeID="WM_FullAuto")
-	WeaponModes(3)=(ModeName="3600 RPM",ModeID="WM_FullAuto")
-	WeaponModes(4)=(ModeName="4800 RPM",ModeID="WM_FullAuto")
+	WeaponModes(1)=(ModeName="1200 RPM",ModeID="WM_FullAuto")
+	WeaponModes(2)=(ModeName="2400 RPM",ModeID="WM_FullAuto")
+	WeaponModes(3)=(ModeName="3600 RPM",ModeID="WM_FullAuto",bUnavailable=True)
+	WeaponModes(4)=(ModeName="4800 RPM",ModeID="WM_FullAuto",bUnavailable=True)
 	SelectAnim="Deploy"
 	SelectAnimRate=1.000000
 	BringUpTime=1.400000
@@ -179,7 +179,6 @@ defaultproperties
 	ClientState=WS_BringUp
 	Priority=1
 	PlayerViewOffset=(Y=0.000000)
-	ItemName="[B] XMB-500 Smart Minigun Turret"
-	Mesh=SkeletalMesh'BWBP_SKC_AnimExp.FPm_XMB501Turret'
+	ItemName="XMB-500 Smart Minigun Turret"
 	DrawScale=0.350000
 }

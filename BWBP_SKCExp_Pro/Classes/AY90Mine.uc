@@ -111,7 +111,7 @@ defaultproperties
      ArmingSound=Sound'BWBP_SKC_Sounds.MARS.MARS-MineAlarm'
      ImpactManager=Class'BWBP_SKCExp_Pro.IM_A73BPower'
      StartDelay=0.300000
-     MyRadiusDamageType=Class'BWBP_SKCExp_Pro.DT_MARSMineDet'
+     MyRadiusDamageType=Class'BWBP_SKC_Pro.DTF2000MineExplode'
      SplashManager=Class'BallisticProV55.IM_ProjWater'
      ShakeRadius=1000.000000
      MotionBlurRadius=384.000000
@@ -120,7 +120,7 @@ defaultproperties
      Damage=150.000000
      DamageRadius=256.000000
      DrawScale=0.500000
-     MyDamageType=Class'BWBP_SKCExp_Pro.DT_MARSMineDet'
+     MyDamageType=Class'BWBP_SKC_Pro.DTF2000MineExplode'
      StaticMesh=StaticMesh'BW_Core_WeaponStatic.DarkStar.DarkProjBig'
      CullDistance=2500.000000
      bNetTemporary=False

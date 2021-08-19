@@ -24,7 +24,7 @@ defaultproperties
 			PDamageFactor=0.6
 			WallPDamageFactor=0.4
 			SpreadMode=FSM_Rectangle
-			MuzzleFlashClass=Class'BallisticProV55.M925FlashEmitter'
+			MuzzleFlashClass=Class'BallisticProV55.M925FlashEmitter_C'
 			FlashScaleFactor=0.500000
 			FireSound=(Sound=SoundGroup'BWBP_SKC_SoundsExp.AR23.AR23-HFire',Volume=1.750000,Slot=SLOT_Interact,bNoOverride=False)
 			Recoil=512.000000
@@ -67,7 +67,7 @@ defaultproperties
 			Recoil=2048.000000
 			Chaos=0.5
 			Inaccuracy=(X=1600,Y=1600)
-			//HipSpreadFactor=1
+			HipSpreadFactor=1
 			BotRefireRate=0.300000
 			WarnTargetPct=0.300000	
 		End Object
@@ -87,7 +87,7 @@ defaultproperties
 
 	Begin Object Class=RecoilParams Name=ClassicRecoilParams
 		//XCurve=(Points=((InVal=0.100000,OutVal=-0.100000),(InVal=0.200000,OutVal=-0.200000),(InVal=0.300000,OutVal=-0.300000),(InVal=0.400000,OutVal=-0.200000),(InVal=0.500000,OutVal=-0.100000),(InVal=0.600000,OutVal=0.000000),(InVal=0.700000,OutVal=0.100000),(InVal=0.800000,OutVal=0.300000),(InVal=1.000000,OutVal=0.500000)))
-		XCurve=(Points=(,(InVal=1.000000,OutVal=1.000000)))
+		//XCurve=(Points=(,(InVal=1.000000,OutVal=1.000000)))
 		XRandFactor=0.200000
 		YRandFactor=0.300000
 		MaxRecoil=2048.000000
@@ -118,8 +118,7 @@ defaultproperties
 		InventorySize=35
 		SightMoveSpeedFactor=0.500000
 		MagAmmo=9
-		SightPivot=(Pitch=-800)
-		SightOffset=(X=-10,Y=-0.000000,Z=15.500000)
+		//SightOffset=(X=5,Y=-8.550000,Z=18.500000)
 		RecoilParams(0)=RecoilParams'ClassicRecoilParams'
 		AimParams(0)=AimParams'ClassicAimParams'
 		FireParams(0)=FireParams'ClassicPrimaryFireParams'

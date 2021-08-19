@@ -50,9 +50,9 @@ defaultproperties
 			TraceRange=(Min=9000.000000,Max=9000.000000)
 			RangeAtten=0.700000
 			Damage=35
-			DamageType=Class'BWBP_SKCExp_Pro.DT_MP40'
-			DamageTypeHead=Class'BWBP_SKCExp_Pro.DT_MP40Head'
-			DamageTypeArm=Class'BWBP_SKCExp_Pro.DT_MP40'
+			DamageType=Class'BWBP_SKCExp_Pro.DT_MP40_Incendiary'
+			DamageTypeHead=Class'BWBP_SKCExp_Pro.DT_MP40Head_Incendiary'
+			DamageTypeArm=Class'BWBP_SKCExp_Pro.DT_MP40_Incendiary'
 			PenetrateForce=150
 			HookStopFactor=0.200000
 			HookPullForce=-10.000000
@@ -78,17 +78,17 @@ defaultproperties
 		Begin Object Class=InstantEffectParams Name=ClassicCorrosivePrimaryEffectParams
 			TraceRange=(Min=9000.000000,Max=9000.000000)
 			RangeAtten=0.700000
-			Damage=20
-			DamageType=Class'BWBP_SKCExp_Pro.DT_MP40'
-			DamageTypeHead=Class'BWBP_SKCExp_Pro.DT_MP40Head'
-			DamageTypeArm=Class'BWBP_SKCExp_Pro.DT_MP40'
+			Damage=22
+			DamageType=Class'BWBP_SKCExp_Pro.DT_MP40_Corrosive'
+			DamageTypeHead=Class'BWBP_SKCExp_Pro.DT_MP40Head_Corrosive'
+			DamageTypeArm=Class'BWBP_SKCExp_Pro.DT_MP40_Corrosive'
 			PenetrateForce=150
 			HookStopFactor=0.200000
 			HookPullForce=-10.000000
 			MuzzleFlashClass=Class'BallisticProV55.A500FlashEmitter'
 			FlashScaleFactor=0.400000
-			FireSound=(Sound=Sound'BWBP_SKC_SoundsExp.MP40.MP40-AcidFire',Volume=1.000000)
-			Recoil=60.000000
+			FireSound=(Sound=Sound'BWBP_SKC_SoundsExp.MP40.MP40-AcidFire',Volume=1.100000)
+			Recoil=70.000000
 			Chaos=0.030000
 		End Object
 

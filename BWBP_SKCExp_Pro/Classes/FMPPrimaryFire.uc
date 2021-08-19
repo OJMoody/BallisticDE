@@ -70,64 +70,24 @@ simulated function SwitchWeaponMode (byte NewMode)
 {
 	if (NewMode == 0) //Standard Fire
 	{
-		BallisticFireSound.Sound=default.BallisticFireSound.sound;
-		BallisticFireSound.Volume=default.BallisticFireSound.Volume;
-		FireRecoil=default.FireRecoil;
-		Damage = default.Damage;
-		DamageType=default.DamageType;
-		DamageTypeHead=default.DamageTypeHead;
-		DamageTypeArm=default.DamageTypeArm;
-		FireRate=Default.FireRate;
-		FlashScaleFactor=default.FlashScaleFactor;
 		RangeAtten=default.RangeAtten;
 		FlashBone=default.FlashBone;
-		FlashScaleFactor=default.FlashScaleFactor;
 	}
 	
 	else if (NewMode == 1) //Incendiary Amp
 	{
-		BallisticFireSound.Sound=AmpRedFireSound;
-		BallisticFireSound.Volume=1.600000;
-		FireRecoil=512.000000;
-		Damage=35.000000;
-		DamageType=Class'DT_MP40_Incendiary';
-		DamageTypeHead=Class'DT_MP40Head_Incendiary';
-		DamageTypeArm=Class'DT_MP40_Incendiary';
-		FireRate=0.235000;
-		FlashScaleFactor=1.100000;
 		RangeAtten=1.000000;
 		FlashBone=default.AmpFlashBone;
-		FlashScaleFactor=AmpFlashScaleFactor;
 	}
 	else if (NewMode == 2) //Corrosive Amp
 	{
-		BallisticFireSound.Sound=AmpGreenFireSound;
-		BallisticFireSound.Volume=1.100000;
-		FireRecoil=70.000000;
-		Damage=22.000000;
-		DamageType=Class'DT_MP40_Corrosive';
-		DamageTypeHead=Class'DT_MP40Head_Corrosive';
-		DamageTypeArm=Class'DT_MP40_Corrosive';
-		FireRate=0.100000;
-		FlashScaleFactor=0.400000;
 		RangeAtten=1.000000;
 		FlashBone=AmpFlashBone;
-		FlashScaleFactor=AmpFlashScaleFactor;
 	}
 	else
 	{
-		BallisticFireSound.Sound=default.BallisticFireSound.sound;
-		BallisticFireSound.Volume=default.BallisticFireSound.Volume;
-		FireRecoil=default.FireRecoil;
-		Damage = default.Damage;
-		DamageType=default.DamageType;
-		DamageTypeHead=default.DamageTypeHead;
-		DamageTypeArm=default.DamageTypeArm;
-		FireRate=Default.FireRate;
-		FlashScaleFactor=default.FlashScaleFactor;
 		RangeAtten=default.RangeAtten;
 		FlashBone=default.FlashBone;
-		FlashScaleFactor=default.FlashScaleFactor;
 	}
 	if (Weapon.bBerserk)
 		FireRate *= 0.75;

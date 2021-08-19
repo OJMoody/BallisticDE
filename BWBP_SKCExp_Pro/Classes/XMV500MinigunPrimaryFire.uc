@@ -27,13 +27,13 @@ var float	NextTVUpdateTime;
 // Sound'BWBP_SKC_Sounds.550.Mini-Fire'
 // SoundGroup'BWBP_SKC_Sounds.550.Mini_Fire-2'
 // SoundGroup'BWBP_SKC_Sounds.550.Mini_Fire-3'
-// Sound'BW_Core_WeaponSound.XMV-850.XMV-ClipIn'
-// Sound'BW_Core_WeaponSound.XMV-850.XMV-ClipOut'
+// Sound'BallisticSounds2.XMV-850.XMV-ClipIn'
+// Sound'BallisticSounds2.XMV-850.XMV-ClipOut'
 // Sound'BWBP_SKC_Sounds.550.Mini_Rotor'
 // Sound'BWBP_SKC_Sounds.550.Mini_Down'
 // Sound'BWBP_SKC_Sounds.550.Mini_Up'
-// Sound'BW_Core_WeaponSound.XMV-850.XMV-Deploy'
-// Sound'BW_Core_WeaponSound.XMV-850.XMV-UnDeploy'
+// Sound'BallisticSounds2.XMV-850.XMV-Deploy'
+// Sound'BallisticSounds2.XMV-850.XMV-UnDeploy'
 
 //Do the spread on the client side
 
@@ -297,7 +297,7 @@ function DoFireEffect()
 	if (!AllowFire() || XMV500Minigun(Weapon).bRunOffsetting)
 	{
 		if (Instigator != None)
-			Instigator.TakeDamage(Rand(2), Instigator, Instigator.Location, -Vector(Instigator.GetViewRotation())*4000, class'DTXMV500MG');
+			Instigator.TakeDamage(Rand(2), Instigator, Instigator.Location, -Vector(Instigator.GetViewRotation())*4000, class'DTXMVCHEAT');
 	}
 
 }
@@ -355,7 +355,7 @@ simulated event ModeDoFire()
 	if (!AllowFire() || XMV500Minigun(Weapon).bRunOffsetting)
 	{
 	if (Instigator != None)
-		Instigator.TakeDamage(2, Instigator, Instigator.Location, -Vector(Instigator.GetViewRotation())*4000, class'DTXMV500MG');
+		Instigator.TakeDamage(2, Instigator, Instigator.Location, -Vector(Instigator.GetViewRotation())*4000, class'DTXMVCHEAT');
 	}
 
 	BW.bNeedReload = BW.MayNeedReload(ThisModeNum, ConsumedLoad);
@@ -382,7 +382,12 @@ defaultproperties
 {
 	TraceCount=3
 	TraceRange=(Min=12000.000000,Max=15000.000000)
+	//WaterRangeFactor=0.800000
+	//MaxWallSize=40.000000
+	//MaxWalls=3
 	Damage=35
+	//DamageHead=52
+	//DamageLimb=17
 	SplashDamage=2
 	SplashDamageRadius=64
 	RangeAtten=0.500000
@@ -393,9 +398,15 @@ defaultproperties
 	KickForce=2500
 	PenetrateForce=125
 	bPenetrate=True
+	//MuzzleFlashClass=Class'BallisticProV55.XMV850FlashEmmiter'
 	FlashScaleFactor=0.800000
 	BrassClass=Class'BallisticProV55.Brass_Minigun'
 	BrassOffset=(X=-50.000000,Y=-8.000000,Z=5.000000)
+	//RecoilPerShot=40.000000
+	//VelocityRecoil=15.000000
+	//FireChaos=0.000850
+	//XInaccuracy=64.000000
+	//YInaccuracy=64.000000
 	BallisticFireSound=(Sound=SoundGroup'BWBP_SKC_SoundsExp.550.Mini-Fire',Slot=SLOT_Interact,bNoOverride=False)
 	bPawnRapidFireAnim=True
 	TweenTime=0.000000

@@ -32,6 +32,12 @@ var() name		MiscBone2;
 var() name		MiscBone3;
 var() name		MiscBone4;
 
+// Barrel rotation
+var   float DesiredSpeed, BarrelSpeed;
+var   int	BarrelTurn;
+var() Sound BarrelSpinSound;
+var() Sound BarrelStopSound;
+var() Sound BarrelStartSound;
 
 replication
 {
@@ -151,22 +157,57 @@ simulated event RenderOverlays (Canvas Canvas)
 // Heat Junk
 simulated event Tick (float DT)
 {
-	super.Tick(DT);
-	if (FireMode[1].bIsFiring)
+	local float OldBarrelTurn;
+
+	if (FireMode[1].IsFiring())
 	{
+		BarrelSpeed = BarrelSpeed + FClamp(0.2 - BarrelSpeed, -0.2*DT, 0.4*DT);
+		BarrelTurn += BarrelSpeed * 655360 * DT;
 		CoolRate = 0;
 		bIsCharging = true;
 	}
-	else 
+	else if (BarrelSpeed > 0)
+	{
+		BarrelSpeed = FMax(BarrelSpeed-0.1*DT, 0.01);
+		OldBarrelTurn = BarrelTurn;
+		BarrelTurn += BarrelSpeed * 655360 * DT;
+		if (BarrelSpeed <= 0.025 && int(OldBarrelTurn/10922.66667) < int(BarrelTurn/10922.66667))
+		{
+			BarrelTurn = int(BarrelTurn/10922.66667) * 10922.66667;
+			BarrelSpeed = 0;
+			PlaySound(BarrelStopSound, SLOT_None, 0.5, , 32, 1.0, true);
+			AmbientSound = None;
+		}
+		CoolRate = default.CoolRate;
+		bIsCharging = false;
+	}
+	else
 	{
 		CoolRate = default.CoolRate;
 		bIsCharging = false;
 	}
+	if (BarrelSpeed > 0)
+	{
+		AmbientSound = BarrelSpinSound;
+		SoundPitch = 32 + 96 * BarrelSpeed;
+	}
+
+	//if (ThirdPersonActor != None)
+	//	XMV850MinigunAttachment(ThirdPersonActor).BarrelSpeed = BarrelSpeed;
+
     Heat = FMax(0, Heat - CoolRate*DT);
+	
+	super.Tick(DT);
+}
 
-   	if (level.Netmode == NM_DedicatedServer)
-		Heat = 0;
+simulated event WeaponTick (float DT)
+{
+	local rotator BT;
 
+	BT.Roll = BarrelTurn;
+	SetBoneRotation('BarrelArray', BT);
+
+	super.WeaponTick(DT);
 }
 
 simulated function float RateSelf()
@@ -276,6 +317,9 @@ simulated function float ChargeBar()
 
 defaultproperties
 {
+     BarrelSpinSound=Sound'BW_Core_WeaponSound.XMV-850.XMV-BarrelSpinLoop'
+     BarrelStopSound=Sound'BW_Core_WeaponSound.XMV-850.XMV-BarrelStop'
+     BarrelStartSound=Sound'BW_Core_WeaponSound.XMV-850.XMV-BarrelStart'
 	 ChargeRate=2.400000
 	 CoolRate=1.0
      bShowChargingBar=True
@@ -318,8 +362,8 @@ defaultproperties
      FullZoomFOV=5.000000
 	 ZoomType=ZT_Logarithmic
      //bNoMeshInScope=True
-     SightPivot=(Pitch=600,Roll=-1024)
-     SightOffset=(X=18.000000,Y=-8.500000,Z=22.000000)
+     //SightPivot=(Pitch=600,Roll=-1024)
+     SightOffset=(X=0.000000,Y=2.900000,Z=16.000000)
      //CrosshairCfg=(Pic1=Texture'BallisticUI2.Crosshairs.A73InA',pic2=Texture'BallisticUI2.Crosshairs.Misc5',USize1=256,VSize1=256,USize2=256,VSize2=256,Color1=(B=255,G=255,R=255,A=192),Color2=(B=0,G=0,R=133,A=124),StartSize1=50,StartSize2=47)     GunLength=80.000000
      //CrouchAimFactor=0.600000
      //SprintOffSet=(Pitch=-1000,Yaw=-2048)
@@ -348,7 +392,7 @@ defaultproperties
      CustomCrossHairTextureName="Crosshairs.HUD.Crosshair_Cross1"
      InventoryGroup=9
      PickupClass=Class'BWBP_SKCExp_Pro.LS440Pickup'
-     PlayerViewOffset=(X=-5.000000,Y=12.000000,Z=-15.000000)
+     PlayerViewOffset=(X=5.000000,Y=10.000000,Z=-12.000000)
      BobDamping=1.800000
      AttachmentClass=Class'BWBP_SKCExp_Pro.LS440Attachment'
      IconMaterial=Texture'BWBP_SKC_TexExp.LS440M.SmallIcon_LS440'
@@ -360,13 +404,13 @@ defaultproperties
      LightSaturation=150
      LightBrightness=150.000000
      LightRadius=5.000000
-     Mesh=SkeletalMesh'BWBP_SKC_Anim.FPm_LS14'
+     Mesh=SkeletalMesh'BWBP_SKC_AnimExp.FPm_LS440'
      DrawScale=0.300000
      UsedAmbientSound=Sound'BW_Core_WeaponSound.M75.M75Hum'
      bFullVolume=True
      SoundVolume=255
      SoundRadius=256.000000
-     Skins(0)=Shader'BallisticWeapons2.Hands.Hands-Shiny'
-     Skins(1)=Shader'BWBP_SKC_TexExp.LS440M.LS440_SD'
-     Skins(2)=Combiner'BWBP_SKC_Tex.M30A2.M30A2-GunScope'
+     //Skins(0)=Shader'BallisticWeapons2.Hands.Hands-Shiny'
+     //Skins(1)=Shader'BWBP_SKC_TexExp.LS440M.LS440_SD'
+     //Skins(2)=Combiner'BWBP_SKC_Tex.M30A2.M30A2-GunScope'
 }

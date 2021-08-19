@@ -1,7 +1,7 @@
 //=============================================================================
 // DTXMVCHEAT.
 //
-// Damage type for cheaters who fire at high speeds while moving.
+// Damage type for people who fire at high speeds while moving.
 //
 // by Nolan "Dark Carnivour" Richert.
 // Copyright(c) 2006 RuneStorm. All Rights Reserved.

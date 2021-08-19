@@ -160,7 +160,7 @@ defaultproperties
      AmbientSound=Sound'BW_Core_WeaponSound.A73.A73ProjFly'
      LifeSpan=6.000000
      MyDamageType=Class'BWBP_SKC_Pro.DTBulldogFRAG'
-	 //Physics=PHYS_Falling
+//     Physics=PHYS_Falling
      DrawScale3D=(X=0.500000,Y=1.000000,Z=1.000000)
      DrawScale=0.500000
      Style=STY_Additive

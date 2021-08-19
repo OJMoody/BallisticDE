@@ -85,7 +85,7 @@ defaultproperties
 		SightMoveSpeedFactor=0.500000
 		SightingTime=0.150000
 		MagAmmo=18
-		SightOffset=(X=-16.000000,Y=-2.110000,Z=9.00000)
+		SightOffset=(X=-5.000000,Y=-2.850000,Z=12.700000)
 		RecoilParams(0)=RecoilParams'ClassicRecoilParams'
 		AimParams(0)=AimParams'ClassicAimParams'
 		FireParams(0)=FireParams'ClassicPrimaryFireParams'

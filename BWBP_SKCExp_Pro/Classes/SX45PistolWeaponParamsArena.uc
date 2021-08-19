@@ -44,9 +44,9 @@ defaultproperties
 		Damage=28
 		HeadMult=1.5f
 		LimbMult=0.5f
-		DamageType=Class'BWBP_SKCExp_Pro.DTSX45Pistol'
-		DamageTypeHead=Class'BWBP_SKCExp_Pro.DTSX45PistolHead'
-		DamageTypeArm=Class'BWBP_SKCExp_Pro.DTSX45Pistol'
+		DamageType=Class'BWBP_SKCExp_Pro.DTSX45Pistol_Cryo'
+		DamageTypeHead=Class'BWBP_SKCExp_Pro.DTSX45PistolHead_Cryo'
+		DamageTypeArm=Class'BWBP_SKCExp_Pro.DTSX45Pistol_Cryo'
 		PenetrateForce=135
 		bPenetrate=True
 		MuzzleFlashClass=Class'BWBP_SKCExp_Pro.SX45FlashEmitter'
@@ -75,9 +75,9 @@ defaultproperties
 		Damage=22
 		HeadMult=1.5f
 		LimbMult=0.5f
-		DamageType=Class'BWBP_SKCExp_Pro.DTSX45Pistol'
-		DamageTypeHead=Class'BWBP_SKCExp_Pro.DTSX45PistolHead'
-		DamageTypeArm=Class'BWBP_SKCExp_Pro.DTSX45Pistol'
+		DamageType=Class'BWBP_SKCExp_Pro.DTSX45Pistol_RAD'
+		DamageTypeHead=Class'BWBP_SKCExp_Pro.DTSX45PistolHead_RAD'
+		DamageTypeArm=Class'BWBP_SKCExp_Pro.DTSX45Pistol_RAD'
 		PenetrateForce=135
 		bPenetrate=True
 		MuzzleFlashClass=Class'BWBP_SKCExp_Pro.SX45FlashEmitter'

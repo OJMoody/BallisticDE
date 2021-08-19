@@ -10,11 +10,11 @@ class Ammo_MinigunINC extends BallisticAmmo;
 
 defaultproperties
 {
-     MaxAmmo=800
-     InitialAmount=0
+     MaxAmmo=1600
+     InitialAmount=400
      IconFlashMaterial=Shader'BW_Core_WeaponTex.Icons.AmmoIcon_MinigunFlash'
      PickupClass=Class'BWBP_SKCExp_Pro.AP_XMV500Ammo'
-     IconMaterial=Texture'BW_Core_WeaponTex.Icons.AmmoIcon_MinigunBelt'
+     IconMaterial=Texture'BWBP_SKC_TexExp.XMV500.AmmoIcon_MinigunInc'
      IconCoords=(X2=63,Y2=63)
      ItemName="7.62mm Incendiary Minigun Rounds"
 }

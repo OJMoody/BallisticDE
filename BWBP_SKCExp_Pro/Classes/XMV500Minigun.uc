@@ -30,16 +30,18 @@ class XMV500Minigun extends BallisticWeapon;
 #exec OBJ LOAD FILE=BW_Core_WeaponTex.utx
 #exec OBJ LOAD FILE=BWBP_SKC_Tex.utx
 
-var   float 	DesiredSpeed, BarrelSpeed;
-var   int		BarrelTurn;
-var() sound		BarrelSpinSound;
-var() Sound 	BarrelStopSound;
-var() Sound 	BarrelStartSound;
-var() Sound 	DeploySound;
-var() Sound 	UndeploySound;
-var   bool 		bRunOffsetting;
-var() rotator 	RunOffset;
+
+var   float DesiredSpeed, BarrelSpeed;
+var   int	BarrelTurn;
+var() sound BarrelSpinSound;
+var() Sound BarrelStopSound;
+var() Sound BarrelStartSound;
+var() Sound DeploySound;
+var() Sound UndeploySound;
+var   bool bRunOffsetting;
+var() rotator RunOffset;
 var	  float   	RotationSpeeds[5];
+
 
 var   bool			bLaserOn;
 
@@ -358,12 +360,12 @@ simulated event Tick (float DT)
 
 	if (FireMode[0].IsFiring())
 	{
-		BarrelSpeed = BarrelSpeed + FClamp(DesiredSpeed - BarrelSpeed, -0.2*DT, 0.5*DT);
+		BarrelSpeed = BarrelSpeed + FClamp(DesiredSpeed - BarrelSpeed, -0.2*DT, 0.65*DT);
 		BarrelTurn += BarrelSpeed * 655360 * DT;
 	}
 	else if (BarrelSpeed > 0)
 	{
-		BarrelSpeed = FMax(BarrelSpeed-0.3*DT, 0.01);
+		BarrelSpeed = FMax(BarrelSpeed-0.075*DT, 0.01);
 		OldBarrelTurn = BarrelTurn;
 		BarrelTurn += BarrelSpeed * 655360 * DT;
 		if (BarrelSpeed <= 0.025 && int(OldBarrelTurn/10922.66667) < int(BarrelTurn/10922.66667))
@@ -377,32 +379,11 @@ simulated event Tick (float DT)
 	if (BarrelSpeed > 0)
 	{
 		AmbientSound = BarrelSpinSound;
-		SoundPitch = 32 + 96 * (BarrelSpeed / RotationSpeeds[4]);
+		SoundPitch = 32 + 96 * BarrelSpeed;
 	}
 
 	if (ThirdPersonActor != None)
 		XMV500MinigunAttachment(ThirdPersonActor).BarrelSpeed = BarrelSpeed;
-}
-
-// takes more time to reach higher speeds
-// this is unrealistic because miniguns are electric with extremely powerful motors and provide constant torque,
-// but do you really want the xmv to spin up to 4800rpm instantly? I for one don't
-simulated function float GetRampUpSpeed()
-{
-    local float mult;
-    
-    mult = 1 - (BarrelSpeed / RotationSpeeds[4]);
-    
-    return 0.075f + (0.5f * Square(mult) * (1 + 0.25*int(bBerserk)));
-    
-    /*
-    if (BarrelSpeed < RotationSpeeds[0])
-        return 0.5f;
-        
-    mult = ((BarrelSpeed - RotationSpeeds[0]) / (RotationSpeeds[4] - RotationSpeeds[0])); 
-    
-    return 0.5f - (0.47f * mult * mult); 
-    */
 }
 
 //TODO: Set az crosshair to red or something
@@ -654,23 +635,22 @@ defaultproperties
      ClipInFrame=0.650000
      bNonCocking=True
 	 bShowChargingBar=True
-	 
      WeaponModes(0)=(ModeName="600 RPM",ModeID="WM_FullAuto")
      WeaponModes(1)=(ModeName="1200 RPM",ModeID="WM_FullAuto")
      WeaponModes(2)=(ModeName="2400 RPM",ModeID="WM_FullAuto")
-	 WeaponModes(3)=(ModeName="3600 RPM",ModeID="WM_FullAuto")
-	 WeaponModes(4)=(ModeName="4800 RPM",ModeID="WM_FullAuto")
-	 
-	 RotationSpeeds(0)=0.16 // 600 RPM - 600 revolutions per minute x 6 shots
-	 RotationSpeeds(1)=0.33 // 1200 RPM - 1200 revolutions per minute x 6 shots
-     RotationSpeeds(2)=0.66  // 2400 RPM - 2400 revolutions per minute x 6 shots
+	 WeaponModes(3)=(ModeName="3600 RPM",ModeID="WM_FullAuto",bUnavailable=True)
+	 WeaponModes(4)=(ModeName="4800 RPM",ModeID="WM_FullAuto",bUnavailable=True)
+	 RotationSpeeds(0)=0.2 // 600 RPM - 600 revolutions per minute x 6 shots (0.16)
+	 RotationSpeeds(1)=0.4 // 1200 RPM - 1200 revolutions per minute x 6 shots (0.33)
+     RotationSpeeds(2)=0.7  // 2400 RPM - 2400 revolutions per minute x 6 shots (0.66)
 	 RotationSpeeds(3)=1.00  // 3600 RPM - 3600 revolutions per minute x 6 shots
 	 RotationSpeeds(4)=1.32  // 4800 RPM - 4800 revolutions per minute x 6 shots
-	 
-     CurrentWeaponMode=1
+     CurrentWeaponMode=0
+     SightPivot=(Pitch=700,Roll=2048)
+     SightOffset=(X=8.000000,Z=28.000000)
      SightDisplayFOV=50.000000
-	 ParamsClasses(0)=Class'XMV500WeaponParams'
-	 ParamsClasses(1)=Class'XMV500WeaponParamsClassic'
+	ParamsClasses(0)=Class'XMV500WeaponParams'
+	ParamsClasses(1)=Class'XMV500WeaponParamsClassic'
      FireModeClass(0)=Class'BWBP_SKCExp_Pro.XMV500MinigunPrimaryFire'
      FireModeClass(1)=Class'BWBP_SKCExp_Pro.XMV500MinigunSecondaryFire'
      SelectAnimRate=0.750000
@@ -682,10 +662,13 @@ defaultproperties
      Description="XMB-500 Smart Minigun|Manuacturer: Enravion Combat Solutions|Primary: Auto fire||The XMB-500 Personal Suppression System is a prototype weapon being developed by Enravion as a low-recoil, precision minigun. The XMB-500 has been designed for ease of use with infantry and boasts firerates of 600 to 2400 RPM; combined with the potent incendiary rounds, the accurate XMB-500 is perfect for cutting down large amounts of enemy troops. This weapon has excellent accuracy when stationary but unfortunately cannot be fired safely at the higher speeds while moving. To prevent damage to the user and the weapon, the XMB-500 will automatically lock when mobile at cyclic speeds over 600 RPM. It should be noted that the speed sensor will malfunction if submerged in liquid or not properly cared for."
      DisplayFOV=52.000000
      Priority=48
+     //CustomCrossHairColor=(A=219)
+     //CustomCrossHairScale=1.008803
+     //CustomCrossHairTextureName="Crosshairs.HUD.Crosshair_Cross1"
      InventoryGroup=6
      GroupOffset=3
      PickupClass=Class'BWBP_SKCExp_Pro.XMV500Pickup'
-     PlayerViewOffset=(X=15.000000,Y=13.000000,Z=-18.000000)
+     PlayerViewOffset=(X=5.000000,Y=0.000000,Z=-30.000000)
      BobDamping=1.400000
      AttachmentClass=Class'BWBP_SKCExp_Pro.XMV500MinigunAttachment'
      IconMaterial=Texture'BWBP_SKC_TexExp.XMV500.SmallIcon_XMV500'

@@ -64,57 +64,21 @@ simulated function SwitchWeaponMode (byte NewMode)
 {
 	if (NewMode == 0) //Standard Fire
 	{
-		BallisticFireSound.Sound=default.BallisticFireSound.Sound;
-		BallisticFireSound.Volume=default.BallisticFireSound.Volume;
-		FireRecoil=default.FireRecoil;
-		Damage = default.Damage;
-		DamageType=default.DamageType;
-		DamageTypeHead=default.DamageTypeHead;
-		DamageTypeArm=default.DamageTypeArm;
-		FireRate=Default.FireRate;
-		FlashScaleFactor=default.FlashScaleFactor;
 		FlashBone=FlashBone;
 		RangeAtten=default.RangeAtten;
 	}
 	else if (NewMode == 1) //Cryo Amp
 	{
-		BallisticFireSound.Sound=Amp1FireSound.Sound;
-		BallisticFireSound.Volume=1.000000;
-		FireRecoil=512.000000;
-		Damage=28.000000;
-		DamageType=class'DTSX45Pistol_Cryo';
-		DamageTypeHead=class'DTSX45PistolHead_Cryo';
-		DamageTypeArm=class'DTSX45Pistol_Cryo';
-		FireRate=0.235000;
-		FlashScaleFactor=default.FlashScaleFactor*0.070000;
 		FlashBone=AmpFlashBone;
 		RangeAtten=1.000000;
 	}
 	else if (NewMode == 2) //RAD Amp
 	{
-		BallisticFireSound.Sound=Amp2FireSound.Sound;
-		BallisticFireSound.Volume=1.300000;
-		FireRecoil=128.000000;
-		Damage=22.000000;
-		DamageType=class'DTSX45Pistol_RAD';
-		DamageTypeHead=class'DTSX45PistolHead_RAD';
-		DamageTypeArm=class'DTSX45Pistol_RAD';
-		FireRate=0.550000;
-		//FlashScaleFactor=FlashScaleFactor*0.750000;
 		FlashBone=AmpFlashBone;
 		RangeAtten=1.000000;
 	}
 	else
 	{
-		BallisticFireSound.Sound=default.BallisticFireSound.sound;
-		BallisticFireSound.Volume=default.BallisticFireSound.Volume;
-		FireRecoil=default.FireRecoil;
-		Damage = default.Damage;
-		DamageType=default.DamageType;
-		DamageTypeHead=default.DamageTypeHead;
-		DamageTypeArm=default.DamageTypeArm;
-		FireRate=Default.FireRate;
-		FlashScaleFactor=default.FlashScaleFactor;
 		FlashBone=FlashBone;
 		RangeAtten=default.RangeAtten;
 	}
