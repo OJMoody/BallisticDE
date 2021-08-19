@@ -324,7 +324,7 @@ defaultproperties
      AttachmentClass=Class'BWBP_APC_Pro.R9000EAttachment'
      IconMaterial=Texture'BW_Core_WeaponTex.Icons.SmallIcon_R78'
      IconCoords=(X2=127,Y2=31)
-     ItemName="R9000-E 'Chimera' Modular Sniper Rifle"
+     ItemName="[B] R9000-E 'Chimera' Modular Sniper Rifle"
      LightType=LT_Pulse
      LightEffect=LE_NonIncidence
      LightHue=30

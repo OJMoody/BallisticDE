@@ -123,6 +123,9 @@ defaultproperties
 		MagAmmo=6
         InventorySize=12
         ZoomType=ZT_Logarithmic
+		WeaponModes(0)=(ModeName="Semi-Automatic")
+		WeaponModes(1)=(ModeName="Incendiary")
+		WeaponModes(2)=(ModeName="Radiation")
         RecoilParams(0)=RecoilParams'ArenaRecoilParams'
         AimParams(0)=AimParams'ArenaAimParams'
 		FireParams(0)=FireParams'ArenaPrimarySTDFireParams'

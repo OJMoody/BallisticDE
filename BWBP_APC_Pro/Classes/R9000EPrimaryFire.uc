@@ -64,17 +64,17 @@ function TryPlague(Actor Other)
     
     if (AllowPlague(Other))
     {
-        foreach Other.BasedActors(class'R9000EPlagueEffect', RPE)
+		foreach Other.BasedActors(class'R9000EPlagueEffect', RPE)
         {
             RPE.ExtendDuration(2);
         }
         if (RPE == None)
         {
-            RPE = Spawn(class'R9000EPlagueEffect',Other,,Other.Location);// + vect(0,0,-30));
+			RPE = Spawn(class'R9000EPlagueEffect',Other,,Other.Location);// + vect(0,0,-30));
             RPE.Initialize(Other);
             if (Instigator!=None)
             {
-                RPE.Instigator = Instigator;
+				RPE.Instigator = Instigator;
                 RPE.InstigatorController = Instigator.Controller;
             }
         }

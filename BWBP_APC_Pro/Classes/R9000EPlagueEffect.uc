@@ -78,6 +78,7 @@ event Tick (float DT)
 
 event Timer()
 {
+	// THIS DOESNT RUN FOR SOME REASON
 	if (bTearOff)
 		Destroy();
 		
