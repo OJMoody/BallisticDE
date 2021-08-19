@@ -118,7 +118,8 @@ function PlayFiring()
 defaultproperties
 {
      SMuzzleFlashClass=Class'BWBP_SWC_Pro.MDKSilencedFlash'
-     SFlashBone="tip2"
+     SFlashBone="tip"
+	 FlashBone="tip2"
      SFlashScaleFactor=1.000000
 	 
      CutOffDistance=2048.000000
@@ -154,7 +155,7 @@ defaultproperties
      BallisticFireSound=(Sound=Sound'BW_Core_WeaponSound.XK2.XK2-Fire',Volume=0.500000,Radius=384.000000)
      bPawnRapidFireAnim=True
      FireRate=0.09000
-     AmmoClass=Class'BallisticProV55.Ammo_9mm'
+     AmmoClass=Class'BWBP_SWC_Pro.Ammo_MDK9mm'
      ShakeRotMag=(X=64.000000,Y=32.000000)
      ShakeRotRate=(X=10000.000000,Y=10000.000000,Z=10000.000000)
      ShakeRotTime=2.000000

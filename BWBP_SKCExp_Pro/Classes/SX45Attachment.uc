@@ -122,7 +122,7 @@ simulated function InstantFireEffects(byte Mode)
 	local Vector HitLocation, Dir, Start;
 	local Material HitMat;
 
-	if (InstantMode == MU_None || (InstantMode == MU_Secondary && Mode == 0) || (InstantMode == MU_Primary && Mode != 0))
+	if (!ModeInfos[Mode].bInstant)
 		return;
 	if (mHitLocation == vect(0,0,0))
 		return;
@@ -138,13 +138,13 @@ simulated function InstantFireEffects(byte Mode)
 
 		if (WallPenetrates != 0)				{
 			WallPenetrates = 0;
-			DoWallPenetrate(Start, mHitLocation);	}
+			DoWallPenetrate(Mode, Start, mHitLocation);	}
 
 		Dir = Normal(mHitLocation - Start);
 		mHitActor = Trace (HitLocation, mHitNormal, mHitLocation + Dir*10, mHitLocation - Dir*10, false,, HitMat);
 		// Check for water and spawn splash
 		if (ImpactManager!= None && bDoWaterSplash)
-			DoWaterTrace(Start, mHitLocation);
+			DoWaterTrace(Mode, Start, mHitLocation);
 
 		if (mHitActor == None)
 			return;
@@ -161,7 +161,7 @@ simulated function InstantFireEffects(byte Mode)
 		HitLocation = mHitLocation;
 
 	if (level.NetMode != NM_Client && ImpactManager!= None && WaterHitLocation != vect(0,0,0) && bDoWaterSplash && Level.DetailMode >= DM_High && class'BallisticMod'.default.EffectsDetailMode > 0)
-		ImpactManager.static.StartSpawn(WaterHitLocation, Normal((Instigator.Location + Instigator.EyePosition()) - WaterHitLocation), 9, Instigator);
+		ModeInfos[Mode].ImpactManager.static.StartSpawn(WaterHitLocation, Normal((Instigator.Location + Instigator.EyePosition()) - WaterHitLocation), 9, Instigator);
 	if (mHitActor == None || (!mHitActor.bWorldGeometry && Mover(mHitActor) == None && Vehicle(mHitActor) == None))
 		return;
 		
@@ -170,7 +170,7 @@ simulated function InstantFireEffects(byte Mode)
 	else if (ImpactManagerAmp2 != None && bAmped && bAmp2)
 		ImpactManagerAmp2.static.StartSpawn(HitLocation, mHitNormal, mHitSurf, instigator);
 	else if (ImpactManager != None)
-		ImpactManager.static.StartSpawn(HitLocation, mHitNormal, mHitSurf, instigator);
+		ModeInfos[Mode].ImpactManager.static.StartSpawn(HitLocation, mHitNormal, mHitSurf, instigator);
 }
 
 // Spawn a tracer and water tracer
@@ -184,7 +184,7 @@ simulated function SpawnTracer(byte Mode, Vector V)
 	if (Level.DetailMode < DM_High || class'BallisticMod'.default.EffectsDetailMode == 0)
 		return;
 
-	TipLoc = GetTipLocation();
+	TipLoc = GetModeTipLocation(Mode);
 	Dist = VSize(V - TipLoc);
 
 	// Count shots to determine if it's time to spawn a tracer

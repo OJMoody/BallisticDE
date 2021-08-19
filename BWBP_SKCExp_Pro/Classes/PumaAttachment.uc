@@ -17,7 +17,6 @@ replication
        		PumaShieldEffect3rd;
 }
 
-
 //Do your camo changes here
 
 simulated function Destroyed()

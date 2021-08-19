@@ -16,8 +16,6 @@ replication
 		bLightsOn;
 }
 
-
-
 simulated function Hide(bool NewbHidden)
 {
 	super.Hide(NewbHidden);
@@ -116,13 +114,6 @@ simulated function Destroyed()
 	KillProjector();
 	super.Destroyed();
 }
-
-
-//simulated event ThirdPersonEffects()
-//{
-//	SetBoneScale (0, 0.0, 'Silencer');
-//	super.ThirdPersonEffects();
-//}
 
 defaultproperties
 {

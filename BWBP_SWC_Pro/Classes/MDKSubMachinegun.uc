@@ -13,6 +13,13 @@
 //=============================================================================
 class MDKSubMachinegun extends BallisticWeapon;
 
+var		bool		bScopeOn, bScopeAnimEnded;
+var() 	name		ScopeOnAnim, ScopeOffAnim;
+var() 	Material 	ScopeScopeViewTex;
+var() sound			ScopeOnSound;		// Scope stuck on sound
+var() sound			ScopeOffSound;		//
+var() name			ScopeBone;			// Bone to use for hiding Scope
+
 var   bool		bSilenced;				// Silencer on. Silenced
 var() name		SilencerBone;			// Bone to use for hiding silencer
 var() name		SilencerOnAnim;			// Think hard about this one...
@@ -25,21 +32,98 @@ var() sound		SilencerOffTurnSound;	//
 var int				IceCharge;
 var float			LastChargeTime;
 
+var float LastRangeFound, LastStabilityFound, StealthRating, StealthImps, ZRefHeight;
+
 const ChargeInterval = 0.5;
 
 replication
 {
 	reliable if (Role < ROLE_Authority)
 		ServerSwitchSilencer;
-	reliable if (Role == ROLE_Authority)
-		IceCharge;
 }
 
 simulated function PostNetBeginPlay()
 {
-	SetBoneScale(2, 0.0, 'Scope');
-	SetBoneScale(3, 0.0, 'Silencer');
+	if (bScopeOn)
+		SetBoneScale(2, 1.0, ScopeBone);
+	else
+		SetBoneScale(2, 0.0, ScopeBone);
+		
+	bScopeAnimEnded = True;
+	SetScopeProperties();
 	super.PostNetBeginPlay();
+}
+
+simulated function AnimEnded (int Channel, name anim, float frame, float rate)
+{
+	if (Anim == ScopeOffAnim || Anim == ScopeOnAnim)
+	{
+		if (Role == ROLE_Authority)
+			bServerReloading=False;
+			
+		bScopeAnimEnded = True;
+		SetScopeProperties();
+	}
+		
+	super.AnimEnded(Channel, anim, frame, rate);
+}
+
+function ServerSwitchScopeType(bool bNewScope)
+{
+	SwitchScopeType(bNewScope);
+}
+
+simulated function SwitchScopeType(bool bNewScope)
+{
+	if (bNewScope == bScopeOn)
+		return;
+	
+	if (Role == ROLE_Authority)
+		bServerReloading=True;
+	
+	TemporaryScopeDown(0.5);
+	ReloadState = RS_GearSwitch;
+	
+	bScopeAnimEnded = False;
+	bScopeOn = bNewScope;
+	
+	SetBoneScale(2, 1.0, ScopeBone);
+	
+	if (bNewScope)
+		PlayAnim(ScopeOnAnim);
+	else
+		PlayAnim(ScopeOffAnim);
+}
+
+simulated function SetScopeProperties()
+{
+	if (bScopeOn)
+	{
+		ZoomType = ZT_Fixed;
+		SightingTime = 0.6;
+		ScopeViewTex = ScopeScopeViewTex;
+		FullZoomFOV = 50;
+		//SightOffset=(X=-10.000000,Y=-0.050000,Z=49.000000);
+	}
+	else
+	{
+		ZoomType = ZT_Irons;
+		ScopeViewTex = None;
+		SightingTime = default.SightingTime;
+		//SightOffset=(X=-10.000000,Y=-0.050000,Z=41.000000);
+	}
+}
+
+exec simulated function ScopeSpecial(optional byte i)
+{
+	if (ReloadState != RS_None || Clientstate != WS_ReadyToFire || SightingState != SS_None)
+		return;
+		
+	TemporaryScopeDown(0.5);
+	
+	if (Level.NetMode == NM_Client)
+		ServerSwitchScopeType(!bScopeOn);
+	SwitchScopeType(!bScopeOn);
 }
 
 simulated function WeaponTick(float DT)
@@ -53,11 +137,6 @@ simulated function WeaponTick(float DT)
 	}
 }
 
-simulated function float ChargeBar()
-{
-	return IceCharge/20.0f;
-}
-
 simulated function PlayCocking(optional byte Type)
 {
 	if (Type == 2)
@@ -68,76 +147,139 @@ simulated function PlayCocking(optional byte Type)
 
 function ServerSwitchSilencer(bool bNewValue)
 {
+	if (bNewValue == bSilenced)
+		return;
+		
 	bSilenced = bNewValue;
 	SwitchSilencer(bSilenced);
 	bServerReloading=True;
 	ReloadState = RS_GearSwitch;
+	BFireMode[0].bAISilent = bSilenced;
 	
 	MDKPrimaryFire(BFireMode[0]).SetSilenced(bNewValue);
 }
 
-
 exec simulated function WeaponSpecial(optional byte i)
 {
-	if (BCRepClass.default.GameStyle != 1)
-		return;
 	if (ReloadState != RS_None || SightingState != SS_None)
 		return;
-	if (Clientstate != WS_ReadyToFire)
-		return;
+
 	TemporaryScopeDown(0.5);
 	bSilenced = !bSilenced;
 	ServerSwitchSilencer(bSilenced);
 	SwitchSilencer(bSilenced);
-	ReloadState = RS_GearSwitch;
-}
 
+	StealthImpulse(0.1);
+}
 
 simulated function SwitchSilencer(bool bNewValue)
 {
+	if (Role == ROLE_Authority)
+		bServerReloading = True;
+	ReloadState = RS_GearSwitch;
+	
 	if (bNewValue)
 		PlayAnim(SilencerOnAnim);
 	else
 		PlayAnim(SilencerOffAnim);
+
+	OnSuppressorSwitched();
 }
-simulated function Notify_SilencerOn()
+
+simulated function StealthImpulse(float Amount)
+{
+	if (Instigator.IsLocallyControlled())
+		StealthImps = FMin(1.0, StealthImps + Amount);
+}
+
+simulated function OnSuppressorSwitched()
+{
+	if (bSilenced)
+	{
+		ApplySuppressorAim();
+		SightingTime *= 1.25;
+	}
+	else
+	{
+		AimComponent.Recalculate();
+		SightingTime = default.SightingTime;
+	}
+}
+
+simulated function ApplySuppressorAim()
+{
+	AimComponent.AimSpread.Min *= 1.25;
+	AimComponent.AimSpread.Max *= 1.25;
+}
+
+simulated function Notify_SilencerAdd()
 {
 	PlaySound(SilencerOnSound,,0.5);
 }
+
 simulated function Notify_SilencerOnTurn()
 {
 	PlaySound(SilencerOnTurnSound,,0.5);
 }
-simulated function Notify_SilencerOff()
+
+simulated function Notify_SilencerRemove()
 {
 	PlaySound(SilencerOffSound,,0.5);
 }
+
 simulated function Notify_SilencerOffTurn()
 {
 	PlaySound(SilencerOffTurnSound,,0.5);
 }
+
 simulated function Notify_SilencerShow()
 {
 	SetBoneScale (0, 1.0, SilencerBone);
 }
+
 simulated function Notify_SilencerHide()
 {
 	SetBoneScale (0, 0.0, SilencerBone);
 }
+
+simulated function Notify_ScopeShow()
+{
+	SetBoneScale (1, 1.0, ScopeBone);
+}
+
+simulated function Notify_ScopeHide()
+{
+	SetBoneScale (1, 0.0, ScopeBone);
+}
+
+simulated function Notify_ScopeAdd()
+{
+	PlaySound(ScopeOnSound,,0.5);
+}
+
+simulated function Notify_ScopeRemove()
+{
+	PlaySound(ScopeOffSound,,0.5);
+}
+
 simulated function BringUp(optional Weapon PrevWeapon)
 {
 	Super.BringUp(PrevWeapon);
 
-	/*
 	if (AIController(Instigator.Controller) != None)
 		bSilenced = (FRand() > 0.5);
-	*/
 
 	if (bSilenced)
 		SetBoneScale (0, 1.0, SilencerBone);
 	else
 		SetBoneScale (0, 0.0, SilencerBone);
+		
+	if (bScopeOn)
+		SetBoneScale(2, 1.0, ScopeBone);
+	else
+		SetBoneScale(2, 0.0, ScopeBone);
 }
+
 simulated function PlayReload()
 {
 	if (MagAmmo < 1)
@@ -149,7 +291,13 @@ simulated function PlayReload()
 		SetBoneScale (0, 1.0, SilencerBone);
 	else
 		SetBoneScale (0, 0.0, SilencerBone);
+		
+	if (bScopeOn)
+		SetBoneScale(2, 1.0, ScopeBone);
+	else
+		SetBoneScale(2, 0.0, ScopeBone);	
 }
+
 simulated function Notify_ClipOutOfSight()
 {
 	SetBoneScale (1, 1.0, 'Bullet');
@@ -204,6 +352,13 @@ function float SuggestDefenseStyle()	{	return -0.6;	}
 
 defaultproperties
 {
+	ScopeOnAnim="ScopeOn"
+    ScopeOffAnim="ScopeOff"
+	ScopeBone="Scope"
+	ScopeOnSound=Sound'BW_Core_WeaponSound.XK2.XK2-SilenceOn'
+	ScopeOffSound=Sound'BW_Core_WeaponSound.XK2.XK2-SilenceOff'
+	ScopeScopeViewTex=Texture'BWBP_OP_Tex.M575.M575Scope'
+	BScopeOn=False
 	bSilenced=True
 	SilencerBone="Silencer"
 	SilencerOnAnim="SilencerOn"
@@ -248,8 +403,7 @@ defaultproperties
 	FireModeClass(0)=Class'BWBP_SWC_Pro.MDKPrimaryFire'
 	FireModeClass(1)=Class'BWBP_SWC_Pro.MDKSecondaryFire'
 	SelectForce="SwitchToAssaultRifle"
-	bShowChargingBar=True
-	Description="Yet another high quality weapon by Black & Wood, the MDK is a lightweight, suppressed sub-machinegun. It has a fast rate of fire, but its low velocity bullets make it less dangerous than other weapons. However, these low velocity rounds do allow the weapon to be easily silenced, turning it into an effective stealth weapon, used by many law enforcement organisations, and Black-Ops military units alike. The weapon's high rate of fire, and quick reload times, means that the soldier can pump out rounds quicker than even the M353, making it very useful for cover-fire."
+	Description="Primary: 9mm Fire||Alt Add/Remove Scope/Silencer||The MDK Modular SMG was created to fill a variety of roles, featuring different rates of fire and varying degrees of accuracy and power to go with them. Though it is fairly compact compared to larger guns, it is quite heavy and cannot be dual-wielded. Black & Wood saw particularly high sales among soldiers and law enforcement officers on fringe colonies that had previously been attacked by the Skrith, as it fills a variety of roles that would normally require multiple weapons."
 	DisplayFOV=55.000000
 	Priority=32
 	HudColor=(B=100,G=150,R=50)
@@ -261,7 +415,7 @@ defaultproperties
 	AttachmentClass=Class'BWBP_SWC_Pro.MDKAttachment'
 	IconMaterial=Texture'BWBP_SWC_Tex.Icons.SmallIcon_MDK'
 	IconCoords=(X2=127,Y2=31)
-	ItemName="[B] MDK Modular Machine Pistol"
+	ItemName="[B] MDK-0331 Modular Machine Uzi"
 	LightType=LT_Pulse
 	LightEffect=LE_NonIncidence
 	LightHue=30

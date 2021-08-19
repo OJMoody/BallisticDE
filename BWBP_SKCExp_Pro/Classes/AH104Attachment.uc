@@ -88,7 +88,7 @@ simulated function FlyByEffects(byte Mode, Vector HitLoc)
 	if (FlyByMode == MU_None || (FlyByMode == MU_Secondary && Mode == 0) || (FlyByMode == MU_Primary && Mode != 0))
 		return;
 
-	TipLoc = GetTipLocation();
+	TipLoc = GetModeTipLocation();
 	if (level.GetLocalPlayerController().ViewTarget != None)
 		ViewLoc = level.GetLocalPlayerController().ViewTarget.Location;
 	else
@@ -163,7 +163,7 @@ simulated function FlameFireEffects()
 		class'BUtil'.static.InitMuzzleFlash (MuzzleFlash, MuzzleFlashClass, DrawScale*FlashScale, self, FlashBone);
 
 	if (Flame == None)
-		Flame = Spawn(class'RX22ASpray',Instigator,,GetTipLocation(), rotator(mHitLocation - GetTipLocation()));
+		Flame = Spawn(class'RX22ASpray',Instigator,,GetModeTipLocation(), rotator(mHitLocation - GetModeTipLocation()));
 		
 	if (Instigator.IsFirstPerson())
 	{}
@@ -171,7 +171,7 @@ simulated function FlameFireEffects()
 	else
 	{
 		Flame.bHidden = false;
-		Flame.SetLocation(GetTipLocation());
+		Flame.SetLocation(GetModeTipLocation());
 		Flame.SetRotation(Rotator(mHitLocation - Flame.Location));
 	}
 	
@@ -257,7 +257,7 @@ simulated function Tick(float DT)
 		Start = Location;
 	X = LaserRot;
 
-	Loc = GetTipLocation();
+	Loc = GetModeTipLocation();
 
 	End = Start + (Vector(X)*5000);
 	Other = Trace (HitLocation, HitNormal, End, Start, true);

@@ -199,12 +199,12 @@ simulated function MinigunShotEffects(rotator Aim, byte Mode)
 	T = Trace(HitLoc, HitNorm, End, Start, false,,HitMat);
 	if (T == None)
 	{
-		DoWaterTrace(Start, End);
+		DoWaterTrace(Mode, Start, End);
 		SpawnTracer(Mode, End);
 	}
 	else
 	{
-		DoWaterTrace(Start, HitLoc);
+		DoWaterTrace(Mode, Start, HitLoc);
 		SpawnTracer(Mode, HitLoc);
 	}
 	if (T == None || (!T.bWorldGeometry && Mover(T) == None))

@@ -635,7 +635,7 @@ defaultproperties
      LaserOffSound=Sound'BWBP_SKC_Sounds.AH104.AH104-SightOff'
      PlayerSpeedFactor=0.750000
      PlayerJumpFactor=0.750000
-     TeamSkins(0)=(RedTex=Shader'BW_Core_WeaponTex.Hands.RedHand-Shiny',BlueTex=Shader'BW_Core_WeaponTex.Hands.BlueHand-Shiny',SkinNum=1)
+     TeamSkins(0)=(RedTex=Shader'BW_Core_WeaponTex.Hands.RedHand-Shiny',BlueTex=Shader'BW_Core_WeaponTex.Hands.BlueHand-Shiny',SkinNum=0)
      AIReloadTime=4.000000
      BigIconMaterial=Texture'BWBP_SKC_TexExp.XMV500.BigIcon_XMV500'
      BCRepClass=Class'BallisticProV55.BallisticReplicationInfo'
@@ -668,8 +668,6 @@ defaultproperties
 	 RotationSpeeds(4)=1.32  // 4800 RPM - 4800 revolutions per minute x 6 shots
 	 
      CurrentWeaponMode=1
-     SightPivot=(Pitch=700,Roll=2048)
-     SightOffset=(X=8.000000,Z=28.000000)
      SightDisplayFOV=50.000000
 	 ParamsClasses(0)=Class'XMV500WeaponParams'
 	 ParamsClasses(1)=Class'XMV500WeaponParamsClassic'
@@ -687,7 +685,7 @@ defaultproperties
      InventoryGroup=6
      GroupOffset=3
      PickupClass=Class'BWBP_SKCExp_Pro.XMV500Pickup'
-     PlayerViewOffset=(X=5.000000,Y=0.000000,Z=-30.000000)
+     PlayerViewOffset=(X=15.000000,Y=13.000000,Z=-18.000000)
      BobDamping=1.400000
      AttachmentClass=Class'BWBP_SKCExp_Pro.XMV500MinigunAttachment'
      IconMaterial=Texture'BWBP_SKC_TexExp.XMV500.SmallIcon_XMV500'
@@ -699,7 +697,7 @@ defaultproperties
      LightSaturation=150
      LightBrightness=150.000000
      LightRadius=4.000000
-     Mesh=SkeletalMesh'BWBP_SKC_AnimExp.FPm_XMB500'
+     Mesh=SkeletalMesh'BWBP_SKC_AnimExp.FPm_XMB501'
      DrawScale=0.600000
      SoundRadius=128.000000
 }
