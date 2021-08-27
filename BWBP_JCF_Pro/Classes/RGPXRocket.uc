@@ -1,7 +1,7 @@
 //=============================================================================
-// G5Rocket.
+// RGPXRocket.
 //
-// Rocket projectile for the G5 RPG.
+// Rocket projectile for the RGPX RPG.
 //
 // by Nolan "Dark Carnivour" Richert.
 // Copyright(c) 2005 RuneStorm. All Rights Reserved.
@@ -114,17 +114,17 @@ defaultproperties
      ImpactSounds(3)=Sound'XEffects.Impact3'
      ImpactSounds(4)=Sound'XEffects.Impact1'
      ImpactSounds(5)=Sound'XEffects.Impact2'
-	 ImpactDamage=100.000000
+	 ImpactDamage=70.000000
 	 ArmedImpactDamage=150.000000
      ImpactMomentumTransfer=60000.000000
-     ImpactDamageType=Class'BallisticProV55.DTG5Unarmed'
-     ArmingDelay=0.200000
-     ImpactManager=Class'BallisticProV55.IM_RPG'
+     ImpactDamageType=Class'BWBP_JCF_Pro.DTRGPXUnarmed'
+     ArmingDelay=0.050000
+     ImpactManager=Class'BWBP_JCF_Pro.IM_RGPX'
      bRandomStartRotation=False
      AccelSpeed=5000.000000
-     TrailClass=Class'BallisticProV55.G5RocketTrail'
+     TrailClass=Class'BWBP_JCF_Pro.RGPXRocketTrail'
      TrailOffset=(X=-14.000000)
-     MyRadiusDamageType=Class'BallisticProV55.DTG5BazookaRadius'
+     MyRadiusDamageType=Class'BWBP_JCF_Pro.DTRGPXBazookaRadius'
      SplashManager=Class'BallisticProV55.IM_ProjWater'
      ShakeRadius=378.000000
      MotionBlurRadius=512.000000
@@ -137,7 +137,7 @@ defaultproperties
      DamageRadius=768.000000
      WallPenetrationForce=384
      MomentumTransfer=75000.000000
-     MyDamageType=Class'BallisticProV55.DTG5Bazooka'
+     MyDamageType=Class'BWBP_JCF_Pro.DTRGPXBazooka'
      LightType=LT_Steady
      LightEffect=LE_QuadraticNonIncidence
      LightHue=25

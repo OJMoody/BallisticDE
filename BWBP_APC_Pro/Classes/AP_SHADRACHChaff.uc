@@ -47,12 +47,12 @@ simulated function Destroyed()
 defaultproperties
 {
      AltAmmoClass=Class'BWBP_APC_Pro.SHADRACHPickup'
-     AmmoAmount=60
+     AmmoAmount=108
      InventoryType=Class'BWBP_APC_Pro.Ammo_45APC'
-     PickupMessage="You got two 30 round 5.56mm CAP magazines"
+     PickupMessage="You got two 108 round 10mm HV magazines"
      PickupSound=Sound'BW_Core_WeaponSound.Ammo.ClipPickup'
-     StaticMesh=StaticMesh'BWBP_SKC_StaticExp.MJ51.M4MagazinePickup'
-     DrawScale=0.550000
+     StaticMesh=StaticMesh'BWBP_CC_Static.SPXSmg.SPXSmg_Mag'
+     DrawScale=0.100000
      PrePivot=(Z=5.000000)
      CollisionRadius=8.000000
      CollisionHeight=5.200000

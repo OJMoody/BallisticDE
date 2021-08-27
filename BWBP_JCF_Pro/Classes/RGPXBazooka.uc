@@ -263,7 +263,7 @@ defaultproperties
 	ParamsClasses(0)=Class'RGPXWeaponParams'
 	ParamsClasses(1)=Class'RGPXWeaponParams'
 	FireModeClass(0)=Class'BWBP_JCF_Pro.RGPXPrimaryFire'
-	FireModeClass(1)=Class'BWBP_JCF_Pro.RGPXPrimaryFire'
+	FireModeClass(1)=Class'BWBP_JCF_Pro.RGPXSecondaryFire'
 	SelectAnimRate=0.900000
 	PutDownAnimRate=0.900000
 	PutDownTime=1.600000
@@ -271,7 +271,7 @@ defaultproperties
 	SelectForce="SwitchToAssaultRifle"
 	AIRating=0.800000
 	CurrentRating=0.800000
-	Description="RPG-7 Anti-Tank Launcher||Manufacturer: Classic Weapons Industries|Primary: Powerful Rocket Fire|Secondary: Iron Sights||Ah, the RPG-7. The arch enemy of armored columns ever since its pre-war inception. The RPG-7 is a portable, shoulder mounted, anti-tank rocket propelled grenade launcher with a rugged, reliable design and a high powered warhead. While its anti-tank warhead may not be as accurate as the guidable G5's or as powerful as the SM-AT/AA's, it can still devastate infantry and disable lightly armored vehicles."
+	Description="Every country on Earth has their own way to deal with the looming Skrith threat, ZTV Exports has several eastern offerings to combat the foriegn invaders from beyond the stars.  While most of them have armor penetrating capabilities, not a lot of them can tackle heavy threats like the Cryons, suffering several defeats at the hands of the mechanical behemoths. Looking back at their history, ZTV managed to unearth some old RGP-7's and modified them into the new RGX-350 HV Flak Bazooka.  While it doesn't have much explosive prowess, the blast has been known to disorient Cyron troops, stunning them long enough for them to be exposed to getting flaked by it's secondary function. It's a devastating weapon, even some brave ZTV Rocket Soldats have been insane enough to get in close and unleash a storm of flak, reducing the enemy to scraps."
 	Priority=44
 	HudColor=(B=0,G=150,R=255)
 	CustomCrossHairTextureName="Crosshairs.HUD.Crosshair_Cross1"

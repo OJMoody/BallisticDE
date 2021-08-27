@@ -12,8 +12,8 @@ defaultproperties
 		Speed=5000.000000
 		MaxSpeed=17500.000000
 		AccelSpeed=18000.000000
-		Damage=20
-		DamageRadius=500.000000
+		Damage=80
+		DamageRadius=356.000000
 		MomentumTransfer=100000.000000
 		MuzzleFlashClass=Class'BWBP_JCF_Pro.RGPXFlashEmitter'
 		FlashScaleFactor=0.250000
@@ -36,13 +36,13 @@ defaultproperties
     //=================================================================	
 	
 	Begin Object Class=ProjectileEffectParams Name=ArenaSecondaryEffectParams
-		ProjectileClass=Class'BWBP_JCF_Pro.RGPXRocket'
+		ProjectileClass=Class'BWBP_JCF_Pro.RGPXFlakGrenade'
 		SpawnOffset=(X=10.000000,Y=10.000000,Z=-3.000000)
-		Speed=5000.000000
-		MaxSpeed=17500.000000
+		Speed=1800.000000
+		MaxSpeed=3000.000000
 		AccelSpeed=18000.000000
-		Damage=20
-		DamageRadius=500.000000
+		Damage=40
+		DamageRadius=520.000000
 		MomentumTransfer=100000.000000
 		MuzzleFlashClass=Class'BWBP_JCF_Pro.RGPXFlashEmitter'
 		FlashScaleFactor=0.250000
@@ -56,7 +56,8 @@ defaultproperties
 	Begin Object Class=FireParams Name=ArenaSecondaryFireParams
 		FireInterval=0.700000
 		FireEndAnim=	
-		AimedFireAnim="SightFire"
+		FireAnim="FireAlt"
+		AimedFireAnim="SightFireAlt"
 		FireEffectParams(0)=ProjectileEffectParams'ArenaSecondaryEffectParams'
 	End Object
 		

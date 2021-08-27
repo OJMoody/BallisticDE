@@ -1,5 +1,5 @@
 //=============================================================================
-// RGPXRocketTrail.
+// G5RocketTrail.
 //
 // by Nolan "Dark Carnivour" Richert.
 // Copyright(c) 2005 RuneStorm. All Rights Reserved.
@@ -28,7 +28,7 @@ defaultproperties
          SpinCCWorCW=(Z=1.000000)
          SpinsPerSecondRange=(Z=(Min=1.000000,Max=3.000000))
          StartSpinRange=(X=(Min=0.500000,Max=0.500000))
-         StartSizeRange=(X=(Min=0.200000,Max=0.300000),Y=(Min=0.100000,Max=0.100000),Z=(Min=0.100000,Max=0.100000))
+         StartSizeRange=(X=(Min=0.400000,Max=0.600000),Y=(Min=0.200000,Max=0.200000),Z=(Min=0.200000,Max=0.200000))
          InitialParticlesPerSecond=50000.000000
          DrawStyle=PTDS_Brighten
          SecondsBeforeInactive=0.000000
@@ -68,6 +68,7 @@ defaultproperties
          FadeOutStartTime=0.200000
          CoordinateSystem=PTCS_Relative
          MaxParticles=1
+         DetailMode=DM_High
          StartLocationOffset=(X=-15.000000)
          StartSizeRange=(X=(Min=40.000000,Max=80.000000))
          InitialParticlesPerSecond=50000.000000

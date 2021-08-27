@@ -21,8 +21,6 @@ simulated event ModeDoFire()
 		return;
 		
 	super.ModeDoFire();
-    
-
 }
 
 defaultproperties
@@ -32,6 +30,7 @@ defaultproperties
      Damage=26.000000
      RangeAtten=0.900000
      WaterRangeAtten=0.700000
+	 BurstFireRateFactor=0.9
      DamageType=Class'BWBP_APC_Pro.DTSRKSmg'
      DamageTypeHead=Class'BWBP_APC_Pro.DTSRKSmgHead'
      DamageTypeArm=Class'BWBP_APC_Pro.DTSRKSmgLimb'

@@ -1,5 +1,5 @@
 //=============================================================================
-// MJ51Carbine.
+// SRK SMG.
 //
 // Medium range, controllable 3-round burst carbine.
 // Lacks power and accuracy at range, but is easier to aim
@@ -11,16 +11,11 @@ class SRKSubMachinegun extends BallisticWeapon;
 
 var() bool		bFirstDraw;
 var() name		GrenadeLoadAnim;	//Anim for grenade reload
-var()   bool		bLoaded;
-
+var() bool		bLoaded;
 
 var() name		GrenBone;			
 var() Sound		GrenSlideSound;		//Sounds for grenade reloading
-var() Sound		ClipInSoundEmpty;		//			
-
-var name			BulletBone;
-var name			BulletBone2;
-
+var() Sound		ClipInSoundEmpty;	//
 
 static function class<Pickup> RecommendAmmoPickup(int Mode)
 {
@@ -79,17 +74,6 @@ function GiveTo(Pawn Other, optional Pickup Pickup)
 	
 	if ( Instigator.FindInventoryType(class'BCGhostWeapon') != None ) //ghosts are scary
 	return;
-
-	/*if(Instigator.FindInventoryType(class'BWBP_APC_Pro.SHADRACHGrenadeWeapon')!=None )
-	{
-		W = Spawn(class'BWBP_APC_Pro.SHADRACHGrenadeWeapon',,,Instigator.Location);
-		if( W != None)
-		{
-			W.GiveTo(Instigator);
-			W.ConsumeAmmo(0, 9999, true);
-			W.ConsumeAmmo(1, 9999, true);
-		}
-	}*/
 }
 simulated event AnimEnd (int Channel)
 {
@@ -97,15 +81,6 @@ simulated event AnimEnd (int Channel)
     local float frame, rate;
 
     GetAnimParams(0, anim, frame, rate);
-
-	if (Anim == 'Fire' || Anim == 'ReloadEmpty')
-	{
-		if (MagAmmo - BFireMode[0].ConsumedLoad < 2)
-		{
-			SetBoneScale(2,0.0,BulletBone);
-			SetBoneScale(3,0.0,BulletBone2);
-		}
-	}
 	super.AnimEnd(Channel);
 }
 
@@ -125,18 +100,7 @@ simulated function BringUp(optional Weapon PrevWeapon)
 	}
 	if (!bLoaded)
 	{
-		SetBoneScale (0, 0.0, GrenBone);
-	}
-	if (MagAmmo - BFireMode[0].ConsumedLoad < 1)
-	{
-
-		SetBoneScale(2,0.0,BulletBone);
-		SetBoneScale(3,0.0,BulletBone2);
-		ReloadAnim = 'ReloadEmpty';
-	}
-	else
-	{
-		ReloadAnim = 'Reload';
+		SetBoneScale (5, 0.0, GrenBone);
 	}
 	super.BringUp(PrevWeapon);
 }
@@ -146,7 +110,7 @@ simulated function bool PutDown()
 
 	if (!bLoaded)
 	{
-		SetBoneScale (0, 0.0, GrenBone);
+		SetBoneScale (5, 0.0, GrenBone);
 	}
 
 	if (super.PutDown())
@@ -166,34 +130,15 @@ simulated function LoadGrenade()
 		PlayAnim(GrenadeLoadAnim, 1.1, , 0);
 }
 
-// Animation notify for when the clip is stuck in
-simulated function Notify_ClipUp()
-{
-	SetBoneScale(2,1.0,BulletBone);
-	SetBoneScale(3,1.0,BulletBone2);
-}
-
-simulated function Notify_ClipOut()
-{
-	Super.Notify_ClipOut();
-
-	if(MagAmmo < 1)
-	{
-		SetBoneScale(2,0.0,BulletBone);
-		SetBoneScale(3,0.0,BulletBone2);
-	}
-}
-
-
 // Notifys for greande loading sounds
-simulated function Notify_GrenVisible()	{	SetBoneScale (0, 1.0, GrenBone); ReloadState = RS_PreClipOut;}
+simulated function Notify_GrenVisible()	{	SetBoneScale (5, 1.0, GrenBone); ReloadState = RS_PreClipOut;}
 simulated function Notify_GrenSlide()	{	PlaySound(GrenSlideSound, SLOT_Misc, 2.2, ,64);	}
 simulated function Notify_GrenLoaded()	
 {
     	local Inventory Inv;
 
-	MJ51Attachment(ThirdPersonActor).bGrenadier=true;	
-	MJ51Attachment(ThirdPersonActor).IAOverride(True);
+	SRKSmgAttachment(ThirdPersonActor).bGrenadier=true;	
+	SRKSmgAttachment(ThirdPersonActor).IAOverride(True);
 
 	Ammo[1].UseAmmo (1, True);
 	if (Ammo[1].AmmoAmount == 0)
@@ -209,32 +154,11 @@ simulated function Notify_GrenLoaded()
 simulated function Notify_GrenReady()	{	ReloadState = RS_None; bLoaded = true;	}
 simulated function Notify_GrenLaunch()	
 {
-	SetBoneScale (0, 0.0, GrenBone); 	
-	MJ51Attachment(ThirdPersonActor).IAOverride(False);
-	MJ51Attachment(ThirdPersonActor).bGrenadier=false;
+	SetBoneScale (5, 0.0, GrenBone); 	
+	SRKSmgAttachment(ThirdPersonActor).IAOverride(False);
+	SRKSmgAttachment(ThirdPersonActor).bGrenadier=false;
 }
-simulated function Notify_GrenInvisible()	{ SetBoneScale (1, 0.0, GrenBone);	}
-
-
-/*simulated function PlayReload()
-{
-
-    if (MagAmmo < 1)
-    {
-       ReloadAnim='ReloadEmpty';
-       ClipHitSound.Sound=ClipInSoundEmpty;
-    }
-    else
-    {
-       ReloadAnim='Reload';
-       ClipHitSound.Sound=default.ClipHitSound.Sound;
-    }
-	if (!bLoaded)
-	{
-		SetBoneScale (0, 0.0, GrenBone);
-	}
-	SafePlayAnim(ReloadAnim, ReloadAnimRate, , 0, "RELOAD");
-}*/
+simulated function Notify_GrenInvisible()	{ SetBoneScale (5, 0.0, GrenBone);	}
 
 simulated function IndirectLaunch()
 {
@@ -351,8 +275,6 @@ defaultproperties
      GrenBone="Grenade"
      GrenSlideSound=Sound'BWBP_SKC_SoundsExp.MJ51.MJ51-GrenLock'
      ClipInSoundEmpty=Sound'BWBP_SKC_SoundsExp.MJ51.MJ51-MagInEmpty'
-     BulletBone="Bullet1"
-     BulletBone2="Bullet2"
      SpecialInfo(0)=(Info="240.0;20.0;0.9;75.0;0.8;0.7;0.2")
      AIReloadTime=1.000000
      BCRepClass=Class'BallisticProV55.BallisticReplicationInfo'
@@ -363,16 +285,16 @@ defaultproperties
      WeaponModes(0)=(ModeName="Semi-Auto")
      WeaponModes(1)=(ModeName="Burst Fire")
      WeaponModes(2)=(bUnavailable=True)
-     WeaponModes(3)=(ModeName="Automatic",ModeID="WM_FullAuto")
+     WeaponModes(3)=(ModeName="Automatic",ModeID="WM_FullAuto",bUnavailable=True)
      CurrentWeaponMode=1
      bNoCrosshairInScope=True
      SightOffset=(X=-20.000000,Y=-0.350000,Z=15.800000)
      SightDisplayFOV=40.000000
      CockSound=(Sound=Sound'BWBP_SKC_SoundsExp.MJ51.MJ51-Cock',Volume=2.200000)
-     ClipHitSound=(Sound=Sound'BWBP_SKC_SoundsExp.MJ51.MJ51-MagIn',Volume=4.800000)
-     ClipOutSound=(Sound=Sound'BWBP_SKC_SoundsExp.MJ51.MJ51-MagOut',Volume=4.800000)
+     ClipInSound=(Sound=Sound'BWBP_SKC_Sounds.X82.X82-ClipIn',Volume=4.800000)
+     ClipOutSound=(Sound=Sound'BWBP_SKC_Sounds.X82.X82-ClipOut',Volume=4.800000)
      ClipInFrame=0.650000
-     LongGunOffset=(X=10.000000)
+     LongGunOffset=(X=5.000000)
      bWT_Bullet=True
      SightingTime=0.200000
      ReloadAnimRate=0.850000
@@ -385,17 +307,17 @@ defaultproperties
      SelectForce="SwitchToAssaultRifle"
      AIRating=0.600000
      CurrentRating=0.600000
-     Description="MJ51 Carbine||Manufacturer: Majestic Firearms 12|Primary: 5.56mm CAP Rifle Fire|Secondary: Attach Smoke Grenade||The MJ51 is a 3-round burst carbine based off the popular M50 assault rifle. Unlike the M50 and SAR though, it fires a shorter 5.56mm CAP round and is more controllable than its larger cousin, though this comes at the expense of long range accuracy and power. While the S-AR 12 is the UTC's weapon of choice for close range engagements, the MJ51 is often seen in the hands of MP and urban security details. When paired with its native MOA-C Rifle Grenade attachment, the MJ51 makes an efficient riot control weapon. |Majestic Firearms 12 designed their MJ51 carbine alongside their MOA-C Chaff Grenade to produce a rifle with grenade launching capabilities without the need of a bulky launcher that has to be sperately maintained. Utilizing a hardened tungsten barrel and an advanced rifle grenade design, a soldier is able to seamlessly ready a grenade projectile without having to rechamber specilized rounds"
+     Description="Primary: 10mm Burst Fire||Secondary: Load/Fire Radioactive Chaff Grenade||With projected success rates for the SRK-650 reaching the minimum requirements, NDTR Industries had already gotten the green light to work on their sister project that originally was supposed to coincide with the SRK-650. The SRK-205 is an SMG version of the 650, chambered in the 10mm Super Auto cartridge to get maximum damage within close quarters confinements. Like it's older brother, the 205 has the same red dot and ammo counter, along with a threaded barrel.  Unlike the 650, the 205 doesn't have any AMP modules made for it, but it does come with radioactive chaff grenades to fry Cryon units and irradiated fleshy targets alike."
      Priority=41
      CustomCrossHairTextureName="Crosshairs.HUD.Crosshair_Cross1"
      InventoryGroup=3
      PickupClass=Class'BWBP_APC_Pro.SRKSmgPickup'
      PlayerViewOffset=(X=10.000000,Y=6.000000,Z=-12.000000)
-     BobDamping=2.000000
+     BobDamping=2.250000
      AttachmentClass=Class'BWBP_APC_Pro.SRKSmgAttachment'
      IconMaterial=Texture'BWBP_CC_Tex.SRKSmg.SmallIcon_SPXSmg'
      IconCoords=(X2=127,Y2=31)
-     ItemName="[B] SRK-205 Biohazard Sub-Machinegun"
+     ItemName="SRK-205 Sub-Machinegun"
      LightType=LT_Pulse
      LightEffect=LE_NonIncidence
      LightHue=30

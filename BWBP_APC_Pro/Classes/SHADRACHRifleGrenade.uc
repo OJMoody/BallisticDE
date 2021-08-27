@@ -53,8 +53,8 @@ defaultproperties
      DetonateDelay=1.000000
      ImpactDamage=90
      ImpactDamageType=Class'BWBP_SKC_Pro.DTChaffGrenade'
-     ImpactManager=Class'BWBP_SKC_Pro.IM_ChaffGrenade'
-     TrailClass=Class'BWBP_SKC_Pro.ChaffTrail'
+     ImpactManager=Class'BWBP_APC_Pro.IM_SHADRACHChaffGrenade'
+     TrailClass=Class'BWBP_APC_Pro.SRKSmgTrail'
      TrailOffset=(X=-8.000000)
      MyRadiusDamageType=Class'BWBP_SKCExp_Pro.DTChaffGrenadeRadius'
      SplashManager=Class'BallisticProV55.IM_ProjWater'
@@ -67,8 +67,8 @@ defaultproperties
      Damage=65.000000
      DamageRadius=192.000000
      MyDamageType=Class'BWBP_SKCExp_Pro.DTChaffGrenadeRadius'
-     StaticMesh=StaticMesh'BWBP_SKC_StaticExp.MJ51.MOACProjLaunched'
-     DrawScale=0.120000
+     StaticMesh=StaticMesh'BWBP_CC_Static.SPXSmg.SHADRACH_Proj'
+     DrawScale=0.200000
      bUnlit=False
 	 ModeIndex=1
 }

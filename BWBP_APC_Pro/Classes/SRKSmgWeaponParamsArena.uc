@@ -13,7 +13,7 @@ defaultproperties
 		Damage=26
 		DamageType=Class'BWBP_APC_Pro.DTSRKSmg'
 		DamageTypeHead=Class'BWBP_APC_Pro.DTSRKSmgHead'
-		DamageTypeArm=Class'BWBP_APC_Pro.DTSRKSmgLimb'
+		DamageTypeArm=Class'BWBP_APC_Pro.DTSRKSmg'
 		PenetrateForce=150
 		bPenetrate=True
 		MuzzleFlashClass=Class'BWBP_APC_Pro.SRKSmgFlashEmitter'
@@ -25,9 +25,10 @@ defaultproperties
 	End Object
 
 	Begin Object Class=FireParams Name=ArenaPrimaryFireParams
-		FireInterval=0.100000
+		FireInterval=0.110000
 		FireEndAnim=
 		AimedFireAnim="SightFire"	
+		BurstFireRateFactor=0.800000
 	FireEffectParams(0)=InstantEffectParams'ArenaPrimaryEffectParams'
 	End Object
 		
@@ -87,7 +88,7 @@ defaultproperties
 	//=================================================================	
 	
 	Begin Object Class=WeaponParams Name=ArenaParams
-		MagAmmo=18
+		MagAmmo=36
         InventorySize=12
 		SightingTime=0.200000
 		SightOffset=(X=-20.000000,Y=-0.350000,Z=15.800000)
