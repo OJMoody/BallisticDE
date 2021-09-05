@@ -81,9 +81,36 @@ simulated event HitWall(vector HitNormal, actor Wall)
     }
 }
 
+simulated function Explode(vector HitLocation, vector HitNormal)
+{
+	local vector Start;
+    local rotator Dir;
+    local int i;
+
+	Start = Location + 30 * HitNormal;
+	if (FlakCount > 0 && FlakClass != None)
+	{
+		for (i=0;i<FlakCount;i++)
+		{
+			Dir = Rotator(HitNormal);
+			Dir.Yaw += FRand()*2048-1024;
+			Dir.Pitch += FRand()*2048-1024;
+			Spawn( FlakClass,, '', Start, Dir);
+		}
+	}
+	super.Explode(HitLocation, HitNormal);
+}
+
+simulated function BlowUp(vector HitLocation)
+{
+	TargetedHurtRadius(Damage, DamageRadius, MyRadiusDamageType, MomentumTransfer, HitLocation, HitActor);
+	if ( Role == ROLE_Authority )
+		MakeNoise(1.0);
+}
+
 defaultproperties
 {
-    ArmingDelay=0.1
+	ArmingDelay=0.025
     DetonateOn=DT_ImpactTimed
     PlayerImpactType=PIT_Detonate
     bNoInitialSpin=True
@@ -98,7 +125,7 @@ defaultproperties
     MyRadiusDamageType=Class'BallisticProV55.DTM50GrenadeRadius'
     SplashManager=Class'BallisticProV55.IM_ProjWater'
 	FlakCount=6
-	FlakClass=Class'BWBP_JCF_Pro.RGPXRocket'
+	FlakClass=Class'BWBP_JCF_Pro.RGPXFlakRocket'
     ShakeRadius=512.000000
     MotionBlurRadius=384.000000
     MotionBlurFactor=3.000000

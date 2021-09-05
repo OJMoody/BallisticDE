@@ -16,6 +16,13 @@ var() Sound			LaserOnSound;
 var() Sound			LaserOffSound;
 var   Emitter		LaserDot;
 
+struct RevInfo
+{
+	var() name	BoneName;
+};
+var() RevInfo	MiniRocketBones[6]; 	//Bones for rockets in flak canister
+var() name		FlakBone;	//Bone for flak canister
+
 replication
 {
 	reliable if (Role == ROLE_Authority)
@@ -197,6 +204,35 @@ simulated event RenderOverlays( Canvas Canvas )
 		DrawLaserSight(Canvas);
 }
 
+//Bone related code
+simulated function HideMiniRockets()
+{
+	SetBoneScale(MagAmmo + 1, 0.0, MiniRocketBones[MagAmmo-1].BoneName);
+}
+
+simulated function HideFlak()
+{
+	SetBoneScale(1, 0.0, FlakBone);
+}
+
+simulated function Notify_ShowMiniRockets()
+{
+	local int i, j;
+	
+	if (default.MagAmmo - MagAmmo > Ammo[0].AmmoAmount)
+		j=Ammo[0].AmmoAmount;
+	else
+		j=6;
+	
+	for (i = 0; i <= j; i++)
+		SetBoneScale(i+1, 1.0, MiniRocketBones[i-1].BoneName);
+}
+
+simulated function Notify_ShowFlak()
+{
+	SetBoneScale(1, 1.0, FlakBone);
+}
+
 // AI Interface =====
 function byte BestMode()	{	return 0;	}
 
@@ -231,6 +267,13 @@ function float SuggestDefenseStyle()	{	return -0.9;	}
 
 defaultproperties
 {
+	MiniRocketBones(0)=(BoneName="Rocket1")
+	MiniRocketBones(1)=(BoneName="Rocket2")
+	MiniRocketBones(2)=(BoneName="Rocket3")
+	MiniRocketBones(3)=(BoneName="Rocket4")
+	MiniRocketBones(4)=(BoneName="Rocket5")
+	MiniRocketBones(5)=(BoneName="Rocket6")
+	FlakBone="RocketMain"
 	LaserOnSound=Sound'BW_Core_WeaponSound.M806.M806LSight'
     LaserOffSound=Sound'BW_Core_WeaponSound.M806.M806LSight'
 	TeamSkins(0)=(RedTex=Shader'BW_Core_WeaponTex.Hands.RedHand-Shiny',BlueTex=Shader'BW_Core_WeaponTex.Hands.BlueHand-Shiny')

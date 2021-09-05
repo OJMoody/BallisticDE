@@ -8,6 +8,17 @@
 //=============================================================================
 class RGPXPrimaryFire extends BallisticProProjectileFire;
 
+simulated event ModeDoFire()
+{	
+	if (!AllowFire())
+		return;
+	else
+	{
+		super.ModeDoFire();
+		RGPXBazooka(BW).HideMiniRockets();
+	}
+}
+
 defaultproperties
 {
      SpawnOffset=(X=10.000000,Y=10.000000,Z=-3.000000)

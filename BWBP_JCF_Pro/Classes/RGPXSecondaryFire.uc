@@ -8,6 +8,37 @@
 //=============================================================================
 class RGPXSecondaryFire extends BallisticProProjectileFire;
 
+simulated event ModeDoFire()
+{	
+	if (!AllowFire())
+		return;
+	else
+	{
+		super.ModeDoFire();
+		RGPXBazooka(BW).HideFlak();
+	}
+}
+
+function SpawnProjectile (Vector Start, Rotator Dir)
+{
+	ConsumedLoad += Min(BW.default.MagAmmo, BW.MagAmmo) - 1;
+	super.SpawnProjectile(Start,Dir);
+}
+
+// Used to delay ammo consumtion
+simulated event Timer()
+{
+	super.Timer();
+	if (Weapon.Role == ROLE_Authority && ConsumedLoad > 0)
+	{
+		if (BW != None)
+			BW.ConsumeMagAmmo(ThisModeNum,ConsumedLoad);
+		else
+			Weapon.ConsumeAmmo(ThisModeNum,ConsumedLoad);
+	}
+	ConsumedLoad=0;
+}
+
 defaultproperties
 {
      SpawnOffset=(X=10.000000,Y=10.000000,Z=-3.000000)
