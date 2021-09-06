@@ -1,0 +1,242 @@
+//=============================================================================
+// MRDRMachinePistol.
+//
+// Dual wieldable weapon with a nice spiked handguard for punching
+// Small clip but very low recoil and chaos. Fairly accurate actually.
+//
+// by Nolan "Dark Carnivour" Richert.
+// Copyright(c) 2007 RuneStorm. All Rights Reserved.
+//=============================================================================
+class RoboT9CNMachinePistol extends BallisticHandgun;
+
+simulated event PostNetBeginPlay()
+{
+	super.PostNetBeginPlay();
+	if (BCRepClass.default.GameStyle == 1)
+	{
+		bUseSights=True;
+	}
+}
+
+static function class<Pickup> RecommendAmmoPickup(int Mode)
+{
+	return class'AP_MRDRClip';
+}
+
+simulated function bool CanAlternate(int Mode)
+{
+	if (Mode != 0)
+		return false;
+	return super.CanAlternate(Mode);
+}
+
+simulated function float ChargeBar()
+{
+	return MeleeFatigue;
+}
+
+simulated event WeaponTick (Float DT)
+{
+	Super.WeaponTick (DT);
+	
+	if (LastFireTime < Level.TimeSeconds - RcComponent.DeclineDelay && MeleeFatigue > 0)
+		MeleeFatigue = FMax(0, MeleeFatigue - DT/RcComponent.DeclineTime);
+}
+
+simulated function bool HasAmmoLoaded(byte Mode)
+{
+	if (Mode == 1)
+		return true;
+	if (bNoMag)
+		return HasNonMagAmmo(Mode);
+	else
+		return HasMagAmmo(Mode);
+}
+
+//simulated function bool SlaveCanUseMode(int Mode) {return Mode == 0;}
+//simulated function bool MasterCanSendMode(int Mode) {return Mode == 0;}
+
+simulated state Lowering// extends DualAction
+{
+Begin:
+	SafePlayAnim(PutDownAnim, 1.75, 0.1);
+	FinishAnim();
+	GotoState('Lowered');
+}
+
+simulated function Notify_MRDRMelee()
+{
+	if (Role == ROLE_Authority)
+		MRDRSecondaryFire(BFireMode[1]).NotifiedDoFireEffect();
+	PlayOwnedSound(BFireMode[1].BallisticFireSound.Sound,
+		BFireMode[1].BallisticFireSound.Slot,
+		BFireMode[1].BallisticFireSound.Volume,
+		BFireMode[1].BallisticFireSound.bNoOverride,
+		BFireMode[1].BallisticFireSound.Radius,
+		BFireMode[1].BallisticFireSound.Pitch,
+		BFireMode[1].BallisticFireSound.bAtten);
+}
+
+
+// AI Interface =====
+// choose between regular or alt-fire
+function byte BestMode()
+{
+	local Bot B;
+	local float Dist;
+	local Vector Dir;
+
+	B = Bot(Instigator.Controller);
+	if ( (B == None) || (B.Enemy == None) )
+		return 0;
+
+	if (!HasAmmoLoaded(0))
+		return 1;
+
+	Dir = Instigator.Location - B.Enemy.Location;
+	Dist = VSize(Dir);
+
+	if (Dist > 200)
+		return 0;
+	if (Dist < FireMode[1].MaxRange())
+		return 1;
+	return Rand(2);
+}
+
+function float GetAIRating()
+{
+	local Bot B;
+	
+	local float Dist;
+	local float Rating;
+
+	B = Bot(Instigator.Controller);
+	
+	if ( B == None )
+		return AIRating;
+
+	Rating = Super.GetAIRating();
+
+	if (B.Enemy == None)
+		return Rating;
+
+	Dist = VSize(B.Enemy.Location - Instigator.Location);
+	
+	return class'BUtil'.static.DistanceAtten(Rating, 0.35, Dist, 768, 1536); 
+}
+
+// tells bot whether to charge or back off while using this weapon
+function float SuggestAttackStyle()	{	return 0.8;	}
+// tells bot whether to charge or back off while defending against this weapon
+function float SuggestDefenseStyle()	{	return -0.8;	}
+// End AI Stuff =================================
+
+
+simulated function BringUp(optional Weapon PrevWeapon)
+{
+	Super.BringUp(PrevWeapon);
+
+	if (MagAmmo - BFireMode[0].ConsumedLoad < 1)
+	{
+		IdleAnim = 'IdleOpen';
+		ReloadAnim = 'ReloadOpen';
+	}
+	else
+	{
+		IdleAnim = 'Idle';
+		ReloadAnim = 'Reload';
+	}
+
+}
+
+simulated event AnimEnd (int Channel)
+{
+    local name Anim;
+    local float Frame, Rate;
+
+    GetAnimParams(0, Anim, Frame, Rate);
+
+	if (Anim == 'OpenFire' || Anim == 'Fire' || Anim == CockAnim || Anim == ReloadAnim)
+	{
+		if (MagAmmo - BFireMode[0].ConsumedLoad < 1)
+		{
+			IdleAnim = 'IdleOpen';
+			ReloadAnim = 'ReloadOpen';
+		}
+		else
+		{
+			IdleAnim = 'Idle';
+			ReloadAnim = 'Reload';
+		}
+	}
+	Super.AnimEnd(Channel);
+}
+
+simulated function PlayCocking(optional byte Type)
+{
+	if (Type == 2)
+		PlayAnim('ReloadEndCock', CockAnimRate, 0.2);
+	else
+		PlayAnim(CockAnim, CockAnimRate, 0.2);
+}
+
+// =============================================
+
+defaultproperties
+{
+	bShouldDualInLoadout=False
+	HandgunGroup=6
+	TeamSkins(0)=(RedTex=Shader'BW_Core_WeaponTex.Hands.RedHand-Shiny',BlueTex=Shader'BW_Core_WeaponTex.Hands.BlueHand-Shiny')
+	AIReloadTime=1.000000
+	BigIconMaterial=Texture'BWBP_SKC_TexExp.T9CN.BigIcon_BerSilver'
+	BigIconCoords=(X1=64,Y1=0,Y2=255)
+	BCRepClass=Class'BallisticProV55.BallisticReplicationInfo'
+	bWT_Bullet=True
+	bWT_Machinegun=True
+	ManualLines(0)="Automatic pistol fire. Good strength and low recoil."
+	SpecialInfo(0)=(Info="420.0;20.0;1.50;80.0;0.4;0.2;-999.0")
+	BringUpSound=(Sound=Sound'BW_Core_WeaponSound.XK2.XK2-Pullout')
+	PutDownSound=(Sound=Sound'BW_Core_WeaponSound.XK2.XK2-Putaway')
+	CockSound=(Sound=Sound'BWBP_SKC_SoundsExp.T9CN.T9CN-Cock',Volume=300.500000)
+    ClipHitSound=(Sound=Sound'BWBP_SKC_SoundsExp.T9CN.T9CN-SlideBack',Volume=1.500000)
+	ClipOutSound=(Sound=Sound'BWBP_SKC_SoundsExp.T9CN.T9CN-ClipOut',Volume=300.500000)
+    ClipInSound=(Sound=Sound'BWBP_SKC_SoundsExp.T9CN.T9CN-ClipIn',Volume=300.500000)
+    ClipInFrame=0.650000
+    WeaponModes(1)=(ModeName="Burst of Three",bUnavailable=True)
+    WeaponModes(2)=(ModeName="Burst of Six",bUnavailable=True,ModeID="WM_BigBurst",Value=6.000000)
+    WeaponModes(3)=(ModeName="Full Auto",ModeID="WM_FullAuto"))
+	CurrentWeaponMode=3
+	SightDisplayFOV=40.000000
+	GunLength=0.100000
+	AIRating=0.6
+	CurrentRating=0.6
+	ParamsClasses(0)=Class'RoboT9CNPistolWeaponParamsArena'
+	ParamsClasses(1)=Class'RoboT9CNWeaponParamsClassic'
+	FireModeClass(0)=Class'BWBP_SKCExp_Pro.RoboT9CNPrimaryFire'
+    FireModeClass(1)=Class'BCoreProV55.BallisticScopeFire'
+	PutDownTime=0.400000
+	BringUpTime=0.500000
+	SelectForce="SwitchToAssaultRifle"
+	bShowChargingBar=True
+	Description="The T9CN was the precursor to the standard GRS9 Pistol, and it sported a rugged automatic firing mechanism and nickel finish. The automatic variant was designed with use by counter-terrorism units in mind, but sadly a lack of compensator gave the gun horrible inaccuracy and recoil. Most CTU's quickly dropped the T9CN in favor of other more accurate machine pistols like the XRS-10 and the XK2, however infamous outlaw Var Dehidra and his cronies stole a stash of T9CN's and found good use for them. They were known for spraying them to keep enemies at bay and even tilting them to the side like gangsters of old. Their brazen use of police equipment inspired robberies throughout the cosmos!"
+	Priority=143
+	HudColor=(B=150,G=150,R=150)
+	CustomCrossHairTextureName="Crosshairs.HUD.Crosshair_Cross1"
+	InventoryGroup=2
+	GroupOffset=5
+	SightOffset=(X=-10.000000,Y=-2.110000,Z=9.15000)
+	PickupClass=Class'BWBP_SKCExp_Pro.RoboT9CNPickup'
+	PlayerViewOffset=(X=7.000000,Y=5.500000,Z=-8.000000)
+	AttachmentClass=Class'BWBP_SKC_Pro.MRDRAttachment'
+	IconMaterial=Texture'BWBP_SKC_TexExp.T9CN.SmallIcon_BerSilver'
+	IconCoords=(X2=127,Y2=31)
+	ItemName="[B] R.O.B.O T9CN Automatic Pistol"
+	LightType=LT_Pulse
+	LightEffect=LE_NonIncidence
+	LightHue=30
+	LightSaturation=150
+	LightBrightness=130.000000
+	LightRadius=3.000000
+	Mesh=SkeletalMesh'BWBP_SKC_AnimExp.FPm_T9CNRC'
+	DrawScale=0.200000
+}

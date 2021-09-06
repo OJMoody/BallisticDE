@@ -20,7 +20,7 @@ defaultproperties
 		MuzzleFlashClass=Class'BWBP_SWC_Pro.MDKFlashEmitter'
 		Recoil=72.000000
 		Chaos=0.025000
-		FireSound=(Sound=Sound'BWBP_SWC_Sounds.MDK.MDK_Fire_OG',Volume=1.000000)
+		FireSound=(Sound=SoundGroup'BWBP_SWC_Sounds.MDK.MDK-Fire',Volume=1.000000,Radius=384.000000)
 	End Object
 
 	Begin Object Class=FireParams Name=ArenaPrimaryFireParams

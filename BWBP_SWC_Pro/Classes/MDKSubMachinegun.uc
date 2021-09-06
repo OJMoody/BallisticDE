@@ -100,17 +100,13 @@ simulated function SetScopeProperties()
 	if (bScopeOn)
 	{
 		ZoomType = ZT_Fixed;
-		SightingTime = 0.6;
 		ScopeViewTex = ScopeScopeViewTex;
 		FullZoomFOV = 50;
-		//SightOffset=(X=-10.000000,Y=-0.050000,Z=49.000000);
 	}
 	else
 	{
 		ZoomType = ZT_Irons;
 		ScopeViewTex = None;
-		SightingTime = default.SightingTime;
-		//SightOffset=(X=-10.000000,Y=-0.050000,Z=41.000000);
 	}
 }
 
@@ -357,7 +353,7 @@ defaultproperties
 	ScopeBone="Scope"
 	ScopeOnSound=Sound'BW_Core_WeaponSound.XK2.XK2-SilenceOn'
 	ScopeOffSound=Sound'BW_Core_WeaponSound.XK2.XK2-SilenceOff'
-	ScopeScopeViewTex=Texture'BWBP_OP_Tex.M575.M575Scope'
+	ScopeScopeViewTex=Texture'BWBP_SWC_Tex.MDK.MDK_Scope'
 	BScopeOn=False
 	bSilenced=True
 	SilencerBone="Silencer"
@@ -371,7 +367,7 @@ defaultproperties
 	AIReloadTime=1.000000
 	BigIconMaterial=Texture'BWBP_SWC_Tex.Icons.BigIcon_MDK'
 	BigIconCoords=(X1=24,X2=450)
-	SightFXClass=Class'BWBP_SWC_Pro.MDKSightLEDs'
+	//SightFXClass=Class'BWBP_SWC_Pro.MDKSightLEDs'
 	BCRepClass=Class'BallisticProV55.BallisticReplicationInfo'
 	bWT_Bullet=True
 	bWT_Machinegun=True
@@ -406,7 +402,7 @@ defaultproperties
 	Description="Primary: 9mm Fire||Alt Add/Remove Scope/Silencer||The MDK Modular SMG was created to fill a variety of roles, featuring different rates of fire and varying degrees of accuracy and power to go with them. Though it is fairly compact compared to larger guns, it is quite heavy and cannot be dual-wielded. Black & Wood saw particularly high sales among soldiers and law enforcement officers on fringe colonies that had previously been attacked by the Skrith, as it fills a variety of roles that would normally require multiple weapons."
 	DisplayFOV=55.000000
 	Priority=32
-	HudColor=(B=100,G=150,R=50)
+	HudColor=(B=200,G=150,R=50)
 	CustomCrossHairTextureName="Crosshairs.HUD.Crosshair_Cross1"
 	InventoryGroup=3
 	GroupOffset=1
@@ -415,7 +411,7 @@ defaultproperties
 	AttachmentClass=Class'BWBP_SWC_Pro.MDKAttachment'
 	IconMaterial=Texture'BWBP_SWC_Tex.Icons.SmallIcon_MDK'
 	IconCoords=(X2=127,Y2=31)
-	ItemName="[B] MDK-0331 Modular Machine Uzi"
+	ItemName="MDK-0331 Modular Machine Uzi"
 	LightType=LT_Pulse
 	LightEffect=LE_NonIncidence
 	LightHue=30

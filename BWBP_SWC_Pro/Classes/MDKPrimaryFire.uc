@@ -151,8 +151,8 @@ defaultproperties
      FireChaosCurve=(Points=((InVal=0,OutVal=1),(InVal=0.240000,OutVal=1),(InVal=0.350000,OutVal=1.500000),(InVal=0.660000,OutVal=2.250000),(InVal=1.000000,OutVal=3.500000)))
      XInaccuracy=48.000000
      YInaccuracy=48.000000
-     SilencedFireSound=(Sound=Sound'BW_Core_WeaponSound.XK2.XK2-SilenceFire',Volume=0.50000,Radius=48.000000,bAtten=True)
-     BallisticFireSound=(Sound=Sound'BW_Core_WeaponSound.XK2.XK2-Fire',Volume=0.500000,Radius=384.000000)
+     SilencedFireSound=(Sound=Sound'BWBP_SWC_Sounds.MDK.MDK-SilenceFire',Volume=1.00000,Radius=48.000000,bAtten=True)
+     BallisticFireSound=(Sound=SoundGroup'BWBP_SWC_Sounds.MDK.MDK-Fire',Volume=1.000000,Radius=384.000000)
      bPawnRapidFireAnim=True
      FireRate=0.09000
      AmmoClass=Class'BWBP_SWC_Pro.Ammo_MDK9mm'
