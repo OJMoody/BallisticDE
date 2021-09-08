@@ -56,7 +56,7 @@ defaultproperties
      BallisticFireSound=(Sound=Sound'BWBP_SKC_SoundsExp.T9CN.T9CN-FireOld',Volume=1.300000)
      bPawnRapidFireAnim=True
      FireRate=0.120000
-     AmmoClass=Class'BWBP_SKCExp_Pro.Ammo_9mmT9CN'
+     AmmoClass=Class'BWBP_SKCExp_Pro.Ammo_9mmRoboT9CN'
      ShakeRotMag=(X=64.000000,Y=32.000000)
      ShakeRotRate=(X=10000.000000,Y=10000.000000,Z=10000.000000)
      ShakeRotTime=2.000000

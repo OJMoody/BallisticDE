@@ -16,9 +16,9 @@ defaultproperties
 			Damage=22
 			HeadMult=2.3
 			LimbMult=0.5
-			DamageType=Class'BWBP_SKCExp_Pro.DTT9CN'
-			DamageTypeHead=Class'BWBP_SKCExp_Pro.DTT9CNHead'
-			DamageTypeArm=Class'BWBP_SKCExp_Pro.DTT9CN'
+			DamageType=Class'BWBP_SKCExp_Pro.DTRoboT9CN'
+			DamageTypeHead=Class'BWBP_SKCExp_Pro.DTRoboT9CNHead'
+			DamageTypeArm=Class'BWBP_SKCExp_Pro.DTRoboT9CN'
 			PenetrationEnergy=16.000000
 			PenetrateForce=100
 			bPenetrate=True
@@ -81,6 +81,8 @@ defaultproperties
 	//=================================================================	
 	
 	Begin Object Class=WeaponParams Name=ClassicParams
+		WeaponBoneScales(0)=(BoneName="RCAttachment",Slot=1,Scale=0f)
+		WeaponBoneScales(1)=(BoneName="RCSlider",Slot=2,Scale=0f)
 		InventorySize=10
 		SightMoveSpeedFactor=0.500000
 		SightingTime=0.150000

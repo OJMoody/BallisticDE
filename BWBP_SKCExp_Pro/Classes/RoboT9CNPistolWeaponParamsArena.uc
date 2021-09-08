@@ -10,12 +10,12 @@ defaultproperties
 	Begin Object Class=InstantEffectParams Name=ArenaPrimaryEffectParams
 		RangeAtten=0.500000
 		Damage=14
-		DamageType=Class'BWBP_SKCExp_Pro.DTT9CN'
-		DamageTypeHead=Class'BWBP_SKCExp_Pro.DTT9CNHead'
-		DamageTypeArm=Class'BWBP_SKCExp_Pro.DTT9CN'
+		DamageType=Class'BWBP_SKCExp_Pro.DTRoboT9CN'
+		DamageTypeHead=Class'BWBP_SKCExp_Pro.DTRoboT9CNHead'
+		DamageTypeArm=Class'BWBP_SKCExp_Pro.DTRoboT9CN'
 		PenetrateForce=180
 		bPenetrate=True
-		MuzzleFlashClass=Class'BWBP_SKCExp_Pro.T9CNFlashEmitter'
+		MuzzleFlashClass=Class'BWBP_SKCExp_Pro.RoboT9CNFlashEmitter'
 		FlashScaleFactor=0.500000
 		FireSound=(Sound=Sound'BWBP_SKC_SoundsExp.T9CN.T9CN-FireOld',Volume=1.300000)
 		Recoil=80.000000
@@ -60,6 +60,8 @@ defaultproperties
 	//=================================================================	
 	
 	Begin Object Class=WeaponParams Name=ArenaParams
+		WeaponBoneScales(0)=(BoneName="RCAttachment",Slot=1,Scale=0f)
+		WeaponBoneScales(1)=(BoneName="RCSlider",Slot=2,Scale=0f)
 		DisplaceDurationMult=0.75
 		PlayerSpeedFactor=1.050000
 		SightingTime=0.250000

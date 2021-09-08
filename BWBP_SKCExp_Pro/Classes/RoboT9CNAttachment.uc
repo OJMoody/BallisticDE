@@ -49,7 +49,7 @@ simulated function MeleeFireEffects()
 
 defaultproperties
 {
-     MuzzleFlashClass=Class'BWBP_SKCExp_Pro.T9CNFlashEmitter'
+     MuzzleFlashClass=Class'BWBP_SKCExp_Pro.RoboT9CNFlashEmitter'
      ImpactManager=Class'BallisticProV55.IM_Bullet'
      FlashScale=0.800000
      BrassClass=Class'BallisticProV55.Brass_Pistol'
