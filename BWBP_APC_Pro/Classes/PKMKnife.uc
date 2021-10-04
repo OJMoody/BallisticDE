@@ -70,6 +70,7 @@ defaultproperties
      bRandomStartRotation=False
      bUsePositionalDamage=True
 	 bIgnoreTerminalVelocity=True
+	 TrailClass=Class'BallisticProV55.MRLTrailEmitter'
      DamageTypeHead=Class'BWBP_APC_Pro.DTX8KnifeMGLaunchedHead'
      bWarnEnemy=False
      Speed=8500.000000
