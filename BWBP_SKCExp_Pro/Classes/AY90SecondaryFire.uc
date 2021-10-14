@@ -100,7 +100,7 @@ defaultproperties
 {
      ChargeTime=4.000000
      AutoFireTime=5.000000
-     ChargeSound=Sound'BWBP_SKC_Sounds.SkirthBow.SkrithBow-WaveCharge'
+     ChargeSound=Sound'BWBP_SKC_Sounds.SkirthBow.SkrithBow-BlastCharge'
      ChargeFireSound=Sound'BWBP_SKC_Sounds.SkrithBow.SkrithBow-WaveBlast'
      MaxChargeFireSound=Sound'BWBP_SKC_Sounds.SkrithBow.SkrithBow-WaveBlastMax'
 	 bFireOnRelease=True
