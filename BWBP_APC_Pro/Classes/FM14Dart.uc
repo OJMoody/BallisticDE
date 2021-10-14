@@ -21,7 +21,7 @@ defaultproperties
      MotionBlurFactor=0.000000
      MotionBlurTime=0.000000
      Speed=10000.000000
-     Damage=1.000000
+     Damage=0.000000
      MyDamageType=Class'BWBP_APC_Pro.DTFM14Dart'
      StaticMesh=StaticMesh'BW_Core_WeaponStatic.OA-SMG.OA-SMG_Dart'
      LifeSpan=1.500000

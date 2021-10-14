@@ -15,6 +15,7 @@ simulated event ModeDoFire()
 	else
 	{
 		super.ModeDoFire();
+		RGPXBazooka(BW).bNowEmpty = true;
 		RGPXBazooka(BW).HideFlak();
 	}
 }

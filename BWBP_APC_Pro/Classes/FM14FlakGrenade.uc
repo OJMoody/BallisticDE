@@ -17,6 +17,13 @@ simulated function PostNetBeginPlay()
 	SetTimer(ArmingDelay, False);
 }
 
+//hit directly, turn off the darts to avoid catastrophic brain hemorrhage
+simulated function bool Impact(Actor Other, Vector HitLocation)
+{
+	FlakCount=0;
+	super.Impact(Other, HitLocation);
+}
+
 simulated function Timer()
 {
 	if(StartDelay > 0)

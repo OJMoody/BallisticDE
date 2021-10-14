@@ -60,6 +60,20 @@ defaultproperties
 		AimedFireAnim="SightFireAlt"
 		FireEffectParams(0)=ProjectileEffectParams'ArenaSecondaryEffectParams'
 	End Object
+	
+	Begin Object Class=ProjectileEffectParams Name=ArenaFlakEffectParams
+		ProjectileClass=Class'BWBP_JCF_Pro.RGPXFlakRocket'
+		Speed=0.100000
+		MaxSpeed=0.000000
+		AccelSpeed=0.000000
+		Damage=80
+		DamageRadius=1024.000000
+		MomentumTransfer=75000.000000
+	End Object
+	
+	Begin Object Class=FireParams Name=ArenaFlakFireParams
+		FireEffectParams(0)=ProjectileEffectParams'ArenaFlakEffectParams'
+	End Object
 		
 	//=================================================================
 	// RECOIL
@@ -109,6 +123,7 @@ defaultproperties
         AimParams(0)=AimParams'ArenaAimParams'
 		FireParams(0)=FireParams'ArenaPrimaryFireParams'
 		AltFireParams(0)=FireParams'ArenaSecondaryFireParams'
+		AltFireParams(1)=FireParams'ArenaFlakFireParams'
     End Object 
     Layouts(0)=WeaponParams'ArenaParams'
 }

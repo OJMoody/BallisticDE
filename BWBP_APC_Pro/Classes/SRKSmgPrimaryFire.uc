@@ -33,7 +33,7 @@ defaultproperties
 	 BurstFireRateFactor=0.9
      DamageType=Class'BWBP_APC_Pro.DTSRKSmg'
      DamageTypeHead=Class'BWBP_APC_Pro.DTSRKSmgHead'
-     DamageTypeArm=Class'BWBP_APC_Pro.DTSRKSmgLimb'
+     DamageTypeArm=Class'BWBP_APC_Pro.DTSRKSmg'
      KickForce=18000
      PenetrateForce=150
      bPenetrate=True

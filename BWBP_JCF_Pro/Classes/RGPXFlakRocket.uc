@@ -8,119 +8,19 @@
 //=============================================================================
 class RGPXFlakRocket extends BallisticGrenade;
 
-var sound ImpactSounds[6];
-var float ImpactDamage, ArmedImpactDamage;
-var float ImpactMomentumTransfer;
-var class<DamageType> ImpactDamageType;
-var float ArmingDelay;
-var float FlightTime;
-var bool bArmed;
-delegate OnDie(Actor Cam);
-
-replication
+/*simulated function PostNetBeginPlay()
 {
-	reliable if (Role == ROLE_Authority)
-		bArmed;
-}
-
-simulated function InitProjectile()
-{
-	Super.InitProjectile();
-	if (Role == ROLE_Authority)
-		SetTimer(ArmingDelay, false);
-}
-
-simulated function Timer()
-{
-	if(StartDelay > 0)
-	{
-		Super.Timer();
-		return;
-	}
-	
-	if (Role == ROLE_Authority)
-		bArmed=True;
-}
-
-simulated function Explode(vector HitLocation, vector HitNormal)
-{
-	OnDie(self);
-	Damage *= 1 + FClamp(default.LifeSpan  - (LifeSpan + ArmingDelay), 0, 0.5);
-	Super.Explode(HitLocation, HitNormal);
-}
-
-simulated function ApplyImpactEffect(Actor Other, vector HitLocation)
-{
-    if ( Instigator == None || Instigator.Controller == None )
-		Other.SetDelayedDamageInstigatorController( InstigatorController );
-			
-    if (!bArmed)
-        class'BallisticDamageType'.static.GenericHurt (Other, ImpactDamage, Instigator, HitLocation, ImpactMomentumTransfer * Normal(Velocity), ImpactDamageType);
-    else 
-        class'BallisticDamageType'.static.GenericHurt (Other, Damage, Instigator, HitLocation, MomentumTransfer * Normal(Velocity),MyDamageType);
-}
-
-simulated function bool Impact(Actor Other, vector HitLocation)
-{
-    if (bArmed)
-        return false;
-
-    Destroy();
-    return true;
-}
-
-simulated singular function HitWall( vector HitNormal, actor Wall )
-{
-    if ( !Wall.bStatic && !Wall.bWorldGeometry 
-		&& ((Mover(Wall) == None) || Mover(Wall).bDamageTriggered) )
-	{
-		if ( Instigator == None || Instigator.Controller == None )
-			Wall.SetDelayedDamageInstigatorController( InstigatorController );
-		class'BallisticDamageType'.static.GenericHurt (Wall, Damage, Instigator, Location, MomentumTransfer * Normal(Velocity), MyDamageType);
-		if (DamageRadius > 0 && Vehicle(Wall) != None && Vehicle(Wall).Health > 0)
-			Vehicle(Wall).DriverRadiusDamage(Damage, DamageRadius, InstigatorController, MyDamageType, MomentumTransfer, Location);
-		HurtWall = Wall;
-	}
- 
-	if(!bArmed)
-	{	
-		if (!Level.bDropDetail)
-			PlaySound(ImpactSounds[Rand(6)]);
-
-		Velocity = 0.45 * (Velocity - 1.33*HitNormal*(Velocity dot HitNormal)); //reflection is not complete
-		SetRotation(Rotator(Velocity));
-		AccelSpeed *= 0.75;
-		Acceleration = AccelSpeed * Normal(Velocity);
-		MakeNoise(1.0);
-		return;
-   	}
-
-	else if (Role == ROLE_Authority)
-	{
-		MakeNoise(1.0);
-		
-		Damage *= 1 + FClamp(default.LifeSpan  - (LifeSpan + ArmingDelay), 0, 0.5);
-		Explode(Location + ExploWallOut * HitNormal, HitNormal);
-		
-		HurtWall = None;
-	}
-}
+	Velocity = Normal(Velocity) * default.Speed;
+	super.PostNetBeginPlay();
+}*/
 
 defaultproperties
 {    
-	 ImpactSounds(0)=Sound'XEffects.Impact4Snd'
-     ImpactSounds(1)=Sound'XEffects.Impact6Snd'
-     ImpactSounds(2)=Sound'XEffects.Impact7Snd'
-     ImpactSounds(3)=Sound'XEffects.Impact3'
-     ImpactSounds(4)=Sound'XEffects.Impact1'
-     ImpactSounds(5)=Sound'XEffects.Impact2'
-	 ImpactDamage=70.000000
-	 ArmedImpactDamage=150.000000
-     ImpactMomentumTransfer=60000.000000
-     ImpactDamageType=Class'BWBP_JCF_Pro.DTRGPXUnarmed'
-     ArmingDelay=0.050000
+	 ModeIndex=1
      ImpactManager=Class'BWBP_JCF_Pro.IM_RGPX'
      bRandomStartRotation=False
+	 DetonateOn=DT_Impact
+	 Physics=PHYS_Falling
      TrailClass=Class'BWBP_JCF_Pro.RGPXRocketTrail'
      TrailOffset=(X=-14.000000)
      MyRadiusDamageType=Class'BWBP_JCF_Pro.DTRGPXBazookaRadius'
@@ -130,7 +30,7 @@ defaultproperties
      ShakeRotMag=(X=512.000000,Y=400.000000)
      ShakeRotRate=(X=3000.000000,Z=3000.000000)
      ShakeOffsetMag=(X=20.000000,Y=30.000000,Z=30.000000)
-     Speed=0.000000
+     Speed=0.100000
 	 AccelSpeed=0.000000
      Damage=80.000000
      DamageRadius=1024.000000

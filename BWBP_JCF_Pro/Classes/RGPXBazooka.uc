@@ -15,12 +15,13 @@ var   LaserActor	Laser;
 var() Sound			LaserOnSound;
 var() Sound			LaserOffSound;
 var   Emitter		LaserDot;
+var   bool			bNowEmpty;			    // Checks if it should play modified animation.
 
 struct RevInfo
 {
 	var() name	BoneName;
 };
-var() RevInfo	MiniRocketBones[6]; 	//Bones for rockets in flak canister
+var() RevInfo	MiniRocketBones[7]; 	//Bones for rockets in flak canister
 var() name		FlakBone;	//Bone for flak canister
 
 replication
@@ -212,7 +213,10 @@ simulated function HideMiniRockets()
 
 simulated function HideFlak()
 {
+	local int i;
 	SetBoneScale(1, 0.0, FlakBone);
+	for (i = 0; i <= 6; i++)
+		SetBoneScale(i+1, 0.0, MiniRocketBones[i].BoneName);
 }
 
 simulated function Notify_ShowMiniRockets()
@@ -220,17 +224,32 @@ simulated function Notify_ShowMiniRockets()
 	local int i, j;
 	
 	if (default.MagAmmo - MagAmmo > Ammo[0].AmmoAmount)
-		j=Ammo[0].AmmoAmount;
+		j=Ammo[0].AmmoAmount + MagAmmo;
 	else
-		j=6;
+		j=default.MagAmmo;
 	
 	for (i = 0; i <= j; i++)
-		SetBoneScale(i+1, 1.0, MiniRocketBones[i-1].BoneName);
+	{
+		log("adding "$i$" th rocket");
+		SetBoneScale(i+1, 1.0, MiniRocketBones[i].BoneName);
+	}
 }
 
 simulated function Notify_ShowFlak()
 {
 	SetBoneScale(1, 1.0, FlakBone);
+}
+
+// Play different reload starting anims depending on the situation
+simulated function PlayReload()
+{
+	if (MagAmmo == 0 && bNowEmpty)		// Keg'O'Shit fired
+	{
+		PlayAnim('ReloadFull', ReloadAnimRate, , 0.25);
+		bNowEmpty = false;
+	}
+	else
+		PlayAnim('Reload', ReloadAnimRate, , 0.25);
 }
 
 // AI Interface =====
@@ -273,6 +292,7 @@ defaultproperties
 	MiniRocketBones(3)=(BoneName="Rocket4")
 	MiniRocketBones(4)=(BoneName="Rocket5")
 	MiniRocketBones(5)=(BoneName="Rocket6")
+	MiniRocketBones(6)=(BoneName="ihateiteration")
 	FlakBone="RocketMain"
 	LaserOnSound=Sound'BW_Core_WeaponSound.M806.M806LSight'
     LaserOffSound=Sound'BW_Core_WeaponSound.M806.M806LSight'

@@ -42,7 +42,7 @@ defaultproperties
 		Speed=3750.000000
 		MaxSpeed=4500.000000
 		Damage=65
-		DamageRadius=192.000000
+		DamageRadius=320.000000
 		MuzzleFlashClass=Class'BWBP_APC_Pro.SRKSmgAltFlashEmitter'
 		FireSound=(Sound=Sound'BWBP_SKC_SoundsExp.MJ51.MJ51Carbine-GrenLaunch',Volume=2.200000)
 		SplashDamage=True

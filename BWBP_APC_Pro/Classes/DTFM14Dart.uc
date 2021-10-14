@@ -19,8 +19,8 @@ static function Hurt (Actor Victim, float Damage, Pawn Instigator, vector HitLoc
 static function DoDartEffect(Actor Victim, Pawn Instigator)
 {
     local int i;
-    local XMK5DartViewMesser VM;
-	local XMK5DartPoisoner DP;
+    local FM14DartViewMesser VM;
+	local FM14DartPoisoner DP, DPE;
 
 	if(Pawn(Victim) == None || Vehicle(Victim) != None || Pawn(Victim).Health <= 0)
 		Return;
@@ -29,15 +29,15 @@ static function DoDartEffect(Actor Victim, Pawn Instigator)
 	{
 		for (i=0;i<Pawn(Victim).Owner.Attached.length;i++)
 		{
-			if (XMK5DartViewMesser(Pawn(Victim).Owner.Attached[i]) != None)
+			if (FM14DartViewMesser(Pawn(Victim).Owner.Attached[i]) != None)
 			{
-				VM = XMK5DartViewMesser(Pawn(Victim).Owner.Attached[i]);
+				VM = FM14DartViewMesser(Pawn(Victim).Owner.Attached[i]);
 				break;
 			}
 		}
 		if (VM == None)
 		{
-			VM = Victim.Level.Spawn(class'XMK5DartViewMesser', Pawn(Victim).Owner);
+			VM = Victim.Level.Spawn(class'FM14DartViewMesser', Pawn(Victim).Owner);
 			VM.SetBase(Pawn(Victim).Owner);
 		}
 		VM.SetupTimer();
@@ -46,11 +46,11 @@ static function DoDartEffect(Actor Victim, Pawn Instigator)
 	else if (AIController(Pawn(Victim).Owner) != None)
 		class'BC_BotStoopidizer'.static.DoBotStun(AIController(Pawn(Victim).Owner), 2, 12);
 
-	DP = Victim.Level.Spawn(class'XMK5DartPoisoner', Pawn(Victim).Owner);
+	DP = Victim.Level.Spawn(class'FM14DartPoisoner', Pawn(Victim).Owner);
 
 	DP.Instigator = Instigator;
 
-    if(Victim.Role == ROLE_Authority && Instigator != None && Instigator.Controller != None)
+	if(Victim.Role == ROLE_Authority && Instigator != None && Instigator.Controller != None)
 		DP.InstigatorController = Instigator.Controller;
 
 	DP.Initialize(Victim);
