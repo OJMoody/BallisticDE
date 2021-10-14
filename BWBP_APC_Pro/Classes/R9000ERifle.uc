@@ -43,7 +43,7 @@ function ServerSwitchWeaponMode (byte NewMode)
 		NetUpdateTime = Level.TimeSeconds - 1;
 	}
 	
-	R9A1Attachment(ThirdPersonActor).CurrentTracerMode = CurrentWeaponMode;
+	R9000EAttachment(ThirdPersonActor).CurrentTracerMode = CurrentWeaponMode;
 		
 	for (m=0; m < NUM_FIRE_MODES; m++)
 		if (FireMode[m] != None && FireMode[m].bIsFiring)
@@ -268,7 +268,7 @@ defaultproperties
 {
 
      TeamSkins(0)=(RedTex=Shader'BW_Core_WeaponTex.Hands.RedHand-Shiny',BlueTex=Shader'BW_Core_WeaponTex.Hands.BlueHand-Shiny')
-     BigIconMaterial=Texture'BW_Core_WeaponTex.Icons.BigIcon_R78'
+     BigIconMaterial=Texture'BWBP_CC_Tex.ElementalSniper.BigIcon_R9000E'
      BCRepClass=Class'BallisticProV55.BallisticReplicationInfo'
      bWT_Bullet=True
      ManualLines(0)="Bolt-action sniper rifle fire with explosive rounds. High damage, long range, slow fire rate and deals damage to targets near the struck target."
@@ -288,11 +288,10 @@ defaultproperties
      bCockOnEmpty=True
      WeaponModes(0)=(ModeName="Semi-Automatic")
      WeaponModes(1)=(ModeName="Incendiary")
-     WeaponModes(2)=(ModeName="Radiation")
+	 WeaponModes(2)=(ModeName="Radiation")
      CurrentWeaponMode=0
 	 BobDamping=2.4
-     ScopeXScale=1.333000
-     ScopeViewTex=Texture'BW_Core_WeaponTex.R78.RifleScopeView'
+     ScopeViewTex=Texture'BWBP_CC_Tex.ElementalSniper.ES_ScopeTex'
      ZoomInSound=(Sound=Sound'BW_Core_WeaponSound.R78.R78ZoomIn',Volume=0.500000,Pitch=1.000000)
      ZoomOutSound=(Sound=Sound'BW_Core_WeaponSound.R78.R78ZoomOut',Volume=0.500000,Pitch=1.000000)
      FullZoomFOV=20.000000
@@ -322,9 +321,9 @@ defaultproperties
      PickupClass=Class'BWBP_APC_Pro.R9000EPickup'
      PlayerViewOffset=(X=12.000000,Y=7.000000,Z=-14.000000)
      AttachmentClass=Class'BWBP_APC_Pro.R9000EAttachment'
-     IconMaterial=Texture'BW_Core_WeaponTex.Icons.SmallIcon_R78'
+     IconMaterial=Texture'BWBP_CC_Tex.ElementalSniper.SmallIcon_R9000E'
      IconCoords=(X2=127,Y2=31)
-     ItemName="[B] R9000-E 'Chimera' Modular Sniper Rifle"
+     ItemName="R9000-E 'Chimera' Modular Sniper Rifle"
      LightType=LT_Pulse
      LightEffect=LE_NonIncidence
      LightHue=30

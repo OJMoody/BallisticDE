@@ -1,7 +1,7 @@
 //=============================================================================
-// ProtoUAW.
+// WendigoUAW.
 //
-// Proto Versatile Urban Assault Weapon.
+// Wendigo Versatile Urban Assault Weapon.
 //
 // This nasty little gun has all sorts of tricks up its sleeve. Primary fire is
 // a somewhat unreliable assault rifle with random fire rate and a chance to jam.
@@ -16,7 +16,7 @@
 // by Casey 'Xavious' Johnson, Marc 'Sergeant Kelly' and Azarael
 // Copyright(c) 2005 RuneStorm. All Rights Reserved.
 //=============================================================================
-class ProtoSMG extends BallisticWeapon;
+class WendigoSMG extends BallisticWeapon;
 
 var() sound			MeleeFireSound;
 
@@ -515,23 +515,22 @@ defaultproperties
 	PutDownSound=(Sound=Sound'BW_Core_WeaponSound.M50.M50Putaway')
 	MagAmmo=22
 	CockAnimPostReload="Cock"
-	CockAnimRate=1.400000
+	CockAnimRate=1.000000
 	CockSound=(Sound=Sound'BWBP_SKC_Sounds.CYLO.Cylo-Cock',Volume=2.000000)
 	ClipHitSound=(Sound=Sound'BW_Core_WeaponSound.M50.M50ClipHit')
 	ClipOutSound=(Sound=Sound'BWBP_SKC_Sounds.CYLO.Cylo-MagOut',Volume=2.000000)
 	ClipInSound=(Sound=Sound'BWBP_SKC_Sounds.CYLO.Cylo-MagIn',Volume=2.000000)
 	ClipInFrame=0.700000
 	bAltTriggerReload=True
-	WeaponModes(0)=(bUnavailable=True)
 	bNoCrosshairInScope=False
 	SightOffset=(X=15.000000,Y=13.575000,Z=22.1000)
 	GunLength=16.000000
-	ParamsClasses(0)=Class'ProtoWeaponParams' 
-	ParamsClasses(1)=Class'ProtoWeaponParams' 
+	ParamsClasses(0)=Class'WendigoWeaponParams' 
+	ParamsClasses(1)=Class'WendigoWeaponParams' 
 	AmmoClass[0]=Class'BWBP_SKC_Pro.Ammo_CYLOInc'
 	AmmoClass[1]=Class'BWBP_SKC_Pro.Ammo_CYLOInc'
-	FireModeClass(0)=Class'BWBP_APC_Pro.ProtoPrimaryFire'
-	FireModeClass(1)=Class'BWBP_APC_Pro.ProtoSecondaryFire'
+	FireModeClass(0)=Class'BWBP_SKCExp_Pro.WendigoPrimaryFire'
+	FireModeClass(1)=Class'BWBP_SKCExp_Pro.WendigoSecondaryFire'
 	SelectAnimRate=1.000000
 	PutDownAnimRate=1.000000
 	PutDownTime=1.000000
@@ -539,27 +538,30 @@ defaultproperties
 	SelectForce="SwitchToAssaultRifle"
 	AIRating=0.750000
 	CurrentRating=0.750000
+	WeaponModes(0)=(bUnavailable=True,ModeID="WM_None")
 	WeaponModes(1)=(ModeName="Burst Fire",ModeID="WM_Burst",Value=3.000000,bUnavailable=True)
+	WeaponModes(2)=(ModeName="Ion Impulse Array")
+	CurrentWeaponMode=2
 	Description="Dipheox's most popular weapon, the CYLO Versatile Urban Assault Weapon is designed with one goal in mind: Brutal close quarters combat. The CYLO accomplishes this goal quite well, earning itself the nickname of Badger with its small frame, brutal effectiveness, and unpredictability. UTC refuses to let this weapon in the hands of its soldiers because of its erratic firing and tendency to jam.||The CYLO Versatile UAW is fully capable for urban combat. The rifle's caseless 7.62mm rounds can easily shoot through doors and thin walls, while the shotgun can clear a room quickly with its semi-automatic firing. Proper training with the bayonet can turn the gun itself into a deadly melee weapon."
 	DisplayFOV=55.000000
 	Priority=41
 	HudColor=(G=135)
 	CustomCrossHairTextureName="Crosshairs.HUD.Crosshair_Cross1"
-	InventoryGroup=6
+	InventoryGroup=4
 	GroupOffset=10
-	PickupClass=Class'BWBP_APC_Pro.ProtoPickup'
-	PlayerViewOffset=(X=16.000000,Y=7.000000,Z=-17.000000)
+	PickupClass=Class'BWBP_SKCExp_Pro.WendigoPickup'
+	PlayerViewOffset=(X=8.000000,Y=8.000000,Z=-15.000000)
 	BobDamping=2.000000
-	AttachmentClass=Class'BWBP_APC_Pro.ProtoAttachment'
+	AttachmentClass=Class'BWBP_SKCExp_Pro.WendigoAttachment'
 	IconMaterial=Texture'BWBP_SKC_Tex.CYLO.SmallIcon_CYLOMK3'
 	IconCoords=(X2=127,Y2=31)
-	ItemName="[B] FC-01B PROTO SMG"
+	ItemName="[B] Type-76 Wendigo EMP-R"
 	LightType=LT_Pulse
 	LightEffect=LE_NonIncidence
 	LightHue=30
 	LightSaturation=150
 	LightBrightness=150.000000
 	LightRadius=4.000000
-	Mesh=SkeletalMesh'BWBP_CC_Anim.FPm_CyloSub'
+	Mesh=SkeletalMesh'BWBP_SKC_AnimExp.FPm_Wendigo'
 	DrawScale=0.400000
 }

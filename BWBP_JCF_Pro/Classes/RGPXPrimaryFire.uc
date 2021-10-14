@@ -27,7 +27,7 @@ defaultproperties
      FireChaos=0.500000
      XInaccuracy=4.000000
      YInaccuracy=4.000000
-     BallisticFireSound=(Sound=Sound'BW_Core_WeaponSound.G5.G5-Fire1')
+     BallisticFireSound=(Sound=Sound'BWBP_JCF_Sounds.RGX.RGX_Fire')
      FireEndAnim=
      FireRate=0.800000
 	 FlashScaleFactor=2.000000
