@@ -81,7 +81,7 @@ simulated function float ChargeBar()
 defaultproperties
 {
 	TeamSkins(0)=(RedTex=Shader'BW_Core_WeaponTex.Hands.RedHand-Shiny',BlueTex=Shader'BW_Core_WeaponTex.Hands.BlueHand-Shiny')
-	BigIconMaterial=Texture'BW_Core_WeaponTex.Reptile.BigIcon_Reptile'
+	BigIconMaterial=Texture'BWBP_SKC_TexExp.Thumper.BigIcon_Thumper'
 	BigIconCoords=(Y1=30,Y2=230)
 	BCRepClass=Class'BallisticProV55.BallisticReplicationInfo'
 	bWT_Hazardous=True
@@ -108,7 +108,8 @@ defaultproperties
 	ParamsClasses(0)=Class'ThumperGrenadeLauncherWeaponParamsArena'
 	FireModeClass(0)=Class'BWBP_SKCExp_Pro.ThumperPrimaryFire'
 	FireModeClass(1)=Class'BWBP_SKCExp_Pro.ThumperSecondaryFire'
-	BringUpTime=0.500000
+	BringUpTime=0.950000
+	PutDownTime=0.800000
 	SelectForce="SwitchToAssaultRifle"
 	AIRating=0.800000
 	CurrentRating=0.800000
@@ -123,9 +124,9 @@ defaultproperties
 	PlayerViewOffset=(X=30.000000,Y=15.000000,Z=-20.000000)
 	PlayerViewPivot=(Pitch=600)
 	AttachmentClass=Class'BWBP_SKCExp_Pro.ThumperAttachment'
-	IconMaterial=Texture'BW_Core_WeaponTex.Reptile.SmallIcon_Reptile'
+	IconMaterial=Texture'BWBP_SKC_TexExp.Thumper.SmallIcon_Thumper'
 	IconCoords=(X2=127,Y2=31)
-	ItemName="[B] LRGh-90 'Topor' Grenade Launcher"
+	ItemName="LRGh-90 'Topor' Grenade Launcher"
 	LightType=LT_Pulse
 	LightEffect=LE_NonIncidence
 	LightHue=54
