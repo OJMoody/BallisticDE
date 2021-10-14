@@ -130,12 +130,12 @@ defaultproperties
      ShakeRotMag=(X=512.000000,Y=400.000000)
      ShakeRotRate=(X=3000.000000,Z=3000.000000)
      ShakeOffsetMag=(X=20.000000,Y=30.000000,Z=30.000000)
-     Speed=0.000000
-	 AccelSpeed=0.000000
-     Damage=80.000000
-     DamageRadius=1024.000000
+     Speed=50.000000
+	 MaxSpeed=200.000000
+     Damage=50.000000
+     DamageRadius=256.000000
      WallPenetrationForce=384
-     MomentumTransfer=75000.000000
+     MomentumTransfer=15000.000000
      MyDamageType=Class'BWBP_JCF_Pro.DTRGPXBazooka'
      LightType=LT_Steady
      LightEffect=LE_QuadraticNonIncidence

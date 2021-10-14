@@ -375,7 +375,7 @@ defaultproperties
 	AttachmentClass=Class'BWBP_APC_Pro.FM13Attachment'
 	IconMaterial=Texture'BWBP_CC_Tex.FM13.SmallIcon_Pitbull'
 	IconCoords=(X2=127,Y2=31)
-	ItemName="FM13 Pitbull Shotgun"
+	ItemName="FM13 Dragon Shotgun"
 	bNoCrosshairInScope=True
 	LightType=LT_Pulse
 	LightEffect=LE_NonIncidence

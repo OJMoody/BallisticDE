@@ -293,8 +293,8 @@ defaultproperties
 	PutDownSound=(Sound=Sound'BW_Core_WeaponSound.G5.G5-Putaway')
 	CockSound=(Sound=Sound'BW_Core_WeaponSound.G5.G5-Lever')
 	ReloadAnimRate=1.000000
-	ClipOutSound=(Sound=Sound'BWBP_JCF_Sounds.RPG.Reload',Volume=2.500000)
-    ClipInSound=(Sound=Sound'BWBP_JCF_Sounds.RPG.Reload',Volume=2.000000)
+	ClipOutSound=(Sound=Sound'BWBP_JCF_Sounds.RGX.RGX_RocketOut',Volume=2.500000)
+    ClipInSound=(Sound=Sound'BWBP_JCF_Sounds.RGX.RGX_RocketIn',Volume=2.000000)
 	WeaponModes(0)=(ModeName="Rocket")
 	WeaponModes(1)=(bUnavailable=True)
 	WeaponModes(2)=(bUnavailable=True)
@@ -324,7 +324,7 @@ defaultproperties
 	AttachmentClass=Class'BWBP_JCF_Pro.RGPXAttachment'
 	IconMaterial=Texture'BWBP_JCF_Tex.RGP-X350.SmallIcon_RGPX'
 	IconCoords=(X2=127,Y2=31)
-	ItemName="[B] RGX-350 H-V Flak Bazooka"
+	ItemName="RGX-350 H-V Flak Bazooka"
 	LightType=LT_Pulse
 	LightEffect=LE_NonIncidence
 	LightHue=25
