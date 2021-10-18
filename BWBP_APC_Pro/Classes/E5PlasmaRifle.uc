@@ -13,8 +13,6 @@ var   bool			bLaserOn;
 var   LaserActor	Laser;
 var   Emitter		LaserDot;
 
-var   bool			bNightVision;
-var   actor			NVLight;
 var() float			ScopePopupHeight;
 var   float			ScopeExtension;
 var   float			LastSightDownTime;
@@ -27,8 +25,6 @@ replication
 {
 	reliable if (Role == ROLE_Authority)
 		ClientSwitchLaser;
-	reliable if (Role == ROLE_Authority && bNetDirty && bNetOwner)
-		bNightVision;
 }
 
 simulated event PostNetBeginPlay()
@@ -104,10 +100,6 @@ simulated function Destroyed ()
 		Laser.Destroy();
 	if (LaserDot != None)
 		LaserDot.Destroy();
-
-	if (NVLight != None)
-		NVLight.Destroy();
-
 	Super.Destroyed();
 }
 
@@ -194,7 +186,7 @@ simulated function TickSighting (float DT)
 	if (SightingState == SS_None && Instigator.IsLocallyControlled() && LastSightDownTime > 0 && level.TimeSeconds - LastSightDownTime > 10)
 	{
 		ScopeExtension = FMax(0.0, ScopeExtension-DT/4);
-		V.Z = ScopePopupHeight * ScopeExtension;
+		V.Y = ScopePopupHeight * ScopeExtension;
 		SetBoneLocation('RDS', V, 1.0);
 		if (level.TimeSeconds - LastSightDownTime > 14)
 			LastSightDownTime = 0;
@@ -211,51 +203,17 @@ simulated function TickSighting (float DT)
 	if (SightingState == SS_Raising)
 	{
 		ScopeExtension = FMin(1.0, ScopeExtension+DT*2);
-		V.Z = ScopePopupHeight * ScopeExtension;
-		SetBoneLocation('Scope', V, 1.0);
+		V.Y = ScopePopupHeight * ScopeExtension;
+		SetBoneLocation('RDS', V, 1.0);
 	}
 	else if (SightingState == SS_Active)
 	{
 		ScopeExtension = 1.0;
-		V.Z = ScopePopupHeight;
-		SetBoneLocation('Scope', V, 1.0);
+		V.Y = ScopePopupHeight;
+		SetBoneLocation('RDS', V, 1.0);
 	}
 	else if (SightingState == SS_None)
 		LastSightDownTime = level.TimeSeconds;
-}
-
-function ServerWeaponSpecial(optional byte i)
-{
-	bNightVision = !bNightVision;
-}
-
-simulated event WeaponTick(float DT)
-{
-	local actor T;
-	local vector HitLoc, HitNorm, Start, End;
-
-	super.WeaponTick(DT);
-
-	if (!Instigator.IsLocallyControlled())
-		return;
-
-	if (bNightVision && bScopeView)
-	{
-		SetNVLight(true);
-
-		Start = Instigator.Location+Instigator.EyePosition();
-		End = Start+vector(Instigator.GetViewRotation())*1500;
-		T = Trace(HitLoc, HitNorm, End, Start, true, vect(16,16,16));
-		if (T==None)
-			HitLoc = End;
-
-		if (VSize(HitLoc-Start) > 400)
-			NVLight.SetLocation(Start + (HitLoc-Start)*0.5);
-		else
-			NVLight.SetLocation(HitLoc + HitNorm*30);
-	}
-	else
-		SetNVLight(false);
 }
 
 simulated event RenderOverlays (Canvas C)
@@ -289,23 +247,6 @@ simulated event RenderOverlays (Canvas C)
         C.SetPos(C.SizeX - (C.SizeX - C.SizeY*1.33)/2, C.OrgY);
         C.DrawTile(ScopeViewTex, (C.SizeX - C.SizeY * 1.33)/2, C.SizeY, 0, 0, 1, 1024);
 	}
-}
-
-simulated function SetNVLight(bool bOn)
-{
-	if (!Instigator.IsLocallyControlled())
-		return;
-	if (bOn)
-	{
-		if (NVLight == None)
-		{
-			NVLight = Spawn(class'E5NightVisionLight',,,Instigator.location);
-			NVLight.SetBase(Instigator);
-		}
-		NVLight.bDynamicLight = true;
-	}
-	else if (NVLight != None)
-		NVLight.bDynamicLight = false;
 }
 
 // Secondary fire doesn't count for this weapon
@@ -448,12 +389,12 @@ simulated function float ChargeBar()
 
 defaultproperties
 {
-	ScopePopupHeight=5.000000
+	ScopePopupHeight=-3.000000
 	TeamSkins(0)=(RedTex=Shader'BW_Core_WeaponTex.Hands.RedHand-Shiny',BlueTex=Shader'BW_Core_WeaponTex.Hands.BlueHand-Shiny')
 	BigIconMaterial=Texture'BW_Core_WeaponTex.VPR.BigIcon_VPR'
 	BigIconCoords=(Y1=36,Y2=225)
 	SightFXClass=Class'BWBP_APC_Pro.E5ClipEffect'
-	SightFXBone="Mag"
+	SightFXBone="MagFX"
 	BCRepClass=Class'BallisticProV55.BallisticReplicationInfo'
 	bWT_RapidProj=True
 	bWT_Energy=True
