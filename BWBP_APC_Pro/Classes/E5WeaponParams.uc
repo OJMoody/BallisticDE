@@ -73,7 +73,7 @@ defaultproperties
     End Object
 
     Begin Object Class=FireParams Name=ArenaMultiFireParams
-        AmmoPerFire=12
+        AmmoPerFire=4
         TargetState="Shotgun"
         FireAnim="Fire"
 		AimedFireAnim="SightFire"
@@ -141,7 +141,6 @@ defaultproperties
 
 	Begin Object Class=AimParams Name=ArenaAimParams
 		ADSMultiplier=1
-		SprintOffset=(Pitch=-3000,Yaw=-4000)
 		AimSpread=(Min=64,Max=256)
 		AimDamageThreshold=75.000000
 		ChaosDeclineTime=1.250000

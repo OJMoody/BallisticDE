@@ -178,6 +178,8 @@ defaultproperties
      LightMode=MU_Both
      ReloadAnim="Reload_AR"
      bRapidFire=True
-     Mesh=SkeletalMesh'BW_Core_WeaponAnim.VPR_TPm'
-     DrawScale=0.150000
+	 FlashScale=0.3
+	 RelativeLocation=(Z=5.000000)
+     Mesh=SkeletalMesh'BWBP_CC_Anim.MicroViper_TPm'
+     DrawScale=0.750000
 }

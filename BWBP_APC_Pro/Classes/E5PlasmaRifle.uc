@@ -235,7 +235,7 @@ simulated event RenderOverlays (Canvas C)
 	
 	C.ColorModulate.W = 1;
 
-    if (ScopeViewTex != None)
+    /*if (ScopeViewTex != None)
     {
 		C.SetPos(C.OrgX, C.OrgY);
    		C.SetDrawColor(255,255,255,255);
@@ -246,7 +246,7 @@ simulated event RenderOverlays (Canvas C)
 
         C.SetPos(C.SizeX - (C.SizeX - C.SizeY*1.33)/2, C.OrgY);
         C.DrawTile(ScopeViewTex, (C.SizeX - C.SizeY * 1.33)/2, C.SizeY, 0, 0, 1, 1024);
-	}
+	}*/
 }
 
 // Secondary fire doesn't count for this weapon
@@ -391,7 +391,7 @@ defaultproperties
 {
 	ScopePopupHeight=-3.000000
 	TeamSkins(0)=(RedTex=Shader'BW_Core_WeaponTex.Hands.RedHand-Shiny',BlueTex=Shader'BW_Core_WeaponTex.Hands.BlueHand-Shiny')
-	BigIconMaterial=Texture'BW_Core_WeaponTex.VPR.BigIcon_VPR'
+	BigIconMaterial=Texture'BWBP_CC_Tex.MVPR.BigIcon_MVPR'
 	BigIconCoords=(Y1=36,Y2=225)
 	SightFXClass=Class'BWBP_APC_Pro.E5ClipEffect'
 	SightFXBone="MagFX"
@@ -413,8 +413,8 @@ defaultproperties
 	WeaponModes(1)=(ModeName="Multi Pulse",ModeID="WM_SemiAuto",Value=1.000000)
 	WeaponModes(2)=(ModeName="Sniper Pulse",ModeID="WM_SemiAuto",Value=1.000000,bUnavailable=True)
 	CurrentWeaponMode=0
-	FullZoomFOV=85.000000
 	bNoCrosshairInScope=True
+	BobDamping=2.200000
 	SightPivot=(Pitch=256)
 	SightOffset=(X=-8.000000,Z=9.300000)
 	SightDisplayFOV=25.000000
@@ -423,7 +423,8 @@ defaultproperties
 	FireModeClass(0)=Class'BWBP_APC_Pro.E5PrimaryFire'
 	FireModeClass(1)=Class'BWBP_APC_Pro.E5SecondaryFire'
 	SelectAnimRate=1.250000
-	BringUpTime=0.400000
+	BringUpTime=0.550000
+	PutDownTime=0.600000
 	SelectForce="SwitchToAssaultRifle"
 	AIRating=0.650000
 	CurrentRating=0.650000
@@ -436,8 +437,8 @@ defaultproperties
 	PickupClass=Class'BWBP_APC_Pro.E5Pickup'
 	PlayerViewOffset=(X=10.000000,Y=6.000000,Z=-8.500000)
 	AttachmentClass=Class'BWBP_APC_Pro.E5Attachment'
-	IconMaterial=Texture'BW_Core_WeaponTex.VPR.SmallIcon_VPR'
-	IconCoords=(X2=127,Y2=31)
+	IconMaterial=Texture'BWBP_CC_Tex.MVPR.SmallIcon_MVPR'
+	IconCoords=(X2=127,Y2=40)
 	ItemName="[B] E-5 'ViPeR' Plasma Pistol"
 	LightType=LT_Pulse
 	LightEffect=LE_NonIncidence
