@@ -16,6 +16,7 @@ var   Emitter		LaserDot;
 var() float			ScopePopupHeight;
 var   float			ScopeExtension;
 var   float			LastSightDownTime;
+var	  bool			bScopeVisible;
 
 var   byte			ModeBefore;
 
@@ -29,12 +30,20 @@ replication
 
 simulated event PostNetBeginPlay()
 {
+	local vector V;
+
 	super.PostNetBeginPlay();
 	if (BCRepClass.default.GameStyle == 1)
 		E5PrimaryFire(FireMode[0]).SGFireCount = 9;
 	E5PrimaryFire(FireMode[0]).SwitchWeaponMode(CurrentWeaponMode);
 	if (Laser == None)
 		Laser = spawn(class'LaserActor_VPR');
+		
+	//Hee Hee!	
+	
+	V.Y = ScopePopupHeight;
+	SetBoneLocation('RDS', V, 1.0);
+	SetBoneScale(1.0, 0.0, 'RDS');
 }
 
 simulated function KillLaserDot()
@@ -133,10 +142,7 @@ simulated function DrawLaserSight ( Canvas Canvas )
 		return;
 
 	AimDir = BallisticFire(FireMode[0]).GetFireAim(Start);
-	if (bScopeView)
-		Loc = Instigator.Location + vect(0,0,1)*(Instigator.EyeHeight-8);
-	else
-		Loc = GetBoneCoords('tip').Origin;
+	Loc = GetBoneCoords('tip').Origin;
 
 	End = Start + Normal(Vector(AimDir))*3000;
 	Other = FireMode[0].Trace (HitLocation, HitNormal, End, Start, true);
@@ -182,13 +188,27 @@ simulated function DrawLaserSight ( Canvas Canvas )
 simulated function TickSighting (float DT)
 {
 	local vector V;
+	local Rotator FT;
 
-	if (SightingState == SS_None && Instigator.IsLocallyControlled() && LastSightDownTime > 0 && level.TimeSeconds - LastSightDownTime > 10)
+	if (SightingState == SS_None && Instigator.IsLocallyControlled() && LastSightDownTime > 0 && level.TimeSeconds - LastSightDownTime > 2)
 	{
-		ScopeExtension = FMax(0.0, ScopeExtension-DT/4);
-		V.Y = ScopePopupHeight * ScopeExtension;
-		SetBoneLocation('RDS', V, 1.0);
-		if (level.TimeSeconds - LastSightDownTime > 14)
+		if (bScopeVisible)
+		{
+			bScopeVisible = !bScopeVisible;
+			//turn off sound
+			SetBoneScale(1.0, 0.0, 'RDS');
+		}
+	
+		ScopeExtension = FMax(0.0, ScopeExtension-DT/2);
+		/*V.Y = ScopePopupHeight * ScopeExtension;
+		SetBoneLocation('RDS', V, 1.0);*/
+		
+		FT.Roll = 16384 * ScopeExtension;
+		SetBoneRotation('RDSFlapLeft', FT);
+		FT.Roll = -16384 * ScopeExtension;
+		SetBoneRotation('RDSFlapRight', FT);
+		
+		if (level.TimeSeconds - LastSightDownTime > 5)
 			LastSightDownTime = 0;
 		return;
 	}
@@ -203,14 +223,31 @@ simulated function TickSighting (float DT)
 	if (SightingState == SS_Raising)
 	{
 		ScopeExtension = FMin(1.0, ScopeExtension+DT*2);
-		V.Y = ScopePopupHeight * ScopeExtension;
-		SetBoneLocation('RDS', V, 1.0);
+		/*V.Y = ScopePopupHeight * ScopeExtension;
+		SetBoneLocation('RDS', V, 1.0);*/
+		
+		FT.Roll = 16384 * ScopeExtension;
+		SetBoneRotation('RDSFlapLeft', FT);
+		FT.Roll = -16384 * ScopeExtension;
+		SetBoneRotation('RDSFlapRight', FT);
 	}
 	else if (SightingState == SS_Active)
 	{
+		if (!bScopeVisible)
+		{
+			bScopeVisible = !bScopeVisible;
+			//turn on sound
+			SetBoneScale(1.0, 1.0, 'RDS');
+		}
+		
 		ScopeExtension = 1.0;
-		V.Y = ScopePopupHeight;
-		SetBoneLocation('RDS', V, 1.0);
+		/*V.Y = ScopePopupHeight;
+		SetBoneLocation('RDS', V, 1.0);*/
+		
+		FT.Roll = 16384;
+		SetBoneRotation('RDSFlapLeft', FT);
+		FT.Roll = -16384;
+		SetBoneRotation('RDSFlapRight', FT);
 	}
 	else if (SightingState == SS_None)
 		LastSightDownTime = level.TimeSeconds;
@@ -226,6 +263,13 @@ simulated event RenderOverlays (Canvas C)
 		DrawLaserSight(C);
 		return;
 	}
+	
+	if (ZoomType == ZT_Irons)
+	{
+		WeaponRenderOverlays(C);
+		if (SightFX != None)
+			RenderSightFX(C);
+	}
 	else
 	{
 		SetLocation(Instigator.Location + Instigator.CalcDrawOffset(self));
@@ -235,7 +279,7 @@ simulated event RenderOverlays (Canvas C)
 	
 	C.ColorModulate.W = 1;
 
-    /*if (ScopeViewTex != None)
+    if (ScopeViewTex != None && ZoomType != ZT_Irons)
     {
 		C.SetPos(C.OrgX, C.OrgY);
    		C.SetDrawColor(255,255,255,255);
@@ -246,7 +290,7 @@ simulated event RenderOverlays (Canvas C)
 
         C.SetPos(C.SizeX - (C.SizeX - C.SizeY*1.33)/2, C.OrgY);
         C.DrawTile(ScopeViewTex, (C.SizeX - C.SizeY * 1.33)/2, C.SizeY, 0, 0, 1, 1024);
-	}*/
+	}
 }
 
 // Secondary fire doesn't count for this weapon

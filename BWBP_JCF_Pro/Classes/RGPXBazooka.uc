@@ -208,7 +208,7 @@ simulated event RenderOverlays( Canvas Canvas )
 //Bone related code
 simulated function HideMiniRockets()
 {
-	SetBoneScale(MagAmmo + 1, 0.0, MiniRocketBones[MagAmmo-1].BoneName);
+	SetBoneScale(MagAmmo + 2, 0.0, MiniRocketBones[MagAmmo-1].BoneName);
 }
 
 simulated function HideFlak()
@@ -216,7 +216,7 @@ simulated function HideFlak()
 	local int i;
 	SetBoneScale(1, 0.0, FlakBone);
 	for (i = 0; i <= 6; i++)
-		SetBoneScale(i+1, 0.0, MiniRocketBones[i].BoneName);
+		SetBoneScale(i+2, 0.0, MiniRocketBones[i].BoneName);
 }
 
 simulated function Notify_ShowMiniRockets()
@@ -231,7 +231,7 @@ simulated function Notify_ShowMiniRockets()
 	for (i = 0; i <= j; i++)
 	{
 		log("adding "$i$" th rocket");
-		SetBoneScale(i+1, 1.0, MiniRocketBones[i].BoneName);
+		SetBoneScale(i+2, 1.0, MiniRocketBones[i].BoneName);
 	}
 }
 

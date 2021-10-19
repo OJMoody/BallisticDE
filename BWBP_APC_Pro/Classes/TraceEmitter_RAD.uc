@@ -29,7 +29,7 @@ defaultproperties
          LifetimeRange=(Min=2.000000,Max=2.000000)
          StartVelocityRange=(X=(Min=8000.000000,Max=8000.000000))
      End Object
-     Emitters(0)=MeshEmitter'BWBP_SKCExp_Pro.TraceEmitter_RAD.MeshEmitter0'
+     Emitters(0)=MeshEmitter'BWBP_APC_Pro.TraceEmitter_RAD.MeshEmitter0'
 
      Begin Object Class=SpriteEmitter Name=SpriteEmitter0
          FadeOut=True
@@ -53,7 +53,7 @@ defaultproperties
          LifetimeRange=(Min=1.000000,Max=1.000000)
          StartVelocityRange=(X=(Min=8000.000000,Max=8000.000000))
      End Object
-     Emitters(1)=SpriteEmitter'BWBP_SKCExp_Pro.TraceEmitter_RAD.SpriteEmitter0'
+     Emitters(1)=SpriteEmitter'BWBP_APC_Pro.TraceEmitter_RAD.SpriteEmitter0'
 
      Begin Object Class=SpriteEmitter Name=SpriteEmitter1
          FadeOut=True
@@ -74,6 +74,6 @@ defaultproperties
          LifetimeRange=(Min=1.000000,Max=1.000000)
          StartVelocityRange=(X=(Min=8000.000000,Max=8000.000000))
      End Object
-     Emitters(2)=SpriteEmitter'BWBP_SKCExp_Pro.TraceEmitter_RAD.SpriteEmitter1'
+     Emitters(2)=SpriteEmitter'BWBP_APC_Pro.TraceEmitter_RAD.SpriteEmitter1'
 
 }
