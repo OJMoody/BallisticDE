@@ -267,10 +267,10 @@ defaultproperties
      PutDownSound=(Sound=Sound'BW_Core_WeaponSound.M50.M50Putaway')
      CockAnimPostReload="Cock"
      CockAnimRate=1.400000
-     CockSound=(Sound=Sound'BW_Core_WeaponSound.M50.M50Cock')
-     ClipHitSound=(Sound=Sound'BW_Core_WeaponSound.M50.M50ClipHit')
-     ClipOutSound=(Sound=Sound'BW_Core_WeaponSound.M50.M50ClipOut')
-     ClipInSound=(Sound=Sound'BW_Core_WeaponSound.M50.M50ClipIn')
+     CockSound=(Sound=Sound'BWBP_CC_Sounds.ZX98.ZX98-Cock')
+     ClipHitSound=(Sound=Sound'BWBP_CC_Sounds.ZX98.ZX98-ClipHit')
+     ClipOutSound=(Sound=Sound'BWBP_CC_Sounds.ZX98.ZX98-ClipOut')
+     ClipInSound=(Sound=Sound'BWBP_CC_Sounds.ZX98.ZX98-ClipIn')
      ClipInFrame=0.700000
      bAltTriggerReload=True
 	 bShowChargingBar=True

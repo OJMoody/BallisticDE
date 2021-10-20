@@ -159,12 +159,12 @@ defaultproperties
      bAlignToVelocity=True
      DetonateDelay=1.000000
      ImpactDamage=25
-     ImpactDamageType=Class'BallisticProV55.DTBOGPGrenade'
+     ImpactDamageType=Class'BWBP_SKCExp_Pro.DTTOPORGrenade'
      ImpactManager=Class'BWBP_SKCExp_Pro.IM_ThumperGrenade'
 	 ReflectImpactManager=Class'BallisticProV55.IM_GunHit'
      TrailClass=Class'BallisticProV55.MRLTrailEmitter'
      TrailOffset=(X=-4.000000)
-     MyRadiusDamageType=Class'BallisticProV55.DTBOGPGrenadeRadius'
+     MyRadiusDamageType=Class'BWBP_SKCExp_Pro.DTTOPORGrenadeRadius'
      SplashManager=Class'BallisticProV55.IM_ProjWater'
      ShakeRadius=256.000000
      MotionBlurRadius=384.000000
@@ -174,7 +174,7 @@ defaultproperties
      Damage=60.000000
      DamageRadius=512.000000
 	 MomentumTransfer=100000.000000
-     MyDamageType=Class'BallisticProV55.DTBOGPGrenadeRadius'
+     MyDamageType=Class'BWBP_SKCExp_Pro.DTTOPORGrenade'
      ImpactSound=SoundGroup'BW_Core_WeaponSound.NRP57.NRP57-Concrete'
      StaticMesh=StaticMesh'BW_Core_WeaponStatic.BOGP.BOGP_Grenade'
      DrawScale=0.300000

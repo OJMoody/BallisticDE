@@ -60,6 +60,7 @@ function StopFiring()
 	bStarted = false;
 }
 */
+
 function InitEffects()
 {
 	if (AIController(Instigator.Controller) != None)

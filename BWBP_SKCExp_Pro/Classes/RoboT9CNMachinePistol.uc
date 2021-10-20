@@ -224,6 +224,7 @@ defaultproperties
 	CustomCrossHairTextureName="Crosshairs.HUD.Crosshair_Cross1"
 	InventoryGroup=2
 	GroupOffset=5
+	SightPivot=(Pitch=128)
 	SightOffset=(X=-10.000000,Y=-2.110000,Z=9.15000)
 	PickupClass=Class'BWBP_SKCExp_Pro.RoboT9CNPickup'
 	PlayerViewOffset=(X=7.000000,Y=5.500000,Z=-8.000000)

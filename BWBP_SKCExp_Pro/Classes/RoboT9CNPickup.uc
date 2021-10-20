@@ -10,7 +10,7 @@ defaultproperties
      PickupDrawScale=0.900000
      InventoryType=Class'BWBP_SKCExp_Pro.RoboT9CNMachinePistol'
      RespawnTime=20.000000
-     PickupMessage="You picked up the R.O.B.O T9CN Automatic Pistol"
+     PickupMessage="You picked up the T9CN Automatic Pistol"
      PickupSound=Sound'BW_Core_WeaponSound.M806.M806Putaway'
      StaticMesh=StaticMesh'BWBP_SKC_StaticExp.M9.M9Pickup'
      Physics=PHYS_None

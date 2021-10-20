@@ -322,8 +322,8 @@ defaultproperties
      CockSound=(Sound=Sound'BW_Core_WeaponSound.MD24.MD24_Cock',Volume=0.675000)
      ReloadAnimRate=1.350000
      ClipHitSound=(Sound=Sound'BWBP_CC_Sounds.GASC.GASC-SlideBack',Volume=0.800000)
-     ClipOutSound=(Sound=Sound'BWBP_CC_Sounds.GASC.GASC-ClipOut',Volume=1.500000)
-     ClipInSound=(Sound=Sound'BWBP_CC_Sounds.GASC.GASC-ClipIn',Volume=1.500000)
+     ClipOutSound=(Sound=Sound'BWBP_CC_Sounds.GASC.GASC-ClipOut',Volume=1.000000)
+     ClipInSound=(Sound=Sound'BWBP_CC_Sounds.GASC.GASC-ClipIn',Volume=1.000000)
      ClipInFrame=0.580000
      CurrentWeaponMode=0
      bNoCrosshairInScope=True
