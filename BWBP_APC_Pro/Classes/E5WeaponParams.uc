@@ -33,7 +33,7 @@ defaultproperties
         Speed=5500.000000
         MaxSpeed=5500.000000
         AccelSpeed=60000.000000
-        Damage=35.000000
+        Damage=25.000000
         DamageRadius=64.000000
         MaxDamageGainFactor=0.25
         DamageGainEndTime=0.3
@@ -52,7 +52,7 @@ defaultproperties
         Speed=5500.000000
         MaxSpeed=50000.000000
         AccelSpeed=100000.000000
-        Damage=35.000000
+        Damage=50.000000
         DamageRadius=64.000000
         FlashScaleFactor=0.750000
         Chaos=0.350000
@@ -86,6 +86,7 @@ defaultproperties
         AmmoPerFire=20
         FireAnim="Fire"
         FireEndAnim=
+		AimedFireAnim="SightFire"
         FireInterval=0.650000
         FireEffectParams(0)=ProjectileEffectParams'ArenaSniperEffectParams'
     End Object
@@ -100,9 +101,9 @@ defaultproperties
         Damage=11.000000
         HeadMult=1.5f
         LimbMult=0.5f
-        DamageType=Class'BallisticProV55.DTVPRLaser'
-        DamageTypeHead=Class'BallisticProV55.DTVPRLaserHead'
-        DamageTypeArm=Class'BallisticProV55.DTVPRLaser'
+        DamageType=Class'BWBP_APC_Pro.DTE5Laser'
+        DamageTypeHead=Class'BWBP_APC_Pro.DTE5LaserHead'
+        DamageTypeArm=Class'BWBP_APC_Pro.DTE5Laser'
         PenetrateForce=200
         bPenetrate=True
         MuzzleFlashClass=Class'BWBP_APC_Pro.E5FlashEmitter'
@@ -156,7 +157,7 @@ defaultproperties
         InventorySize=12
         SightMoveSpeedFactor=0.9
 		SightPivot=(Pitch=256)
-		SightOffset=(X=-35.000000,Y=-0.850000,Z=11.000000)
+		SightOffset=(X=-35.000000,Y=-0.850000,Z=10.850000)
         RecoilParams(0)=RecoilParams'ArenaRecoilParams'
         AimParams(0)=AimParams'ArenaAimParams'
         FireParams(0)=FireParams'ArenaSeriesFireParams'

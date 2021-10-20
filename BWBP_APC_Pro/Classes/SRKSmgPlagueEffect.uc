@@ -1,13 +1,13 @@
 //=============================================================================
-// Visuals and damage for raygun plague.
+// Visuals and damage for SRKSmg plague.
 //=============================================================================
-class R9000EPlagueEffect extends BallisticEmitter
+class SRKSmgPlagueEffect extends BallisticEmitter
 	placeable;
 
 var   Actor							Victim;
 var   float							Duration, MaxDuration, Damage;
 var   Controller					InstigatorController;
-var 	R9000EPlagueTrigger		PlagueTrigger;
+var 	SRKSmgPlagueTrigger		PlagueTrigger;
 var	class<DamageType>	DamageType;
 
 function Reset()
@@ -46,7 +46,7 @@ simulated function Initialize(Actor V)
 	SetBase(Victim);
 	
 	//Spawn the associated trigger here and track it.
-	PlagueTrigger = Spawn(class'R9000EPlagueTrigger',Victim,,Victim.Location);
+	PlagueTrigger = Spawn(class'SRKSmgPlagueTrigger',Victim,,Victim.Location);
 	PlagueTrigger.Instigator = Instigator;
 	PlagueTrigger.InstigatorController = InstigatorController;
 	PlagueTrigger.PlagueEffect = self;
@@ -78,7 +78,6 @@ event Tick (float DT)
 
 event Timer()
 {
-	// THIS DOESNT RUN FOR SOME REASON
 	if (bTearOff)
 		Destroy();
 		
@@ -103,10 +102,10 @@ simulated function Destroyed()
 
 defaultproperties
 {
-	Duration=6.000000
-	MaxDuration=12.000000
-	Damage=8.000000
-	DamageType=Class'BWBP_APC_Pro.DTR9000EPlague'
+	Duration=8.000000
+	MaxDuration=16.000000
+	Damage=5.000000
+	DamageType=Class'BWBP_OP_Pro.DTRaygunPlague'
     Begin Object Class=SpriteEmitter Name=SpriteEmitter0
         UseColorScale=True
         FadeOut=True
@@ -134,7 +133,7 @@ defaultproperties
         StartVelocityRadialRange=(Min=20.000000,Max=250.000000)
         GetVelocityDirectionFrom=PTVD_AddRadial
     End Object
-     Emitters(0)=SpriteEmitter'BWBP_APC_Pro.R9000EPlagueEffect.SpriteEmitter0'
+     Emitters(0)=SpriteEmitter'BWBP_APC_Pro.SRKSmgPlagueEffect.SpriteEmitter0'
 
     Begin Object Class=SpriteEmitter Name=SpriteEmitter1
         FadeOut=True
@@ -162,7 +161,7 @@ defaultproperties
         StartVelocityRadialRange=(Min=20.000000,Max=250.000000)
         GetVelocityDirectionFrom=PTVD_AddRadial
     End Object
-     Emitters(1)=SpriteEmitter'BWBP_APC_Pro.R9000EPlagueEffect.SpriteEmitter1'
+     Emitters(1)=SpriteEmitter'BWBP_APC_Pro.SRKSmgPlagueEffect.SpriteEmitter1'
 
     Begin Object Class=SpriteEmitter Name=SpriteEmitter2
         UseColorScale=True
@@ -184,7 +183,7 @@ defaultproperties
         Texture=Texture'AW-2004Particles.Weapons.PlasmaStar'
         LifetimeRange=(Min=1.000000,Max=1.000000)
     End Object
-     Emitters(2)=SpriteEmitter'BWBP_APC_Pro.R9000EPlagueEffect.SpriteEmitter2'
+     Emitters(2)=SpriteEmitter'BWBP_APC_Pro.SRKSmgPlagueEffect.SpriteEmitter2'
 
      AutoDestroy=True
      Physics=PHYS_Trailer

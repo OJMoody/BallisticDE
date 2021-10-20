@@ -78,11 +78,11 @@ defaultproperties
 {
      ImpactManager=Class'BallisticProV55.IM_E23Projectile'
      bRandomStartRotation=False
-     MyRadiusDamageType=Class'BallisticProV55.DTE23Plasma'
+     MyRadiusDamageType=Class'BWBP_APC_Pro.DTE5Shotgun'
      bUsePositionalDamage=True
-     DamageTypeHead=Class'BallisticProV55.DTE23PlasmaHead'
+     DamageTypeHead=Class'BWBP_APC_Pro.DTE5ShotgunHead'
      SplashManager=Class'BallisticProV55.IM_ProjWater'
-     MyDamageType=Class'BallisticProV55.DTE23Plasma'
+     MyDamageType=Class'BWBP_APC_Pro.DTE5Shotgun'
      LightType=LT_Steady
      LightEffect=LE_QuadraticNonIncidence
      LightHue=64

@@ -166,9 +166,9 @@ defaultproperties
 	IncFireSound=(Sound=Sound'BW_Core_WeaponSound.FlyBys.Whizzing3',Volume=0.700000,Radius=384.000000,Pitch=1.400000)
     RADFireSound=(Sound=Sound'BW_Core_WeaponSound.DarkStar.Dark-Fire2',Volume=0.700000,Radius=256.000000,Pitch=0.700000)
 	WaterRangeAtten=0.800000
-	DamageType=Class'BallisticProV55.DTR78Rifle'
-	DamageTypeHead=Class'BallisticProV55.DTR78RifleHead'
-	DamageTypeArm=Class'BallisticProV55.DTR78Rifle'
+	DamageType=Class'BWBP_APC_Pro.DTR9000ERifle'
+	DamageTypeHead=Class'BWBP_APC_Pro.DTR9000ERifleHead'
+	DamageTypeArm=Class'BWBP_APC_Pro.DTR9000ERifle'
 	KickForce=3000
 	PenetrateForce=0
 	bPenetrate=False	
@@ -184,7 +184,7 @@ defaultproperties
 	BallisticFireSound=(Sound=Sound'BWBP_SKC_Sounds.R78NS.R78NS-Fire',Volume=2.000000,Radius=1024.000000)
 	FireEndAnim=
 	FireRate=1.1
-	AmmoClass=Class'BallisticProV55.Ammo_42Rifle'
+	AmmoClass=Class'BWBP_APC_Pro.Ammo_42ERifle'
 	ShakeRotMag=(X=400.000000,Y=32.000000)
 	ShakeRotRate=(X=10000.000000,Y=10000.000000,Z=10000.000000)
 	ShakeRotTime=2.000000

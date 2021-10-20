@@ -279,11 +279,11 @@ defaultproperties
      PutDownSound=(Sound=Sound'BW_Core_WeaponSound.R78.R78Putaway')
 	 PutDownTime=0.5
      CockAnim="Cock"
-	 CockSound=(Sound=Sound'BWBP_SKC_Sounds.R78NS.R78NS-Cock')
+	 CockSound=(Sound=Sound'BWBP_CC_Sounds.R9000E.R9000E-Cock')
      ReloadAnimRate=1.250000
-     ClipHitSound=(Sound=Sound'BW_Core_WeaponSound.R78.R78-ClipHit')
-     ClipOutSound=(Sound=Sound'BW_Core_WeaponSound.R78.R78-ClipOut')
-     ClipInSound=(Sound=Sound'BW_Core_WeaponSound.R78.R78-ClipIn')
+     ClipHitSound=(Sound=Sound'BWBP_CC_Sounds.R9000E.R9000E-ClipHit')
+     ClipOutSound=(Sound=Sound'BWBP_CC_Sounds.R9000E.R9000E-ClipOut')
+     ClipInSound=(Sound=Sound'BWBP_CC_Sounds.R9000E.R9000E-ClipIn')
      ClipInFrame=0.650000
      bCockOnEmpty=True
      WeaponModes(0)=(ModeName="Semi-Automatic")
@@ -292,8 +292,8 @@ defaultproperties
      CurrentWeaponMode=0
 	 BobDamping=2.4
      ScopeViewTex=Texture'BWBP_CC_Tex.ElementalSniper.ES_ScopeTex'
-     ZoomInSound=(Sound=Sound'BW_Core_WeaponSound.R78.R78ZoomIn',Volume=0.500000,Pitch=1.000000)
-     ZoomOutSound=(Sound=Sound'BW_Core_WeaponSound.R78.R78ZoomOut',Volume=0.500000,Pitch=1.000000)
+     ZoomInSound=(Sound=SoundGroup'BWBP_CC_Sounds.R9000E.R9000E-ZoomIn',Volume=0.500000,Pitch=1.000000)
+     ZoomOutSound=(Sound=SoundGroup'BWBP_CC_Sounds.R9000E.R9000E-ZoomOut',Volume=0.500000,Pitch=1.000000)
      FullZoomFOV=20.000000
      bNoCrosshairInScope=True
      SightPivot=(Roll=-1024)
@@ -303,7 +303,6 @@ defaultproperties
      ZoomStages=2
      GunLength=80.000000
      ParamsClasses(0)=Class'R9000EWeaponParamsArena'
-     ParamsClasses(1)=Class'R9000EWeaponParamsClassic'
      FireModeClass(0)=Class'BWBP_APC_Pro.R9000EPrimaryFire'
      FireModeClass(1)=Class'BCoreProV55.BallisticScopeFire'
      BringUpTime=0.500000
@@ -323,7 +322,7 @@ defaultproperties
      AttachmentClass=Class'BWBP_APC_Pro.R9000EAttachment'
      IconMaterial=Texture'BWBP_CC_Tex.ElementalSniper.SmallIcon_R9000E'
      IconCoords=(X2=127,Y2=31)
-     ItemName="R9000-E 'Chimera' Modular Sniper Rifle"
+     ItemName="R9000-E Modular Sniper Rifle"
      LightType=LT_Pulse
      LightEffect=LE_NonIncidence
      LightHue=30

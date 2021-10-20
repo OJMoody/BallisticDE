@@ -8,7 +8,7 @@ defaultproperties
 	
 	Begin Object Class=InstantEffectParams Name=ArenaPrimarySTDEffectParams
 		TraceRange=(Min=30000.000000,Max=30000.000000)
-		Damage=80
+		Damage=100
 		HeadMult=1.5f
 		LimbMult=0.9f
 		DamageType=Class'BWBP_APC_Pro.DTR9000ERifle'
@@ -20,7 +20,7 @@ defaultproperties
 		Chaos=0.500000
 		BotRefireRate=0.4
 		WarnTargetPct=0.5
-		FireSound=(Sound=Sound'BWBP_SKC_Sounds.X82.X82-Fire6',Volume=2.000000,Radius=1024.000000)
+		FireSound=(Sound=Sound'BWBP_CC_Sounds.R9000E.R9000E-Fire1',Volume=2.000000,Radius=1024.000000)
 	End Object
 
 	Begin Object Class=FireParams Name=ArenaPrimarySTDFireParams
@@ -36,7 +36,7 @@ defaultproperties
 	
 	Begin Object Class=InstantEffectParams Name=ArenaPrimaryINCEffectParams
 		TraceRange=(Min=30000.000000,Max=30000.000000)
-		Damage=55
+		Damage=65
 		HeadMult=1.5f
 		LimbMult=0.9f
 		DamageType=Class'BWBP_APC_Pro.DTR9000ERifleInc'
@@ -48,7 +48,7 @@ defaultproperties
 		Chaos=0.500000
 		BotRefireRate=0.4
 		WarnTargetPct=0.5
-		FireSound=(Sound=Sound'BWBP_SKC_Sounds.X82.X82-Fire6',Volume=2.000000,Radius=1024.000000)
+		FireSound=(Sound=Sound'BWBP_CC_Sounds.R9000E.R9000E-Fire2',Volume=2.000000,Radius=1024.000000)
 	End Object
 
 	Begin Object Class=FireParams Name=ArenaPrimaryINCFireParams
@@ -64,7 +64,7 @@ defaultproperties
 	
 	Begin Object Class=InstantEffectParams Name=ArenaPrimaryRADEffectParams
 		TraceRange=(Min=30000.000000,Max=30000.000000)
-		Damage=40
+		Damage=50
 		HeadMult=1.5f
 		LimbMult=0.9f
 		DamageType=Class'BWBP_APC_Pro.DTR9000ERifleRad'
@@ -76,7 +76,7 @@ defaultproperties
 		Chaos=0.500000
 		BotRefireRate=0.4
 		WarnTargetPct=0.5
-		FireSound=(Sound=Sound'BWBP_SKC_Sounds.X82.X82-Fire6',Volume=2.000000,Radius=1024.000000)
+		FireSound=(Sound=Sound'BWBP_CC_Sounds.R9000E.R9000E-Fire4',Volume=2.000000,Radius=1024.000000)
 	End Object
 
 	Begin Object Class=FireParams Name=ArenaPrimaryRADFireParams

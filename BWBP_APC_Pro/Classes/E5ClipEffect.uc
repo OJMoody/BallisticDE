@@ -56,7 +56,7 @@ defaultproperties
          CoordinateSystem=PTCS_Relative
          MaxParticles=1
          StartSpinRange=(X=(Min=1.000000,Max=1.000000))
-         StartSizeRange=(X=(Min=35.000000,Max=35.000000),Y=(Min=20.000000,Max=20.000000),Z=(Min=25.000000,Max=25.000000))
+         StartSizeRange=(X=(Min=15.000000,Max=15.000000),Y=(Min=10.000000,Max=10.000000),Z=(Min=25.000000,Max=50.000000))
          Texture=Texture'BW_Core_WeaponTex.Effects.ClampedFlare1'
          SecondsBeforeInactive=0.000000
          LifetimeRange=(Min=0.500000,Max=0.500000)

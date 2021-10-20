@@ -290,9 +290,9 @@ defaultproperties
      bNoCrosshairInScope=True
      SightOffset=(X=-20.000000,Y=-0.350000,Z=15.800000)
      SightDisplayFOV=40.000000
-     CockSound=(Sound=Sound'BWBP_SKC_SoundsExp.MJ51.MJ51-Cock',Volume=2.200000)
-     ClipInSound=(Sound=Sound'BWBP_SKC_Sounds.X82.X82-ClipIn',Volume=4.800000)
-     ClipOutSound=(Sound=Sound'BWBP_SKC_Sounds.X82.X82-ClipOut',Volume=4.800000)
+     CockSound=(Sound=Sound'BWBP_CC_Sounds.SRKS.SRKS-Cock',Volume=2.200000)
+     ClipInSound=(Sound=Sound'BWBP_CC_Sounds.SRKS.SRKS-ClipIn',Volume=4.800000)
+     ClipOutSound=(Sound=Sound'BWBP_CC_Sounds.SRKS.SRKS-ClipOut',Volume=4.800000)
      ClipInFrame=0.650000
      LongGunOffset=(X=5.000000)
      bWT_Bullet=True

@@ -33,32 +33,6 @@ simulated function DestroyEffects()
 	class'BUtil'.static.KillEmitterEffect (MuzzleFlashMulti);
 }
 
-//Disable fire anim when scoped
-function PlayFiring()
-{
-	if (ScopeDownOn == SDO_Fire)
-		BW.TemporaryScopeDown(0.5, 0.9);
-	// Slightly modified Code from original PlayFiring()
-    if (!BW.bScopeView)
-        if (FireCount > 0)
-        {
-            if (Weapon.HasAnim(FireLoopAnim))
-                BW.SafePlayAnim(FireLoopAnim, FireLoopAnimRate, 0.0, ,"FIRE");
-            else
-                BW.SafePlayAnim(FireAnim, FireAnimRate, TweenTime, ,"FIRE");
-        }
-        else
-            BW.SafePlayAnim(FireAnim, FireAnimRate, TweenTime, ,"FIRE");
-    ClientPlayForceFeedback(FireForce);  // jdf
-    FireCount++;
-	// End code from normal PlayFiring()
-
-	if (BallisticFireSound.Sound != None)
-		Weapon.PlayOwnedSound(BallisticFireSound.Sound,BallisticFireSound.Slot,BallisticFireSound.Volume,BallisticFireSound.bNoOverride,BallisticFireSound.Radius,BallisticFireSound.Pitch,BallisticFireSound.bAtten);
-
-	CheckClipFinished();
-}
-
 simulated function SwitchWeaponMode (byte NewMode)
 {
 	Super.SwitchWeaponMode(NewMode);

@@ -145,13 +145,13 @@ defaultproperties
      DisplayFOV=55.000000
      Priority=33
      CustomCrossHairTextureName="Crosshairs.HUD.Crosshair_Cross1"
-     InventoryGroup=3
+     InventoryGroup=4
      PickupClass=Class'BWBP_JCF_Pro.M7A3Pickup'
      PlayerViewOffset=(X=10.000000,Y=4.000000,Z=-7.500000)
      AttachmentClass=Class'BWBP_JCF_Pro.M7A3Attachment'
      IconMaterial=Texture'BWBP_JCF_Tex.M7A3.SmallIcon_M7A3'
      IconCoords=(X2=127,Y2=35)
-     ItemName="M7A3 Sub-Machine Rifle"
+     ItemName="M7A3 Battle Rifle"
      LightType=LT_Pulse
      LightEffect=LE_NonIncidence
      LightHue=30

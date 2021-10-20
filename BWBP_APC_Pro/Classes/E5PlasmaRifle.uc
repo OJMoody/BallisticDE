@@ -442,9 +442,9 @@ defaultproperties
 	BCRepClass=Class'BallisticProV55.BallisticReplicationInfo'
 	bWT_RapidProj=True
 	bWT_Energy=True
-	ManualLines(0)="Series mode fires a continuous stream of high damage projectiles, which gain damage over range.|Multi mode fires five projectiles simultaneously in a spread pattern, mimicking a shotgun.|Sniper mode fires a very fast projectile which is weak up close but quickly gains damage over range."
+	ManualLines(0)="Series mode fires a continuous stream of high damage projectiles, which gain damage over range.|Multi mode fires three projectiles simultaneously in a spread pattern, mimicking a shotgun."
 	ManualLines(1)="Projects a hitscan beam with almost no recoil but low damage output."
-	ManualLines(2)="While scoped, the weapon function toggles the infra-red night vision lamp. The E-23 ViPeR is effective at all ranges, but requires mode switching and uses the same ammo pool for all its modes. It has low recoil but poor hipfire. Its energy projectiles repair nodes and vehicles. Plasma projectiles will penetrate players, but not walls and surfaces."
+	ManualLines(2)=""
 	SpecialInfo(0)=(Info="300.0;25.0;0.9;80.0;0.2;0.4;0.1")
 	BringUpSound=(Sound=Sound'BW_Core_WeaponSound.A73.A73Pullout')
 	PutDownSound=(Sound=Sound'BW_Core_WeaponSound.A73.A73Putaway')
@@ -483,7 +483,7 @@ defaultproperties
 	AttachmentClass=Class'BWBP_APC_Pro.E5Attachment'
 	IconMaterial=Texture'BWBP_CC_Tex.MVPR.SmallIcon_MVPR'
 	IconCoords=(X2=127,Y2=40)
-	ItemName="[B] E-5 'ViPeR' Plasma Pistol"
+	ItemName="E-5 'ViPeR' Plasma Pistol"
 	LightType=LT_Pulse
 	LightEffect=LE_NonIncidence
 	LightHue=64

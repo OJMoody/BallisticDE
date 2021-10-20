@@ -207,6 +207,9 @@ defaultproperties
      FireSoundLoop=Sound'BW_Core_WeaponSound.VPR.VPR-LaserLoop'
      bPawnRapidFireAnim=True
      AmmoClass=Class'BallisticProV55.Ammo_E23Cells'
+	 DamageType=Class'BWBP_APC_Pro.DTE5Laser'
+     DamageTypeHead=Class'BWBP_APC_Pro.DTE5LaserHead'
+     DamageTypeArm=Class'BWBP_APC_Pro.DTE5Laser'
 	 
 	 // AI
 	 bInstantHit=True
