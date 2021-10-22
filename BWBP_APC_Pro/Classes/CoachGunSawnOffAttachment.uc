@@ -440,10 +440,10 @@ defaultproperties
 
     TrackAnimMode=MU_None
 
-    Mesh=SkeletalMesh'BWBP_SKC_Anim.Coachgun_TPm'
-    RelativeLocation=(X=5.000000,Z=4.000000)
+    Mesh=SkeletalMesh'BWBP_SKC_AnimExp.SawnOff_TPm'
+    RelativeLocation=(X=15.000000)
     RelativeRotation=(Pitch=32768)
-    DrawScale=0.450000
+    DrawScale=0.200000
 
     SingleFireAnim="Reload_BreakOpenFast"
     SingleAimedFireAnim="Reload_BreakOpenFast"

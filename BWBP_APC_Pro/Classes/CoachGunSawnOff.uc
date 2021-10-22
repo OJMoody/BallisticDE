@@ -443,7 +443,7 @@ defaultproperties
      LastShellBone="ShellR"
      FireAnimCutThreshold=1.100000
      TeamSkins(0)=(RedTex=Shader'BW_Core_WeaponTex.Hands.RedHand-Shiny',BlueTex=Shader'BW_Core_WeaponTex.Hands.BlueHand-Shiny')
-     BigIconMaterial=Texture'BWBP_SKC_Tex.CoachGun.BigIcon_Coach'
+     BigIconMaterial=Texture'BWBP_SKC_TexExp.SawnOff.BigIcon_Sawn'
      BigIconCoords=(Y1=35,Y2=225)
      BCRepClass=Class'BallisticProV55.BallisticReplicationInfo'
      bWT_Shotgun=True
@@ -468,24 +468,24 @@ defaultproperties
      LongGunPivot=(Pitch=6000,Yaw=-9000,Roll=2048)
 	 LongGunOffset=(X=-30.000000,Y=11.000000,Z=-20.000000)
 	 ParamsClasses(0)=Class'CoachGunSawnOffWeaponParams'
-	 ParamsClasses(1)=Class'CoachWeaponParamsClassic' //Note: Needs state code
+	 //ParamsClasses(1)=Class'CoachWeaponParamsClassic' //Note: Needs state code
      FireModeClass(0)=Class'BWBP_APC_Pro.CoachGunSawnOffPrimaryFire'
      FireModeClass(1)=Class'BCoreProV55.BallisticScopeFire'
      SelectAnimRate=2.000000
      PutDownAnimRate=2.000000
      AIRating=0.800000
      CurrentRating=0.800000
-     Description="This primitive artifact has managed to survive the passage of time. Behind it trails a brutal story of bloodshed and sacrifice. For every scar, a life taken; every gouge, a life saved."
+     Description="Redwood Sawn-Off Shotgun||Manufacturer: Redwood Firearms|Primary: Double Barrel Shot|Secondary: Single Barrel Shot||The layers of caked blood and dirt are the only indication of the passing of time on this ancient weapon, once used by the ring leader of a now long gone gang in the old west. Having cut off most of the barrel, the owner found it much easier to conceal and found he could carry a second one, inspiring fear and false loyalty in those around him. Though he's gone, his weapon remains as formidable as it was then, firing 12 gauge buckshot rounds, either in pairs or single shot. Without most of its barrel, the ease of use due to being much lighter is readily apparent, even in the hands of an amateur. Still packs one hell of a kick."
      Priority=38
      HudColor=(B=35,G=100,R=200)
      CustomCrossHairTextureName="Crosshairs.HUD.Crosshair_Cross1"
-     InventoryGroup=7
+     InventoryGroup=2
      PickupClass=Class'BWBP_APC_Pro.CoachGunSawnOffPickup'
      PlayerViewOffset=(X=-10.000000,Y=20.000000,Z=-30.000000)
      AttachmentClass=Class'BWBP_APC_Pro.CoachGunSawnOffAttachment'
-     IconMaterial=Texture'BWBP_SKC_Tex.CoachGun.SmallIcon_Coach'
+     IconMaterial=Texture'BWBP_SKC_TexExp.SawnOff.SmallIcon_Sawn'
      IconCoords=(X2=127,Y2=40)
-     ItemName="[B] Redwood Sawn Off"
+     ItemName="Redwood Sawn Off"
      LightType=LT_Pulse
      LightEffect=LE_NonIncidence
      LightHue=25

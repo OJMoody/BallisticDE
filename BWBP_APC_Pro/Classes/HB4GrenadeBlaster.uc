@@ -120,7 +120,7 @@ defaultproperties
 	IconCoords=(X2=127,Y2=31)
 	IconMaterial=Texture'BWBP_CC_Tex.HoloBlaster.SmallIcon_HoloBlaster'
 	InventoryGroup=8
-	ItemName="[B] HB4 Electro Grenade Blaster"
+	ItemName="HB4 Electro Grenade Blaster"
 
 	LightBrightness=150.000000
 	LightEffect=LE_NonIncidence

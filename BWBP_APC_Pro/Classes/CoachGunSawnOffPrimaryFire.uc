@@ -441,9 +441,9 @@ defaultproperties
     PenetrateForce=0
 	bPenetrate=False
 	bFireOnRelease=True
-	DamageType=Class'BWBP_SKC_Pro.DTCoachShot'
-	DamageTypeHead=Class'BWBP_SKC_Pro.DTCoachShot'
-	DamageTypeArm=Class'BWBP_SKC_Pro.DTCoachShot'
+	DamageType=Class'BWBP_APC_Pro.DTSawnOff'
+	DamageTypeHead=Class'BWBP_APC_Pro.DTSawnOff'
+	DamageTypeArm=Class'BWBP_APC_Pro.DTSawnOff'
 	KickForce=500
 	MuzzleFlashClass=Class'BallisticProV55.MRT6FlashEmitter'
 	FlashScaleFactor=1.500000

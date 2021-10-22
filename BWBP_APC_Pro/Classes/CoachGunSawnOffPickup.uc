@@ -47,13 +47,13 @@ simulated function UpdatePrecacheStaticMeshes()
 
 defaultproperties
 {
-     LowPolyStaticMesh=StaticMesh'BWBP_SKC_Static.CoachGun.DoubleShotgunPickup'
+     LowPolyStaticMesh=StaticMesh'BWBP_SKC_StaticExp.SawnOff.SawnOff-High'
      InventoryType=Class'BWBP_APC_Pro.CoachGunSawnOff'
      RespawnTime=15.000000
      PickupMessage="You picked up the Redwood Sawn Off."
      PickupSound=Sound'BW_Core_WeaponSound.M290.M290Putaway'
-     StaticMesh=StaticMesh'BWBP_SKC_Static.CoachGun.DoubleShotgunPickup'
+     StaticMesh=StaticMesh'BWBP_SKC_StaticExp.SawnOff.SawnOff-High'
      Physics=PHYS_None
-     DrawScale=0.650000
+     DrawScale=0.100000
      CollisionHeight=3.500000
 }
