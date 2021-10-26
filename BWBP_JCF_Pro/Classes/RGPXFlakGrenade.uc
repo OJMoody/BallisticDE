@@ -10,6 +10,9 @@ class RGPXFlakGrenade extends BallisticGrenade;
 
 var bool bArmed;
 var float ArmingDelay;
+var RGPXFlakRocket FlakProj[6];
+
+var int	OldMagAmmo;
 
 simulated function PostNetBeginPlay()
 {
@@ -83,19 +86,31 @@ simulated event HitWall(vector HitNormal, actor Wall)
 
 simulated function Explode(vector HitLocation, vector HitNormal)
 {
-	local vector Start;
+	local vector Start, NewNormal;
     local rotator Dir;
     local int i;
+	local BallisticWeapon BW;
+
+	BW = BallisticWeapon(Instigator.Weapon);
 
 	Start = Location + 30 * HitNormal;
 	if (FlakCount > 0 && FlakClass != None)
 	{
-		for (i=0;i<FlakCount;i++)
+		for (i=0;i<OldMagAmmo;i++)
 		{
-			Dir = Rotator(HitNormal);
-			Dir.Yaw += FRand()*2048-1024;
-			Dir.Pitch += FRand()*2048-1024;
-			Spawn( FlakClass,, '', Start, Dir);
+			NewNormal = HitNormal;
+			
+			log(HitNormal);
+			
+			NewNormal.X += FRand()*0.4 - 0.2;
+			NewNormal.Y += FRand()*0.4 - 0.2;
+			NewNormal.Z += FRand()*0.4 - 0.2;
+			
+			Dir = Rotator(NewNormal);
+		
+			FlakProj[i] = RGPXFlakRocket(Spawn(FlakClass,,, Start, Dir));
+			FlakProj[i].Instigator = Instigator;
+			FlakProj[i].InitFlak(500);
 		}
 	}
 	super.Explode(HitLocation, HitNormal);

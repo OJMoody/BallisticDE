@@ -55,6 +55,17 @@ simulated function ModeDoFire()
 	PugAssaultCannon(BW).FragFired();
 }
 
+function StopFiring()
+{
+	local int channel;
+	local name seq;
+	local float frame, rate;
+	
+	weapon.GetAnimParams(channel, seq, frame, rate);
+	if (Seq == PreFireAnim)
+		Weapon.PlayAnim(Weapon.IdleAnim, 1.0, 0.5);
+}
+
 // Hip FRAG-12s deviate horribly.
 simulated function vector GetFireSpread()
 {
@@ -86,8 +97,8 @@ defaultproperties
      FirePushbackForce=100.000000
      FireChaos=1.000000
      BallisticFireSound=(Sound=Sound'BWBP_SKC_SoundsExp.PUG.PUG-FireSlug',Volume=2.500000)
+	 bFireOnRelease=True
      bWaitForRelease=True
-     FireAnim="GrenadeFire"
      FireForce="AssaultRifleAltFire"
      AmmoClass=Class'BWBP_SKC_Pro.Ammo_20mmGrenade'
      AmmoPerFire=0

@@ -105,7 +105,7 @@ simulated function NewDrawWeaponInfo(Canvas C, float YPos)
 	ScaleFactor2 = 99 * C.ClipX/3200;
 	C.Style = ERenderStyle.STY_Alpha;
 	C.DrawColor = class'HUD'.Default.WhiteColor;
-	Count = Min(6,Grenades);
+	Count = Min(3,Grenades);
 	
 	if (Grenades > 0)
 	{
@@ -187,9 +187,7 @@ simulated function FragFired()
 	if (Role == ROLE_Authority)
 		Grenades--;
 		
-	bAltNeedCock = True;
-	
-	IdleAnim='Idle';
+	//bAltNeedCock = True;
 }
 
 //=============================================
@@ -213,16 +211,16 @@ simulated function Notify_PugShellIn()
 
 simulated function Notify_CockStart()
 {
-	if (!bAltNeedCock)
+	/*if (!bAltNeedCock)
 	{	
 		PlayOwnedSound(CockSoundQuick,CockSound.Slot,CockSound.Volume,CockSound.bNoOverride,CockSound.Radius,CockSound.Pitch,CockSound.bAtten);
-		BulldogPrimaryFire(FireMode[0]).EjectFRAGBrass();
+		PugPrimaryFire(FireMode[0]).EjectFRAGBrass();
 		IdleAnim='Idle';
 		if (Role == ROLE_Authority)
-			Grenades-=1;
-	}
+			Grenades--;
+	}*/
 	
-	else PlayOwnedSound(CockSound.Sound,CockSound.Slot,CockSound.Volume,CockSound.bNoOverride,CockSound.Radius,CockSound.Pitch,CockSound.bAtten);
+	PlayOwnedSound(CockSound.Sound,CockSound.Slot,CockSound.Volume,CockSound.bNoOverride,CockSound.Radius,CockSound.Pitch,CockSound.bAtten);
 }
 
 simulated function Notify_FRAG12LoadStart()
@@ -242,7 +240,7 @@ simulated function Notify_FRAG12LoadStartQuick()
 simulated function BringUp(optional Weapon PrevWeapon)
 {
 	VisGrenades=Grenades;
-	ShellIndex = FMin(Grenades-1, 5);
+	ShellIndex = FMin(Grenades-1, 2);
 	super.BringUp(PrevWeapon);
 }
 
@@ -268,9 +266,9 @@ simulated event AnimEnded (int Channel, name anim, float frame, float rate)
     {
         if ( /*(FireMode[0] == None || !FireMode[0].bIsFiring) && (FireMode[1] == None || !FireMode[1].bIsFiring) && */MeleeState < MS_Held)
 			bPreventReload = false;
-		if (Channel == 0)
-			PlayIdle();
-    }
+		/*if (Channel == 0)
+			PlayIdle();*/
+	}
 
 	// End stuff from Engine.Weapon
 
@@ -285,7 +283,7 @@ simulated event AnimEnded (int Channel, name anim, float frame, float rate)
 	// This is only applicable to the Altfire
 	if (ReloadState == RS_PostShellIn)
 	{
-		if (Grenades >= 6 || Ammo[1].AmmoAmount < 1)
+		if (Grenades >= 3 || Ammo[1].AmmoAmount < 1)
 		{
 			PlayShovelEnd();
 			ReloadState = RS_EndShovel;
@@ -298,16 +296,11 @@ simulated event AnimEnded (int Channel, name anim, float frame, float rate)
 	// End of reloading, either cock the gun or go to idle
 	if (ReloadState == RS_PostClipIn || ReloadState == RS_EndShovel)
 	{
-		if (bNeedCock && MagAmmo > 0)
-			CommonCockGun();
-		else
-		{
-			bNeedCock=false;
-			ReloadState = RS_None;
-			ReloadFinished();
-			PlayIdle();
-			AimComponent.ReAim(0.05);
-		}
+		bNeedCock=false;
+		ReloadState = RS_None;
+		ReloadFinished();
+		PlayIdle();
+		AimComponent.ReAim(0.05);
 		return;
 	}
 	
@@ -318,19 +311,13 @@ simulated event AnimEnded (int Channel, name anim, float frame, float rate)
 		ReloadState = RS_None;
 		ReloadFinished();
 		
-		if (Anim == SGPrepAnim)
-		{
-			IdleAnim='AltIdle';
-			bAltNeedCock=False;
-		}
-		
-		else
+		if (Anim != SGPrepAnim)
 		{
 			IdleAnim='Idle';
-			bAltNeedCock=True;
+			//bAltNeedCock=True;
+			PlayIdle();
 		}
 		
-		PlayIdle();
 		AimComponent.ReAim(0.05);
 	}
 }
@@ -338,7 +325,7 @@ simulated event AnimEnded (int Channel, name anim, float frame, float rate)
 
 simulated function LoadGrenadeLoop()
 {
-	if (Ammo[1].AmmoAmount < 1 && Grenades > 6)
+	if (Ammo[1].AmmoAmount < 1 && Grenades > 3)
 		return;
 	if ((ReloadState == RS_None || ReloadState == RS_StartShovel)&& Ammo[1].AmmoAmount >= 1)
 	{
@@ -363,7 +350,7 @@ simulated function FirePressed(float F)
 			SkipReload();
 	}
 	
-	if (F == 0)
+	/*if (F == 0)
 	{
 		if (ReloadState == RS_None && (bNeedCock || !bAltNeedCock) && MagAmmo > 0 && !IsFiring() && level.TimeSeconds > FireMode[0].NextfireTime)
 		{
@@ -378,7 +365,7 @@ simulated function FirePressed(float F)
 		CommonLoadFrag();
 		if (Level.NetMode == NM_Client)
 			ServerLoadFrag();
-	}
+	}*/
 }
 
 simulated function CommonLoadFrag()
@@ -418,10 +405,10 @@ simulated function CommonStartReload (optional byte i)
 		if (BFireMode[m] != None)
 			BFireMode[m].ReloadingGun(i);
 
-	if (bCockAfterReload)
+	/*if (bCockAfterReload)
 		bNeedCock=true;
 	if (bCockOnEmpty && MagAmmo < 1)
-		bNeedCock=true;
+		bNeedCock=true;*/
 	bNeedReload=false;
 }
 
@@ -454,11 +441,11 @@ function ServerStartReload (optional byte i)
 		return;
 
     // primary full, alt reserves empty
-	if (MagAmmo >= default.MagAmmo && (Ammo[1].AmmoAmount < 1 || Grenades >= 6)) 
+	if (MagAmmo >= default.MagAmmo && (Ammo[1].AmmoAmount < 1 || Grenades >= 3)) 
 		return;
 
     //alt full, primary reserves empty
-	if (Grenades == 6 && Ammo[0].AmmoAmount < 1) 
+	if (Grenades == 3 && Ammo[0].AmmoAmount < 1) 
 		return;
 
     //all reserves empty
@@ -471,7 +458,7 @@ function ServerStartReload (optional byte i)
 
 	bServerReloading = true;
 
-	if (Grenades < 6 && Ammo[1].AmmoAmount != 0 && (MagAmmo >= default.MagAmmo/2 || Ammo[0].AmmoAmount < 1))
+	if (Grenades < 3 && Ammo[1].AmmoAmount != 0 && (MagAmmo >= default.MagAmmo/2 || Ammo[0].AmmoAmount < 1))
 	{
 		CommonStartReload(1);	//Server animation
 		ClientStartReload(1);
@@ -631,7 +618,7 @@ defaultproperties
 	CockingAnim="Cock"
 	ShovelAnim="ReloadGrenadeLoop"
 	Grenades=3
-	bAltNeedCock=True
+	bAltNeedCock=False
 	TeamSkins(0)=(RedTex=Shader'BW_Core_WeaponTex.Hands.RedHand-Shiny',BlueTex=Shader'BW_Core_WeaponTex.Hands.BlueHand-Shiny')
 	AIReloadTime=1.500000
 	BigIconMaterial=Texture'BWBP_SKC_TexExp.Pug.BigIcon_Pug'
@@ -640,6 +627,7 @@ defaultproperties
 	bWT_Bullet=True
 	bNeedCock=False
 	bCockAfterReload=False
+	bCockOnEmpty=False
 	ManualLines(0)=".75 BOLT cannon fire. Long-ranged with high power. Fire rate is better than average. Good penetration. Poor from the hip."
 	ManualLines(1)="Readies a FRAG-12 if one is not already loaded; otherwise, fires the loaded FRAG-12. FRAG-12s move along a straight trajectory, dealing high damage upon impact and to enemies close to the point of impact. Has lesser recoil than the primary fire."
 	ManualLines(2)="As it lacks a scope, has a quicker aim time than scoped weapons. Effective at medium to long range."

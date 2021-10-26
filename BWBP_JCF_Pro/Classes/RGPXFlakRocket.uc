@@ -8,21 +8,66 @@
 //=============================================================================
 class RGPXFlakRocket extends BallisticGrenade;
 
-/*simulated function PostNetBeginPlay()
+var   float NewSpeed;			// Speed sent to clients
+var   bool	bFlakInitialized;
+
+replication
 {
-	Velocity = Normal(Velocity) * default.Speed;
-	super.PostNetBeginPlay();
-}*/
+	reliable if (Role==ROLE_Authority)
+		NewSpeed;
+}
+
+simulated event Timer()
+{
+	if (Role < ROLE_Authority && NewSpeed == default.NewSpeed)
+	{
+		SetTimer(0.1, false);
+		return;
+	}
+	if (StartDelay > 0)
+	{
+		StartDelay = 0;
+		bHidden=false;
+		SetPhysics(default.Physics);
+		SetCollision (default.bCollideActors, default.bBlockActors, default.bBlockPlayers);
+		InitProjectile();
+		return;
+	}
+}
+
+function InitFlak(float FSpeed)
+{
+	Speed = FSpeed;
+	NewSpeed = Speed;
+}
+
+simulated function InitProjectile ()
+{
+	bFlakInitialized = true;
+	Super.InitProjectile();
+}
+simulated event PostNetReceive()
+{
+	Super.PostNetReceive();
+
+	if (NewSpeed != default.NewSpeed)
+		Speed = NewSpeed;
+	if (!bFlakInitialized && NewSpeed != default.NewSpeed)
+	{
+		if (StartDelay == 0)
+			InitProjectile();
+	}
+}
 
 defaultproperties
 {    
-	 ModeIndex=1
+	 StartDelay=0.100000
+	 NewSpeed=-0.100000
      ImpactManager=Class'BWBP_JCF_Pro.IM_RGPX'
-     bRandomStartRotation=False
+     bRandomStartRotation=True
 	 DetonateOn=DT_Impact
 	 Physics=PHYS_Falling
-     TrailClass=Class'BWBP_JCF_Pro.RGPXRocketTrail'
-     TrailOffset=(X=-14.000000)
+	 TrailClass=Class'BWBP_SKC_Pro.LonghornGrenadeTrailSmall'
      MyRadiusDamageType=Class'BWBP_JCF_Pro.DTRGPXBazookaRadius'
      SplashManager=Class'BallisticProV55.IM_ProjWater'
      ShakeRadius=378.000000
@@ -30,24 +75,17 @@ defaultproperties
      ShakeRotMag=(X=512.000000,Y=400.000000)
      ShakeRotRate=(X=3000.000000,Z=3000.000000)
      ShakeOffsetMag=(X=20.000000,Y=30.000000,Z=30.000000)
-     Speed=50.000000
+     Speed=5.000000
 	 AccelSpeed=200.000000
      Damage=50.000000
      DamageRadius=256.000000
      WallPenetrationForce=384
      MomentumTransfer=15000.000000
      MyDamageType=Class'BWBP_JCF_Pro.DTRGPXBazooka'
-     LightType=LT_Steady
-     LightEffect=LE_QuadraticNonIncidence
-     LightHue=25
-     LightSaturation=100
-     LightBrightness=200.000000
-     LightRadius=15.000000
      StaticMesh=StaticMesh'BWBP_JCF_Static.RGP-X350.RGP-X350_ProjMini'
      bDynamicLight=True
      bNetTemporary=False
      bUpdateSimulatedPosition=True
-     AmbientSound=Sound'BW_Core_WeaponSound.G5.G5-RocketFly'
      DrawScale=0.180000
      SoundVolume=192
      SoundRadius=128.000000

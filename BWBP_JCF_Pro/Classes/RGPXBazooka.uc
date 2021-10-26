@@ -229,10 +229,7 @@ simulated function Notify_ShowMiniRockets()
 		j=default.MagAmmo;
 	
 	for (i = 0; i <= j; i++)
-	{
-		log("adding "$i$" th rocket");
 		SetBoneScale(i+2, 1.0, MiniRocketBones[i].BoneName);
-	}
 }
 
 simulated function Notify_ShowFlak()

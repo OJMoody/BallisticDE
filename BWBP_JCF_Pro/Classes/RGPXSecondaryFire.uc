@@ -22,8 +22,17 @@ simulated event ModeDoFire()
 
 function SpawnProjectile (Vector Start, Rotator Dir)
 {
+	local int OldMagAmmo;
+	
+	OldMagAmmo = BW.MagAmmo;
 	ConsumedLoad += Min(BW.default.MagAmmo, BW.MagAmmo) - 1;
-	super.SpawnProjectile(Start,Dir);
+	
+	Proj = Spawn (ProjectileClass,,, Start, Dir);
+	if (Proj != None)
+	{
+		Proj.Instigator = Instigator;
+		RGPXFlakGrenade(Proj).OldMagAmmo = OldMagAmmo;
+	}
 }
 
 // Used to delay ammo consumtion
