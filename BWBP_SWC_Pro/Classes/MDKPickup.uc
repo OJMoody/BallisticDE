@@ -6,14 +6,14 @@ class MDKPickup extends BallisticHandgunPickup
 
 defaultproperties
 {
-     LowPolyStaticMesh=StaticMesh'BW_Core_WeaponStatic.XK2.XK2PickupLo'
-     PickupDrawScale=0.250000
+     LowPolyStaticMesh=StaticMesh'BWBP_SWC_Static.MDK.MDK_SM_Main'
+     PickupDrawScale=0.100000
      InventoryType=Class'BWBP_SWC_Pro.MDKSubMachinegun'
      RespawnTime=20.000000
      PickupMessage="You picked up the MDK Modular SubMachine Gun."
      PickupSound=Sound'BW_Core_WeaponSound.XK2.XK2-Putaway'
-     StaticMesh=StaticMesh'BW_Core_WeaponStatic.XK2.XK2PickupHi'
+     StaticMesh=StaticMesh'BWBP_SWC_Static.MDK.MDK_SM_Main''
      Physics=PHYS_None
-     DrawScale=0.190000
+     DrawScale=0.100000
      CollisionHeight=4.000000
 }

@@ -6,7 +6,7 @@ class FM14Pickup extends BallisticWeaponPickup
 
 defaultproperties
 {
-     LowPolyStaticMesh=StaticMesh'BWBP_CC_Static.Dragon.Pitbull_Object'
+     LowPolyStaticMesh=StaticMesh'BWBP_CC_Static.Pitbull.Pickup_Pitbull2'
      InventoryType=Class'BWBP_APC_Pro.FM14Shotgun'
      RespawnTime=20.000000
      PickupMessage="You picked up the FM14 Pitbull Blunderbuss."

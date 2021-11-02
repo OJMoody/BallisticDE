@@ -333,7 +333,7 @@ defaultproperties
 	FireModeClass(1)=Class'BWBP_APC_Pro.FM14SecondaryFire'
 	AIRating=0.750000
 	CurrentRating=0.750000
-	Description=""
+	Description="With each successful project Black and Woods releases, the more funding they get to go back and revisit some of their older projects, the FM14 'Gnasher' Blunderbuss being one of them.  Originally designed as a high powered hunting shotgun chambered in 8 gauge slugs, it was left abandoned due to not enough interest in the project. Now with their latest Pitbull design seeing widespread adoption by several armed forces across the galaxy, the Gnasher has been brought back and improved. Better rifling and the ability to fire 'flaktox' grenades; specialized grenades that unleash poisonous darts that fragment out like flak shrapnel.  Expected projections are looking good, especially with the upcoming siege on the Cryon capital on Eden-25."
 	Priority=37
 	HudColor=(B=50,R=200)
 	CustomCrossHairTextureName="Crosshairs.HUD.Crosshair_Cross1"

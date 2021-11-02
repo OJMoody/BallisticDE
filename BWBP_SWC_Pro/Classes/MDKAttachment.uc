@@ -87,6 +87,8 @@ defaultproperties
      CockAnimRate=0.900000
      bRapidFire=True
      bAltRapidFire=True
+	 RelativeRotation=(Pitch=32768)
+	 RelativeLocation=(z=10.000000)
      Mesh=SkeletalMesh'BWBP_SWC_Anims.MDK_TPm'
-     DrawScale=0.110000
+     DrawScale=0.500000
 }
