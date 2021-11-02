@@ -616,7 +616,7 @@ defaultproperties
      HudColor=(B=24,G=48)
 	 bCockOnEmpty=True
      CustomCrossHairTextureName="Crosshairs.HUD.Crosshair_Cross1"
-     InventoryGroup=6
+     InventoryGroup=4
      PickupClass=Class'BWBP_SKCExp_Pro.MG36Pickup'
      PlayerViewOffset=(X=5.000000,Y=5.000000,Z=-9.000000)
      BobDamping=2.000000

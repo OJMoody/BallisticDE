@@ -9,7 +9,7 @@ defaultproperties
      LowPolyStaticMesh=StaticMesh'BWBP_SKC_StaticExp.MG36.MG36_Weapon'
      InventoryType=Class'BWBP_SKCExp_Pro.MG36Carbine'
      RespawnTime=20.000000
-     PickupMessage="You picked up the MG36 Night Ops Machinegun"
+     PickupMessage="You picked up the MK.88 Light Support Weapon"
      PickupSound=Sound'BW_Core_WeaponSound.M50.M50Putaway'
      StaticMesh=StaticMesh'BWBP_SKC_StaticExp.MG36.MG36_Weapon'
      Physics=PHYS_None

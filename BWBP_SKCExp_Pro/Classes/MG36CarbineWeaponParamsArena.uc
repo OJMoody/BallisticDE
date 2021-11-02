@@ -88,13 +88,14 @@ defaultproperties
 	//=================================================================	
 	
 	Begin Object Class=WeaponParams Name=ArenaParams
-		PlayerSpeedFactor=0.85
-		PlayerJumpFactor=0.85
+		WeaponBoneScales(0)=(BoneName="Mag",Slot=20,Scale=1f)
+		WeaponBoneScales(1)=(BoneName="MagDrum",Slot=21,Scale=0f)
+		PlayerSpeedFactor=0.90
+		PlayerJumpFactor=0.90
 		InventorySize=12
-		SightMoveSpeedFactor=0.9
+		SightMoveSpeedFactor=0.85
 		DisplaceDurationMult=1.5
-		MagAmmo=120
-		SightingTime=0.850000
+		MagAmmo=30
 		SightOffset=(X=-15.000000,Y=-0.350000,Z=12.300000)
 		ZoomType=ZT_Logarithmic
 		RecoilParams(0)=RecoilParams'ArenaRecoilParams'

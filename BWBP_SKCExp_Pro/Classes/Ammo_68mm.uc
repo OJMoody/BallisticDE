@@ -10,8 +10,8 @@ class Ammo_68mm extends BallisticAmmo;
 
 defaultproperties
 {
-     MaxAmmo=125
-     InitialAmount=125
+     MaxAmmo=150
+     InitialAmount=100
      IconFlashMaterial=Shader'BW_Core_WeaponTex.Icons.AmmoIconsFlashing'
      PickupClass=Class'BWBP_SKCExp_Pro.AP_556mmClip'
      IconMaterial=Texture'BW_Core_WeaponTex.Icons.AmmoIconPage'
