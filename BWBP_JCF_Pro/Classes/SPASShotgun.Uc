@@ -121,8 +121,7 @@ defaultproperties
      GunLength=32.000000
      LongGunPivot=(Pitch=4500,Yaw=-8000)
 	 bNoCrosshairInScope=True
-
-	 
+	 Bobdamping=2.35
      FireModeClass(0)=Class'BWBP_JCF_Pro.SPASSecondaryFire'
      FireModeClass(1)=Class'BWBP_JCF_Pro.SPASPrimaryFire'
      PutDownTime=0.500000
@@ -135,7 +134,7 @@ defaultproperties
      InventoryGroup=7
      GroupOffset=31
      PickupClass=Class'BWBP_JCF_Pro.SPASPickup'
-     PlayerViewOffset=(X=5.000000,Y=3.000000,Z=-6.000000)
+     PlayerViewOffset=(X=5.000000,Y=3.000000,Z=-6.500000)
      AttachmentClass=Class'BWBP_JCF_Pro.SPASAttachment'
      IconMaterial=Texture'BWBP_JCF_Tex.SPAS.SmallIcon_SPAS'
      IconCoords=(X2=127,Y2=30)

@@ -106,8 +106,8 @@ defaultproperties
 	Begin Object Class=WeaponParams Name=ArenaParams
 		MagAmmo=10
 		SightingTime=0.35
-        InventorySize=12
-		SightOffset=(X=-4.000000,Y=-0.130000,Z=9.400000)
+        InventorySize=8
+		SightOffset=(X=-4.000000,Y=-0.050000,Z=10.200000)
 		RecoilParams(0)=RecoilParams'ArenaRecoilParams'
 		AimParams(0)=AimParams'ArenaAimParams'
 		FireParams(0)=FireParams'ArenaPrimaryFireParams'
