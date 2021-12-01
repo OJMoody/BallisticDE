@@ -320,8 +320,8 @@ defaultproperties
     SightOffset=(X=-20.000000,Y=-9.500000,Z=9.750000)
     SightDisplayFOV=40.000000
 	SightingTime=0.350000
-	ParamsClasses(0)=Class'RGPXWeaponParams'
-	ParamsClasses(1)=Class'RGPXWeaponParams'
+	ParamsClasses(0)=Class'RGPXWeaponParamsArena'
+	ParamsClasses(1)=Class'RGPXWeaponParamsClassic'
 	FireModeClass(0)=Class'BWBP_JCF_Pro.RGPXPrimaryFire'
 	FireModeClass(1)=Class'BWBP_JCF_Pro.RGPXSecondaryFire'
 	SelectAnimRate=0.900000

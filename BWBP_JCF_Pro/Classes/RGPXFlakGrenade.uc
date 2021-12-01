@@ -132,12 +132,12 @@ defaultproperties
     bAlignToVelocity=True
     DetonateDelay=1.000000
     ImpactDamage=40
-    ImpactDamageType=Class'BallisticProV55.DTM50Grenade'
+    ImpactDamageType=Class'BWBP_JCF_Pro.DTRGPXBazooka'
     ImpactManager=Class'BallisticProV55.IM_M50Grenade'
     ReflectImpactManager=Class'BallisticProV55.IM_GunHit'
     TrailClass=Class'BallisticProV55.M50GrenadeTrail'
     TrailOffset=(X=-8.000000)
-    MyRadiusDamageType=Class'BallisticProV55.DTM50GrenadeRadius'
+    MyRadiusDamageType=Class'BWBP_JCF_Pro.DTRGPXBazookaRadius'
     SplashManager=Class'BallisticProV55.IM_ProjWater'
 	FlakCount=6
 	FlakClass=Class'BWBP_JCF_Pro.RGPXFlakRocket'
@@ -149,7 +149,7 @@ defaultproperties
     Damage=110.000000
     DamageRadius=512.000000
     WallPenetrationForce=128
-    MyDamageType=Class'BallisticProV55.DTM50GrenadeRadius'
+    MyDamageType=Class'BWBP_JCF_Pro.DTRGPXBazookaRadius'
     ImpactSound=SoundGroup'BW_Core_WeaponSound.NRP57.NRP57-Concrete'
     StaticMesh=StaticMesh'BWBP_JCF_Static.RGP-X350.RGP-X350_ProjMain'
     bIgnoreTerminalVelocity=True

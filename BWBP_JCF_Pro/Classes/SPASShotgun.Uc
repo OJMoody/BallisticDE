@@ -138,7 +138,7 @@ defaultproperties
      AttachmentClass=Class'BWBP_JCF_Pro.SPASAttachment'
      IconMaterial=Texture'BWBP_JCF_Tex.SPAS.SmallIcon_SPAS'
      IconCoords=(X2=127,Y2=30)
-     ItemName="SPAS-12 Automatic Shotgun"
+     ItemName="SPAS-12 Compact Shotgun"
      LightType=LT_Pulse
      LightEffect=LE_NonIncidence
      LightHue=25
