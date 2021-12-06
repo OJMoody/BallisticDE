@@ -114,7 +114,9 @@ defaultproperties
 		InventorySize=35
 		SightMoveSpeedFactor=0.500000
 		SightingTime=0.200000
-		SightOffset=(X=0.000000,Y=-6.450000,Z=20.500000)
+		SightOffset=(X=0.000000,Y=-6.450000,Z=25.450000)
+		WeaponBoneScales(0)=(BoneName="IronSight",Slot=55,Scale=1f)
+		WeaponBoneScales(1)=(BoneName="HoloSight",Slot=56,Scale=0f)
 		RecoilParams(0)=RecoilParams'ClassicRecoilParams'
 		AimParams(0)=AimParams'ClassicAimParams'
 		FireParams(0)=FireParams'ClassicPrimaryFireParams'
