@@ -25,17 +25,32 @@ var	bool			bReloadingShotgun;	//Used to disable primary fire if reloading the sh
 var() name			ShotgunLoadAnim, ShotgunEmptyLoadAnim;
 var() name			ShotgunSGAnim;
 var() name			CockSGAnim;
-var() Sound			TubeOpenSound;
-var() Sound			TubeInSound;
-var() Sound			TubeCloseSound;
+var() Sound			AltClipOutSound;
+var() Sound			AltClipInSound;
+var() Sound			AltClipSlideInSound;
+var() Sound			SGCockStartSound;
 var() int	     	SGShells;
 var byte			OldWeaponMode;
 var() float			GunCockTime;		// Used so players cant interrupt the shotgun.
+
+var   bool			bSilenced;				// Silencer on. Silenced
+var() name			SilencerBone;			// Bone to use for hiding silencer
+var() name			SilencerOnAnim;			// Think hard about this one...
+var() name			SilencerOffAnim;		//
+var() sound			SilencerOnSound;		// Silencer stuck on sound
+var() sound			SilencerOffSound;		//
+var() sound			SilencerOnTurnSound;	// Silencer screw on sound
+var() sound			SilencerOffTurnSound;	//
+
+var float StealthRating, StealthImps;
+
 
 replication
 {
 	reliable if (Role == ROLE_Authority)
 	    SGShells;
+	reliable if (Role < ROLE_Authority)
+		ServerSwitchSilencer;
 }
 
 function AdjustPlayerDamage( out int Damage, Pawn InstigatedBy, Vector HitLocation, out Vector Momentum, class<DamageType> DamageType)
@@ -189,16 +204,16 @@ simulated function PlayCocking(optional byte Type)
 //===========================================================================
 // Reload notifies
 //===========================================================================
-simulated function Notify_TubeSlideOut()	
+simulated function Notify_AltClipOut()	
 {	
-	PlaySound(TubeOpenSound, SLOT_Misc, 0.5, ,64);	
+	PlaySound(AltClipOutSound, SLOT_Misc, 0.5, ,64);	
 	ReloadState = RS_PreClipIn;
 }
-simulated function Notify_TubeIn()          
+simulated function Notify_AltClipIn()          
 {   
 	local int AmmoNeeded;
 	
-	PlaySound(TubeInSound, SLOT_Misc, 0.5, ,64);    
+	PlaySound(AltClipInSound, SLOT_Misc, 0.5, ,64);    
 	ReloadState = RS_PostClipIn; 
 	if (level.NetMode != NM_Client)
 	{
@@ -210,10 +225,16 @@ simulated function Notify_TubeIn()
 		Ammo[1].UseAmmo (AmmoNeeded, True);
 	}
 }
-simulated function Notify_TubeSlideIn()	    
+simulated function Notify_AltClipSlideIn()	    
 {	
-	PlaySound(TubeCloseSound, SLOT_Misc, 0.5, ,64);	
+	PlaySound(AltClipSlideInSound, SLOT_Misc, 0.5, ,64);	
 }
+
+simulated function Notify_SGCockStart()
+{
+	PlaySound(SGCockStartSound, SLOT_Misc, 0.5, ,64);
+}
+
 simulated function Notify_SGCockEnd()	
 {
 	bAltNeedCock=false;
@@ -380,6 +401,130 @@ simulated function PlayReloadAlt()
 		SafePlayAnim(ShotgunLoadAnim, 1, , 0, "RELOAD");
 }
 
+//===========================================================================
+// Silencer Code
+//===========================================================================
+
+function ServerSwitchSilencer(bool bNewValue)
+{
+	if (bNewValue == bSilenced)
+		return;
+		
+	bSilenced = bNewValue;
+	SwitchSilencer(bSilenced);
+	bServerReloading=True;
+	ReloadState = RS_GearSwitch;
+	BFireMode[0].bAISilent = bSilenced;
+	
+	//ProtoSMG(BFireMode[0]).SetSilenced(bNewValue);
+}
+
+exec simulated function WeaponSpecial(optional byte i)
+{
+	if (ReloadState != RS_None || SightingState != SS_None)
+		return;
+
+	TemporaryScopeDown(0.5);
+	bSilenced = !bSilenced;
+	ServerSwitchSilencer(bSilenced);
+	SwitchSilencer(bSilenced);
+
+	StealthImpulse(0.1);
+}
+
+simulated function SwitchSilencer(bool bNewValue)
+{
+	if (Role == ROLE_Authority)
+		bServerReloading = True;
+	ReloadState = RS_GearSwitch;
+	
+	if (bNewValue)
+		PlayAnim(SilencerOnAnim);
+	else
+		PlayAnim(SilencerOffAnim);
+
+	OnSuppressorSwitched();
+}
+
+simulated function StealthImpulse(float Amount)
+{
+	if (Instigator.IsLocallyControlled())
+		StealthImps = FMin(1.0, StealthImps + Amount);
+}
+
+simulated function OnSuppressorSwitched()
+{
+	if (bSilenced)
+	{
+		ApplySuppressorAim();
+		SightingTime *= 1.25;
+	}
+	else
+	{
+		AimComponent.Recalculate();
+		SightingTime = default.SightingTime;
+	}
+}
+
+simulated function ApplySuppressorAim()
+{
+	AimComponent.AimSpread.Min *= 1.25;
+	AimComponent.AimSpread.Max *= 1.25;
+}
+
+simulated function Notify_SilencerAdd()
+{
+	PlaySound(SilencerOnSound,,0.5);
+}
+
+simulated function Notify_SilencerOnTurn()
+{
+	PlaySound(SilencerOnTurnSound,,0.5);
+}
+
+simulated function Notify_SilencerRemove()
+{
+	PlaySound(SilencerOffSound,,0.5);
+}
+
+simulated function Notify_SilencerOffTurn()
+{
+	PlaySound(SilencerOffTurnSound,,0.5);
+}
+
+simulated function Notify_SilencerShow()
+{
+	SetBoneScale (0, 1.0, SilencerBone);
+}
+
+simulated function Notify_SilencerHide()
+{
+	SetBoneScale (0, 0.0, SilencerBone);
+}
+
+simulated function BringUp(optional Weapon PrevWeapon)
+{
+	Super.BringUp(PrevWeapon);
+
+	if (AIController(Instigator.Controller) != None)
+		bSilenced = (FRand() > 0.5);
+
+	if (bSilenced)
+		SetBoneScale (0, 1.0, SilencerBone);
+	else
+		SetBoneScale (0, 0.0, SilencerBone);
+}
+
+simulated function PlayReload()
+{
+	super.PlayReload();
+
+	if (bSilenced)
+		SetBoneScale (0, 1.0, SilencerBone);
+	else
+		SetBoneScale (0, 0.0, SilencerBone);
+}
+
 // AI Interface =====
 simulated function float RateSelf()
 {
@@ -492,12 +637,19 @@ simulated function bool HasAmmo()
 
 defaultproperties
 {
-	ShotgunLoadAnim="ReloadSG"
-	ShotgunEmptyLoadAnim="ReloadSGEmpty"
-	CockSGAnim="CockSG"
-	TubeOpenSound=Sound'BW_Core_WeaponSound.M50.M50GrenOpen'
-	TubeInSound=Sound'BW_Core_WeaponSound.M50.M50GrenLoad'
-	TubeCloseSound=Sound'BW_Core_WeaponSound.M50.M50GrenClose'
+	SilencerBone="Silencer"
+	SilencerOnAnim="SilencerOn"
+	SilencerOffAnim="SilencerOff"
+	SilencerOnSound=Sound'BW_Core_WeaponSound.XK2.XK2-SilenceOn'
+	SilencerOffSound=Sound'BW_Core_WeaponSound.XK2.XK2-SilenceOff'
+	SilencerOnTurnSound=SoundGroup'BW_Core_WeaponSound.XK2.XK2-SilencerTurn'
+	SilencerOffTurnSound=SoundGroup'BW_Core_WeaponSound.XK2.XK2-SilencerTurn'
+	ShotgunLoadAnim="ReloadAlt"
+	ShotgunEmptyLoadAnim="ReloadEmptyAlt"
+	//SGCockStartSound=(Sound=Sound'BWBP_SKC_Sounds.CYLO.Cylo-Cock',Volume=2.000000)
+	AltClipOutSound=Sound'BW_Core_WeaponSound.M50.M50GrenOpen'
+	AltClipInSound=Sound'BW_Core_WeaponSound.M50.M50GrenLoad'
+	AltClipSlideInSound=Sound'BW_Core_WeaponSound.M50.M50GrenClose'
 	SGShells=6
 	TeamSkins(0)=(RedTex=Shader'BW_Core_WeaponTex.Hands.RedHand-Shiny',BlueTex=Shader'BW_Core_WeaponTex.Hands.BlueHand-Shiny')
 	AIReloadTime=1.000000

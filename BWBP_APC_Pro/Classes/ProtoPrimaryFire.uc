@@ -12,10 +12,119 @@ class ProtoPrimaryFire extends BallisticRangeAttenFire;
 var() sound		RifleFireSound;
 var() sound		MeleeFireSound;
 
+var() Actor						SMuzzleFlash;		// Silenced Muzzle flash stuff
+var() class<Actor>				SMuzzleFlashClass;
+var() Name						SFlashBone;
+var() float						SFlashScaleFactor;
+
+function InitEffects()
+{
+	if (AIController(Instigator.Controller) != None)
+		return;
+    if ((MuzzleFlashClass != None) && ((MuzzleFlash == None) || MuzzleFlash.bDeleteMe) )
+		class'BUtil'.static.InitMuzzleFlash (MuzzleFlash, MuzzleFlashClass, Weapon.DrawScale*FlashScaleFactor, weapon, FlashBone);
+    if ((SMuzzleFlashClass != None) && ((SMuzzleFlash == None) || SMuzzleFlash.bDeleteMe) )
+		class'BUtil'.static.InitMuzzleFlash (SMuzzleFlash, SMuzzleFlashClass, Weapon.DrawScale*SFlashScaleFactor, weapon, SFlashBone);
+}
+
+function SetSilenced(bool bSilenced)
+{
+	bAISilent = bSilenced;
+	if (!bSilenced)
+	{
+		XInaccuracy *= 2;
+		YInaccuracy *= 2;
+		CutOffStartRange *= 1.25;
+	}
+	else
+	{
+		XInaccuracy = default.XInaccuracy;
+		YInaccuracy = default.YInaccuracy;
+		CutOffStartRange = default.CutOffStartRange;
+	}
+}
+
+//Trigger muzzleflash emitter
+function FlashMuzzleFlash()
+{
+    if ( (Level.NetMode == NM_DedicatedServer) || (AIController(Instigator.Controller) != None) )
+		return;
+	if (!Instigator.IsFirstPerson() || PlayerController(Instigator.Controller).ViewTarget != Instigator)
+		return;
+    if (!ProtoSMG(Weapon).bSilenced && MuzzleFlash != None)
+        MuzzleFlash.Trigger(Weapon, Instigator);
+    else if (ProtoSMG(Weapon).bSilenced && SMuzzleFlash != None)
+        SMuzzleFlash.Trigger(Weapon, Instigator);
+
+	if (!bBrassOnCock)
+		EjectBrass();
+}
+
+// Remove effects
+simulated function DestroyEffects()
+{
+	Super.DestroyEffects();
+
+	class'BUtil'.static.KillEmitterEffect (MuzzleFlash);
+	class'BUtil'.static.KillEmitterEffect (SMuzzleFlash);
+}
+
+simulated function SendFireEffect(Actor Other, vector HitLocation, vector HitNormal, int Surf, optional vector WaterHitLoc)
+{
+	BallisticAttachment(Weapon.ThirdPersonActor).BallisticUpdateHit(Other, HitLocation, HitNormal, Surf, ProtoSMG(Weapon).bSilenced, WaterHitLoc);
+}
+
+function ServerPlayFiring()
+{
+	if (ProtoSMG(Weapon) != None && ProtoSMG(Weapon).bSilenced && SilencedFireSound.Sound != None)
+		Weapon.PlayOwnedSound(SilencedFireSound.Sound,SilencedFireSound.Slot,SilencedFireSound.Volume,SilencedFireSound.bNoOverride,SilencedFireSound.Radius,SilencedFireSound.Pitch,SilencedFireSound.bAtten);
+	else if (BallisticFireSound.Sound != None)
+		Weapon.PlayOwnedSound(BallisticFireSound.Sound,BallisticFireSound.Slot,BallisticFireSound.Volume,BallisticFireSound.bNoOverride,BallisticFireSound.Radius,BallisticFireSound.Pitch,BallisticFireSound.bAtten);
+
+	// Slightly modified Code from original PlayFiring()
+	if (FireCount > 0 && Weapon.HasAnim(FireLoopAnim))
+		BW.SafePlayAnim(FireLoopAnim, FireLoopAnimRate, 0.0, ,"FIRE");
+	else if(!BW.bScopeView || !Weapon.HasAnim(AimedFireAnim))
+		BW.SafePlayAnim(FireAnim, FireAnimRate, TweenTime, ,"FIRE");
+	else BW.SafePlayAnim(AimedFireAnim, FireAnimRate, TweenTime, , "FIRE");
+	// End code from normal PlayFiring()
+
+	CheckClipFinished();
+}
+
+function PlayFiring()
+{
+	if (ProtoSMG(Weapon).bSilenced)
+		Weapon.SetBoneScale (0, 1.0, ProtoSMG(Weapon).SilencerBone);
+	else
+		Weapon.SetBoneScale (0, 0.0, ProtoSMG(Weapon).SilencerBone);
+		
+	// Slightly modified Code from original PlayFiring()
+	if (FireCount > 0 && Weapon.HasAnim(FireLoopAnim))
+		BW.SafePlayAnim(FireLoopAnim, FireLoopAnimRate, 0.0, ,"FIRE");
+	else if(!BW.bScopeView || !Weapon.HasAnim(AimedFireAnim))
+		BW.SafePlayAnim(FireAnim, FireAnimRate, TweenTime, ,"FIRE");
+	else BW.SafePlayAnim(AimedFireAnim, FireAnimRate, TweenTime, , "FIRE");
+	// End code from normal PlayFiring()
+
+    ClientPlayForceFeedback(FireForce);  // jdf
+    FireCount++;
+
+	if (ProtoSMG(Weapon) != None && ProtoSMG(Weapon).bSilenced && SilencedFireSound.Sound != None)
+		Weapon.PlayOwnedSound(SilencedFireSound.Sound,SilencedFireSound.Slot,SilencedFireSound.Volume,,SilencedFireSound.Radius,,true);
+	else if (BallisticFireSound.Sound != None)
+		Weapon.PlayOwnedSound(BallisticFireSound.Sound,BallisticFireSound.Slot,BallisticFireSound.Volume,,BallisticFireSound.Radius);
+
+	CheckClipFinished();
+}
+
 defaultproperties
 {
-     RifleFireSound=Sound'BWBP_SKC_Sounds.CYLO.CYLO-Fire'
-     MeleeFireSound=Sound'BW_Core_WeaponSound.A73.A73Stab'
+     SMuzzleFlashClass=Class'BWBP_SWC_Pro.MDKSilencedFlash'
+     SFlashBone="tip"
+	 FlashBone="tip2"
+     SFlashScaleFactor=1.000000
+	 RifleFireSound=Sound'BWBP_SKC_Sounds.CYLO.CYLO-Fire'
      CutOffDistance=3072.000000
      CutOffStartRange=1536.000000
      TraceRange=(Min=8000.000000,Max=12000.000000)
