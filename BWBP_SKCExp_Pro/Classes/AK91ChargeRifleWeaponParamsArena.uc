@@ -25,6 +25,7 @@ defaultproperties
 	Begin Object Class=FireParams Name=ArenaPrimaryFireParams
 		FireInterval=0.140000
 		FireEndAnim=	
+		AimedFireAnim="SightFire"
 	FireEffectParams(0)=InstantEffectParams'ArenaPrimaryEffectParams'
 	End Object
 		
@@ -56,7 +57,7 @@ defaultproperties
 	Begin Object Class=FireParams Name=ArenaSecondaryFireParams
 		FireInterval=1.700000
 		AmmoPerFire=0
-		FireAnim="AltFire"	
+		FireAnim="FireAlt"	
 	FireEffectParams(0)=ShotgunEffectParams'ArenaSecondaryEffectParams'
 	End Object
 		
@@ -85,7 +86,7 @@ defaultproperties
 	
 	Begin Object Class=WeaponParams Name=ArenaParams
 		SightingTime=0.300000
-		SightOffset=(X=-5.000000,Y=-10.020000,Z=20.600000)
+		SightOffset=(X=-10.000000,Y=-0.050000,Z=16.500000)
 		SightPivot=(Pitch=64)
 		WeaponBoneScales(0)=(BoneName="Scope",Slot=61,Scale=0f)
 		RecoilParams(0)=RecoilParams'ArenaRecoilParams'

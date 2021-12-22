@@ -444,7 +444,7 @@ defaultproperties
      InventoryGroup=4
 	 GroupOffset=11
      PickupClass=Class'BWBP_SKCExp_Pro.AK91Pickup'
-     PlayerViewOffset=(X=-4.000000,Y=13.000000,Z=-16.000000)
+     PlayerViewOffset=(X=5.000000,Y=7.000000,Z=-13.000000)
      BobDamping=2.000000
      AttachmentClass=Class'BWBP_SKCExp_Pro.AK91Attachment'
      IconMaterial=Texture'BWBP_SKC_Tex.AK91.SmallIcon_AK91'
