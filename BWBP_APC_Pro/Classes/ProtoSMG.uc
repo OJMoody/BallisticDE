@@ -1,22 +1,9 @@
 //=============================================================================
-// ProtoUAW.
-//
-// Proto Versatile Urban Assault Weapon.
-//
-// This nasty little gun has all sorts of tricks up its sleeve. Primary fire is
-// a somewhat unreliable assault rifle with random fire rate and a chance to jam.
-// Secondary fire is a semi-auto shotgun with its own magazine system. Special
-// fire utilizes the bayonet in an attack by modifying properties of primary fire
-// when activated.
-//
-// The gun is small enough to allow dual wielding, but because the left hand is
-// occupied with the other gun, the shotgun can not be used, so that attack is
-// swapped with a melee attack.
-//
-// by Casey 'Xavious' Johnson, Marc 'Sergeant Kelly' and Azarael
-// Copyright(c) 2005 RuneStorm. All Rights Reserved.
+// ProtoLMG
 //=============================================================================
 class ProtoSMG extends BallisticWeapon;
+
+#exec OBJ LOAD File=BWBP_CC_Tex.utx
 
 var() sound			MeleeFireSound;
 
@@ -42,13 +29,20 @@ var() sound			SilencerOffSound;		//
 var() sound			SilencerOnTurnSound;	// Silencer screw on sound
 var() sound			SilencerOffTurnSound;	//
 
+var rotator ScopeSightPivot;
+var vector ScopeSightOffset;
+
+var rotator IronSightPivot;
+var vector IronSightOffset;
+
+
 var float StealthRating, StealthImps;
 
 
 replication
 {
-	reliable if (Role == ROLE_Authority)
-	    SGShells;
+	//reliable if (Role == ROLE_Authority)
+	    //SGShells;
 	reliable if (Role < ROLE_Authority)
 		ServerSwitchSilencer;
 }
@@ -60,88 +54,6 @@ function AdjustPlayerDamage( out int Damage, Pawn InstigatedBy, Vector HitLocati
 	
 	super.AdjustPlayerDamage( Damage, InstigatedBy, HitLocation, Momentum, DamageType);
 }
-
-simulated function DrawWeaponInfo(Canvas C)
-{
-	NewDrawWeaponInfo(C, 0.705*C.ClipY);
-}
-
-simulated function NewDrawWeaponInfo(Canvas C, float YPos)
-{
-	local int i,Count;
-	local float ScaleFactor2;
-
-	local float		ScaleFactor, XL, YL, YL2, SprintFactor;
-	local string	Temp;
-	local int	TempNum;
-
-	DrawCrosshairs(C);
-
-	ScaleFactor = C.ClipX / 1600;
-	ScaleFactor2 = 45 * ScaleFactor;
-	
-	C.Style = ERenderStyle.STY_Alpha;
-	C.DrawColor = class'HUD'.Default.WhiteColor;
-	Count = Min(6,SGShells);
-	
-    for( i=0; i<Count; i++ )
-    {
-		C.SetPos(C.ClipX - (0.5*i+1) * ScaleFactor2, C.ClipY - 100 * ScaleFactor * class'HUD'.default.HudScale);
-		C.DrawTile( Texture'BWBP_SKC_Tex.CYLO.CYLO-SGIcon',ScaleFactor2, ScaleFactor2, 0, 0, 128, 128);
-	}
-	
-	if (bSkipDrawWeaponInfo)
-		return;
-
-	// Draw the spare ammo amount
-	C.Font = GetFontSizeIndex(C, -2 + int(2 * class'HUD'.default.HudScale));
-	C.DrawColor = class'hud'.default.WhiteColor;
-	if (!bNoMag)
-	{
-		Temp = GetHUDAmmoText(0);
-		C.TextSize(Temp, XL, YL);
-		C.CurX = C.ClipX - 20 * ScaleFactor * class'HUD'.default.HudScale - XL;
-		C.CurY = C.ClipY - 120 * ScaleFactor * class'HUD'.default.HudScale - YL;
-		C.DrawText(Temp, false);
-	}
-	if (Ammo[1] != None && Ammo[1] != Ammo[0])
-	{
-		TempNum = Ammo[1].AmmoAmount;
-		C.TextSize(Temp, XL, YL);
-		C.CurX = C.ClipX - 160 * ScaleFactor * class'HUD'.default.HudScale - XL;
-		C.CurY = C.ClipY - 120 * ScaleFactor * class'HUD'.default.HudScale - YL;
-		C.DrawText(TempNum, false);
-	}
-
-	if (CurrentWeaponMode < WeaponModes.length && !WeaponModes[CurrentWeaponMode].bUnavailable && WeaponModes[CurrentWeaponMode].ModeName != "")
-	{
-		C.Font = GetFontSizeIndex(C, -3 + int(2 * class'HUD'.default.HudScale));
-		C.TextSize(WeaponModes[CurrentWeaponMode].ModeName, XL, YL2);
-		C.CurX = C.ClipX - 15 * ScaleFactor * class'HUD'.default.HudScale - XL;
-		C.CurY = C.ClipY - 130 * ScaleFactor * class'HUD'.default.HudScale - YL2 - YL;
-		C.DrawText(WeaponModes[CurrentWeaponMode].ModeName, false);
-	}
-
-	// This is pretty damn disgusting, but the weapon seems to be the only way we can draw extra info on the HUD
-	// Would be nice if someone could have a HUD function called along the inventory chain
-	if (SprintControl != None && SprintControl.Stamina < SprintControl.MaxStamina)
-	{
-		SprintFactor = SprintControl.Stamina / SprintControl.MaxStamina;
-		C.CurX = C.OrgX  + 5    * ScaleFactor * class'HUD'.default.HudScale;
-		C.CurY = C.ClipY - 330  * ScaleFactor * class'HUD'.default.HudScale;
-		if (SprintFactor < 0.2)
-			C.SetDrawColor(255, 0, 0);
-		else if (SprintFactor < 0.5)
-			C.SetDrawColor(64, 128, 255);
-		else
-			C.SetDrawColor(0, 0, 255);
-		C.DrawTile(Texture'Engine.MenuWhite', 200 * ScaleFactor * class'HUD'.default.HudScale * SprintFactor, 30 * ScaleFactor * class'HUD'.default.HudScale, 0, 0, 1, 1);
-	}
-}
-
-//===========================================================================
-// Shotgun handling.
-//===========================================================================
 
 //===========================================================================
 // EmptyFire
@@ -525,6 +437,89 @@ simulated function PlayReload()
 		SetBoneScale (0, 0.0, SilencerBone);
 }
 
+//===========================================================================
+// Dual scoping
+//===========================================================================
+exec simulated function ScopeView()
+{
+	if (ZoomType == ZT_Fixed && SightingState != SS_None && SightingState != SS_Active)
+		return;
+		
+	if (SightingState == SS_None)
+	{
+		if (ZoomType == ZT_Fixed)
+		{
+			SightPivot = IronSightPivot;
+			SightOffset = IronSightOffset;
+			ZoomType = ZT_Irons;
+			ScopeViewTex = None;
+			SightingTime = default.SightingTime;
+		}
+	}
+	
+	Super.ScopeView();
+}
+
+exec simulated function ScopeViewRelease()
+{
+	if (ZoomType != ZT_Irons && SightingState != SS_None && SightingState != SS_Active)
+		return;
+		
+	Super.ScopeViewRelease();
+}
+
+simulated function ScopeViewTwo()
+{
+	if (ZoomType == ZT_Irons && SightingState != SS_None && SightingState != SS_Active)
+		return;
+		
+	if (SightingState == SS_None)
+	{
+		ScopeViewTex = Texture'BWBP_CC_Tex.ProtoLMG.ProtoScope1';
+		if (ZoomType == ZT_Irons)
+		{
+			SightPivot = ScopeSightPivot;
+			SightOffset = ScopeSightOffset;
+			ZoomType = ZT_Fixed;
+			SightingTime = 0.4;
+		}
+	}
+	
+	Super.ScopeView();
+}
+
+simulated function ScopeViewTwoRelease()
+{
+	if (ZoomType == ZT_Irons && SightingState != SS_None && SightingState != SS_Active)
+		return;
+		
+	Super.ScopeViewRelease();
+}
+
+// Swap sighted offset and pivot for left handers
+simulated function SetHand(float InHand)
+{
+	IronSightPivot = default.SightPivot;
+	IronSightOffset = default.SightOffset;
+
+	super.SetHand(InHand);
+	if (Hand < 0)
+	{
+		if (ZoomType != ZT_Irons)
+		{
+			ScopeSightOffset.Y = ScopeSightOffset.Y * -1;
+			ScopeSightPivot.Roll = ScopeSightPivot.Roll * -1;
+			ScopeSightPivot.Yaw = ScopeSightPivot.Yaw * -1;
+		}
+		else
+		{
+			IronSightOffset.Y = IronSightOffset.Y * -1;
+			IronSightPivot.Roll = IronSightPivot.Roll * -1;
+			IronSightPivot.Yaw = IronSightPivot.Yaw * -1;
+		}
+	}
+}
+
 // AI Interface =====
 simulated function float RateSelf()
 {
@@ -637,6 +632,8 @@ simulated function bool HasAmmo()
 
 defaultproperties
 {
+	ScopeSightPivot=(Roll=-4096)
+	ScopeSightOffset=(X=15.000000,Y=-3.000000,Z=24.000000)
 	SilencerBone="Silencer"
 	SilencerOnAnim="SilencerOn"
 	SilencerOffAnim="SilencerOff"
@@ -653,7 +650,7 @@ defaultproperties
 	SGShells=6
 	TeamSkins(0)=(RedTex=Shader'BW_Core_WeaponTex.Hands.RedHand-Shiny',BlueTex=Shader'BW_Core_WeaponTex.Hands.BlueHand-Shiny')
 	AIReloadTime=1.000000
-	BigIconMaterial=Texture'BWBP_SKC_Tex.CYLO.BigIcon_CYLOMK3'
+	BigIconMaterial=Texture'BWBP_CC_Tex.ProtoLMG.BigIcon_ProtoLMG'
 	BigIconCoords=(X1=16,Y1=30)
 	BCRepClass=Class'BallisticProV55.BallisticReplicationInfo'
 	bWT_Bullet=True
@@ -665,7 +662,7 @@ defaultproperties
 	SpecialInfo(0)=(Info="240.0;25.0;0.9;85.0;0.1;0.9;0.4")
 	BringUpSound=(Sound=Sound'BW_Core_WeaponSound.M50.M50Pullout')
 	PutDownSound=(Sound=Sound'BW_Core_WeaponSound.M50.M50Putaway')
-	MagAmmo=22
+	MagAmmo=50
 	CockAnimPostReload="Cock"
 	CockAnimRate=1.400000
 	CockSound=(Sound=Sound'BWBP_SKC_Sounds.CYLO.Cylo-Cock',Volume=2.000000)
@@ -675,15 +672,18 @@ defaultproperties
 	ClipInFrame=0.700000
 	bAltTriggerReload=True
 	WeaponModes(0)=(bUnavailable=True)
+	WeaponModes(1)=(ModeName="Photon Burst")
+	WeaponModes(2)=(ModeName="Full Auto")
 	bNoCrosshairInScope=False
-	SightOffset=(X=15.000000,Y=13.575000,Z=22.1000)
+	SightPivot=(Pitch=128)
+	SightOffset=(X=-10.000000,Y=-0.950000,Z=25.000000)
 	GunLength=16.000000
 	ParamsClasses(0)=Class'ProtoWeaponParams' 
 	ParamsClasses(1)=Class'ProtoWeaponParams' 
-	AmmoClass[0]=Class'BWBP_SKC_Pro.Ammo_CYLOInc'
-	AmmoClass[1]=Class'BWBP_SKC_Pro.Ammo_CYLOInc'
+	AmmoClass[0]=Class'BWBP_APC_Pro.Ammo_Proto'
+	AmmoClass[1]=Class'BWBP_APC_Pro.Ammo_Proto'
 	FireModeClass(0)=Class'BWBP_APC_Pro.ProtoPrimaryFire'
-	FireModeClass(1)=Class'BWBP_APC_Pro.ProtoSecondaryFire'
+	FireModeClass(1)=Class'BWBP_APC_Pro.ProtoScopeFire'
 	SelectAnimRate=1.000000
 	PutDownAnimRate=1.000000
 	PutDownTime=1.000000
@@ -691,7 +691,6 @@ defaultproperties
 	SelectForce="SwitchToAssaultRifle"
 	AIRating=0.750000
 	CurrentRating=0.750000
-	WeaponModes(1)=(ModeName="Burst Fire",ModeID="WM_Burst",Value=3.000000,bUnavailable=True)
 	Description="Dipheox's most popular weapon, the CYLO Versatile Urban Assault Weapon is designed with one goal in mind: Brutal close quarters combat. The CYLO accomplishes this goal quite well, earning itself the nickname of Badger with its small frame, brutal effectiveness, and unpredictability. UTC refuses to let this weapon in the hands of its soldiers because of its erratic firing and tendency to jam.||The CYLO Versatile UAW is fully capable for urban combat. The rifle's caseless 7.62mm rounds can easily shoot through doors and thin walls, while the shotgun can clear a room quickly with its semi-automatic firing. Proper training with the bayonet can turn the gun itself into a deadly melee weapon."
 	DisplayFOV=55.000000
 	Priority=41
@@ -703,15 +702,15 @@ defaultproperties
 	PlayerViewOffset=(X=16.000000,Y=7.000000,Z=-17.000000)
 	BobDamping=2.000000
 	AttachmentClass=Class'BWBP_APC_Pro.ProtoAttachment'
-	IconMaterial=Texture'BWBP_SKC_Tex.CYLO.SmallIcon_CYLOMK3'
+	IconMaterial=Texture'BWBP_CC_Tex.ProtoLMG.SmallIcon_ProtoLMG'
 	IconCoords=(X2=127,Y2=31)
-	ItemName="[B] FC-01B PROTO SMG"
+	ItemName="[B] FC-01B PROTO Light Machinegun"
 	LightType=LT_Pulse
 	LightEffect=LE_NonIncidence
 	LightHue=30
 	LightSaturation=150
 	LightBrightness=150.000000
 	LightRadius=4.000000
-	Mesh=SkeletalMesh'BWBP_CC_Anim.FPm_CyloSub'
+	Mesh=SkeletalMesh'BWBP_CC_Anim.FPm_ProtoLMG'
 	DrawScale=0.400000
 }

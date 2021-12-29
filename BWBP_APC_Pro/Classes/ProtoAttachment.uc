@@ -109,14 +109,14 @@ simulated function FlashMuzzleFlash(byte Mode)
 	if (Mode != 0 && AltMuzzleFlashClass != None)
 	{
 		if (AltMuzzleFlash == None)
-			class'BUtil'.static.InitMuzzleFlash (AltMuzzleFlash, AltMuzzleFlashClass, DrawScale*2.0, self, AltFlashBone);
+			class'BUtil'.static.InitMuzzleFlash (AltMuzzleFlash, AltMuzzleFlashClass, DrawScale*1.0, self, AltFlashBone);
 		AltMuzzleFlash.Trigger(self, Instigator);
 		if (bRandomFlashRoll)	SetBoneRotation(AltFlashBone, R, 0, 1.f);
 	}
 	else if (Mode == 0 && MuzzleFlashClass != None)
 	{
 		if (MuzzleFlash == None)
-			class'BUtil'.static.InitMuzzleFlash (MuzzleFlash, MuzzleFlashClass, DrawScale*1.0, self, FlashBone);
+			class'BUtil'.static.InitMuzzleFlash (MuzzleFlash, MuzzleFlashClass, DrawScale*0.5, self, FlashBone);
 		MuzzleFlash.Trigger(self, Instigator);
 		if (bRandomFlashRoll)	SetBoneRotation(FlashBone, R, 0, 1.f);
 	}
@@ -124,12 +124,12 @@ simulated function FlashMuzzleFlash(byte Mode)
 
 defaultproperties
 {
-     FireClass=Class'BWBP_APC_Pro.ProtoSecondaryFire'
+     FireClass=Class'BWBP_APC_Pro.ProtoPrimaryFire'
      MuzzleFlashClass=Class'BallisticProV55.M50FlashEmitter'
      AltMuzzleFlashClass=Class'BallisticProV55.M50M900FlashEmitter'
      ImpactManager=Class'BallisticProV55.IM_Bullet'
      MeleeImpactManager=Class'BallisticProV55.IM_Knife'
-     AltFlashBone="tip2"
+     AltFlashBone="tipalt"
      BrassClass=Class'BallisticProV55.Brass_Shotgun'
      BrassMode=MU_Secondary
      FlashMode=MU_Both
@@ -139,8 +139,8 @@ defaultproperties
      FlyBySound=(Sound=SoundGroup'BW_Core_WeaponSound.FlyBys.Bullet-Whizz',Volume=0.700000)
      bHeavy=True
      bRapidFire=True
-     Mesh=SkeletalMesh'BWBP_SKC_Anim.CYLOUAW_TPm'
-     RelativeLocation=(Z=1.000000)
-     RelativeRotation=(Pitch=32768)
-     DrawScale=0.300000
+     Mesh=SkeletalMesh'BWBP_CC_Anim.ProtoLMG_TPm'
+	 RelativeRotation=(Pitch=32768)
+	 RelativeLocation=(Z=10)
+     DrawScale=0.900000
 }

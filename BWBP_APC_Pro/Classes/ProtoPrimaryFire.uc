@@ -144,7 +144,6 @@ defaultproperties
      DryFireSound=(Sound=Sound'BW_Core_WeaponSound.Misc.DryRifle',Volume=0.700000)
      bCockAfterEmpty=True
      MuzzleFlashClass=Class'BallisticProV55.XK2FlashEmitter'
-     FlashBone="Muzzle"
      FlashScaleFactor=0.500000
      FireRecoil=220.000000
      FireChaos=0.032000
@@ -156,7 +155,7 @@ defaultproperties
      PreFireAnim=
      FireEndAnim=
      FireRate=0.1050000
-     AmmoClass=Class'BWBP_SKC_Pro.Ammo_CYLO'
+     AmmoClass=Class'BWBP_APC_Pro.Ammo_Proto'
      ShakeRotMag=(X=128.000000,Y=64.000000)
      ShakeRotRate=(X=10000.000000,Y=10000.000000,Z=10000.000000)
      ShakeRotTime=2.000000

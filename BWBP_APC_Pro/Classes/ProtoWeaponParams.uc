@@ -3,7 +3,7 @@ class ProtoWeaponParams extends BallisticWeaponParams;
 defaultproperties
 {
     //=================================================================
-    // PRIMARY FIRE
+    // PRIMARY FIRE - Standard
     //=================================================================	
 	
 	Begin Object Class=InstantEffectParams Name=ArenaPrimaryEffectParams
@@ -31,39 +31,38 @@ defaultproperties
 		AimedFireAnim="SightFire"
 		FireEffectParams(0)=InstantEffectParams'ArenaPrimaryEffectParams'
 	End Object
-		
-    //=================================================================
-    // SECONDARY FIRE
+	
+	/*
+	//=================================================================
+    // PRIMARY FIRE - Photon Burst
     //=================================================================	
 	
-	Begin Object Class=ShotgunEffectParams Name=ArenaSecondaryEffectParams
-		TraceRange=(Min=5000.000000,Max=5000.000000)
-		RangeAtten=0.750000
-		TraceCount=9
-		TracerClass=Class'BallisticProV55.TraceEmitter_Shotgun'
-		ImpactManager=Class'BallisticProV55.IM_Shell'
-		Damage=10
-		DamageType=Class'BWBP_SKC_Pro.DTCYLOShotgun'
-		DamageTypeHead=Class'BWBP_SKC_Pro.DTCYLOShotgunHead'
-		DamageTypeArm=Class'BWBP_SKC_Pro.DTCYLOShotgun'
-		PenetrateForce=100
+	Begin Object Class=InstantEffectParams Name=ArenaPrimaryEffectParams
+		TraceRange=(Min=8000.000000,Max=12000.000000)
+		RangeAtten=0.100000
+		Damage=18
+		DamageType=Class'BWBP_SKC_Pro.DTCYLORifle'
+		DamageTypeHead=Class'BWBP_SKC_Pro.DTCYLORifleHead'
+		DamageTypeArm=Class'BWBP_SKC_Pro.DTCYLORifle'
+		PenetrateForce=180
 		bPenetrate=True
-		MuzzleFlashClass=Class'BallisticProV55.MRT6FlashEmitter'
-		Recoil=512.000000
-		Chaos=0.500000
-		BotRefireRate=0.700000
-		WarnTargetPct=0.500000	
-		FireSound=(Sound=Sound'BWBP_SKC_Sounds.CYLO.CYLO-FireSG',Volume=1.300000,Radius=256.000000)
+		MuzzleFlashClass=Class'BallisticProV55.XK2FlashEmitter'
+		FlashScaleFactor=0.500000
+		Recoil=70.000000
+		Chaos=0.032000
+		WarnTargetPct=0.200000
+		FireSound=(Sound=Sound'BWBP_JCF_Sounds.P90.P90Fire',Volume=1.300000)
 	End Object
 
-	Begin Object Class=FireParams Name=ArenaSecondaryFireParams
-		FireInterval=0.700000
-		AmmoPerFire=0
-		FireAnim="FireAlt"
-		AimedFireAnim="SightFireAlt"
-		FireEndAnim=	
-		FireEffectParams(0)=ShotgunEffectParams'ArenaSecondaryEffectParams'
+	Begin Object Class=FireParams Name=ArenaPrimaryFireParams
+		FireInterval=0.075000
+		PreFireAnim=
+		FireEndAnim=
+		FireAnim="Fire"
+		AimedFireAnim="SightFire"
+		FireEffectParams(0)=InstantEffectParams'ArenaPrimaryEffectParams'
 	End Object
+	*/
 
 	//=================================================================
 	// RECOIL
@@ -98,15 +97,15 @@ defaultproperties
 	//=================================================================	
 
 	Begin Object Class=WeaponParams Name=ArenaParams
-		SightPivot=(Pitch=0)
-		SightOffset=(X=-10.000000,Y=-0.840000,Z=24.050000)
+		SightPivot=(Pitch=128)
+		SightOffset=(X=-10.000000,Y=-0.950000,Z=25.000000)
 		PlayerSpeedFactor=1
 		PlayerJumpFactor=1
 		InventorySize=12
 		SightMoveSpeedFactor=0.9
 		SightingTime=0.350000		
 		DisplaceDurationMult=1
-		MagAmmo=70
+		MagAmmo=50
         RecoilParams(0)=RecoilParams'ArenaRecoilParams'
         AimParams(0)=AimParams'ArenaAimParams'
 		FireParams(0)=FireParams'ArenaPrimaryFireParams'

@@ -13,12 +13,13 @@ class ProtoPickup extends BallisticWeaponPickup
 
 defaultproperties
 {
-     LowPolyStaticMesh=StaticMesh'BWBP_SKC_Static.CYLO.CYLOUAWLow'
+     LowPolyStaticMesh=StaticMesh'BWBP_CC_Static.ProtoLMG.ProtoLMG_SM'
      InventoryType=Class'BWBP_APC_Pro.ProtoSMG'
      RespawnTime=20.000000
-     PickupMessage="You picked up the Proto SMG."
+     PickupMessage="You picked up the FC-01B Prototype Light Machinegun."
      PickupSound=Sound'BW_Core_WeaponSound.M50.M50Putaway'
-     StaticMesh=StaticMesh'BWBP_SKC_Static.CYLO.CYLOUAWHigh'
+     StaticMesh=StaticMesh'BWBP_CC_Static.ProtoLMG.ProtoLMG_SM'
      Physics=PHYS_None
      CollisionHeight=4.000000
+	 Drawscale=0.1
 }
