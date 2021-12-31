@@ -9,14 +9,14 @@ defaultproperties
 	Begin Object Class=InstantEffectParams Name=ArenaPrimaryEffectParams
 		TraceRange=(Min=8000.000000,Max=12000.000000)
 		RangeAtten=0.100000
-		Damage=18
+		Damage=20
 		DamageType=Class'BWBP_SKC_Pro.DTCYLORifle'
 		DamageTypeHead=Class'BWBP_SKC_Pro.DTCYLORifleHead'
 		DamageTypeArm=Class'BWBP_SKC_Pro.DTCYLORifle'
 		PenetrateForce=180
 		bPenetrate=True
 		MuzzleFlashClass=Class'BallisticProV55.XK2FlashEmitter'
-		FlashScaleFactor=0.500000
+		FlashScaleFactor=1.000000
 		Recoil=70.000000
 		Chaos=0.032000
 		WarnTargetPct=0.200000
@@ -32,37 +32,32 @@ defaultproperties
 		FireEffectParams(0)=InstantEffectParams'ArenaPrimaryEffectParams'
 	End Object
 	
-	/*
 	//=================================================================
     // PRIMARY FIRE - Photon Burst
     //=================================================================	
 	
-	Begin Object Class=InstantEffectParams Name=ArenaPrimaryEffectParams
+	Begin Object Class=InstantEffectParams Name=ArenaPhotonPrimaryEffectParams
 		TraceRange=(Min=8000.000000,Max=12000.000000)
 		RangeAtten=0.100000
-		Damage=18
-		DamageType=Class'BWBP_SKC_Pro.DTCYLORifle'
-		DamageTypeHead=Class'BWBP_SKC_Pro.DTCYLORifleHead'
-		DamageTypeArm=Class'BWBP_SKC_Pro.DTCYLORifle'
+		Damage=22
 		PenetrateForce=180
 		bPenetrate=True
-		MuzzleFlashClass=Class'BallisticProV55.XK2FlashEmitter'
-		FlashScaleFactor=0.500000
+		MuzzleFlashClass=Class'BWBP_APC_Pro.ProtoPhotonFlashEmitter'
+		FlashScaleFactor=0.900000
 		Recoil=70.000000
 		Chaos=0.032000
 		WarnTargetPct=0.200000
-		FireSound=(Sound=Sound'BWBP_JCF_Sounds.P90.P90Fire',Volume=1.300000)
+		FireSound=(Sound=Sound'BWBP_SKC_Sounds.Misc.F2000-FireAlt1',Volume=1.300000)
 	End Object
 
-	Begin Object Class=FireParams Name=ArenaPrimaryFireParams
-		FireInterval=0.075000
+	Begin Object Class=FireParams Name=ArenaPhotonPrimaryFireParams
+		FireInterval=0.085000
 		PreFireAnim=
 		FireEndAnim=
 		FireAnim="Fire"
 		AimedFireAnim="SightFire"
-		FireEffectParams(0)=InstantEffectParams'ArenaPrimaryEffectParams'
+		FireEffectParams(0)=InstantEffectParams'ArenaPhotonPrimaryEffectParams'
 	End Object
-	*/
 
 	//=================================================================
 	// RECOIL
@@ -109,6 +104,7 @@ defaultproperties
         RecoilParams(0)=RecoilParams'ArenaRecoilParams'
         AimParams(0)=AimParams'ArenaAimParams'
 		FireParams(0)=FireParams'ArenaPrimaryFireParams'
+		FireParams(1)=FireParams'ArenaPhotonPrimaryFireParams'
 		AltFireParams(0)=FireParams'ArenaSecondaryFireParams'
     End Object 
     Layouts(0)=WeaponParams'ArenaParams'

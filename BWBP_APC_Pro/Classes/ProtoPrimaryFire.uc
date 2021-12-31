@@ -9,40 +9,10 @@
 //=============================================================================
 class ProtoPrimaryFire extends BallisticRangeAttenFire;
 
-var() sound		RifleFireSound;
-var() sound		MeleeFireSound;
-
 var() Actor						SMuzzleFlash;		// Silenced Muzzle flash stuff
 var() class<Actor>				SMuzzleFlashClass;
 var() Name						SFlashBone;
 var() float						SFlashScaleFactor;
-
-function InitEffects()
-{
-	if (AIController(Instigator.Controller) != None)
-		return;
-    if ((MuzzleFlashClass != None) && ((MuzzleFlash == None) || MuzzleFlash.bDeleteMe) )
-		class'BUtil'.static.InitMuzzleFlash (MuzzleFlash, MuzzleFlashClass, Weapon.DrawScale*FlashScaleFactor, weapon, FlashBone);
-    if ((SMuzzleFlashClass != None) && ((SMuzzleFlash == None) || SMuzzleFlash.bDeleteMe) )
-		class'BUtil'.static.InitMuzzleFlash (SMuzzleFlash, SMuzzleFlashClass, Weapon.DrawScale*SFlashScaleFactor, weapon, SFlashBone);
-}
-
-function SetSilenced(bool bSilenced)
-{
-	bAISilent = bSilenced;
-	if (!bSilenced)
-	{
-		XInaccuracy *= 2;
-		YInaccuracy *= 2;
-		CutOffStartRange *= 1.25;
-	}
-	else
-	{
-		XInaccuracy = default.XInaccuracy;
-		YInaccuracy = default.YInaccuracy;
-		CutOffStartRange = default.CutOffStartRange;
-	}
-}
 
 //Trigger muzzleflash emitter
 function FlashMuzzleFlash()
@@ -58,6 +28,34 @@ function FlashMuzzleFlash()
 
 	if (!bBrassOnCock)
 		EjectBrass();
+}
+
+function SetSuppressed(bool bSilenced)
+{
+	if (bSilenced)
+	{
+		FireRecoil *= 0.8;
+		RangeAtten *= 1.2;
+		XInaccuracy *= 0.75;
+		YInaccuracy *= 0.75;
+	}
+	else
+	{
+		FireRecoil = default.FireRecoil;
+		RangeAtten = default.RangeAtten;
+		XInaccuracy = default.XInaccuracy;
+		YInaccuracy = default.YInaccuracy;
+	}
+}
+
+function InitEffects()
+{
+	if (AIController(Instigator.Controller) != None)
+		return;
+    if ((MuzzleFlashClass != None) && ((MuzzleFlash == None) || MuzzleFlash.bDeleteMe) )
+		class'BUtil'.static.InitMuzzleFlash (MuzzleFlash, MuzzleFlashClass, Weapon.DrawScale*FlashScaleFactor, weapon, FlashBone);
+    if ((SMuzzleFlashClass != None) && ((SMuzzleFlash == None) || SMuzzleFlash.bDeleteMe) )
+		class'BUtil'.static.InitMuzzleFlash (SMuzzleFlash, SMuzzleFlashClass, Weapon.DrawScale*SFlashScaleFactor, weapon, SFlashBone);
 }
 
 // Remove effects
@@ -120,11 +118,11 @@ function PlayFiring()
 
 defaultproperties
 {
-     SMuzzleFlashClass=Class'BWBP_SWC_Pro.MDKSilencedFlash'
-     SFlashBone="tip"
-	 FlashBone="tip2"
+     SMuzzleFlashClass=Class'BallisticProV55.XK2SilencedFlash'
+     SFlashBone="tip2"
+	 FlashBone="tip"
      SFlashScaleFactor=1.000000
-	 RifleFireSound=Sound'BWBP_SKC_Sounds.CYLO.CYLO-Fire'
+	 SilencedFireSound=(Sound=Sound'BWBP_JCF_Sounds.P90.P90SilencedFire',Volume=1.300000,Radius=192.000000,bAtten=True)
      CutOffDistance=3072.000000
      CutOffStartRange=1536.000000
      TraceRange=(Min=8000.000000,Max=12000.000000)
