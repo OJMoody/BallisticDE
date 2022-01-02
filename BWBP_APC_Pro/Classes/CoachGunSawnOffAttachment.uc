@@ -430,7 +430,7 @@ defaultproperties
 
     FireClass=Class'BWBP_APC_Pro.CoachGunSawnOffPrimaryFire'
     MuzzleFlashClass=Class'BallisticProV55.MRT6FlashEmitter'
-    FlashBone="Tip1"
+    FlashBone="Tip"
     AltFlashBone="tip2"
     FlashScale=1.500000
 
@@ -442,7 +442,6 @@ defaultproperties
 
     Mesh=SkeletalMesh'BWBP_SKC_AnimExp.SawnOff_TPm'
     RelativeLocation=(X=15.000000)
-    RelativeRotation=(Pitch=32768)
     DrawScale=0.200000
 
     SingleFireAnim="Reload_BreakOpenFast"

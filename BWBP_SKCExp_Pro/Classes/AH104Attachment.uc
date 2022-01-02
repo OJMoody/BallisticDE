@@ -283,8 +283,9 @@ function InitFor(Inventory I)
 
 defaultproperties
 {
-	 //MuzzleFlashClass=Class'BWBP_SKCExp_Pro.AH104FlashEmitter'
-	 //AltMuzzleFlashClass=Class'BWBP_SKCExp_Pro.AH104FlashEmitter'
+	 MuzzleFlashClass=Class'BWBP_SKC_Pro.AH104FlashEmitter'
+	 //AltMuzzleFlashClass=Class'BWBP_SKC_Pro.AH104FlashEmitter'
+     FlashScale=0.050000	 
      AltFlyBySound=(Sound=Sound'BW_Core_WeaponSound.RX22A.RX22A-FlyBy',Volume=0.700000)
      ImpactManager=Class'BWBP_SKC_Pro.IM_ExpBullet'
      AltFlashBone="ejector"

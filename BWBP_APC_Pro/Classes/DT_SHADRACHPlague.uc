@@ -6,7 +6,7 @@ defaultproperties
      DeathStrings(1)="%k's lingering radiation overcame %o."
      DeathStrings(2)="%k's raygun made %o a terminal biohazard."
      DeathStrings(3)="%o's corpse glows bright and green thanks to %k's raygun."
-     SimpleKillString="Raygun Irradiation"
+     SimpleKillString="SRK-205 Irradiation"
      BloodManagerName="BallisticProV55.BloodMan_DarkSlow"
      DamageIdent="Energy"
      DamageDescription=",Plasma,"

@@ -56,7 +56,7 @@ function ServerSwitchLaser(bool bNewLaserOn)
 	bLaserOn = bNewLaserOn;
 	bUseNetAim = default.bUseNetAim || bLaserOn;
 	if (ThirdPersonActor!=None)
-		M806Attachment(ThirdPersonActor).bLaserOn = bLaserOn;
+		EP90PDWAttachment(ThirdPersonActor).bLaserOn = bLaserOn;
     if (Instigator.IsLocallyControlled())
 		ClientSwitchLaser();
 }

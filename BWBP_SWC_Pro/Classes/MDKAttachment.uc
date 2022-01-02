@@ -90,5 +90,5 @@ defaultproperties
 	 RelativeRotation=(Pitch=32768)
 	 RelativeLocation=(z=10.000000)
      Mesh=SkeletalMesh'BWBP_SWC_Anims.MDK_TPm'
-     DrawScale=0.500000
+     DrawScale=0.350000
 }

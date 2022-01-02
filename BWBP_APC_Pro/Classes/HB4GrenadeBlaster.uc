@@ -49,7 +49,7 @@ simulated function float ChargeBar()
 	{
 		if (FireMode[1].bIsFiring)
 			return FMin(1, FireMode[1].HoldTime / FireMode[1].MaxHoldTime);
-		return FMin(1, AM67SecondaryFire(FireMode[1]).DecayCharge / FireMode[1].MaxHoldTime);
+		return FMin(1, HB4SecondaryFire(FireMode[1]).DecayCharge / FireMode[1].MaxHoldTime);
 	}
 	return (FireMode[1].NextFireTime - level.TimeSeconds) / FireMode[1].FireRate;
 }

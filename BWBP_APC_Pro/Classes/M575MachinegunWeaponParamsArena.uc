@@ -39,9 +39,9 @@ defaultproperties
 		Begin Object Class=InstantEffectParams Name=ArenaSecondaryEffectParams
 			RangeAtten=0.200000
 			Damage=14
-			DamageType=Class'BallisticProV55.DTXK2Freeze'
-			DamageTypeHead=Class'BallisticProV55.DTXK2Freeze'
-			DamageTypeArm=Class'BallisticProV55.DTXK2Freeze'
+			DamageType=Class'BWBP_APC_Pro.DTM575Freeze'
+			DamageTypeHead=Class'BWBP_APC_Pro.DTM575Freeze'
+			DamageTypeArm=Class'BWBP_APC_Pro.DTM575Freeze'
 			PenetrateForce=150
 			bPenetrate=True
 			MuzzleFlashClass=Class'BWBP_APC_Pro.M575FlashEmitter'

@@ -74,8 +74,8 @@ function ServerPlayFiring()
 {
         if (BW.MagAmmo - ConsumedLoad < 1)
         {
-          BW.IdleAnim = 'IdleOpen';
-          BW.ReloadAnim = 'ReloadOpen';
+          BW.IdleAnim = 'OpenIdle';
+          BW.ReloadAnim = 'OpenReload';
           FireAnim = 'SightFireOpen';
           AimedFireAnim = 'SightFireOpen';
         }

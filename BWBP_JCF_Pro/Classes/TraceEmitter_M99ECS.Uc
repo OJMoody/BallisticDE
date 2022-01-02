@@ -10,10 +10,10 @@ simulated function Initialize(float Distance, optional float Power)
 {
 	BeamEmitter(Emitters[0]).BeamDistanceRange.Min = FMax(0, Distance-100);
 	BeamEmitter(Emitters[0]).BeamDistanceRange.Max = FMax(0, Distance-100);
-	BeamEmitter(Emitters[1]).BeamDistanceRange.Min = Distance;
-	BeamEmitter(Emitters[1]).BeamDistanceRange.Max = Distance;
-	BeamEmitter(Emitters[5]).BeamDistanceRange.Min = Distance;
-	BeamEmitter(Emitters[5]).BeamDistanceRange.Max = Distance;
+//	BeamEmitter(Emitters[1]).BeamDistanceRange.Min = Distance;
+//	BeamEmitter(Emitters[1]).BeamDistanceRange.Max = Distance;
+//	BeamEmitter(Emitters[5]).BeamDistanceRange.Min = Distance;
+//	BeamEmitter(Emitters[5]).BeamDistanceRange.Max = Distance;
 }
 
 defaultproperties

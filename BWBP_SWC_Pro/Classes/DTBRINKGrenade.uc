@@ -6,7 +6,7 @@ defaultproperties
 {
      DeathStrings(0)="%o was tagged by %k's M980 Grenade."
      DeathStrings(1)="%o was playing with %k's live M980 Grenade."
-     SimpleKillString="MARS-3 Cryo Grenade"
+     SimpleKillString="BR1-NK Mod-2 Cryo Grenade"
      FlashThreshold=25
      FlashV=(X=350.000000,Y=350.000000,Z=700.000000)
      FlashF=0.250000

@@ -62,6 +62,7 @@ defaultproperties
      CockingAnim="Cock_RearPull"
      bRapidFire=True
      Mesh=SkeletalMesh'BWBP_SKC_AnimExp.T9CN_TPm'
+	 RelativeLocation=(Z=5.000000)
      RelativeRotation=(Pitch=32768)
      DrawScale=0.150000
 }

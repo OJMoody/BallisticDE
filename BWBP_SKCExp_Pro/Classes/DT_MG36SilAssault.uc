@@ -14,7 +14,7 @@ defaultproperties
      DeathStrings(1)="%o was silenced by %k's MG36 rounds."
      DeathStrings(2)="%k assasinated %o with a suppressed MG36."
      DeathStrings(3)="%o was silently downed by %k's MG36."
-     SimpleKillString="LK-05 Advanced Carbine Suppressed"
+     SimpleKillString="MG36 Night Ops Suppressed"
      DamageIdent="Assault"
      WeaponClass=Class'BWBP_SKCExp_Pro.MG36Carbine'
      DeathString="%k quietly eliminated %o with the MG36."

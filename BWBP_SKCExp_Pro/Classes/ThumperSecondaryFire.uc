@@ -13,7 +13,7 @@ defaultproperties
 {
      SpawnOffset=(X=15.000000,Y=10.000000,Z=-9.000000)
      MuzzleFlashClass=Class'BallisticProV55.M50M900FlashEmitter'
-     FlashBone="Muzzle"
+     FlashBone="tip"
      FireChaos=0.700000
      XInaccuracy=64.000000
      YInaccuracy=64.000000

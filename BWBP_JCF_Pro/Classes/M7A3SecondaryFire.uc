@@ -7,22 +7,6 @@ class M7A3SecondaryFire extends BallisticProjectileFire;
 
 var M7A3TazerProj ActiveProj;
 
-//Do the spread on the client side
-function PlayFiring()
-{
-	if (BW.MagAmmo - ConsumedLoad < 1)
-	{
-		FireAnim = 'OpenTazerFire';
-		BW.IdleAnim = 'OpenTazerIdle';
-	}
-	else
-	{
-		FireAnim = 'TazerFire';
-		BW.IdleAnim = 'TazerIdle';
-	}
-	super.PlayFiring();
-}
-
 function SpawnProjectile (Vector Start, Rotator Dir)
 {
 	Proj = Spawn (ProjectileClass,,, Start, Dir);

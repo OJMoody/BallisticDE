@@ -82,25 +82,7 @@ simulated function Notify_MRDRMelee()
 // choose between regular or alt-fire
 function byte BestMode()
 {
-	local Bot B;
-	local float Dist;
-	local Vector Dir;
-
-	B = Bot(Instigator.Controller);
-	if ( (B == None) || (B.Enemy == None) )
 		return 0;
-
-	if (!HasAmmoLoaded(0))
-		return 1;
-
-	Dir = Instigator.Location - B.Enemy.Location;
-	Dist = VSize(Dir);
-
-	if (Dist > 200)
-		return 0;
-	if (Dist < FireMode[1].MaxRange())
-		return 1;
-	return Rand(2);
 }
 
 function float GetAIRating()
@@ -217,7 +199,7 @@ defaultproperties
 	PutDownTime=0.400000
 	BringUpTime=0.500000
 	SelectForce="SwitchToAssaultRifle"
-	bShowChargingBar=True
+	bShowChargingBar=False
 	Description="The T9CN was the precursor to the standard GRS9 Pistol, and it sported a rugged automatic firing mechanism and nickel finish. The automatic variant was designed with use by counter-terrorism units in mind, but sadly a lack of compensator gave the gun horrible inaccuracy and recoil. Most CTU's quickly dropped the T9CN in favor of other more accurate machine pistols like the XRS-10 and the XK2, however infamous outlaw Var Dehidra and his cronies stole a stash of T9CN's and found good use for them. They were known for spraying them to keep enemies at bay and even tilting them to the side like gangsters of old. Their brazen use of police equipment inspired robberies throughout the cosmos!"
 	Priority=143
 	HudColor=(B=150,G=150,R=150)
@@ -228,7 +210,7 @@ defaultproperties
 	SightOffset=(X=-10.000000,Y=-2.110000,Z=9.15000)
 	PickupClass=Class'BWBP_SKCExp_Pro.RoboT9CNPickup'
 	PlayerViewOffset=(X=7.000000,Y=5.500000,Z=-8.000000)
-	AttachmentClass=Class'BWBP_SKC_Pro.MRDRAttachment'
+	AttachmentClass=Class'BWBP_SKCExp_Pro.RoboT9CNAttachment'
 	IconMaterial=Texture'BWBP_SKC_TexExp.T9CN.SmallIcon_BerSilver'
 	IconCoords=(X2=127,Y2=31)
 	ItemName="T9CN Automatic Pistol"

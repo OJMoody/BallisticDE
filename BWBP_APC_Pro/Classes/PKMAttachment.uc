@@ -151,6 +151,7 @@ defaultproperties
      bHeavy=True
      bRapidFire=True
 	 Prepivot=(Z=-10.00000)
+	 RelativeLocation=(X=-15.000000,Z=-15.000000)
      Mesh=SkeletalMesh'BWBP_CC_Anim.PKMA_TPm'
-     DrawScale=0.250000
+     DrawScale=0.180000
 }

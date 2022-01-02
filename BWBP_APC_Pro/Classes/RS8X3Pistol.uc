@@ -95,7 +95,7 @@ function ServerSwitchLaser(bool bNewLaserOn)
 	bLaserOn = bNewLaserOn;
 	bUseNetAim = default.bUseNetAim || bLaserOn;
 	if (ThirdPersonActor != None)
-		RS8Attachment(ThirdPersonActor).bLaserOn = bLaserOn;
+		RS8X3Attachment(ThirdPersonActor).bLaserOn = bLaserOn;
 	OnLaserSwitched();
     if (Instigator.IsLocallyControlled())
 		ClientSwitchLaser();
@@ -352,7 +352,7 @@ simulated function BringUp(optional Weapon PrevWeapon)
 		ServerSwitchLaser(FRand() > 0.5);
 
 	if ( ThirdPersonActor != None )
-		RS8Attachment(ThirdPersonActor).bLaserOn = bLaserOn;
+		RS8X3Attachment(ThirdPersonActor).bLaserOn = bLaserOn;
 
 	if (MagAmmo - BFireMode[0].ConsumedLoad < 1)
 	{
