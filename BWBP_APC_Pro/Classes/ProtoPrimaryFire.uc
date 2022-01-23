@@ -122,7 +122,7 @@ defaultproperties
      SFlashBone="tip2"
 	 FlashBone="tip"
      SFlashScaleFactor=1.000000
-	 SilencedFireSound=(Sound=Sound'BWBP_JCF_Sounds.P90.P90SilencedFire',Volume=1.300000,Radius=192.000000,bAtten=True)
+	 SilencedFireSound=(Sound=SoundGroup'BWBP_JCF_Sounds.P90.P90SilFire',Volume=2.000000,Radius=192.000000,bAtten=True)
      CutOffDistance=3072.000000
      CutOffStartRange=1536.000000
      TraceRange=(Min=8000.000000,Max=12000.000000)

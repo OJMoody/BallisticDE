@@ -44,16 +44,16 @@ defaultproperties
     // SECONDARY FIRE
     //=================================================================	
 	
-	Begin Object Class=InstantEffectParams Name=ClassicSecondaryEffectParams
+	Begin Object Class=ProjectileEffectParams Name=ClassicSecondaryEffectParams
 		FireSound=(Sound=Sound'BWBP_SKC_SoundsExp.AH104.AH104-FlameLoopStart',Volume=1.600000,Radius=255.000000,Pitch=1.000000,bNoOverride=True)
 		Recoil=0.01
 		Chaos=0.05
 		Damage=14.000000
 		HeadMult=1.0f
 		LimbMult=1.0f
-		DamageType=Class'BWBP_SKCExp_Pro.DT_AH104Pistol'
-		DamageTypeHead=Class'BWBP_SKCExp_Pro.DT_AH104PistolHead'
-		DamageTypeArm=Class'BWBP_SKCExp_Pro.DT_AH104Pistol'
+		//DamageType=Class'BWBP_SKCExp_Pro.DT_AH104Pistol'
+		//DamageTypeHead=Class'BWBP_SKCExp_Pro.DT_AH104PistolHead'
+		//DamageTypeArm=Class'BWBP_SKCExp_Pro.DT_AH104Pistol'
 		Inaccuracy=(X=0,Y=0)
 		BotRefireRate=0.300000
 	End Object
@@ -62,7 +62,7 @@ defaultproperties
 		FireInterval=0.050000
 		AmmoPerFire=0
 		BurstFireRateFactor=1.00
-		FireEffectParams(0)=InstantEffectParams'ClassicSecondaryEffectParams'
+		FireEffectParams(0)=ProjectileEffectParams'ClassicSecondaryEffectParams'
 	End Object
 		
 	//=================================================================
@@ -104,6 +104,7 @@ defaultproperties
 	//=================================================================	
 	
 	Begin Object Class=WeaponParams Name=ClassicParams
+		WeaponBoneScales(0)=(BoneName="RDS",Slot=50,Scale=0f)
 		InventorySize=35
 		SightMoveSpeedFactor=0.500000
 		MagAmmo=7
