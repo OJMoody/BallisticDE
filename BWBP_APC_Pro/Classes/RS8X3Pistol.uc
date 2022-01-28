@@ -140,7 +140,7 @@ simulated function bool PutDown()
 	{
 		KillLaserDot();
 		if (ThirdPersonActor != None)
-			RS8Attachment(ThirdPersonActor).bLaserOn = false;
+			RS8X3Attachment(ThirdPersonActor).bLaserOn = false;
 		return true;
 	}
 	return false;
