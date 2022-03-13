@@ -600,7 +600,7 @@ defaultproperties
      SightOffset=(X=-15.000000,Y=-0.350000,Z=12.300000)
      SightDisplayFOV=25.000000
      FullZoomFOV=45
-	 
+	 NDCrosshairCfg=(Pic1=Texture'BW_Core_WeaponTex.Crosshairs.M353OutA',Pic2=Texture'BW_Core_WeaponTex.Crosshairs.M50InA',USize1=256,VSize1=256,USize2=256,VSize2=256,Color1=(B=0,G=0,R=255,A=197),Color2=(B=0,G=255,R=255,A=255),StartSize1=79,StartSize2=55)
      FireModeClass(0)=Class'BWBP_SKCExp_Pro.MG36PrimaryFire'
      FireModeClass(1)=Class'BWBP_SKCExp_Pro.MG36SecondaryFire'
      IdleAnimRate=0.500000

@@ -628,7 +628,9 @@ defaultproperties
 	bNeedCock=False
 	bCockAfterReload=False
 	bCockOnEmpty=False
-	ManualLines(0)=".75 BOLT cannon fire. Long-ranged with high power. Fire rate is better than average. Good penetration. Poor from the hip."
+	NDCrosshairCfg=(Pic1=Texture'BW_Core_WeaponTex.Crosshairs.Misc9',pic2=Texture'BW_Core_WeaponTex.Crosshairs.M50OutA',USize1=256,VSize1=256,USize2=256,VSize2=256,Color1=(B=0,G=0,R=255,A=192),Color2=(B=0,G=255,R=255,A=255),StartSize1=61,StartSize2=22)
+    NDCrosshairInfo=(SpreadRatios=(X1=0.750000,Y1=0.750000,X2=0.300000,Y2=0.300000))
+    ManualLines(0)=".75 BOLT cannon fire. Long-ranged with high power. Fire rate is better than average. Good penetration. Poor from the hip."
 	ManualLines(1)="Readies a FRAG-12 if one is not already loaded; otherwise, fires the loaded FRAG-12. FRAG-12s move along a straight trajectory, dealing high damage upon impact and to enemies close to the point of impact. Has lesser recoil than the primary fire."
 	ManualLines(2)="As it lacks a scope, has a quicker aim time than scoped weapons. Effective at medium to long range."
 	SpecialInfo(0)=(Info="120.0;15.0;0.8;70.0;0.75;0.5;0.0")

@@ -471,6 +471,9 @@ defaultproperties
 	 //ParamsClasses(1)=Class'CoachWeaponParamsClassic' //Note: Needs state code
      FireModeClass(0)=Class'BWBP_APC_Pro.CoachGunSawnOffPrimaryFire'
      FireModeClass(1)=Class'BCoreProV55.BallisticScopeFire'
+	 NDCrosshairCfg=(Pic1=Texture'BW_Core_WeaponTex.Crosshairs.Misc1',Pic2=Texture'BW_Core_WeaponTex.Crosshairs.M806OutA',USize1=256,VSize1=256,USize2=256,VSize2=256,Color1=(G=255,A=101),Color2=(G=0,R=0),StartSize1=92,StartSize2=82)
+     NDCrosshairInfo=(SpreadRatios=(X1=0.250000,Y1=0.375000,X2=1.000000,Y2=1.000000),MaxScale=3.000000)
+     NDCrosshairChaosFactor=0.600000
      SelectAnimRate=2.000000
      PutDownAnimRate=2.000000
      AIRating=0.800000

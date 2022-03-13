@@ -456,6 +456,8 @@ defaultproperties
 	WeaponModes(0)=(ModeName="Series Pulse",ModeID="WM_Burst",Value=3.000000)
 	WeaponModes(1)=(ModeName="Multi Pulse",ModeID="WM_SemiAuto",Value=1.000000)
 	WeaponModes(2)=(ModeName="Sniper Pulse",ModeID="WM_SemiAuto",Value=1.000000,bUnavailable=True)
+	NDCrosshairInfo=(SpreadRatios=(X1=0.500000,Y1=0.500000,X2=0.500000,Y2=0.750000),SizeFactors=(X1=1.000000,Y1=1.000000,X2=1.000000,Y2=1.000000),MaxScale=4.000000,CurrentScale=0.000000)
+	NDCrosshairCfg=(Pic1=Texture'BW_Core_WeaponTex.Crosshairs.Misc7',Pic2=Texture'BW_Core_WeaponTex.Crosshairs.PentagramInA',USize1=256,VSize1=256,USize2=256,VSize2=256,Color1=(B=75,G=42,R=52,A=125),Color2=(B=0,G=224,R=224,A=138),StartSize1=90,StartSize2=61)
 	CurrentWeaponMode=0
 	bNoCrosshairInScope=True
 	BobDamping=2.200000

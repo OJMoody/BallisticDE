@@ -136,7 +136,8 @@ defaultproperties
      bNoCrosshairInScope=True
      SightOffset=(Y=-1.700000,Z=14.000000)
      SightDisplayFOV=20.000000
-	 
+	 NDCrosshairCfg=(Pic1=Texture'BW_Core_WeaponTex.Crosshairs.Cross4',pic2=Texture'BW_Core_WeaponTex.Crosshairs.A73OutA',USize1=256,VSize1=256,USize2=256,VSize2=256,Color1=(B=25,G=122,R=11,A=255),Color2=(B=255,G=255,R=255,A=255),StartSize1=22,StartSize2=59)     CrouchAimFactor=0.500000
+     
 	 ScopeXScale=1.200000
      FireModeClass(0)=Class'BWBP_SKCExp_Pro.VSKPrimaryFire'
      FireModeClass(1)=Class'BCoreProV55.BallisticScopeFire'

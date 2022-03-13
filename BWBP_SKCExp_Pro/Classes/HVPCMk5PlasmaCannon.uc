@@ -764,7 +764,10 @@ defaultproperties
      SightDisplayFOV=40.000000
      FireModeClass(0)=Class'BWBP_SKCExp_Pro.HVPCMk5PrimaryFire'
      FireModeClass(1)=Class'BWBP_SKCExp_Pro.HVPCMk5SecondaryFire'
-     PutDownTime=0.500000
+	 NDCrosshairCfg=(Pic1=Texture'BW_Core_WeaponTex.Crosshairs.M50Out',Pic2=Texture'BW_Core_WeaponTex.Crosshairs.Misc4',USize2=256,VSize2=256,Color2=(B=153,G=168,R=170,A=83),StartSize2=84)
+     NDCrosshairInfo=(SpreadRatios=(X1=0.250000,Y1=0.375000,X2=1.000000,Y2=1.000000),MaxScale=3.000000)
+     NDCrosshairChaosFactor=0.700000
+	 PutDownTime=0.500000
      BringUpTime=0.500000
      AIRating=0.750000
      CurrentRating=0.600000

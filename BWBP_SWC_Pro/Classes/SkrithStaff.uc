@@ -460,6 +460,8 @@ defaultproperties
      WeaponModes(2)=(ModeName="ALaser",bUnavailable=True)
      WeaponModes(3)=(ModeName="BLaser",bUnavailable=True)
      WeaponModes(4)=(ModeName="CLaser",bUnavailable=True)
+	 NDCrosshairCfg=(Pic1=Texture'BW_Core_WeaponTex.Crosshairs.Misc7',Pic2=Texture'BW_Core_WeaponTex.Crosshairs.Cross4',USize1=256,VSize1=256,USize2=256,VSize2=256,Color1=(B=67,G=68,A=137),Color2=(B=96,G=185,A=208),StartSize1=133,StartSize2=47)
+     NDCrosshairInfo=(SpreadRatios=(X1=0.250000,Y1=0.375000,Y2=0.500000),MaxScale=3.000000)
      CurrentWeaponMode=0
      SightPivot=(Pitch=450)
      SightOffset=(X=-20.000000,Y=0.310000,Z=12.500000)

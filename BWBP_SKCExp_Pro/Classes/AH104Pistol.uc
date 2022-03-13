@@ -496,6 +496,8 @@ defaultproperties
 	SightOffset=(X=-15.000000,Y=-0.400000,Z=11.500000)
 	SightDisplayFOV=40.000000
 	GunLength=4.000000
+	NDCrosshairCfg=(Pic1=Texture'BW_Core_WeaponTex.Crosshairs.M806OutA',Pic2=Texture'BW_Core_WeaponTex.Crosshairs.R78InA',USize1=256,VSize1=256,USize2=256,VSize2=256,Color1=(A=192),StartSize1=61,StartSize2=62)
+    NDCrosshairInfo=(SpreadRatios=(X1=0.750000,Y1=0.750000,X2=0.300000,Y2=0.300000))
 	ParamsClasses(0)=Class'AH104PistolWeaponParamsArena'
 	ParamsClasses(1)=Class'AH104PistolWeaponParamsClassic'
 	FireModeClass(0)=Class'BWBP_SKCExp_Pro.AH104PrimaryFire'

@@ -10,7 +10,8 @@ class Ammo_L8GI extends BallisticAmmo;
 
 defaultproperties
 {
-     MaxAmmo=1
+     bNoPackResupply=True
+	 MaxAmmo=1
      InitialAmount=1
      IconFlashMaterial=Shader'BWBP_SWC_Tex.AmmoPack.AmmoIcon_AmmoPackFlash'
      PickupClass=Class'BWBP_SWC_Pro.L8GIPickup'

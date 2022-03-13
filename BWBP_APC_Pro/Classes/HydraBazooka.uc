@@ -315,6 +315,8 @@ defaultproperties
 	ParamsClasses(0)=Class'HydraWeaponParams'
 	FireModeClass(0)=Class'BWBP_APC_Pro.HydraPrimaryFire'
 	FireModeClass(1)=Class'BWBP_APC_Pro.HydraSecondaryFire'
+	NDCrosshairInfo=(SpreadRatios=(X1=0.500000,Y1=0.500000,X2=0.500000,Y2=0.750000),SizeFactors=(X1=1.000000,Y1=1.000000,X2=1.000000,Y2=1.000000),MaxScale=4.000000,CurrentScale=0.000000)
+	NDCrosshairCfg=(Pic1=TexRotator'BW_Core_WeaponTex.NovaStaff.NovaOutA-Rot',Pic2=Texture'BW_Core_WeaponTex.Crosshairs.Misc11',USize1=256,VSize1=256,USize2=256,VSize2=256,Color1=(B=0,G=0,R=0,A=236),Color2=(B=0,G=0,R=100,A=236),StartSize1=121,StartSize2=43)
 	SelectAnimRate=0.600000
 	PutDownAnimRate=0.800000
 	PutDownTime=1.400000

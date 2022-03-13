@@ -323,9 +323,9 @@ defaultproperties
 	BringUpSound=(Sound=Sound'BW_Core_WeaponSound.M50.M50Pullout')
 	PutDownSound=(Sound=Sound'BW_Core_WeaponSound.M50.M50Putaway')
 	CockAnimPostReload="ReloadEndCock"
-	CockAnimRate=1.10000
+	CockAnimRate=0.95000
 	CockSound=(Sound=Sound'BWBP_SWC_Sounds.BR1NK.BR1NK-Cock',Volume=1.100000,Radius=32.000000)
-	ReloadAnimRate=0.750000
+	ReloadAnimRate=0.950000
 	ClipHitSound=(Sound=Sound'BWBP_SKC_Sounds.MARS.MARS-MagFiddle',Volume=1.200000,Radius=32.000000)
 	ClipOutSound=(Sound=Sound'BWBP_SWC_Sounds.BR1NK.BR1NK-ClipOut',Volume=1.200000,Radius=32.000000)
 	ClipInSound=(Sound=Sound'BWBP_SWC_Sounds.BR1NK.BR1NK-ClipIn',Volume=1.200000,Radius=32.000000)
@@ -349,7 +349,7 @@ defaultproperties
 	CustomCrossHairTextureName="Crosshairs.HUD.Crosshair_Cross1"
 	InventoryGroup=6
 	PickupClass=Class'BWBP_SWC_Pro.BRINKPickup'
-	PlayerViewOffset=(X=7.000000,Y=6.500000,Z=-13.000000)
+	PlayerViewOffset=(X=10.000000,Y=4.500000,Z=-11.500000)
 	BobDamping=2.000000
 	AttachmentClass=Class'BWBP_SWC_Pro.BRINKAttachment'
 	IconMaterial=Texture'BWBP_SWC_Tex.BR1NK.SmallIcon_BR1NK'
@@ -362,5 +362,5 @@ defaultproperties
 	LightBrightness=150.000000
 	LightRadius=4.000000
 	Mesh=SkeletalMesh'BWBP_SWC_Anims.FPm_BR1NK'
-	DrawScale=0.300000
+	DrawScale=0.250000
 }

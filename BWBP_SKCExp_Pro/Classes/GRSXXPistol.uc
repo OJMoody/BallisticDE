@@ -558,6 +558,8 @@ defaultproperties
 	ParamsClasses(0)=Class'GRSXXPistolWeaponParamsArena'
 	FireModeClass(0)=Class'BWBP_SKCExp_Pro.GRSXXPrimaryFire'
 	FireModeClass(1)=Class'BWBP_SKCExp_Pro.GRSXXSecondaryFire'
+	NDCrosshairCfg=(Pic1=Texture'BW_Core_WeaponTex.Crosshairs.M50Out',Pic2=Texture'BW_Core_WeaponTex.Crosshairs.M806InA',USize2=256,VSize2=256,Color1=(B=12,G=108,R=157,A=163),Color2=(B=255),StartSize1=79,StartSize2=124)
+    NDCrosshairInfo=(SpreadRatios=(Y1=0.800000,Y2=1.000000),MaxScale=6.000000)
 	SelectAnimRate=1.250000
 	PutDownAnimRate=1.250000
 	SelectForce="SwitchToAssaultRifle"

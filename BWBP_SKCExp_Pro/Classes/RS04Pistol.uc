@@ -509,7 +509,9 @@ defaultproperties
      SightDisplayFOV=40.000000
      SightingTime=0.200000
 	 bNoCrosshairInScope=True
-
+	 NDCrosshairCfg=(Pic1=Texture'BW_Core_WeaponTex.Crosshairs.M806OutA',Pic2=Texture'BW_Core_WeaponTex.Crosshairs.M50InA',USize1=256,VSize1=256,USize2=256,VSize2=256,Color1=(B=175,G=178,R=176,A=160),Color2=(G=0),StartSize1=52,StartSize2=40)
+	 NDCrosshairInfo=(SpreadRatios=(Y1=0.800000,Y2=1.000000),MaxScale=6.000000)
+		
 	 FireModeClass(0)=Class'BWBP_SKCExp_Pro.RS04PrimaryFire'
      FireModeClass(1)=Class'BWBP_SKCExp_Pro.RS04SecondaryFire'
      PutDownTime=0.600000

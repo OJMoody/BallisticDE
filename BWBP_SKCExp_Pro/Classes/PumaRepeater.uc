@@ -895,6 +895,8 @@ defaultproperties
      CockSound=(Sound=Sound'BWBP_SKC_SoundsExp.PUMA.PUMA-Cock',Volume=1.100000)
      ClipOutSound=(Sound=Sound'BWBP_SKC_SoundsExp.PUMA.PUMA-MagOut',Volume=1.000000)
      ClipInSound=(Sound=Sound'BWBP_SKC_SoundsExp.PUMA.PUMA-MagIn',Volume=1.000000)
+     NDCrosshairCfg=(Pic1=Texture'BW_Core_WeaponTex.Crosshairs.M763OutA',Pic2=Texture'BW_Core_WeaponTex.Crosshairs.M763InA',USize1=256,VSize1=256,USize2=256,VSize2=256,Color1=(B=255,G=255,A=192),Color2=(G=0,A=192),StartSize1=113,StartSize2=120)
+     NDCrosshairInfo=(SpreadRatios=(X1=0.250000,Y1=0.375000,X2=1.000000,Y2=1.000000),SizeFactors=(X1=0.750000,X2=0.750000),MaxScale=8.000000)
      WeaponModes(0)=(ModeName="Airburst: Impact Detonation",ModeID="WM_FullAuto")
      WeaponModes(1)=(ModeName="Airburst: Proximity Detonation",ModeID="WM_FullAuto")
      WeaponModes(2)=(ModeName="Airburst: Variable Range Detonation")
@@ -927,7 +929,7 @@ defaultproperties
      LightBrightness=150.000000
      LightRadius=5.000000
 	 ParamsClasses(0)=Class'PumaRepeaterWeaponParamsArena'
-	 ParamsClasses(1)=Class'PUMAWeaponParamsClassic'
+	 //ParamsClasses(1)=Class'PUMAWeaponParamsClassic'
      Mesh=SkeletalMesh'BWBP_SKC_AnimExp.FPm_PUMA'
      DrawScale=0.350000
      Skins(0)=Shader'BW_Core_WeaponTex.Hands.Hands-Shiny'

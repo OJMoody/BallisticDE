@@ -28,7 +28,7 @@ defaultproperties
      DryFireSound=(Sound=Sound'BW_Core_WeaponSound.Misc.DryRifle',Volume=0.700000)
      bCockAfterEmpty=True
      MuzzleFlashClass=Class'BallisticProV55.XK2FlashEmitter'
-     FlashBone="tip"
+     FlashBone="Muzzle"
      FlashScaleFactor=0.500000
      FireRecoil=220.000000
      FireChaos=0.032000
