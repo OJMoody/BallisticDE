@@ -448,8 +448,8 @@ defaultproperties
      MaxDesireability=0.900000
      FlagBone="FlagBone"
      WaterDamage=0.000000
-     HealthMax=1500.000000
-     Health=1500
+     HealthMax=1200.000000
+     Health=1200
      Mesh=SkeletalMesh'BWBP_Vehicles_Anim.ThorTank'
      Skins(1)=TexScaler'BWBP_Vehicles_Tex.ThorTank.TrackScaler'
      Skins(2)=TexScaler'BWBP_Vehicles_Tex.ThorTank.TrackScaler'

@@ -50,7 +50,12 @@ event Timer()
 defaultproperties
 {
      Swaps(0)=(NewVehicles=(Class'BWBP_VPC_Pro.DCTVThorTank'),OldVehicle=Class'Onslaught.ONSHoverTank')
-     GroupName="VehicleArena"
+	 Swaps(1)=(NewVehicles=(Class'BWBP_VPC_Pro.Albatross'),OldVehicle=Class'Onslaught.ONSAttackCraft')
+	 Swaps(2)=(NewVehicles=(Class'BWBP_VPC_Pro.KHMKII'),OldVehicle=Class'OnslaughtBP.ONSDualAttackCraft')
+	 Swaps(3)=(NewVehicles=(Class'BWBP_VPC_Pro.LeopardTank'),OldVehicle=Class'Onslaught.ONSPRV')
+	 Swaps(4)=(NewVehicles=(Class'BWBP_VPC_Pro.StingRay'),OldVehicle=Class'Onslaught.ONSHoverBike')
+	 Swaps(5)=(NewVehicles=(Class'BWBP_VPC_Pro.Tarantula'),OldVehicle=Class'Onslaught.ONSRV')
+	 GroupName="VehicleArena"
      FriendlyName="Ballistic Weapons: Vehicles"
      Description="Replaces vehicles with ones modified to fit in better with Ballistic Weapons."
 }
