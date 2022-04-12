@@ -15,6 +15,7 @@ defaultproperties
 			MomentumTransfer=17000.000000
 			MuzzleFlashClass=Class'BallisticProV55.MRT6FlashEmitter'
 			Recoil=1100.000000
+			Inaccuracy=(X=440,Y=220)
 			Chaos=1
 			BotRefireRate=0.300000
 			WarnTargetPct=0.300000
@@ -44,6 +45,7 @@ defaultproperties
 			MuzzleFlashClass=Class'BallisticProV55.MRT6FlashEmitter'
 			Recoil=1100.000000
 			Chaos=1
+			Inaccuracy=(X=50,Y=25)
 			BotRefireRate=0.300000
 			WarnTargetPct=0.300000
 			FireSound=(Sound=Sound'BWBP_SKC_Sounds.Redwood.SuperMagnum-Fire',Volume=1.200000)
@@ -78,6 +80,7 @@ defaultproperties
 
 	Begin Object Class=AimParams Name=ArenaAimParams
 		ViewBindFactor=None
+		AimSpread=(Min=0,Max=128)
 	End Object
     
 	//=================================================================

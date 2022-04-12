@@ -334,6 +334,8 @@ defaultproperties
      FireModeClass(0)=Class'BWBP_APC_Pro.GASCPrimaryFire'
      FireModeClass(1)=Class'BCoreProV55.BallisticScopeFire'
      SelectForce="SwitchToAssaultRifle"
+	 NDCrosshairCfg=(Pic1=Texture'BW_Core_WeaponTex.Crosshairs.M806InA',Pic2=Texture'BW_Core_WeaponTex.Crosshairs.X3InA',USize1=256,VSize1=256,USize2=256,VSize2=256,Color1=(B=0,G=0,R=141,A=255),Color2=(B=0,G=0,R=0,A=255),StartSize1=111,StartSize2=58)
+	 NDCrosshairInfo=(SpreadRatios=(X1=0.500000,Y1=0.500000,X2=0.500000,Y2=0.750000),SizeFactors=(X1=1.000000,Y1=1.000000,X2=1.000000,Y2=1.000000),MaxScale=4.000000,CurrentScale=0.000000)
      AIRating=0.600000
      CurrentRating=0.600000
      Description="An interesting pair of weapons, a pistol and a dagger.  The GP-X22 'Gaucho' is no stranger to the public, a burst fire pistol that was supposed to be in the civilian market for it’s self-defense prowess. It didn’t pan out as there were more deadly options to protect the user, but it did find use in the hands of various scouts across the universe. The dagger, however, is an enigma all on it’s own, speculated that it came from the 1800’s, wielded by a member of Tchernobog’s clan before one of his own turned on him and killed him.  Known as the 'Stallion,' it has been paired with the Gaucho to become a deadly duo in CQB."

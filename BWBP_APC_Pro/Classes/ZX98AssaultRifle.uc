@@ -284,7 +284,8 @@ defaultproperties
 	 RotationSpeeds(0)=0.17 // 612 RPM
 	 RotationSpeeds(1)=0.34 // 1224 RPM
 	 RotationSpeeds(2)=0.51 // 1836 RPM
-	 
+	 NDCrosshairCfg=(Pic1=TexRotator'BW_Core_WeaponTex.NovaStaff.NovaOutA-Rot',Pic2=Texture'BW_Core_WeaponTex.Crosshairs.R78InA',USize1=256,VSize1=256,USize2=256,VSize2=256,Color1=(B=0,G=200,R=0,A=255),Color2=(B=48,G=46,R=42,A=130),StartSize1=61,StartSize2=120)
+	 NDCrosshairInfo=(SpreadRatios=(X1=0.500000,Y1=0.500000,X2=0.500000,Y2=0.750000),SizeFactors=(X1=1.000000,Y1=1.000000,X2=1.000000,Y2=1.000000),MaxScale=4.000000,CurrentScale=0.000000)
 	 CurrentWeaponMode=0
      bNoCrosshairInScope=True
      SightPivot=(Pitch=64)

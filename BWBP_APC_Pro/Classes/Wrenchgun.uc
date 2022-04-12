@@ -487,6 +487,9 @@ defaultproperties
      FireModeClass(1)=Class'BWBP_APC_Pro.WrenchgunSecondaryFire'
      SelectAnimRate=2.000000
      PutDownAnimRate=2.000000
+	 NDCrosshairCfg=(Pic1=Texture'BW_Core_WeaponTex.Crosshairs.Misc1',Pic2=Texture'BW_Core_WeaponTex.Crosshairs.M806OutA',USize1=256,VSize1=256,USize2=256,VSize2=256,Color1=(G=255,A=101),Color2=(G=0,R=0),StartSize1=92,StartSize2=82)
+     NDCrosshairInfo=(SpreadRatios=(X1=0.250000,Y1=0.375000,X2=1.000000,Y2=1.000000),MaxScale=3.000000)
+     NDCrosshairChaosFactor=0.600000
      AIRating=0.600000
      CurrentRating=0.600000
      Description="Deep in the mud filled trenches of Indorix Paraxii, the Carcosan Greasers, short on weapons and only days away from a full force Cryon advance, were desperate for a way to weather the impending invasion. A number of the soldiers were able to improvise a rather novel ammo, utilizing their surplus of pocket sized NFUD wrenches as a rather unconventional ammo type that proved to wreak absolute havoc on the mechanical elements of the Cryon soldiers, throwing a literal monkey wrench into their plan and rendering scores of them into immobile obstacles, effectively funneling the remaining grunts into narrow columns easily dispatched with some old fashioned trench guns. Furthermore, they further adapted their signature wrenches into makeshift bayonets, giving them easy access to their energy barriers without having to put down their main combat weapons."

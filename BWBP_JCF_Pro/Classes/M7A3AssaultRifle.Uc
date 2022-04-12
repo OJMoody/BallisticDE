@@ -138,6 +138,8 @@ defaultproperties
      FireModeClass(1)=Class'BWBP_JCF_Pro.M7A3SecondaryFire'
      BringUpTime=0.500000
      SelectForce="SwitchToAssaultRifle"
+	 NDCrosshairCfg=(Pic1=Texture'BW_Core_WeaponTex.Crosshairs.R78OutA',Pic2=Texture'BW_Core_WeaponTex.Crosshairs.Cross1',USize1=256,VSize1=256,USize2=128,VSize2=128,Color1=(B=0,G=144,R=0,A=135),Color2=(B=0,G=0,R=255,A=110),StartSize1=138,StartSize2=44)
+	 NDCrosshairInfo=(SpreadRatios=(X1=0.500000,Y1=0.500000,X2=0.500000,Y2=0.750000),SizeFactors=(X1=1.000000,Y1=1.000000,X2=1.000000,Y2=1.000000),MaxScale=4.000000,CurrentScale=0.000000)
      AIRating=0.600000
      CurrentRating=0.600000
      bSniping=True

@@ -318,6 +318,8 @@ defaultproperties
      WeaponModes(0)=(ModeName="Gravity Proton Stream",ModeID="WM_FullAuto")
      WeaponModes(1)=(bUnavailable=True)
      WeaponModes(2)=(bUnavailable=True)
+	 NDCrosshairCfg=(Pic1=TexRotator'BW_Core_WeaponTex.DarkStar.DarkInA-Rot',Pic2=Texture'BW_Core_WeaponTex.Crosshairs.M806OutA',USize1=256,VSize1=256,USize2=256,VSize2=256,Color1=(B=255,G=115,R=113,A=176),Color2=(B=255,G=0,R=109,A=255),StartSize1=74,StartSize2=66)
+	 NDCrosshairInfo=(SpreadRatios=(X1=0.500000,Y1=0.500000,X2=0.500000,Y2=0.750000),SizeFactors=(X1=1.000000,Y1=1.000000,X2=1.000000,Y2=1.000000),MaxScale=4.000000,CurrentScale=0.000000)
      CurrentWeaponMode=0
      //bNotifyModeSwitch=True
      bUseSights=False

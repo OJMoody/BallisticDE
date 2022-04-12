@@ -69,6 +69,8 @@ defaultproperties
      FireModeClass(0)=Class'BWBP_SWC_Pro.APodSecondaryFire'
      FireModeClass(1)=Class'BWBP_SWC_Pro.APodSecondaryFire'
      SelectForce="SwitchToAssaultRifle"
+	 NDCrosshairCfg=(Pic1=Texture'BW_Core_WeaponTex.Crosshairs.NRP57OutA',Pic2=Texture'BW_Core_WeaponTex.Crosshairs.Cross1',USize1=256,VSize1=256,Color1=(B=255,R=0,A=128),Color2=(B=200,G=128,R=128,A=212),StartSize1=98,StartSize2=101)
+     NDCrosshairInfo=(SpreadRatios=(Y2=0.500000),MaxScale=8.000000)
      AIRating=0.400000
      CurrentRating=0.400000
      Description="A-Pod Electro Adrenaline Discharge Capsule||Manufacturer: UTC Defense Tech. The UTC has long required its soldiers to use adrenaline pods in order to stay alert and focused. The most common ''A-Pod'' has proven to be fairly safe, with no known short-term side effects. The capsule can be thrown to allies, or it can be applied directly (in which case slightly more adrenaline enters the recipient's system)."

@@ -306,6 +306,8 @@ defaultproperties
      BringUpTime=0.900000
      SelectForce="SwitchToAssaultRifle"
      AIRating=0.600000
+	 NDCrosshairCfg=(Pic1=Texture'BW_Core_WeaponTex.Crosshairs.Dot1',Pic2=Texture'BW_Core_WeaponTex.Crosshairs.Cross3',USize1=128,VSize1=128,USize2=128,VSize2=128,Color1=(B=0,G=0,R=255,A=255),Color2=(B=0,G=0,R=0,A=84),StartSize1=16,StartSize2=55)
+	 NDCrosshairInfo=(SpreadRatios=(X1=0.500000,Y1=0.500000,X2=0.500000,Y2=0.750000),SizeFactors=(X1=1.000000,Y1=1.000000,X2=1.000000,Y2=1.000000),MaxScale=4.000000,CurrentScale=0.000000)
      CurrentRating=0.600000
      Description="Primary: 10mm Burst Fire||Secondary: Load/Fire Radioactive Chaff Grenade||With projected success rates for the SRK-650 reaching the minimum requirements, NDTR Industries had already gotten the green light to work on their sister project that originally was supposed to coincide with the SRK-650. The SRK-205 is an SMG version of the 650, chambered in the 10mm Super Auto cartridge to get maximum damage within close quarters confinements. Like it's older brother, the 205 has the same red dot and ammo counter, along with a threaded barrel.  Unlike the 650, the 205 doesn't have any AMP modules made for it, but it does come with radioactive chaff grenades to fry Cryon units and irradiated fleshy targets alike."
      Priority=41

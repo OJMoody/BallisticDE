@@ -397,7 +397,7 @@ defaultproperties
      AttachmentClass=Class'BWBP_SKCExp_Pro.LS440Attachment'
      IconMaterial=Texture'BWBP_SKC_TexExp.LS440M.SmallIcon_LS440'
      IconCoords=(X2=127,Y2=31)
-     ItemName="LS-440M Instagib Rifle"
+     ItemName="[B] LS-440M Instagib Rifle"
      LightType=LT_Pulse
      LightEffect=LE_NonIncidence
      LightHue=30

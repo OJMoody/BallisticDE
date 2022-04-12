@@ -363,6 +363,8 @@ defaultproperties
 	FireModeClass(0)=Class'BWBP_APC_Pro.FM13PrimaryFire'
 	FireModeClass(1)=Class'BWBP_APC_Pro.FM13SecondaryFire'
 	AIRating=0.750000
+	NDCrosshairCfg=(Pic1=Texture'BW_Core_WeaponTex.Crosshairs.Misc3',Pic2=Texture'BW_Core_WeaponTex.Crosshairs.G5OutA',USize1=256,VSize1=256,USize2=256,VSize2=256,Color1=(B=0,G=0,R=255,A=109),Color2=(B=0,G=0,R=0,A=255),StartSize1=83,StartSize2=55)
+	NDCrosshairInfo=(SpreadRatios=(X1=0.500000,Y1=0.500000,X2=0.500000,Y2=0.750000),SizeFactors=(X1=1.000000,Y1=1.000000,X2=1.000000,Y2=1.000000),MaxScale=4.000000,CurrentScale=0.000000)
 	CurrentRating=0.750000
 	Description="A constant complaint with dragon's breath shells is that while they spit out hot phosphorous with ease, they're finicky with pump action shotguns. Feeding issues, jams and melting riflings among other things, but Black and Wood are attempting to pioneer the shotgun industry with their latest offering; the FM13 'Pitbull' Incendiary Shotgun. Exclusively chambered in 10 Gauge Dragon's breath rounds, this weapon was designed to make sure the shells would properly load and not melt anything other than those sitting on the opposite ends of the barrel. Currently, the Pitbull is being put through its paces on Kylanmajero, home to Krao breeding nests in desperate need of a good cleansing."
 	Priority=37

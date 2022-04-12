@@ -285,7 +285,8 @@ defaultproperties
      WeaponModes(0)=(ModeName="Automatic",ModeID="WM_FullAuto")
      WeaponModes(1)=(ModeName="Amplified: Incendiary",ModeID="WM_FullAuto",bUnavailable=True)
      WeaponModes(2)=(ModeName="Amplified: Corrosive",ModeID="WM_FullAuto",bUnavailable=True)
-     SightPivot=(Yaw=10)
+     NDCrosshairCfg=(Pic1=Texture'BW_Core_WeaponTex.Crosshairs.M50Out',Pic2=Texture'BW_Core_WeaponTex.Crosshairs.M50In',Color1=(A=158),StartSize1=75,StartSize2=72)
+	 SightPivot=(Yaw=10)
      SightOffset=(X=5.000000,Y=-7.670000,Z=18.900000)
      SightDisplayFOV=40.000000
      SightingTime=0.200000

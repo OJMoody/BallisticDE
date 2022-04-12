@@ -79,6 +79,8 @@ defaultproperties
      CurrentRating=0.400000
      Description="N-TOV Emergency Bandage||Manufacturer: N-TOV Medical Supplies||N-TOV medical supplies are a common sight for almost every human soldier, no matter where they're stationed. Field medics often carry a small supply with them in order to patch up their allies. The bandages can be thrown, but they are more effective when applied directly."
      Priority=124
+	 NDCrosshairCfg=(Pic1=Texture'BW_Core_WeaponTex.Crosshairs.NRP57OutA',Pic2=Texture'BW_Core_WeaponTex.Crosshairs.Cross1',USize1=256,VSize1=256,Color1=(G=255,R=0,A=128),Color2=(G=0,A=212),StartSize1=98,StartSize2=101)
+     NDCrosshairInfo=(SpreadRatios=(Y2=0.500000),MaxScale=8.000000)
      CustomCrossHairTextureName="Crosshairs.HUD.Crosshair_Cross1"
      InventoryGroup=0
      GroupOffset=21
