@@ -27,7 +27,8 @@ defaultproperties
 
 	Begin Object Class=FireParams Name=ArenaPrimaryFireParams
 		FireInterval=0.210000
-		BurstFireRateFactor=1.00	
+		BurstFireRateFactor=1.00
+		AimedFireAnim="SightFire"
 	FireEffectParams(0)=ProjectileEffectParams'ArenaPrimaryEffectParams'
 	End Object
 		
@@ -101,11 +102,11 @@ defaultproperties
 	Begin Object Class=WeaponParams Name=ArenaParams
 		PlayerSpeedFactor=0.700000
 		PlayerJumpFactor=0.700000
-		InventorySize=51
+		InventorySize=35
 		SightMoveSpeedFactor=0.500000
-		MagAmmo=18
-		SightOffset=(X=-30.000000,Y=12.45,Z=14.8500000)
-		SightPivot=(Pitch=512)
+		MagAmmo=15
+		SightOffset=(X=-30.000000,Y=-0.48,Z=20.000000)
+		SightPivot=(Pitch=768)
 		RecoilParams(0)=RecoilParams'ArenaRecoilParams'
 		AimParams(0)=AimParams'ArenaAimParams'
 		FireParams(0)=FireParams'ArenaPrimaryFireParams'
