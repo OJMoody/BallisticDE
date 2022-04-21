@@ -8,72 +8,152 @@
 //=============================================================================
 class HydraSecondaryFire extends BallisticProProjectileFire;
 
-/*var Sound ChargingSound;
-var int HydraLoad;
+var()	Name					ChargeAnim;		//Animation to use when charging
+var		float					ChargeGainPerSecond, ChargeDecayPerSecond, ChargeOvertime, MaxChargeOvertime;
+var		int						SpawnCount;	//Number of rockets to spawn upon releasing
+var		bool 					AmmoHasBeenCalculated;
 
-const ROCKETMAX = 6;
+var()	Sound					RocketCountSound;	//Sound to play when another rocket is to be fired.
+var		float					NextBeepTime;	//naming variables is not my strong suit
+var		int						BeepCount;	//seriously?
 
-function ModeHoldFire()
+// ModeDoFire from WeaponFire.uc, but with a few changes
+// to think that all I need is to rearrange for LastFireTime to be placed before projectiles are spawned
+simulated event ModeDoFire()
 {
-    if ( BW.HasMagAmmo(ThisModeNum) )
-    {
-        Super.ModeHoldFire();
-		BW.bPreventReload = True;
-        GotoState('Hold');
-    }
+	Load = CalculateAmmoUse();
+	SpawnCount = Load;
+	AmmoHasBeenCalculated = true;
+
+    super.ModeDoFire();
 }
 
-state Hold
-{
-    simulated function BeginState()
-    {
-        HydraLoad = 0;
-        SetTimer(1.25, true);
-        Instigator.AmbientSound = ChargingSound;
-		Instigator.SoundRadius = 256;
-		Instigator.SoundVolume = 255;
-        Timer();
-    }
+simulated function PlayStartHold()
+{	
+	BW.bPreventReload=True;
+	BW.SafeLoopAnim(ChargeAnim, 1.0, TweenTime, ,"IDLE");
+}
 
-    simulated function Timer()
-    {
-		if (BW.HasMagAmmo(ThisModeNum))
-			HydraLoad++;
-        BW.ConsumeMagAmmo(ThisModeNum, 1);
-        if (HydraLoad == ROCKETMAX || !BW.HasMagAmmo(ThisModeNum))
-            SetTimer(0.0, false);
-    }
+simulated function int CalculateAmmoUse()
+{	
+	if (HydraBazooka(BW).MultiRockets >= BW.MagAmmo)
+		return BW.MagAmmo;
 
-    simulated function EndState()
-    {
-		if ( Weapon != None && Instigator != None)
+	return Max(1, int(HydraBazooka(BW).MultiRockets));
+}
+
+simulated function ModeTick(float DeltaTime)
+{	
+	if (bIsFiring)
+	{
+		if (level.TimeSeconds >= NextBeepTime && BeepCount <= Min(BW.MagAmmo, class'HydraBazooka'.default.MaxMultiRockets))
 		{
-			BW.bPreventReload = False;
-			Instigator.AmbientSound = None;
-			Instigator.SoundRadius = Instigator.default.SoundRadius;
-			Instigator.SoundVolume = Instigator.default.SoundVolume;
+			if (BeepCount > 0)
+				Weapon.PlaySound(RocketCountSound,,0.7,,32);
+				
+			NextBeepTime = level.TimeSeconds + (1 / (ChargeGainPerSecond));
+			BeepCount++;
 		}
+	
+		//Scale charge
+		HydraBazooka(BW).MultiRockets = FMin(Min(BW.MagAmmo, class'HydraBazooka'.default.MaxMultiRockets), HydraBazooka(BW).MultiRockets + ChargeGainPerSecond * DeltaTime);
+		
+		if (HydraBazooka(BW).MultiRockets >= Min(BW.MagAmmo, class'HydraBazooka'.default.MaxMultiRockets))
+			ChargeOvertime += DeltaTime;
+		
+		if (ChargeOvertime >= MaxChargeOvertime)
+			bIsFiring = false;
+	}
+
+	else if (HydraBazooka(BW).MultiRockets > 0 && AmmoHasBeenCalculated)
+	{
+		HydraBazooka(BW).MultiRockets = FMax(0.0, HydraBazooka(BW).MultiRockets - ChargeDecayPerSecond * DeltaTime);			
+		ChargeOvertime = 0;
+		BeepCount = 0;
+		
+		if (HydraBazooka(BW).MultiRockets == 0)
+			AmmoHasBeenCalculated = false;
+	}
+		
+	Super.ModeTick(DeltaTime);
+}
+
+function DoFireEffect()
+{
+    local Vector Start, X, Y, Z, End, HitLocation, HitNormal, StartTrace, FireLocation;
+    local Rotator Aim, FireDirection;
+	local actor Other;
+	local int i;
+
+	if (SpawnCount < 2)
+	{
+		super.DoFireEffect();
+		return;
+	}
+
+    Weapon.GetViewAxes(X,Y,Z);
+    // the to-hit trace always starts right in front of the eye
+    Start = Instigator.Location + Instigator.EyePosition();
+    
+    StartTrace = Start + X*SpawnOffset.X + Z*SpawnOffset.Z;
+    if ( !Weapon.WeaponCentered() )
+	    StartTrace = StartTrace + Weapon.Hand * Y*SpawnOffset.Y;
+
+	Aim = GetFireAim(StartTrace);
+	Aim = Rotator(GetFireSpread() >> Aim);
+	
+	//wall check
+	End = Start + (Vector(Aim) * SpawnOffset.X);
+	Other = Weapon.Trace(HitLocation, HitNormal, End, Start, false);
+	if (Other != None)
+		StartTrace = HitLocation;
+	//end wall check
+
+	End = Start + (Vector(Aim)*MaxRange());
+	Other = Trace (HitLocation, HitNormal, End, Start, true);
+
+	if (Other != None)
+		Aim = Rotator(HitLocation-StartTrace);
+		
+	//multi-rocket code - based on UT2004 rocket launcher multi fire
+	for (i=1; i <= SpawnCount; i++)
+    {
+ 		//FireLocation = StartTrace - 2*((Sin(i*2*PI/SpawnCount)*8 - 7)*Y - (Cos(i*2*PI/SpawnCount)*8 - 7)*Z) - X * 8;
+		FireDirection = Aim;
+		FireDirection.Pitch += 4096*Sin(i*2*PI/SpawnCount);
+		FireDirection.Yaw += 4096*Cos(i*2*PI/SpawnCount);
+        SpawnProjectile(StartTrace, FireDirection);
     }
+
+	SendFireEffect(none, vect(0,0,0), StartTrace, 0);
 }
 
 function SpawnProjectile (Vector Start, Rotator Dir)
 {
-	GoToState('');
+	super.SpawnProjectile(Start, Dir);
 	
-	if (HydraLoad == 0)
-		return;
-		
-	Proj = Spawn (ProjectileClass,,, Start, Dir);
-	if (Proj != None)
+	if (HydraSwoopRocket(Proj) != None)
 	{
-		Proj.Instigator = Instigator;
-		HydraRocket(Proj).HydraLoad = float(HydraLoad)/float(ROCKETMAX);
-		HydraRocket(Proj).AdjustSpeed();
+		HydraSwoopRocket(Proj).LaunchTime = level.TimeSeconds;
+		HydraSwoopRocket(Proj).Weapon = HydraBazooka(BW);
+		HydraSwoopRocket(Proj).StartLoc = Start;
+		HydraSwoopRocket(Proj).EndLoc = HydraBazooka(BW).GetRocketDir();
+		HydraSwoopRocket(Proj).LastLoc = HydraSwoopRocket(Proj).EndLoc;
+		HydraSwoopRocket(Proj).LaunchTime = level.TimeSeconds;
 	}
-}*/
+	else if (HydraSeekerRocket(Proj) != None)
+	{
+		HydraSeekerRocket(Proj).Weapon = HydraBazooka(BW);
+		HydraSeekerRocket(Proj).LastLoc = HydraBazooka(BW).GetRocketDir();
+	}
+}
 
 defaultproperties
 {
+	 RocketCountSound=Sound'BWBP_CC_Sounds.Launcher.Launcher-Beep'
+	 MaxChargeOvertime=3.0f
+	 ChargeGainPerSecond=3.6f
+	 ChargeDecayPerSecond=18.0f
      bFireOnRelease=True
 	 //ChargingSound=Sound'GeneralAmbience.texture22'
 	 SpawnOffset=(X=10.000000,Y=10.000000,Z=-3.000000)
@@ -85,7 +165,7 @@ defaultproperties
      YInaccuracy=4.000000
      //BallisticFireSound=(SoundGroup=Sound'BWBP_CC_Sounds.Launcher.Launcher-Fire')
      FireEndAnim=
-     FireRate=0.800000
+     FireRate=1.200000
      AmmoClass=Class'BallisticProV55.Ammo_RPG'
      ShakeRotMag=(X=128.000000,Y=64.000000,Z=16.000000)
      ShakeRotRate=(X=10000.000000,Y=10000.000000,Z=10000.000000)
@@ -93,7 +173,7 @@ defaultproperties
      ShakeOffsetMag=(X=-20.000000)
      ShakeOffsetRate=(X=-1000.000000)
      ShakeOffsetTime=2.500000
-     ProjectileClass=Class'BWBP_APC_Pro.HydraRocket'
+     ProjectileClass=Class'BWBP_APC_Pro.HydraSwoopRocket'
 	 
 	 // AI
 	 bInstantHit=False

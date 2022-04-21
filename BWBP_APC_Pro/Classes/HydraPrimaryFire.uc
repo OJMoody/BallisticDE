@@ -85,6 +85,18 @@ simulated function DestroyEffects()
 	}
 }
 
+function SpawnProjectile (Vector Start, Rotator Dir)
+{
+	super.SpawnProjectile(Start, Dir);
+	
+	if (HydraSeekerRocket(Proj) != None)
+	{
+		HydraSeekerRocket(Proj).Weapon = HydraBazooka(BW);
+		HydraSeekerRocket(Proj).LastLoc = HydraBazooka(BW).GetRocketDir();
+	}
+}
+
+
 defaultproperties
 {
      HatchSmokeClass=Class'BWBP_APC_Pro.HydraHatchEmitter'

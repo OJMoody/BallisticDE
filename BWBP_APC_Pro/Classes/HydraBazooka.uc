@@ -13,8 +13,9 @@ class HydraBazooka extends BallisticWeapon;
 var() BUtil.FullSound	HatchSound;
 var() BUtil.IntRange	LaserAimSpread;
 
-var   Actor			CurrentRocket;			//Current rocket of interest. The rocket that can be used as camera or directed with laser
+var() Name			ReloadAimedAnim;
 
+var   Actor			CurrentRocket;			//Current rocket of interest. The rocket that can be used as camera or directed with laser
 var   float			LastSendTargetTime;
 var   vector		TargetLocation;
 var   bool			bLaserOn;
@@ -24,13 +25,14 @@ var() Sound			LaserOffSound;
 var   Emitter		LaserDot;
 
 var   Rotator		BarrelRot;
+var	  float			MultiRockets, MaxMultiRockets;
 
-/*
+
 //============================================================
 // Laser Code
 //============================================================
 
-	replication
+replication
 {
 	reliable if (Role == ROLE_Authority)
 		bLaserOn;
@@ -62,7 +64,7 @@ function ServerSwitchLaser(bool bNewLaserOn)
 	if (ThirdPersonActor!=None)
 		HydraAttachment(ThirdPersonActor).bLaserOn = bLaserOn;
 		
-	HydraSecondaryFire(FireMode[1]).AdjustLaserParams(bLaserOn);
+	//HydraPrimaryFire(FireMode[1]).AdjustLaserParams(bLaserOn);
 
 	if (bLaserOn)
 	{
@@ -100,7 +102,7 @@ simulated function ClientSwitchLaser()
 		PlaySound(LaserOffSound,,0.7,,32);
 	}
 	
-	HydraSecondaryFire(FireMode[1]).AdjustLaserParams(bLaserOn);
+	//HydraPrimaryFire(FireMode[1]).AdjustLaserParams(bLaserOn);
 	
 	PlayIdle();
 	bUseNetAim = default.bUseNetAim || bLaserOn;
@@ -110,7 +112,7 @@ simulated function BringUp(optional Weapon PrevWeapon)
 {
 	Super.BringUp(PrevWeapon);
 	if (Instigator != None && Laser == None && PlayerController(Instigator.Controller) != None)
-		Laser = Spawn(class'LaserActor_HydraPainter');
+		Laser = Spawn(class'LaserActor_G5Painter');
 		
 	if (Instigator != None && LaserDot == None && PlayerController(Instigator.Controller) != None)
 		SpawnLaserDot();
@@ -211,15 +213,6 @@ simulated event RenderOverlays( Canvas Canvas )
 		DrawLaserSight(Canvas);
 }
 
-{	
-	PlaySound(GrenCloseSound, SLOT_Misc, 0.5, ,64);
-	if (Ammo[1].AmmoAmount < HydraSecondaryFire(FireMode[1]).default.Rockets)
-		HydraSecondaryFire(FireMode[1]).Rockets = Ammo[1].AmmoAmount;
-	else
-		HydraSecondaryFire(FireMode[1]).Rockets = HydraSecondaryFire(FireMode[1]).default.Rockets;
-}
-*/
-
 //============================================================
 // Barrel Rotation Code
 //============================================================
@@ -236,6 +229,271 @@ simulated function Notify_RotateBarrelArray(){	RotateHydraBones();}
 simulated function RotateHydraBones()
 {
 	SetBoneRotation('BarrelArray', BarrelRot);
+}
+
+//============================================================
+// Charged Rocket Fire Load & Seeking
+//============================================================
+
+simulated function float ChargeBar()
+{
+	return MultiRockets / MaxMultiRockets;
+}
+
+function vector GetRocketDir()
+{	
+	local vector Start, End, HitLocation, HitNormal, AimDir;
+	local Actor Other;
+	
+	AimDir = BallisticFire(FireMode[0]).GetFireDir(Start);
+
+	End = Start + Normal(AimDir)*32768;
+	Other = FireMode[0].Trace (HitLocation, HitNormal, End, Start, true);
+	HitLocation = End;
+	
+	return HitLocation;
+}
+
+function vector GetSwoopRocketDir(Vector Start, Vector End, float LaunchTime)
+{	
+	local Vector NewLoc;
+	local float t;
+	
+	t = FMin(1, ((level.TimeSeconds - LaunchTime) / (HydraSecondaryFire(FireMode[1]).FireRate * 2)));
+	
+	if (VSize(End-Start) > 100)
+		NewLoc = Start + (t * t * (End-Start));
+	else
+		NewLoc = End;
+	
+	return NewLoc;
+}
+
+//============================================================
+// Loading in ADS
+//============================================================
+
+// Prepare to reload, set reload state, start anims. Called on client and server
+simulated function CommonStartReload (optional byte i)
+{
+	local int m;
+	if (ClientState == WS_BringUp)
+		ClientState = WS_ReadyToFire;
+	if (bShovelLoad)
+		ReloadState = RS_StartShovel;
+	else
+		ReloadState = RS_PreClipOut;
+	PlayReload();
+
+	/*if (bScopeView && Instigator.IsLocallyControlled())
+		TemporaryScopeDown(Default.SightingTime);*/
+		
+	for (m=0; m < NUM_FIRE_MODES; m++)
+		if (BFireMode[m] != None)
+			BFireMode[m].ReloadingGun(i);
+
+	if (bCockAfterReload)
+		bNeedCock=true;
+	if (bCockOnEmpty && MagAmmo < 1)
+		bNeedCock=true;
+	bNeedReload=false;
+}
+
+simulated function PlayShovelLoop()
+{
+	if (bScopeView)
+		SafePlayAnim(ReloadAimedAnim, ReloadAnimRate * 1.5, 0.0, , "RELOAD");
+	else
+		super.PlayShovelLoop();
+}
+
+simulated function PlayReload()
+{
+	if (bShovelLoad && bScopeView && ReloadState == RS_StartShovel)
+	{
+		ReloadState = RS_Shovel;
+		PlayShovelLoop();
+		return;
+	}
+	else 
+		super.PlayReload();
+}
+
+simulated function SkipReload()
+{
+	if (!bScopeView)
+	{
+		super.SkipReload();
+		return;
+	}
+	else if (ReloadState == RS_Shovel || ReloadState == RS_PostShellIn || ReloadState == RS_PostClipIn || ReloadState == RS_EndShovel)
+	{//Leave shovel loop and go to EndShovel
+		if (bNeedCock && MagAmmo > 0)
+			CommonCockGun();
+		else
+		{
+			bNeedCock=false;
+			ReloadState = RS_None;
+			ReloadFinished();
+			PlayIdle();
+			AimComponent.ReAim(0.05);
+		}
+		return;
+	}
+	else if (ReloadState == RS_PreClipOut)
+	{//skip reload if magazine has not yet been pulled out
+		ReloadState = RS_PostClipIn;
+		SetAnimFrame(ClipInFrame);
+	}
+}
+
+simulated function AnimEnded (int Channel, name anim, float frame, float rate)
+{
+	if (Anim == ZoomInAnim)
+	{
+		SightingState = SS_Active;
+		ScopeUpAnimEnd();
+		return;
+	}
+	else if (Anim == ZoomOutAnim)
+	{
+		SightingState = SS_None;
+		ScopeDownAnimEnd();
+		return;
+	}
+
+	if (anim == FireMode[0].FireAnim || (FireMode[1] != None && anim == FireMode[1].FireAnim) )
+		bPreventReload=false;
+		
+	if (MeleeFireMode != None && anim == MeleeFireMode.FireAnim)
+	{
+		if (MeleeState == MS_StrikePending)
+			MeleeState = MS_Pending;
+		else MeleeState = MS_None;
+		ReloadState = RS_None;
+		if (Role == ROLE_Authority)
+			bServerReloading=False;
+		bPreventReload=false;
+	}
+		
+	//Phase out Channel 1 if a sight fire animation has just ended.
+	if (anim == BFireMode[0].AimedFireAnim || anim == BFireMode[1].AimedFireAnim)
+	{
+		AnimBlendParams(1, 0);
+		//Cut the basic fire anim if it's too long.
+		if (SightingState > FireAnimCutThreshold && SafePlayAnim(IdleAnim, 1.0))
+			FreezeAnimAt(0.0);
+		bPreventReload=False;
+	}
+
+	// Modified stuff from Engine.Weapon
+	if ((ClientState == WS_ReadyToFire || (ClientState == WS_None && Instigator.Weapon == self)) && ReloadState == RS_None)
+    {
+        if (anim == FireMode[0].FireAnim && HasAnim(FireMode[0].FireEndAnim)) // rocket hack
+			SafePlayAnim(FireMode[0].FireEndAnim, FireMode[0].FireEndAnimRate, 0.0);
+        else if (FireMode[1]!=None && anim== FireMode[1].FireAnim && HasAnim(FireMode[1].FireEndAnim))
+            SafePlayAnim(FireMode[1].FireEndAnim, FireMode[1].FireEndAnimRate, 0.0);
+        else if (MeleeState < MS_Held)
+			bPreventReload=false;
+		if (Channel == 0 && (bNeedReload || ((FireMode[0] == None || !FireMode[0].bIsFiring) && (FireMode[1] == None || !FireMode[1].bIsFiring))) && MeleeState < MS_Held)
+			PlayIdle();
+    }
+	// End stuff from Engine.Weapon
+
+	// Start Shovel ended, move on to Shovel loop
+	if (ReloadState == RS_StartShovel)
+	{
+		ReloadState = RS_Shovel;
+		PlayShovelLoop();
+		return;
+	}
+	// Shovel loop ended, start it again
+	if (ReloadState == RS_PostShellIn)
+	{
+		if (MagAmmo >= default.MagAmmo || Ammo[0].AmmoAmount < 1 )
+		{
+			ReloadState = RS_EndShovel;
+			if (!bScopeView)
+			{
+				PlayShovelEnd();
+				return;
+			}
+		}
+		else
+		{
+			ReloadState = RS_Shovel;
+			PlayShovelLoop();
+			return;
+		}
+	}
+	// End of reloading, either cock the gun or go to idle
+	if (ReloadState == RS_PostClipIn || ReloadState == RS_EndShovel)
+	{
+		if (bNeedCock && MagAmmo > 0)
+			CommonCockGun();
+		else
+		{
+			bNeedCock=false;
+			ReloadState = RS_None;
+			ReloadFinished();
+			PlayIdle();
+			AimComponent.ReAim(0.05);
+		}
+		return;
+	}
+	//Cock anim ended, goto idle
+	if (ReloadState == RS_Cocking)
+	{
+		bNeedCock=false;
+		ReloadState = RS_None;
+		ReloadFinished();
+		PlayIdle();
+		AimComponent.ReAim(0.05);
+	}
+	
+	if (ReloadState == RS_GearSwitch)
+	{
+		if (Role == ROLE_Authority)
+			bServerReloading=false;
+		ReloadState = RS_None;
+		PlayIdle();
+	}
+}
+
+simulated function bool CanUseSights()
+{
+	if 
+	( 
+		(SprintControl != None && SprintControl.bSprinting) || 
+		ClientState == WS_BringUp || 
+		ClientState == WS_PutDown || 
+		(!bScopeView && ReloadState != RS_None) || 
+		MeleeState != MS_None
+	) 
+		return false;
+
+	return true;
+}
+
+simulated function bool CheckScope()
+{
+	if (level.TimeSeconds < NextCheckScopeTime)
+		return true;
+
+	NextCheckScopeTime = level.TimeSeconds + 0.25;
+		
+	if 
+	(	AimComponent.IsDisplaced() ||
+		(!bScopeView && ReloadState != RS_None && ReloadState != RS_Cocking) || 
+		(Instigator.Controller.bRun == 0 && Instigator.Physics == PHYS_Walking) || 
+		(SprintControl != None && SprintControl.bSprinting)
+	)
+	{
+		StopScopeView();
+		return false;
+	}
+
+	return true;
 }
 
 //============================================================
@@ -277,11 +535,12 @@ function float SuggestDefenseStyle()	{	return -0.9;	}
 
 defaultproperties
 {
+	MaxMultiRockets = 6;
 	TeamSkins(0)=(RedTex=Shader'BW_Core_WeaponTex.Hands.RedHand-Shiny',BlueTex=Shader'BW_Core_WeaponTex.Hands.BlueHand-Shiny')
 	AIReloadTime=4.000000
 	LaserAimSpread=(Min=0,Max=256)
-	//LaserOnSound=Sound'BW_Core_WeaponSound.M806.M806LSight'
-    //LaserOffSound=Sound'BW_Core_WeaponSound.M806.M806LSight'
+	LaserOnSound=Sound'BW_Core_WeaponSound.M806.M806LSight'
+    LaserOffSound=Sound'BW_Core_WeaponSound.M806.M806LSight'
 	BigIconMaterial=Texture'BW_Core_WeaponTex.Icons.BigIcon_G5'
 	BigIconCoords=(Y1=36,Y2=230)
 	BCRepClass=Class'BallisticProV55.BallisticReplicationInfo'
@@ -300,17 +559,17 @@ defaultproperties
 	//CockSound=(Sound=Sound'BW_Core_WeaponSound.G5.G5-Lever')
 	//ClipOutSound=(Sound=Sound'BW_Core_WeaponSound.G5.G5-Load')
 	//ClipInSound=(Sound=Sound'BW_Core_WeaponSound.G5.G5-LoadHatch')
-	bCanSkipReload=False
+	bCanSkipReload=True
 	bShovelLoad=True
 	StartShovelAnim="ReloadPrep"
 	EndShovelAnim="ReloadFinish"
 	ReloadAnim="ReloadLoop"
-	ReloadAnimRate=1.250000
+	ReloadAimedAnim="ReloadLoopAimed"
+	ReloadAnimRate=1.000000
 	StartShovelAnimRate=1.250000
 	EndShovelAnimRate=1.250000
 	CurrentWeaponMode=0
 	bNoCrosshairInScope=False
-	SightOffset=(X=-3.000000,Y=-6.000000,Z=4.500000)
 	SightingTime=0.500000
 	ParamsClasses(0)=Class'HydraWeaponParams'
 	FireModeClass(0)=Class'BWBP_APC_Pro.HydraPrimaryFire'
