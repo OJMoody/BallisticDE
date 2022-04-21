@@ -550,9 +550,9 @@ defaultproperties
 	bWT_Super=True
 	BarrelRot=(Roll=-10923)
 	bShowChargingBar=True
-	ManualLines(0)="Fires a rocket. These rockets have an arming delay and will ricochet off surfaces when unarmed.|In Rocket mode, the rocket flies directly to the point of aim.|In Mortar mode, the rocket will fly upwards and then strike downwards upon the point of aim.|When scoped and in Mortar mode, targets focused directly upon by the weapon's scope may be highlighted in red; when this happens, the next Mortar shot will track the target until line of sight is broken. The target is notified of the lockon when the rocket is fired."
-	ManualLines(1)="Toggles the guidance laser. With the guidance laser active, rockets will fly towards the point indicated by the laser at any given time."
-	ManualLines(2)="When firing a mortar rocket. the Weapon Function key will cause the player to view through the rocket's nose camera.|As a bazooka, the Hydra has no recoil. With the laser in use, its hipfire is stable, however it will always be lowered when the player jumps. The weapon is effective at medium to long range and with height advantage."
+	ManualLines(0)="Fires a rocket. These rockets have an arming delay and will ricochet off surfaces when unarmed.|In Laser mode, the rocket flies directly to the point of aim."
+	ManualLines(1)="Builds up between One and Six rockets to be shot. The beep indicates the addition of a rocket into the charged shot. Upon fired, the rockets will cone around the target in the shape of a hexagon, to ensure the rockets dont colide and enclose the target. These rockets are affected by the guidance laser."
+	ManualLines(2)="Weapon Function Toggles the guidance laser. With the guidance laser active, rockets will fly towards the point indicated by the laser at any given time.|The Robotic Arm enables the weapon to be reloaded while aiming down sights. This reload will be much faster than standard reload and can be used in a defensive position"
 	SpecialInfo(0)=(Info="300.0;35.0;1.0;80.0;0.8;0.0;1.0")
 	BringUpSound=(Sound=Sound'BW_Core_WeaponSound.G5.G5-Pullout')
 	PutDownSound=(Sound=Sound'BW_Core_WeaponSound.G5.G5-Putaway')
@@ -589,9 +589,9 @@ defaultproperties
 	WeaponModes(0)=(ModeName="HV Rockets",ModeID="WM_FullAuto")
 	WeaponModes(1)=(ModeName="Guided Rockets",ModeID="WM_FullAuto",bUnavailable=true)
 	WeaponModes(2)=(bUnavailable=true)
-	Description="Based on the original design by the legendary maniac Pirate, Var Dehidra, the G5 has undergone many alterations to become what it is today. The original bandit version was constructed by Var Dehidra to blast open armored cash transportation vehicles. Its name is derived from one of Dehidra's favourite targets, the G5 CTV 4x. It is now a very deadly weapon, used to destroy everything from tanks and structures to Skrith hordes and aircraft. The bombardement attack is a recent addition, replacing the original, primitive heat seeking function that caused it to target CTVs or backfire on the pirates' own craft, provided mainly for use in outdoor environments to destroy all manner of moving targets. The latest model also features a laser-painter device, allowing the user to guide the rocket wherever they wish."
+	Description="Many centuries have gone by since the introduction of the rocket, though the method has remained the same of launching explosive ordinance through tubes, the tech has improved tenfold.  Now as the second skrith wars rage on, the pinnacle of rocket launchers has reached its pinnacle with the M-11X ''Hydra'' MRL.  With 6 barrels ready to launch rockets, it is a multi-purpose launcher, able to lock on to anything, or it can fire them unguided or even in a swooping manner to get over obstacles.  Normally the user would have to load the rockets by hand, taking valuable time in the battlefield, but the Hydra comes with a Hytek arm that automatically pulls the ammo and loads it into the chamber without the user's input whatsoever."
 	Priority=44
-	HudColor=(B=25,G=150,R=50)
+	HudColor=(B=50,G=50,R=50)
 	CenteredOffsetY=10.000000
 	CenteredRoll=0
 	CustomCrossHairTextureName="Crosshairs.HUD.Crosshair_Cross1"
@@ -601,7 +601,7 @@ defaultproperties
 	AttachmentClass=Class'BWBP_APC_Pro.HydraAttachment'
 	IconMaterial=Texture'BWBP_CC_Tex.RL.SmallIcon_CruRL'
 	IconCoords=(X2=127,Y2=31)
-	ItemName="[B] M11-X Hydra MRL"
+	ItemName="M11-X Hydra MRL"
 	LightType=LT_Pulse
 	LightEffect=LE_NonIncidence
 	LightHue=25

@@ -91,6 +91,7 @@ defaultproperties
     TurnRate=24576.000000
     LifeSpan=0.000000
 	bTearOff=False
+	MyDamageType=Class'BWBP_APC_Pro.DTHydraBazookaSeeker'
 	bNetTemporary=False
 	bUpdateSimulatedPosition=True
 }

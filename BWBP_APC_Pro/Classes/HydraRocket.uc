@@ -117,14 +117,15 @@ defaultproperties
 	 ImpactDamage=100.000000
 	 ArmedImpactDamage=150.000000
      ImpactMomentumTransfer=60000.000000
-     ImpactDamageType=Class'BallisticProV55.DTG5Unarmed'
+     ImpactDamageType=Class'BWBP_APC_Pro.DTHydraUnarmed'
      ArmingDelay=0.200000
      ImpactManager=Class'BallisticProV55.IM_RPG'
      bRandomStartRotation=False
      AccelSpeed=5000.000000
      TrailClass=Class'BWBP_APC_Pro.HydraRocketTrail'
      TrailOffset=(X=-14.000000)
-     MyRadiusDamageType=Class'BallisticProV55.DTG5BazookaRadius'
+     MyDamageType=Class'BWBP_APC_Pro.DTHydraBazooka'
+	 MyRadiusDamageType=Class'BWBP_APC_Pro.DTHydraBazookaRadius'
      SplashManager=Class'BallisticProV55.IM_ProjWater'
      ShakeRadius=378.000000
      MotionBlurRadius=512.000000
@@ -137,7 +138,6 @@ defaultproperties
      DamageRadius=768.000000
      WallPenetrationForce=384
      MomentumTransfer=75000.000000
-     MyDamageType=Class'BallisticProV55.DTG5Bazooka'
      LightType=LT_Steady
      LightEffect=LE_QuadraticNonIncidence
      LightHue=25

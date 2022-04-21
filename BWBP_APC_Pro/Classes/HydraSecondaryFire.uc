@@ -166,7 +166,7 @@ defaultproperties
      //BallisticFireSound=(SoundGroup=Sound'BWBP_CC_Sounds.Launcher.Launcher-Fire')
      FireEndAnim=
      FireRate=1.200000
-     AmmoClass=Class'BallisticProV55.Ammo_RPG'
+     AmmoClass=Class'BWBP_APC_Pro.Ammo_HRPG'
      ShakeRotMag=(X=128.000000,Y=64.000000,Z=16.000000)
      ShakeRotRate=(X=10000.000000,Y=10000.000000,Z=10000.000000)
      ShakeRotTime=2.500000

@@ -74,6 +74,11 @@ simulated event Destroyed()
 		class'BUtil'.static.KillEmitterEffect (BackFlashes[i]);
 	}
 
+	if (LaserDot != None)
+		LaserDot.Destroy();
+	if (Laser != None)
+		Laser.Destroy();
+
 	Super.Destroyed();
 }
 
@@ -111,7 +116,7 @@ simulated function Tick(float DT)
 		return;
 
 	if (Laser == None)
-		Laser = Spawn(class'LaserActor_HydraPainter',,,Location);
+		Laser = Spawn(class'LaserActor_G5Painter',,,Location);
 
 	if (bLaserOn != bOldLaserOn)
 		bOldLaserOn = bLaserOn;
@@ -142,20 +147,11 @@ simulated function Tick(float DT)
 	Scale3D.Y = 1.5;
 	Scale3D.Z = 1.5;
 	Laser.SetDrawScale3D(Scale3D);
-}
-
-simulated function Destroyed()
-{
-	if (LaserDot != None)
-		LaserDot.Destroy();
-	if (Laser != None)
-		Laser.Destroy();
-	Super.Destroyed();
-}
+}*/
 
 // This assumes flash actors are triggered to make them work
 // Override this in subclassed for better control
-simulated function FlashMuzzleFlash(byte Mode)
+/*simulated function FlashMuzzleFlash(byte Mode)
 {
 	if (Instigator.IsFirstPerson() && PlayerController(Instigator.Controller).ViewTarget == Instigator)
 		return;
