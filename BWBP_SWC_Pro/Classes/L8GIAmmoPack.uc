@@ -160,6 +160,8 @@ defaultproperties
      FireModeClass(0)=Class'BWBP_SWC_Pro.L8GIPrimaryFire'
      FireModeClass(1)=Class'BWBP_SWC_Pro.L8GISecondaryFire'
      SelectForce="SwitchToAssaultRifle"
+	 NDCrosshairCfg=(Pic1=Texture'BW_Core_WeaponTex.Crosshairs.NRP57OutA',Pic2=Texture'BW_Core_WeaponTex.Crosshairs.Cross1',USize1=256,VSize1=256,Color1=(G=200,R=200,A=128),Color2=(A=212),StartSize1=98,StartSize2=101)
+     NDCrosshairInfo=(SpreadRatios=(Y2=0.500000),MaxScale=8.000000)
      AIRating=0.400000
      CurrentRating=0.400000
      Description="L8 GI Ammunition Pack||Manufacturer: Various|Primary: Throw|Secondary: Supply Self||UTC soldiers are trained to use a wide variety of weaponry, and, as such, are often in need of supplies. The L8 GI ammo pack is filled with ammunition and will supply every gun in the user's inventory."

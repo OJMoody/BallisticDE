@@ -330,7 +330,8 @@ defaultproperties
 	ClipOutSound=(Sound=Sound'BWBP_SWC_Sounds.BR1NK.BR1NK-ClipOut',Volume=1.200000,Radius=32.000000)
 	ClipInSound=(Sound=Sound'BWBP_SWC_Sounds.BR1NK.BR1NK-ClipIn',Volume=1.200000,Radius=32.000000)
 	ClipInFrame=0.650000
-	WeaponModes(0)=(bUnavailable=True)
+	NDCrosshairCfg=(Pic1=Texture'BW_Core_WeaponTex.Crosshairs.Misc9',Pic2=Texture'BW_Core_WeaponTex.Crosshairs.A73OutA',USize1=256,VSize1=256,USize2=256,VSize2=256,Color1=(B=255,R=129,A=140),Color2=(R=255,B=0,G=0,A=255),StartSize1=84,StartSize2=26)
+    WeaponModes(0)=(bUnavailable=True)
 	WeaponModes(1)=(ModeName="Double Barrel",Value=2.000000)
 	WeaponModes(2)=(ModeName="Single Barrel")
 	bNoCrosshairInScope=True

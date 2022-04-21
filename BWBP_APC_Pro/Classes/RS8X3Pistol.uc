@@ -509,6 +509,8 @@ defaultproperties
 	FireModeClass(0)=Class'BWBP_APC_Pro.RS8X3PrimaryFire'
 	FireModeClass(1)=Class'BWBP_APC_Pro.RS8X3SecondaryFire'
 	SelectForce="SwitchToAssaultRifle"
+	NDCrosshairCfg=(Pic1=Texture'BW_Core_WeaponTex.Crosshairs.M806OutA',Pic2=Texture'BW_Core_WeaponTex.Crosshairs.Cross4',USize1=256,VSize1=256,USize2=256,VSize2=256,Color1=(B=203,R=0,A=160),StartSize1=79,StartSize2=33)
+    NDCrosshairInfo=(SpreadRatios=(Y1=0.800000,Y2=1.000000),MaxScale=6.000000)
 	AIRating=0.600000
 	CurrentRating=0.6
 	Description="Every weapon has it's pros and cons, the X3 and the RS8 being prime examples. The former being a handy tool in close quarters combat while the latter is decent for stealth and ranged engagements, but when both are used at the same time; it shores up their weaknesses. The X3 can slice and stab through armor for the RS8 to deal better damage while the RS8 can take down targets that are out of the X3’s range.  Elite soldiers of the UTC Commando Corp have started using both weapons in tandem for covert operations that demand the situation to either keep enemies at arms reach or up close and personal."

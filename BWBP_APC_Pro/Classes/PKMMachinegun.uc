@@ -351,6 +351,8 @@ defaultproperties
      WeaponModes(3)=(ModeName="Full Auto",ModeID="WM_FullAuto")
      CurrentWeaponMode=3
      bNoCrosshairInScope=True
+	 NDCrosshairCfg=(Pic1=Texture'BW_Core_WeaponTex.Crosshairs.M353OutA',Pic2=Texture'BW_Core_WeaponTex.Crosshairs.M353InA',USize1=256,VSize1=256,USize2=256,VSize2=256,Color1=(B=0,G=39,R=137,A=255),Color2=(B=148,G=145,R=149,A=255),StartSize1=96,StartSize2=96)
+	 NDCrosshairInfo=(SpreadRatios=(X1=0.500000,Y1=0.500000,X2=0.500000,Y2=0.750000),SizeFactors=(X1=1.000000,Y1=1.000000,X2=1.000000,Y2=1.000000),MaxScale=4.000000,CurrentScale=0.000000)
 	 SightPivot=(Pitch=64)
      SightOffset=(X=-5.000000,Y=-1.1150000,Z=15.00000)
      FireModeClass(0)=Class'BWBP_APC_Pro.PKMPrimaryFire'

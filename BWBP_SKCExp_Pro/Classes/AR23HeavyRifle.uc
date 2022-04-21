@@ -320,6 +320,8 @@ defaultproperties
      FireModeClass(1)=Class'BWBP_SKCExp_Pro.AR23SecondaryFire'
      PutDownTime=0.700000
      SelectForce="SwitchToAssaultRifle"
+	 NDCrosshairCfg=(Pic1=Texture'BW_Core_WeaponTex.Crosshairs.R78InA',Pic2=Texture'BW_Core_WeaponTex.Crosshairs.Misc4',USize1=256,VSize1=256,USize2=256,VSize2=256,Color1=(B=0,G=116,R=144,A=255),Color2=(B=42,G=44,R=40,A=116),StartSize1=115,StartSize2=116)
+	 NDCrosshairInfo=(SpreadRatios=(X1=0.500000,Y1=0.500000,X2=0.500000,Y2=0.750000),SizeFactors=(X1=1.000000,Y1=1.000000,X2=1.000000,Y2=1.000000),MaxScale=4.000000,CurrentScale=0.000000)
      AIRating=0.600000
      CurrentRating=0.600000
      bSniping=True

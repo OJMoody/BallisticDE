@@ -85,7 +85,7 @@ defaultproperties
      CamTrackPitchSpeed=32768.000000
      AbandonedPitch=2600
      CameraOffset=(X=-130.000000,Y=-10.000000,Z=30.000000)
-     CameraElevation=5.000000
+	 CameraElevation=5.000000
      GunBone="Weapon"
      PivotBone="StandPivot"
      DriverBackOff=120.000000

@@ -249,7 +249,8 @@ defaultproperties
      WeaponModes(1)=(ModeName="1200 RPM",bUnavailable=True,ModeID="WM_FullAuto")
      WeaponModes(2)=(ModeName="Rapid Fire")
      WeaponModes(3)=(ModeName="3600 RPM",bUnavailable=True,ModeID="WM_FullAuto")
-	 DesiredSpeed=0.33
+	 NDCrosshairCfg=(Pic1=Texture'BW_Core_WeaponTex.Crosshairs.Misc7',Pic2=Texture'BW_Core_WeaponTex.Crosshairs.Misc10',USize1=256,VSize1=256,USize2=256,VSize2=256,Color1=(B=160,G=80,R=88,A=137),Color2=(B=151,G=150,R=0,A=202),StartSize1=84,StartSize2=61)
+     DesiredSpeed=0.33
      SightPivot=(Pitch=1024,Roll=2048)
      SightOffset=(X=-10.000000,Y=-3.830000,Z=16.900000)
      SightDisplayFOV=45.000000

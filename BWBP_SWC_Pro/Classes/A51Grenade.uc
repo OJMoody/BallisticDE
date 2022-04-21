@@ -4,12 +4,6 @@
 //=============================================================================
 class A51Grenade extends BallisticHandGrenade;
 
-#exec OBJ LOAD FILE=..\StaticMeshes\BWBP_SWC_Static.usx
-/*
-function DoExplosionEffects()
-{
-}
-*/
 function DoExplosion()
 {
 	local A51AcidControl F;
@@ -74,6 +68,8 @@ defaultproperties
      SelectAnimRate=1.000000
      BringUpTime=2.500000
      SelectForce="SwitchToAssaultRifle"
+	 NDCrosshairCfg=(Pic1=Texture'BW_Core_WeaponTex.Crosshairs.NRP57OutA',Pic2=Texture'BW_Core_WeaponTex.Crosshairs.NRP57InA',USize1=256,VSize1=256,USize2=256,VSize2=256,Color1=(G=255,R=0,A=128),Color2=(B=0,G=0,R=255,A=212),StartSize1=98,StartSize2=101)
+     NDCrosshairInfo=(SpreadRatios=(Y2=0.500000),MaxScale=8.000000)
      AIRating=0.400000
      CurrentRating=0.400000
      Description="A51 Skrith Acid Grenade||Manufacturer: Unknown Skrith Engineers|Primary: Throw Grenade|Secondary: Roll Grenade|Special: Timed Detonation||Based on the same technology and chemicals sported by the A500 'Reptile' gun, the A51 grenade is often used by Skrith who want to wittle down their opponent's armor before attacking up close. Upon detonation, the A51 creates a pool of acid that eats through anything in its way. Whoever designed this clearly took the Skrith saying ''Don't just kill humans, make them suffer first'' to heart."

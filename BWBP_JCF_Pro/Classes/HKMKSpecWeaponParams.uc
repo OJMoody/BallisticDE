@@ -33,6 +33,39 @@ defaultproperties
 	End Object
 		
 	//=================================================================
+    // SECONDARY FIRE
+    //=================================================================	
+	
+	Begin Object Class=ShotgunEffectParams Name=ArenaSecondaryEffectParams
+		TraceRange=(Min=5000.000000,Max=5000.000000)
+		RangeAtten=0.750000
+		TraceCount=9
+		TracerClass=Class'BallisticProV55.TraceEmitter_Shotgun'
+		ImpactManager=Class'BallisticProV55.IM_Shell'
+		Damage=4
+		DamageType=Class'BWBP_SKC_Pro.DTCYLOShotgun'
+		DamageTypeHead=Class'BWBP_SKC_Pro.DTCYLOShotgunHead'
+		DamageTypeArm=Class'BWBP_SKC_Pro.DTCYLOShotgun'
+		PenetrateForce=100
+		bPenetrate=True
+		MuzzleFlashClass=Class'BallisticProV55.MRT6FlashEmitter'
+		Recoil=512.000000
+		Chaos=0.500000
+		BotRefireRate=0.700000
+		WarnTargetPct=0.500000	
+		FireSound=(Sound=Sound'BWBP_SKC_SoundsExp.AH104.AH104-Fire',Volume=1.100000,Radius=256.000000)
+	End Object
+
+	Begin Object Class=FireParams Name=ArenaSecondaryFireParams
+		FireInterval=0.700000
+		AmmoPerFire=0
+		FireAnim="FireAlt"
+		AimedFireAnim='FireAlt'
+		FireEndAnim=	
+		FireEffectParams(0)=ShotgunEffectParams'ArenaSecondaryEffectParams'
+	End Object	
+		
+	//=================================================================
 	// RECOIL
 	//=================================================================
 
