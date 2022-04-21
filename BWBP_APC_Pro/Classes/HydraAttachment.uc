@@ -14,6 +14,70 @@ var   LaserActor	Laser;			//The laser actor
 var   vector		LaserEndLoc;
 var   Emitter		LaserDot;
 
+var name BackBones[2];
+var name FrontBones[6];
+var byte Index;
+
+var array<Actor> BackFlashes[2];
+var array<Actor> FrontFlashes[6];
+
+// This assumes flash actors are triggered to make them work
+// Override this in subclassed for better control
+simulated function FlashMuzzleFlash(byte Mode)
+{
+	if (Instigator.IsFirstPerson() && PlayerController(Instigator.Controller).ViewTarget == Instigator)
+		return;
+
+	if (AltMuzzleFlashClass != None)
+	{
+		if (BackFlashes[Index] == None)
+		{
+			BackFlashes[Index] = Spawn(AltMuzzleFlashClass, self);
+			if (Emitter(BackFlashes[Index]) != None)
+				class'BallisticEmitter'.static.ScaleEmitter(Emitter(BackFlashes[Index]), DrawScale*FlashScale);
+			BackFlashes[Index].SetDrawScale(DrawScale*FlashScale);
+			if (DGVEmitter(BackFlashes[Index]) != None)
+				DGVEmitter(BackFlashes[Index]).InitDGV();
+
+			AttachToBone(BackFlashes[Index], BackBones[Index]);
+		}
+		BackFlashes[Index].Trigger(self, Instigator);
+	}
+	if (MuzzleFlashClass != None)
+	{
+		if (FrontFlashes[Index] == None)
+		{
+			FrontFlashes[Index] = Spawn(MuzzleFlashClass, self);
+			if (Emitter(FrontFlashes[Index]) != None)
+				class'BallisticEmitter'.static.ScaleEmitter(Emitter(FrontFlashes[Index]), DrawScale*FlashScale);
+			FrontFlashes[Index].SetDrawScale(DrawScale*FlashScale);
+			if (DGVEmitter(FrontFlashes[Index]) != None)
+				DGVEmitter(FrontFlashes[Index]).InitDGV();
+				
+			AttachToBone(FrontFlashes[Index], FrontBones[Index]);
+		}
+		FrontFlashes[Index].Trigger(self, Instigator);
+	}
+	
+	Index++;
+	if (Index > 5)
+		Index = 0;
+}
+
+simulated event Destroyed()
+{
+	local int i;
+
+	for (i=0; i<6; i++)
+	{
+		class'BUtil'.static.KillEmitterEffect (FrontFlashes[i]);
+		class'BUtil'.static.KillEmitterEffect (BackFlashes[i]);
+	}
+
+	Super.Destroyed();
+}
+
+
 /*replication
 {
 	reliable if ( Role==ROLE_Authority )
@@ -128,16 +192,24 @@ simulated function FlashMuzzleFlash(byte Mode)
 
 defaultproperties
 {
-     MuzzleFlashClass=Class'BWBP_APC_Pro.HydraFlashEmitter'
+     BackBones(0)="backblast"
+	 BackBones(1)="backblast"
+     FrontBones(0)="Muzzle1"
+     FrontBones(1)="Muzzle2"
+     FrontBones(2)="Muzzle3"
+	 FrontBones(3)="Muzzle4"
+	 FrontBones(4)="Muzzle5"
+	 FrontBones(5)="Muzzle6"
+	 MuzzleFlashClass=Class'BWBP_APC_Pro.HydraFlashEmitter'
      AltMuzzleFlashClass=Class'BWBP_APC_Pro.HydraBackFlashEmitter'
      ImpactManager=Class'BallisticProV55.IM_Bullet'
-     AltFlashBone="tip2"
+     AltFlashBone="laser"
      FlashScale=1.200000
      BrassMode=MU_None
      InstantMode=MU_None
 	 ReloadAnim="Reload_MG"
 	 ReloadAnimRate=1.500000
      bRapidFire=True
-     Mesh=SkeletalMesh'BW_Core_WeaponAnim.G5Bazooka_TPm'
+     Mesh=SkeletalMesh'BWBP_CC_Anim.CruRL_TPm'
      DrawScale=0.230000
 }

@@ -1,4 +1,4 @@
-class HydraWeaponParams extends BallisticWeaponParams;
+class HydraWeaponParamsTactical extends BallisticWeaponParams;
 
 defaultproperties
 {    
@@ -6,14 +6,14 @@ defaultproperties
     // PRIMARY FIRE
     //=================================================================	
 	
-	Begin Object Class=ProjectileEffectParams Name=ArenaPrimaryEffectParams
+	Begin Object Class=ProjectileEffectParams Name=TacticalPrimaryEffectParams
 		ProjectileClass=Class'BWBP_APC_Pro.HydraRocket'
 		SpawnOffset=(X=10.000000,Y=10.000000,Z=-3.000000)
 		Speed=2000.000000
 		MaxSpeed=25000.000000
 		AccelSpeed=5000.000000
-		Damage=90
-		DamageRadius=448.000000
+		Damage=120
+		DamageRadius=768.000000
 		MomentumTransfer=75000.000000
 		MuzzleFlashClass=Class'BWBP_APC_Pro.HydraFlashEmitter'
 		Recoil=64.000000
@@ -23,20 +23,20 @@ defaultproperties
 		FireSound=(Sound=SoundGroup'BWBP_CC_Sounds.Launcher.Launcher-Fire')
 	End Object
 
-	Begin Object Class=FireParams Name=ArenaPrimaryFireParams
+	Begin Object Class=FireParams Name=TacticalPrimaryFireParams
 		FireInterval=0.800000
 		FireEndAnim=	
-		FireEffectParams(0)=ProjectileEffectParams'ArenaPrimaryEffectParams'
+		FireEffectParams(0)=ProjectileEffectParams'TacticalPrimaryEffectParams'
 	End Object
 	
-	Begin Object Class=ProjectileEffectParams Name=ArenaPrimarySEffectParams
+	Begin Object Class=ProjectileEffectParams Name=TacticalPrimarySEffectParams
 		ProjectileClass=Class'BWBP_APC_Pro.HydraSeekerRocket'
 		SpawnOffset=(X=10.000000,Y=10.000000,Z=-3.000000)
 		Speed=2000.000000
 		MaxSpeed=25000.000000
 		AccelSpeed=5000.000000
-		Damage=90
-		DamageRadius=448.000000
+		Damage=120
+		DamageRadius=768.000000
 		MomentumTransfer=75000.000000
 		MuzzleFlashClass=Class'BWBP_APC_Pro.HydraFlashEmitter'
 		Recoil=64.000000
@@ -46,24 +46,24 @@ defaultproperties
 		FireSound=(Sound=SoundGroup'BWBP_CC_Sounds.Launcher.Launcher-Fire')
 	End Object
 
-	Begin Object Class=FireParams Name=ArenaPrimarySFireParams
+	Begin Object Class=FireParams Name=TacticalPrimarySFireParams
 		FireInterval=0.800000
 		FireEndAnim=	
-		FireEffectParams(0)=ProjectileEffectParams'ArenaPrimarySEffectParams'
+		FireEffectParams(0)=ProjectileEffectParams'TacticalPrimarySEffectParams'
 	End Object
 		
     //=================================================================
     // SECONDARY FIRE
     //=================================================================	
 	
-	Begin Object Class=ProjectileEffectParams Name=ArenaSecondaryEffectParams
+	Begin Object Class=ProjectileEffectParams Name=TacticalSecondaryEffectParams
 		ProjectileClass=Class'BWBP_APC_Pro.HydraSwoopRocket'
 		SpawnOffset=(X=10.000000,Y=10.000000,Z=-3.000000)
 		Speed=2000.000000
 		MaxSpeed=25000.000000
 		AccelSpeed=5000.000000
-		Damage=90
-		DamageRadius=448.000000
+		Damage=120
+		DamageRadius=768.000000
 		MomentumTransfer=75000.000000
 		MuzzleFlashClass=Class'BWBP_APC_Pro.HydraFlashEmitter'
 		Recoil=64.000000
@@ -73,20 +73,20 @@ defaultproperties
 		FireSound=(Sound=SoundGroup'BWBP_CC_Sounds.Launcher.Launcher-Fire')
 	End Object
 
-	Begin Object Class=FireParams Name=ArenaSecondaryFireParams
+	Begin Object Class=FireParams Name=TacticalSecondaryFireParams
 		FireInterval=1.200000
 		FireEndAnim=	
-		FireEffectParams(0)=ProjectileEffectParams'ArenaSecondaryEffectParams'
+		FireEffectParams(0)=ProjectileEffectParams'TacticalSecondaryEffectParams'
 	End Object
 	
-	Begin Object Class=ProjectileEffectParams Name=ArenaSecondarySEffectParams
+	Begin Object Class=ProjectileEffectParams Name=TacticalSecondarySEffectParams
 		ProjectileClass=Class'BWBP_APC_Pro.HydraSeekerRocket'
 		SpawnOffset=(X=10.000000,Y=10.000000,Z=-3.000000)
 		Speed=2000.000000
 		MaxSpeed=25000.000000
 		AccelSpeed=5000.000000
-		Damage=90
-		DamageRadius=448.000000
+		Damage=120
+		DamageRadius=768.000000
 		MomentumTransfer=75000.000000
 		MuzzleFlashClass=Class'BWBP_APC_Pro.HydraFlashEmitter'
 		Recoil=64.000000
@@ -96,17 +96,17 @@ defaultproperties
 		FireSound=(Sound=SoundGroup'BWBP_CC_Sounds.Launcher.Launcher-Fire')
 	End Object
 
-	Begin Object Class=FireParams Name=ArenaSecondarySFireParams
+	Begin Object Class=FireParams Name=TacticalSecondarySFireParams
 		FireInterval=1.200000
 		FireEndAnim=	
-		FireEffectParams(0)=ProjectileEffectParams'ArenaSecondarySEffectParams'
+		FireEffectParams(0)=ProjectileEffectParams'TacticalSecondarySEffectParams'
 	End Object
 		
 	//=================================================================
 	// RECOIL
 	//=================================================================
 
-	Begin Object Class=RecoilParams Name=ArenaRecoilParams
+	Begin Object Class=RecoilParams Name=TacticalRecoilParams
      	YawFactor=0.000000
      	DeclineTime=1.000000
 	End Object
@@ -115,7 +115,7 @@ defaultproperties
 	// AIM
 	//=================================================================
 
-	Begin Object Class=AimParams Name=ArenaAimParams
+	Begin Object Class=AimParams Name=TacticalAimParams
 		ADSMultiplier=0.4
 		SprintOffset=(Pitch=-6000,Yaw=-8000)
 		JumpOffset=(Pitch=-6000,Yaw=-1500)
@@ -128,9 +128,9 @@ defaultproperties
 	// BASIC PARAMS
 	//=================================================================	
 
-    Begin Object Class=WeaponParams Name=ArenaParams
-	    SightOffset=(X=-30.000000,Y=-13.000000,Z=12.000000)
-		SightPivot=(Roll=-3072)
+    Begin Object Class=WeaponParams Name=TacticalParams
+	    SightOffset=(X=-30.000000,Y=-0.750000,Z=16.000000)
+		SightPivot=(Pitch=512)
 		WeaponBoneScales(0)=(BoneName="Scope",Slot=100,Scale=0f)
 		SightingTime=0.650000	
         DisplaceDurationMult=1.25
@@ -138,12 +138,12 @@ defaultproperties
 		InventorySize=24
 		PlayerSpeedFactor=0.95
 		SightMoveSpeedFactor=0.8
-        RecoilParams(0)=RecoilParams'ArenaRecoilParams'
-        AimParams(0)=AimParams'ArenaAimParams'
-		FireParams(0)=FireParams'ArenaPrimaryFireParams'
-		FireParams(1)=FireParams'ArenaPrimarySFireParams'
-		AltFireParams(0)=FireParams'ArenaSecondaryFireParams'
-		AltFireParams(1)=FireParams'ArenaSecondarySFireParams'
+        RecoilParams(0)=RecoilParams'TacticalRecoilParams'
+        AimParams(0)=AimParams'TacticalAimParams'
+		FireParams(0)=FireParams'TacticalPrimaryFireParams'
+		FireParams(1)=FireParams'TacticalPrimarySFireParams'
+		AltFireParams(0)=FireParams'TacticalSecondaryFireParams'
+		AltFireParams(1)=FireParams'TacticalSecondarySFireParams'
     End Object 
-    Layouts(0)=WeaponParams'ArenaParams'
+    Layouts(0)=WeaponParams'TacticalParams'
 }

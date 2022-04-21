@@ -541,7 +541,7 @@ defaultproperties
 	LaserAimSpread=(Min=0,Max=256)
 	LaserOnSound=Sound'BW_Core_WeaponSound.M806.M806LSight'
     LaserOffSound=Sound'BW_Core_WeaponSound.M806.M806LSight'
-	BigIconMaterial=Texture'BW_Core_WeaponTex.Icons.BigIcon_G5'
+	BigIconMaterial=Texture'BWBP_CC_Tex.RL.BigIcon_CruRL'
 	BigIconCoords=(Y1=36,Y2=230)
 	BCRepClass=Class'BallisticProV55.BallisticReplicationInfo'
 	bWT_Hazardous=True
@@ -572,6 +572,9 @@ defaultproperties
 	bNoCrosshairInScope=False
 	SightingTime=0.500000
 	ParamsClasses(0)=Class'HydraWeaponParams'
+	ParamsClasses(1)=Class'HydraWeaponParams'
+	ParamsClasses(2)=Class'HydraWeaponParams'
+	ParamsClasses(3)=Class'HydraWeaponParamsTactical'
 	FireModeClass(0)=Class'BWBP_APC_Pro.HydraPrimaryFire'
 	FireModeClass(1)=Class'BWBP_APC_Pro.HydraSecondaryFire'
 	NDCrosshairInfo=(SpreadRatios=(X1=0.500000,Y1=0.500000,X2=0.500000,Y2=0.750000),SizeFactors=(X1=1.000000,Y1=1.000000,X2=1.000000,Y2=1.000000),MaxScale=4.000000,CurrentScale=0.000000)
@@ -596,7 +599,7 @@ defaultproperties
 	PickupClass=Class'BWBP_APC_Pro.HydraPickup'
 	PlayerViewOffset=(X=10.000000,Y=8.000000,Z=-10.000000)
 	AttachmentClass=Class'BWBP_APC_Pro.HydraAttachment'
-	IconMaterial=Texture'BW_Core_WeaponTex.Icons.SmallIcon_G5'
+	IconMaterial=Texture'BWBP_CC_Tex.RL.SmallIcon_CruRL'
 	IconCoords=(X2=127,Y2=31)
 	ItemName="[B] M11-X Hydra MRL"
 	LightType=LT_Pulse
