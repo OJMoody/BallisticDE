@@ -47,8 +47,8 @@ defaultproperties
 	//=================================================================
 
 	Begin Object Class=AimParams Name=ArenaAimParams
-		AimSpread=(Min=256,Max=1768)
-		SprintOffset=(Pitch=-1000,Yaw=-2048)
+		AimSpread=(Min=128,Max=1156)
+		SprintOffset=(Pitch=-3000,Yaw=-2048)
 		JumpOffset=(Pitch=-6000,Yaw=-8000)
 		ADSMultiplier=0.15
 		AimAdjustTime=0.500000
@@ -63,11 +63,11 @@ defaultproperties
 	Begin Object Class=WeaponParams Name=ArenaParams
 		InventorySize=12
 		SightMoveSpeedFactor=0.8
-		SightingTime=0.50000		
+		SightingTime=0.65000		
 		DisplaceDurationMult=1.25
 		MagAmmo=1
-		PlayerSpeedFactor=0.850000
-		PlayerJumpFactor=0.880000
+		PlayerSpeedFactor=0.800000
+		PlayerJumpFactor=0.800000
 		SightOffset=(X=-10.000000,Y=-2.000000,Z=12.000000)
 		SightPivot=(Roll=-1024)
 		ZoomType=ZT_Smooth
