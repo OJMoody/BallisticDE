@@ -343,7 +343,7 @@ defaultproperties
 	AttachmentClass=Class'BWBP_JCF_Pro.RGPXAttachment'
 	IconMaterial=Texture'BWBP_JCF_Tex.RGP-X350.SmallIcon_RGPX'
 	IconCoords=(X2=127,Y2=31)
-	ItemName="RGX-350 H-V Flak Bazooka"
+	ItemName="RGK-350 H-V Flak Bazooka"
 	LightType=LT_Pulse
 	LightEffect=LE_NonIncidence
 	LightHue=25

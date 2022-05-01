@@ -50,7 +50,7 @@ defaultproperties
      XInaccuracy=32.000000
      YInaccuracy=32.000000
      BallisticFireSound=(Sound=Sound'BWBP_SKC_Sounds.XavPlas.Xav-Fire',Volume=2.500000,Slot=SLOT_Interact,bNoOverride=False)
-     FireAnim="Fire2"
+     FireAnim="FireAlt"
      FireEndAnim=
      FireRate=0.700000
      AmmoClass=Class'BWBP_SKCExp_Pro.Ammo_HVPCCells'

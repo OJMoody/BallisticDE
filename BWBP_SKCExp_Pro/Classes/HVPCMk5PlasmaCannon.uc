@@ -17,9 +17,9 @@ var() Sound		OverHeatSound;		// Sound to play when it overheats
 var bool		bWaterBurn;			// busy getting damaged in water
 
 var bool	bArcOOA;			// Arcs have been killed cause ammo is out
-var Actor	Arc1;				// The decorative side arc
-var Actor	Arc2;				// The top arcs
-var Actor	Arc3;
+//var Actor	Arc1;				// The decorative side arc
+//var Actor	Arc2;				// The top arcs
+//var Actor	Arc3;
 var Actor	Spiral;				// Red spiral that activates when charging secondary
 var Actor	ClawSpark1;			// Sparks attached to claws when tracking enemy
 var Actor	ClawSpark2;
@@ -222,8 +222,8 @@ simulated event WeaponTick(float DT)
 		else if (bIsVenting)
 			ReloadRelease();
 	}
-	if (Arc1 != None)
-		HVPCMk5_SideArc(Arc1).SetColorShift(HeatLevel/10);
+	//if (Arc1 != None)
+		//HVPCMk5_SideArc(Arc1).SetColorShift(HeatLevel/10);
 
 
 	if (Instigator.PhysicsVolume.bWaterVolume)
@@ -271,9 +271,9 @@ simulated event WeaponTick(float DT)
 		if (AmmoAmount(0) < 1 && !FireMode[1].bIsFiring)	{	if (!bArcOOA)
 		{
 			bArcOOA=true;
-			if (Arc1 != None)	Arc1.Destroy();
-			if (Arc2 != None)	Arc2.Destroy();
-			if (Arc3 != None)	Arc3.Destroy();
+			//if (Arc1 != None)	Arc1.Destroy();
+			//if (Arc2 != None)	Arc2.Destroy();
+			//if (Arc3 != None)	Arc3.Destroy();
 		}	}
 		else if (bArcOOA)
 		{
@@ -340,9 +340,9 @@ simulated function bool PutDown()
 			ServerReloadRelease();
 		}
 
-		if (Arc1 != None)	Arc1.Destroy();
-		if (Arc2 != None)	Arc2.Destroy();
-		if (Arc3 != None)	Arc3.Destroy();
+		//if (Arc1 != None)	Arc1.Destroy();
+		//if (Arc2 != None)	Arc2.Destroy();
+		//if (Arc3 != None)	Arc3.Destroy();
 		bWaterBurn=false;
 		Instigator.AmbientSound = None;
 		Instigator.SoundVolume = Instigator.default.SoundVolume;
@@ -359,25 +359,26 @@ simulated function ResetArcs()
 	{
 		Emitter(Spiral).kill();
 		Spiral = None;
-		if (Arc1==None && bArcOOA)
-			return;
+		//if (Arc1==None && bArcOOA)
+			//return;
 		InitArcs();
-		if (Arc1 != None)
-			HVPCMk5_SideArc(Arc1).SetColorShift(0);
-		if (Arc2 != None)
-			HVPCMk5_TopArc(Arc2).SetColorShift(0);
-		if (Arc3 != None)
-			HVPCMk5_TopArc(Arc3).SetColorShift(0);
+		//if (Arc1 != None)
+			//HVPCMk5_SideArc(Arc1).SetColorShift(0);
+		//if (Arc2 != None)
+			//HVPCMk5_TopArc(Arc2).SetColorShift(0);
+		//if (Arc3 != None)
+			//HVPCMk5_TopArc(Arc3).SetColorShift(0);
 	}
 }
+
 simulated function InitArcs()
 {
-	if (Arc1 == None)
-		class'bUtil'.static.InitMuzzleFlash(Arc1, class'HVPCMk5_SideArc', DrawScale, self, 'Arc3');
-	if (Arc2 == None)
-		class'bUtil'.static.InitMuzzleFlash(Arc2, class'HVPCMk5_TopArc',  DrawScale, self, 'Arc1');
-	if (Arc3 == None)
-		class'bUtil'.static.InitMuzzleFlash(Arc3, class'HVPCMk5_TopArc',  DrawScale, self, 'Arc2');
+	//if (Arc1 == None)
+		//class'bUtil'.static.InitMuzzleFlash(Arc1, class'HVPCMk5_SideArc', DrawScale, self, 'Arc3');
+	//if (Arc2 == None)
+		//class'bUtil'.static.InitMuzzleFlash(Arc2, class'HVPCMk5_TopArc',  DrawScale, self, 'Arc1');
+	//if (Arc3 == None)
+		//class'bUtil'.static.InitMuzzleFlash(Arc3, class'HVPCMk5_TopArc',  DrawScale, self, 'Arc2');
 }
 
 
@@ -425,7 +426,7 @@ simulated function bool IsGoingToVent()
     local name anim;
     local float frame, rate;
     GetAnimParams(0, anim, frame, rate);
-	if (Anim == 'StartReload')
+	if (Anim == 'ReloadStart')
  		return true;
 	return false;
 }
@@ -433,19 +434,21 @@ simulated function bool IsGoingToVent()
 exec simulated function Reload(optional byte i)
 {
 	if (!IsFiring())
-		SafePlayAnim('StartReload', 1.0, 0.1);
+		SafePlayAnim('ReloadStart', 1.0, 0.1);
 }
+
 simulated function Notify_LGArcOff()
 {
 	Instigator.AmbientSound = VentingSound;
 	Instigator.SoundVolume = 128;
-	if (Arc1 != None)
-	{	Emitter(Arc1).Kill();	Arc1=None;	}
-	if (Arc2 != None)
-	{	Emitter(Arc2).Kill();	Arc2=None;	}
-	if (Arc3 != None)
-	{	Emitter(Arc3).Kill();	Arc3=None;	}
+	//if (Arc1 != None)
+	//{	Emitter(Arc1).Kill();	Arc1=None;	}
+	//if (Arc2 != None)
+	//{	Emitter(Arc2).Kill();	Arc2=None;	}
+	//if (Arc3 != None)
+	//{	Emitter(Arc3).Kill();	Arc3=None;	}
 }
+
 simulated event AnimEnd (int Channel)
 {
     local name anim;
@@ -453,7 +456,7 @@ simulated event AnimEnd (int Channel)
 
     GetAnimParams(0, anim, frame, rate);
 
-	if (Anim == 'StartReload')
+	if (Anim == 'ReloadStart')
 	{
 		if (level.NetMode == NM_Client)
 			bIsVenting = true;
@@ -461,6 +464,7 @@ simulated event AnimEnd (int Channel)
 	}
 	super.AnimEnd(Channel);
 }
+
 function ServerStartReload (optional byte i)
 {
 	if (!Instigator.IsLocallyControlled())
@@ -486,24 +490,26 @@ exec simulated  function ReloadRelease(optional byte i)
 	if (!bIsVenting)
 	{
 		GetAnimParams(0, anim, frame, rate);
-		if (Anim != 'StartReload')
+		if (Anim != 'ReloadStart')
 			return;
-		SafePlayAnim('EndReload', 1.0, 0.2);
+		SafePlayAnim('ReloadEnd', 1.0, 0.2);
 		if (frame < 0.5)
 			SetAnimFrame(1-frame);
 	}
 	else
-		SafePlayAnim('EndReload', 1.0, 0.2);
+		SafePlayAnim('ReloadEnd', 1.0, 0.2);
 
 	if (level.NetMode == NM_Client)
 		bIsVenting = false;
 	ServerReloadRelease();
 }
+
 simulated function Notify_LGArcOn()
 {
 	if (AmmoAmount(0) > 0 && level.DetailMode>DM_Low)
 		InitArcs();
 }
+
 function ServerReloadRelease(optional byte i)
 {
 	if (!Instigator.IsLocallyControlled())
@@ -511,6 +517,7 @@ function ServerReloadRelease(optional byte i)
 		Instigator.SoundVolume = default.SoundVolume;	}
 	bIsVenting = false;
 }
+
 // End Venting -----------------------------------
 
 simulated function vector ConvertFOVs (vector InVec, float InFOV, float OutFOV, float Distance)
@@ -535,12 +542,12 @@ simulated function Destroyed()
 {
 	if (FreeZap != None)
 		FreeZap.Destroy();
-	if (Arc1 != None)
-		Arc1.Destroy();
-	if (Arc2 != None)
-		Arc2.Destroy();
-	if (Arc3 != None)
-		Arc3.Destroy();
+	//if (Arc1 != None)
+	//	Arc1.Destroy();
+	//if (Arc2 != None)
+	//	Arc2.Destroy();
+	//if (Arc3 != None)
+	//	Arc3.Destroy();
 	if (ClawSpark1 != None)
 		ClawSpark1.Destroy();
 	if (ClawSpark2 != None)
@@ -749,7 +756,7 @@ defaultproperties
      TeamSkins(0)=(RedTex=Shader'BW_Core_WeaponTex.Hands.RedHand-Shiny',BlueTex=Shader'BW_Core_WeaponTex.Hands.BlueHand-Shiny')
      UsedAmbientSound=Sound'BW_Core_WeaponSound.LightningGun.LG-Ambient'
      AIReloadTime=0.200000
-     BigIconMaterial=Texture'BWBP_SKC_TexExp.XavPlasCannon.BigIcon_Xav'
+     BigIconMaterial=Texture'BWBP_SKC_TexExp.EVPC.BigIcon_EVPC'
      BCRepClass=Class'BallisticProV55.BallisticReplicationInfo'
      bWT_Hazardous=True
      bWT_Energy=True
@@ -778,10 +785,10 @@ defaultproperties
      InventoryGroup=5
      GroupOffset=10
      PickupClass=Class'BWBP_SKCExp_Pro.HVPCMk5Pickup'
-     PlayerViewOffset=(X=-3.000000,Y=9.500000,Z=-9.500000)
+     PlayerViewOffset=(X=10.000000,Y=11.00000,Z=-13.00000)
      BobDamping=1.600000
      AttachmentClass=Class'BWBP_SKCExp_Pro.HVPCMk5Attachment'
-     IconMaterial=Texture'BWBP_SKC_TexExp.XavPlasCannon.SmallIcon_Xav'
+     IconMaterial=Texture'BWBP_SKC_TexExp.EVPC.SmallIcon_EVPC'
      IconCoords=(X2=127,Y2=31)
      ItemName="H-V Plasma Cannon Mk5"
      LightType=LT_Pulse
@@ -792,10 +799,9 @@ defaultproperties
      LightRadius=12.000000
 	 ParamsClasses(0)=Class'HVPCMk5PlasmaCannonWeaponParamsArena'
 	 ParamsClasses(1)=Class'HVPCMk5WeaponParamsClassic'
-     Mesh=SkeletalMesh'BW_Core_WeaponAnim.FPm_HVC'
+     Mesh=SkeletalMesh'BWBP_SKC_AnimExp.FPm_EVPC'
      DrawScale=0.350000
      Skins(0)=Shader'BW_Core_WeaponTex.Hands.Hands-Shiny'
-     Skins(1)=Texture'BWBP_SKC_TexExp.XavPlasCannon.Xav-SkinMk2'
      bFullVolume=True
      SoundVolume=64
      SoundRadius=128.000000

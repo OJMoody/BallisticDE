@@ -23,9 +23,9 @@ var bool		bDischarge, bDischargeOld;
 var byte		ChargePower;						// Power of secondary zap sent from server
 var HVPCMk5PlasmaCannon	LG;							// Access to the lightning gun itself (only available to owner)
 
-var Actor	Arc1;			// Decorative arc effects
-var Actor	Arc2;
-var Actor	Arc3;
+//var Actor	Arc1;			// Decorative arc effects
+//var Actor	Arc2;
+//var Actor	Arc3;
 
 var array<actor>	OldTargets;		// List of last targets sent to client (used by server only)
 var array<vector>	OldLures;		// List of last lures sent to client (used by server only)
@@ -270,12 +270,12 @@ simulated function PostNetBeginPlay()
 	Pack.SetBoneScale(0, 0.0001, 'Bone03');
 	if (level.DetailMode>DM_High)
 	{
-		if (Arc1 == None)
-			class'bUtil'.static.InitMuzzleFlash(Arc1, class'HVPCMk5_SideArc', DrawScale, self, 'Arc1');
-		if (Arc2 == None)
-			class'bUtil'.static.InitMuzzleFlash(Arc2, class'HVPCMk5_TopArc',  DrawScale, self, 'Arc2');
-		if (Arc3 == None)
-			class'bUtil'.static.InitMuzzleFlash(Arc3, class'HVPCMk5_TopArc',  DrawScale, self, 'Arc3');
+		//if (Arc1 == None)
+			//class'bUtil'.static.InitMuzzleFlash(Arc1, class'HVPCMk5_SideArc', DrawScale, self, 'Arc1');
+		//if (Arc2 == None)
+			//class'bUtil'.static.InitMuzzleFlash(Arc2, class'HVPCMk5_TopArc',  DrawScale, self, 'Arc2');
+		//if (Arc3 == None)
+			//class'bUtil'.static.InitMuzzleFlash(Arc3, class'HVPCMk5_TopArc',  DrawScale, self, 'Arc3');
 	}
 }
 simulated function Destroyed()
@@ -288,12 +288,12 @@ simulated function Destroyed()
 	//{	TargetZap.KillFlashes();	TargetZap.Kill();	}
 	if (MuzzleFlash != None)
 		MuzzleFlash.Destroy();
-	if (Arc1 != None)
-		Arc1.Destroy();
-	if (Arc2 != None)
-		Arc2.Destroy();
-	if (Arc3 != None)
-		Arc3.Destroy();
+	//if (Arc1 != None)
+		//Arc1.Destroy();
+	//if (Arc2 != None)
+		//Arc2.Destroy();
+	//if (Arc3 != None)
+		//Arc3.Destroy();
 	super.Destroyed();
 }
 
@@ -380,8 +380,7 @@ defaultproperties
      TracerClass=Class'BallisticProV55.TraceEmitter_HVCRedLightning'
      bHeavy=True
      bRapidFire=True
-     Mesh=SkeletalMesh'BW_Core_WeaponAnim.HVC_TPm'
-     DrawScale=0.150000
-     Skins(0)=Texture'BWBP_SKC_TexExp.XavPlasCannon.Xav-SkinMk2'
-     Skins(1)=FinalBlend'BW_Core_WeaponTex.Lighter.LightGlassFinal'
+     Mesh=SkeletalMesh'BWBP_SKC_AnimExp.EVPC_TPm'
+     DrawScale=1.000000
+	 RelativeRotation=(Pitch=32768)
 }

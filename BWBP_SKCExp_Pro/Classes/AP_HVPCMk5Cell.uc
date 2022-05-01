@@ -10,7 +10,7 @@ class AP_HVPCMk5Cell extends BallisticAmmoPickup;
 
 defaultproperties
 {
-     AmmoAmount=50
+     AmmoAmount=100
      InventoryType=Class'BWBP_SKCExp_Pro.Ammo_HVPCCells'
      PickupMessage="You got an E-115 Plasma Cell"
      PickupSound=Sound'BW_Core_WeaponSound.LightningGun.LG-AmmoPickup'

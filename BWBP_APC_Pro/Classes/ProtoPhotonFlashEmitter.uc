@@ -6,13 +6,6 @@
 //=============================================================================
 class ProtoPhotonFlashEmitter extends BallisticEmitter;
 
-simulated event PostBeginPlay()
-{
-	Super.PostBeginPlay();
-	if (WeaponAttachment(Owner) != None)
-		Emitters[1].ZTest = true;
-}
-
 defaultproperties
 {
      Begin Object Class=MeshEmitter Name=MeshEmitter5
@@ -46,10 +39,8 @@ defaultproperties
      Emitters(0)=MeshEmitter'BWBP_APC_Pro.ProtoPhotonFlashEmitter.MeshEmitter5'
 
      Begin Object Class=SpriteEmitter Name=SpriteEmitter26
-         UseColorScale=True
          FadeOut=True
          RespawnDeadParticles=False
-         ZTest=False
          UseSizeScale=True
          UseRegularSizeScale=False
          UniformSize=True
@@ -77,5 +68,6 @@ defaultproperties
          SpawnOnTriggerPPS=500000.000000
      End Object
      Emitters(1)=SpriteEmitter'BWBP_APC_Pro.ProtoPhotonFlashEmitter.SpriteEmitter26'
-     bNoDelete=False
+     
+	 bNoDelete=False
 }

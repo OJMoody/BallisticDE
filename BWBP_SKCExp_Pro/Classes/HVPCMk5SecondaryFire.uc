@@ -39,7 +39,7 @@ defaultproperties
      XInaccuracy=16.000000
      YInaccuracy=16.000000
      BallisticFireSound=(Sound=Sound'BWBP_SKC_Sounds.XavPlas.Xav-FireAlt',Volume=2.000000,Slot=SLOT_Interact,bNoOverride=False)
-     FireAnim="Fire2"
+     FireAnim="Fire"
      FireEndAnim=
      FireRate=0.175000
      AmmoClass=Class'BWBP_SKCExp_Pro.Ammo_HVPCCells'
@@ -50,5 +50,6 @@ defaultproperties
      ShakeOffsetRate=(X=-1200.000000)
      ShakeOffsetTime=1.500000
      ProjectileClass=Class'BWBP_SKCExp_Pro.HVPCMk5ProjectileSmall'
+	 FlashScaleFactor=0.200000
      WarnTargetPct=0.200000
 }

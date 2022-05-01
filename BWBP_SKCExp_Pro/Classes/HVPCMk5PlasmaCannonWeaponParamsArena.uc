@@ -24,9 +24,10 @@ defaultproperties
 	End Object
 
 	Begin Object Class=FireParams Name=ArenaPrimaryFireParams
-		FireInterval=0.700000
+		FireInterval=0.800000
 		AmmoPerFire=5
-		FireAnim="Fire2"
+		FireAnim="FireAlt"
+		AimedFireAnim="SightFire"
 		FireEndAnim=	
 	FireEffectParams(0)=ProjectileEffectParams'ArenaPrimaryEffectParams'
 	End Object
@@ -44,6 +45,7 @@ defaultproperties
 		Damage=30
 		DamageRadius=122.000000
 		MomentumTransfer=12500.000000
+		FlashScaleFactor=0.400000
 		MuzzleFlashClass=Class'BWBP_SKCExp_Pro.A48FlashEmitter'
 		FireSound=(Sound=Sound'BWBP_SKC_Sounds.XavPlas.Xav-FireAlt',Volume=2.000000,Slot=SLOT_Interact,bNoOverride=False)
 		Recoil=200.000000
@@ -53,7 +55,8 @@ defaultproperties
 
 	Begin Object Class=FireParams Name=ArenaSecondaryFireParams
 		FireInterval=0.175000
-		FireAnim="Fire2"
+		FireAnim="Fire"
+		AimedFireAnim="SightFire"
 		FireEndAnim=	
 	FireEffectParams(0)=ProjectileEffectParams'ArenaSecondaryEffectParams'
 	End Object
@@ -63,15 +66,14 @@ defaultproperties
 	//=================================================================
 
 	Begin Object Class=RecoilParams Name=ArenaRecoilParams
+		ViewBindFactor=0.3
 		YawFactor=0.100000
 		XCurve=(Points=(,(InVal=0.100000,OutVal=0.010000),(InVal=0.200000,OutVal=0.050000),(InVal=0.300000,OutVal=0.070000),(InVal=0.600000,OutVal=-0.060000),(InVal=0.700000,OutVal=-0.060000),(InVal=1.000000)))
 		YCurve=(Points=(,(InVal=0.100000,OutVal=0.180000),(InVal=0.200000,OutVal=0.300000),(InVal=0.300000,OutVal=0.350000),(InVal=0.450000,OutVal=0.550000),(InVal=0.600000,OutVal=0.700000),(InVal=1.000000,OutVal=1.000000)))
-		XRandFactor=0.250000
-		YRandFactor=0.250000
-		DeclineTime=0.750000
-		DeclineDelay=0.900000
-		MaxRecoil=512
-		CrouchMultiplier=0.800000
+		XRandFactor=0.200000
+		YRandFactor=0.200000
+		DeclineTime=0.600000
+		DeclineDelay=0.300000
 	End Object
 
 	//=================================================================
@@ -98,8 +100,8 @@ defaultproperties
 		MagAmmo=200
 		PlayerSpeedFactor=0.800000
 		PlayerJumpFactor=0.700000
-		SightOffset=(X=-12.000000,Z=25.000000)
-		SightPivot=(Pitch=768)
+		SightOffset=(X=-12.000000,Y=-0.200000,Z=17.300000)
+		SightPivot=(Pitch=1024)
 		RecoilParams(0)=RecoilParams'ArenaRecoilParams'
 		AimParams(0)=AimParams'ArenaAimParams'
 		FireParams(0)=FireParams'ArenaPrimaryFireParams'

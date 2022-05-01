@@ -604,7 +604,7 @@ defaultproperties
 	PhotonMagOutSound=Sound'BW_Core_WeaponSound.BX5.BX5-SecOff'
 	PhotonMagSlideInSound=Sound'BW_Core_WeaponSound.BX5.BX5-SecOn'
 	PhotonMagHitSound=Sound'BW_Core_WeaponSound.A73.A73-PipeIn'
-	PhotonMagCockSound=Sound'BWBP_SKC_Sounds.CYLO.CYLO-CockSG'
+	PhotonMagCockSound=Sound'BWBP_SKC_Sounds.CYLO.Cylo-Cock'
 	PhotonLoadAnim="ReloadAlt"
 	PhotonLoadEmptyAnim="ReloadEmptyAlt"
 	
@@ -630,8 +630,8 @@ defaultproperties
 	bWT_Shotgun=True
 	bWT_Machinegun=True
 	ManualLines(0)="Automatic 7.62mm fire. High power, but shorter effective range and suffers from high recoil."
-	ManualLines(1)="Engages the secondary shotgun. Has a shorter range than other shotguns and moderate spread."
-	ManualLines(2)="Effective at close to medium range."
+	ManualLines(1)="Burst Fire Enables a Photon Burst, allowing for a forced faster rate of fire for the longer range engagement"
+	ManualLines(2)="Effective at close to medium to long range. With the addition of the Scope, Red Dot Sight & the attachable Silencer"
 	SpecialInfo(0)=(Info="240.0;25.0;0.9;85.0;0.1;0.9;0.4")
 	BringUpSound=(Sound=Sound'BW_Core_WeaponSound.M50.M50Pullout')
 	PutDownSound=(Sound=Sound'BW_Core_WeaponSound.M50.M50Putaway')
@@ -665,7 +665,7 @@ defaultproperties
 	SelectForce="SwitchToAssaultRifle"
 	AIRating=0.750000
 	CurrentRating=0.750000
-	Description="Dipheox's most popular weapon, the CYLO Versatile Urban Assault Weapon is designed with one goal in mind: Brutal close quarters combat. The CYLO accomplishes this goal quite well, earning itself the nickname of Badger with its small frame, brutal effectiveness, and unpredictability. UTC refuses to let this weapon in the hands of its soldiers because of its erratic firing and tendency to jam.||The CYLO Versatile UAW is fully capable for urban combat. The rifle's caseless 7.62mm rounds can easily shoot through doors and thin walls, while the shotgun can clear a room quickly with its semi-automatic firing. Proper training with the bayonet can turn the gun itself into a deadly melee weapon."
+	Description="After the restrictions of photon based weaponry was lifted, several manufacturers began working on making new weapons with the technology in mind.  One such company was NDTR Industries, who saw the development of the EP90 and decided to make a PDW like that on their own, utilizing the old P90 as their inspiration.  Now known as the FCO1-B Proto PDW, as the name implies, it's still a prototype with only a few 100 being made for testing.  Still relatively potent thanks to an integral silencer and a unique second magazine that is actually a photon battery, powering a special burst that disorients and disables any organic or mechanized target."
 	DisplayFOV=55.000000
 	Priority=41
 	HudColor=(G=135)
@@ -678,7 +678,7 @@ defaultproperties
 	AttachmentClass=Class'BWBP_APC_Pro.ProtoAttachment'
 	IconMaterial=Texture'BWBP_CC_Tex.ProtoLMG.SmallIcon_ProtoLMG'
 	IconCoords=(X2=127,Y2=31)
-	ItemName="[B] FC-01B PROTO Light Machinegun"
+	ItemName="FC-01B PROTO Light Machinegun"
 	LightType=LT_Pulse
 	LightEffect=LE_NonIncidence
 	LightHue=30

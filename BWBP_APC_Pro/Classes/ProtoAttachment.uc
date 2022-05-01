@@ -219,9 +219,9 @@ simulated function FlashMuzzleFlash(byte Mode)
 
 defaultproperties
 {
-	 PhotonTracerClass=Class'BallisticProV55.TraceEmitter_Freeze'
-     PhotonImpactManager=Class'BallisticProV55.IM_FreezeHit'
-	 PhotonMuzzleFlashClass=Class'BallisticProV55.M50M900FlashEmitter'
+	 PhotonTracerClass=Class'BWBP_APC_Pro.TraceEmitter_ProtoPhoton'
+     PhotonImpactManager=Class'BWBP_APC_Pro.IM_ProtoPhoton'
+	 PhotonMuzzleFlashClass=Class'BWBP_APC_Pro.ProtoPhotonFlashEmitter'
      MuzzleFlashClass=Class'BallisticProV55.M50FlashEmitter'
      ImpactManager=Class'BallisticProV55.IM_Bullet'
      AltFlashBone="tipalt"

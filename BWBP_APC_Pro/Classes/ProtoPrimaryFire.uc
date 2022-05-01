@@ -218,14 +218,15 @@ function PlayFiring()
 defaultproperties
 {
 	 PhotonCharge=20
-
+	 MuzzleFlashClass=Class'BallisticProV55.XK2FlashEmitter'
      SMuzzleFlashClass=Class'BallisticProV55.XK2SilencedFlash'
-	 PhotonMuzzleFlashClass=Class'BallisticProV55.M50M900FlashEmitter'
+	 PhotonMuzzleFlashClass=Class'BWBP_APC_Pro.ProtoPhotonFlashEmitter'
      SFlashBone="tip2"
      PhotonFlashBone="tipalt"
 	 FlashBone="tip"
-     SFlashScaleFactor=1.000000
-     PhotonFlashScaleFactor=1.000000
+     FlashScaleFactor=0.500000
+	 SFlashScaleFactor=1.000000
+     PhotonFlashScaleFactor=0.400000
 	 SilencedFireSound=(Sound=SoundGroup'BWBP_JCF_Sounds.P90.P90SilFire',Volume=2.000000,Radius=192.000000,bAtten=True)
      CutOffDistance=3072.000000
      CutOffStartRange=1536.000000
@@ -245,8 +246,6 @@ defaultproperties
      ClipFinishSound=(Sound=Sound'BW_Core_WeaponSound.Misc.ClipEnd-1',Volume=0.800000,Radius=48.000000,bAtten=True)
      DryFireSound=(Sound=Sound'BW_Core_WeaponSound.Misc.DryRifle',Volume=0.700000)
      bCockAfterEmpty=True
-     MuzzleFlashClass=Class'BallisticProV55.XK2FlashEmitter'
-     FlashScaleFactor=0.500000
      FireRecoil=220.000000
      FireChaos=0.032000
      FireChaosCurve=(Points=((InVal=0,OutVal=1),(InVal=0.160000,OutVal=1),(InVal=0.250000,OutVal=1.500000),(InVal=0.500000,OutVal=2.250000),(InVal=0.750000,OutVal=3.500000),(InVal=1.000000,OutVal=5.000000)))

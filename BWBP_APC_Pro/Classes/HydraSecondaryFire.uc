@@ -120,8 +120,8 @@ function DoFireEffect()
     {
  		//FireLocation = StartTrace - 2*((Sin(i*2*PI/SpawnCount)*8 - 7)*Y - (Cos(i*2*PI/SpawnCount)*8 - 7)*Z) - X * 8;
 		FireDirection = Aim;
-		FireDirection.Pitch += 4096*Sin(i*2*PI/SpawnCount);
-		FireDirection.Yaw += 4096*Cos(i*2*PI/SpawnCount);
+		FireDirection.Pitch += 3584*Sin(i*2*PI/SpawnCount);
+		FireDirection.Yaw += 3584*Cos(i*2*PI/SpawnCount);
         SpawnProjectile(StartTrace, FireDirection);
     }
 

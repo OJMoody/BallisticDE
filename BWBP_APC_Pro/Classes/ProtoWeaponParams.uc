@@ -10,9 +10,9 @@ defaultproperties
 		TraceRange=(Min=8000.000000,Max=12000.000000)
 		RangeAtten=0.100000
 		Damage=20
-		DamageType=Class'BWBP_SKC_Pro.DTCYLORifle'
-		DamageTypeHead=Class'BWBP_SKC_Pro.DTCYLORifleHead'
-		DamageTypeArm=Class'BWBP_SKC_Pro.DTCYLORifle'
+		DamageType=Class'BWBP_APC_Pro.DTProto'
+		DamageTypeHead=Class'BWBP_APC_Pro.DTProtoHead'
+		DamageTypeArm=Class'BWBP_APC_Pro.DTProto'
 		PenetrateForce=180
 		bPenetrate=True
 		MuzzleFlashClass=Class'BallisticProV55.XK2FlashEmitter'
@@ -40,9 +40,12 @@ defaultproperties
 		TraceRange=(Min=8000.000000,Max=12000.000000)
 		RangeAtten=0.100000
 		Damage=22
+		DamageType=Class'BWBP_APC_Pro.DTProtoPhoton'
+		DamageTypeHead=Class'BWBP_APC_Pro.DTProtoPhotonHead'
+		DamageTypeArm=Class'BWBP_APC_Pro.DTProtoPhoton'
 		PenetrateForce=180
 		bPenetrate=True
-		MuzzleFlashClass=Class'BWBP_APC_Pro.ProtoPhotonFlashEmitter'
+		MuzzleFlashClass=Class'BallisticProV55.XK2FlashEmitter'
 		FlashScaleFactor=0.900000
 		Recoil=70.000000
 		Chaos=0.032000
@@ -54,8 +57,8 @@ defaultproperties
 		FireInterval=0.085000
 		PreFireAnim=
 		FireEndAnim=
-		FireAnim="Fire"
-		AimedFireAnim="SightFire"
+		FireAnim="FireAlt"
+		AimedFireAnim="SightFireAlt"
 		FireEffectParams(0)=InstantEffectParams'ArenaPhotonPrimaryEffectParams'
 	End Object
 
