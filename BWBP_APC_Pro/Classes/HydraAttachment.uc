@@ -8,11 +8,13 @@
 //=============================================================================
 class HydraAttachment extends BallisticAttachment;
 
-var   bool			bLaserOn;		//Is laser currently active
-var   bool			bOldLaserOn;	//Old bLaserOn
-var   LaserActor	Laser;			//The laser actor
-var   vector		LaserEndLoc;
-var   Emitter		LaserDot;
+var   bool					bLaserOn;		//Is laser currently active
+var   bool					bOldLaserOn;	//Old bLaserOn
+var   LaserActor			Laser;			//The laser actor
+var   vector				LaserEndLoc;
+var   Emitter				LaserDot;
+var   Rotator				LaserRot;
+var   BallisticWeapon 		myWeap;
 
 var name BackBones[2];
 var name FrontBones[6];
@@ -82,41 +84,42 @@ simulated event Destroyed()
 	Super.Destroyed();
 }
 
-
-/*replication
+replication
 {
 	reliable if ( Role==ROLE_Authority )
 		bLaserOn;
-	unreliable if ( Role==ROLE_Authority && !bNetOwner )
-		LaserEndLoc;
+	unreliable if ( Role==ROLE_Authority )
+		LaserRot;
 }
 
-simulated function KillLaserDot()
+function InitFor(Inventory I)
 {
-	if (LaserDot != None)
-	{
-		LaserDot.Kill();
-		LaserDot = None;
-	}
-}
-simulated function SpawnLaserDot(optional vector Loc)
-{
-	if (LaserDot == None)
-		LaserDot = Spawn(class'HydraLaserDot',,,Loc);
-	laserDot.bHidden=false;
+	Super.InitFor(I);
+
+	if (BallisticWeapon(I) != None)
+		myWeap = BallisticWeapon(I);
 }
 
 simulated function Tick(float DT)
 {
-	local Vector Scale3D, Loc;
+	local Vector HitLocation, Start, End, HitNormal, Scale3D, Loc;
+	local Rotator X;
+	local Actor Other;
 
 	Super.Tick(DT);
+
+	if (bLaserOn && Role==ROLE_Authority && myWeap != None)
+	{
+		LaserRot = Instigator.GetViewRotation();
+		LaserRot += myWeap.GetAimPivot();
+		LaserRot += myWeap.GetRecoilPivot();
+	}
 
 	if (Level.NetMode == NM_DedicatedServer)
 		return;
 
 	if (Laser == None)
-		Laser = Spawn(class'LaserActor_G5Painter',,,Location);
+		Laser = Spawn(class'BallisticProV55.LaserActor_G5Painter',,,Location);
 
 	if (bLaserOn != bOldLaserOn)
 		bOldLaserOn = bLaserOn;
@@ -125,66 +128,34 @@ simulated function Tick(float DT)
 	{
 		if (!Laser.bHidden)
 			Laser.bHidden = true;
-		KillLaserDot();
 		return;
 	}
 	else
 	{
 		if (Laser.bHidden)
 			Laser.bHidden = false;
-		SpawnLaserDot();
 	}
 
-	if (LaserDot != None)
-		LaserDot.SetLocation(LaserEndLoc);
+	if (Instigator != None)
+		Start = Instigator.Location + Instigator.EyePosition();
+	else
+		Start = Location;
+	X = LaserRot;
 
-	Loc = GetModeTipLocation();
+	Loc = GetBoneCoords('tip2').Origin;
+
+	End = Start + (Vector(X)*5000);
+	Other = Trace (HitLocation, HitNormal, End, Start, true);
+	if (Other == None)
+		HitLocation = End;
 
 	Laser.SetLocation(Loc);
-	Laser.SetRotation(Rotator(LaserEndLoc - Loc));
-//	Laser.SetRelativeRotation(Rotator(HitLocation - Loc) - GetBoneRotation('tip'));
-	Scale3D.X = VSize(LaserEndLoc-Laser.Location)/128;
+	Laser.SetRotation(Rotator(HitLocation - Loc));
+	Scale3D.X = VSize(HitLocation-Laser.Location)/128;
 	Scale3D.Y = 1.5;
 	Scale3D.Z = 1.5;
 	Laser.SetDrawScale3D(Scale3D);
-}*/
-
-// This assumes flash actors are triggered to make them work
-// Override this in subclassed for better control
-/*simulated function FlashMuzzleFlash(byte Mode)
-{
-	if (Instigator.IsFirstPerson() && PlayerController(Instigator.Controller).ViewTarget == Instigator)
-		return;
-
-	if (AltMuzzleFlashClass != None)
-	{
-		if (AltMuzzleFlash == None)
-		{	// Spawn, Attach, Scale, Initialize emitter flashes
-			AltMuzzleFlash = Spawn(AltMuzzleFlashClass, self);
-			if (Emitter(AltMuzzleFlash) != None)
-				class'BallisticEmitter'.static.ScaleEmitter(Emitter(AltMuzzleFlash), DrawScale*FlashScale);
-			AltMuzzleFlash.SetDrawScale(DrawScale*FlashScale);
-			if (DGVEmitter(AltMuzzleFlash) != None)
-				DGVEmitter(AltMuzzleFlash).InitDGV();
-			AttachToBone(AltMuzzleFlash, 'tip2');
-		}
-		AltMuzzleFlash.Trigger(self, Instigator);
-	}
-	if (MuzzleFlashClass != None)
-	{	// Spawn, Attach, Scale, Initialize emitter flashes
-		if (MuzzleFlash == None)
-		{
-			MuzzleFlash = Spawn(MuzzleFlashClass, self);
-			if (Emitter(MuzzleFlash) != None)
-				class'BallisticEmitter'.static.ScaleEmitter(Emitter(MuzzleFlash), DrawScale*FlashScale);
-			MuzzleFlash.SetDrawScale(DrawScale*FlashScale);
-			if (DGVEmitter(MuzzleFlash) != None)
-				DGVEmitter(MuzzleFlash).InitDGV();
-			AttachToBone(MuzzleFlash, 'tip');
-		}
-		MuzzleFlash.Trigger(self, Instigator);
-	}
-}*/
+}
 
 defaultproperties
 {
