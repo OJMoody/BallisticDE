@@ -8,10 +8,23 @@
 //=============================================================================
 class Ammo_ProtoAlt extends BallisticAmmo;
 
+var   ProtoSMG		Gun;
+
+function bool HandlePickupQuery(Pickup Item)
+{
+	if (Super.HandlePickupQuery(Item))
+	{
+		if (Gun != None)
+			Gun.PhotonPickedUp();
+		return true;
+	}
+	return false;
+}
+
 defaultproperties
 {
-     MaxAmmo=60
-     InitialAmount=30
+     MaxAmmo=100
+     InitialAmount=40
      IconFlashMaterial=Shader'BW_Core_WeaponTex.leMat.AmmoIcon_Wilson41DBFlash'
      PickupClass=Class'BWBP_APC_Pro.AP_ProtoAlt'
      IconMaterial=Texture'BW_Core_WeaponTex.leMat.AmmoIcon_Wilson41DB'

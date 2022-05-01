@@ -78,7 +78,7 @@ defaultproperties
      bFireOnRelease=True
      FireAnim=
      FireRate=0.020000
-     AmmoClass=Class'BWBP_OP_Pro.Ammo_R9A1'
+     AmmoClass=Class'BWBP_APC_Pro.Ammo_ProtoAlt'
      AmmoPerFire=0
      BotRefireRate=0.300000
 }

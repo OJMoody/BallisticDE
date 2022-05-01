@@ -10,21 +10,114 @@
 class ProtoPrimaryFire extends BallisticRangeAttenFire;
 
 var() Actor						SMuzzleFlash;		// Silenced Muzzle flash stuff
+var() Actor						PhotonMuzzleFlash;
 var() class<Actor>				SMuzzleFlashClass;
+var() class<Actor>				PhotonMuzzleFlashClass;
 var() Name						SFlashBone;
 var() float						SFlashScaleFactor;
+var() Name						PhotonFlashBone;
+var() float						PhotonFlashScaleFactor;
+
+var   int						PhotonCharge;
+var   class<Ammunition>			AltAmmoClass;
+
+simulated function bool CheckCharge()
+{
+	local int channel;
+	local name seq;
+	local float frame, rate;
+
+	if (PhotonCharge <= 0)
+	{
+		weapon.GetAnimParams(channel, seq, frame, rate);
+		if (seq == ProtoSMG(Weapon).PhotonLoadAnim || seq == ProtoSMG(Weapon).PhotonLoadEmptyAnim)
+			return false;
+		ProtoSMG(Weapon).LoadPhoton();
+		bIsFiring=false;
+		return false;
+	}
+	
+	return true;
+}
+
+// Check if there is ammo in clip if we use weapon's mag or is there some in inventory if we don't
+simulated function bool AllowFire()
+{
+	if (!CheckReloading())
+		return false;		// Is weapon busy reloading
+	if (!CheckWeaponMode())
+		return false;		// Will weapon mode allow further firing
+
+	if(!Super.AllowFire() || (BW.CurrentWeaponMode == 1 && PhotonCharge <= 0))
+	{
+		if (!bPlayedDryFire && DryFireSound.Sound != None)
+		{
+			bPlayedDryFire=true;
+			Weapon.PlayOwnedSound(DryFireSound.Sound,DryFireSound.Slot,DryFireSound.Volume,DryFireSound.bNoOverride,DryFireSound.Radius,DryFireSound.Pitch,DryFireSound.bAtten);
+		}
+		BW.EmptyFire(1);
+		return false;	// Does not use ammo from weapon mag. Is there ammo in inventory
+	}
+
+    return true;
+}
+
+simulated event ModeDoFire()
+{
+	if (!AllowFire())
+		return;
+
+	if (!CheckCharge())
+		return;
+		
+	Super.ModeDoFire();
+	
+	if (BW.CurrentWeaponMode == 1 && PhotonCharge > 0)
+		PhotonCharge--;
+}
+
+function StopFiring()
+{
+	local int channel;
+	local name seq;
+	local float frame, rate;
+	
+	weapon.GetAnimParams(channel, seq, frame, rate);
+	if (Seq == PreFireAnim)
+		Weapon.PlayAnim(Weapon.IdleAnim, 1.0, 0.5);
+}
+
+simulated function SwitchWeaponMode(byte NewMode)
+{
+	if (NewMode == 1)
+	{
+		AmmoClass = AltAmmoClass;
+		bUseWeaponMag = false;
+	}
+	else
+	{
+		AmmoClass = default.AmmoClass;
+		bUseWeaponMag = true;
+	}
+}
 
 //Trigger muzzleflash emitter
 function FlashMuzzleFlash()
 {
     if ( (Level.NetMode == NM_DedicatedServer) || (AIController(Instigator.Controller) != None) )
 		return;
+		
 	if (!Instigator.IsFirstPerson() || PlayerController(Instigator.Controller).ViewTarget != Instigator)
 		return;
-    if (!ProtoSMG(Weapon).bSilenced && MuzzleFlash != None)
+		
+    if (!ProtoSMG(Weapon).bSilenced && MuzzleFlash != None && BW.CurrentWeaponMode == 0)
         MuzzleFlash.Trigger(Weapon, Instigator);
-    else if (ProtoSMG(Weapon).bSilenced && SMuzzleFlash != None)
+		
+	if (ProtoSMG(Weapon).bSilenced && SMuzzleFlash != None && BW.CurrentWeaponMode == 0)
         SMuzzleFlash.Trigger(Weapon, Instigator);
+		
+	if (PhotonMuzzleFlash != None && BW.CurrentWeaponMode == 1)
+		PhotonMuzzleFlash.Trigger(Weapon,Instigator);
 
 	if (!bBrassOnCock)
 		EjectBrass();
@@ -54,6 +147,8 @@ function InitEffects()
 		return;
     if ((MuzzleFlashClass != None) && ((MuzzleFlash == None) || MuzzleFlash.bDeleteMe) )
 		class'BUtil'.static.InitMuzzleFlash (MuzzleFlash, MuzzleFlashClass, Weapon.DrawScale*FlashScaleFactor, weapon, FlashBone);
+	if ((PhotonMuzzleFlashClass != None) && ((PhotonMuzzleFlash == None) || PhotonMuzzleFlash.bDeleteMe) )
+		class'BUtil'.static.InitMuzzleFlash (PhotonMuzzleFlash, PhotonMuzzleFlashClass, Weapon.DrawScale*PhotonFlashScaleFactor, weapon, PhotonFlashBone);
     if ((SMuzzleFlashClass != None) && ((SMuzzleFlash == None) || SMuzzleFlash.bDeleteMe) )
 		class'BUtil'.static.InitMuzzleFlash (SMuzzleFlash, SMuzzleFlashClass, Weapon.DrawScale*SFlashScaleFactor, weapon, SFlashBone);
 }
@@ -65,16 +160,20 @@ simulated function DestroyEffects()
 
 	class'BUtil'.static.KillEmitterEffect (MuzzleFlash);
 	class'BUtil'.static.KillEmitterEffect (SMuzzleFlash);
+	class'BUtil'.static.KillEmitterEffect (PhotonMuzzleFlash);
 }
 
 simulated function SendFireEffect(Actor Other, vector HitLocation, vector HitNormal, int Surf, optional vector WaterHitLoc)
 {
-	BallisticAttachment(Weapon.ThirdPersonActor).BallisticUpdateHit(Other, HitLocation, HitNormal, Surf, ProtoSMG(Weapon).bSilenced, WaterHitLoc);
+	if (BW.CurrentWeaponMode == 1)
+		ProtoAttachment(Weapon.ThirdPersonActor).PhotonUpdateHit(Other, HitLocation, HitNormal, Surf, , WaterHitLoc);
+	else
+		BallisticAttachment(Weapon.ThirdPersonActor).BallisticUpdateHit(Other, HitLocation, HitNormal, Surf, ProtoSMG(Weapon).bSilenced, WaterHitLoc);
 }
 
 function ServerPlayFiring()
 {
-	if (ProtoSMG(Weapon) != None && ProtoSMG(Weapon).bSilenced && SilencedFireSound.Sound != None)
+	if (ProtoSMG(Weapon) != None && ProtoSMG(Weapon).bSilenced && SilencedFireSound.Sound != None && BW.CurrentWeaponMode == 0)
 		Weapon.PlayOwnedSound(SilencedFireSound.Sound,SilencedFireSound.Slot,SilencedFireSound.Volume,SilencedFireSound.bNoOverride,SilencedFireSound.Radius,SilencedFireSound.Pitch,SilencedFireSound.bAtten);
 	else if (BallisticFireSound.Sound != None)
 		Weapon.PlayOwnedSound(BallisticFireSound.Sound,BallisticFireSound.Slot,BallisticFireSound.Volume,BallisticFireSound.bNoOverride,BallisticFireSound.Radius,BallisticFireSound.Pitch,BallisticFireSound.bAtten);
@@ -108,7 +207,7 @@ function PlayFiring()
     ClientPlayForceFeedback(FireForce);  // jdf
     FireCount++;
 
-	if (ProtoSMG(Weapon) != None && ProtoSMG(Weapon).bSilenced && SilencedFireSound.Sound != None)
+	if (ProtoSMG(Weapon) != None && ProtoSMG(Instigator.Weapon).bSilenced && SilencedFireSound.Sound != None && BW.CurrentWeaponMode == 0)
 		Weapon.PlayOwnedSound(SilencedFireSound.Sound,SilencedFireSound.Slot,SilencedFireSound.Volume,,SilencedFireSound.Radius,,true);
 	else if (BallisticFireSound.Sound != None)
 		Weapon.PlayOwnedSound(BallisticFireSound.Sound,BallisticFireSound.Slot,BallisticFireSound.Volume,,BallisticFireSound.Radius);
@@ -118,10 +217,15 @@ function PlayFiring()
 
 defaultproperties
 {
+	 PhotonCharge=20
+
      SMuzzleFlashClass=Class'BallisticProV55.XK2SilencedFlash'
+	 PhotonMuzzleFlashClass=Class'BallisticProV55.M50M900FlashEmitter'
      SFlashBone="tip2"
+     PhotonFlashBone="tipalt"
 	 FlashBone="tip"
      SFlashScaleFactor=1.000000
+     PhotonFlashScaleFactor=1.000000
 	 SilencedFireSound=(Sound=SoundGroup'BWBP_JCF_Sounds.P90.P90SilFire',Volume=2.000000,Radius=192.000000,bAtten=True)
      CutOffDistance=3072.000000
      CutOffStartRange=1536.000000
@@ -154,6 +258,7 @@ defaultproperties
      FireEndAnim=
      FireRate=0.1050000
      AmmoClass=Class'BWBP_APC_Pro.Ammo_Proto'
+	 AltAmmoClass=Class'BWBP_APC_Pro.Ammo_ProtoAlt'
      ShakeRotMag=(X=128.000000,Y=64.000000)
      ShakeRotRate=(X=10000.000000,Y=10000.000000,Z=10000.000000)
      ShakeRotTime=2.000000

@@ -14,7 +14,7 @@ simulated event PreBeginplay()
 
 defaultproperties
 {
-     AmmoAmount=30
+     AmmoAmount=40
      InventoryType=Class'BWBP_APC_Pro.Ammo_ProtoAlt'
      PickupMessage="You picked up a S1W Photon Round Case."
      PickupSound=Sound'BW_Core_WeaponSound.Ammo.ShotBoxPickup'

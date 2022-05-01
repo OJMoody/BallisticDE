@@ -5,6 +5,13 @@ class ProtoSMG extends BallisticWeapon;
 
 #exec OBJ LOAD File=BWBP_CC_Tex.utx
 
+var() name			PhotonLoadAnim, PhotonLoadEmptyAnim;	// Anim for reloading photon ammo
+
+var() Sound			PhotonMagOutSound;		// Sounds for Photon reloading
+var() Sound			PhotonMagSlideInSound;	//
+var() Sound			PhotonMagHitSound;		//
+var() Sound			PhotonMagCockSound;		//
+
 var   bool			bSilenced;				// Silencer on. Silenced
 var() name			SilencerBone;			// Bone to use for hiding silencer
 var() name			SilencerOnAnim;			// Think hard about this one...
@@ -21,7 +28,6 @@ var rotator IronSightPivot;
 var vector IronSightOffset;
 
 var Name 			ReloadAltAnim;
-var() int			PhotonMagAmmo;
 var BUtil.FullSound DrumInSound, DrumHitSound, DrumOutSound;
 var	bool			bAltNeedCock;			//Should SG cock after reloading
 
@@ -29,10 +35,10 @@ var float StealthRating, StealthImps;
 
 replication
 {
-	reliable if (Role == ROLE_Authority)
-		PhotonMagAmmo;
 	reliable if (Role < ROLE_Authority)
 		ServerSwitchSilencer;
+	unreliable if (ROLE == Role_Authority)
+		ClientPhotonPickedUp; 
 }
 
 //=====================================================================
@@ -196,6 +202,201 @@ simulated function bool PutDown()
 }
 
 //===========================================================================
+// Extra ammo type code
+//===========================================================================
+
+// Notifys for greande loading sounds
+simulated function Notify_AltClipOut()			{	PlaySound(PhotonMagOutSound, SLOT_Misc, 0.5, ,64);	}
+simulated function Notify_AltClipSlideIn()		{	PlaySound(PhotonMagSlideInSound, SLOT_Misc, 0.5, ,64);		}
+simulated function Notify_SGCock()				{	PlaySound(PhotonMagCockSound, SLOT_Misc, 0.5, ,64);		}
+simulated function Notify_AltClipIn()	
+{	
+	PlaySound(PhotonMagHitSound, SLOT_Misc, 0.5, ,64);
+	if (Ammo[1].AmmoAmount < ProtoPrimaryFire(FireMode[0]).default.PhotonCharge)
+		ProtoPrimaryFire(FireMode[0]).PhotonCharge = Ammo[1].AmmoAmount;
+	else
+		ProtoPrimaryFire(FireMode[0]).PhotonCharge = ProtoPrimaryFire(FireMode[0]).default.PhotonCharge;
+}
+
+// Photon has just been picked up. Loads one in if we're empty
+function PhotonPickedUp ()
+{
+	if (Ammo[1].AmmoAmount < Ammo[1].MaxAmmo)
+	{
+		if (Instigator.Weapon == self)
+			LoadPhoton();
+		else
+		{
+			if (Ammo[1].AmmoAmount < ProtoPrimaryFire(FireMode[0]).default.PhotonCharge)
+				ProtoPrimaryFire(FireMode[0]).PhotonCharge = Ammo[1].AmmoAmount;
+			else
+				ProtoPrimaryFire(FireMode[0]).PhotonCharge = ProtoPrimaryFire(FireMode[0]).default.PhotonCharge;
+		}
+	}
+	if (!Instigator.IsLocallyControlled())
+		ClientPhotonPickedUp();
+}
+
+simulated function ClientPhotonPickedUp()
+{
+	if (Ammo[1].AmmoAmount < Ammo[1].MaxAmmo)
+	{
+		if (ClientState == WS_ReadyToFire)
+			LoadPhoton();
+		else
+		{
+			if (Ammo[1].AmmoAmount < ProtoPrimaryFire(FireMode[0]).default.PhotonCharge)
+				ProtoPrimaryFire(FireMode[0]).PhotonCharge = Ammo[1].AmmoAmount;
+			else
+				ProtoPrimaryFire(FireMode[0]).PhotonCharge = ProtoPrimaryFire(FireMode[0]).default.PhotonCharge;
+		}
+	}
+}
+
+simulated function bool IsPhotonLoaded()
+{
+	if (ProtoPrimaryFire(FireMode[0]).PhotonCharge > 0)
+		return true;
+	else 
+		return false;
+}
+
+function GiveAmmo(int m, WeaponPickup WP, bool bJustSpawned)
+{
+	Super.GiveAmmo(m, WP, bJustSpawned);
+	if (Ammo[1] != None && Ammo_ProtoAlt(Ammo[1]) != None)
+		Ammo_ProtoAlt(Ammo[1]).Gun = self;
+}
+
+simulated event AnimEnd (int Channel)
+{
+    local name anim;
+    local float frame, rate;
+
+    GetAnimParams(0, anim, frame, rate);
+	if (anim == PhotonLoadAnim || anim == PhotonLoadEmptyAnim)
+	{
+		ReloadState = RS_None;
+		IdleTweenTime=0.0;
+		PlayIdle();
+	}
+	else
+		IdleTweenTime=default.IdleTweenTime;
+		
+	Super.AnimEnd(Channel);
+}
+
+// Load in rockets
+//if reserve ammo is above mag size, just need to check if the number of rockets is below the default
+//if reserve ammo is less or equal to mag size, check if the number of rockets is below the reserve ammo
+
+simulated function LoadPhoton()
+{
+	if (Ammo[1].AmmoAmount > ProtoPrimaryFire(FireMode[0]).default.PhotonCharge && ProtoPrimaryFire(FireMode[0]).PhotonCharge >= ProtoPrimaryFire(FireMode[0]).default.PhotonCharge)
+		return;
+		
+	if (Ammo[1].AmmoAmount <= ProtoPrimaryFire(FireMode[0]).default.PhotonCharge && ProtoPrimaryFire(FireMode[0]).PhotonCharge >= Ammo[1].AmmoAmount)
+		return;
+		
+	if (ReloadState == RS_None)
+	{
+		ReloadState = RS_Cocking;
+		
+		if (ProtoPrimaryFire(FireMode[0]).PhotonCharge < 1 && HasAnim(PhotonLoadEmptyAnim))
+			PlayAnim(PhotonLoadEmptyAnim, 0.75, , 0);
+		else
+			PlayAnim(PhotonLoadAnim, 0.75, , 0);
+	}		
+}
+
+simulated function bool IsReloadingPhoton()
+{
+    local name anim;
+    local float frame, rate;
+    GetAnimParams(0, anim, frame, rate);
+	if (Anim == PhotonLoadAnim || Anim == PhotonLoadEmptyAnim)
+ 		return true;
+	return false;
+}
+
+function ServerStartReload (optional byte i)
+{
+	local int channel;
+	local name seq;
+	local float frame, rate;
+
+	if (bPreventReload)
+		return;
+	if (ReloadState != RS_None)
+		return;
+
+	GetAnimParams(channel, seq, frame, rate);
+	
+	if (seq == PhotonLoadAnim || seq == PhotonLoadEmptyAnim)
+		return;
+
+	if (i == 1 || (MagAmmo >= default.MagAmmo || Ammo[0].AmmoAmount < 1))
+	{
+		if (AmmoAmount(1) > 0 && !IsReloadingPhoton())
+		{
+			LoadPhoton();
+			ClientStartReload(1);
+		}
+		return;
+	}
+	super.ServerStartReload();
+}
+
+simulated function ClientStartReload(optional byte i)
+{
+	if (Level.NetMode == NM_Client)
+	{
+		if (i == 1 || (MagAmmo >= default.MagAmmo || Ammo[0].AmmoAmount < 1))
+		{
+			if (AmmoAmount(1) > 0 && !IsReloadingPhoton())
+				LoadPhoton();
+		}
+		else
+			CommonStartReload(i);
+	}
+}
+
+simulated function bool CheckWeaponMode (int Mode)
+{
+	if (CurrentWeaponMode == 1)
+		return FireCount <= ProtoPrimaryFire(FireMode[0]).default.PhotonCharge;
+		
+	return super.CheckWeaponMode(Mode);
+}
+
+function bool BotShouldReloadPhoton()
+{
+	if ( (Level.TimeSeconds - Instigator.LastPainTime > 1.0) )
+		return true;
+	return false;
+}
+
+simulated event WeaponTick(float DT)
+{
+	super.WeaponTick(DT);
+
+	if (AIController(Instigator.Controller) != None && !IsPhotonLoaded() && AmmoAmount(1) > 0 && BotShouldReloadPhoton() && !IsReloadingPhoton())
+		LoadPhoton();
+}
+
+// Consume ammo from one of the possible sources depending on various factors
+simulated function bool ConsumeMagAmmo(int Mode, float Load, optional bool bAmountNeededIsMax)
+{
+	//consume ammo from other mode
+	if (BFireMode[Mode] != None && BFireMode[Mode].bUseWeaponMag == false && CurrentWeaponMode == 1)
+		ConsumeAmmo(CurrentWeaponMode, Load, bAmountNeededIsMax);
+	else
+		super.ConsumeMagAmmo(Mode, Load, bAmountNeededIsMax);
+		
+	return true;
+}
+
+//===========================================================================
 // Dual scoping
 //===========================================================================
 exec simulated function ScopeView()
@@ -283,7 +484,7 @@ simulated function SetHand(float InHand)
 //=====================================================================
 simulated function float ChargeBar()
 {
-	return float(PhotonMagAmmo)/float(default.PhotonMagAmmo);
+	return float(ProtoPrimaryFire(BFireMode[0]).PhotonCharge)/float(ProtoPrimaryFire(BFireMode[0]).default.PhotonCharge);
 }
 
 //=====================================================================
@@ -310,7 +511,7 @@ function byte BestMode()
 	if ( (B == None) || (B.Enemy == None) )
 		return 0;
 
-	if (AmmoAmount(1) < 1 || bAltNeedCock)
+	if (AmmoAmount(1) < 1 || !IsPhotonLoaded())
 		return 0;
 	else if (MagAmmo < 1)
 		return 1;
@@ -345,6 +546,24 @@ function byte BestMode()
 	if (Result > 0.5)
 		return 1;
 	return 0;
+}
+
+function bool CanAttack(Actor Other)
+{
+	if (!IsPhotonLoaded())
+	{
+		if (IsReloadingPhoton())
+		{
+			if ((Level.TimeSeconds - Instigator.LastPainTime > 1.0))
+				return false;
+		}
+		else if (AmmoAmount(1) > 0 && BotShouldReloadPhoton())
+		{
+			LoadPhoton();
+			return false;
+		}
+	}
+	return super.CanAttack(Other);
 }
 
 function float GetAIRating()
@@ -382,6 +601,13 @@ simulated function bool HasAmmo()
 
 defaultproperties
 {
+	PhotonMagOutSound=Sound'BW_Core_WeaponSound.BX5.BX5-SecOff'
+	PhotonMagSlideInSound=Sound'BW_Core_WeaponSound.BX5.BX5-SecOn'
+	PhotonMagHitSound=Sound'BW_Core_WeaponSound.A73.A73-PipeIn'
+	PhotonMagCockSound=Sound'BWBP_SKC_Sounds.CYLO.CYLO-CockSG'
+	PhotonLoadAnim="ReloadAlt"
+	PhotonLoadEmptyAnim="ReloadEmptyAlt"
+	
 	ScopeSightPivot=(Roll=-4096)
 	ScopeSightOffset=(X=15.000000,Y=-3.000000,Z=24.000000)
 	
@@ -419,7 +645,7 @@ defaultproperties
 	ClipInFrame=0.700000
 	bAltTriggerReload=True
 	WeaponModes(0)=(ModeName="Full Auto",ModeID="WM_FullAuto")
-	WeaponModes(1)=(ModeName="Photon Burst")
+	WeaponModes(1)=(ModeName="Photon Burst",ModeID="WM_Burst",Value=3.000000)
 	WeaponModes(2)=(bUnavailable=True)
 	CurrentWeaponMode=0
 	bNoCrosshairInScope=False
@@ -428,8 +654,8 @@ defaultproperties
 	GunLength=16.000000
 	ParamsClasses(0)=Class'ProtoWeaponParams' 
 	ParamsClasses(1)=Class'ProtoWeaponParams' 
-	AmmoClass[0]=Class'BWBP_APC_Pro.Ammo_Proto'
-	AmmoClass[1]=Class'BWBP_APC_Pro.Ammo_Proto'
+	//AmmoClass[0]=Class'BWBP_APC_Pro.Ammo_Proto'
+	//AmmoClass[1]=Class'BWBP_APC_Pro.Ammo_ProtoAlt'
 	FireModeClass(0)=Class'BWBP_APC_Pro.ProtoPrimaryFire'
 	FireModeClass(1)=Class'BWBP_APC_Pro.ProtoScopeFire'
 	SelectAnimRate=1.000000
