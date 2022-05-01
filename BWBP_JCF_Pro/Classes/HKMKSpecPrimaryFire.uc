@@ -92,7 +92,7 @@ function PlayFiring()
 		BW.ReloadAnim = 'ReloadOpen';
 		AimedFireAnim = 'SightFireOpen';
 		FireAnim = 'FireOpen';
-		//ReloadAltAnim = 'ReloadAlt';
+		HKMKSpecPistol(BW).ReloadAltAnim = 'ReloadAlt';
 	}
 	else
 	{
@@ -100,7 +100,7 @@ function PlayFiring()
 		BW.ReloadAnim = 'Reload';
 		AimedFireAnim = 'SightFire';
 		FireAnim = 'Fire';
-		//ReloadAltAnim = 'ReloadAltOpen';
+		HKMKSpecPistol(BW).ReloadAltAnim = 'ReloadAltOpen';
 	}
 
 	if (HKMKSpecPistol(Weapon).bSilenced)

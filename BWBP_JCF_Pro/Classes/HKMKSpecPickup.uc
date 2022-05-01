@@ -6,15 +6,15 @@ class HKMKSpecPickup extends BallisticHandgunPickup
 
 defaultproperties
 {
-     LowPolyStaticMesh=StaticMesh'BW_Core_WeaponStatic.RS8.RS8PickupLo'
-     PickupDrawScale=0.210000
+     LowPolyStaticMesh=StaticMesh'BWBP_JCF_Static.HKMKSpec.HKMK_SM'
+     PickupDrawScale=0.100000
      InventoryType=Class'BWBP_JCF_Pro.HKMKSpecPistol'
      RespawnTime=20.000000
-     PickupMessage="You picked up the RS8 pistol."
+     PickupMessage="You picked up the HKM-26 pistol."
      PickupSound=Sound'BW_Core_WeaponSound.XK2.XK2-Putaway'
-     StaticMesh=StaticMesh'BW_Core_WeaponStatic.RS8.RS8PickupHi'
+     StaticMesh=StaticMesh'BWBP_JCF_Static.HKMKSpec.HKMK_SM'
      Physics=PHYS_None
-     DrawScale=0.600000
+     DrawScale=0.100000
      PrePivot=(Y=-18.000000)
      CollisionHeight=4.000000
 }

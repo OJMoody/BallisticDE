@@ -366,7 +366,7 @@ simulated function BringUp(optional Weapon PrevWeapon)
 		ReloadAnim = 'ReloadOpen';
 		SilencerOnAnim = 'SilencerAddOpen';
 		SilencerOffAnim = 'SilencerRemoveOpen';
-		//AltReloadAnim = 'ReloadAltOpen';
+		ReloadAltAnim = 'ReloadAltOpen';
 	}
 	else
 	{
@@ -374,7 +374,7 @@ simulated function BringUp(optional Weapon PrevWeapon)
 		ReloadAnim = 'Reload';
 		SilencerOnAnim = 'SilencerAdd';
 		SilencerOffAnim = 'SilencerRemove';
-		//AltReloadAnim = 'ReloadAlt';
+		ReloadAltAnim = 'ReloadAlt';
 	}
 
 	if (AIController(Instigator.Controller) != None)
@@ -511,7 +511,7 @@ defaultproperties
 	SilencerOffTurnSound=Sound'BW_Core_WeaponSound.Pistol.RSP-SilencerTurn'
 	TeamSkins(0)=(RedTex=Shader'BW_Core_WeaponTex.Hands.RedHand-Shiny',BlueTex=Shader'BW_Core_WeaponTex.Hands.BlueHand-Shiny')
 	AIReloadTime=1.000000
-	BigIconMaterial=Texture'BWBP_JCF_Tex.MK23.BigIcon_MK23'
+	BigIconMaterial=Texture'BWBP_JCF_Tex.HKMK.BigIcon_HKMK'
 	BigIconCoords=(X1=64,Y1=70,X2=418)
 	BCRepClass=Class'BallisticProV55.BallisticReplicationInfo'
 	bWT_Bullet=True
@@ -542,7 +542,7 @@ defaultproperties
 	SelectForce="SwitchToAssaultRifle"
 	AIRating=0.600000
 	CurrentRating=0.6
-	Description="A fine and reliable weapon, produced by a rather new company, the 10mm RS8 pistol is bound for success. Featuring a 14 round, 10mm magazine, laser sight and silencer, as well as an effective closer range, 3-round burst fire mode. Use the laser sight to see exactly where your gun is aimed, and the silencer when stealth and quietness are required. The RS8 being a fairly recent firearm, first manufactured during the second-war, has not seen as much action as other older pistols, and some critics say it won't be able to stand up to a Cryon, let alone a Skrith!"
+	Description="There's always trouble on the homefront, no matter if it's peaceful or a war is raging on. Criminals are running rampant like the infamous pirate Var Dehidra and other ne'er do-wells, and while there are plenty of personal protection weapons, not a lot can pack a punch.  One such exception is the HKM-26 Assault Pistol, an upgrade kit to the original H&K MK23 which not only allows the use for the .45HVAP rounds, but comes with a miniature shotgun mounted on the underside of the pistol. The idea is to penetrate through whatever armor the bad guys are wearing before putting them down with some double 00 buckshot. It's worked on some of the most dangerous criminals, but as always; Var Dehidra has managed to elude such a fate."
 	Priority=17
 	HudColor=(B=255,G=200,R=200)
 	CustomCrossHairTextureName="Crosshairs.HUD.Crosshair_Cross1"
@@ -551,9 +551,9 @@ defaultproperties
 	PickupClass=Class'BWBP_JCF_Pro.HKMKSpecPickup'
 	PlayerViewOffset=(X=3.000000,Y=9.000000,Z=-10.000000)
 	AttachmentClass=Class'BWBP_JCF_Pro.HKMKSpecAttachment'
-	IconMaterial=Texture'BWBP_JCF_Tex.MK23.SmallIcon_MK23'
+	IconMaterial=Texture'BWBP_JCF_Tex.HKMK.SmallIcon_HKMK'
 	IconCoords=(X2=127,Y2=31)
-	ItemName="HKMK23 Assault Pistol"
+	ItemName="HKM-26 Assault Pistol"
 	LightType=LT_Pulse
 	LightEffect=LE_NonIncidence
 	LightHue=30

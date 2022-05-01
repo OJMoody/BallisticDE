@@ -38,17 +38,17 @@ function PlayFiring()
 	{
 		BW.IdleAnim = 'IdleOpen';
 		BW.ReloadAnim = 'ReloadOpen';
-		AimedFireAnim = 'SightFireOpen';
+		AimedFireAnim = 'SightFireAltOpen';
 		FireAnim = 'FireAltOpen';
-		//ReloadAltAnim = 'ReloadAltOpen';
+		HKMKSpecPistol(BW).ReloadAltAnim = 'ReloadAltOpen';
 	}
 	else
 	{
 		BW.IdleAnim = 'Idle';
 		BW.ReloadAnim = 'Reload';
-		AimedFireAnim = 'SightFire';
+		AimedFireAnim = 'SightFireAlt';
 		FireAnim = 'FireAlt';
-		//ReloadAltAnim = 'ReloadAlt';
+		HKMKSpecPistol(BW).ReloadAltAnim = 'ReloadAlt';
 	}
 
 	if (HKMKSpecPistol(Weapon).bSilenced)

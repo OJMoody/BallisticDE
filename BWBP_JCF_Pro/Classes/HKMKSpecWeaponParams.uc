@@ -39,18 +39,19 @@ defaultproperties
 	Begin Object Class=ShotgunEffectParams Name=ArenaSecondaryEffectParams
 		TraceRange=(Min=5000.000000,Max=5000.000000)
 		RangeAtten=0.750000
-		TraceCount=9
+		TraceCount=12
 		TracerClass=Class'BallisticProV55.TraceEmitter_Shotgun'
 		ImpactManager=Class'BallisticProV55.IM_Shell'
-		Damage=4
-		DamageType=Class'BWBP_SKC_Pro.DTCYLOShotgun'
-		DamageTypeHead=Class'BWBP_SKC_Pro.DTCYLOShotgunHead'
-		DamageTypeArm=Class'BWBP_SKC_Pro.DTCYLOShotgun'
+		Damage=6
+		DamageType=Class'BWBP_JCF_Pro.DTHKMKSpecPistolAlt'
+		DamageTypeHead=Class'BWBP_JCF_Pro.DTHKMKSpecPistolHeadAlt'
+		DamageTypeArm=Class'BWBP_JCF_Pro.DTHKMKSpecPistolAlt'
 		PenetrateForce=100
 		bPenetrate=True
 		MuzzleFlashClass=Class'BallisticProV55.MRT6FlashEmitter'
 		Recoil=512.000000
 		Chaos=0.500000
+		Inaccuracy=(X=400,Y=400)
 		BotRefireRate=0.700000
 		WarnTargetPct=0.500000	
 		FireSound=(Sound=Sound'BWBP_SKC_SoundsExp.AH104.AH104-Fire',Volume=1.100000,Radius=256.000000)

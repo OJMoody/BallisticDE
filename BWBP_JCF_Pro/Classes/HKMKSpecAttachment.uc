@@ -111,6 +111,8 @@ defaultproperties
      ReloadAnimRate=1.400000
      bRapidFire=True
      bAltRapidFire=True
-     Mesh=SkeletalMesh'BWBP_JCF_Anims.HKM_TPm'
-     DrawScale=0.150000
+     Mesh=SkeletalMesh'BWBP_JCF_Anims.HKMKSpec_TPm'
+	 FlashScale=0.200000
+     DrawScale=1.000000
+	 RelativeRotation=(Pitch=32768)
 }
