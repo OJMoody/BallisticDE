@@ -29,13 +29,15 @@ static function IncrementKills(Controller Killer)
 
 defaultproperties
 {
-     DeathStrings(0)="%k put %kh MK23 to %o's temple and fired."
-     DeathStrings(1)="%k's HK MK23 delivered a .45 to %o's smiling face."
-     DeathStrings(2)="%o took %k's Mark 23 .45 to the head and went silent."
-     DeathStrings(3)="%k put a .45 through the back of %o's head."
+     DeathStrings(0)="%o's helmet and gray matter has a shiny new hole thanks to %k."
+     DeathStrings(1)="%k managed to stop %o with a headshot before they did something highly illegal."
+     DeathStrings(2)="%o couldn't catch %k's speeding bullet coming right towards their gray matter."
+     DeathStrings(3)="%k ripped right through %o's ears even though there was a helmet protecting them."
+     DeathStrings(4)="%o was stopped from doing bad things by taking %k's armor piercing bullet to the dome."
+     DeathStrings(5)="%k broke through thick glass and %o’s nose with a single bullet."
      bHeaddie=True
      WeaponClass=Class'BWBP_JCF_Pro.HKMKSpecPistol'
-     DeathString="%k put %kh MK23 to %o's temple and fired."
+     DeathString="%k put %kh HKM-26 to %o's temple and fired."
      FemaleSuicide="%o litigated her own head off."
      MaleSuicide="%o litigated his own head off."
      bAlwaysSevers=True
