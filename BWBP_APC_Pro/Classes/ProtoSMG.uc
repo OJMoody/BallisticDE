@@ -647,6 +647,10 @@ defaultproperties
 	WeaponModes(0)=(ModeName="Full Auto",ModeID="WM_FullAuto")
 	WeaponModes(1)=(ModeName="Photon Burst",ModeID="WM_Burst",Value=3.000000)
 	WeaponModes(2)=(bUnavailable=True)
+	
+	NDCrosshairCfg=(Pic1=Texture'BW_Core_WeaponTex.Crosshairs.M50InA',Pic2=Texture'BW_Core_WeaponTex.Crosshairs.R78OutA',USize1=256,VSize1=256,USize2=256,VSize2=256,Color1=(B=255,G=255,R=255,A=255),Color2=(B=255,G=52,R=59,A=255),StartSize1=96,StartSize2=96)
+	NDCrosshairInfo=(SpreadRatios=(X1=0.500000,Y1=0.500000,X2=0.500000,Y2=0.750000),SizeFactors=(X1=1.000000,Y1=1.000000,X2=1.000000,Y2=1.000000),MaxScale=4.000000,CurrentScale=0.000000)
+
 	CurrentWeaponMode=0
 	bNoCrosshairInScope=False
 	SightPivot=(Pitch=128)
@@ -668,7 +672,7 @@ defaultproperties
 	Description="After the restrictions of photon based weaponry was lifted, several manufacturers began working on making new weapons with the technology in mind.  One such company was NDTR Industries, who saw the development of the EP90 and decided to make a PDW like that on their own, utilizing the old P90 as their inspiration.  Now known as the FCO1-B Proto PDW, as the name implies, it's still a prototype with only a few 100 being made for testing.  Still relatively potent thanks to an integral silencer and a unique second magazine that is actually a photon battery, powering a special burst that disorients and disables any organic or mechanized target."
 	DisplayFOV=55.000000
 	Priority=41
-	HudColor=(G=135)
+	HudColor=(B=135)
 	CustomCrossHairTextureName="Crosshairs.HUD.Crosshair_Cross1"
 	InventoryGroup=6
 	GroupOffset=10
