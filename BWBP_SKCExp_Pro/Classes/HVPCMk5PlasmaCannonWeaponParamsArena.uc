@@ -98,8 +98,8 @@ defaultproperties
 		SightingTime=0.350000		
 		DisplaceDurationMult=1
 		MagAmmo=200
-		PlayerSpeedFactor=0.800000
-		PlayerJumpFactor=0.700000
+		PlayerSpeedFactor=0.850000
+		PlayerJumpFactor=0.850000
 		SightOffset=(X=-12.000000,Y=-0.200000,Z=17.300000)
 		SightPivot=(Pitch=1024)
 		RecoilParams(0)=RecoilParams'ArenaRecoilParams'

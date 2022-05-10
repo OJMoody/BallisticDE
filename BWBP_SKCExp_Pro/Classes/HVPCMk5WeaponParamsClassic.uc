@@ -32,7 +32,8 @@ defaultproperties
 			FireInterval=0.720000
 			AmmoPerFire=5
 			BurstFireRateFactor=1.00
-			FireAnim="Fire2"
+			FireAnim="FireAlt"
+			AimedFireAnim="SightFire"
 			FireEndAnim=	
 		FireEffectParams(0)=ProjectileEffectParams'ClassicPrimaryEffectParams'
 		End Object
@@ -65,7 +66,8 @@ defaultproperties
 		Begin Object Class=FireParams Name=ClassicSecondaryFireParams
 			FireInterval=0.160000
 			BurstFireRateFactor=1.00
-			FireAnim="Fire2"
+			FireAnim="Fire"
+			AimedFireAnim="SightFire"
 			FireEndAnim=	
 		FireEffectParams(0)=ProjectileEffectParams'ClassicSecondaryEffectParams'
 		End Object
@@ -111,8 +113,8 @@ defaultproperties
 		PlayerJumpFactor=0.700000
 		InventorySize=55
 		SightMoveSpeedFactor=0.500000
-		SightOffset=(X=-12.000000,Z=19.299999)
-		SightPivot=(Pitch=768)
+		SightOffset=(X=-12.000000,Y=-0.200000,Z=17.300000)
+		SightPivot=(Pitch=1024)
 		RecoilParams(0)=RecoilParams'ClassicRecoilParams'
 		AimParams(0)=AimParams'ClassicAimParams'
 		FireParams(0)=FireParams'ClassicPrimaryFireParams'

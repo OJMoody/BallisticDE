@@ -28,7 +28,7 @@ defaultproperties
 			MuzzleFlashClass=Class'BallisticProV55.XK2FlashEmitter'
 			FlashScaleFactor=1.000000
 			FireSound=(Sound=Sound'BWBP_SKC_SoundsExp.T9CN.T9CN-FireOld',Volume=1.200000)
-			Recoil=768.000000
+			Recoil=600.000000
 			Chaos=-1.0
 			Inaccuracy=(X=48,Y=48)
 			BotRefireRate=0.900000
@@ -55,7 +55,7 @@ defaultproperties
 		DeclineTime=0.400000
 		DeclineDelay=0.100000
 		ViewBindFactor=0.200000
-		ADSViewBindFactor=0.200000
+		ADSViewBindFactor=0.400000
 		HipMultiplier=1.000000
 		CrouchMultiplier=0.800000
 		bViewDecline=True

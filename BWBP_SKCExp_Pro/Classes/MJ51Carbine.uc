@@ -366,7 +366,7 @@ defaultproperties
      BringUpSound=(Sound=Sound'BWBP_SKC_Sounds.MJ51.MJ51-PullOut',Volume=2.200000)
      PutDownSound=(Sound=Sound'BWBP_SKC_Sounds.MJ51.MJ51-Putaway',Volume=2.200000)
      WeaponModes(0)=(ModeName="Semi-Auto")
-     WeaponModes(1)=(ModeName="Burst Fire")
+     WeaponModes(1)=(ModeName="Burst Fire",ModeID="WM_Burst",Value=3.000000)
      WeaponModes(2)=(bUnavailable=True)
      WeaponModes(3)=(ModeName="Automatic",bUnavailable=True,ModeID="WM_FullAuto")
      CurrentWeaponMode=1

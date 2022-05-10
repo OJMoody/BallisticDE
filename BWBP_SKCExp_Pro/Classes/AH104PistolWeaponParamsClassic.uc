@@ -75,8 +75,8 @@ defaultproperties
 		XRandFactor=0.450000
 		YRandFactor=0.450000
 		MaxRecoil=5000.000000
-		DeclineTime=1.400000
-		DeclineDelay=0.000000
+		DeclineTime=1.000000
+		DeclineDelay=0.050000
 		ViewBindFactor=0.300000
 		ADSViewBindFactor=0.300000
 		HipMultiplier=1.000000

@@ -27,7 +27,7 @@ defaultproperties
 			SpreadMode=FSM_Rectangle
 			MuzzleFlashClass=Class'BallisticProV55.XK2FlashEmitter'
 			FireSound=(Sound=Sound'BWBP_SKC_Sounds.M1911.M1911-Fire',Volume=1.200000)
-			Recoil=640.000000
+			Recoil=512.000000
 			Chaos=0.050000
 			Inaccuracy=(X=11,Y=11)
 			BotRefireRate=0.300000
@@ -47,7 +47,7 @@ defaultproperties
 
 	Begin Object Class=RecoilParams Name=ClassicRecoilParams
 		XCurve=(Points=(,(InVal=1.000000,OutVal=1.000000)))
-		YawFactor=0.100000
+		YawFactor=0.000000
 		XRandFactor=0.350000
 		YRandFactor=0.350000
 		MaxRecoil=2048.000000
