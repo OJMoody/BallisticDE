@@ -2,10 +2,10 @@ class DT_HB4Bolt extends DT_BWMiscDamage;
 
 defaultproperties
 {
-     DeathStrings(0)="%k plugged %o into an X-007 bolt."
-     DeathStrings(1)="%o's was overstimulated by %k's X-007 bolt."
-     DeathStrings(2)="%k happily defibrilated %o with an X-007."
-     DeathStrings(3)="%k dropped an electric bolt into %o's bath."
+     DeathStrings(0)="%k deadened %o's arms, then their legs, and finally, their heart."
+     DeathStrings(1)="%o was stunned long enough for them to be murdered by %k."
+     DeathStrings(2)="%k fried %o to a nice, crispy, well done with a stun bolt."
+     DeathStrings(3)="%o got blasted to bits by %k's grenade blaster."
      SimpleKillString="HB4 Electric Bolt"
      BloodManagerName="BallisticProV55.BloodMan_A73Burn"
      bIgniteFires=True

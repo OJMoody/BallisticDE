@@ -296,7 +296,7 @@ defaultproperties
      FireModeClass(1)=Class'BWBP_SKCExp_Pro.FMPSecondaryFire'
      PutDownTime=0.700000
      SelectForce="SwitchToAssaultRifle"
-     Description="FMP-2012 Machine Pistol||Manufacturer: Black & Wood|Primary: Accurate Rifle Fire|Secondary: Attach Smoke Grenade||The MJ51 is a 3-round burst carbine based off the popular M50 assault rifle. It fires the 5.56mm UTC round and is more controllable than its larger cousin, though at the expense of long range accuracy and power. While the S-AR 12 is the UTC's weapon of choice for close range engagements, the MJ51 is often seen in the hands of MP and urban security details. When paired with its native CM3 Rifle Grenade attachment, the MJ51 makes an efficient riot control weapon."
+     Description="CWI is a relatively niche company nowadays, fine tuning weapons from wars of old only to be either preserved in museums across the galaxy or to be bought out by the highest bidders.  One such weapon is the FMP-2012, a retooled sub-machine gun from the second world war that doesn't fire very fast, but can hit pretty hard thanks to its rechambering to shoot over-pressured 9mm rounds.  It's fortunate for CWI to have the FMP be a prime candidate for NDTR's elemental amp technology, able to fire corrosive rounds or explosive rounds, breathing new life into the aging sub-machine gun.  While still inferior to it's modernized counterparts, the FMP-2012 does have its role in opening weak points to the Cryon's armor."
      Priority=41
      CustomCrossHairTextureName="Crosshairs.HUD.Crosshair_Cross1"
      InventoryGroup=3

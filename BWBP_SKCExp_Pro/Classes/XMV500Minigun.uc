@@ -646,11 +646,11 @@ defaultproperties
 	 RotationSpeeds(3)=1.00  // 3600 RPM - 3600 revolutions per minute x 6 shots
 	 RotationSpeeds(4)=1.32  // 4800 RPM - 4800 revolutions per minute x 6 shots
      CurrentWeaponMode=0
-     SightPivot=(Pitch=700,Roll=2048)
-     SightOffset=(X=8.000000,Z=28.000000)
+     SightPivot=(Pitch=512,Roll=1024)
+     SightOffset=(X=0.000000,Y=-17.000000,Z=75.000000)
      SightDisplayFOV=50.000000
-	ParamsClasses(0)=Class'XMV500WeaponParams'
-	ParamsClasses(1)=Class'XMV500WeaponParamsClassic'
+	 ParamsClasses(0)=Class'XMV500WeaponParams'
+	 ParamsClasses(1)=Class'XMV500WeaponParamsClassic'
      FireModeClass(0)=Class'BWBP_SKCExp_Pro.XMV500MinigunPrimaryFire'
      FireModeClass(1)=Class'BWBP_SKCExp_Pro.XMV500MinigunSecondaryFire'
      SelectAnimRate=0.750000
@@ -668,7 +668,7 @@ defaultproperties
      InventoryGroup=6
      GroupOffset=3
      PickupClass=Class'BWBP_SKCExp_Pro.XMV500Pickup'
-     PlayerViewOffset=(X=5.000000,Y=0.000000,Z=-30.000000)
+     PlayerViewOffset=(X=30.000000,Y=8.000000,Z=-45.000000)
      BobDamping=1.400000
      AttachmentClass=Class'BWBP_SKCExp_Pro.XMV500MinigunAttachment'
      IconMaterial=Texture'BWBP_SKC_TexExp.XMV500.SmallIcon_XMV500'

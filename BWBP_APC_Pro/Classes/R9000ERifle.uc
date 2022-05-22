@@ -271,9 +271,9 @@ defaultproperties
      BigIconMaterial=Texture'BWBP_CC_Tex.ElementalSniper.BigIcon_R9000E'
      BCRepClass=Class'BallisticProV55.BallisticReplicationInfo'
      bWT_Bullet=True
-     ManualLines(0)="Bolt-action sniper rifle fire with explosive rounds. High damage, long range, slow fire rate and deals damage to targets near the struck target."
+     ManualLines(0)="Bolt-action sniper rifle fire with Regular, Incendiary & Radiation rounds. High damage, long range, slow fire rate and deals damage to targets near the struck target."
      ManualLines(1)="Engages the scope."
-     ManualLines(2)="Does not use tracer rounds. Effective at long range and against clustered enemies."
+     ManualLines(2)="Be wary of tracer rounds due to different variations of ammo. Effective at long range and against clustered enemies."
      SpecialInfo(0)=(Info="240.0;25.0;0.5;60.0;10.0;0.0;0.0")
      BringUpSound=(Sound=Sound'BW_Core_WeaponSound.R78.R78Pullout')
      PutDownSound=(Sound=Sound'BW_Core_WeaponSound.R78.R78Putaway')
