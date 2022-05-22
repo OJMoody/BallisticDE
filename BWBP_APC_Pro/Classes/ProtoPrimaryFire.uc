@@ -48,7 +48,7 @@ simulated function bool AllowFire()
 	if (!CheckWeaponMode())
 		return false;		// Will weapon mode allow further firing
 
-	if(!Super.AllowFire() || (BW.CurrentWeaponMode == 1 && PhotonCharge <= 0))
+	if((BW.CurrentWeaponMode == 0 && !Super.AllowFire()) || (BW.CurrentWeaponMode == 1 && PhotonCharge <= 0))
 	{
 		if (!bPlayedDryFire && DryFireSound.Sound != None)
 		{

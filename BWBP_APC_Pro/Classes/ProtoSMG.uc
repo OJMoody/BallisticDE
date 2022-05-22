@@ -302,6 +302,9 @@ simulated function LoadPhoton()
 	{
 		ReloadState = RS_Cocking;
 		
+		if (bScopeView && Instigator.IsLocallyControlled())
+			TemporaryScopeDown(Default.SightingTime);
+		
 		if (ProtoPrimaryFire(FireMode[0]).PhotonCharge < 1 && HasAnim(PhotonLoadEmptyAnim))
 			PlayAnim(PhotonLoadEmptyAnim, 0.75, , 0);
 		else
