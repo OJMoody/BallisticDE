@@ -630,10 +630,7 @@ defaultproperties
 	bCockOnEmpty=False
 	NDCrosshairCfg=(Pic1=Texture'BW_Core_WeaponTex.Crosshairs.Misc9',pic2=Texture'BW_Core_WeaponTex.Crosshairs.M50OutA',USize1=256,VSize1=256,USize2=256,VSize2=256,Color1=(B=0,G=0,R=255,A=192),Color2=(B=0,G=255,R=255,A=255),StartSize1=61,StartSize2=22)
     NDCrosshairInfo=(SpreadRatios=(X1=0.750000,Y1=0.750000,X2=0.300000,Y2=0.300000))
-    ManualLines(0)=".75 BOLT cannon fire. Long-ranged with high power. Fire rate is better than average. Good penetration. Poor from the hip."
-	ManualLines(1)="Readies a FRAG-12 if one is not already loaded; otherwise, fires the loaded FRAG-12. FRAG-12s move along a straight trajectory, dealing high damage upon impact and to enemies close to the point of impact. Has lesser recoil than the primary fire."
-	ManualLines(2)="As it lacks a scope, has a quicker aim time than scoped weapons. Effective at medium to long range."
-	SpecialInfo(0)=(Info="120.0;15.0;0.8;70.0;0.75;0.5;0.0")
+    SpecialInfo(0)=(Info="120.0;15.0;0.8;70.0;0.75;0.5;0.0")
 	BringUpSound=(Sound=Sound'BWBP_SKC_Sounds.Bulldog.Bulldog-PullOut',Volume=1.800000)
 	PutDownSound=(Sound=Sound'BWBP_SKC_Sounds.Bulldog.Bulldog-PutAway',Volume=1.400000)
 	CockAnimRate=1.000000
@@ -664,7 +661,7 @@ defaultproperties
 	BringUpTime=0.900000
 	SelectForce="SwitchToAssaultRifle"
 	bSniping=True
-	Description="PUG-M2 Riot Suppression System||Manufacturer: Black & Wood|Primary: .75 BOLT Rounds|Secondary: FRAG-12 Grenade||In the large universe of guns, Black & Wood's R20 Bulldog is a cannon. In keeping up with their excellent reputation, Black & Wood's Bulldog was designed as an extremely reliable and high powered dual-feed munition launcher. Capable of punching a 2 foot hole in the toughest of Cryon grunts at 50 yards and shattering enemy structures with relative ease, the massive .75 caliber BOLT rounds devastate anything they smash into. Designated 'thermoBaric Ordinance, Lead Trajectory', the acronym desicribes the payload and trajectory of the massive primary munition of the Bulldog. The secondary ammo feed can be chambered with a number of different 20mm rounds, but the preferred shells are an adaption of the potent FRAG-12 explosive slugs, used for ripping a hole in thicker armor to allow the BOLT rounds to finish the job."
+	Description="No matter what year it is, there will always be those who don’t have the same ideals as the UTC troops. Even during the skrith wars, there’ll be conscientious objectors who oppose violence and they’ll adapt to suppressive tools like the PUG Suppression Cannon.  Designed to fire both rubber slugs and tear gas grenades, it was supposed to be a versatile tool to quell any riots; only it worked a little too well as the slugs managed to break bones and rupture vital organs while the gas suffocated those who got too close. The suppression cannon no longer is used in upholding the law, rather it has ironically found its way in troopers hands to flush out Skrith in their hiding holes."
 	Priority=162
 	HudColor=(B=25,G=25)
 	CustomCrossHairTextureName="Crosshairs.HUD.Crosshair_Cross1"

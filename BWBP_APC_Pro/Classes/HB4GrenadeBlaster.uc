@@ -111,7 +111,7 @@ defaultproperties
 	CockSound=(Sound=Sound'BW_Core_WeaponSound.AM67.AM67-Cock')
 	CurrentWeaponMode=0
 	CustomCrossHairTextureName="Crosshairs.HUD.Crosshair_Cross1"
-	Description="Another of Enravion's fine creations, the AM67 Assault Pistol was designed for close quarters combat against Cryon and Skrith warriors.|Initially constructed before the second war, Enravion produced the AM67, primarily for anti-Cryon operations, but it later proved to perform well in close-quarters combat when terran forces were ambushed by the stealthy Skrith warriors."
+	Description="Maramu Tek might've joined the war against the Skrith late, but their arrival couldn't have come at a better time after the Cryon attack on Neo York.  The situation of having tough armored warriors in an urban situation full of civilians was tough and delicate, if it weren't for Maramu Tek's first offering of the HB4 Grenade Blaster, things would've gone awry very fast. Firing compact stun bolts akin to the Electrobolts that MK781 fires, they disabled the Cyron's intricate wiring systems quickly, and the flash temporarily scrambled their visual processing units, making it handy to have. Neo York was saved while the HB4 went on to perform in situations similar to the Cryon crisis."
 	DrawScale=0.300000
 	FireModeClass(0)=Class'BWBP_APC_Pro.HB4PrimaryFire'
 	FireModeClass(1)=Class'BWBP_APC_Pro.HB4SecondaryFire'
@@ -131,7 +131,7 @@ defaultproperties
 	MagAmmo=3
 	WeaponModes(1)=(bUnavailable=True)
 	WeaponModes(2)=(bUnavailable=True)
-	ManualLines(0)="High-powered bullet fire. Recoil is high."
+	ManualLines(0)="High-powered Blaster fire. Recoil is high."
 	Mesh=SkeletalMesh'BWBP_CC_Anim.FPm_HoloBlaster'
 	ParamsClasses(0)=Class'HB4WeaponParams'
 	ParamsClasses(1)=Class'HB4WeaponParams'
@@ -145,7 +145,6 @@ defaultproperties
 	ReloadAnimRate=1.250000
 	SelectForce="SwitchToAssaultRifle"
 	SightDisplayFOV=60.000000
-	//SightFXClass=Class'BWBP_APC_Pro.HB4SightLEDs'
 	SightOffset=(X=10.000000,Y=0.04,Z=7.950000)
 	SightingTime=0.250000
 	SpecialInfo(0)=(Info="120.0;15.0;0.8;50.0;0.0;0.5;-999.0")
