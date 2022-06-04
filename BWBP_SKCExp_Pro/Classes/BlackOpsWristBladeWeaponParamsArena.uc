@@ -10,6 +10,7 @@ defaultproperties
 	Begin Object Class=MeleeEffectParams Name=ArenaPrimaryEffectParams
 		TraceRange=(Min=100.000000,Max=100.000000)
 		Damage=60
+		Fatigue=0.060000
 		DamageType=Class'BWBP_SKCExp_Pro.DTBOBTorso'
 		DamageTypeHead=Class'BWBP_SKCExp_Pro.DTBOBHead'
 		DamageTypeArm=Class'BWBP_SKCExp_Pro.DTBOBLimb'
@@ -32,6 +33,7 @@ defaultproperties
 	
 	Begin Object Class=MeleeEffectParams Name=ArenaSecondaryEffectParams
 		Damage=75
+		Fatigue=0.250000
 		DamageType=Class'BWBP_SKCExp_Pro.DTBOBTorsoLunge'
 		DamageTypeHead=Class'BWBP_SKCExp_Pro.DTBOBHeadLunge'
 		DamageTypeArm=Class'BWBP_SKCExp_Pro.DTBOBTorsoLunge'

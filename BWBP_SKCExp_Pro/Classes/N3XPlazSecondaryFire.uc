@@ -16,7 +16,7 @@ function ApplyDamage(Actor Target, int Damage, Pawn Instigator, vector HitLocati
 
 defaultproperties
 {
-     FatiguePerStrike=0
+     FatiguePerStrike=0.200000
      bCanBackstab=False
 	 MinDamage=70.000000
 	 MaxDamage=150.000000

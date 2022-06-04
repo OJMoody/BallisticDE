@@ -40,7 +40,7 @@ defaultproperties
      SliceAnims(1)="Chop2"
      SliceAnims(2)="Chop3"
      SliceAnims(3)="Chop4"
-     FatiguePerStrike=0
+     FatiguePerStrike=0.100000
 	 MinDamage=40.000000
 	 MaxDamage=100.000000
      DamageType=Class'BWBP_SKCExp_Pro.DTShockN3X'

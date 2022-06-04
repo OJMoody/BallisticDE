@@ -673,7 +673,7 @@ defaultproperties
 	AttachmentClass=Class'BWBP_SKCExp_Pro.PugAttachment'
 	IconMaterial=Texture'BWBP_SKC_TexExp.Pug.SmallIcon_Pug'
 	IconCoords=(X2=127,Y2=31)
-	ItemName="[B] PUG-M2 Riot Cannon"
+	ItemName="PUG-M2 Riot Cannon"
 	LightType=LT_Pulse
 	LightEffect=LE_NonIncidence
 	LightHue=30
