@@ -10,6 +10,27 @@
 //=============================================================================
 class BlackOpsWristBladeSecondaryFire extends BallisticMeleeFire;
 
+var 	float 			RailPower;
+var 	bool			bIsCharging;
+
+simulated function ModeTick(float DT)
+{
+	Super.ModeTick(DT);
+
+    if (bIsCharging)
+        RailPower = FMin(RailPower + 2.0*DT, 1);
+    
+    if (RailPower + 0.05 >= 1)
+    {
+        DoFireEffect();
+		bIsCharging=False;
+	  	RailPower=0;
+    }
+
+    if (!bIsFiring)
+        return;
+}
+
 simulated function bool HasAmmo()
 {
 	return true;
@@ -17,12 +38,13 @@ simulated function bool HasAmmo()
 
 defaultproperties
 {
-     SwipePoints(0)=(Weight=6,offset=(Pitch=6000,Yaw=4000))
+	 SwipePoints(0)=(Weight=6,offset=(Pitch=6000,Yaw=4000))
      SwipePoints(1)=(Weight=5,offset=(Pitch=4500,Yaw=3000))
      SwipePoints(2)=(Weight=4,offset=(Pitch=3000))
      SwipePoints(3)=(Weight=3,offset=(Pitch=1500,Yaw=1000))
      SwipePoints(4)=(Weight=2,offset=(Yaw=0))
      SwipePoints(5)=(Weight=1,offset=(Pitch=-1500,Yaw=-1500))
+	 bCanBackstab=False
      WallHitPoint=4
      Damage=75
      DamageType=Class'BWBP_SKCExp_Pro.DTBOBTorsoLunge'

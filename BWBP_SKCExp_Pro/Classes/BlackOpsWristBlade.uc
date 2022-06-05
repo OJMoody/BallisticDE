@@ -126,12 +126,12 @@ defaultproperties
      CustomCrossHairTextureName="Crosshairs.HUD.Crosshair_Cross1"
      GroupOffset=5
      PickupClass=Class'BWBP_SKCExp_Pro.BlackOpsWristBladePickup'
-     PlayerViewOffset=(X=35.000000,Y=50.000000,Z=-40.000000)
+     PlayerViewOffset=(X=50.000000,Y=00.000000,Z=-40.000000)
      BobDamping=1.000000
      AttachmentClass=Class'BWBP_SKCExp_Pro.BlackOpsWristBladeAttachment'
      IconMaterial=Texture'BWBP_SKC_TexExp.BlkOpsBlade.SmallIcon_WristBld'
      IconCoords=(X2=127,Y2=31)
-     ItemName="X5W Black Ops Blade"
+     ItemName="X5W Black Ops Blades"
 	 ParamsClasses(0)=Class'BlackOpsWristBladeWeaponParamsArena'
 	 ParamsClasses(1)=Class'BlackOpsWristBladeWeaponParamsClassic'
 	 ParamsClasses(2)=Class'BlackOpsWristBladeWeaponParamsArena'
