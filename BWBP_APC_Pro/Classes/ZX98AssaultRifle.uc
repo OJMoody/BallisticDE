@@ -91,7 +91,7 @@ simulated event Tick (float DT)
 
 	super.Tick(DT);
 
-	if ((FireMode[0].IsFiring() || FireMode[1].IsFiring()) && !bServerReloading)
+	if ((FireMode[0].IsFiring() || (FireMode[1].IsFiring() && FireCount <= 0)) && !bServerReloading)
 	{
 		BarrelSpeed = BarrelSpeed + FClamp(DesiredSpeed - BarrelSpeed, -0.35*DT, GetRampUpSpeed() *DT);
 		BarrelTurn += BarrelSpeed * 655360 * DT;

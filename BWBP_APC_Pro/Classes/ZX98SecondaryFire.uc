@@ -328,7 +328,7 @@ defaultproperties
 	 FireRate=1.000000
 	 TraceRange=(Min=15000.000000,Max=20000.000000)
      WallPenetrationForce=128.000000
-     Damage=55.000000
+     Damage=90.000000
      RangeAtten=0.350000
      WaterRangeAtten=0.800000
      DamageType=Class'BWBP_APC_Pro.DTZX98Gauss'
