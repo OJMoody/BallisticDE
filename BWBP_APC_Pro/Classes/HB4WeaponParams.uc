@@ -81,6 +81,7 @@ defaultproperties
 		InventorySize=12
 		SightMoveSpeedFactor=0.9
 		SightingTime=0.40000	
+		ViewOffset=(X=5.000000,Y=12.000000,Z=-10.000000)
 		SightOffset=(X=10.000000,Y=-5.53,Z=10.300000)
 		DisplaceDurationMult=1
 		MagAmmo=3

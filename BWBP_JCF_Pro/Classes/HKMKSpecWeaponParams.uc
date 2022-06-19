@@ -54,7 +54,7 @@ defaultproperties
 		Inaccuracy=(X=400,Y=400)
 		BotRefireRate=0.700000
 		WarnTargetPct=0.500000	
-		FireSound=(Sound=Sound'BWBP_SKC_SoundsExp.AH104.AH104-Fire',Volume=1.100000,Radius=256.000000)
+		FireSound=(Sound=Sound'BWBP_SKC_Sounds.AH104.AH104-Fire',Volume=1.100000,Radius=256.000000)
 	End Object
 
 	Begin Object Class=FireParams Name=ArenaSecondaryFireParams
@@ -103,6 +103,7 @@ defaultproperties
 		MagAmmo=8
         InventorySize=3
 		SightPivot=(Pitch=-70)
+		ViewOffset=(X=3.000000,Y=9.000000,Z=-10.000000)
         RecoilParams(0)=RecoilParams'ArenaRecoilParams'
         AimParams(0)=AimParams'ArenaAimParams'
 		FireParams(0)=FireParams'ArenaPrimaryFireParams'

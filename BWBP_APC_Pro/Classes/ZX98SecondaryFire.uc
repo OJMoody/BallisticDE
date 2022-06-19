@@ -349,7 +349,7 @@ defaultproperties
      XInaccuracy=64.000000
      YInaccuracy=64.000000
 	 AmmoPerFire=4
-     BallisticFireSound=(Sound=Sound'BWBP_SKC_Sounds.M30A2.M50A2-SilenceFire',Volume=6.700000)
+     BallisticFireSound=(Sound=Sound'BWBP_SKC_Sounds.AH104.AH104-QFire',Volume=1.500000)
      bPawnRapidFireAnim=True
 	 FireAnim="ChargedFire"
      PreFireAnim=

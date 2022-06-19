@@ -40,7 +40,7 @@ defaultproperties
 		Begin Object Class=InstantEffectParams Name=ArenaSecondaryEffectParams
 			TraceRange=(Min=15000.000000,Max=20000.000000)
 			RangeAtten=0.350000
-			Damage=55
+			Damage=80
 			DamageType=Class'BWBP_APC_Pro.DTZX98Gauss'
 			DamageTypeHead=Class'BWBP_APC_Pro.DTZX98GaussHead'
 			DamageTypeArm=Class'BWBP_APC_Pro.DTZX98Gauss'
@@ -51,7 +51,7 @@ defaultproperties
 			Recoil=180.000000
 			Chaos=0.032000
 			WarnTargetPct=0.200000
-			FireSound=(Sound=Sound'BWBP_SKC_Sounds.M30A2.M50A2-SilenceFire',Volume=6.700000)
+			FireSound=(Sound=Sound'BWBP_SKC_Sounds.AH104.AH104-QFire',Volume=1.500000)
 		End Object
 
 		Begin Object Class=FireParams Name=ArenaSecondaryFireParams

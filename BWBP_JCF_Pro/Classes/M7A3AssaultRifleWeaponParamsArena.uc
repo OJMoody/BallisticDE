@@ -90,6 +90,7 @@ defaultproperties
 		PlayerSpeedFactor=1.050000
 		MagAmmo=21
         InventorySize=12
+		ViewOffset=(X=10.000000,Y=4.000000,Z=-7.500000)
 		SightingTime=0.250000
 		SightOffset=(X=-10.000000,Y=-0.45000,Z=10.720000)
 		WeaponBoneScales(0)=(BoneName="Scope",Slot=15,Scale=0f)

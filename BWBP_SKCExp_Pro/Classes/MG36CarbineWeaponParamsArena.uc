@@ -97,6 +97,7 @@ defaultproperties
 		DisplaceDurationMult=1.5
 		MagAmmo=30
 		SightOffset=(X=-15.000000,Y=-0.350000,Z=12.300000)
+		ViewOffset=(X=5.000000,Y=5.000000,Z=-9.000000)
 		ZoomType=ZT_Logarithmic
 		RecoilParams(0)=RecoilParams'ArenaRecoilParams'
 		AimParams(0)=AimParams'ArenaAimParams'

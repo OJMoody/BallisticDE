@@ -158,6 +158,7 @@ defaultproperties
         SightMoveSpeedFactor=0.9
 		SightPivot=(Pitch=256)
 		SightOffset=(X=-35.000000,Y=-0.850000,Z=10.850000)
+		ViewOffset=(X=10.000000,Y=6.000000,Z=-8.500000)
         RecoilParams(0)=RecoilParams'ArenaRecoilParams'
         AimParams(0)=AimParams'ArenaAimParams'
         FireParams(0)=FireParams'ArenaSeriesFireParams'

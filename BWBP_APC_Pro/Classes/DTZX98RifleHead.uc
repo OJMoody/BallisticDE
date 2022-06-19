@@ -1,7 +1,7 @@
 //=============================================================================
 // DTZX98RifleHead.
 //
-// Damage type for the CYLO headshots
+// Damage type for the ZX-98 headshots
 //
 // by Casey 'Xavious' Johnson and Marc 'Sergeant Kelly'
 // Copyright(c) 2007 RuneStorm. All Rights Reserved.
@@ -29,12 +29,10 @@ static function IncrementKills(Controller Killer)
 
 defaultproperties
 {
-     DeathStrings(0)="%k badgered %o's head off."
-     DeathStrings(1)="%k put a bullet in %o's head with his CYLO."
-     DeathStrings(2)="%k's CYLO rounds badgered their way into %o's skull."
-     DeathStrings(3)="%o got %vh head routed by %k's CYLO."
-     DeathStrings(4)="%o's head was taken out by %k's CYLO."
-     DeathStrings(5)="%k put a round through %o's head."
+     DeathStrings(0)="The soul and brains in %o's head was freed thanks to %k."
+     DeathStrings(1)="%o put two bullets in %k's eyes, he had no drachma to pay the ferryman."
+     DeathStrings(2)="%k's gray matter was reaped due to %o's Reaper."
+     DeathStrings(3)="%o's Reaper took %k's head off with a couple of bullets."
      EffectChance=0.500000
      bHeaddie=True
      DamageIdent="Assault"

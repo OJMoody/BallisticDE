@@ -70,6 +70,7 @@ defaultproperties
 		PlayerJumpFactor=0.800000
 		SightOffset=(X=-10.000000,Y=-2.000000,Z=12.000000)
 		SightPivot=(Roll=-1024)
+		ViewOffset=(X=15.000000,Y=5.500000,Z=-8.500000)
 		ZoomType=ZT_Smooth
 		RecoilParams(0)=RecoilParams'ArenaRecoilParams'
 		AimParams(0)=AimParams'ArenaAimParams'
