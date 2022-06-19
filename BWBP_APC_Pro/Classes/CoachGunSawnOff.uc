@@ -456,7 +456,7 @@ defaultproperties
      PutDownSound=(Sound=Sound'BW_Core_WeaponSound.M290.M290Putaway')
      CockAnimRate=0.700000
      SingleReloadAnimRate=1.500000
-     ReloadAnimRate=1.500000
+     ReloadAnimRate=1.000000
      ClipInFrame=0.800000
      bNonCocking=True
      WeaponModes(0)=(ModeName="Shot",Value=1.000000)
@@ -495,11 +495,11 @@ defaultproperties
      LightSaturation=150
      LightBrightness=180.000000
      LightRadius=5.000000
-     Mesh=SkeletalMesh'BWBP_SKC_AnimExp.FPm_SawnOff'
+     Mesh=SkeletalMesh'BWBP_SKC_AnimExp.FPm_ScifiSawnOff'
      DrawScale=1.250000
      bShowChargingBar=True
 	 Skins(0)=Shader'BW_Core_WeaponTex.Hands.Hands-Shiny'
-     Skins(1)=Texture'BWBP_SKC_Tex.CoachGun.DBL-Main'
-     Skins(2)=Texture'BWBP_SKC_Tex.CoachGun.DBL-SawnBits'
-     Skins(3)=Texture'BWBP_SKC_Tex.CoachGun.DBL-Misc'
+	 Skins(1)=Texture'BWBP_SKC_TexExp.TechSawnOff.mat_doublebarrel_2D_View'
+	 Skins(2)=Texture'BWBP_SKC_TexExp.TechSawnOff.DoubleBarrel_Main2_Tex'
+	 Skins(3)=Texture'BWBP_SKC_TexExp.TechSawnOff.DoubleBarrel_Main1_Tex'
 }
