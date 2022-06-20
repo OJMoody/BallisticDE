@@ -14,7 +14,7 @@ var() sound		RegularFireSound;
 
 simulated function SwitchScopedMode (byte NewMode)
 {
-	if (NewMode == 2 || NewMode == 3)
+	if (NewMode == 0)
 	{
 		BallisticFireSound.Sound=ScopedFireSound;
 		FireRecoil=128;
@@ -22,7 +22,7 @@ simulated function SwitchScopedMode (byte NewMode)
 		FireChaos = 0.1;
 	}
 	
-	else if (NewMode == 1 || NewMode == 0)
+	else if (NewMode == 1)
 	{
 		BallisticFireSound.Sound=RegularFireSound;
 		FireRecoil=88;
@@ -42,41 +42,6 @@ simulated function SwitchScopedMode (byte NewMode)
 	    FireRate /= Level.GRI.WeaponBerserk;
 
 	Load=AmmoPerFire;
-}
-
-function StartBerserk()
-{
-
-	if (BW.CurrentWeaponMode == 2 || BW.CurrentWeaponMode == 3)
-    	FireRate = 0.4;
-	else
-    	FireRate = 0.15;
-   	FireRate *= 0.75;
-    FireAnimRate = default.FireAnimRate/0.75;
-    ReloadAnimRate = default.ReloadAnimRate/0.75;
-}
-
-function StopBerserk()
-{
-
-	if (BW.CurrentWeaponMode == 2 || BW.CurrentWeaponMode == 3)
-    	FireRate = 0.4;
-	else
-    	FireRate = 0.15;
-    FireAnimRate = default.FireAnimRate;
-    ReloadAnimRate = default.ReloadAnimRate;
-}
-
-function StartSuperBerserk()
-{
-
-	if (BW.CurrentWeaponMode == 2 || BW.CurrentWeaponMode == 3)
-    	FireRate = 0.4;
-	else
-    	FireRate = 0.15;
-    FireRate /= Level.GRI.WeaponBerserk;
-    FireAnimRate = default.FireAnimRate * Level.GRI.WeaponBerserk;
-    ReloadAnimRate = default.ReloadAnimRate * Level.GRI.WeaponBerserk;
 }
 
 simulated function IgniteActor(Actor A)
@@ -148,9 +113,9 @@ defaultproperties
      DryFireSound=(Sound=Sound'BW_Core_WeaponSound.D49.D49-DryFire',Volume=0.700000)
      bCockAfterEmpty=True
      MuzzleFlashClass=Class'BWBP_SKCExp_Pro.VSKSilencedFlash'
-     FlashScaleFactor=0.080000
+     FlashScaleFactor=0.500000
      BrassClass=Class'BWBP_SKCExp_Pro.Brass_Tranq'
-     BrassBone="tip"
+     FlashBone="tip2"
      BrassOffset=(X=-80.000000,Y=1.000000)
      FireRecoil=88.000000
      XInaccuracy=1.750000
@@ -159,7 +124,7 @@ defaultproperties
      bAISilent=True
      bPawnRapidFireAnim=True
      FireEndAnim=
-     FireRate=0.400000
+     FireRate=0.600000
      AmmoClass=Class'BWBP_SKCExp_Pro.Ammo_Tranq'
      ShakeRotMag=(X=128.000000,Y=64.000000)
      ShakeRotRate=(X=10000.000000,Y=10000.000000,Z=10000.000000)
