@@ -451,6 +451,7 @@ defaultproperties
      LightBrightness=150.000000
      LightRadius=4.000000
 	 ParamsClasses(0)=Class'M575MachinegunWeaponParamsArena'
+	 ParamsClasses(1)=Class'M575MachinegunWeaponParamsClassic'
      Mesh=SkeletalMesh'BWBP_OP_Anim.FPm_M575'
      DrawScale=1.000000
 }
