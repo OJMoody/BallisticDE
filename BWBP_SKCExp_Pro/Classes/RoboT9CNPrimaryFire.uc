@@ -47,7 +47,7 @@ defaultproperties
      DryFireSound=(Sound=Sound'BW_Core_WeaponSound.Misc.DryPistol',Volume=0.700000)
      MuzzleFlashClass=Class'BWBP_SKCExp_Pro.RoboT9CNFlashEmitter'
      FlashScaleFactor=0.600000
-     BrassClass=Class'BallisticProV55.Brass_Pistol'
+     BrassClass=Class'BallisticProV55.Brass_GRSNine'
      BrassOffset=(X=-25.000000,Z=-5.000000)
      FireRecoil=64.000000
      FireChaos=0.100000
@@ -56,7 +56,7 @@ defaultproperties
      BallisticFireSound=(Sound=Sound'BWBP_SKC_SoundsExp.T9CN.T9CN-FireOld',Volume=1.300000)
      bPawnRapidFireAnim=True
      FireRate=0.120000
-     AmmoClass=Class'BWBP_SKCExp_Pro.Ammo_9mmRoboT9CN'
+     AmmoClass=Class'BallisticProV55.Ammo_GRSNine'
      ShakeRotMag=(X=64.000000,Y=32.000000)
      ShakeRotRate=(X=10000.000000,Y=10000.000000,Z=10000.000000)
      ShakeRotTime=2.000000

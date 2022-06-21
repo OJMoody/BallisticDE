@@ -11,7 +11,7 @@ class AP_RoboT9CNClip extends BallisticAmmoPickup;
 defaultproperties
 {
      AmmoAmount=36
-     InventoryType=Class'BWBP_SKCExp_Pro.Ammo_9mmRoboT9CN'
+     InventoryType=Class'BallisticProV55.Ammo_GRSNine'
      PickupMessage="You got 2 18 round 9mm clips"
      PickupSound=Sound'BW_Core_WeaponSound.Ammo.ClipPickup'
      StaticMesh=StaticMesh'BW_Core_WeaponStatic.Glock.Glock-Ammo'
