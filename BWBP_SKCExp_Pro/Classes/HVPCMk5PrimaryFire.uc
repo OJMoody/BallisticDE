@@ -9,7 +9,14 @@
 class HVPCMk5PrimaryFire extends BallisticProProjectileFire;
 
 var   float		StopFireTime;
+var byte	ProjectileCount;
+var float HipSpreadFactor;
 
+//return spread in radians
+simulated function float GetCrosshairInaccAngle()
+{
+	return YInaccuracy * HipSpreadFactor * 0.000095873799;
+}
 
 
 simulated function bool AllowFire()
@@ -33,16 +40,86 @@ function StopFiring()
 	StopFireTime = level.TimeSeconds;
 }
 
+// Get aim then spawn projectile
 function DoFireEffect()
 {
+    local Vector StartTrace, X, Y, Z, Start, End, HitLocation, HitNormal;
+    local Rotator Aim;
+	local actor Other;
+	local int i;
 
+    Weapon.GetViewAxes(X,Y,Z);
+    // the to-hit trace always starts right in front of the eye
+    Start = Instigator.Location + Instigator.EyePosition();
+
+    StartTrace = Start + X*SpawnOffset.X + Z*SpawnOffset.Z;
+    if(!Weapon.WeaponCentered())
+	    StartTrace = StartTrace + Weapon.Hand * Y*SpawnOffset.Y;
+
+	for(i=0; i < ProjectileCount; i++)
+	{
+		Aim = GetFireAim(StartTrace);
+		Aim = Rotator(GetFireSpread() >> Aim);
+
+		End = Start + (Vector(Aim)*MaxRange());
+		Other = Trace (HitLocation, HitNormal, End, Start, true);
+
+		if (Other != None)
+			Aim = Rotator(HitLocation-StartTrace);
+		SpawnProjectile(StartTrace, Aim);
+	}
+
+	SendFireEffect(none, vect(0,0,0), StartTrace, 0);
 	Super.DoFireEffect();
 	if (level.Netmode == NM_DedicatedServer)
 		HVPCMk5PlasmaCannon(BW).AddHeat(1.50);
 }
 
+// Returns normal for some random spread. This is seperate from GetFireDir for shotgun reasons mainly...
+simulated function vector GetFireSpread()
+{
+	local float fX;
+    local Rotator R;
+
+	if (BW.bScopeView || BW.bAimDisabled)
+		return super.GetFireSpread();
+	else
+	{
+		fX = frand();
+		R.Yaw =  XInaccuracy * HipSpreadFactor * sin ((frand()*2-1) * 1.5707963267948966) * sin(fX*1.5707963267948966);
+		R.Pitch = YInaccuracy * HipSpreadFactor *sin ((frand()*2-1) * 1.5707963267948966) * cos(fX*1.5707963267948966);
+		return Vector(R);
+	}
+}
+
+//Accessor for stats
+static function FireModeStats GetStats() 
+{
+	local FireModeStats FS;
+	
+	FS.DamageInt = default.ProjectileClass.default.Damage * default.ProjectileCount;
+	FS.Damage = String(FS.DamageInt);
+
+
+    FS.HeadMult = class<BallisticProjectile>(default.ProjectileClass).default.HeadMult;
+    FS.LimbMult = class<BallisticProjectile>(default.ProjectileClass).default.LimbMult;
+
+	FS.DPS = default.ProjectileClass.default.Damage * default.ProjectileCount / default.FireRate;
+	FS.TTK = default.FireRate * (Ceil(175/default.ProjectileClass.default.Damage) - 1);
+	FS.RPM = String(int((1 / default.FireRate) * 60))@"shots/min";
+	FS.RPShot = default.FireRecoil;
+	FS.RPS = default.FireRecoil / default.FireRate;
+	FS.FCPShot = default.FireChaos;
+	FS.FCPS = default.FireChaos / default.FireRate;
+	FS.RangeOpt = "Max:"@(10000 / 52.5)@"metres";
+	
+	return FS;
+}
+
 defaultproperties
 {
+     ProjectileCount=3
+     HipSpreadFactor=1.100000
      SpawnOffset=(X=10.000000,Y=10.000000,Z=-9.000000)
      MuzzleFlashClass=Class'BallisticProV55.HVCMk9RedMuzzleFlash'
      FireRecoil=700.000000

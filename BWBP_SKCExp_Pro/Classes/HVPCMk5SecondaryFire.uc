@@ -18,7 +18,7 @@ simulated function bool AllowFire()
 function PlayFiring()
 {
 	Super.PlayFiring();
-	HVPCMk5PlasmaCannon(BW).AddHeat(0.45);
+	HVPCMk5PlasmaCannon(BW).AddHeat(0.30);
 }
 
 
@@ -27,7 +27,7 @@ function DoFireEffect()
 
 	Super.DoFireEffect();
 	if (level.Netmode == NM_DedicatedServer)
-		HVPCMk5PlasmaCannon(Weapon).AddHeat(0.45);
+		HVPCMk5PlasmaCannon(Weapon).AddHeat(0.30);
 }
 
 defaultproperties

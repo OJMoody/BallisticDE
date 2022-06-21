@@ -6,13 +6,13 @@
 // by Nolan "Dark Carnivour" Richert.
 // Copyright(c) 2005 RuneStorm. All Rights Reserved.
 //=============================================================================
-class IM_HVPCProjectile extends BCImpactManager;
+class IM_HVPCProjectileTriple extends BCImpactManager;
 
 defaultproperties
 {
-     HitEffects(0)=Class'BWBP_SKCExp_Pro.IE_HVPCGeneral'
+     HitEffects(0)=Class'BWBP_SKCExp_Pro.IE_HVPCTriple'
      HitDecals(0)=Class'BallisticProV55.AD_HVCRedDecal'
      HitSounds(0)=Sound'BWBP_SKC_Sounds.XavPlas.Xav-Impact'
-     HitSoundVolume=1.500000
+     HitSoundVolume=0.800000
      HitSoundRadius=256.000000
 }

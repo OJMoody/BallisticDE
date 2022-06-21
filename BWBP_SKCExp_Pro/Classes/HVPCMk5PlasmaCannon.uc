@@ -128,7 +128,7 @@ simulated function AddHeat(float Amount)
 	if (HeatLevel >= 9.5 && HeatLevel < 15)
 	{
 		Heatlevel = 15;
-		PlaySound(OverHeatSound,,3.7,,32);
+		PlaySound(OverHeatSound,,0.7,,32);
 		class'BallisticDamageType'.static.GenericHurt (Instigator, 80, Instigator, Instigator.Location, -vector(Instigator.GetViewRotation()) * 30000 + vect(0,0,10000), class'DTPlasmaCannonOverheat');
 	}
 
