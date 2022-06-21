@@ -250,7 +250,7 @@ defaultproperties
     ClientState=WS_BringUp
 	Priority=1
 	PlayerViewOffset=(X=-100.000000)
-	ItemName="M99 Turret"
+	ItemName="Deployed M99 Turret"
 	Mesh=SkeletalMesh'BWBP_JCF_Anims.FPm_M99_Turret'
 	DrawScale=0.50000
 	CollisionHeight=24.000000

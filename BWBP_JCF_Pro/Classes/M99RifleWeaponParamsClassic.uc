@@ -32,7 +32,8 @@ defaultproperties
 	End Object
 
 	Begin Object Class=FireParams Name=ClassicPrimaryFireParams
-		FireAnim="FireCombined"
+		FireAnim="Fire"
+		AimedFireAnim="SightFire"
 		FireInterval=2.000000
 		BurstFireRateFactor=1.00	
 	FireEffectParams(0)=InstantEffectParams'ClassicPrimaryEffectParams'
@@ -80,8 +81,9 @@ defaultproperties
 		SightMoveSpeedFactor=0.500000
 		SightingTime=0.900000
 		MagAmmo=1
-		SightOffset=(X=-10.000000,Y=-2.000000,Z=12.000000)
+		SightOffset=(X=-10.000000,Y=20.000000,Z=36.000000)
 		SightPivot=(Roll=-1024)
+		ViewOffset=(X=25.000000,Y=-3.000000,Z=-24.500000)
 		ZoomType=ZT_Smooth
 		RecoilParams(0)=RecoilParams'ClassicRecoilParams'
 		AimParams(0)=AimParams'ClassicAimParams'
