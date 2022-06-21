@@ -556,6 +556,7 @@ defaultproperties
 	SightOffset=(X=-15.000000,Z=6.600000)
 	SightDisplayFOV=60.000000
 	ParamsClasses(0)=Class'GRSXXPistolWeaponParamsArena'
+	ParamsClasses(1)=Class'GRSXXWeaponParamsClassic'
 	FireModeClass(0)=Class'BWBP_SKCExp_Pro.GRSXXPrimaryFire'
 	FireModeClass(1)=Class'BWBP_SKCExp_Pro.GRSXXSecondaryFire'
 	NDCrosshairCfg=(Pic1=Texture'BW_Core_WeaponTex.Crosshairs.M50Out',Pic2=Texture'BW_Core_WeaponTex.Crosshairs.M806InA',USize2=256,VSize2=256,Color1=(B=12,G=108,R=157,A=163),Color2=(B=255),StartSize1=79,StartSize2=124)

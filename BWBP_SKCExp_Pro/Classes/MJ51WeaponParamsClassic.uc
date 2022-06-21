@@ -37,6 +37,7 @@ defaultproperties
 		Begin Object Class=FireParams Name=ClassicPrimaryFireParams
 			FireInterval=0.075000
 			AimedFireAnim="SightFire"
+			BurstFireRateFactor=1.00
 			FireEndAnim=	
 		FireEffectParams(0)=InstantEffectParams'ClassicPrimaryEffectParams'
 		End Object
@@ -68,6 +69,7 @@ defaultproperties
 
 		Begin Object Class=FireParams Name=ClassicSecondaryFireParams
 			FireInterval=0.600000
+			BurstFireRateFactor=1.00
 			FireAnim="FireGrenade"	
 		FireEffectParams(0)=ProjectileEffectParams'ClassicSecondaryEffectParams'
 		End Object
@@ -116,6 +118,10 @@ defaultproperties
 		SightOffset=(X=0.000000,Y=-6.450000,Z=20.500000)
 		WeaponBoneScales(0)=(BoneName="IronSight",Slot=55,Scale=1f)
 		WeaponBoneScales(1)=(BoneName="HoloSight",Slot=56,Scale=0f)
+		WeaponModes(0)=(ModeName="Semi-Auto")
+		WeaponModes(1)=(ModeName="Burst Fire",ModeID="WM_BigBurst")
+		WeaponModes(2)=(bUnavailable=True)
+		WeaponModes(3)=(ModeName="Automatic",bUnavailable=True,ModeID="WM_FullAuto")
 		RecoilParams(0)=RecoilParams'ClassicRecoilParams'
 		AimParams(0)=AimParams'ClassicAimParams'
 		FireParams(0)=FireParams'ClassicPrimaryFireParams'

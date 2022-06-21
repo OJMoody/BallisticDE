@@ -99,6 +99,7 @@ defaultproperties
 		InventorySize=55
 		SightMoveSpeedFactor=0.500000
 		MagAmmo=600
+		ViewOffset=(X=5.000000,Y=0.000000,Z=-30.000000)
 		SightOffset=(X=8.000000,Z=28.000000)
 		SightPivot=(Pitch=700,Roll=2048)
 		WeaponModes(0)=(bUnavailable=True)

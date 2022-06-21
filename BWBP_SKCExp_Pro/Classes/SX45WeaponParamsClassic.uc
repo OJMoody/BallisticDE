@@ -40,6 +40,7 @@ defaultproperties
 	FireEffectParams(0)=InstantEffectParams'ClassicPrimaryEffectParams'
 	End Object
 		
+				
 	//=================================================================
 	// FIRE PARAMS WEAPON MODE 1 - CRYOGENIC
 	//=================================================================	
@@ -47,7 +48,7 @@ defaultproperties
 	Begin Object Class=InstantEffectParams Name=ClassicCryoPrimaryEffectParams
 		TraceRange=(Min=4000.000000,Max=4000.000000)
 		RangeAtten=0.3
-		Damage=28
+		Damage=70
 		HeadMult=1.5f
 		LimbMult=0.5f
 		DamageType=Class'BWBP_SKCExp_Pro.DTSX45Pistol_Cryo'
@@ -56,15 +57,15 @@ defaultproperties
 		PenetrateForce=135
 		bPenetrate=True
 		MuzzleFlashClass=Class'BWBP_SKCExp_Pro.SX45FlashEmitter'
-		FlashScaleFactor=0.07
-		FireSound=(Sound=Sound'BWBP_SKC_SoundsExp.SX45.SX45-FrostFire',Volume=1.000000)
+		FlashScaleFactor=1.10
+		FireSound=(Sound=Sound'BWBP_SKC_SoundsExp.SX45.SX45-FrostFire',Volume=1.200000)
 		Recoil=512.000000
 		Chaos=0.250000
 		BotRefireRate=0.750000
 	End Object
 
 	Begin Object Class=FireParams Name=ClassicCryoPrimaryFireParams
-		FireInterval=0.235000
+		FireInterval=0.400000
 		FireEndAnim=
 		AimedFireAnim="SightFire"
 		FireAnimRate=1	
@@ -87,22 +88,20 @@ defaultproperties
 		PenetrateForce=135
 		bPenetrate=True
 		MuzzleFlashClass=Class'BWBP_SKCExp_Pro.SX45FlashEmitter'
-		FlashScaleFactor=1.0
-		FireSound=(Sound=Sound'BWBP_SKC_SoundsExp.SX45.SX45-RadFire',Volume=1.300000)
+		FlashScaleFactor=0.9
+		FireSound=(Sound=Sound'BWBP_SKC_SoundsExp.SX45.SX45-RadFire',Volume=1.200000)
 		Recoil=128.000000
 		Chaos=0.250000
 		BotRefireRate=0.750000
 	End Object
 
 	Begin Object Class=FireParams Name=ClassicRadPrimaryFireParams
-		FireInterval=0.550000
+		FireInterval=0.500000
 		FireEndAnim=
 		AimedFireAnim="SightFire"
 		FireAnimRate=1	
 	FireEffectParams(0)=InstantEffectParams'ClassicRadPrimaryEffectParams'
 	End Object
-
-		
 		
 	//=================================================================
 	// RECOIL
