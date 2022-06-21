@@ -102,6 +102,7 @@ defaultproperties
 		PlayerJumpFactor=0.850000
 		SightOffset=(X=-12.000000,Y=-0.200000,Z=17.300000)
 		SightPivot=(Pitch=1024)
+		ViewOffset=(X=10.000000,Y=11.00000,Z=-13.00000)
 		RecoilParams(0)=RecoilParams'ArenaRecoilParams'
 		AimParams(0)=AimParams'ArenaAimParams'
 		FireParams(0)=FireParams'ArenaPrimaryFireParams'

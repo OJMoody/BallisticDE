@@ -237,6 +237,9 @@ function DoFireEffect()
 		AimInterval = TurnVelocity * Interval;
 	}
 
+    if (Level.NetMode == NM_DedicatedServer)
+        BW.RewindCollisions();
+
 	for (i=0;i<TraceCount && ConsumedLoad < BW.MagAmmo ;i++)
 	{
 		ConsumedLoad += Load;

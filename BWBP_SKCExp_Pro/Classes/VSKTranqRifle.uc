@@ -33,6 +33,7 @@ function ServerSwitchWeaponMode (byte newMode)
 		VSKPrimaryFire(FireMode[0]).SwitchScopedMode(CurrentWeaponMode);
 	ClientSwitchWeaponMode (CurrentWeaponMode);
 }
+
 simulated function ClientSwitchWeaponMode (byte newMode)
 {
 	VSKPrimaryFire(FireMode[0]).SwitchScopedMode(newMode);
@@ -43,20 +44,11 @@ simulated event WeaponTick(float DT)
 	super.WeaponTick(DT);
 		if (CurrentWeaponMode == 0)
 		{
-			FireMode[0].FireRate 	= 0.15;
+			FireMode[0].FireRate 	= 0.4;
 		}
 		else if (CurrentWeaponMode == 1)
 		{
 			FireMode[0].FireRate 	= 0.15;
-		}
-		else if (CurrentWeaponMode == 2)
-		{
-			FireMode[0].FireRate 	= 0.4;
-		}
-		else if (CurrentWeaponMode == 3)
-		{
-			FireMode[0].FireRate 	= 0.4;
-
 		}
 		else
 		{
@@ -111,7 +103,6 @@ defaultproperties
      TeamSkins(0)=(RedTex=Shader'BW_Core_WeaponTex.Hands.RedHand-Shiny',BlueTex=Shader'BW_Core_WeaponTex.Hands.BlueHand-Shiny')
      AIReloadTime=1.000000
      BigIconMaterial=Texture'BWBP_SKC_TexExp.552.552_Icon_Large'
-     SightFXClass=Class'BallisticProV55.M50SightLEDs'
      BCRepClass=Class'BallisticProV55.BallisticReplicationInfo'
      bWT_Bullet=True
      SpecialInfo(0)=(Info="320.0;25.0;1.0;110.0;2.0;0.1;0.1")
@@ -121,12 +112,12 @@ defaultproperties
      CockSound=(Sound=Sound'BWBP_SKC_SoundsExp.VSK.VSK-Cock',Volume=1.000000)
      ClipOutSound=(Sound=Sound'BWBP_SKC_SoundsExp.VSK.VSK-ClipOut',Volume=1.500000)
      ClipInSound=(Sound=Sound'BWBP_SKC_SoundsExp.VSK.VSK-ClipIn',Volume=1.500000)
+	 ClipHitSound=(Sound=Sound'BWBP_SKC_Sounds.M1911.RS04-SlideLock',Volume=1.500000)
      ClipInFrame=0.650000
      bNeedCock=False
-	 WeaponModes(0)=(bUnavailable=True)
+	 WeaponModes(0)=(ModeName="High Powered",ModeID="WM_FullAuto")
      WeaponModes(1)=(ModeName="Low Powered",ModeID="WM_FullAuto")
 	 WeaponModes(2)=(bUnavailable=True)
-     WeaponModes(3)=(ModeName="High Powered",ModeID="WM_FullAuto")
      CurrentWeaponMode=1
      ScopeViewTex=Texture'BWBP_SKC_TexExp.VSK.VSKScopeView'
      ZoomInSound=(Sound=Sound'BW_Core_WeaponSound.R78.R78ZoomIn',Volume=0.500000,Pitch=1.000000)
@@ -134,10 +125,9 @@ defaultproperties
 	 ZoomType=ZT_Fixed
 	 FullZoomFOV=50
      bNoCrosshairInScope=True
-     SightOffset=(Y=-1.700000,Z=14.000000)
+     SightOffset=(X=-20.000000,Y=-1.250000,Z=31.000000)
      SightDisplayFOV=20.000000
 	 NDCrosshairCfg=(Pic1=Texture'BW_Core_WeaponTex.Crosshairs.Cross4',pic2=Texture'BW_Core_WeaponTex.Crosshairs.A73OutA',USize1=256,VSize1=256,USize2=256,VSize2=256,Color1=(B=25,G=122,R=11,A=255),Color2=(B=255,G=255,R=255,A=255),StartSize1=22,StartSize2=59)     CrouchAimFactor=0.500000
-     
 	 ScopeXScale=1.200000
      FireModeClass(0)=Class'BWBP_SKCExp_Pro.VSKPrimaryFire'
      FireModeClass(1)=Class'BCoreProV55.BallisticScopeFire'
@@ -150,12 +140,12 @@ defaultproperties
      CustomCrossHairTextureName="Crosshairs.HUD.Crosshair_Cross1"
      InventoryGroup=9
      PickupClass=Class'BWBP_SKCExp_Pro.VSKPickup'
-     PlayerViewOffset=(X=10.000000,Y=6.000000,Z=-8.200000)
+     PlayerViewOffset=(X=10.000000,Y=15.000000,Z=-27.000000)
      BobDamping=2.000000
      AttachmentClass=Class'BWBP_SKCExp_Pro.VSKAttachment'
      IconMaterial=Texture'BWBP_SKC_TexExp.552.552_Icon_Small'
      IconCoords=(X2=127,Y2=31)
-     ItemName="VSK-42 Tranquilizer"
+     ItemName="VSK-42 Tranquilizer Rifle"
      LightType=LT_Pulse
      LightEffect=LE_NonIncidence
      LightHue=30
@@ -164,6 +154,6 @@ defaultproperties
      LightRadius=4.000000
 	 ParamsClasses(0)=Class'VSKTranqRifleWeaponParamsArena'
 	 ParamsClasses(1)=Class'VSKWeaponParamsClassic'
-     Mesh=SkeletalMesh'BWBP_SKC_AnimExp.FPm_VSK42'
-     DrawScale=1.000000
+     Mesh=SkeletalMesh'BWBP_SKC_AnimExp.FPm_VSKS'
+     DrawScale=0.700000
 }

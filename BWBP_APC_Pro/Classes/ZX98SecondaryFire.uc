@@ -328,7 +328,7 @@ defaultproperties
 	 FireRate=1.000000
 	 TraceRange=(Min=15000.000000,Max=20000.000000)
      WallPenetrationForce=128.000000
-     Damage=55.000000
+     Damage=90.000000
      RangeAtten=0.350000
      WaterRangeAtten=0.800000
      DamageType=Class'BWBP_APC_Pro.DTZX98Gauss'
@@ -349,7 +349,7 @@ defaultproperties
      XInaccuracy=64.000000
      YInaccuracy=64.000000
 	 AmmoPerFire=4
-     BallisticFireSound=(Sound=Sound'BWBP_SKC_Sounds.M30A2.M50A2-SilenceFire',Volume=6.700000)
+     BallisticFireSound=(Sound=Sound'BWBP_SKC_Sounds.AH104.AH104-QFire',Volume=1.500000)
      bPawnRapidFireAnim=True
 	 FireAnim="ChargedFire"
      PreFireAnim=

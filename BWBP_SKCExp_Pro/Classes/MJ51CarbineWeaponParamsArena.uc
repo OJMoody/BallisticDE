@@ -90,6 +90,7 @@ defaultproperties
         InventorySize=12
 		SightingTime=0.200000
 		SightOffset=(X=20.000000,Y=-6.450000,Z=20.500000)
+		ViewOffset=(X=-8.000000,Y=10.000000,Z=-14.000000)
 		WeaponBoneScales(0)=(BoneName="IronSight",Slot=55,Scale=0f)
 		WeaponBoneScales(1)=(BoneName="HoloSight",Slot=56,Scale=1f)
 		RecoilParams(0)=RecoilParams'ArenaRecoilParams'

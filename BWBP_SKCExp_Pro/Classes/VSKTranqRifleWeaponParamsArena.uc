@@ -4,10 +4,36 @@ defaultproperties
 {
 
 	//=================================================================
-	// PRIMARY FIRE
+	// PRIMARY FIRE - Heavy
 	//=================================================================	
 	
-	Begin Object Class=InstantEffectParams Name=ArenaPrimaryEffectParams
+	Begin Object Class=InstantEffectParams Name=ArenaPrimaryEffectHeavyParams
+		TraceRange=(Min=12000.000000,Max=15000.000000)
+		Damage=50
+		DamageType=Class'BWBP_SKCExp_Pro.DT_VSKTranq'
+		DamageTypeHead=Class'BWBP_SKCExp_Pro.DT_VSKTranqHead'
+		DamageTypeArm=Class'BWBP_SKCExp_Pro.DT_VSKTranq'
+		PenetrateForce=150
+		MuzzleFlashClass=Class'BWBP_SKCExp_Pro.VSKSilencedFlash'
+		FlashScaleFactor=0.600000
+		FireSound=(Sound=SoundGroup'BWBP_SKC_SoundsExp.VSK.VSK-SuperShot',Volume=1.100000,Slot=SLOT_Interact,bNoOverride=False)
+		Recoil=128.000000
+		WarnTargetPct=0.200000
+	End Object
+
+	Begin Object Class=FireParams Name=ArenaPrimaryFireHeavyParams
+		FireInterval=0.400000
+		FireAnim="FireHeavy"
+		AimedFireAnim="SightFire"
+		FireEndAnim=	
+	FireEffectParams(0)=InstantEffectParams'ArenaPrimaryEffectHeavyParams'
+	End Object
+	
+	//=================================================================
+	// PRIMARY FIRE - Standard
+	//=================================================================	
+	
+	Begin Object Class=InstantEffectParams Name=ArenaPrimaryEffectStandardParams
 		TraceRange=(Min=12000.000000,Max=15000.000000)
 		Damage=35
 		DamageType=Class'BWBP_SKCExp_Pro.DT_VSKTranq'
@@ -15,16 +41,17 @@ defaultproperties
 		DamageTypeArm=Class'BWBP_SKCExp_Pro.DT_VSKTranq'
 		PenetrateForce=150
 		MuzzleFlashClass=Class'BWBP_SKCExp_Pro.VSKSilencedFlash'
-		FlashScaleFactor=0.080000
-		FireSound=(Sound=SoundGroup'BWBP_SKC_SoundsExp.VSK.VSK-SuperShot',Volume=1.100000,Slot=SLOT_Interact,bNoOverride=False)
+		FlashScaleFactor=0.400000
+		FireSound=(Sound=SoundGroup'BWBP_SKC_SoundsExp.VSK.VSK-Shot',Volume=1.100000,Slot=SLOT_Interact,bNoOverride=False)
 		Recoil=88.000000
 		WarnTargetPct=0.200000
 	End Object
 
-	Begin Object Class=FireParams Name=ArenaPrimaryFireParams
-		FireInterval=0.400000
+	Begin Object Class=FireParams Name=ArenaPrimaryFireStandardParams
+		FireInterval=0.150000
+		AimedFireAnim="SightFire"
 		FireEndAnim=	
-	FireEffectParams(0)=InstantEffectParams'ArenaPrimaryEffectParams'
+	FireEffectParams(0)=InstantEffectParams'ArenaPrimaryEffectStandardParams'
 	End Object
 		
 	//=================================================================
@@ -66,11 +93,13 @@ defaultproperties
 		SightingTime=0.350000
 		DisplaceDurationMult=1
 		MagAmmo=15
-		SightOffset=(Y=-1.700000,Z=14.000000)
+		SightOffset=(X=-20.000000,Y=-1.250000,Z=31.000000)
+		ViewOffset=(X=10.000000,Y=15.000000,Z=-27.000000)
 		ZoomType=ZT_Fixed
 		RecoilParams(0)=RecoilParams'ArenaRecoilParams'
 		AimParams(0)=AimParams'ArenaAimParams'
-		FireParams(0)=FireParams'ArenaPrimaryFireParams'
+		FireParams(0)=FireParams'ArenaPrimaryFireHeavyParams'
+		FireParams(1)=FireParams'ArenaPrimaryFireStandardParams'
 		AltFireParams(0)=FireParams'ArenaSecondaryFireParams'
 	End Object
 	Layouts(0)=WeaponParams'ArenaParams'

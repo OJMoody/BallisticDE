@@ -96,6 +96,7 @@ defaultproperties
 
 	Begin Object Class=WeaponParams Name=ArenaParams
 		SightOffset=(X=-20.000000,Y=-1.250000,Z=29.200000)
+		ViewOffset=(X=10.000000,Y=11.000000,Z=-21.000000)
 		PlayerSpeedFactor=0.850000
 		PlayerJumpFactor=0.850000
 		InventorySize=12

@@ -131,6 +131,7 @@ defaultproperties
     Begin Object Class=WeaponParams Name=ArenaParams
 	    SightOffset=(X=-30.000000,Y=-13.000000,Z=12.000000)
 		SightPivot=(Roll=-3072)
+		ViewOffset=(X=10.000000,Y=8.000000,Z=-10.000000)
 		WeaponBoneScales(0)=(BoneName="Scope",Slot=100,Scale=0f)
 		SightingTime=0.650000	
         DisplaceDurationMult=1.25
