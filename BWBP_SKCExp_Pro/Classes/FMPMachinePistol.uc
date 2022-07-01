@@ -316,6 +316,7 @@ defaultproperties
      LightRadius=4.000000
 	 ParamsClasses(0)=Class'FMPWeaponParamsArena'
 	 ParamsClasses(1)=Class'FMPWeaponParamsClassic'
+	 ParamsClasses(2)=Class'FMPWeaponParamsRealistic'
      Mesh=SkeletalMesh'BWBP_SKC_AnimExp.FPm_MP40'
      DrawScale=0.30000
 	 Skins(0)=Shader'BW_Core_WeaponTex.Hands.Hands-Shiny'

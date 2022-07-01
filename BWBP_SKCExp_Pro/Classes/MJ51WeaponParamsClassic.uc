@@ -118,10 +118,10 @@ defaultproperties
 		SightOffset=(X=0.000000,Y=-6.450000,Z=20.500000)
 		WeaponBoneScales(0)=(BoneName="IronSight",Slot=55,Scale=1f)
 		WeaponBoneScales(1)=(BoneName="HoloSight",Slot=56,Scale=0f)
-		WeaponModes(0)=(ModeName="Semi-Auto")
-		WeaponModes(1)=(ModeName="Burst Fire",ModeID="WM_BigBurst")
-		WeaponModes(2)=(bUnavailable=True)
-		WeaponModes(3)=(ModeName="Automatic",bUnavailable=True,ModeID="WM_FullAuto")
+		WeaponModes(0)=(ModeName="Semi",ModeID="WM_SemiAuto",Value=1.000000)
+		WeaponModes(1)=(ModeName="Burst",ModeID="WM_BigBurst",Value=3.000000)
+		WeaponModes(2)=(ModeName="Auto",ModeID="WM_FullAuto",bUnavailable=True)
+		InitialWeaponMode=1
 		RecoilParams(0)=RecoilParams'ClassicRecoilParams'
 		AimParams(0)=AimParams'ClassicAimParams'
 		FireParams(0)=FireParams'ClassicPrimaryFireParams'

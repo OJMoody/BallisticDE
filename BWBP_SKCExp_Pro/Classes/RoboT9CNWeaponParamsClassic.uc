@@ -89,6 +89,7 @@ defaultproperties
 		MagAmmo=18
 		SightPivot=(Pitch=128)
 		SightOffset=(X=-10.000000,Y=-2.090000,Z=9.35000)
+		ViewOffset=(X=0.000000,Y=6.500000,Z=-8.00000)
 		RecoilParams(0)=RecoilParams'ClassicRecoilParams'
 		AimParams(0)=AimParams'ClassicAimParams'
 		FireParams(0)=FireParams'ClassicPrimaryFireParams'

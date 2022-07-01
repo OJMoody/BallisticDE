@@ -25,7 +25,7 @@ defaultproperties
 			WallPDamageFactor=0.4
 			SpreadMode=FSM_Rectangle
 			MuzzleFlashClass=Class'BallisticProV55.M50FlashEmitter'
-			FlashScaleFactor=0.800000
+			FlashScaleFactor=0.400000
 			FireSound=(Sound=Sound'BWBP_SKC_SoundsExp.JSOC.JSOC-Fire',Volume=1.500000,Slot=SLOT_Interact,bNoOverride=False)
 			Recoil=128.000000
 			Chaos=-1.0
@@ -46,14 +46,14 @@ defaultproperties
 
 	Begin Object Class=RecoilParams Name=ClassicRecoilParams
 		XCurve=(Points=(,(InVal=0.200000,OutVal=0.100000),(InVal=0.400000,OutVal=0.300000),(InVal=0.800000,OutVal=-0.400000),(InVal=1.000000,OutVal=-0.200000)))
-		YCurve=(Points=(,(InVal=0.200000,OutVal=0.100000),(InVal=0.400000,OutVal=0.650000),(InVal=0.600000,OutVal=0.800000),(InVal=0.800000,OutVal=0.900000),(InVal=1.000000,OutVal=1.000000)))
+		YCurve=(Points=(,(InVal=0.200000,OutVal=0.100000),(InVal=0.400000,OutVal=0.350000),(InVal=0.600000,OutVal=0.800000),(InVal=0.800000,OutVal=0.900000),(InVal=1.000000,OutVal=1.000000)))
 		YawFactor=0.300000
 		XRandFactor=0.200000
 		YRandFactor=0.200000
-		MaxRecoil=1600
+		MaxRecoil=3200
 		DeclineTime=2.2
 		DeclineDelay=0.3
-		ViewBindFactor=0.700000
+		ViewBindFactor=0.100000
 		HipMultiplier=1.000000
 		CrouchMultiplier=0.500000
 		bViewDecline=True
