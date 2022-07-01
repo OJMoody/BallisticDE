@@ -24,7 +24,8 @@ defaultproperties
 
 	Begin Object Class=FireParams Name=ArenaPrimaryFireParams
 		FireInterval=2.000000
-		FireAnim="FireCombined"	
+		FireAnim="Fire"
+		AimedFireAnim="SightFire"
 	FireEffectParams(0)=InstantEffectParams'ArenaPrimaryEffectParams'
 	End Object
 		
@@ -68,9 +69,9 @@ defaultproperties
 		MagAmmo=1
 		PlayerSpeedFactor=0.800000
 		PlayerJumpFactor=0.800000
-		SightOffset=(X=-10.000000,Y=-2.000000,Z=12.000000)
+		SightOffset=(X=-10.000000,Y=20.000000,Z=36.000000)
 		SightPivot=(Roll=-1024)
-		ViewOffset=(X=15.000000,Y=5.500000,Z=-8.500000)
+		ViewOffset=(X=25.000000,Y=-3.000000,Z=-24.500000)
 		ZoomType=ZT_Smooth
 		RecoilParams(0)=RecoilParams'ArenaRecoilParams'
 		AimParams(0)=AimParams'ArenaAimParams'

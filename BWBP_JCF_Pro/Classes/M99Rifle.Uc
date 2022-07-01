@@ -23,9 +23,6 @@ replication
 		bLaserOn;
 }
 
-simulated function bool SlaveCanUseMode(int Mode) {return Mode == 0;}
-simulated function bool MasterCanSendMode(int Mode) {return Mode == 0;}
-
 exec simulated function WeaponSpecial(optional byte i)
 {
 	bLaserOn = !bLaserOn;
@@ -54,21 +51,6 @@ simulated function PlayIdle()
 	if (!bLaserOn || bPendingSightUp || SightingState != SS_None || bScopeView || !CanPlayAnim(IdleAnim, ,"IDLE"))
 		return;
 	FreezeAnimAt(0.0);
-}
-
-// Set a few things...
-simulated function PostBeginPlay()
-{
-    local int m;
-
-    Super.PostBeginPlay();
-
-	SightingTime = 0.6;
-	/*if (BallisticInventoryGroup != 254)
-		InventoryGroup = BallisticInventoryGroup;*/
-    for (m = 0; m < NUM_FIRE_MODES; m++)
-    	if (FireMode[m] != None && BallisticFire(FireMode[m]) != None)
-			BFireMode[m] = BallisticFire(FireMode[m]);
 }
 
 simulated event PostNetReceive()
@@ -228,6 +210,7 @@ simulated event RenderOverlays( Canvas Canvas )
 	if (!IsInState('Lowered'))
 		DrawLaserSight(Canvas);
 }
+
 function ServerUpdateLaser(bool bNewLaserOn)
 {
 	bUseNetAim = bNewLaserOn;
@@ -432,11 +415,13 @@ defaultproperties
      LightEffect=LE_NonIncidence
      LightHue=30
      LightSaturation=150
+	 ReloadAnim="ReloadFast"
+	 ReloadEmptyAnim="ReloadFast"
 	 ReloadAnimRate=1.000000
      LightBrightness=150.000000
      LightRadius=5.000000
 	 ParamsClasses(0)=Class'BWBP_JCF_Pro.M99RifleWeaponParamsArena'
 	 ParamsClasses(1)=Class'BWBP_JCF_Pro.M99RifleWeaponParamsClassic'
-     Mesh=SkeletalMesh'BWBP_JCF_Anims.FPm_M99'
-     DrawScale=1.000000
+     Mesh=SkeletalMesh'BWBP_JCF_Anims.FPm_M99Classic'
+     DrawScale=0.140000
 }

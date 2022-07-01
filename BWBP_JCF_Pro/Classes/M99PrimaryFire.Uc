@@ -9,7 +9,7 @@
 //=============================================================================
 class M99PrimaryFire extends BallisticProInstantFire;
 
-var Name            AimedFireEmptyAnim, FireEmptyAnim;
+/*var Name            AimedFireEmptyAnim, FireEmptyAnim;
 
 // ModeDoFire from WeaponFire.uc, but with a few changes
 simulated event ModeDoFire()
@@ -168,14 +168,14 @@ function PlayFiring()
 		Weapon.PlayOwnedSound(BallisticFireSound.Sound,BallisticFireSound.Slot,BallisticFireSound.Volume,BallisticFireSound.bNoOverride,BallisticFireSound.Radius,BallisticFireSound.Pitch,BallisticFireSound.bAtten);
 
 	CheckClipFinished();
-}
+}*/
 
 defaultproperties
 {
      TraceRange=(Min=30000.000000,Max=30000.000000)
 	 WallPenetrationForce=768.000000
-	 AimedFireEmptyAnim="Fire"
-     FireEmptyAnim="Fire"
+	 //AimedFireEmptyAnim="Fire"
+     //FireEmptyAnim="Fire"
      Damage=135.000000
      WaterRangeAtten=0.800000
      DamageType=Class'BWBP_JCF_Pro.DTM99Rifle'
@@ -184,7 +184,7 @@ defaultproperties
      KickForce=95000
      PenetrateForce=50050
      bPenetrate=True
-	 FireAnim="FireCombined"
+	 FlashScaleFactor=2.000000
      MuzzleFlashClass=Class'BallisticProV55.M925FlashEmitter'
      BrassClass=Class'BWBP_JCF_Pro.Brass_50BMG'
      bBrassOnCock=True
