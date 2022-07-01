@@ -26,8 +26,8 @@ defaultproperties
 		MuzzleFlashClass=Class'BallisticProV55.XK2FlashEmitter'
 		FlashScaleFactor=0.900000
 		FireSound=(Sound=Sound'BWBP_SKC_SoundsExp.MP40.MP40-Fire',Volume=1.000000)
-		Recoil=40.000000
-		Chaos=0.75
+		Recoil=80.000000
+		Chaos=0.1
 		Inaccuracy=(X=28,Y=28)
 	End Object
 
@@ -120,7 +120,7 @@ defaultproperties
 		XCurve=(Points=(,(InVal=0.200000,OutVal=0.030000),(InVal=0.400000,OutVal=0.050000),(InVal=0.500000,OutVal=0.100000),(InVal=0.800000,OutVal=0.120000),(InVal=1.000000,OutVal=0.160000)))
 		YCurve=(Points=(,(InVal=0.100000,OutVal=0.100000),(InVal=0.200000,OutVal=0.250000),(InVal=0.400000,OutVal=0.350000),(InVal=1.000000,OutVal=0.350000)))
 		YawFactor=0.200000
-		PitchFactor=0.200000
+		PitchFactor=0.600000
 		XRandFactor=0.750000
 		YRandFactor=0.750000
 		MaxRecoil=4096.000000
@@ -169,7 +169,7 @@ defaultproperties
 	Begin Object Class=AimParams Name=RealisticAimParams
 		AimSpread=(Min=600,Max=1280)
 		CrouchMultiplier=0.500000
-		ADSMultiplier=0.3
+		ADSMultiplier=0.600000
 		ViewBindFactor=0.200000
 		SprintChaos=0.400000
 		ChaosDeclineTime=1.0

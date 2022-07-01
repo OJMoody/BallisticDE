@@ -409,7 +409,8 @@ defaultproperties
      LightBrightness=150.000000
      LightRadius=4.000000
      Mesh=SkeletalMesh'BWBP_SKC_AnimExp.FPm_MJ55A3'
-	 ParamsClasses(0)=Class'MJ51CarbineWeaponParamsArena'
+	 ParamsClasses(0)=Class'MJ51WeaponParamsArena'
      ParamsClasses(1)=Class'MJ51WeaponParamsClassic'
+     ParamsClasses(2)=Class'MJ51WeaponParamsRealistic'
      DrawScale=0.300000
 }

@@ -194,6 +194,7 @@ defaultproperties
 	CurrentRating=0.6
 	ParamsClasses(0)=Class'RoboT9CNPistolWeaponParamsArena'
 	ParamsClasses(1)=Class'RoboT9CNWeaponParamsClassic'
+	ParamsClasses(2)=Class'RoboT9CNWeaponParamsRealistic'
 	FireModeClass(0)=Class'BWBP_SKCExp_Pro.RoboT9CNPrimaryFire'
     FireModeClass(1)=Class'BCoreProV55.BallisticScopeFire'
 	NDCrosshairCfg=(Pic1=Texture'BW_Core_WeaponTex.Crosshairs.M806OutA',pic2=Texture'BW_Core_WeaponTex.Crosshairs.Cross3',USize1=256,VSize1=256,USize2=128,VSize2=128,Color1=(B=185,G=190,R=197,A=117),Color2=(B=255,G=255,R=255,A=149),StartSize1=90,StartSize2=38)

@@ -7,72 +7,70 @@ defaultproperties
     // PRIMARY FIRE
     //=================================================================	
 	
-	
-		Begin Object Class=InstantEffectParams Name=ClassicPrimaryEffectParams
-			TraceRange=(Min=10000.000000,Max=13000.000000)
-			WaterTraceRange=10400.0
-			DecayRange=(Min=0.0,Max=0.0)
-			RangeAtten=0.900000
-			Damage=24
-			HeadMult=3.125
-			LimbMult=0.5
-			DamageType=Class'BWBP_SKCExp_Pro.DTMJ51Assault'
-			DamageTypeHead=Class'BWBP_SKCExp_Pro.DTMJ51AssaultHead'
-			DamageTypeArm=Class'BWBP_SKCExp_Pro.DTMJ51AssaultLimb'
-			PenetrationEnergy=32.000000
-			PenetrateForce=150
-			bPenetrate=True
-			PDamageFactor=0.6
-			WallPDamageFactor=0.4
-			SpreadMode=FSM_Rectangle
-			MuzzleFlashClass=Class'BWBP_SKCExp_Pro.MJ51FlashEmitter'
-			FlashScaleFactor=1.000000
-			FireSound=(Sound=Sound'BWBP_SKC_SoundsExp.MJ51.MJ51Carbine-Fire')
-			Recoil=128.000000
-			Chaos=-1.0
-			Inaccuracy=(X=8,Y=8)
-			WarnTargetPct=0.200000
-		End Object
+	Begin Object Class=InstantEffectParams Name=ClassicPrimaryEffectParams
+		TraceRange=(Min=10000.000000,Max=13000.000000)
+		WaterTraceRange=10400.0
+		DecayRange=(Min=0.0,Max=0.0)
+		RangeAtten=0.900000
+		Damage=24
+		HeadMult=3.125
+		LimbMult=0.5
+		DamageType=Class'BWBP_SKCExp_Pro.DTMJ51Assault'
+		DamageTypeHead=Class'BWBP_SKCExp_Pro.DTMJ51AssaultHead'
+		DamageTypeArm=Class'BWBP_SKCExp_Pro.DTMJ51AssaultLimb'
+		PenetrationEnergy=32.000000
+		PenetrateForce=150
+		bPenetrate=True
+		PDamageFactor=0.6
+		WallPDamageFactor=0.4
+		SpreadMode=FSM_Rectangle
+		MuzzleFlashClass=Class'BWBP_SKCExp_Pro.MJ51FlashEmitter'
+		FlashScaleFactor=1.000000
+		FireSound=(Sound=Sound'BWBP_SKC_SoundsExp.MJ51.MJ51Carbine-Fire')
+		Recoil=128.000000
+		Chaos=-1.0
+		Inaccuracy=(X=8,Y=8)
+		WarnTargetPct=0.200000
+	End Object
 
-		Begin Object Class=FireParams Name=ClassicPrimaryFireParams
-			FireInterval=0.075000
-			AimedFireAnim="SightFire"
-			BurstFireRateFactor=1.00
-			FireEndAnim=	
-		FireEffectParams(0)=InstantEffectParams'ClassicPrimaryEffectParams'
-		End Object
+	Begin Object Class=FireParams Name=ClassicPrimaryFireParams
+		FireInterval=0.075000
+		AimedFireAnim="SightFire"
+		BurstFireRateFactor=1.00
+		FireEndAnim=	
+	FireEffectParams(0)=InstantEffectParams'ClassicPrimaryEffectParams'
+	End Object
 		
     //=================================================================
     // SECONDARY FIRE
     //=================================================================	
 	
-	
-		Begin Object Class=ProjectileEffectParams Name=ClassicSecondaryEffectParams
-			ProjectileClass=Class'BWBP_SKCExp_Pro.ChaffRifleGrenade'
-			SpawnOffset=(X=15.000000,Y=10.000000,Z=-9.000000)
-			Speed=3750.000000
-			MaxSpeed=4500.000000
-			Damage=65.000000
-			DamageRadius=192.000000
-			HeadMult=1.0
-			LimbMult=1.0
-			SpreadMode=FSM_Rectangle
-			MuzzleFlashClass=Class'MJ51AltFlashEmitter'
-			FireSound=(Sound=Sound'BWBP_SKC_SoundsExp.MJ51.MJ51Carbine-GrenLaunch',Volume=2.200000)
-			Recoil=0.0
-			Chaos=-1.0
-			SplashDamage=True
-			RecommendSplashDamage=True
-			BotRefireRate=0.300000
-			WarnTargetPct=0.300000	
-		End Object
+	Begin Object Class=ProjectileEffectParams Name=ClassicSecondaryEffectParams
+		ProjectileClass=Class'BWBP_SKCExp_Pro.MJ51ChaffRifleGrenade'
+		SpawnOffset=(X=15.000000,Y=10.000000,Z=-9.000000)
+		Speed=3750.000000
+		MaxSpeed=4500.000000
+		Damage=65.000000
+		DamageRadius=192.000000
+		HeadMult=1.0
+		LimbMult=1.0
+		SpreadMode=FSM_Rectangle
+		MuzzleFlashClass=Class'MJ51AltFlashEmitter'
+		FireSound=(Sound=Sound'BWBP_SKC_SoundsExp.MJ51.MJ51Carbine-GrenLaunch',Volume=2.200000)
+		Recoil=0.0
+		Chaos=-1.0
+		SplashDamage=True
+		RecommendSplashDamage=True
+		BotRefireRate=0.300000
+		WarnTargetPct=0.300000	
+	End Object
 
-		Begin Object Class=FireParams Name=ClassicSecondaryFireParams
-			FireInterval=0.600000
-			BurstFireRateFactor=1.00
-			FireAnim="FireGrenade"	
-		FireEffectParams(0)=ProjectileEffectParams'ClassicSecondaryEffectParams'
-		End Object
+	Begin Object Class=FireParams Name=ClassicSecondaryFireParams
+		FireInterval=0.600000
+		BurstFireRateFactor=1.00
+		FireAnim="FireGrenade"	
+	FireEffectParams(0)=ProjectileEffectParams'ClassicSecondaryEffectParams'
+	End Object
 		
 	//=================================================================
 	// RECOIL
