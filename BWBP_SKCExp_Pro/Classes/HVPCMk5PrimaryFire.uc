@@ -8,7 +8,8 @@
 //=============================================================================
 class HVPCMk5PrimaryFire extends BallisticProProjectileFire;
 
-var   float		StopFireTime;
+var float	StopFireTime;
+var	float	HeatPerShot;
 var byte	ProjectileCount;
 var float HipSpreadFactor;
 
@@ -30,7 +31,7 @@ simulated function bool AllowFire()
 function PlayFiring()
 {
 	Super.PlayFiring();
-	HVPCMk5PlasmaCannon(BW).AddHeat(1.50);
+	HVPCMk5PlasmaCannon(BW).AddHeat(HeatPerShot);
 }
 
 
@@ -72,7 +73,7 @@ function DoFireEffect()
 	SendFireEffect(none, vect(0,0,0), StartTrace, 0);
 	Super.DoFireEffect();
 	if (level.Netmode == NM_DedicatedServer)
-		HVPCMk5PlasmaCannon(BW).AddHeat(1.50);
+		HVPCMk5PlasmaCannon(BW).AddHeat(HeatPerShot);
 }
 
 // Returns normal for some random spread. This is seperate from GetFireDir for shotgun reasons mainly...
@@ -119,6 +120,7 @@ static function FireModeStats GetStats()
 defaultproperties
 {
      ProjectileCount=3
+	 HeatPerShot=1.5
      HipSpreadFactor=1.100000
      SpawnOffset=(X=10.000000,Y=10.000000,Z=-9.000000)
      MuzzleFlashClass=Class'BallisticProV55.HVCMk9RedMuzzleFlash'

@@ -623,7 +623,7 @@ defaultproperties
      AttachmentClass=Class'BWBP_SKCExp_Pro.MG36Attachment'
      IconMaterial=Texture'BWBP_SKC_TexExp.MG36.MG36_SmallIcon'
      IconCoords=(X2=127,Y2=31)
-     ItemName="Mk.88 LSW"
+     ItemName="Mk.88 Light Support Weapon"
      LightType=LT_Pulse
      LightEffect=LE_NonIncidence
      LightHue=30
@@ -632,6 +632,7 @@ defaultproperties
      LightRadius=4.000000
 	 ParamsClasses(0)=Class'MG36CarbineWeaponParamsArena'
 	 ParamsClasses(1)=Class'MG36WeaponParamsClassic'
+	 ParamsClasses(2)=Class'MG36WeaponParamsRealistic'
      Mesh=SkeletalMesh'BWBP_SKC_AnimExp.FPm_MG36'
      DrawScale=1.000000
 }

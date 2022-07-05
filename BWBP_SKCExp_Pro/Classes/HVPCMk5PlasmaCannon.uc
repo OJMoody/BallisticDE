@@ -37,6 +37,17 @@ replication
 		ClientOverCharge, ClientSetHeat;
 }
 
+
+simulated event PostNetBeginPlay()
+{
+	super.PostNetBeginPlay();
+	if (BCRepClass.default.GameStyle == 2)
+	{
+		HVPCMk5PrimaryFire(FireMode[0]).ProjectileCount = 1;
+		HVPCMk5PrimaryFire(FireMode[0]).HeatPerShot = 1.0;
+	}
+}
+
 // -----------------------------------------------
 // Events and target related stuff called from firemodes
 
@@ -799,6 +810,7 @@ defaultproperties
      LightRadius=12.000000
 	 ParamsClasses(0)=Class'HVPCMk5PlasmaCannonWeaponParamsArena'
 	 ParamsClasses(1)=Class'HVPCMk5WeaponParamsClassic'
+	 ParamsClasses(2)=Class'HVPCMk5WeaponParamsRealistic'
      Mesh=SkeletalMesh'BWBP_SKC_AnimExp.FPm_EVPC'
      DrawScale=0.350000
      Skins(0)=Shader'BW_Core_WeaponTex.Hands.Hands-Shiny'

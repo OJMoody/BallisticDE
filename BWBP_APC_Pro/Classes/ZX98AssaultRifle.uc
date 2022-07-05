@@ -324,6 +324,8 @@ defaultproperties
      LightBrightness=150.000000
      LightRadius=4.000000
 	 ParamsClasses(0)=Class'ZX98AssaultRifleWeaponParamsArena'
+	 ParamsClasses(1)=Class'ZX98WeaponParamsClassic'
+	 ParamsClasses(2)=Class'ZX98WeaponParamsRealistic'
      Mesh=SkeletalMesh'BWBP_CC_Anim.FPm_ZX98'
      DrawScale=0.200000
 }
