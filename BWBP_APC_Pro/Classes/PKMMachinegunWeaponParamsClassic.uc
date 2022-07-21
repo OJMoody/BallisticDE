@@ -47,7 +47,7 @@ defaultproperties
 		HeadMult=1.0
 		LimbMult=1.0
 		SpreadMode=FSM_Rectangle
-		MuzzleFlashClass=Class'BWBP_JCF_Pro.RGPFlashEmitter'
+		MuzzleFlashClass=Class'BWBP_APC_Pro.PKMClassicFlashEmitter'
 		FireSound=(Sound=Sound'BWBP_JCF_Sounds.RPG.Fire',Volume=450.500000)
 		Recoil=64.000000
 		Chaos=-1.0

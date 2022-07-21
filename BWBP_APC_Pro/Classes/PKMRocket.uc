@@ -282,9 +282,9 @@ defaultproperties
      MaxStrafeSpeed=8.000000
      ImpactDamage=90
      ImpactDamageType=Class'BWBP_APC_Pro.DTE5Plasma'
-     ImpactManager=Class'BWBP_JCF_Pro.IM_RPG'
+     ImpactManager=Class'BWBP_APC_Pro.IM_PKMRocket'
      AccelSpeed=18000.000000
-     TrailClass=Class'BWBP_JCF_Pro.RGPRocketTrail'
+     TrailClass=Class'BWBP_APC_Pro.PKMRocketTrail'
      TrailOffset=(X=-14.000000)
      MyRadiusDamageType=Class'BWBP_APC_Pro.DTE5Plasma'
      SplashManager=Class'BallisticProV55.IM_ProjWater'
