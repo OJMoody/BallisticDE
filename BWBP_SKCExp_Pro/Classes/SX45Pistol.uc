@@ -17,6 +17,8 @@ var() sound		AmplifierOnSound;			//
 var() sound		AmplifierOffSound;			//
 var() sound		AmplifierPowerOnSound;		// Electrical noises?
 var() sound		AmplifierPowerOffSound;		//
+var float		AmpCharge;					// Existing ampjuice
+var bool		bShowCharge;				// Hides charge until the amp is on
 
 var() array<Material> CamoMaterials; //We're using this for the amp
 
@@ -34,6 +36,8 @@ replication
 {
 	reliable if (Role < ROLE_Authority)
 		ServerFlashLight, ServerSwitchAmplifier;
+	reliable if (ROLE==ROLE_Authority)
+		ClientSetHeat;
 }
 
 simulated function bool SlaveCanUseMode(int Mode) {return Mode == 0;}
@@ -72,6 +76,7 @@ function ServerSwitchAmplifier(bool bNewValue)
 			WeaponModes[2].bUnavailable=false;
 			CurrentWeaponMode=1;
 			ServerSwitchWeaponMode(1);
+			AmpCharge=10;
 	}
 	else
 	{
@@ -80,6 +85,7 @@ function ServerSwitchAmplifier(bool bNewValue)
 			WeaponModes[2].bUnavailable=true;
 			CurrentWeaponMode=0;
 			ServerSwitchWeaponMode(0);
+			AmpCharge=0;
 	}
 }
 
@@ -109,13 +115,13 @@ simulated function SwitchAmplifier(bool bNewValue)
 	if (Role == ROLE_Authority)
 		SX45Attachment(ThirdPersonActor).SetAmped(bNewValue);
 	
-	if (CurrentWeaponMode == 1)	//cryo
+	if (CurrentWeaponMode == 1 && AmpCharge > 0)	//cryo
 	{
 		SX45Attachment(ThirdPersonActor).SetAmpColour(true, false);
 		Skins[6]=CamoMaterials[1];
 		Skins[7]=CamoMaterials[2];
 	}
-	else if (CurrentWeaponMode == 2)	//RAD
+	else if (CurrentWeaponMode == 2 && AmpCharge > 0)	//RAD
 	{
 		SX45Attachment(ThirdPersonActor).SetAmpColour(false, true);
 		Skins[6]=CamoMaterials[0];
@@ -134,13 +140,13 @@ simulated function CommonSwitchWeaponMode (byte newMode)
 	super.CommonSwitchWeaponMode(newMode);
 
 	SX45PrimaryFire(FireMode[0]).SwitchWeaponMode(newMode);
-	if (newMode == 1)
+	if (newMode == 1 && AmpCharge > 0)
 	{
 		SX45Attachment(ThirdPersonActor).SetAmpColour(true, false);
 		Skins[6]=CamoMaterials[1];
 		Skins[7]=CamoMaterials[2];
 	}
-	else if (newMode == 2)
+	else if (newMode == 2 && AmpCharge > 0)
 	{
 		SX45Attachment(ThirdPersonActor).SetAmpColour(false, true);
 		Skins[6]=CamoMaterials[0];
@@ -148,15 +154,16 @@ simulated function CommonSwitchWeaponMode (byte newMode)
 	}
 }
 
-simulated function Notify_SilencerOn()	{	PlaySound(AmplifierOnSound,,0.5);	}
-simulated function Notify_SilencerOff()	{	PlaySound(AmplifierOffSound,,0.5);	}
+simulated function Notify_AmplifierOn()	{		PlaySound(AmplifierOnSound,,0.5); }
+simulated function Notify_AmplifierOff()	{	PlaySound(AmplifierOffSound,,0.5);	bShowCharge=false;}
+simulated function Notify_AmplifierCharged()	{		PlaySound(AmplifierPowerOnSound,,1.6);	bShowCharge=true;}
 
-simulated function Notify_SilencerShow()
+simulated function Notify_AmplifierShow()
 {	
 	SetBoneScale (0, 1.0, AmplifierBone);	
 	SetBoneScale (2, 0.0, AmplifierBone2);	
 }
-simulated function Notify_SilencerHide()
+simulated function Notify_AmplifierHide()
 {	
 	SetBoneScale (0, 0.0, AmplifierBone);	
 	SetBoneScale (2, 1.0, AmplifierBone2);	
@@ -188,6 +195,44 @@ simulated function BringUp(optional Weapon PrevWeapon)
 	}
 }
 
+simulated function float ChargeBar()
+{
+	if (!bShowCharge)
+		return 0;
+	else
+		return AmpCharge / 10;
+}
+
+simulated function AddHeat(float Amount)
+{
+	if (bBerserk)
+		Amount *= 0.75;
+		
+	AmpCharge += Amount;
+	
+	if (AmpCharge <= 0.25)
+	{
+		AmpCharge = 0;
+		PlaySound(AmplifierPowerOffSound,,2.0,,32);
+		Skins[6]=CamoMaterials[4];
+		Skins[7]=CamoMaterials[5];
+		WeaponModes[0].bUnavailable=false;
+		WeaponModes[1].bUnavailable=true;
+		WeaponModes[2].bUnavailable=true;
+		CurrentWeaponMode=0;
+		ServerSwitchWeaponMode(0);
+		if (Role == ROLE_Authority)
+			SX45Attachment(ThirdPersonActor).SetAmped(false);
+	}
+}
+
+simulated function ClientSetHeat(float NewHeat)
+{
+	AmpCharge = NewHeat;
+}
+
+//======================================================
+// Flashlight
 //======================================================
 
 exec simulated function WeaponSpecial(optional byte i)
@@ -244,7 +289,12 @@ simulated event Tick(float DT)
 		KillProjector();
 	else if (FlashLightProj == None)
 		StartProjector();
+		
+	if (AmpCharge > 0)
+		AmpCharge = FMax(AmpCharge - 0.5 * DT, 0);
+		
 }
+
 
 simulated event RenderOverlays( Canvas Canvas )
 {
@@ -399,6 +449,8 @@ defaultproperties
 	CamoMaterials[1]=Shader'BWBP_SKC_Tex.AMP.Amp-FinalCyan'
 	CamoMaterials[2]=Shader'BWBP_SKC_Tex.Amp.Amp-GlowCyanShader'
     CamoMaterials[3]=Shader'BWBP_SKC_Tex.Amp.Amp-GlowYellowShader'
+    CamoMaterials[4]=Texture'BWBP_SKC_Tex.Amp.Amp-BaseDepleted'
+    CamoMaterials[5]=Texture'ONSstructureTextures.CoreGroup.Invisible'
     AmplifierBone="AMP"
     AmplifierBone2="AMP2"
     AmplifierOnAnim="AMPAdd"
@@ -408,8 +460,9 @@ defaultproperties
     TorchOffSound=Sound'BW_Core_WeaponSound.MRS38.RSS-FlashClick'
     AmplifierOnSound=Sound'BW_Core_WeaponSound.SRS900.SRS-SilencerOn'
     AmplifierOffSound=Sound'BW_Core_WeaponSound.SRS900.SRS-SilencerOff'
-    AmplifierPowerOnSound=Sound'BW_Core_WeaponSound.VPR.VPR-ClipIn'
-    AmplifierPowerOffSound=Sound'BW_Core_WeaponSound.VPR.VPR-ClipOut'
+    AmplifierPowerOnSound=Sound'BWBP_SKC_SoundsExp.SX45.Amp-Install'
+    AmplifierPowerOffSound=Sound'BWBP_SKC_SoundsExp.SX45.Amp-Depleted'
+	bShowChargingBar=True
 	TeamSkins(0)=(RedTex=Shader'BW_Core_WeaponTex.Hands.RedHand-Shiny',BlueTex=Shader'BW_Core_WeaponTex.Hands.BlueHand-Shiny')
 	AIReloadTime=1.000000
 	BigIconMaterial=Texture'BWBP_SKC_TexExp.SX45.BigIcon_SX45'
@@ -432,14 +485,15 @@ defaultproperties
 	ClipHitSound=(Sound=Sound'BW_Core_WeaponSound.M806.M806-ClipHit')
 	ClipInFrame=0.650000
 	WeaponModes(0)=(ModeName="Semi-Auto")
-    WeaponModes(1)=(ModeName="Amplified: Cryogenic",ModeID="WM_FullAuto",bUnavailable=True)
-    WeaponModes(2)=(ModeName="Amplified: Radiation",ModeID="WM_FullAuto",bUnavailable=True)
+    WeaponModes(1)=(ModeName="Amplified: Cryogenic",ModeID="WM_SemiAuto",Value=1.000000,bUnavailable=True)
+    WeaponModes(2)=(ModeName="Amplified: Radiation",ModeID="WM_SemiAuto",Value=1.000000,bUnavailable=True)
 	CurrentWeaponMode=0
 	bNoCrosshairInScope=True
 	SightOffset=(y=-3.140000,Z=14.300000)
 	SightDisplayFOV=60.000000
 	ParamsClasses(0)=Class'SX45PistolWeaponParamsArena'
 	ParamsClasses(1)=Class'SX45WeaponParamsClassic'
+	ParamsClasses(2)=Class'SX45WeaponParamsRealistic'
 	FireModeClass(0)=Class'BWBP_SKCExp_Pro.SX45PrimaryFire'
 	FireModeClass(1)=Class'BWBP_SKCExp_Pro.SX45SecondaryFire'
 	SelectForce="SwitchToAssaultRifle"

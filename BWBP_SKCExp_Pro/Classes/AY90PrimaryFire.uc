@@ -28,21 +28,24 @@ simulated event ModeDoFire()
 
 	if (HoldTime >= ChargeTime && AY90SkrithBoltcaster(BW).MagAmmo >= 20)
 	{
-		ProjectileClass=Class'AY90TestProjectile';
+		AY90SkrithBoltcaster(BW).ParamsClasses[AY90SkrithBoltcaster(BW).GameStyleIndex].static.OverrideFireParams(AY90SkrithBoltcaster(BW),2);
+//		ProjectileClass=Class'AY90TestProjectile';
 //		AmmoPerFire=30;
-		BallisticFireSound.Sound=MaxChargeFireSound;
+//		BallisticFireSound.Sound=MaxChargeFireSound;
 	}
 	else if (HoldTime >= (ChargeTime/2) && AY90SkrithBoltcaster(BW).MagAmmo >= 10)
 	{
-		ProjectileClass=Class'HVPCMk5Projectile';
+		AY90SkrithBoltcaster(BW).ParamsClasses[AY90SkrithBoltcaster(BW).GameStyleIndex].static.OverrideFireParams(AY90SkrithBoltcaster(BW),1);
+//		ProjectileClass=Class'HVPCMk5Projectile';
 //		AmmoPerFire=15;
-		BallisticFireSound.Sound=ChargeFireSound;
+//		BallisticFireSound.Sound=ChargeFireSound;
 	}
 	else
 	{
-		ProjectileClass=default.ProjectileClass;
-		AmmoPerFire=default.AmmoPerFire;
-		BallisticFireSound.Sound=default.BallisticFireSound.Sound;
+		AY90SkrithBoltcaster(BW).ParamsClasses[AY90SkrithBoltcaster(BW).GameStyleIndex].static.OverrideFireParams(AY90SkrithBoltcaster(BW),0);
+//		ProjectileClass=default.ProjectileClass;
+//		AmmoPerFire=default.AmmoPerFire;
+//		BallisticFireSound.Sound=default.BallisticFireSound.Sound;
 	}
 
 	Weapon.AmbientSound = None;

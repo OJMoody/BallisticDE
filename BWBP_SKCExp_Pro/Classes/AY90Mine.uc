@@ -19,6 +19,22 @@ replication
 		bDetonated;
 }
 
+simulated function PreBeginPlay()
+{
+    local BallisticWeapon BW;
+    Super(Projectile).PreBeginPlay();
+
+    if (Instigator == None)
+        return;
+
+    BW = BallisticWeapon(Instigator.Weapon);
+
+    if (BW == None)
+        return;
+
+    BW.default.ParamsClasses[BW.GameStyleIndex].static.OverrideProjectileParams(BW, self, 0);
+}
+
 simulated event PostNetReceive()
 {
 	Super.PostNetReceive();

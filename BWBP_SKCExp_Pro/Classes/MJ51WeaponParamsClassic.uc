@@ -55,6 +55,7 @@ defaultproperties
 		HeadMult=1.0
 		LimbMult=1.0
 		SpreadMode=FSM_Rectangle
+		RadiusFallOffType=RFO_Linear
 		MuzzleFlashClass=Class'MJ51AltFlashEmitter'
 		FireSound=(Sound=Sound'BWBP_SKC_SoundsExp.MJ51.MJ51Carbine-GrenLaunch',Volume=2.200000)
 		Recoil=0.0

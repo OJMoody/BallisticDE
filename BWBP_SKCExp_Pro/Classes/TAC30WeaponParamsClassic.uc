@@ -16,6 +16,7 @@ defaultproperties
 		Damage=110
 		DamageRadius=180.000000
 		MomentumTransfer=30000.000000
+		RadiusFallOffType=RFO_Linear
 		MuzzleFlashClass=Class'BallisticProV55.M50M900FlashEmitter'
 		FlashScaleFactor=1.000000
 		FireSound=(Sound=Sound'BWBP_SKC_SoundsExp.TAC.TAC-Fire',Volume=1.750000)

@@ -13,6 +13,23 @@ class AY90BoltProjectileFast extends BallisticProjectile;
 var vector					StartLocation;
 var bool					bScaleDone;
 
+
+simulated function PreBeginPlay()
+{
+    local BallisticWeapon BW;
+    Super(Projectile).PreBeginPlay();
+
+    if (Instigator == None)
+        return;
+
+    BW = BallisticWeapon(Instigator.Weapon);
+
+    if (BW == None)
+        return;
+
+    BW.default.ParamsClasses[BW.GameStyleIndex].static.OverrideProjectileParams(BW, self, 1);
+}
+
 simulated function PostBeginPlay()
 {
 	Super.PostBeginPlay();

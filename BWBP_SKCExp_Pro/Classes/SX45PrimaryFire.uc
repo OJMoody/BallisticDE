@@ -1,20 +1,31 @@
 //=============================================================================
-// RS8PrimaryFire.
+// SX45PrimaryFire.
 //
-// by Nolan "Dark Carnivour" Richert.
+// Powerful, but slow .45 fire. Can install an elemental amp that charges the gun.
+// Amp will run out of juice and need replacement.
+//
+// by SK, adapted from Nolan "Dark Carnivour" Richert.
 // Copyright(c) 2006 RuneStorm. All Rights Reserved.
 //=============================================================================
 class SX45PrimaryFire extends BallisticRangeAttenFire;
 
-var() BUtil.FullSound			Amp1FireSound; //Cyro, Blue
-var() BUtil.FullSound			Amp2FireSound; //Rad, Yellow
-var() sound						RegularFireSound;
-var() Actor						MuzzleFlashAmp1;		
-var() class<Actor>				MuzzleFlashClassAmp1;	
-var() Actor						MuzzleFlashAmp2;		
-var() class<Actor>				MuzzleFlashClassAmp2;	
-var() Name						AmpFlashBone;
-var() float						AmpFlashScaleFactor;
+var(SX45) Actor						MuzzleFlashAmp1;		
+var(SX45) Actor						MuzzleFlashAmp2;		
+var(SX45) class<Actor>				MuzzleFlashClassAmp1;	
+var(SX45) class<Actor>				MuzzleFlashClassAmp2;	
+var(SX45) Name						AmpFlashBone;
+var(SX45) float						AmpFlashScaleFactor;
+var(SX45) bool						bAmped;
+var(SX45) float						AmpDrainPerShot;
+
+/*simulated function bool AllowFire()
+{
+	if ((bAmped && SX45Pistol(Weapon).AmpCharge <= 0) || !super.AllowFire())
+	{
+		return false;
+	}
+	return true;
+}*/
 
 // Effect related functions ------------------------------------------------
 // Spawn the muzzleflash actor
@@ -65,22 +76,22 @@ simulated function SwitchWeaponMode (byte NewMode)
 	if (NewMode == 0) //Standard Fire
 	{
 		FlashBone=FlashBone;
-		RangeAtten=default.RangeAtten;
+		bAmped=False;
 	}
 	else if (NewMode == 1) //Cryo Amp
 	{
 		FlashBone=AmpFlashBone;
-		RangeAtten=1.000000;
+		bAmped=True;
 	}
 	else if (NewMode == 2) //RAD Amp
 	{
 		FlashBone=AmpFlashBone;
-		RangeAtten=1.000000;
+		bAmped=True;
 	}
 	else
 	{
 		FlashBone=FlashBone;
-		RangeAtten=default.RangeAtten;
+		bAmped=False;
 	}
 	if (Weapon.bBerserk)
 		FireRate *= 0.75;
@@ -89,32 +100,6 @@ simulated function SwitchWeaponMode (byte NewMode)
 
 }
 
-//// server propagation of firing ////
-function ServerPlayFiring()
-{
-	if (SX45Pistol(Weapon) != None && SX45Pistol(Weapon).CurrentWeaponMode == 1 && Amp1FireSound.Sound != None)
-		Weapon.PlayOwnedSound(Amp1FireSound.Sound,BallisticFireSound.Slot,BallisticFireSound.Volume,,BallisticFireSound.Radius);
-	else if (SX45Pistol(Weapon) != None && SX45Pistol(Weapon).CurrentWeaponMode == 2 && Amp2FireSound.Sound != None)
-		Weapon.PlayOwnedSound(Amp2FireSound.Sound,BallisticFireSound.Slot,BallisticFireSound.Volume,,BallisticFireSound.Radius);
-	else if (BallisticFireSound.Sound != None)
-		Weapon.PlayOwnedSound(BallisticFireSound.Sound,BallisticFireSound.Slot,BallisticFireSound.Volume,,BallisticFireSound.Radius);
-
-	CheckClipFinished();
-
-	if (AimedFireAnim != '')
-	{
-		BW.SafePlayAnim(FireAnim, FireAnimRate, TweenTime, ,"FIRE");
-		if (BW.BlendFire())		
-			BW.SafePlayAnim(AimedFireAnim, FireAnimRate, TweenTime, 1, "AIMEDFIRE");
-	}
-
-	else
-	{
-		if (FireCount == 0 && Weapon.HasAnim(FireLoopAnim))
-			BW.SafeLoopAnim(FireLoopAnim, FireLoopAnimRate, 0.0, ,"FIRE");
-		else BW.SafePlayAnim(FireAnim, FireAnimRate, TweenTime, ,"FIRE");
-	}
-}
 
 //Do the spread on the client side
 function PlayFiring()
@@ -133,34 +118,17 @@ function PlayFiring()
 		AimedFireAnim = 'SightFire';
 		FireAnim = 'Fire';
 	}
+	super.PlayFiring();
+	if (bAmped)
+		SX45Pistol(BW).AddHeat(AmpDrainPerShot);
+}
 
-	if (ScopeDownOn == SDO_Fire)
-		BW.TemporaryScopeDown(0.5, 0.9);
-		
-	if (AimedFireAnim != '')
-	{
-		BW.SafePlayAnim(FireAnim, FireAnimRate, TweenTime, ,"FIRE");
-		if (BW.BlendFire())		
-			BW.SafePlayAnim(AimedFireAnim, FireAnimRate, TweenTime, 1, "AIMEDFIRE");
-	}
-
-	else
-	{
-		if (FireCount == 0 && Weapon.HasAnim(FireLoopAnim))
-			BW.SafeLoopAnim(FireLoopAnim, FireLoopAnimRate, 0.0, ,"FIRE");
-		else BW.SafePlayAnim(FireAnim, FireAnimRate, TweenTime, ,"FIRE");
-	}
-	
-    ClientPlayForceFeedback(FireForce);  // jdf
-    FireCount++;
-	// End code from normal PlayFiring()
-	
-	if (SX45Pistol(Weapon) != None && SX45Pistol(Weapon).CurrentWeaponMode == 1 && Amp1FireSound.Sound != None)
-		Weapon.PlayOwnedSound(Amp1FireSound.Sound,BallisticFireSound.Slot,BallisticFireSound.Volume,,BallisticFireSound.Radius);
-	else if (SX45Pistol(Weapon) != None && SX45Pistol(Weapon).CurrentWeaponMode == 2 && Amp2FireSound.Sound != None)
-		Weapon.PlayOwnedSound(Amp2FireSound.Sound,BallisticFireSound.Slot,BallisticFireSound.Volume,,BallisticFireSound.Radius);
-	else if (BallisticFireSound.Sound != None)
-		Weapon.PlayOwnedSound(BallisticFireSound.Sound,BallisticFireSound.Slot,BallisticFireSound.Volume,,BallisticFireSound.Radius);
+// Get aim then run trace...
+function DoFireEffect()
+{
+	Super.DoFireEffect();
+	if (Level.NetMode == NM_DedicatedServer)
+		SX45Pistol(BW).AddHeat(AmpDrainPerShot);
 }
 
 function ApplyDamage(Actor Target, int Damage, Pawn Instigator, vector HitLocation, vector MomentumDir, class<DamageType> DamageType)
@@ -220,8 +188,7 @@ function TryPlague(Actor Other)
 
 defaultproperties
 {
-     Amp1FireSound=(Sound=Sound'BWBP_SKC_SoundsExp.SX45.SX45-FrostFire',Volume=1.200000)
-     Amp2FireSound=(Sound=Sound'BWBP_SKC_SoundsExp.SX45.SX45-RadFire',Volume=1.200000)
+	 AmpDrainPerShot=-0.85
 	 AmpFlashBone="tip2"
      AmpFlashScaleFactor=0.500000
 	 FlashBone="tip"

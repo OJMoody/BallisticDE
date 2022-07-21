@@ -7,70 +7,70 @@ defaultproperties
     // PRIMARY FIRE
     //=================================================================	
 	
-	
-		Begin Object Class=ProjectileEffectParams Name=ClassicPrimaryEffectParams
-			ProjectileClass=Class'BWBP_SKCExp_Pro.HVPCMk5ProjectileTriple'
-			SpawnOffset=(X=10.000000,Y=10.000000,Z=-9.000000)
-			Speed=50.000000
-			MaxSpeed=8000.000000
-			AccelSpeed=90000.000000
-			Damage=65
-			DamageRadius=200.000000
-			MomentumTransfer=65000.000000
-			HeadMult=2.0
-			LimbMult=0.5
-			SpreadMode=FSM_Rectangle
-			MuzzleFlashClass=Class'BallisticProV55.HVCMk9RedMuzzleFlash'
-			FireSound=(Sound=Sound'BWBP_SKC_Sounds.XavPlas.Xav-Fire',Volume=2.500000,Slot=SLOT_Interact,bNoOverride=False)
-			Recoil=270.000000
-			Chaos=0.150000
-			Inaccuracy=(X=256,Y=256)
-			WarnTargetPct=0.200000	
-		End Object
+	Begin Object Class=ProjectileEffectParams Name=ClassicPrimaryEffectParams
+		ProjectileClass=Class'BWBP_SKCExp_Pro.HVPCMk5ProjectileTriple'
+		SpawnOffset=(X=10.000000,Y=10.000000,Z=-9.000000)
+		Speed=50.000000
+		MaxSpeed=8000.000000
+		AccelSpeed=90000.000000
+		Damage=65
+		DamageRadius=200.000000
+		MomentumTransfer=65000.000000
+		HeadMult=2.0
+		LimbMult=0.5
+		SpreadMode=FSM_Rectangle
+		RadiusFallOffType=RFO_Linear
+		MuzzleFlashClass=Class'BallisticProV55.HVCMk9RedMuzzleFlash'
+		FireSound=(Sound=Sound'BWBP_SKC_Sounds.XavPlas.Xav-Fire',Volume=2.500000,Slot=SLOT_Interact,bNoOverride=False)
+		Recoil=270.000000
+		Chaos=0.150000
+		Inaccuracy=(X=256,Y=256)
+		WarnTargetPct=0.200000	
+	End Object
 
-		Begin Object Class=FireParams Name=ClassicPrimaryFireParams
-			FireInterval=0.720000
-			AmmoPerFire=5
-			BurstFireRateFactor=1.00
-			FireAnim="FireAlt"
-			AimedFireAnim="SightFire"
-			FireEndAnim=	
-		FireEffectParams(0)=ProjectileEffectParams'ClassicPrimaryEffectParams'
-		End Object
+	Begin Object Class=FireParams Name=ClassicPrimaryFireParams
+		FireInterval=0.720000
+		AmmoPerFire=5
+		BurstFireRateFactor=1.00
+		FireAnim="FireAlt"
+		AimedFireAnim="SightFire"
+		FireEndAnim=	
+	FireEffectParams(0)=ProjectileEffectParams'ClassicPrimaryEffectParams'
+	End Object
 		
     //=================================================================
     // SECONDARY FIRE
     //=================================================================	
 	
-	
-		Begin Object Class=ProjectileEffectParams Name=ClassicSecondaryEffectParams
-			ProjectileClass=Class'BWBP_SKCExp_Pro.HVPCMk5ProjectileSmall'
-			SpawnOffset=(X=10.000000,Y=10.000000,Z=-9.000000)
-			Speed=200.000000
-			MaxSpeed=2000000.000000
-			AccelSpeed=150000.000000
-			Damage=30
-			DamageRadius=122.000000
-			MomentumTransfer=12500.000000
-			HeadMult=2.0
-			LimbMult=0.65
-			SpreadMode=FSM_Rectangle
-			MuzzleFlashClass=Class'BWBP_SKCExp_Pro.A48FlashEmitter'
-			FireSound=(Sound=Sound'BWBP_SKC_Sounds.XavPlas.Xav-FireAlt',Volume=2.000000,Slot=SLOT_Interact,bNoOverride=False)
-			Recoil=100.000000
-			Chaos=0.050000
-			Inaccuracy=(X=12,Y=6)
-			WarnTargetPct=0.200000	
-		End Object
+	Begin Object Class=ProjectileEffectParams Name=ClassicSecondaryEffectParams
+		ProjectileClass=Class'BWBP_SKCExp_Pro.HVPCMk5ProjectileSmall'
+		SpawnOffset=(X=10.000000,Y=10.000000,Z=-9.000000)
+		Speed=200.000000
+		MaxSpeed=2000000.000000
+		AccelSpeed=150000.000000
+		Damage=30
+		DamageRadius=122.000000
+		MomentumTransfer=12500.000000
+		HeadMult=2.0
+		LimbMult=0.65
+		SpreadMode=FSM_Rectangle
+		RadiusFallOffType=RFO_Linear
+		MuzzleFlashClass=Class'BWBP_SKCExp_Pro.A48FlashEmitter'
+		FireSound=(Sound=Sound'BWBP_SKC_Sounds.XavPlas.Xav-FireAlt',Volume=2.000000,Slot=SLOT_Interact,bNoOverride=False)
+		Recoil=100.000000
+		Chaos=0.050000
+		Inaccuracy=(X=12,Y=6)
+		WarnTargetPct=0.200000	
+	End Object
 
-		Begin Object Class=FireParams Name=ClassicSecondaryFireParams
-			FireInterval=0.160000
-			BurstFireRateFactor=1.00
-			FireAnim="Fire"
-			AimedFireAnim="SightFire"
-			FireEndAnim=	
-		FireEffectParams(0)=ProjectileEffectParams'ClassicSecondaryEffectParams'
-		End Object
+	Begin Object Class=FireParams Name=ClassicSecondaryFireParams
+		FireInterval=0.160000
+		BurstFireRateFactor=1.00
+		FireAnim="Fire"
+		AimedFireAnim="SightFire"
+		FireEndAnim=	
+	FireEffectParams(0)=ProjectileEffectParams'ClassicSecondaryEffectParams'
+	End Object
 		
 	//=================================================================
 	// RECOIL

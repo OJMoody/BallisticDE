@@ -7,63 +7,125 @@ defaultproperties
     // PRIMARY FIRE
     //=================================================================	
 	
-	
-		Begin Object Class=ProjectileEffectParams Name=ClassicPrimaryEffectParams
-			ProjectileClass=Class'BWBP_SKCExp_Pro.AY90BoltProjectile'
-			SpawnOffset=(X=10.000000,Y=10.000000,Z=-9.000000)
-			Speed=2000.000000
-			MaxSpeed=35000.000000
-			AccelSpeed=35000.000000
-			DamageRadius=30.000000
-			MomentumTransfer=30000.000000
-			HeadMult=2.000000
-			LimbMult=0.500000
-			SpreadMode=FSM_Rectangle
-			MuzzleFlashClass=Class'BWBP_SKCExp_Pro.A73BFlashEmitter'
-			FireSound=(Sound=SoundGroup'BWBP_SKC_Sounds.SkrithBow.SkrithBow-BoltShot',Volume=1.200000,Slot=SLOT_Interact,bNoOverride=False)
-			Recoil=256.000000
-			Chaos=-1.0
-			Inaccuracy=(X=9,Y=6)
-			WarnTargetPct=0.200000	
-		End Object
+	//Uncharged
+	Begin Object Class=ProjectileEffectParams Name=ClassicPrimaryEffectParams
+		ProjectileClass=Class'BWBP_SKCExp_Pro.AY90BoltProjectile'
+		SpawnOffset=(X=10.000000,Y=10.000000,Z=-9.000000)
+		Speed=2000.000000
+		MaxSpeed=35000.000000
+		AccelSpeed=35000.000000
+		DamageRadius=230.000000
+		Damage=150
+		MomentumTransfer=30000.000000
+		HeadMult=2.000000
+		LimbMult=0.500000
+		SpreadMode=FSM_Rectangle
+		RadiusFallOffType=RFO_Linear
+		MuzzleFlashClass=Class'BWBP_SKCExp_Pro.A73BFlashEmitter'
+		FireSound=(Sound=SoundGroup'BWBP_SKC_Sounds.SkrithBow.SkrithBow-BoltShot',Volume=1.200000,Slot=SLOT_Interact,bNoOverride=False)
+		Recoil=256.000000
+		Chaos=-1.0
+		Inaccuracy=(X=9,Y=6)
+		WarnTargetPct=0.200000	
+	End Object
 
-		Begin Object Class=FireParams Name=ClassicPrimaryFireParams
-			FireInterval=1.000000
-			AmmoPerFire=5
-			BurstFireRateFactor=1.00
-			FireEndAnim=	
-		FireEffectParams(0)=ProjectileEffectParams'ClassicPrimaryEffectParams'
-		End Object
-		
+	Begin Object Class=FireParams Name=ClassicPrimaryFireParamsNoCharge
+		FireInterval=1.000000
+		AmmoPerFire=5
+		BurstFireRateFactor=1.00
+		FireEndAnim=	
+	FireEffectParams(0)=ProjectileEffectParams'ClassicPrimaryEffectParams'
+	End Object
+	
+	//Half Charged
+	Begin Object Class=ProjectileEffectParams Name=ClassicPrimaryChargedEffectParams
+		ProjectileClass=Class'BWBP_SKCExp_Pro.AY90BoltProjectileFast'
+		SpawnOffset=(X=10.000000,Y=10.000000,Z=-9.000000)
+		Speed=50.000000
+		MaxSpeed=800.000000
+		AccelSpeed=90000.000000
+		Damage=75
+		DamageRadius=30.000000
+		HeadMult=2.000000
+		LimbMult=0.500000
+		MomentumTransfer=30000.000000
+		SpreadMode=FSM_Rectangle
+		RadiusFallOffType=RFO_Linear
+		MuzzleFlashClass=Class'BWBP_SKCExp_Pro.A73BFlashEmitter'
+		FireSound=(Sound=Sound'BWBP_SKC_Sounds.SkrithBow.SkrithBow-BoltBlast',Volume=1.200000,Slot=SLOT_Interact,bNoOverride=False)
+		Recoil=256.000000
+		Chaos=-1.0
+		Inaccuracy=(X=9,Y=6)
+		WarnTargetPct=0.200000	
+	End Object
+
+	Begin Object Class=FireParams Name=ClassicPrimaryFireParamsHalfCharge
+		FireInterval=1.000000
+		AmmoPerFire=10
+		BurstFireRateFactor=1.00
+		FireEndAnim=	
+	FireEffectParams(0)=ProjectileEffectParams'ClassicPrimaryChargedEffectParams'
+	End Object
+	
+	//Fully Charged
+	Begin Object Class=ProjectileEffectParams Name=ClassicPrimaryMaxEffectParams
+		ProjectileClass=Class'BWBP_SKCExp_Pro.AY90TestProjectile'
+		SpawnOffset=(X=10.000000,Y=10.000000,Z=-9.000000)
+		Speed=8500.000000
+		MaxSpeed=1000000.000000
+		AccelSpeed=100.000000
+		Damage=500
+		DamageRadius=832.000000
+		HeadMult=2.000000
+		LimbMult=0.500000
+		MomentumTransfer=30000.000000
+		SpreadMode=FSM_Rectangle
+		RadiusFallOffType=RFO_Linear
+		MuzzleFlashClass=Class'BWBP_SKCExp_Pro.A73BFlashEmitter'
+		FireSound=(Sound=Sound'BWBP_SKC_Sounds.SkrithBow.SkrithBow-BoltBlastMax',Volume=1.200000,Slot=SLOT_Interact,bNoOverride=False)
+		Recoil=256.000000
+		Chaos=-1.0
+		Inaccuracy=(X=9,Y=6)
+		WarnTargetPct=0.200000	
+	End Object
+
+	Begin Object Class=FireParams Name=ClassicPrimaryFireParamsMaxCharge
+		FireInterval=1.000000
+		AmmoPerFire=30
+		BurstFireRateFactor=1.00
+		FireEndAnim=	
+	FireEffectParams(0)=ProjectileEffectParams'ClassicPrimaryMaxEffectParams'
+	End Object
+	
     //=================================================================
     // SECONDARY FIRE
     //=================================================================	
 	
-	
-		Begin Object Class=ProjectileEffectParams Name=ClassicSecondaryEffectParams
-			ProjectileClass=Class'AY90Projectile'
-			SpawnOffset=(X=10.000000,Y=10.000000,Z=-9.000000)
-			Speed=85.000000
-			MaxSpeed=4500.000000
-			AccelSpeed=70000.000000
-			Damage=40
-			DamageRadius=96.000000
-			MomentumTransfer=150.000000
-			HeadMult=2.5
-			LimbMult=0.5
-			FireSound=(Sound=Sound'BWBP_SKC_Sounds.SkirthBow.SkrithBow-WaveFire',Volume=1.700000)
-			Recoil=0.0
-			Chaos=-1.0
-			Inaccuracy=(X=2000,Y=10)
-			WarnTargetPct=0.500000	
-		End Object
+	Begin Object Class=ProjectileEffectParams Name=ClassicSecondaryEffectParams
+		ProjectileClass=Class'AY90Projectile'
+		SpawnOffset=(X=10.000000,Y=10.000000,Z=-9.000000)
+		Speed=85.000000
+		MaxSpeed=4500.000000
+		AccelSpeed=70000.000000
+		Damage=40
+		DamageRadius=96.000000
+		MomentumTransfer=150.000000
+		HeadMult=2.5
+		LimbMult=0.5
+		RadiusFallOffType=RFO_Linear
+		FireSound=(Sound=Sound'BWBP_SKC_Sounds.SkirthBow.SkrithBow-WaveFire',Volume=1.700000)
+		Recoil=0.0
+		Chaos=-1.0
+		Inaccuracy=(X=2000,Y=10)
+		WarnTargetPct=0.500000	
+	End Object
 
-		Begin Object Class=FireParams Name=ClassicSecondaryFireParams
-			FireInterval=1.000000
-			AmmoPerFire=5
-			BurstFireRateFactor=1.00	
-		FireEffectParams(0)=ProjectileEffectParams'ClassicSecondaryEffectParams'
-		End Object
+	Begin Object Class=FireParams Name=ClassicSecondaryFireParams
+		FireInterval=1.000000
+		AmmoPerFire=5
+		BurstFireRateFactor=1.00	
+	FireEffectParams(0)=ProjectileEffectParams'ClassicSecondaryEffectParams'
+	End Object
 		
 	//=================================================================
 	// RECOIL
@@ -110,8 +172,12 @@ defaultproperties
 		SightPivot=(Pitch=768)
 		RecoilParams(0)=RecoilParams'ClassicRecoilParams'
 		AimParams(0)=AimParams'ClassicAimParams'
-		FireParams(0)=FireParams'ClassicPrimaryFireParams'
+		FireParams(0)=FireParams'ClassicPrimaryFireParamsNoCharge'
+		FireParams(1)=FireParams'ClassicPrimaryFireParamsHalfCharge'
+		FireParams(2)=FireParams'ClassicPrimaryFireParamsMaxCharge'
 		AltFireParams(0)=FireParams'ClassicSecondaryFireParams'
+		AltFireParams(1)=FireParams'ClassicSecondaryFireParams'
+		AltFireParams(2)=FireParams'ClassicSecondaryFireParams'
 	End Object
 	Layouts(0)=WeaponParams'ClassicParams'
 

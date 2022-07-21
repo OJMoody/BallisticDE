@@ -431,11 +431,4 @@ defaultproperties
      bFullVolume=True
      SoundVolume=255
      SoundRadius=256.000000
-	 Skins(0)=Texture'BWBP_SKC_Tex.SkrithBow.Skrithbow-Screen1'
-	 Skins(1)=Shader'BWBP_OP_Tex.M575.M575_scope_SH1'
-	 Skins(2)=Shader'BWBP_SKC_Tex.AMP.Amp-GlowCyanShader'
-	 Skins(3)=Texture'UCGeneric.SolidColours.Blue'
-	 Skins(4)=Texture'BWBP_SKC_Tex.SkrithBow.Skrithbow-Cell'
-	 Skins(5)=Texture'BWBP_SKC_Tex.SkrithBow.Skrithbow-Main'
-	 Skins(6)=Shader'BW_Core_WeaponTex.Hands.Hands-Shiny'
 }

@@ -12,6 +12,22 @@ var() Sound FlySound;
 var Actor StuckActor;
 var bool bPlaced;
 
+simulated function PreBeginPlay()
+{
+    local BallisticWeapon BW;
+    Super(Projectile).PreBeginPlay();
+
+    if (Instigator == None)
+        return;
+
+    BW = BallisticWeapon(Instigator.Weapon);
+
+    if (BW == None)
+        return;
+
+    BW.default.ParamsClasses[BW.GameStyleIndex].static.OverrideProjectileParams(BW, self, 0);
+}
+
 simulated event ProcessTouch(Actor Other, vector HitLocation )
 {
 	if (Other == Instigator && (!bCanHitOwner))
