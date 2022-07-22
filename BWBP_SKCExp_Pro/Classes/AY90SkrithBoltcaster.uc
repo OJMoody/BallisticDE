@@ -431,4 +431,11 @@ defaultproperties
      bFullVolume=True
      SoundVolume=255
      SoundRadius=256.000000
+	 Skins(0)=Shader'BW_Core_WeaponTex.Hands.Hands-Shiny'
+	 Skins(1)=Texture'BWBP_SKC_Tex.SkrithBow.SKBow-Main'
+	 Skins(2)=Texture'BWBP_SKC_Tex.SkrithBow.SKBow-Ammo'
+	 Skins(3)=Shader'BWBP_SKC_Tex.AMP.Amp-GlowCyanShader'
+	 Skins(4)=Texture'ONSstructureTextures.CoreGroup.Invisible'
+	 Skins(5)=Texture'ONSstructureTextures.CoreGroup.Invisible'
+	 Skins(6)=Texture'BWBP_SKC_Tex.SkrithBow.Skrithbow-Screen1'
 }

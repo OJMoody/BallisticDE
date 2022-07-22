@@ -10,7 +10,8 @@ class Ammo_GRSXX extends BallisticAmmo;
 
 defaultproperties
 {
-     InitialAmount=90
+     bNoPackResupply=True
+	 InitialAmount=90
      IconFlashMaterial=Shader'BW_Core_WeaponTex.Glock.AmmoIcon_GlockClipsFlash'
      PickupClass=Class'BWBP_SKCExp_Pro.AP_GRSXXClip'
      IconMaterial=Texture'BW_Core_WeaponTex.Glock.AmmoIcon_GlockClips'
