@@ -25,7 +25,7 @@ defaultproperties
 		SpreadMode=FSM_Rectangle
 		MuzzleFlashClass=Class'BallisticProV55.XK2FlashEmitter'
 		FlashScaleFactor=0.400000
-		FireSound=(sound=sound'BallisticSounds3.UZI.UZI-Fire',Pitch=1.200000,Volume=0.950000)
+		FireSound=(sound=sound'BW_Core_WeaponSound.UZI.UZI-Fire',Pitch=1.200000,Volume=0.950000)
 		Recoil=480.000000
 		Chaos=-1.0
 		Inaccuracy=(X=28,Y=28)

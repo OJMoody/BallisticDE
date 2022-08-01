@@ -716,7 +716,7 @@ defaultproperties
     AmplifierOnSound=Sound'BW_Core_WeaponSound.SRS900.SRS-SilencerOn'
     AmplifierOffSound=Sound'BW_Core_WeaponSound.SRS900.SRS-SilencerOff'
     AmplifierPowerOnSound=Sound'BWBP_SKC_SoundsExp.GRSXX.GRSXX-Select'
-    AmplifierPowerOffSound=Sound'BWBP_SKC_SoundsExp.SX45.Amp-Depleted'
+    AmplifierPowerOffSound=Sound'BWBP_SKC_Sounds.Amp.Amp-Depleted'
 	AIRating=0.6
 	CurrentRating=0.6
 	LaserAmmo=3.500000

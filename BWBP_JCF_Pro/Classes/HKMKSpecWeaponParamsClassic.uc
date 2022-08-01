@@ -25,7 +25,7 @@ defaultproperties
 		SpreadMode=FSM_Rectangle
 		MuzzleFlashClass=Class'BWBP_SKC_Pro.LS14FlashEmitter'
 		FlashScaleFactor=0.500000
-		FireSound=(Sound=Sound'BWBP_SKC_SoundsExp.EP90.EP90-Fire',Volume=1.300000)
+		FireSound=(Sound=Sound'BWBP_SKC_Sounds.Typhon.Typhon-Fire',Volume=1.300000,Slot=SLOT_Interact,bNoOverride=False)
 		Recoil=2048.000000
 		Chaos=0.015000
 		Inaccuracy=(X=4,Y=4)

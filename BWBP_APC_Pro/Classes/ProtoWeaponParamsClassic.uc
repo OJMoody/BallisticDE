@@ -14,16 +14,16 @@ defaultproperties
 		Damage=12.0
 		HeadMult=3.75
 		LimbMult=0.833333
-		DamageType=Class'BWBP_JCF_Pro.DTP90SMG'
-		DamageTypeHead=Class'BWBP_JCF_Pro.DTP90SMGHead'
-		DamageTypeArm=Class'BWBP_JCF_Pro.DTP90SMG'
+		DamageType=Class'BWBP_APC_Pro.DTProto'
+		DamageTypeHead=Class'BWBP_APC_Pro.DTProtoHead'
+		DamageTypeArm=Class'BWBP_APC_Pro.DTProto'
 		PenetrationEnergy=24.000000
 		PenetrateForce=180
 		bPenetrate=True
 		PDamageFactor=0.6
 		WallPDamageFactor=0.4
 		SpreadMode=FSM_Rectangle
-		MuzzleFlashClass=Class'BWBP_JCF_Pro.P90FlashEmitter'
+		MuzzleFlashClass=Class'BallisticProV55.XK2FlashEmitter'
 		FlashScaleFactor=0.500000
 		FireSound=(Sound=Sound'BWBP_JCF_Sounds.P90.P90Fire',Volume=1.3)
 		Recoil=48.000000
