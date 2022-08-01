@@ -534,6 +534,8 @@ defaultproperties
 	SightOffset=(X=-15.000000,Z=8.700000)
 	SightDisplayFOV=60.000000
 	ParamsClasses(0)=Class'HKMKSpecWeaponParams'
+	ParamsClasses(1)=Class'HKMKSpecWeaponParamsClassic'
+	ParamsClasses(2)=Class'HKMKSpecWeaponParamsRealistic'
 	FireModeClass(0)=Class'BWBP_JCF_Pro.HKMKSpecPrimaryFire'
 	FireModeClass(1)=Class'BWBP_JCF_Pro.HKMKSpecSecondaryFire'
 	bShouldDualInLoadout=False

@@ -11,10 +11,10 @@ defaultproperties
 		TraceRange=(Min=1500.000000,Max=4000.000000)
 		WaterTraceRange=5000.0
 		RangeAtten=0.150000
-		TraceCount=12
+		TraceCount=1
 		TracerClass=Class'BallisticProV55.TraceEmitter_Shotgun'
 		ImpactManager=Class'BallisticProV55.IM_Shell'
-		Damage=20.0
+		Damage=100.0
 		HeadMult=1.35
 		LimbMult=0.3
 		DamageType=Class'BWBP_JCF_Pro.DTSPASShotgun'
@@ -27,10 +27,10 @@ defaultproperties
 		WallPDamageFactor=0.4
 		MuzzleFlashClass=Class'BallisticProV55.MRT6FlashEmitter'
 		FlashScaleFactor=2.000000
-		FireSound=(Sound=Sound'BWBP_JCF_Sounds.DE.Fire_SPAS',Volume=1.500000)
+		FireSound=(Sound=Sound'BWBP_JCF_Sounds.DE.Fire_SPAS',Volume=1.200000)
 		Recoil=728.000000
 		Chaos=-1.0
-		Inaccuracy=(X=1100,Y=1100)
+		Inaccuracy=(X=32,Y=32)
 		BotRefireRate=0.900000
 		WarnTargetPct=0.100000	
 	End Object
@@ -67,7 +67,7 @@ defaultproperties
 		WallPDamageFactor=0.4
 		MuzzleFlashClass=Class'BallisticProV55.MRT6FlashEmitter'
 		FlashScaleFactor=2.000000
-		FireSound=(Sound=Sound'BWBP_JCF_Sounds.DE.Fire_SPAS_Cock',Volume=1.500000)
+		FireSound=(Sound=Sound'BWBP_JCF_Sounds.DE.Fire_SPAS_Cock',Volume=1.200000)
 		Recoil=512.000000
 		Chaos=-1.0
 		Inaccuracy=(X=450,Y=350)

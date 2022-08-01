@@ -19,6 +19,19 @@ replication
 		LaserRot;
 }
 
+simulated Event PreBeginPlay()
+{
+	super.PreBeginPlay();
+	
+	if (HKMKSpecPistol(Instigator.Weapon).BCRepClass.default.GameStyle != 0)
+	{
+		TracerClass=Class'BWBP_SKC_Pro.TraceEmitter_Pulse';
+		ImpactManager=Class'BWBP_SKC_Pro.IM_LS14Impacted';
+		TracerChance=1;
+		TracerMix=0;
+	}
+}
+
 simulated function Tick(float DT)
 {
 	local Vector HitLocation, Start, End, HitNormal, Scale3D, Loc;
