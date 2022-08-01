@@ -6,30 +6,29 @@ defaultproperties
     //=================================================================
     // PRIMARY FIRE
     //=================================================================	
-	
-	
-		Begin Object Class=InstantEffectParams Name=ClassicPrimaryEffectParams
-			TraceRange=(Min=15000.000000,Max=15000.000000)
-			RangeAtten=0.35
-			Damage=27
-			DamageType=Class'BWBP_APC_Pro.DTPKM'
-			DamageTypeHead=Class'BWBP_APC_Pro.DTPKMHead'
-			DamageTypeArm=Class'BWBP_APC_Pro.DTPKM'
-			PenetrateForce=150
-			bPenetrate=True
-			MuzzleFlashClass=Class'BWBP_APC_Pro.PKMFlashEmitter'
-			FlashScaleFactor=0.700000
-			Recoil=192.000000
-			WarnTargetPct=0.200000
-			FireSound=(Sound=Sound'BWBP_CC_Sounds.RPK940.RPK-Fire',Volume=1.200000,Slot=SLOT_Interact,bNoOverride=False)
-		End Object
+		
+	Begin Object Class=InstantEffectParams Name=ClassicPrimaryEffectParams
+		TraceRange=(Min=15000.000000,Max=15000.000000)
+		RangeAtten=0.35
+		Damage=27
+		DamageType=Class'BWBP_APC_Pro.DTPKM'
+		DamageTypeHead=Class'BWBP_APC_Pro.DTPKMHead'
+		DamageTypeArm=Class'BWBP_APC_Pro.DTPKM'
+		PenetrateForce=150
+		bPenetrate=True
+		MuzzleFlashClass=Class'BWBP_APC_Pro.PKMFlashEmitter'
+		FlashScaleFactor=0.700000
+		Recoil=192.000000
+		WarnTargetPct=0.200000
+		FireSound=(Sound=Sound'BWBP_CC_Sounds.RPK940.RPK-Fire',Volume=1.200000,Slot=SLOT_Interact,bNoOverride=False)
+	End Object
 
-		Begin Object Class=FireParams Name=ClassicPrimaryFireParams
-			FireInterval=0.110000
-			FireEndAnim=
-			AimedFireAnim="SightFire"	
-		FireEffectParams(0)=InstantEffectParams'ClassicPrimaryEffectParams'
-		End Object
+	Begin Object Class=FireParams Name=ClassicPrimaryFireParams
+		FireInterval=0.110000
+		FireEndAnim=
+		AimedFireAnim="SightFire"	
+	FireEffectParams(0)=InstantEffectParams'ClassicPrimaryEffectParams'
+	End Object
 		
     //=================================================================
     // SECONDARY FIRE
@@ -47,7 +46,7 @@ defaultproperties
 		HeadMult=1.0
 		LimbMult=1.0
 		SpreadMode=FSM_Rectangle
-		MuzzleFlashClass=Class'BWBP_APC_Pro.PKMClassicFlashEmitter'
+		MuzzleFlashClass=Class'BWBP_JCF_Pro.RGPFlashEmitter'
 		FireSound=(Sound=Sound'BWBP_JCF_Sounds.RPG.Fire',Volume=450.500000)
 		Recoil=64.000000
 		Chaos=-1.0

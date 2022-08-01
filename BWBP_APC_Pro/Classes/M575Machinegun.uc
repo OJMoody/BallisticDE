@@ -443,7 +443,7 @@ defaultproperties
      AttachmentClass=Class'BWBP_APC_Pro.M575Attachment'
      IconMaterial=Texture'BWBP_OP_Tex.M575.SmallIcon_M575'
      IconCoords=(X2=127,Y2=31)
-     ItemName="M575 Ice Guardian Machinegun"
+     ItemName="M575 GP Machinegun"
      LightType=LT_Pulse
      LightEffect=LE_NonIncidence
      LightHue=30
@@ -452,6 +452,7 @@ defaultproperties
      LightRadius=4.000000
 	 ParamsClasses(0)=Class'M575MachinegunWeaponParamsArena'
 	 ParamsClasses(1)=Class'M575MachinegunWeaponParamsClassic'
+	 ParamsClasses(2)=Class'M575MachinegunWeaponParamsRealistic'
      Mesh=SkeletalMesh'BWBP_OP_Anim.FPm_M575'
      DrawScale=1.000000
 }

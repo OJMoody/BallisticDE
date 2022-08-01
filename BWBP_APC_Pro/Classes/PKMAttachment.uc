@@ -18,6 +18,15 @@ replication
 		bLoaded;
 }
 
+simulated Event PreBeginPlay()
+{
+	super.PreBeginPlay();
+	if (PKMMachinegun(Instigator.Weapon).BCRepClass.default.GameStyle != 0)
+	{
+		TracerClass=Class'BWBP_SKC_Pro.TraceEmitter_Tranq';
+	}
+}
+
 simulated function InstantFireEffects(byte Mode)
 {
 	if (FiringMode != 0)
@@ -63,6 +72,10 @@ simulated Event PostNetBeginPlay()
 	super.PostNetBeginPlay();
 	if (BallisticTurret(Instigator) != None)
 		bHidden=true;
+	if (PKMMachinegun(Instigator.Weapon).BCRepClass.default.GameStyle != 0)
+	{
+		TracerClass=Class'BWBP_SKC_Pro.TraceEmitter_Tranq';
+	}
 }
 
 // Return the location of the muzzle.

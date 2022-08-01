@@ -33,8 +33,6 @@ simulated event PostNetBeginPlay()
 	local vector V;
 
 	super.PostNetBeginPlay();
-	if (BCRepClass.default.GameStyle == 1)
-		E5PrimaryFire(FireMode[0]).SGFireCount = 9;
 	E5PrimaryFire(FireMode[0]).SwitchWeaponMode(CurrentWeaponMode);
 	if (Laser == None)
 		Laser = spawn(class'LaserActor_VPR');
@@ -465,7 +463,8 @@ defaultproperties
 	SightOffset=(X=-8.000000,Z=9.300000)
 	SightDisplayFOV=25.000000
 	ParamsClasses(0)=Class'E5WeaponParams'
-	ParamsClasses(1)=Class'E5WeaponParams'
+	ParamsClasses(1)=Class'E5WeaponParamsClassic'
+	ParamsClasses(2)=Class'E5WeaponParamsRealistic'
 	FireModeClass(0)=Class'BWBP_APC_Pro.E5PrimaryFire'
 	FireModeClass(1)=Class'BWBP_APC_Pro.E5SecondaryFire'
 	SelectAnimRate=1.250000

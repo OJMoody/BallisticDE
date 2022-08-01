@@ -677,7 +677,7 @@ defaultproperties
 	Priority=41
 	HudColor=(B=135)
 	CustomCrossHairTextureName="Crosshairs.HUD.Crosshair_Cross1"
-	InventoryGroup=6
+	InventoryGroup=2
 	GroupOffset=10
 	PickupClass=Class'BWBP_APC_Pro.ProtoPickup'
 	PlayerViewOffset=(X=16.000000,Y=7.000000,Z=-17.000000)
@@ -685,7 +685,7 @@ defaultproperties
 	AttachmentClass=Class'BWBP_APC_Pro.ProtoAttachment'
 	IconMaterial=Texture'BWBP_CC_Tex.ProtoLMG.SmallIcon_ProtoLMG'
 	IconCoords=(X2=127,Y2=31)
-	ItemName="FC-01B PROTO Light Machinegun"
+	ItemName="FC-01B PROTO PDW"
 	LightType=LT_Pulse
 	LightEffect=LE_NonIncidence
 	LightHue=30

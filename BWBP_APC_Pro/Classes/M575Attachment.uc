@@ -31,6 +31,16 @@ function IceUpdateHit(Actor HitActor, vector HitLocation, vector HitNormal, int 
 	ThirdPersonEffects();
 }
 
+simulated Event PreBeginPlay()
+{
+	super.PreBeginPlay();
+	
+	if (M575Machinegun(Instigator.Weapon).BCRepClass.default.GameStyle != 0)
+	{
+		TracerClass=Class'BallisticProV55.TraceEmitter_FiftyNine';
+	}
+}
+
 simulated Event PostNetBeginPlay()
 {
 	if (level.NetMode != NM_Client)
@@ -58,6 +68,7 @@ simulated Event PostNetBeginPlay()
 		ThirdPersonEffects();
 		OldIceFireCount = IceFireCount;
 	}
+	
 }
 
 // Return the location of the muzzle.

@@ -1,4 +1,4 @@
-class M575MachinegunWeaponParamsClassic extends BallisticWeaponParams;
+class M575MachinegunWeaponParamsRealistic extends BallisticWeaponParams;
 
 defaultproperties
 {
@@ -7,45 +7,43 @@ defaultproperties
 	// PRIMARY FIRE
 	//=================================================================	
 	
-	Begin Object Class=InstantEffectParams Name=ClassicPrimaryEffectParams
-		TraceRange=(Min=15000.000000,Max=15000.000000)
+	Begin Object Class=InstantEffectParams Name=RealisticPrimaryEffectParams
+		TraceRange=(Min=2000.000000,Max=10000.000000) /7.62 long barrel
 		WaterTraceRange=5000.0
 		DecayRange=(Min=0.0,Max=0.0)
-		RangeAtten=0.35
-		Damage=30.000000
-		HeadMult=2.0
-		LimbMult=1.0
+		Damage=55.0
+		HeadMult=2.127272
+		LimbMult=0.654545
 		DamageType=Class'BWBP_APC_Pro.DTM575MG'
 		DamageTypeHead=Class'BWBP_APC_Pro.DTM575MGHead'
 		DamageTypeArm=Class'BWBP_APC_Pro.DTM575MG'
-		PenetrationEnergy=32.000000
-		PenetrateForce=150
+		PenetrationEnergy=24.000000
+		PenetrateForce=125
 		bPenetrate=True
 		PDamageFactor=0.6
 		WallPDamageFactor=0.4
 		SpreadMode=FSM_Rectangle
 		MuzzleFlashClass=Class'BallisticProV55.Fifty9FlashEmitter'
 		FlashScaleFactor=0.100000
-		FireSound=(Sound=SoundGroup'BWBP_OP_Sounds.M575.M575-Fire',Volume=1.400000,Slot=SLOT_Interact,bNoOverride=False)
-		Recoil=80.000000
-		Chaos=-1.0
-		Inaccuracy=(X=16,Y=16)
+		FireSound=(Sound=SoundGroup'BWBP_OP_Sounds.M575.M575-FireHeavy',Volume=1.300000,Slot=SLOT_Interact,bNoOverride=False)
+		Recoil=580.000000
+		Chaos=0.080000
+		Inaccuracy=(X=18,Y=18)
 		WarnTargetPct=0.200000
 	End Object
 
-	Begin Object Class=FireParams Name=ClassicPrimaryFireParams
-		FireInterval=0.102000
+	Begin Object Class=FireParams Name=RealisticPrimaryFireParams
+		FireInterval=0.110000
 		BurstFireRateFactor=1.00
-		FireEndAnim=
-		AimedFireAnim="SightFire"	
-	FireEffectParams(0)=InstantEffectParams'ClassicPrimaryEffectParams'
+		FireEndAnim=	
+	FireEffectParams(0)=InstantEffectParams'RealisticPrimaryEffectParams'
 	End Object
 		
 	//=================================================================
 	// SECONDARY FIRE
 	//=================================================================	
 	
-	Begin Object Class=InstantEffectParams Name=ClassicSecondaryEffectParams
+	Begin Object Class=InstantEffectParams Name=RealisticSecondaryEffectParams
 		TraceRange=(Min=12000.000000,Max=15000.000000)
 		WaterTraceRange=5000.0
 		DecayRange=(Min=0.0,Max=0.0)
@@ -70,27 +68,29 @@ defaultproperties
 		Inaccuracy=(X=16,Y=16)
 	End Object
 
-	Begin Object Class=FireParams Name=ClassicSecondaryFireParams
+	Begin Object Class=FireParams Name=RealisticSecondaryFireParams
 		FireInterval=0.090000
 		BurstFireRateFactor=1.00
 		AimedFireAnim="SightFire"	
-	FireEffectParams(0)=InstantEffectParams'ClassicSecondaryEffectParams'
+	FireEffectParams(0)=InstantEffectParams'RealisticSecondaryEffectParams'
 	End Object
 		
 	//=================================================================
 	// RECOIL
 	//=================================================================
 
-	Begin Object Class=RecoilParams Name=ClassicRecoilParams
-		XCurve=(Points=(,(InVal=0.070000,OutVal=0.050000),(InVal=0.100000,OutVal=0.085000),(InVal=0.180000,OutVal=0.060000),(InVal=0.300000,OutVal=0.100000),(InVal=0.500000,OutVal=0.200000),(InVal=0.650000,OutVal=0.300000),(InVal=0.700000,OutVal=0.4500000),(InVal=0.850000,OutVal=0.400000),(InVal=1.000000,OutVal=0.55)))
-		YCurve=(Points=(,(InVal=0.050000,OutVal=0.070000),(InVal=0.100000,OutVal=0.120000),(InVal=0.200000,OutVal=0.200000),(InVal=0.400000,OutVal=0.400000),(InVal=0.550000,OutVal=0.650000),(InVal=0.650000,OutVal=0.750000),(InVal=0.800000,OutVal=0.820000),(InVal=1.000000,OutVal=1.000000)))
-		XRandFactor=0.05000
-		YRandFactor=0.05000
-		MaxRecoil=12288.000000
-		DeclineTime=0.5
-		DeclineDelay=0.15000
-		ViewBindFactor=0.45
-		ADSViewBindFactor=1.00
+	Begin Object Class=RecoilParams Name=RealisticRecoilParams
+		XCurve=(Points=(,(InVal=0.300000,OutVal=-0.100000),(InVal=0.600000,OutVal=0.200000),(InVal=1.000000,OutVal=-0.200000)))
+		YCurve=(Points=(,(InVal=0.500000,OutVal=0.200000),(InVal=0.800000,OutVal=0.500000),(InVal=1.000000,OutVal=0.450000)))
+		PitchFactor=0.400000
+		YawFactor=0.400000
+		XRandFactor=0.250000
+		YRandFactor=0.250000
+		MaxRecoil=3260.000000
+		DeclineTime=1.000000
+		DeclineDelay=0.135000;
+		ViewBindFactor=0.350000
+		ADSViewBindFactor=0.350000
 		HipMultiplier=1.000000
 		CrouchMultiplier=0.700000
 		bViewDecline=True
@@ -100,34 +100,34 @@ defaultproperties
 	// AIM
 	//=================================================================
 
-	Begin Object Class=AimParams Name=ClassicAimParams
-		AimSpread=(Min=768,Max=2560)
-		AimAdjustTime=0.400000
+	Begin Object Class=AimParams Name=RealisticAimParams
+		AimSpread=(Min=16,Max=3072)
 		CrouchMultiplier=0.700000
 		ADSMultiplier=0.700000
-		ViewBindFactor=0.500000
+		ViewBindFactor=0.100000
 		SprintChaos=0.400000
-		ChaosDeclineTime=1.60000
-		ChaosSpeedThreshold=15000.000000
+		ChaosDeclineTime=1.500000
+		ChaosSpeedThreshold=400
 	End Object
     
 	//=================================================================
 	// BASIC PARAMS
 	//=================================================================	
 	
-	Begin Object Class=WeaponParams Name=ClassicParams
-		PlayerSpeedFactor=0.90000
-		PlayerJumpFactor=0.900000
+	Begin Object Class=WeaponParams Name=RealisticParams
+		PlayerSpeedFactor=0.850000
+		InventorySize=35
 		SightMoveSpeedFactor=0.500000
-		MagAmmo=50
+		MagAmmo=100
+		ViewOffset=(X=5.000000,Y=2.000000,Z=-9.000000)
 		SightOffset=(X=-2.000000,Y=-0.375000,Z=13.220000)
 		SightPivot=(Pitch=128)
-		RecoilParams(0)=RecoilParams'ClassicRecoilParams'
-		AimParams(0)=AimParams'ClassicAimParams'
-		FireParams(0)=FireParams'ClassicPrimaryFireParams'
-		AltFireParams(0)=FireParams'ClassicSecondaryFireParams'
+		RecoilParams(0)=RecoilParams'RealisticRecoilParams'
+		AimParams(0)=AimParams'RealisticAimParams'
+		FireParams(0)=FireParams'RealisticPrimaryFireParams'
+		AltFireParams(0)=FireParams'RealisticSecondaryFireParams'
 	End Object
-	Layouts(0)=WeaponParams'ClassicParams'
+	Layouts(0)=WeaponParams'RealisticParams'
 
 
 }

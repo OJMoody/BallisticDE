@@ -290,9 +290,9 @@ defaultproperties
      bNoCrosshairInScope=True
      SightOffset=(X=-20.000000,Y=-0.350000,Z=15.800000)
      SightDisplayFOV=40.000000
-     CockSound=(Sound=Sound'BWBP_CC_Sounds.SRKS.SRKS-Cock',Volume=2.200000)
-     ClipInSound=(Sound=Sound'BWBP_CC_Sounds.SRKS.SRKS-ClipIn',Volume=4.800000)
-     ClipOutSound=(Sound=Sound'BWBP_CC_Sounds.SRKS.SRKS-ClipOut',Volume=4.800000)
+     CockSound=(Sound=Sound'BWBP_CC_Sounds.SRKS.SRKS-Cock',Volume=1.600000)
+     ClipInSound=(Sound=Sound'BWBP_CC_Sounds.SRKS.SRKS-ClipIn',Volume=1.600000)
+     ClipOutSound=(Sound=Sound'BWBP_CC_Sounds.SRKS.SRKS-ClipOut',Volume=1.600000)
      ClipInFrame=0.650000
      LongGunOffset=(X=5.000000)
      bWT_Bullet=True
@@ -328,6 +328,7 @@ defaultproperties
      LightRadius=4.000000
      Mesh=SkeletalMesh'BWBP_CC_Anim.FPm_SPXSmg'
 	 ParamsClasses(0)=Class'SRKSmgWeaponParamsArena'
-     ParamsClasses(1)=Class'SRKSmgWeaponParamsArena'
+     ParamsClasses(1)=Class'SRKSmgWeaponParamsClassic'
+     ParamsClasses(2)=Class'SRKSmgWeaponParamsRealistic'
      DrawScale=0.300000
 }
