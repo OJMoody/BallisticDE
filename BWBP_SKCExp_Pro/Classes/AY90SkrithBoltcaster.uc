@@ -9,7 +9,8 @@
 //=============================================================================
 class AY90SkrithBoltcaster extends BallisticWeapon;
 
-var Actor GlowFX;
+var Actor GlowFX; //Ambient blue glow + side flames
+var Actor GlowFX2; //Side Flames
 var Actor StringSpark1;
 var Actor StringSpark2;
 var Actor StringEnd1;
@@ -30,8 +31,8 @@ simulated function BringUp(optional Weapon PrevWeapon)
 	GunLength = default.GunLength;
 
     if (Instigator.IsLocallyControlled() && level.DetailMode == DM_SuperHigh && class'BallisticMod'.default.EffectsDetailMode >= 2 && (GlowFX == None || GlowFX.bDeleteMe))
-		class'BUtil'.static.InitMuzzleFlash (GlowFX, class'AY90GlowFX', DrawScale, self, 'tip');
-		
+		class'BUtil'.static.InitMuzzleFlash (GlowFX, class'AY90AmbientFX', DrawScale, self, 'tip');
+	
 //	if (level.DetailMode > DM_High)
 //	{
 //		if (StringSpark1 == None)	class'BUtil'.static.InitMuzzleFlash (StringSpark1, class'AY90EmitterBowString', DrawScale, self, 'LBeamA');
@@ -431,11 +432,4 @@ defaultproperties
      bFullVolume=True
      SoundVolume=255
      SoundRadius=256.000000
-	 Skins(0)=Shader'BW_Core_WeaponTex.Hands.Hands-Shiny'
-	 Skins(1)=Texture'BWBP_SKC_Tex.SkrithBow.SKBow-Main'
-	 Skins(2)=Texture'BWBP_SKC_Tex.SkrithBow.SKBow-Ammo'
-	 Skins(3)=Shader'BWBP_SKC_Tex.AMP.Amp-GlowCyanShader'
-	 Skins(4)=Texture'ONSstructureTextures.CoreGroup.Invisible'
-	 Skins(5)=Texture'ONSstructureTextures.CoreGroup.Invisible'
-	 Skins(6)=Texture'BWBP_SKC_Tex.SkrithBow.Skrithbow-Screen1'
 }

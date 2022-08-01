@@ -41,8 +41,8 @@ defaultproperties
 	Begin Object Class=ProjectileEffectParams Name=ClassicPrimaryChargedEffectParams
 		ProjectileClass=Class'BWBP_SKCExp_Pro.AY90BoltProjectileFast'
 		SpawnOffset=(X=10.000000,Y=10.000000,Z=-9.000000)
-		Speed=50.000000
-		MaxSpeed=800.000000
+		Speed=5000.000000
+		MaxSpeed=10000.000000
 		AccelSpeed=90000.000000
 		Damage=75
 		DamageRadius=30.000000

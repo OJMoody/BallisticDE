@@ -30,31 +30,153 @@ simulated event ModeDoFire()
 	{
 		AY90SkrithBoltcaster(BW).ParamsClasses[AY90SkrithBoltcaster(BW).GameStyleIndex].static.OverrideFireParams(AY90SkrithBoltcaster(BW),2);
 //		ProjectileClass=Class'AY90TestProjectile';
-//		AmmoPerFire=30;
+		AmmoPerFire=30;
+		Load=30;
 //		BallisticFireSound.Sound=MaxChargeFireSound;
 	}
 	else if (HoldTime >= (ChargeTime/2) && AY90SkrithBoltcaster(BW).MagAmmo >= 10)
 	{
 		AY90SkrithBoltcaster(BW).ParamsClasses[AY90SkrithBoltcaster(BW).GameStyleIndex].static.OverrideFireParams(AY90SkrithBoltcaster(BW),1);
 //		ProjectileClass=Class'HVPCMk5Projectile';
-//		AmmoPerFire=15;
+		AmmoPerFire=15;
+		Load=15;
 //		BallisticFireSound.Sound=ChargeFireSound;
 	}
 	else
 	{
 		AY90SkrithBoltcaster(BW).ParamsClasses[AY90SkrithBoltcaster(BW).GameStyleIndex].static.OverrideFireParams(AY90SkrithBoltcaster(BW),0);
 //		ProjectileClass=default.ProjectileClass;
-//		AmmoPerFire=default.AmmoPerFire;
+		AmmoPerFire=5;
+		Load=5;
 //		BallisticFireSound.Sound=default.BallisticFireSound.Sound;
 	}
 
-	Weapon.AmbientSound = None;
-	super.ModeDoFire();
+	Weapon.AmbientSound = Weapon.default.AmbientSound;
 	
+	if (!AllowFire())
+        return;
+    if (bIsJammed)
+    {
+    	if (BW.FireCount == 0)
+    	{
+    		bIsJammed=false;
+			if (bJamWastesAmmo && Weapon.Role == ROLE_Authority)
+			{
+				ConsumedLoad += Load;
+				Timer();
+			}
+	   		if (UnjamMethod == UJM_FireNextRound)
+	   		{
+		        NextFireTime += FireRate;
+   			    NextFireTime = FMax(NextFireTime, Level.TimeSeconds);
+				BW.FireCount++;
+    			return;
+    		}
+    		if (!AllowFire())
+    			return;
+    	}
+    	else
+    	{
+	        NextFireTime += FireRate;
+   		    NextFireTime = FMax(NextFireTime, Level.TimeSeconds);
+    		return;
+   		}
+    }
+
+	if (BW != None)
+	{
+		BW.bPreventReload=true;
+		BW.FireCount++;
+
+		if (BW.ReloadState != RS_None)
+		{
+			if (weapon.Role == ROLE_Authority)
+				BW.bServerReloading=false;
+			BW.ReloadState = RS_None;
+		}
+	}
+
+    if (MaxHoldTime > 0.0)
+        HoldTime = FMin(HoldTime, MaxHoldTime);
+
+	ConsumedLoad += Load;
+	SetTimer(FMin(0.1, FireRate/2), false);
+    // server
+    if (Weapon.Role == ROLE_Authority)
+    {
+        //Weapon.ConsumeAmmo(ThisModeNum, Load);
+        DoFireEffect();
+        if ( (Instigator == None) || (Instigator.Controller == None) )
+			return;
+        if ( AIController(Instigator.Controller) != None )
+            AIController(Instigator.Controller).WeaponFireAgain(BotRefireRate, true);
+        Instigator.DeactivateSpawnProtection();
+    }
+    else if (!BW.bUseNetAim && !BW.bScopeView)
+    	ApplyRecoil();
 	
-	ProjectileClass=default.ProjectileClass;
-	AmmoPerFire=default.AmmoPerFire;
-	BallisticFireSound.Sound=default.BallisticFireSound.Sound;
+	BW.LastFireTime = Level.TimeSeconds;
+
+    // client
+    if (Instigator.IsLocallyControlled())
+    {
+        ShakeView();
+        PlayFiring();
+        FlashMuzzleFlash();
+        StartMuzzleSmoke();
+    }
+    else // server
+    {
+        ServerPlayFiring();
+    }
+
+    // set the next firing time. must be careful here so client and server do not get out of sync
+    if (bFireOnRelease)
+    {
+        if (bIsFiring)
+            NextFireTime += MaxHoldTime + FireRate;
+        else
+            NextFireTime = Level.TimeSeconds + FireRate;
+	}
+	
+    else if (bBurstMode)
+    {
+		BurstCount++;
+    	if (BurstCount >= MaxBurst)
+    	{
+    		NextFireTime += FireRate * (1 + (MaxBurst * (1.0f - BurstFireRateFactor)));
+    		NextFireTime = FMax(NextFireTime, Level.TimeSeconds);
+    		BurstCount = 0;
+    	}
+    	else
+    	{
+    		NextFireTime += FireRate * BurstFireRateFactor;
+  			NextFireTime = FMax(NextFireTime, Level.TimeSeconds);
+  		}
+	}
+	
+    else
+    {
+        NextFireTime += FireRate;
+        NextFireTime = FMax(NextFireTime, Level.TimeSeconds);
+    }
+	
+    Load = AmmoPerFire;
+    HoldTime = 0;
+
+    if (Instigator.PendingWeapon != Weapon && Instigator.PendingWeapon != None)
+    {
+        bIsFiring = false;
+        Weapon.PutDown();
+    }
+
+	if (BW != None)
+	{
+		BW.bNeedReload = BW.MayNeedReload(ThisModeNum, ConsumedLoad);
+		if (bCockAfterFire || (bCockAfterEmpty && BW.MagAmmo - ConsumedLoad < 1))
+			BW.bNeedCock=true;
+	}
+	
 	
 }
 

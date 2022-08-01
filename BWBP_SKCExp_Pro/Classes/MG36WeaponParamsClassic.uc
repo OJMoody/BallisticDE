@@ -7,38 +7,37 @@ defaultproperties
     // PRIMARY FIRE
     //=================================================================	
 	
-	
-		Begin Object Class=InstantEffectParams Name=ClassicPrimaryEffectParams
-			TraceRange=(Min=12000.000000,Max=15000.000000)
-			WaterTraceRange=12000.0
-			DecayRange=(Min=0.0,Max=0.0)
-			Damage=24
-			HeadMult=3.0
-			LimbMult=0.625
-			DamageType=Class'BWBP_SKCExp_Pro.DT_MG36Assault'
-			DamageTypeHead=Class'BWBP_SKCExp_Pro.DT_MG36AssaultHead'
-			DamageTypeArm=Class'BWBP_SKCExp_Pro.DT_MG36Assault'
-			PenetrationEnergy=32.000000
-			PenetrateForce=150
-			bPenetrate=True
-			PDamageFactor=0.6
-			WallPDamageFactor=0.4
-			SpreadMode=FSM_Rectangle
-			MuzzleFlashClass=Class'BallisticProV55.M50FlashEmitter'
-			FlashScaleFactor=0.400000
-			FireSound=(Sound=Sound'BWBP_SKC_SoundsExp.JSOC.JSOC-Fire',Volume=1.500000,Slot=SLOT_Interact,bNoOverride=False)
-			Recoil=128.000000
-			Chaos=-1.0
-			Inaccuracy=(X=3,Y=3)
-			WarnTargetPct=0.200000
-		End Object
+	Begin Object Class=InstantEffectParams Name=ClassicPrimaryEffectParams
+		TraceRange=(Min=12000.000000,Max=15000.000000)
+		WaterTraceRange=12000.0
+		DecayRange=(Min=0.0,Max=0.0)
+		Damage=24
+		HeadMult=3.0
+		LimbMult=0.625
+		DamageType=Class'BWBP_SKCExp_Pro.DT_MG36Assault'
+		DamageTypeHead=Class'BWBP_SKCExp_Pro.DT_MG36AssaultHead'
+		DamageTypeArm=Class'BWBP_SKCExp_Pro.DT_MG36Assault'
+		PenetrationEnergy=32.000000
+		PenetrateForce=150
+		bPenetrate=True
+		PDamageFactor=0.6
+		WallPDamageFactor=0.4
+		SpreadMode=FSM_Rectangle
+		MuzzleFlashClass=Class'BallisticProV55.M50FlashEmitter_C'
+		FlashScaleFactor=0.200000
+		FireSound=(Sound=Sound'BWBP_SKC_SoundsExp.JSOC.JSOC-Fire',Volume=1.500000,Slot=SLOT_Interact,bNoOverride=False)
+		Recoil=128.000000
+		Chaos=-1.0
+		Inaccuracy=(X=3,Y=3)
+		WarnTargetPct=0.200000
+	End Object
 
-		Begin Object Class=FireParams Name=ClassicPrimaryFireParams
-			FireInterval=0.085000
-			BurstFireRateFactor=1.00
-			FireEndAnim=	
-		FireEffectParams(0)=InstantEffectParams'ClassicPrimaryEffectParams'
-		End Object
+	Begin Object Class=FireParams Name=ClassicPrimaryFireParams
+		FireInterval=0.085000
+		BurstFireRateFactor=1.00
+		FireEndAnim=	
+	FireEffectParams(0)=InstantEffectParams'ClassicPrimaryEffectParams'
+	End Object
 		
 	//=================================================================
 	// RECOIL

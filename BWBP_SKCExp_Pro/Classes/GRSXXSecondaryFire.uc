@@ -104,7 +104,7 @@ defaultproperties
      BallisticFireSound=(Sound=Sound'BWBP_SKC_SoundsExp.Glock_Gold.G-Glk-LaserFire')
      FireAnim="Idle"
      FireRate=0.080000
-     AmmoClass=Class'BWBP_SKCExp_Pro.Ammo_GRSXX'
+     AmmoClass=Class'BallisticProV55.Ammo_GRSNine'
      AmmoPerFire=0
      BotRefireRate=0.999000
      WarnTargetPct=0.010000

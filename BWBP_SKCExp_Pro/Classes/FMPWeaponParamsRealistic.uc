@@ -8,9 +8,10 @@ defaultproperties
     //=================================================================	
 	
 	Begin Object Class=InstantEffectParams Name=RealisticPrimaryEffectParams
-		TraceRange=(Min=1000.000000,Max=4500.000000)
+		TraceRange=(Min=1000.000000,Max=4500.000000) //.40 SMG
 		WaterTraceRange=2000.0
 		DecayRange=(Min=0.0,Max=0.0)
+		RangeAtten=0.100000
 		Damage=44.0
 		HeadMult=2.318181
 		LimbMult=0.568181
@@ -27,7 +28,7 @@ defaultproperties
 		FlashScaleFactor=0.900000
 		FireSound=(Sound=Sound'BWBP_SKC_SoundsExp.MP40.MP40-Fire',Volume=1.000000)
 		Recoil=80.000000
-		Chaos=0.1
+		Chaos=0.06
 		Inaccuracy=(X=28,Y=28)
 	End Object
 

@@ -16,7 +16,7 @@ defaultproperties
 		DamageTypeHead=Class'BWBP_SKCExp_Pro.DTSawnOff'
 		DamageTypeArm=Class'BWBP_SKCExp_Pro.DTSawnOff'
 		Damage=25
-		MuzzleFlashClass=Class'BallisticProV55.MRT6FlashEmitter'
+		MuzzleFlashClass=Class'BallisticProV55.MRT6FlashEmitter_C'
 		FlashScaleFactor=1.500000
 		Recoil=1024.000000
 		Chaos=1.000000
@@ -51,7 +51,7 @@ defaultproperties
         LimbMult=0.8f
         PenetrateForce=500
 		bPenetrate=True
-		MuzzleFlashClass=Class'BallisticProV55.MRT6FlashEmitter'
+		MuzzleFlashClass=Class'BallisticProV55.MRT6FlashEmitter_C'
 		FlashScaleFactor=3.000000
 		Recoil=4096.000000
 		Chaos=100.000000

@@ -640,9 +640,9 @@ defaultproperties
      WeaponModes(2)=(ModeName="2400 RPM",ModeID="WM_FullAuto")
 	 WeaponModes(3)=(ModeName="3600 RPM",ModeID="WM_FullAuto",bUnavailable=True)
 	 WeaponModes(4)=(ModeName="4800 RPM",ModeID="WM_FullAuto",bUnavailable=True)
-	 RotationSpeeds(0)=0.2 // 600 RPM - 600 revolutions per minute x 6 shots (0.16)
-	 RotationSpeeds(1)=0.4 // 1200 RPM - 1200 revolutions per minute x 6 shots (0.33)
-     RotationSpeeds(2)=0.7  // 2400 RPM - 2400 revolutions per minute x 6 shots (0.66)
+	 RotationSpeeds(0)=0.16 // 600 RPM - 600 revolutions per minute x 6 shots (0.2)
+	 RotationSpeeds(1)=0.33 // 1200 RPM - 1200 revolutions per minute x 6 shots ( (0.4)
+     RotationSpeeds(2)=0.66  // 2400 RPM - 2400 revolutions per minute x 6 shots (0.7)
 	 RotationSpeeds(3)=1.00  // 3600 RPM - 3600 revolutions per minute x 6 shots
 	 RotationSpeeds(4)=1.32  // 4800 RPM - 4800 revolutions per minute x 6 shots
      CurrentWeaponMode=0

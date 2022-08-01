@@ -9,19 +9,56 @@
 //=============================================================================
 class GRSXXPistol extends BallisticWeapon;
 
-var   bool			bLaserOn;
-var   LaserActor	Laser;
-var   Emitter		LaserBlast;
-var   Emitter		LaserDot;
-var	  byte			CurrentWeaponMode2;
-var	  Actor			GlowFX;// SightFX;
-var() float			LaserAmmo;
-var   bool			bBigLaser;
+// Laser Vars
+var(GRSXX)	bool		bLaserOn;
+var(GRSXX)	LaserActor	Laser;
+var(GRSXX)	Emitter		LaserBlast;
+var(GRSXX)	Emitter		LaserDot;
+var(GRSXX)	byte		CurrentWeaponMode2;
+var(GRSXX)	Actor		GlowFX;// SightFX;
+var(GRSXX)	float		LaserAmmo;
+var(GRSXX)	bool		bBigLaser;
+
+// Amp Vars
+var(GRSXX)  bool		bAmped;						// ARE YOU AMPED? BECAUSE THIS GUN IS!
+var(GRSXX)	name		AmplifierBone;				// Bone to use for hiding cool shit
+var(GRSXX)	name		AmplifierOnAnim;			//
+var(GRSXX)	name		AmplifierOffAnim;			//
+var(GRSXX)	sound		AmplifierOnSound;			// 
+var(GRSXX)	sound		AmplifierOffSound;			//
+var(GRSXX)	sound		AmplifierPowerOnSound;		// Electrical noises?
+var(GRSXX)	sound		AmplifierPowerOffSound;		//
+var(GRSXX)	float		AmpCharge;					// Existing ampjuice
+var(GRSXX)	bool		bShowCharge;				// Hides charge until the amp is on
+var(GRSXX)	bool		bRemovableAmp;
 
 replication
 {
+	reliable if (Role < ROLE_Authority)
+		ServerSwitchAmplifier;
 	reliable if (Role == ROLE_Authority)
-		bLaserOn, LaserAmmo;
+		bLaserOn, LaserAmmo, bRemovableAmp, ClientSetHeat;
+}
+
+simulated event PreBeginPlay()
+{
+	super.PreBeginPlay();
+	if (BCRepClass.default.GameStyle == 2)
+	{
+		FireModeClass[1]=Class'BWBP_SKCExp_Pro.GRSXXSecondaryAmpFire';
+		BringUpSound.Sound=Sound'BW_Core_WeaponSound.XK2.XK2-Pullout';
+	}
+}
+simulated event PostNetBeginPlay()
+{
+	super.PostNetBeginPlay();
+	if (BCRepClass.default.GameStyle == 2)
+	{
+		bAmped=False;
+		GRSXXPrimaryFire(FireMode[0]).bAmped = False;
+		bRemovableAmp=True;
+		GRSXXPrimaryFire(FireMode[0]).bRemovableAmp = True;
+	}
 }
 
 /*
@@ -357,6 +394,16 @@ simulated function BringUp(optional Weapon PrevWeapon)
 //			GRSXXSightLEDs(SightFX).InvertZ();
 		}
 	}
+	
+	if (bAmped)
+	{
+		SetBoneScale (0, 1.0, AmplifierBone);
+	}		
+	else
+	{
+		SetBoneScale (0, 0.0, AmplifierBone);
+	}
+	
 }
 
 simulated event Timer()
@@ -462,8 +509,142 @@ simulated function CommonWeaponSpecial(optional byte i)
 
 simulated function float ChargeBar()
 {
-	return FClamp(LaserAmmo/default.LaserAmmo, 0, 1);
+	if (!bRemovableAmp)
+		return FClamp(LaserAmmo/default.LaserAmmo, 0, 1);
+	else if (!bShowCharge)
+		return 0;
+	else
+		return AmpCharge / 10;
 }
+
+//==============================================
+// Amp Code
+//==============================================
+
+//mount or unmount amp
+exec simulated function ToggleAmplifier(optional byte i)
+{
+	if (ReloadState != RS_None || SightingState != SS_None)
+		return;
+
+	TemporaryScopeDown(0.5);
+
+	bAmped = !bAmped;
+	ServerSwitchAmplifier(bAmped);
+	SwitchAmplifier(bAmped);
+}
+
+function ServerSwitchAmplifier(bool bNewValue)
+{
+	bAmped = bNewValue;
+	
+	SwitchAmplifier(bAmped);
+	
+	bServerReloading=True;
+	ReloadState = RS_GearSwitch;
+
+	if (bAmped)
+	{
+		WeaponModes[0].bUnavailable=true;
+		WeaponModes[1].bUnavailable=true;
+		WeaponModes[2].bUnavailable=true;
+		WeaponModes[3].bUnavailable=false;
+		CurrentWeaponMode=3;
+		ServerSwitchWeaponMode(3);
+		AmpCharge=10;
+	}
+	else
+	{
+		WeaponModes[0].bUnavailable=false;
+		WeaponModes[1].bUnavailable=false;
+		WeaponModes[2].bUnavailable=false;
+		WeaponModes[3].bUnavailable=true;
+		CurrentWeaponMode=2;
+		ServerSwitchWeaponMode(2);
+		AmpCharge=0;
+	}
+}
+
+simulated function SwitchAmplifier(bool bNewValue)
+{
+	if (Role == ROLE_Authority)
+		bServerReloading = True;
+		
+	ReloadState = RS_GearSwitch;
+
+	if (bNewValue)
+	{
+		PlayAnim(AmplifierOnAnim);
+		WeaponModes[0].bUnavailable=true;
+		WeaponModes[1].bUnavailable=true;
+		WeaponModes[2].bUnavailable=true;
+		WeaponModes[3].bUnavailable=false;
+	}
+	else
+	{
+		PlayAnim(AmplifierOffAnim);
+		WeaponModes[0].bUnavailable=false;
+		WeaponModes[1].bUnavailable=false;
+		WeaponModes[2].bUnavailable=false;
+		WeaponModes[3].bUnavailable=true;
+	}
+		
+	//if (Role == ROLE_Authority)
+	//	GRSXXAttachment(ThirdPersonActor).SetAmped(bNewValue);
+}
+
+function ServerSwitchWeaponMode (byte newMode)
+{
+	super.ServerSwitchWeaponMode (newMode);
+	if (!Instigator.IsLocallyControlled())
+		GRSXXPrimaryFire(FireMode[0]).SwitchWeaponMode(CurrentWeaponMode);
+}
+simulated function CommonSwitchWeaponMode (byte newMode)
+{
+	super.CommonSwitchWeaponMode(newMode);
+	GRSXXPrimaryFire(FireMode[0]).SwitchWeaponMode(newMode);
+}
+
+simulated function Notify_AmplifierOn()	{		PlaySound(AmplifierOnSound,,0.5); }
+simulated function Notify_AmplifierOff()	{	PlaySound(AmplifierOffSound,,0.5);	bShowCharge=false;}
+simulated function Notify_AmplifierCharged()	{		PlaySound(AmplifierPowerOnSound,,1.6);	bShowCharge=true;}
+
+simulated function Notify_AmplifierShow()
+{	
+	SetBoneScale (0, 1.0, AmplifierBone);	
+}
+simulated function Notify_AmplifierHide()
+{	
+	SetBoneScale (0, 0.0, AmplifierBone);	
+}
+
+simulated function AddHeat(float Amount)
+{
+	if (bBerserk)
+		Amount *= 0.75;
+		
+	AmpCharge += Amount;
+	
+	if (AmpCharge <= 0.25)
+	{
+		AmpCharge = 0;
+		PlaySound(AmplifierPowerOffSound,,2.0,,32);
+		WeaponModes[0].bUnavailable=false;
+		WeaponModes[1].bUnavailable=false;
+		WeaponModes[2].bUnavailable=false;
+		WeaponModes[3].bUnavailable=true;
+		CurrentWeaponMode=2;
+		ServerSwitchWeaponMode(2);
+		//if (Role == ROLE_Authority)
+		//	SX45Attachment(ThirdPersonActor).SetAmped(false);
+	}
+}
+
+simulated function ClientSetHeat(float NewHeat)
+{
+	AmpCharge = NewHeat;
+}
+
 
 // Rechargable laser unit means it always has ammo!
 simulated function bool HasAmmo()
@@ -528,6 +709,14 @@ function float SuggestDefenseStyle()	{	return -0.8;	}
 
 defaultproperties
 {
+	bAmped=True
+    AmplifierBone="AMP"
+    AmplifierOnAnim="AMPApply"
+    AmplifierOffAnim="AMPRemove"
+    AmplifierOnSound=Sound'BW_Core_WeaponSound.SRS900.SRS-SilencerOn'
+    AmplifierOffSound=Sound'BW_Core_WeaponSound.SRS900.SRS-SilencerOff'
+    AmplifierPowerOnSound=Sound'BWBP_SKC_SoundsExp.GRSXX.GRSXX-Select'
+    AmplifierPowerOffSound=Sound'BWBP_SKC_SoundsExp.SX45.Amp-Depleted'
 	AIRating=0.6
 	CurrentRating=0.6
 	LaserAmmo=3.500000
@@ -552,11 +741,15 @@ defaultproperties
 	ClipInSound=(Sound=Sound'BW_Core_WeaponSound.Glock.Glk-ClipIn')
 	ClipInFrame=0.650000
 	WeaponModes(0)=(bUnavailable=True)
+	WeaponModes(1)=(ModeName="Burst",ModeID="WM_Burst",Value=3.000000)
+	WeaponModes(2)=(ModeName="Auto",ModeID="WM_FullAuto")
+	WeaponModes(3)=(ModeName="Amplified: Hypermode",ModeID="WM_FullAuto",bUnavailable=True)
 	bNoCrosshairInScope=True
 	SightOffset=(X=-15.000000,Z=6.600000)
 	SightDisplayFOV=60.000000
 	ParamsClasses(0)=Class'GRSXXPistolWeaponParamsArena'
 	ParamsClasses(1)=Class'GRSXXWeaponParamsClassic'
+	ParamsClasses(2)=Class'GRSXXWeaponParamsRealistic'
 	FireModeClass(0)=Class'BWBP_SKCExp_Pro.GRSXXPrimaryFire'
 	FireModeClass(1)=Class'BWBP_SKCExp_Pro.GRSXXSecondaryFire'
 	NDCrosshairCfg=(Pic1=Texture'BW_Core_WeaponTex.Crosshairs.M50Out',Pic2=Texture'BW_Core_WeaponTex.Crosshairs.M806InA',USize2=256,VSize2=256,Color1=(B=12,G=108,R=157,A=163),Color2=(B=255),StartSize1=79,StartSize2=124)

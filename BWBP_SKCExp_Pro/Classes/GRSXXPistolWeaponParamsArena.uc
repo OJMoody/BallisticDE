@@ -19,7 +19,7 @@ defaultproperties
 		PenetrateForce=100
 		bPenetrate=True
 		MuzzleFlashClass=Class'BWBP_SKCExp_Pro.GRSXXFlashEmitter'
-		FlashScaleFactor=2.500000
+		FlashScaleFactor=1.250000
 		FireSound=(Sound=Sound'BWBP_SKC_SoundsExp.Glock_Gold.GRSXX-Fire',Volume=1.100000)
 		Recoil=150.000000
 		Chaos=0.120000

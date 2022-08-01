@@ -273,13 +273,13 @@ defaultproperties
      BCRepClass=Class'BallisticProV55.BallisticReplicationInfo'
      bWT_Bullet=True
      SpecialInfo(0)=(Info="240.0;25.0;0.9;80.0;0.7;0.7;0.4")
-     BringUpSound=(Sound=Sound'BW_Core_WeaponSound.M50.M50Pullout')
-     PutDownSound=(Sound=Sound'BW_Core_WeaponSound.M50.M50Putaway')
+     BringUpSound=(Sound=Sound'BWBP_SKC_SoundsExp.MP40.MP40-Pullout',Volume=1.400000)
+     PutDownSound=(Sound=Sound'BWBP_SKC_SoundsExp.MP40.MP40-Putaway',Volume=1.400000)
      CockAnimPostReload="ReloadEndCock"
-     CockSound=(Sound=Sound'BW_Core_WeaponSound.M50.M50Cock')
-     ClipHitSound=(Sound=Sound'BW_Core_WeaponSound.M50.M50ClipHit')
-     ClipOutSound=(Sound=Sound'BW_Core_WeaponSound.M50.M50ClipOut')
-     ClipInSound=(Sound=Sound'BW_Core_WeaponSound.M50.M50ClipIn')
+     CockSound=(Sound=Sound'BWBP_SKC_SoundsExp.MP40.MP40-Cock',Volume=1.400000)
+     ClipHitSound=(Sound=Sound'BWBP_SKC_SoundsExp.MP40.MP40-MagHit',Volume=1.400000)
+     ClipOutSound=(Sound=Sound'BWBP_SKC_SoundsExp.MP40.MP40-MagOut',Volume=1.400000)
+     ClipInSound=(Sound=Sound'BWBP_SKC_SoundsExp.MP40.MP40-MagIn',Volume=1.400000)
      ClipInFrame=0.650000
 	 CurrentWeaponMode=0
      WeaponModes(0)=(ModeName="Automatic",ModeID="WM_FullAuto")

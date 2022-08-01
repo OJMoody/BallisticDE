@@ -7,6 +7,7 @@ defaultproperties
 // PRIMARY FIRE
 //=================================================================	
 		
+	// Semi-Auto
 	Begin Object Class=InstantEffectParams Name=ClassicPrimaryEffectParamsSemi
 		TraceRange=(Max=16000.000000)
 		WaterTraceRange=12800.0
@@ -33,7 +34,16 @@ defaultproperties
 		BotRefireRate=0.900000
 		WarnTargetPct=0.100000
 	End Object
+	
+	Begin Object Class=FireParams Name=ClassicPrimaryFireParamsSemi
+		FireInterval=0.050000
+		BurstFireRateFactor=1.00
+		FireEndAnim=
+		AimedFireAnim="SightFire"	
+	FireEffectParams(0)=InstantEffectParams'ClassicPrimaryEffectParamsSemi'
+	End Object
 
+	//Burst
 	Begin Object Class=InstantEffectParams Name=ClassicPrimaryEffectParamsBurst
 		TraceRange=(Max=16000.000000)
 		WaterTraceRange=12800.0
@@ -60,7 +70,16 @@ defaultproperties
 		BotRefireRate=0.900000
 		WarnTargetPct=0.100000
 	End Object
+
+	Begin Object Class=FireParams Name=ClassicPrimaryFireParamsBurst
+		FireInterval=0.100000
+		BurstFireRateFactor=0.50
+		FireEndAnim=
+		AimedFireAnim="SightFire"	
+	FireEffectParams(0)=InstantEffectParams'ClassicPrimaryEffectParamsBurst'
+	End Object
 	
+	//Automatic
 	Begin Object Class=InstantEffectParams Name=ClassicPrimaryEffectParamsAuto
 		TraceRange=(Max=16000.000000)
 		WaterTraceRange=12800.0
@@ -86,22 +105,6 @@ defaultproperties
 		Inaccuracy=(X=2,Y=2)
 		BotRefireRate=0.900000
 		WarnTargetPct=0.100000
-	End Object
-	
-	Begin Object Class=FireParams Name=ClassicPrimaryFireParamsSemi
-		FireInterval=0.050000
-		BurstFireRateFactor=1.00
-		FireEndAnim=
-		AimedFireAnim="SightFire"	
-	FireEffectParams(0)=InstantEffectParams'ClassicPrimaryEffectParamsSemi'
-	End Object
-
-	Begin Object Class=FireParams Name=ClassicPrimaryFireParamsBurst
-		FireInterval=0.100000
-		BurstFireRateFactor=0.50
-		FireEndAnim=
-		AimedFireAnim="SightFire"	
-	FireEffectParams(0)=InstantEffectParams'ClassicPrimaryEffectParamsBurst'
 	End Object
 
 	Begin Object Class=FireParams Name=ClassicPrimaryFireParamsAuto

@@ -124,7 +124,7 @@ function bool IsStationary()
 
 defaultproperties
 {
-     ArmingSound=Sound'BWBP_SKC_Sounds.MARS.MARS-MineAlarm'
+     ArmingSound=Sound'BWBP_SKC_Sounds.SkrithBow.SkrithBow-Fuse'
      ImpactManager=Class'BWBP_SKCExp_Pro.IM_A73BPower'
      StartDelay=0.300000
      MyRadiusDamageType=Class'BWBP_SKC_Pro.DTF2000MineExplode'
