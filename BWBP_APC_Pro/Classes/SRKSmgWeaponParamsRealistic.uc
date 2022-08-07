@@ -8,11 +8,11 @@ defaultproperties
     //=================================================================	
 	
 	Begin Object Class=InstantEffectParams Name=RealisticPrimaryEffectParams
-		TraceRange=(Min=1200.000000,Max=5000.000000) //.45 SMG, long barrel
+		TraceRange=(Min=1100.000000,Max=4800.000000) //.45 SMG, long barrel
 		WaterTraceRange=2000.0
 		DecayRange=(Min=0.0,Max=0.0)
 		RangeAtten=0.100000
-		Damage=49.0
+		Damage=45.0
 		HeadMult=2.6f
 		LimbMult=0.6f
 		DamageType=Class'BWBP_APC_Pro.DTSRKSmg'
@@ -115,6 +115,7 @@ defaultproperties
 		WeaponModes(1)=(ModeName="Burst",ModeID="WM_BigBurst",Value=3.000000)
 		WeaponModes(2)=(ModeName="Auto",ModeID="WM_FullAuto",bUnavailable=True)
 		InitialWeaponMode=1
+		WeaponName="SRK-205 .45 Submachinegun"
 		RecoilParams(0)=RecoilParams'RealisticRecoilParams'
 		AimParams(0)=AimParams'RealisticAimParams'
 		FireParams(0)=FireParams'RealisticPrimaryFireParams'

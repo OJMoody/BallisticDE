@@ -474,7 +474,7 @@ defaultproperties
 	AIRating=0.650000
 	CurrentRating=0.650000
 	bShowChargingBar=True
-	Description="This experimental prototype, being developed on Earth by Frontier Tech, fires variable high-power plasma projectiles from an advanced energy cell. Designed for law enforcement and light infantry sectors, the E-23 is a light, fairly compact and powerful energy assault weapon. The 'ViPeR' is equipped with a sniper scope including optional Infra-Red night-vision lamp."
+	Description="The E-5 Adjustable Plasma Pistol (AsP) needs lore written for it."
 	Priority=39
 	CustomCrossHairTextureName="Crosshairs.HUD.Crosshair_Cross1"
 	InventoryGroup=3
@@ -484,7 +484,7 @@ defaultproperties
 	AttachmentClass=Class'BWBP_APC_Pro.E5Attachment'
 	IconMaterial=Texture'BWBP_CC_Tex.MVPR.SmallIcon_MVPR'
 	IconCoords=(X2=127,Y2=40)
-	ItemName="E-5 'ViPeR' Plasma Pistol"
+	ItemName="E-5 'AsP' Plasma Pistol"
 	LightType=LT_Pulse
 	LightEffect=LE_NonIncidence
 	LightHue=64

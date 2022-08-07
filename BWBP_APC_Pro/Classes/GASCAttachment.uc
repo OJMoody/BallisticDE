@@ -22,6 +22,18 @@ replication
 		LaserRot;
 }
 
+simulated event PreBeginPlay()
+{
+	super.PreBeginPlay();
+	if (GASCPistol(Instigator.Weapon).BCRepClass.default.GameStyle != 0)
+	{
+		TracerChance=1;
+		TracerMix=0;
+		TracerClass=Class'BWBP_SKC_Pro.TraceEmitter_Incendiary';
+		ImpactManager=Class'BallisticProV55.IM_IncendiaryHMGBullet';
+	}
+}
+
 simulated function Tick(float DT)
 {
 	local Vector HitLocation, Start, End, HitNormal, Scale3D, Loc;

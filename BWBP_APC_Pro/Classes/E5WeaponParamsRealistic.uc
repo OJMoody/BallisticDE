@@ -27,7 +27,7 @@ defaultproperties
 	Begin Object Class=FireParams Name=RealisticSeriesFireParams
         FireInterval=0.20000
 		BurstFireRateFactor=0.55
-		AmmoPerFire=3
+		AmmoPerFire=2
         FireAnim="Fire"
 		AimedFireAnim="SightFire"
         FireEndAnim=
@@ -55,7 +55,7 @@ defaultproperties
     End Object
 
     Begin Object Class=FireParams Name=RealisticMultiFireParams
-        AmmoPerFire=6
+        AmmoPerFire=2
         TargetState="Shotgun"
         FireAnim="Fire"
 		AimedFireAnim="SightFire"
@@ -164,7 +164,7 @@ defaultproperties
 
     Begin Object Class=WeaponParams Name=RealisticParams
 	    SightingTime=0.30000	 
-        MagAmmo=45      
+        MagAmmo=60      
         InventorySize=12
         SightMoveSpeedFactor=0.9
 		SightPivot=(Pitch=256)
@@ -173,6 +173,7 @@ defaultproperties
 		WeaponModes(0)=(ModeName="Series Pulse",ModeID="WM_BigBurst",Value=3.000000)
 		WeaponModes(1)=(ModeName="Multi Pulse",ModeID="WM_SemiAuto",Value=1.000000)
 		WeaponModes(2)=(ModeName="Sniper Pulse",ModeID="WM_SemiAuto",Value=1.000000,bUnavailable=True)
+		WeaponName="E-5 'Asp' Particle Pistol"
         RecoilParams(0)=RecoilParams'RealisticRecoilParams'
         AimParams(0)=AimParams'RealisticAimParams'
         FireParams(0)=FireParams'RealisticSeriesFireParams'

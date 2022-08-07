@@ -281,7 +281,7 @@ defaultproperties
      SideWinderChance=1.000000
      MaxStrafeSpeed=8.000000
      ImpactDamage=90
-     ImpactDamageType=Class'BWBP_APC_Pro.DTE5Plasma'
+     ImpactDamageType=Class'BWBP_APC_Pro.DTPKM'
      ImpactManager=Class'BWBP_APC_Pro.IM_PKMRocket'
      AccelSpeed=18000.000000
      TrailClass=Class'BWBP_APC_Pro.PKMRocketTrail'

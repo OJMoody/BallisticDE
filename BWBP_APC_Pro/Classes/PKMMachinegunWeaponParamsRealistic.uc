@@ -55,8 +55,8 @@ defaultproperties
 		HeadMult=1.0
 		LimbMult=1.0
 		SpreadMode=FSM_Rectangle
-		MuzzleFlashClass=Class'BWBP_APC_Pro.PKMClassicFlashEmitter'
-		FireSound=(Sound=Sound'BWBP_JCF_Sounds.RPG.Fire',Volume=450.500000)
+		MuzzleFlashClass=Class'BWBP_APC_Pro.PKMRocketFlashEmitter'
+		FireSound=(Sound=Sound'BWBP_JCF_Sounds.RPG.Fire',Volume=4.500000)
 		Recoil=64.000000
 		Chaos=-1.0
 		Inaccuracy=(X=64,Y=64)
@@ -121,6 +121,7 @@ defaultproperties
 		ViewOffset=(X=5.000000,Y=3.000000,Z=-7.500000)
 		SightOffset=(X=-2.000000,Y=-0.375000,Z=13.220000)
 		SightPivot=(Pitch=128)
+		WeaponName="PK-86 7.62mm GP Machinegun"
 		RecoilParams(0)=RecoilParams'RealisticRecoilParams'
 		AimParams(0)=AimParams'RealisticAimParams'
 		FireParams(0)=FireParams'RealisticPrimaryFireParams'

@@ -25,7 +25,7 @@ defaultproperties
 		SpreadMode=FSM_Rectangle
 		MuzzleFlashClass=Class'BallisticProV55.Fifty9FlashEmitter'
 		FlashScaleFactor=0.100000
-		FireSound=(Sound=SoundGroup'BWBP_OP_Sounds.M575.M575-FireHeavy',Volume=1.300000,Slot=SLOT_Interact,bNoOverride=False)
+		FireSound=(Sound=SoundGroup'BWBP_OP_Sounds.M575.M575-FireHeavy',Volume=2.300000,Slot=SLOT_Interact,bNoOverride=False)
 		Recoil=580.000000
 		Chaos=0.080000
 		Inaccuracy=(X=18,Y=18)
@@ -122,6 +122,7 @@ defaultproperties
 		ViewOffset=(X=5.000000,Y=2.000000,Z=-9.000000)
 		SightOffset=(X=-2.000000,Y=-0.375000,Z=13.220000)
 		SightPivot=(Pitch=128)
+		WeaponName="M575 7.62mm Medium Machinegun"
 		RecoilParams(0)=RecoilParams'RealisticRecoilParams'
 		AimParams(0)=AimParams'RealisticAimParams'
 		FireParams(0)=FireParams'RealisticPrimaryFireParams'

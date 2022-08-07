@@ -1,7 +1,7 @@
 //=============================================================================
 // CYLOAttachment.
 //
-// 3rd person weapon attachment for CYLO Versitile UAW
+// 3rd person weapon attachment for the Crucible ZX98, M30A2's younger bro
 //
 // by Casey 'Xavious' Johnson and Marc 'Sergeant Kelly'
 // Copyright(c) 2005 RuneStorm. All Rights Reserved.
@@ -18,6 +18,8 @@ var byte	PitchSpeed;
 var byte	NetBarrelSpeed;
 var int		BarrelTurn;
 var float	BarrelSpeed;
+
+var() class<BCImpactManager>    ImpactManagerAlt;		//Impact Manager to use for gauss effects
 
 replication
 {
@@ -51,6 +53,61 @@ function UpdateTurnVelocity(rotator TurnVelocity)
 {
 	YawSpeed = Clamp(TurnVelocity.Yaw + 16384, 0, 32768) / 128.5;
 	PitchSpeed = Clamp(TurnVelocity.Pitch + 16384, 0, 32768) / 128.5;
+}
+
+// Does all the effects for an instant-hit kind of fire.
+// On the client, this uses mHitLocation to find all the other info needed.
+simulated function InstantFireEffects(byte Mode)
+{
+	local Vector HitLocation, Dir, Start;
+	local Material HitMat;
+
+	if (InstantMode == MU_None || (InstantMode == MU_Secondary && Mode == 0) || (InstantMode == MU_Primary && Mode != 0))
+		return;
+	if (mHitLocation == vect(0,0,0))
+		return;
+	if (Instigator == none)
+		return;
+	SpawnTracer(Mode, mHitLocation);
+	FlyByEffects(Mode, mHitLocation);
+	// Client, trace for hitnormal, hitmaterial and hitactor
+	if (Level.NetMode == NM_Client)
+	{
+		mHitActor = None;
+		Start = Instigator.Location + Instigator.EyePosition();
+
+		if (WallPenetrates != 0)				{
+			WallPenetrates = 0;
+			DoWallPenetrate(Mode, Start, mHitLocation);	}
+
+		Dir = Normal(mHitLocation - Start);
+		mHitActor = Trace (HitLocation, mHitNormal, mHitLocation + Dir*10, mHitLocation - Dir*10, false,, HitMat);
+		// Check for water and spawn splash
+		if (ImpactManager!= None && bDoWaterSplash)
+			DoWaterTrace(Mode, Start, mHitLocation);
+
+		if (mHitActor == None)
+			return;
+		// Set the hit surface type
+		if (Vehicle(mHitActor) != None)
+			mHitSurf = 3;
+		else if (HitMat == None)
+			mHitSurf = int(mHitActor.SurfaceType);
+		else
+			mHitSurf = int(HitMat.SurfaceType);
+	}
+	// Server has all the info already...
+ 	else
+		HitLocation = mHitLocation;
+
+	if (level.NetMode != NM_Client && ImpactManager!= None && WaterHitLocation != vect(0,0,0) && bDoWaterSplash && Level.DetailMode >= DM_High && class'BallisticMod'.default.EffectsDetailMode > 0)
+		ImpactManager.static.StartSpawn(WaterHitLocation, Normal((Instigator.Location + Instigator.EyePosition()) - WaterHitLocation), 9, Instigator);
+	if (mHitActor == None || (!mHitActor.bWorldGeometry && Mover(mHitActor) == None && Vehicle(mHitActor) == None))
+		return;
+	if (ImpactManagerAlt != None && Mode == 1)
+		ImpactManagerAlt.static.StartSpawn(HitLocation, mHitNormal, mHitSurf, instigator);
+	if (ImpactManager != None && Mode == 0)
+		ImpactManager.static.StartSpawn(HitLocation, mHitNormal, mHitSurf, instigator);
 }
 
 // Spawn a tracer and water tracer
@@ -103,6 +160,7 @@ defaultproperties
 	 AltTracerClass=Class'BWBP_APC_Pro.TraceEmitter_ZX98Gauss'
      MuzzleFlashClass=Class'BallisticProV55.M50FlashEmitter'
      ImpactManager=Class'BallisticProV55.IM_Bullet'
+     ImpactManagerAlt=Class'BWBP_SKC_Pro.IM_BulletGauss'
      MeleeImpactManager=Class'BallisticProV55.IM_Knife'
      BrassClass=Class'BallisticProV55.Brass_SAR'
      BrassMode=MU_Both
