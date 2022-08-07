@@ -8,6 +8,18 @@
 //=============================================================================
 class SPASShotgun extends BallisticProShotgun;
 
+
+
+simulated event PreBeginPlay()
+{
+	super.PreBeginPlay();
+	if (BCRepClass.default.GameStyle != 0)
+	{
+		FireModeClass[0]=Class'BWBP_JCF_Pro.SPASPrimarySlugFire';
+		FireModeClass[1]=Class'BCoreProV55.BallisticScopeFire';
+	}
+}
+
 simulated function AltFire(float F)	{	FirePressed(F);	}
 
 // AI Interface =====
@@ -149,6 +161,7 @@ defaultproperties
      LightRadius=5.000000
 	 ParamsClasses(0)=Class'BWBP_JCF_Pro.SPASShotgunWeaponParamsArena'
 	 ParamsClasses(1)=Class'BWBP_JCF_Pro.SPASShotgunWeaponParamsClassic'
+	 ParamsClasses(2)=Class'BWBP_JCF_Pro.SPASShotgunWeaponParamsRealistic'
      Mesh=SkeletalMesh'BWBP_JCF_Anims.FPm_Spas'
      DrawScale=1.000000
      Skins(0)=Shader'BW_Core_WeaponTex.Hands.Hands-Shiny'

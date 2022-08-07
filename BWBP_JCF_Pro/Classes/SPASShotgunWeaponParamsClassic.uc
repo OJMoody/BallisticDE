@@ -7,13 +7,13 @@ defaultproperties
 	// PRIMARY FIRE
 	//=================================================================	
 	
-	Begin Object Class=ShotgunEffectParams Name=ClassicPrimaryEffectParams
-		TraceRange=(Min=1500.000000,Max=4000.000000)
+	Begin Object Class=InstantEffectParams Name=ClassicPrimaryEffectParams
+		TraceRange=(Min=5500.000000,Max=7000.000000)
 		WaterTraceRange=5000.0
 		RangeAtten=0.150000
-		TraceCount=1
-		TracerClass=Class'BallisticProV55.TraceEmitter_Shotgun'
-		ImpactManager=Class'BallisticProV55.IM_Shell'
+		//TraceCount=1
+		//TracerClass=Class'BallisticProV55.TraceEmitter_Shotgun'
+		//ImpactManager=Class'BallisticProV55.IM_BigBullet'
 		Damage=100.0
 		HeadMult=1.35
 		LimbMult=0.3
@@ -40,7 +40,7 @@ defaultproperties
 		BurstFireRateFactor=1.00
 		AimedFireAnim="SightFire"
 		FireEndAnim=	
-	FireEffectParams(0)=ShotgunEffectParams'ClassicPrimaryEffectParams'
+	FireEffectParams(0)=InstantEffectParams'ClassicPrimaryEffectParams'
 	End Object
 		
 	//=================================================================
@@ -70,7 +70,7 @@ defaultproperties
 		FireSound=(Sound=Sound'BWBP_JCF_Sounds.DE.Fire_SPAS_Cock',Volume=1.200000)
 		Recoil=512.000000
 		Chaos=-1.0
-		Inaccuracy=(X=450,Y=350)
+		Inaccuracy=(X=32,Y=32)
 		BotRefireRate=0.900000
 		WarnTargetPct=0.100000	
 	End Object
@@ -78,9 +78,9 @@ defaultproperties
 	Begin Object Class=FireParams Name=ClassicSecondaryFireParams
 		FireInterval=0.850000
 		BurstFireRateFactor=1.00
-		FireAnim="FireCock"
+		//FireAnim="FireCock"
 		FireEndAnim=
-		AimedFireAnim="SightFireCock"	
+		//AimedFireAnim="SightFireCock"	
 	FireEffectParams(0)=ShotgunEffectParams'ClassicSecondaryEffectParams'
 	End Object
 		
@@ -125,7 +125,9 @@ defaultproperties
 		InventorySize=35
 		SightMoveSpeedFactor=0.500000
 		SightingTime=0.450000
-		MagAmmo=8
+		MagAmmo=5
+		ReloadAnimRate=1.0
+		CockAnimRate=1.0
 		SightOffset=(X=-4.000000,Y=-0.050000,Z=10.200000)
 		RecoilParams(0)=RecoilParams'ClassicRecoilParams'
 		AimParams(0)=AimParams'ClassicAimParams'
