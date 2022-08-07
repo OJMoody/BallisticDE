@@ -18,7 +18,7 @@ defaultproperties
      bWaitForRelease=True
      bModeExclusive=False
      FireRate=0.700000
-     AmmoClass=Class'BWBP_SKCExp_Pro.Ammo_SX45Bullets'
+     AmmoClass=Class'BallisticProV55.Ammo_45HV'
      AmmoPerFire=0
      BotRefireRate=0.300000
 }

@@ -52,7 +52,7 @@ defaultproperties
 		YRandFactor=0.250000
 		MaxRecoil=3200.000000
 		DeclineTime=0.750000
-		DeclineDelay=0.115000;
+		DeclineDelay=0.145000;
 		ViewBindFactor=0.350000
 		ADSViewBindFactor=0.350000
 		HipMultiplier=1.000000
@@ -88,6 +88,7 @@ defaultproperties
 		ViewOffset=(X=5.000000,Y=4.000000,Z=-12.000000)
 		SightOffset=(X=-15.000000,Y=-0.350000,Z=12.300000)
 		ZoomType=ZT_Logarithmic
+		WeaponName="Mk 88 5.56mm Squad Automatic Weapon"
 		RecoilParams(0)=RecoilParams'RealisticRecoilParams'
 		AimParams(0)=AimParams'RealisticAimParams'
 		FireParams(0)=FireParams'RealisticPrimaryFireParams'

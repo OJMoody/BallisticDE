@@ -84,7 +84,7 @@ defaultproperties
 		YRandFactor=0.150000
 		MaxRecoil=2800
 		DeclineTime=0.625000
-		DeclineDelay=0.100000
+		DeclineDelay=0.075000
 		ViewBindFactor=0.200000
 		ADSViewBindFactor=0.200000
 		HipMultiplier=1.000000
@@ -113,15 +113,18 @@ defaultproperties
 	Begin Object Class=WeaponParams Name=RealisticParams
 		InventorySize=35
 		SightMoveSpeedFactor=0.500000
-		SightOffset=(X=20.000000,Y=-6.450000,Z=20.500000)
-		ViewOffset=(X=-8.000000,Y=10.000000,Z=-14.000000)
-		WeaponBoneScales(0)=(BoneName="IronSight",Slot=55,Scale=0f)
-		WeaponBoneScales(1)=(BoneName="HoloSight",Slot=56,Scale=1f)
-		WeaponMaterialSwaps(0)=(Material=Shader'BWBP_SKC_Tex.LK05.LK05-EOTechGlow2',Index=4)
+		SightOffset=(X=10.000000,Y=-6.450000,Z=20.900000)
+		ViewOffset=(X=-9.000000,Y=8.000000,Z=-15.000000)
+		WeaponBoneScales(0)=(BoneName="IronsLower",Slot=53,Scale=0f)
+		WeaponBoneScales(1)=(BoneName="CarryHandle",Slot=54,Scale=-1)
+		WeaponBoneScales(2)=(BoneName="HoloSightUpper",Slot=55,Scale=0f)
+		WeaponBoneScales(3)=(BoneName="HoloSightLower",Slot=56,Scale=1f)
+		//WeaponMaterialSwaps(0)=(Material=Shader'BWBP_SKC_Tex.LK05.LK05-EOTechGlow2',Index=4)
 		WeaponModes(0)=(ModeName="Semi-Auto",ModeID="WM_SemiAuto",Value=1.000000)
 		WeaponModes(1)=(ModeName="Burst Fire",ModeID="WM_BigBurst",Value=3.000000)
 		WeaponModes(2)=(ModeName="Full Auto",ModeID="WM_FullAuto",bUnavailable=True)
 		InitialWeaponMode=1
+		WeaponName="G51 5.56mm Carbine"
 		RecoilParams(0)=RecoilParams'RealisticRecoilParams'
 		AimParams(0)=AimParams'RealisticAimParams'
 		FireParams(0)=FireParams'RealisticPrimaryFireParams'

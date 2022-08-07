@@ -188,6 +188,7 @@ defaultproperties
 		MagAmmo=28
 		SightOffset=(X=5.000000,Y=-7.670000,Z=18.900000)
 		SightPivot=(YAW=10)
+		WeaponName="FMP-2012 .40 Machine Pistol"
 		RecoilParams(0)=RecoilParams'RealisticRecoilParams'
 		RecoilParams(1)=RecoilParams'RealisticIncRecoilParams'
 		RecoilParams(2)=RecoilParams'RealisticCorrosiveRecoilParams'

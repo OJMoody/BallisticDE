@@ -115,6 +115,7 @@ defaultproperties
 		SightOffset=(X=-12.000000,Y=-0.200000,Z=17.300000)
 		ViewOffset=(X=0.000000,Y=-0.200000,Z=-15.000000)
 		SightPivot=(Pitch=1024)
+		WeaponName="HVM Experimental Plasma Cannon Mk5"
 		RecoilParams(0)=RecoilParams'RealisticRecoilParams'
 		AimParams(0)=AimParams'RealisticAimParams'
 		FireParams(0)=FireParams'RealisticPrimaryFireParams'

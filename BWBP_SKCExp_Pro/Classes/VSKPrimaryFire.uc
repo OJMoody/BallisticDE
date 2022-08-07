@@ -11,6 +11,7 @@ class VSKPrimaryFire extends BallisticProInstantFire;
 
 var() sound		ScopedFireSound;
 var() sound		RegularFireSound;
+var() bool		bDOT:
 
 simulated function SwitchScopedMode (byte NewMode)
 {
@@ -84,19 +85,19 @@ function bool DoTazerBlurEffect(Actor Victim)
 	return false;
 }
 
-/*function DoDamage (Actor Other, vector HitLocation, vector TraceStart, vector Dir, int PenetrateCount, int WallCount, optional vector WaterHitLocation)
+function DoDamage (Actor Other, vector HitLocation, vector TraceStart, vector Dir, int PenetrateCount, int WallCount, optional vector WaterHitLocation)
 {
 
-	if (xPawn(Other)!=None)
+	if (xPawn(Other)!=None && bDOT)
 	{
 		IgniteActor(Other);
 	}
 	super.DoDamage (Other, HitLocation, TraceStart, Dir, PenetrateCount, WallCount);
-	if ( Other.bCanBeDamaged )
+	if ( Other.bCanBeDamaged && bDOT)
 	{
 		DoTazerBlurEffect(Other);
 	}
-}*/
+}
 
 defaultproperties
 {

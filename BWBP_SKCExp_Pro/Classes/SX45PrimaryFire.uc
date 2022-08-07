@@ -222,7 +222,7 @@ defaultproperties
      FireAnimRate=1
 	 AimedFireAnim="SightFire"
      FireRate=0.20000
-     AmmoClass=Class'BWBP_SKCExp_Pro.Ammo_SX45Bullets'
+     AmmoClass=Class'BallisticProV55.Ammo_45HV'
      ShakeRotMag=(X=64.000000,Y=32.000000)
      ShakeRotRate=(X=10000.000000,Y=10000.000000,Z=10000.000000)
      ShakeRotTime=2.000000

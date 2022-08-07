@@ -391,24 +391,24 @@ defaultproperties
      SelectForce="SwitchToAssaultRifle"
      AIRating=0.600000
      CurrentRating=0.600000
-     Description="MJ51 Carbine||Manufacturer: Majestic Firearms 12|Primary: 5.56mm CAP Rifle Fire|Secondary: Attach Smoke Grenade||The MJ51 is a 3-round burst carbine based off the popular M50 assault rifle. Unlike the M50 and SAR though, it fires a shorter 5.56mm CAP round and is more controllable than its larger cousin, though this comes at the expense of long range accuracy and power. While the S-AR 12 is the UTC's weapon of choice for close range engagements, the MJ51 is often seen in the hands of MP and urban security details. When paired with its native MOA-C Rifle Grenade attachment, the MJ51 makes an efficient riot control weapon. |Majestic Firearms 12 designed their MJ51 carbine alongside their MOA-C Chaff Grenade to produce a rifle with grenade launching capabilities without the need of a bulky launcher that has to be sperately maintained. Utilizing a hardened tungsten barrel and an advanced rifle grenade design, a soldier is able to seamlessly ready a grenade projectile without having to rechamber specilized rounds"
+     Description="G51 Carbine||Manufacturer: Majestic Firearms 12|Primary: 5.56mm Rifle Fire|Secondary: Attach Smoke Grenade||The G51 is a 3-round burst carbine based off the popular SCAR-LK platform. While the S-AR 12 is the UTC's weapon of choice for close range engagements, the G51 is often seen in the hands of MP and urban security details. When paired with its native MOA-C Rifle Grenade attachment, the G51 makes an efficient riot control weapon. |Majestic Firearms 12 designed their G51 carbine alongside their MOA-C Chaff Grenade to produce a rifle with grenade launching capabilities without the need of a bulky launcher that has to be sperately maintained. Utilizing a hardened tungsten barrel and an advanced rifle grenade design, a soldier is able to seamlessly ready a grenade projectile without having to rechamber specilized rounds"
      Priority=41
      CustomCrossHairTextureName="Crosshairs.HUD.Crosshair_Cross1"
      InventoryGroup=4
      PickupClass=Class'BWBP_SKCExp_Pro.MJ51Pickup'
-     PlayerViewOffset=(X=-8.000000,Y=10.000000,Z=-14.000000)
+     PlayerViewOffset=(X=-8.000000,Y=10.000000,Z=-16.000000)
      BobDamping=2.000000
      AttachmentClass=Class'BWBP_SKCExp_Pro.MJ51Attachment'
      IconMaterial=Texture'BWBP_SKC_TexExp.M4A1.SmallIcon_M4'
      IconCoords=(X2=127,Y2=31)
-     ItemName="MJ51 Carbine"
+     ItemName="G51 Carbine"
      LightType=LT_Pulse
      LightEffect=LE_NonIncidence
      LightHue=30
      LightSaturation=150
      LightBrightness=150.000000
      LightRadius=4.000000
-     Mesh=SkeletalMesh'BWBP_SKC_AnimExp.FPm_MJ55A3'
+     Mesh=SkeletalMesh'BWBP_SKC_AnimExp.FPm_G51Carbine'
 	 ParamsClasses(0)=Class'MJ51WeaponParamsArena'
      ParamsClasses(1)=Class'MJ51WeaponParamsClassic'
      ParamsClasses(2)=Class'MJ51WeaponParamsRealistic'

@@ -6,19 +6,20 @@
 // by Nolan "Dark Carnivour" Richert.
 // Copyright(c) 2006 RuneStorm. All Rights Reserved.
 //=============================================================================
-class SX45Pistol extends BallisticWeapon;
+class SX45Pistol extends BallisticHandgun;
 
-var   bool		bAmped;						// ARE YOU AMPED? BECAUSE THIS GUN IS!
-var() name		AmplifierBone;				// Bone to use for hiding cool shit
-var() name		AmplifierBone2;				// Xav likes to make my life difficult
-var() name		AmplifierOnAnim;			//
-var() name		AmplifierOffAnim;			//
-var() sound		AmplifierOnSound;			// 
-var() sound		AmplifierOffSound;			//
-var() sound		AmplifierPowerOnSound;		// Electrical noises?
-var() sound		AmplifierPowerOffSound;		//
-var float		AmpCharge;					// Existing ampjuice
-var bool		bShowCharge;				// Hides charge until the amp is on
+var(SX45)   bool		bAmped;						// ARE YOU AMPED? BECAUSE THIS GUN IS!
+var(SX45) name		AmplifierBone;				// Bone to use for hiding cool shit
+var(SX45) name		AmplifierBone2;				// Xav likes to make my life difficult
+var(SX45) name		AmplifierOnAnim;			//
+var(SX45) name		AmplifierOffAnim;			//
+var(SX45) sound		AmplifierOnSound;			// 
+var(SX45) sound		AmplifierOffSound;			//
+var(SX45) sound		AmplifierPowerOnSound;		// Electrical noises?
+var(SX45) sound		AmplifierPowerOffSound;		//
+var(SX45) float		AmpCharge;					// Existing ampjuice
+var(SX45) float 	DrainRate;					// Rate that ampjuice leaks out
+var(SX45) bool		bShowCharge;				// Hides charge until the amp is on
 
 var() array<Material> CamoMaterials; //We're using this for the amp
 
@@ -291,7 +292,7 @@ simulated event Tick(float DT)
 		StartProjector();
 		
 	if (AmpCharge > 0)
-		AmpCharge = FMax(AmpCharge - 0.5 * DT, 0);
+		AmpCharge = FMax(0, AmpCharge - DrainRate*DT);
 		
 }
 
@@ -445,6 +446,7 @@ static function class<Pickup> RecommendAmmoPickup(int Mode)
 
 defaultproperties
 {
+	DrainRate=0.01
 	CamoMaterials[0]=Shader'BWBP_SKC_Tex.AMP.Amp-FinalYellow'
 	CamoMaterials[1]=Shader'BWBP_SKC_Tex.AMP.Amp-FinalCyan'
 	CamoMaterials[2]=Shader'BWBP_SKC_Tex.Amp.Amp-GlowCyanShader'
@@ -460,8 +462,8 @@ defaultproperties
     TorchOffSound=Sound'BW_Core_WeaponSound.MRS38.RSS-FlashClick'
     AmplifierOnSound=Sound'BW_Core_WeaponSound.SRS900.SRS-SilencerOn'
     AmplifierOffSound=Sound'BW_Core_WeaponSound.SRS900.SRS-SilencerOff'
-    AmplifierPowerOnSound=Sound'BWBP_SKC_Sounds.Amp.Amp-Install'
-    AmplifierPowerOffSound=Sound'BWBP_SKC_Sounds.Amp.Amp-Depleted'
+    AmplifierPowerOnSound=Sound'BWBP_SKC_SoundsExp.SX45.Amp-Install'
+    AmplifierPowerOffSound=Sound'BWBP_SKC_SoundsExp.SX45.Amp-Depleted'
 	bShowChargingBar=True
 	TeamSkins(0)=(RedTex=Shader'BW_Core_WeaponTex.Hands.RedHand-Shiny',BlueTex=Shader'BW_Core_WeaponTex.Hands.BlueHand-Shiny')
 	AIReloadTime=1.000000

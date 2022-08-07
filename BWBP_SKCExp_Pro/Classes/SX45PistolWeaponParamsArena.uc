@@ -20,7 +20,7 @@ defaultproperties
 		bPenetrate=True
 		MuzzleFlashClass=Class'BWBP_SKCExp_Pro.SX45FlashEmitter'
 		FlashScaleFactor=0.9
-		FireSound=(Sound=SoundGroup'BWBP_SKC_SoundsExp.SX45.SX45-Fire',Volume=1.200000)
+		FireSound=(Sound=SoundGroup'BWBP_SKC_SoundsExp.SX45.SX45-Fire',Volume=2.000000)
 		Recoil=192.000000
 		Chaos=0.250000
 		BotRefireRate=0.750000

@@ -147,6 +147,7 @@ defaultproperties
 		SightingTime=0.200000
 		MagAmmo=15
 		SightOffset=(y=-3.140000,Z=14.300000)
+		WeaponName="SX-45 .45 Tech Pistol"
 		RecoilParams(0)=RecoilParams'RealisticRecoilParams'
 		AimParams(0)=AimParams'RealisticAimParams'
 		FireParams(0)=FireParams'RealisticPrimaryFireParams'

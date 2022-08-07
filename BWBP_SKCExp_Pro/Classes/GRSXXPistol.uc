@@ -1,13 +1,15 @@
 //=============================================================================
-// GRS9Pistol.
+// GRSXXPistol.
 //
 // Glock style low power, high capacity, low recoil, high accuracy light pistol
 // with low power burning laser attachment.
 //
+// Realism GRSXX loses the laser and requires the amp to be installed.
+//
 // by Nolan "Dark Carnivour" Richert.
 // Copyright(c) 2007 RuneStorm. All Rights Reserved.
 //=============================================================================
-class GRSXXPistol extends BallisticWeapon;
+class GRSXXPistol extends BallisticHandgun;
 
 // Laser Vars
 var(GRSXX)	bool		bLaserOn;
@@ -29,6 +31,7 @@ var(GRSXX)	sound		AmplifierOffSound;			//
 var(GRSXX)	sound		AmplifierPowerOnSound;		// Electrical noises?
 var(GRSXX)	sound		AmplifierPowerOffSound;		//
 var(GRSXX)	float		AmpCharge;					// Existing ampjuice
+var(GRSXX)  float 		DrainRate;					// Rate that ampjuice leaks out
 var(GRSXX)	bool		bShowCharge;				// Hides charge until the amp is on
 var(GRSXX)	bool		bRemovableAmp;
 
@@ -99,6 +102,8 @@ simulated event WeaponTick(float DT)
 		}
 	}
 
+	if (AmpCharge > 0)
+		AmpCharge = FMax(0, AmpCharge - DrainRate*DT);
 }
 
 simulated event Tick (float DT)
@@ -716,7 +721,8 @@ defaultproperties
     AmplifierOnSound=Sound'BW_Core_WeaponSound.SRS900.SRS-SilencerOn'
     AmplifierOffSound=Sound'BW_Core_WeaponSound.SRS900.SRS-SilencerOff'
     AmplifierPowerOnSound=Sound'BWBP_SKC_SoundsExp.GRSXX.GRSXX-Select'
-    AmplifierPowerOffSound=Sound'BWBP_SKC_Sounds.Amp.Amp-Depleted'
+    AmplifierPowerOffSound=Sound'BWBP_SKC_SoundsExp.SX45.Amp-Depleted'
+	DrainRate=0.01
 	AIRating=0.6
 	CurrentRating=0.6
 	LaserAmmo=3.500000
