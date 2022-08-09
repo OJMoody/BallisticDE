@@ -462,8 +462,8 @@ defaultproperties
     TorchOffSound=Sound'BW_Core_WeaponSound.MRS38.RSS-FlashClick'
     AmplifierOnSound=Sound'BW_Core_WeaponSound.SRS900.SRS-SilencerOn'
     AmplifierOffSound=Sound'BW_Core_WeaponSound.SRS900.SRS-SilencerOff'
-    AmplifierPowerOnSound=Sound'BWBP_SKC_SoundsExp.SX45.Amp-Install'
-    AmplifierPowerOffSound=Sound'BWBP_SKC_SoundsExp.SX45.Amp-Depleted'
+    AmplifierPowerOnSound=Sound'BWBP_SKC_Sounds.AMP.Amp-Install'
+    AmplifierPowerOffSound=Sound'BWBP_SKC_Sounds.AMP.Amp-Depleted'
 	bShowChargingBar=True
 	TeamSkins(0)=(RedTex=Shader'BW_Core_WeaponTex.Hands.RedHand-Shiny',BlueTex=Shader'BW_Core_WeaponTex.Hands.BlueHand-Shiny')
 	AIReloadTime=1.000000
