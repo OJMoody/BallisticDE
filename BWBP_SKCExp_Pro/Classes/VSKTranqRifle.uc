@@ -11,7 +11,6 @@ class VSKTranqRifle extends BallisticWeapon;
 
 var float		lastModeChangeTime;
 
-
 simulated event PostNetBeginPlay()
 {
 	super.PostNetBeginPlay();
@@ -19,6 +18,7 @@ simulated event PostNetBeginPlay()
 	{
 		VSKPrimaryFire(FireMode[0]).bDOT = true;
 	}
+	VSKPrimaryFire(FireMode[0]).SwitchScopedMode(CurrentWeaponMode);
 }
 /*replication
 {
@@ -26,11 +26,6 @@ simulated event PostNetBeginPlay()
 		ClientSwitchWeaponMode;
 }*/
 
-simulated event PostNetBeginPlay()
-{
-	super.PostNetBeginPlay();
-	VSKPrimaryFire(FireMode[0]).SwitchScopedMode(CurrentWeaponMode);
-}
 
 
 function ServerSwitchWeaponMode (byte newMode)

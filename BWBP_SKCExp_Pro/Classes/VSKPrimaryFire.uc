@@ -7,11 +7,11 @@
 // by Nolan "Dark Carnivour" Richert.
 // Copyright(c) 2005 RuneStorm. All Rights Reserved.
 //=============================================================================
-class VSKPrimaryFire extends BallisticProInstantFire;
+class VSKPrimaryFire extends BallisticInstantFire;
 
 var() sound		ScopedFireSound;
 var() sound		RegularFireSound;
-var() bool		bDOT:
+var() bool		bDOT;
 
 simulated function SwitchScopedMode (byte NewMode)
 {
@@ -85,17 +85,16 @@ function bool DoTazerBlurEffect(Actor Victim)
 	return false;
 }
 
-function DoDamage (Actor Other, vector HitLocation, vector TraceStart, vector Dir, int PenetrateCount, int WallCount, optional vector WaterHitLocation)
+function ApplyDamage(Actor Victim, int Damage, Pawn Instigator, vector HitLocation, vector MomentumDir, class<DamageType> DamageType)
 {
-
-	if (xPawn(Other)!=None && bDOT)
+	if (xPawn(Victim) !=None && bDOT)
 	{
-		IgniteActor(Other);
+		IgniteActor(Victim);
 	}
-	super.DoDamage (Other, HitLocation, TraceStart, Dir, PenetrateCount, WallCount);
-	if ( Other.bCanBeDamaged && bDOT)
+	class'BallisticDamageType'.static.GenericHurt(Victim, Damage, Instigator, HitLocation, MomentumDir, DamageType);
+	if ( Victim.bCanBeDamaged && bDOT)
 	{
-		DoTazerBlurEffect(Other);
+		DoTazerBlurEffect(Victim);
 	}
 }
 
