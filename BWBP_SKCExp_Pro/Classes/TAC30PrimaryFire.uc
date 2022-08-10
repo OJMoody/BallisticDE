@@ -11,56 +11,6 @@ class TAC30PrimaryFire extends BallisticProjectileFire;
 var() sound		SuperFireSound;
 var() sound		FabulousFireSound;
 
-/*simulated function SwitchCannonMode (byte NewMode)
-{
-	if (NewMode == 4)
-	{
-		BallisticFireSound.Sound=FabulousFireSound;
-     		ProjectileClass=Class'BWBP_SKC_Pro.LS14Rocket';
-		FireRate=0.25;
-		RecoilPerShot=150;
-		FireAnim=default.FireAnim;
-     		FireChaos=Default.FireChaos;
-     		FlashScaleFactor=Default.FlashScaleFactor;
-
-
-	}
-	else if (NewMode == 3)
-	{
-		BallisticFireSound.Sound=SuperFireSound;
-     		//ProjectileClass=Class'BWBP_SKC_Pro.SRACRocket';
-		FireRate=0.5;
-		RecoilPerShot=512;
-     		FireChaos=0.25;
-     		FlashScaleFactor=2;
-		FireAnim=default.FireAnim;
-
-
-	}
-	else if (NewMode == 2)
-	{
-		BallisticFireSound.Sound=SuperFireSound;
-     		//ProjectileClass=Class'BWBP_SKC_Pro.SRACRocket';
-		FireRate=2.0;
-		FireAnim='SemiFire';
-		RecoilPerShot=1024;
-     		FireChaos=0.25;
-     		FlashScaleFactor=2;
-
-	}
-	
-	else
-	{
-		BallisticFireSound.Sound=default.BallisticFireSound.Sound;
-     		ProjectileClass=default.ProjectileClass;
-		FireRate=default.FireRate;
-		FireAnim=default.FireAnim;
-		RecoilPerShot=Default.RecoilPerShot;
-     		FireChaos=Default.FireChaos;
-     		FlashScaleFactor=Default.FlashScaleFactor;
-	}
-}*/
-
 simulated function DestroyEffects()
 {
     if (MuzzleFlash != None)

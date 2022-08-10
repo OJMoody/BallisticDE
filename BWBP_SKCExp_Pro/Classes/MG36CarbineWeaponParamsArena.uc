@@ -88,6 +88,7 @@ defaultproperties
 	//=================================================================	
 	
 	Begin Object Class=WeaponParams Name=ArenaParams
+		ReloadAnimRate=0.800000
 		WeaponBoneScales(0)=(BoneName="Mag",Slot=20,Scale=1f)
 		WeaponBoneScales(1)=(BoneName="MagDrum",Slot=21,Scale=0f)
 		PlayerSpeedFactor=0.90
