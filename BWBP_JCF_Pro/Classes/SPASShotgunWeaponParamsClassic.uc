@@ -27,7 +27,7 @@ defaultproperties
 		WallPDamageFactor=0.4
 		MuzzleFlashClass=Class'BallisticProV55.MRT6FlashEmitter'
 		FlashScaleFactor=2.000000
-		FireSound=(Sound=Sound'BWBP_JCF_Sounds.DE.Fire_SPAS',Volume=1.200000)
+		FireSound=(Sound=Sound'BWBP_JCF_Sounds.DE.Fire_SPAS',Volume=1.500000)
 		Recoil=728.000000
 		Chaos=-1.0
 		Inaccuracy=(X=32,Y=32)

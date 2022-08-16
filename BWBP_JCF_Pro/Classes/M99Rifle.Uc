@@ -422,6 +422,7 @@ defaultproperties
      LightRadius=5.000000
 	 ParamsClasses(0)=Class'BWBP_JCF_Pro.M99RifleWeaponParamsArena'
 	 ParamsClasses(1)=Class'BWBP_JCF_Pro.M99RifleWeaponParamsClassic'
+	 ParamsClasses(2)=Class'BWBP_JCF_Pro.M99RifleWeaponParamsRealistic'
      Mesh=SkeletalMesh'BWBP_JCF_Anims.FPm_M99Classic'
      DrawScale=0.140000
 }

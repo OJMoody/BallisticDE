@@ -24,7 +24,7 @@ defaultproperties
 		WallPDamageFactor=0.4
 		SpreadMode=FSM_Rectangle
 		MuzzleFlashClass=Class'BallisticProV55.M925FlashEmitter'
-		FireSound=(Sound=Sound'BWBP_JCF_Sounds.M99.M99FireNew',Volume=5.500000)
+		FireSound=(Sound=Sound'BWBP_JCF_Sounds.M99.M99-FireOld',Volume=5.500000)
 		Recoil=6972.000000
 		Chaos=-1.0
 		BotRefireRate=0.300000
