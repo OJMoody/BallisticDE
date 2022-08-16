@@ -17,7 +17,7 @@ defaultproperties
      DeathStrings(4)="%k chased %o down and fired with %kh sawn-off."
      DeathStrings(5)="%o tried to flee from %k's sawn-off and failed."
      DeathStrings(6)="%o couldn't escape from %k's lethal sawn-off."
-     WeaponClass=Class'BWBP_SKCExp_Pro.CoachGunSawnOff'
+     WeaponClass=Class'BWBP_SKCExp_Pro.SawnOffShotgun'
      DeathString="%k cut down a fleeing %o with %kh sawn-off shotgun."
      FemaleSuicide="%o eats butts."
      MaleSuicide="%o shot himself with his sawn-off."

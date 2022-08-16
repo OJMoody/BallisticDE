@@ -243,7 +243,7 @@ defaultproperties
      PenetrateForce=180
      bPenetrate=True
      RunningSpeedThresh=1000.000000
-     ClipFinishSound=(Sound=Sound'BW_Core_WeaponSound.Misc.ClipEnd-1',Volume=0.800000,Radius=48.000000,bAtten=True)
+     //ClipFinishSound=(Sound=Sound'BW_Core_WeaponSound.Misc.DryRifle',Volume=0.800000,Radius=48.000000,bAtten=True)
      DryFireSound=(Sound=Sound'BW_Core_WeaponSound.Misc.DryRifle',Volume=0.700000)
      bCockAfterEmpty=True
      FireRecoil=220.000000

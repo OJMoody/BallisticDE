@@ -36,30 +36,12 @@ simulated function SwitchCannonMode (byte NewMode)
 {
     if (NewMode == 0)
     {
-        ProjectileClass=Class'SkrithStaffProjectile';
-        BallisticFireSound.Sound=ChargeFireSound;
-        FireRate=default.FireRate;
-        AmmoPerFire=default.AmmoPerFire;
-        XInaccuracy=default.XInaccuracy;
-        YInaccuracy=default.YInaccuracy;
-		FireChaos=default.FireChaos;
-        FireRecoil=default.FireRecoil;
         bSplashDamage=false;
-		FireAnim='Fire';
         bRecommendSplashDamage=false;
     }
     
     else if (NewMode == 1)
     {
-        ProjectileClass=Class'SkrithStaffPower';
-        BallisticFireSound.Sound=PowerFireSound;
-        FireRate=1.000000;
-        AmmoPerFire=12;
-        XInaccuracy=default.XInaccuracy;
-        YInaccuracy=default.YInaccuracy;
-		FireChaos=0.5;
-		FireAnim='FireBomb';
-        FireRecoil=1024;
         bSplashDamage=true;
         bRecommendSplashDamage=true;
     }
@@ -91,7 +73,7 @@ defaultproperties
      FireRate=0.170000
 	 FlashBone="Muzzle"
 	 AmmoPerFire=2
-     AmmoClass=Class'BWBP_SWC_Pro.Ammo_SSCells'
+	AmmoClass=Class'BallisticProV55.Ammo_Cells'
      ShakeRotMag=(X=32.000000,Y=10.000000)
      ShakeRotRate=(X=10000.000000,Y=10000.000000,Z=10000.000000)
      ShakeRotTime=1.750000

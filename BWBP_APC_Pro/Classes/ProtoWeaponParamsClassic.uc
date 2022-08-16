@@ -25,7 +25,7 @@ defaultproperties
 		SpreadMode=FSM_Rectangle
 		MuzzleFlashClass=Class'BallisticProV55.XK2FlashEmitter_C'
 		FlashScaleFactor=0.500000
-		FireSound=(Sound=Sound'BWBP_JCF_Sounds.P90.P90Fire',Volume=1.3)
+		FireSound=(Sound=Sound'BWBP_JCF_Sounds.P90.P90Fire2',Volume=1.3)
 		Recoil=48.000000
 		Chaos=-1.0
 		Inaccuracy=(X=21,Y=21)
@@ -35,6 +35,36 @@ defaultproperties
 		FireInterval=0.078000
 		BurstFireRateFactor=1.00	
 	FireEffectParams(0)=InstantEffectParams'ClassicPrimaryEffectParams'
+	End Object
+	
+	//=================================================================
+    // PRIMARY FIRE - Photon Burst
+    //=================================================================	
+	
+	Begin Object Class=InstantEffectParams Name=ClassicPhotonPrimaryEffectParams
+		TraceRange=(Min=8000.000000,Max=12000.000000)
+		RangeAtten=0.100000
+		Damage=22
+		DamageType=Class'BWBP_APC_Pro.DTProtoPhoton'
+		DamageTypeHead=Class'BWBP_APC_Pro.DTProtoPhotonHead'
+		DamageTypeArm=Class'BWBP_APC_Pro.DTProtoPhoton'
+		PenetrateForce=180
+		bPenetrate=True
+		MuzzleFlashClass=Class'BWBP_SKC_Pro.LS14FlashEmitter'
+		FlashScaleFactor=0.200000
+		Recoil=70.000000
+		Chaos=0.032000
+		WarnTargetPct=0.200000
+		FireSound=(Sound=Sound'BWBP_SKC_Sounds.Misc.F2000-FireAlt1',Volume=1.300000)
+	End Object
+
+	Begin Object Class=FireParams Name=ClassicPhotonPrimaryFireParams
+		FireInterval=0.085000
+		PreFireAnim=
+		FireEndAnim=
+		FireAnim="FireAlt"
+		AimedFireAnim="SightFireAlt"
+		FireEffectParams(0)=InstantEffectParams'ClassicPhotonPrimaryEffectParams'
 	End Object
 		
 	//=================================================================
@@ -78,11 +108,12 @@ defaultproperties
 		SightMoveSpeedFactor=0.500000
 		SightingTime=0.25
 		MagAmmo=50
-		SightOffset=(X=-8,Y=5.870000,Z=8.000000)
-		SightPivot=(Pitch=600)
+		//SightOffset=(X=-8,Y=5.870000,Z=8.000000)
+		//SightPivot=(Pitch=600)
 		RecoilParams(0)=RecoilParams'ClassicRecoilParams'
 		AimParams(0)=AimParams'ClassicAimParams'
 		FireParams(0)=FireParams'ClassicPrimaryFireParams'
+		FireParams(1)=FireParams'ClassicPhotonPrimaryFireParams'
 		AltFireParams(0)=FireParams'ClassicSecondaryFireParams'
 	End Object
 	Layouts(0)=WeaponParams'ClassicParams'

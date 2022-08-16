@@ -493,7 +493,7 @@ defaultproperties
 	bNoCrosshairInScope=True
 	SightOffset=(y=-3.140000,Z=14.300000)
 	SightDisplayFOV=60.000000
-	ParamsClasses(0)=Class'SX45PistolWeaponParamsArena'
+	ParamsClasses(0)=Class'SX45WeaponParamsArena'
 	ParamsClasses(1)=Class'SX45WeaponParamsClassic'
 	ParamsClasses(2)=Class'SX45WeaponParamsRealistic'
 	FireModeClass(0)=Class'BWBP_SKCExp_Pro.SX45PrimaryFire'

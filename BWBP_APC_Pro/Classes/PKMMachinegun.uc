@@ -363,7 +363,7 @@ defaultproperties
      SelectForce="SwitchToAssaultRifle"
      AIRating=0.7500000
      CurrentRating=0.7500000
-     Description="Rugged, reliable, no fancy attachments needed.  That's the mantra of ZTV Exports PKMA-420 General Purpose Machine Gun, an old timey design brought back from the glory days of the MSR (Merged States Republic).  A 7.62mm belt-fed machine gun that can get the job done even without the frills of optics and other attachments, however there have been upgrades so that it can mount the infamous X8 seen on the AK-490. The PKMA can fight, no matter how harsh the conditions are or how many Krao come surging, nothing can stop this machine gun from performing above and beyond."
+     Description="Rugged, reliable, no fancy attachments needed.  That's the mantra of ZTV Exports PKM-420 General Purpose Machine Gun, an old timey design brought back from the glory days of the MSR (Merged States Republic).  A 7.62mm belt-fed machine gun that can get the job done even without the frills of optics and other attachments, however there have been upgrades so that it can mount the infamous X8 seen on the AK-490. The PKM can fight, no matter how harsh the conditions are or how many Krao come surging, nothing can stop this machine gun from performing above and beyond."
      DisplayFOV=40.000000
      Priority=43
      HudColor=(G=150,R=100)
@@ -374,7 +374,7 @@ defaultproperties
      AttachmentClass=Class'BWBP_APC_Pro.PKMAttachment'
      IconMaterial=Texture'BWBP_CC_Tex.PKM.SmallIcon_PKMA'
      IconCoords=(X2=127,Y2=31)
-     ItemName="PKMA-420 GP Machine Gun"
+     ItemName="PKM-420 GP Machine Gun"
      LightType=LT_Pulse
      LightEffect=LE_NonIncidence
      LightHue=30

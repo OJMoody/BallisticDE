@@ -58,7 +58,7 @@ defaultproperties
 		FireSound=(Sound=Sound'BWBP_SKC_Sounds.XavPlas.Xav-FireAlt',Volume=1.750000,Slot=SLOT_Interact,bNoOverride=False)
 		Recoil=10.000000
 		Chaos=0.050000
-		Inaccuracy=(X=12,Y=6)
+		Inaccuracy=(X=12,Y=12)
 		WarnTargetPct=0.200000	
 	End Object
 

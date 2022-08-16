@@ -1,4 +1,4 @@
-class BlackOpsWristBladeWeaponParamsClassic extends BallisticWeaponParams;
+class BlackOpsWristBladeWeaponParamsRealistic extends BallisticWeaponParams;
 
 defaultproperties
 {
@@ -7,11 +7,11 @@ defaultproperties
 	// PRIMARY FIRE
 	//=================================================================	
 	
-	Begin Object Class=MeleeEffectParams Name=ClassicPrimaryEffectParams
+	Begin Object Class=MeleeEffectParams Name=RealisticPrimaryEffectParams
 		TraceRange=(Min=100.000000,Max=100.000000)
-		Damage=55
-		HeadMult=2.0
-		LimbMult=0.8
+		Damage=95.0
+		HeadMult=2.2
+		LimbMult=0.5
 		DamageType=Class'BWBP_SKCExp_Pro.DTBOBTorso'
 		DamageTypeHead=Class'BWBP_SKCExp_Pro.DTBOBHead'
 		DamageTypeArm=Class'BWBP_SKCExp_Pro.DTBOBLimb'
@@ -20,22 +20,22 @@ defaultproperties
 		WarnTargetPct=0.100000
 	End Object
 		
-	Begin Object Class=FireParams Name=ClassicPrimaryFireParams
+	Begin Object Class=FireParams Name=RealisticPrimaryFireParams
 		FireInterval=0.700000
 		AmmoPerFire=0
 		FireAnim="Slash1"
 		FireAnimRate=0.900000
-	FireEffectParams(0)=MeleeEffectParams'ClassicPrimaryEffectParams'
+	FireEffectParams(0)=MeleeEffectParams'RealisticPrimaryEffectParams'
 	End Object
 		
 	//=================================================================
 	// SECONDARY FIRE
 	//=================================================================	
 	
-	Begin Object Class=MeleeEffectParams Name=ClassicSecondaryEffectParams
-		Damage=115
-		HeadMult=1.5
-		LimbMult=0.8
+	Begin Object Class=MeleeEffectParams Name=RealisticSecondaryEffectParams
+		Damage=195
+		HeadMult=2.2
+		LimbMult=0.5
 		DamageType=Class'BWBP_SKCExp_Pro.DTBOBTorsoLunge'
 		DamageTypeHead=Class'BWBP_SKCExp_Pro.DTBOBHeadLunge'
 		DamageTypeArm=Class'BWBP_SKCExp_Pro.DTBOBTorsoLunge'
@@ -46,19 +46,19 @@ defaultproperties
 		WarnTargetPct=0.050000
 	End Object
 		
-	Begin Object Class=FireParams Name=ClassicSecondaryFireParams
+	Begin Object Class=FireParams Name=RealisticSecondaryFireParams
 		FireInterval=0.800000
 		AmmoPerFire=0
 		PreFireAnim="PrepHack"
 		FireAnim="Hack"
-	FireEffectParams(0)=MeleeEffectParams'ClassicSecondaryEffectParams'
+	FireEffectParams(0)=MeleeEffectParams'RealisticSecondaryEffectParams'
 	End Object
 		
 	//=================================================================
 	// RECOIL
 	//=================================================================
 
-	Begin Object Class=RecoilParams Name=ClassicRecoilParams
+	Begin Object Class=RecoilParams Name=RealisticRecoilParams
 		DeclineTime=1.500000
 		CrouchMultiplier=0.800000
 	End Object
@@ -67,7 +67,7 @@ defaultproperties
 	// AIM
 	//=================================================================
 
-	Begin Object Class=AimParams Name=ClassicAimParams
+	Begin Object Class=AimParams Name=RealisticAimParams
 		SprintOffSet=(Pitch=-3000,Yaw=-4000)
         ChaosDeclineTime=0.320000
 	End Object
@@ -76,16 +76,16 @@ defaultproperties
 	// BASIC PARAMS
 	//=================================================================	
 	
-	Begin Object Class=WeaponParams Name=ClassicParams
+	Begin Object Class=WeaponParams Name=RealisticParams
 		PlayerSpeedFactor=1.150000
 		MagAmmo=1
 		InventorySize=3
-		RecoilParams(0)=RecoilParams'ClassicRecoilParams'
-		AimParams(0)=AimParams'ClassicAimParams'
-		FireParams(0)=FireParams'ClassicPrimaryFireParams'
-		AltFireParams(0)=FireParams'ClassicSecondaryFireParams'
+		RecoilParams(0)=RecoilParams'RealisticRecoilParams'
+		AimParams(0)=AimParams'RealisticAimParams'
+		FireParams(0)=FireParams'RealisticPrimaryFireParams'
+		AltFireParams(0)=FireParams'RealisticSecondaryFireParams'
 	End Object
-	Layouts(0)=WeaponParams'ClassicParams'
+	Layouts(0)=WeaponParams'RealisticParams'
 
 
 }

@@ -143,7 +143,7 @@ defaultproperties
      AIRating=0.600000
      CurrentRating=0.600000
      bSniping=True
-     Description="M7A3 Sub-Assault Rifle||Manufacturer: UTC Defense Tech|Primary: Automatic 4.77mm Fire|Secondary: Activate Zooming Scope||The M7A3 Assault Rifle, made by UTC Defense Tech, is one of the newer additions to the modern day battlefield. Using a special bullpup magazine and specialized 4.77mm rounds, the M7A3 can accurately pick off long range targets with ease. The low recoil and good controllability of the rounds more than make up for their subpar damage ratings, and soldiers on average can bring twice as many clips into the field with minimal added fatigue. The M7A3 is a good alternative for those who deem the M50 uncontrollable and who dislike its tendency to buck when firing."
+     Description="M7A3 Battle Rifle||Manufacturer: UTC Defense Tech|Primary: Automatic 7.62mm Fire|Secondary: Activate Zooming Scope||The M7A3 Assault Rifle, made by UTC Defense Tech, is one of the newer additions to the modern day battlefield. Using a special bullpup magazine and specialized 4.77mm rounds, the M7A3 can accurately pick off long range targets with ease. The low recoil and good controllability of the rounds more than make up for their subpar damage ratings, and soldiers on average can bring twice as many clips into the field with minimal added fatigue. The M7A3 is a good alternative for those who deem the M50 uncontrollable and who dislike its tendency to buck when firing."
      DisplayFOV=55.000000
      Priority=33
      CustomCrossHairTextureName="Crosshairs.HUD.Crosshair_Cross1"
@@ -160,8 +160,9 @@ defaultproperties
      LightSaturation=150
      LightBrightness=150.000000
      LightRadius=5.000000
-	 ParamsClasses(0)=Class'BWBP_JCF_Pro.M7A3AssaultRifleWeaponParamsArena'
-	 ParamsClasses(1)=Class'BWBP_JCF_Pro.M7A3AssaultRifleWeaponParamsClassic'
+	 ParamsClasses(0)=Class'BWBP_JCF_Pro.M7A3WeaponParamsArena'
+	 ParamsClasses(1)=Class'BWBP_JCF_Pro.M7A3WeaponParamsClassic'
+	 ParamsClasses(2)=Class'BWBP_JCF_Pro.M7A3WeaponParamsRealistic'
      Mesh=SkeletalMesh'BWBP_JCF_Anims.FPm_M7A3'
      DrawScale=1.0000000
 }
