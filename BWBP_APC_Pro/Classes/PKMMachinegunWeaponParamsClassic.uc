@@ -17,7 +17,7 @@ defaultproperties
 		PenetrateForce=150
 		bPenetrate=True
 		MuzzleFlashClass=Class'BWBP_APC_Pro.PKMFlashEmitter'
-		FlashScaleFactor=0.700000
+		FlashScaleFactor=2.000000
 		Recoil=192.000000
 		WarnTargetPct=0.200000
 		FireSound=(Sound=Sound'BWBP_CC_Sounds.RPK940.RPK-Fire',Volume=1.200000,Slot=SLOT_Interact,bNoOverride=False)
@@ -80,6 +80,7 @@ defaultproperties
 		MaxRecoil=2048
 		DeclineDelay=0.10
 		DeclineTime=0.9
+		bViewDecline=True
 	End Object
 
 	//=================================================================

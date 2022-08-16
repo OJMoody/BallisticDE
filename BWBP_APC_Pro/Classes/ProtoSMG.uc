@@ -660,7 +660,8 @@ defaultproperties
 	SightOffset=(X=-10.000000,Y=-0.950000,Z=25.000000)
 	GunLength=16.000000
 	ParamsClasses(0)=Class'ProtoWeaponParams' 
-	ParamsClasses(1)=Class'ProtoWeaponParams' 
+	ParamsClasses(1)=Class'ProtoWeaponParamsClassic' 
+	ParamsClasses(2)=Class'ProtoWeaponParamsRealistic' 
 	//AmmoClass[0]=Class'BWBP_APC_Pro.Ammo_Proto'
 	//AmmoClass[1]=Class'BWBP_APC_Pro.Ammo_ProtoAlt'
 	FireModeClass(0)=Class'BWBP_APC_Pro.ProtoPrimaryFire'

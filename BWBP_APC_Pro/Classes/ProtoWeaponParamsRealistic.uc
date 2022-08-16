@@ -25,7 +25,8 @@ defaultproperties
 		SpreadMode=FSM_Rectangle
 		MuzzleFlashClass=Class'BallisticProV55.XK2FlashEmitter'
 		FlashScaleFactor=0.400000
-		FireSound=(sound=sound'BW_Core_WeaponSound.UZI.UZI-Fire',Pitch=1.200000,Volume=0.950000)
+		FireSound=(Sound=Sound'BWBP_JCF_Sounds.P90.P90Fire2',Pitch=1.200000,Volume=0.950000)
+		//FireSound=(sound=sound'BallisticSounds3.UZI.UZI-Fire',Pitch=1.200000,Volume=0.950000)
 		Recoil=480.000000
 		Chaos=-1.0
 		Inaccuracy=(X=28,Y=28)
@@ -36,7 +37,37 @@ defaultproperties
 		BurstFireRateFactor=1.00	
 	FireEffectParams(0)=InstantEffectParams'RealisticPrimaryEffectParams'
 	End Object
-		
+	
+	//=================================================================
+    // PRIMARY FIRE - Photon Burst
+    //=================================================================	
+	
+	Begin Object Class=InstantEffectParams Name=RealisticPhotonPrimaryEffectParams
+		TraceRange=(Min=8000.000000,Max=12000.000000)
+		RangeAtten=0.100000
+		Damage=22
+		DamageType=Class'BWBP_APC_Pro.DTProtoPhoton'
+		DamageTypeHead=Class'BWBP_APC_Pro.DTProtoPhotonHead'
+		DamageTypeArm=Class'BWBP_APC_Pro.DTProtoPhoton'
+		PenetrateForce=180
+		bPenetrate=True
+		MuzzleFlashClass=Class'BWBP_SKC_Pro.LS14FlashEmitter'
+		FlashScaleFactor=0.200000
+		Recoil=70.000000
+		Chaos=0.032000
+		WarnTargetPct=0.200000
+		FireSound=(Sound=Sound'BWBP_SKC_Sounds.Misc.F2000-FireAlt1',Volume=1.300000)
+	End Object
+
+	Begin Object Class=FireParams Name=RealisticPhotonPrimaryFireParams
+		FireInterval=0.085000
+		PreFireAnim=
+		FireEndAnim=
+		FireAnim="FireAlt"
+		AimedFireAnim="SightFireAlt"
+		FireEffectParams(0)=InstantEffectParams'RealisticPhotonPrimaryEffectParams'
+	End Object
+	
 	//=================================================================
 	// SECONDARY FIRE
 	//=================================================================	
@@ -106,12 +137,13 @@ defaultproperties
 		InventorySize=20
 		SightMoveSpeedFactor=0.500000
 		MagAmmo=45
-		ViewOffset=(X=11.000000,Y=7.000000,Z=-9.000000)
-		SightOffset=(X=-10.00000,Z=10.450000)
-		SightPivot=(Pitch=16)
+		ViewOffset=(X=20.000000,Y=10.000000,Z=-18.000000)
+		//SightOffset=(X=-10.00000,Z=10.450000)
+		//SightPivot=(Pitch=16)
 		RecoilParams(0)=RecoilParams'RealisticRecoilParams'
 		AimParams(0)=AimParams'RealisticAimParams'
 		FireParams(0)=FireParams'RealisticPrimaryFireParams'
+		FireParams(1)=FireParams'RealisticPhotonPrimaryFireParams'
 		AltFireParams(0)=FireParams'RealisticSecondaryFireParams'
 	End Object
 	Layouts(0)=WeaponParams'RealisticParams'
