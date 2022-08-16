@@ -19,39 +19,6 @@ simulated function PostBeginPlay()
 	StartLocation = Location;
 }
 
-// Projectile grows as it comes out the gun...
-simulated function Tick(float DT)
-{
-	local vector DS;
-	local Rotator R;
-
-	if (Speed < MaxSpeed)
-	{
-		Speed = FMin(MaxSpeed, Speed+16000*DT);
-		Velocity = Normal(Velocity)*Speed;
-		if (Speed >= MaxSpeed)
-			SetPhysics(PHYS_Falling);
-	}
-
-	R.Roll = Rotation.Roll;
-	SetRotation(Rotator(velocity)+R);
-
-	if (bScaleDone)
-		return;
-
-	DS.X = VSize(Location-StartLocation)/(384*DrawScale);
-	DS.Y = 0.5;
-	DS.Z = 0.5;
-	if (DS.X >= 1)
-	{
-		DS.X = 1;
-		bScaleDone=true;
-	}
-	SetDrawScale3D(DS);
-}
-
-
-
 
 simulated function InitEffects ()
 {
@@ -207,10 +174,6 @@ simulated function DestroyEffects()
 	{
 		if (Emitter(Trail) != None)
 		{
-//			Emitter(Trail).Emitters[0].Disabled=true;
-//			Emitter(Trail).Emitters[1].Disabled=true;
-//			Emitter(Trail).Emitters[2].Disabled=true;
-//			Emitter(Trail).Emitters[3].Disabled=true;
 			Emitter(Trail).Kill();
 		}
 		else

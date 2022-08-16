@@ -486,7 +486,7 @@ defaultproperties
      AttachmentClass=Class'BWBP_SWC_Pro.SkrithStaffAttachment'
      IconMaterial=Texture'BWBP_SWC_Tex.SkrithStaff.SmallIcon_SkrithStaff'
      IconCoords=(X2=127,Y2=31)
-     ItemName="Skrith Shillelagh"
+     ItemName="A2-W Skrith Shillelagh"
      LightType=LT_Pulse
      LightEffect=LE_NonIncidence
      LightHue=180
@@ -494,6 +494,7 @@ defaultproperties
      LightBrightness=192.000000
      LightRadius=12.000000
 	 ParamsClasses(0)=Class'SkrithStaffWeaponParamsArena'
+	 ParamsClasses(1)=Class'SkrithStaffWeaponParamsClassic'
 	 Mesh=SkeletalMesh'BWBP_SWC_Anims.FPm_SkrithStaff'
      DrawScale=1.000000
      SoundPitch=32

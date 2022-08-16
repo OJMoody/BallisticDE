@@ -204,7 +204,7 @@ simulated function SendFireEffect(Actor Other, vector HitLocation, vector HitNor
 
 defaultproperties
 {
-     FireSoundLoop=Sound'BWBP_SWC_Sounds.SkrithStaff.SkrithStaff-Laser'
+     FireSoundLoop=Sound'BWBP_SWC_Sounds.SkrithStaff.SkrithStaff-ShockLoop'
      TraceRange=(Min=10000.000000,Max=10000.000000)
      Damage=8.000000
      WaterRangeAtten=0.800000
@@ -227,7 +227,7 @@ defaultproperties
 	 FireLoopAnim="SecFireLoop"
      FireEndAnim="SecFireEnd"
      FireRate=0.085000
-     AmmoClass=Class'BWBP_SWC_Pro.Ammo_SSCells'
+	AmmoClass=Class'BallisticProV55.Ammo_Cells'
 	 
 	 // AI
 	 bInstantHit=True
