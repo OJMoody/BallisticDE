@@ -98,10 +98,9 @@ defaultproperties
 		InventorySize=35
 		SightMoveSpeedFactor=0.500000
 		MagAmmo=1
-		ViewOffset=(X=-5,Y=5,Z=-9)
 		SightOffset=(X=-10.000000,Y=20.000000,Z=36.000000)
 		SightPivot=(Roll=-1024)
-		//ViewOffset=(X=10.000000,Y=-7.000000,Z=-25.000000)
+		ViewOffset=(X=25.000000,Y=-3.000000,Z=-24.500000)
 		ZoomType=ZT_Smooth
 		CockAnimRate=1.000000
 		ReloadAnimRate=1.000000

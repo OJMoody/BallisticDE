@@ -29,45 +29,6 @@ function PlayFiring()
 	super.PlayFiring();
 }
 
-
-function ApplyDamage(Actor Victim, int Damage, Pawn Instigator, vector HitLocation, vector MomentumDir, class<DamageType> DamageType)
-{
-	super.ApplyDamage (Victim, Damage, Instigator, HitLocation, MomentumDir, DamageType);
-	
-	if (Victim.bProjTarget)
-	{
-		if (BallisticShield(Victim) != None)
-			BW.TargetedHurtRadius(2, 64, class'DTGASCPistol', 50, HitLocation, Pawn(Victim));
-		else
-			BW.TargetedHurtRadius(2, 64, class'DTGASCPistol', 50, HitLocation, Pawn(Victim));
-	}
-}
-
-// Does something to make the effects appear
-simulated function bool ImpactEffect(vector HitLocation, vector HitNormal, Material HitMat, Actor Other, optional vector WaterHitLoc)
-{
-	local int Surf;
-
-	if ((!Other.bWorldGeometry && Mover(Other) == None && Pawn(Other) == None) || level.NetMode == NM_Client)
-		return false;
-
-	if (Vehicle(Other) != None)
-		Surf = 3;
-	else if (HitMat == None)
-		Surf = int(Other.SurfaceType);
-	else
-		Surf = int(HitMat.SurfaceType);
-		
-	if (Other == None || Other.bWorldGeometry)
-		BW.TargetedHurtRadius(2, 64, class'DTGASCPistol', 50, HitLocation);
-
-	// Tell the attachment to spawn effects and so on
-	SendFireEffect(Other, HitLocation, HitNormal, Surf, WaterHitLoc);
-	if (!bAISilent)
-		Instigator.MakeNoise(1.0);
-	return true;
-}
-
 defaultproperties
 {
      CutOffDistance=1536.000000
