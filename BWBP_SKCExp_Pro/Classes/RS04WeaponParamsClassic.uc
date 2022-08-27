@@ -79,6 +79,7 @@ defaultproperties
 	//=================================================================	
 	
 	Begin Object Class=WeaponParams Name=ClassicParams
+		Weight=27
 		InventorySize=35
 		SightMoveSpeedFactor=0.500000
 		SightingTime=0.200000
@@ -88,7 +89,98 @@ defaultproperties
 		AimParams(0)=AimParams'ClassicAimParams'
 		FireParams(0)=FireParams'ClassicPrimaryFireParams'
 	End Object
+	
+	Begin Object Class=WeaponParams Name=ClassicParams_Black
+		WeaponMaterialSwaps(0)=(Material=Shader'BW_Core_WeaponTex.Hands.Hands-Shiny',Index=0)
+		WeaponMaterialSwaps(1)=(Material=Shader'BWBP_SKC_TexExp.M1911.RS04-MainShineX2',Index=1)
+		Weight=27
+		InventorySize=35
+		SightMoveSpeedFactor=0.500000
+		SightingTime=0.200000
+		MagAmmo=8
+		SightOffset=(X=-20.000000,Y=-1.9500000,Z=17.000000)
+		RecoilParams(0)=RecoilParams'ClassicRecoilParams'
+		AimParams(0)=AimParams'ClassicAimParams'
+		FireParams(0)=FireParams'ClassicPrimaryFireParams'
+	End Object
+	
+	Begin Object Class=WeaponParams Name=ClassicParams_TwoTone
+		WeaponMaterialSwaps(0)=(Material=Shader'BW_Core_WeaponTex.Hands.Hands-Shiny',Index=0)
+		WeaponMaterialSwaps(1)=(Material=Texture'BWBP_SKC_TexExp.M1911.RS04-UC-Main2Tone',Index=1)
+		Weight=9
+		InventorySize=35
+		SightMoveSpeedFactor=0.500000
+		SightingTime=0.200000
+		MagAmmo=8
+		SightOffset=(X=-20.000000,Y=-1.9500000,Z=17.000000)
+		RecoilParams(0)=RecoilParams'ClassicRecoilParams'
+		AimParams(0)=AimParams'ClassicAimParams'
+		FireParams(0)=FireParams'ClassicPrimaryFireParams'
+	End Object
+	
+	Begin Object Class=WeaponParams Name=ClassicParams_Jungle
+		WeaponMaterialSwaps(0)=(Material=Shader'BW_Core_WeaponTex.Hands.Hands-Shiny',Index=0)
+		WeaponMaterialSwaps(1)=(Material=Texture'BWBP_SKC_TexExp.M1911.RS04-UC-CamoJungle',Index=1)
+		Weight=9
+		InventorySize=35
+		SightMoveSpeedFactor=0.500000
+		SightingTime=0.200000
+		MagAmmo=8
+		SightOffset=(X=-20.000000,Y=-1.9500000,Z=17.000000)
+		RecoilParams(0)=RecoilParams'ClassicRecoilParams'
+		AimParams(0)=AimParams'ClassicAimParams'
+		FireParams(0)=FireParams'ClassicPrimaryFireParams'
+	End Object
+	
+	Begin Object Class=WeaponParams Name=ClassicParams_Autumn
+		WeaponMaterialSwaps(0)=(Material=Shader'BW_Core_WeaponTex.Hands.Hands-Shiny',Index=0)
+		WeaponMaterialSwaps(1)=(Material=Texture'BWBP_SKC_TexExp.M1911.RS04-R-CamoAutumn',Index=1)
+		Weight=3
+		InventorySize=35
+		SightMoveSpeedFactor=0.500000
+		SightingTime=0.200000
+		MagAmmo=8
+		SightOffset=(X=-20.000000,Y=-1.9500000,Z=17.000000)
+		RecoilParams(0)=RecoilParams'ClassicRecoilParams'
+		AimParams(0)=AimParams'ClassicAimParams'
+		FireParams(0)=FireParams'ClassicPrimaryFireParams'
+	End Object
+	
+	Begin Object Class=WeaponParams Name=ClassicParams_Hunter
+		WeaponMaterialSwaps(0)=(Material=Shader'BW_Core_WeaponTex.Hands.Hands-Shiny',Index=0)
+		WeaponMaterialSwaps(1)=(Material=Texture'BWBP_SKC_TexExp.M1911.RS04-R-CamoHunter',Index=1)
+		Weight=3
+		InventorySize=35
+		SightMoveSpeedFactor=0.500000
+		SightingTime=0.200000
+		MagAmmo=8
+		SightOffset=(X=-20.000000,Y=-1.9500000,Z=17.000000)
+		RecoilParams(0)=RecoilParams'ClassicRecoilParams'
+		AimParams(0)=AimParams'ClassicAimParams'
+		FireParams(0)=FireParams'ClassicPrimaryFireParams'
+	End Object
+	
+	Begin Object Class=WeaponParams Name=ClassicParams_RedTiger
+		WeaponMaterialSwaps(0)=(Material=Shader'BW_Core_WeaponTex.Hands.Hands-Shiny',Index=0)
+		WeaponMaterialSwaps(1)=(Material=Texture'BWBP_SKC_TexExp.M1911.RS04-X-CamoTiger',Index=1)
+		Weight=1
+		InventorySize=35
+		SightMoveSpeedFactor=0.500000
+		SightingTime=0.200000
+		MagAmmo=8
+		SightOffset=(X=-20.000000,Y=-1.9500000,Z=17.000000)
+		RecoilParams(0)=RecoilParams'ClassicRecoilParams'
+		AimParams(0)=AimParams'ClassicAimParams'
+		FireParams(0)=FireParams'ClassicPrimaryFireParams'
+	End Object
+	
 	Layouts(0)=WeaponParams'ClassicParams'
+	Layouts(1)=WeaponParams'ClassicParams_Black'
+	Layouts(2)=WeaponParams'ClassicParams_TwoTone'
+	Layouts(3)=WeaponParams'ClassicParams_Jungle'
+	Layouts(4)=WeaponParams'ClassicParams_Hunter'
+	Layouts(5)=WeaponParams'ClassicParams_Autumn'
+	Layouts(6)=WeaponParams'ClassicParams_RedTiger'
 
 
 }

@@ -535,7 +535,7 @@ defaultproperties
      LightSaturation=150
      LightBrightness=130.000000
      LightRadius=3.000000
-	 ParamsClasses(0)=Class'RS04PistolWeaponParamsArena'
+	 ParamsClasses(0)=Class'RS04WeaponParamsArena'
 	 ParamsClasses(1)=Class'RS04WeaponParamsClassic'
 	 ParamsClasses(2)=Class'RS04WeaponParamsRealistic'
      Mesh=SkeletalMesh'BWBP_SKC_AnimExp.FPm_RS04'
