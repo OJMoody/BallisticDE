@@ -5,10 +5,10 @@ class FM13FireControl extends RX22AFireControl;
 // Sources: Flamer primary fire with traced hit info
 simulated function FireShotRotated(vector Start, vector End, float Dist, bool bHit, vector HitNorm, Pawn InstigatedBy, actor HitActor, Rotator Dir)
 {
-	local RX22AProjectile Proj;
+	local FM13FlameProjectile Proj;
 	local int i;
 	
-	Proj = Spawn (class'RX22AProjectile',InstigatedBy,, Start, Dir);
+	Proj = Spawn (class'FM13FlameProjectile',InstigatedBy,, Start, Dir);
 	if (Proj != None)
 	{
 		Proj.Instigator = InstigatedBy;
