@@ -411,8 +411,8 @@ defaultproperties
      Description="AY90 Skrith Boltcaster||Manufacturer: Unknown Skrith Engineers|Primary: Energy Bolt|Secondary: Blade Stab||The A73-E is a specialized version of the Skrith standard rifle and is rarely seen on the battlefield. Aside from the red tint, the Elite model is very similar in appearance to the standard. Scans show, however, that this special version fires projectiles at roughly 3 times the standard heat level and has an odd permanent electrical charge coursing through the blades. If encountered in the field, it is advised to report the occurrence to HQ immediately for testing."
      Priority=92
      CustomCrossHairTextureName="Crosshairs.HUD.Crosshair_Cross1"
-     InventoryGroup=9
-     GroupOffset=14
+     InventoryGroup=5
+     GroupOffset=19
      PickupClass=Class'BWBP_SKCExp_Pro.AY90Pickup'
      PlayerViewOffset=(X=5.000000,Y=2.000000,Z=-6.000000)
      BobDamping=2.200000
