@@ -6,13 +6,14 @@ class AY90Pickup extends BallisticWeaponPickup
 
 defaultproperties
 {
-     LowPolyStaticMesh=StaticMesh'BW_Core_WeaponStatic.A73.A73PickupLo'
+     bOnSide=False
+	 LowPolyStaticMesh=StaticMesh'BWBP_SKC_Static.SkrithBow.SkrithBow_Main'
      InventoryType=Class'BWBP_SKCExp_Pro.AY90SkrithBoltcaster'
      RespawnTime=20.000000
      PickupMessage="You picked up the AY90 Skrith Boltcaster"
      PickupSound=Sound'BW_Core_WeaponSound.A73.A73Putaway'
-     StaticMesh=StaticMesh'BW_Core_WeaponStatic.A73.A73PickupHi'
+     StaticMesh=StaticMesh'BWBP_SKC_Static.SkrithBow.SkrithBow_Main'
      Physics=PHYS_None
-     DrawScale=0.187500
+     DrawScale=0.100000
      CollisionHeight=4.500000
 }

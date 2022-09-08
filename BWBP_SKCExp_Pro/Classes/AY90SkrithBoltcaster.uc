@@ -355,7 +355,7 @@ simulated function float ChargeBar()
 
 defaultproperties
 {
-     TeamSkins(0)=(RedTex=Shader'BW_Core_WeaponTex.Hands.RedHand-Shiny',BlueTex=Shader'BW_Core_WeaponTex.Hands.BlueHand-Shiny',SkinNum=6)
+     TeamSkins(0)=(RedTex=Shader'BW_Core_WeaponTex.Hands.RedHand-Shiny',BlueTex=Shader'BW_Core_WeaponTex.Hands.BlueHand-Shiny',SkinNum=0)
      UsedAmbientSound=Sound'BW_Core_WeaponSound.A73.A73Hum1'
      BigIconMaterial=Texture'BWBP_SKC_Tex.A73b.BigIcon_A73E'
      BCRepClass=Class'BallisticProV55.BallisticReplicationInfo'
@@ -379,24 +379,6 @@ defaultproperties
      SightPivot=(Pitch=768)
      SightOffset=(Y=4.700000,Z=8.000000)
      SightDisplayFOV=40.000000
-     //CrosshairCfg=(Pic1=Texture'BallisticUI2.Crosshairs.Misc7',Pic2=Texture'BallisticUI2.Crosshairs.Cross4',USize1=256,VSize1=256,USize2=256,VSize2=256,Color1=(B=67,G=68,A=137),Color2=(B=96,G=185,A=208),StartSize1=133,StartSize2=47)
-     //CrosshairInfo=(SpreadRatios=(X1=0.250000,Y1=0.375000,Y2=0.500000),MaxScale=3.000000)
-     //CrouchAimFactor=0.600000
-     //SprintOffSet=(Pitch=-500,Yaw=-1024)
-     //JumpChaos=0.500000
-	 //ViewAimFactor=0.350000
-     //ViewRecoilFactor=0.450000
-     //AimDamageThreshold=75.000000
-     //ChaosSpeedThreshold=600.000000
-     //ChaosAimSpread=(X=(Min=-1740.000000,Max=1740.000000),Y=(Min=-1306.000000,Max=1306.000000))
-     //RecoilXCurve=(Points=(,(InVal=0.100000,OutVal=0.010000),(InVal=0.150000,OutVal=0.100000),(InVal=0.250000,OutVal=0.200000),(InVal=0.600000,OutVal=-0.200000),(InVal=0.700000,OutVal=-0.250000),(InVal=1.000000,OutVal=0.100000)))
-     //RecoilYCurve=(Points=(,(InVal=0.100000,OutVal=0.090000),(InVal=0.150000,OutVal=0.150000),(InVal=0.250000,OutVal=0.120000),(InVal=0.600000,OutVal=-0.150000),(InVal=0.700000,OutVal=0.050000),(InVal=500000.000000,OutVal=0.500000)))
-     //RecoilPitchFactor=0.800000
-     //RecoilYawFactor=0.800000
-     //RecoilXFactor=0.300000
-     //RecoilYFactor=0.300000
-     //RecoilMax=1024.000000
-     //RecoilDeclineTime=1.500000
      ParamsClasses(0)=Class'AY90WeaponParamsArena'
      ParamsClasses(1)=Class'AY90WeaponParamsClassic'
 	 ParamsClasses(2)=Class'AY90WeaponParamsClassic'
