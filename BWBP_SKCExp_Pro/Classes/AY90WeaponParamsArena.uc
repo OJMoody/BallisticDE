@@ -7,60 +7,123 @@ defaultproperties
     // PRIMARY FIRE
     //=================================================================	
 	
-	
-		Begin Object Class=ProjectileEffectParams Name=ArenaPrimaryEffectParams
+		//UnCharged
+		Begin Object Class=ProjectileEffectParams Name=ArenaPrimaryUnChargedEffectParams
 			ProjectileClass=Class'BWBP_SKCExp_Pro.AY90BoltProjectile'
 			SpawnOffset=(X=10.000000,Y=10.000000,Z=-9.000000)
-			Speed=2000.000000
-			MaxSpeed=35000.000000
-			AccelSpeed=35000.000000
+			Speed=5500.000000
+			MaxSpeed=14000.000000
+			AccelSpeed=100000.000000
+			HeadMult=1.5f
+			LimbMult=0.9f
+			Damage=50
 			DamageRadius=30.000000
-			MomentumTransfer=30000.000000
-			HeadMult=2.000000
-			LimbMult=0.500000
-			SpreadMode=FSM_Rectangle
-			MuzzleFlashClass=Class'BWBP_SKCExp_Pro.A73BFlashEmitter'
+			MaxDamageGainFactor=0.75
+			DamageGainStartTime=0.05
+			DamageGainEndTime=0.25
+			MomentumTransfer=500.000000
+			MuzzleFlashClass=Class'BallisticProV55.A73FlashEmitter'
 			FireSound=(Sound=SoundGroup'BWBP_SKC_Sounds.SkrithBow.SkrithBow-BoltShot',Volume=1.200000,Slot=SLOT_Interact,bNoOverride=False)
-			Recoil=256.000000
-			Chaos=-1.0
-			Inaccuracy=(X=9,Y=6)
+			Recoil=128.000000
+			Chaos=0.300000
 			WarnTargetPct=0.200000	
 		End Object
 
-		Begin Object Class=FireParams Name=ArenaPrimaryFireParams
-			FireInterval=1.000000
+		Begin Object Class=FireParams Name=ArenaPrimaryUnChargedFireParams
+			FireInterval=0.750000
 			AmmoPerFire=5
-			BurstFireRateFactor=1.00
 			AimedFireAnim="SightFire"
 			FireEndAnim=	
-		FireEffectParams(0)=ProjectileEffectParams'ArenaPrimaryEffectParams'
+		FireEffectParams(0)=ProjectileEffectParams'ArenaPrimaryUnChargedEffectParams'
+		End Object
+		
+		//Charged
+		Begin Object Class=ProjectileEffectParams Name=ArenaPrimaryChargedEffectParams
+			ProjectileClass=Class'BWBP_SKCExp_Pro.AY90BoltProjectileFast'
+			SpawnOffset=(X=10.000000,Y=10.000000,Z=-9.000000)
+			Speed=5500.000000
+			MaxSpeed=14000.000000
+			AccelSpeed=100000.000000
+			HeadMult=1.5f
+			LimbMult=0.9f
+			Damage=90
+			DamageRadius=100.000000
+			MaxDamageGainFactor=1.75
+			DamageGainStartTime=0.05
+			DamageGainEndTime=0.25
+			MomentumTransfer=1000.000000
+			MuzzleFlashClass=Class'BallisticProV55.A73FlashEmitter'
+			FireSound=(Sound=SoundGroup'BWBP_SKC_Sounds.SkrithBow.SkrithBow-BoltShot',Volume=1.200000,Slot=SLOT_Interact,bNoOverride=False)
+			Recoil=256.000000
+			Chaos=0.500000
+			WarnTargetPct=0.200000	
+		End Object
+
+		Begin Object Class=FireParams Name=ArenaPrimaryChargedFireParams
+			FireInterval=0.750000
+			AmmoPerFire=15
+			AimedFireAnim="SightFire"
+			FireEndAnim=	
+		FireEffectParams(0)=ProjectileEffectParams'ArenaPrimaryChargedEffectParams'
+		End Object
+		
+		//Max
+		Begin Object Class=ProjectileEffectParams Name=ArenaPrimaryMaxEffectParams
+			ProjectileClass=Class'BWBP_SKCExp_Pro.AY90TestProjectile'
+			SpawnOffset=(X=10.000000,Y=10.000000,Z=-9.000000)
+			Speed=5500.000000
+			MaxSpeed=14000.000000
+			AccelSpeed=100000.000000
+			HeadMult=1.5f
+			LimbMult=0.9f
+			Damage=100
+			DamageRadius=450.000000
+			MaxDamageGainFactor=1.75
+			DamageGainStartTime=0.05
+			DamageGainEndTime=0.25
+			MomentumTransfer=2000.000000
+			MuzzleFlashClass=Class'BallisticProV55.A73FlashEmitter'
+			FireSound=(Sound=SoundGroup'BWBP_SKC_Sounds.SkrithBow.SkrithBow-BoltShot',Volume=1.200000,Slot=SLOT_Interact,bNoOverride=False)
+			Recoil=512.000000
+			Chaos=0.500000
+			WarnTargetPct=0.200000	
+		End Object
+
+		Begin Object Class=FireParams Name=ArenaPrimaryMaxFireParams
+			FireInterval=0.750000
+			AmmoPerFire=30
+			AimedFireAnim="SightFire"
+			FireEndAnim=	
+		FireEffectParams(0)=ProjectileEffectParams'ArenaPrimaryMaxEffectParams'
 		End Object
 		
     //=================================================================
     // SECONDARY FIRE
     //=================================================================	
 	
-	
 		Begin Object Class=ProjectileEffectParams Name=ArenaSecondaryEffectParams
 			ProjectileClass=Class'AY90Projectile'
 			SpawnOffset=(X=10.000000,Y=10.000000,Z=-9.000000)
-			Speed=85.000000
-			MaxSpeed=4500.000000
+			Speed=5500.000000
+			MaxSpeed=14000.000000
 			AccelSpeed=70000.000000
-			Damage=40
-			DamageRadius=96.000000
+			Damage=72
+			DamageRadius=15.000000
+			MaxDamageGainFactor=1.00
+			DamageGainStartTime=0.05
+			DamageGainEndTime=0.7
 			MomentumTransfer=150.000000
-			HeadMult=2.5
-			LimbMult=0.5
+			HeadMult=1.5f
+			LimbMult=0.9f
 			FireSound=(Sound=Sound'BWBP_SKC_Sounds.SkirthBow.SkrithBow-WaveFire',Volume=1.700000)
-			Recoil=0.0
-			Chaos=-1.0
+			Recoil=130.00000
+			Chaos=0.020000
 			Inaccuracy=(X=2000,Y=10)
 			WarnTargetPct=0.500000	
 		End Object
 
 		Begin Object Class=FireParams Name=ArenaSecondaryFireParams
-			FireInterval=1.000000
+			FireInterval=0.750000
 			AmmoPerFire=5
 			BurstFireRateFactor=1.00
 			AimedFireAnim="SightFire"
@@ -107,12 +170,14 @@ defaultproperties
 	
 	Begin Object Class=WeaponParams Name=ArenaParams
 		InventorySize=35
-		SightMoveSpeedFactor=0.500000
+		SightMoveSpeedFactor=0.900000
 		SightOffset=(Y=4.700000,Z=7.050000)
 		SightPivot=(Pitch=768)
 		RecoilParams(0)=RecoilParams'ArenaRecoilParams'
 		AimParams(0)=AimParams'ArenaAimParams'
-		FireParams(0)=FireParams'ArenaPrimaryFireParams'
+		FireParams(0)=FireParams'ArenaPrimaryUnChargedFireParams'
+		FireParams(1)=FireParams'ArenaPrimaryChargedFireParams'
+		FireParams(2)=FireParams'ArenaPrimaryMaxFireParams'
 		AltFireParams(0)=FireParams'ArenaSecondaryFireParams'
 	End Object
 	Layouts(0)=WeaponParams'ArenaParams'

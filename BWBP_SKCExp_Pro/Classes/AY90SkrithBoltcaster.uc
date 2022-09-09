@@ -370,8 +370,8 @@ defaultproperties
      ClipInFrame=0.700000
      bNonCocking=True
      bShowChargingBar=True
-     WeaponModes(0)=(ModeName="Plasma Charge",ModeID="WM_FullAuto")
-     WeaponModes(1)=(ModeName="Plasma Bomb",ModeID="WM_FullAuto")
+     WeaponModes(0)=(ModeName="Charged Fire",ModeID="WM_FullAuto")
+     WeaponModes(1)=(ModeName="Plasma Charge",ModeID="WM_FullAuto",bUnavailable=True)
      WeaponModes(2)=(ModeName="ALaser",bUnavailable=True)
      WeaponModes(3)=(ModeName="BLaser",bUnavailable=True)
      WeaponModes(4)=(ModeName="CLaser",bUnavailable=True)
