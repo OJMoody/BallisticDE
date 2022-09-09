@@ -8,9 +8,6 @@
 //=============================================================================
 class DTNEXSlashHead extends DT_BWBlade;
 
-var float	FlashF;
-var vector	FlashV;
-
 static function class<Effects> GetPawnDamageEffect( vector HitLocation, float Damage, vector Momentum, Pawn Victim, bool bLowDetail )
 {
 	if (PlayerController(Victim.Controller) != None)
