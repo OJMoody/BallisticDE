@@ -25,7 +25,7 @@ simulated function PlayPreFire()
 
 simulated event ModeDoFire()
 {
-	if (HoldTime >= ChargeTime && AY90SkrithBoltcaster(BW).MagAmmo >= 20)
+	if (HoldTime >= ChargeTime && AY90SkrithBoltcaster(BW).MagAmmo >= 30)
 	{
 		XInaccuracy=2000;
 		ProjectileCount=30;
@@ -33,7 +33,7 @@ simulated event ModeDoFire()
 		Load=30;
 		BallisticFireSound.Sound=MaxChargeFireSound;
 	}
-	else if (HoldTime >= (ChargeTime/2) && AY90SkrithBoltcaster(BW).MagAmmo >= 10)
+	else if (HoldTime >= (ChargeTime/2) && AY90SkrithBoltcaster(BW).MagAmmo >= 15)
 	{
 		XInaccuracy=1000;
 		ProjectileCount=15;
@@ -176,6 +176,9 @@ simulated event ModeDoFire()
 	}
 	
 	Weapon.AmbientSound = Weapon.default.AmbientSound;
+	
+	AmmoPerFire=5;
+	Load=5;
 }
 
 simulated function ModeTick(float DT)

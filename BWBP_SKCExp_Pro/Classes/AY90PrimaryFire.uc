@@ -26,7 +26,7 @@ simulated function PlayPreFire()
 simulated event ModeDoFire()
 {
 
-	if (HoldTime >= ChargeTime && AY90SkrithBoltcaster(BW).MagAmmo >= 20)
+	if (HoldTime >= ChargeTime && AY90SkrithBoltcaster(BW).MagAmmo >= 30)
 	{
 		AY90SkrithBoltcaster(BW).ParamsClasses[AY90SkrithBoltcaster(BW).GameStyleIndex].static.OverrideFireParams(AY90SkrithBoltcaster(BW),2);
 //		ProjectileClass=Class'AY90TestProjectile';
@@ -34,7 +34,7 @@ simulated event ModeDoFire()
 		Load=30;
 //		BallisticFireSound.Sound=MaxChargeFireSound;
 	}
-	else if (HoldTime >= (ChargeTime/2) && AY90SkrithBoltcaster(BW).MagAmmo >= 10)
+	else if (HoldTime >= (ChargeTime/2) && AY90SkrithBoltcaster(BW).MagAmmo >= 15)
 	{
 		AY90SkrithBoltcaster(BW).ParamsClasses[AY90SkrithBoltcaster(BW).GameStyleIndex].static.OverrideFireParams(AY90SkrithBoltcaster(BW),1);
 //		ProjectileClass=Class'HVPCMk5Projectile';
@@ -177,6 +177,8 @@ simulated event ModeDoFire()
 			BW.bNeedCock=true;
 	}
 	
+	AmmoPerFire=5;
+	Load=5;
 	
 }
 
