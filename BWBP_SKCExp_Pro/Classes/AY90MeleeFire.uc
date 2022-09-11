@@ -6,18 +6,7 @@
 // by Nolan "Dark Carnivour" Richert.
 // Copyright(c) 2005 RuneStorm. All Rights Reserved.
 //=============================================================================
-class AY90MeleeFire extends BallisticInstantFire;
-
-simulated event ModeDoFire()
-{
-	super.ModeDoFire();
-	BW.GunLength = BW.default.GunLength;
-}
-simulated event ModeHoldFire()
-{
-	super.ModeHoldFire();
-	BW.GunLength=1;
-}
+class AY90MeleeFire extends BallisticMeleeFire;
 
 defaultproperties
 {
@@ -40,7 +29,7 @@ defaultproperties
      BallisticFireSound=(Sound=SoundGroup'BW_Core_WeaponSound.EKS43.EKS-Slash',Radius=32.000000,bAtten=True)
      bAISilent=True
      bFireOnRelease=True
-     PreFireAnim="PrepMeleeFire"
+     PreFireAnim="PreMeleeFire"
      FireAnim="MeleeFire"
      TweenTime=0.000000
      FireRate=0.300000
