@@ -473,8 +473,8 @@ defaultproperties
      LastShellBone="ShellR"
      FireAnimCutThreshold=1.100000
      TeamSkins(0)=(RedTex=Shader'BW_Core_WeaponTex.Hands.RedHand-Shiny',BlueTex=Shader'BW_Core_WeaponTex.Hands.BlueHand-Shiny')
-     BigIconMaterial=Texture'BWBP_SKC_TexExp.SawnOff.BigIcon_Sawn'
-     BigIconCoords=(Y1=35,Y2=225)
+     BigIconMaterial=Texture'BWBP_SKC_TexExp.TechSawnOff.BigIcon_SawnOff'
+     //BigIconCoords=(Y1=35,Y2=225)
      BCRepClass=Class'BallisticProV55.BallisticReplicationInfo'
      bWT_Shotgun=True
      ManualLines(0)="Shot mode fires two shots with high power and moderate spread. Enemies hit by the shot bleed, dealing damage over time. Bleed duration is proportional to the number of pellets which struck the target.|Slug mode fires two slugs with long range and penetration. Recoil is moderate with both modes."
@@ -517,8 +517,8 @@ defaultproperties
      PickupClass=Class'BWBP_SKCExp_Pro.SawnOffPickup'
      PlayerViewOffset=(X=-10.000000,Y=20.000000,Z=-30.000000)
      AttachmentClass=Class'BWBP_SKCExp_Pro.SawnOffAttachment'
-     IconMaterial=Texture'BWBP_SKC_TexExp.SawnOff.SmallIcon_Sawn'
-     IconCoords=(X2=127,Y2=40)
+     IconMaterial=Texture'BWBP_SKC_TexExp.TechSawnOff.SmallIcon_SawnOff'
+     IconCoords=(X2=127,Y2=38)
      ItemName="Redwood Sawn Off"
      LightType=LT_Pulse
      LightEffect=LE_NonIncidence
