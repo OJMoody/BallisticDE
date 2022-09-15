@@ -3,6 +3,33 @@
 //=============================================================================
 class BRINKAssaultRifle extends BallisticWeapon;
 
+#EXEC OBJ LOAD FILE=..\Textures\InterfaceContent.utx
+#EXEC OBJ LOAD FILE=..\Textures\UT2003Fonts.utx
+#EXEC OBJ LOAD FILE=..\Textures\AS_FX_TX.utx
+#EXEC OBJ LOAD FILE=..\System\SkaarjPack_rc.u
+
+var	int	                NumpadYOffset1; //Ammo tens
+var	int	                NumpadYOffset2; //Ammo ones
+var() ScriptedTexture   WeaponScreen;
+var() int               ScreenIndex;
+var() Material	        Screen;
+var() Material	        ScreenBase;
+var() Material	        Numbers;
+
+var protected const color MyFontColor; //Why do I even need this?
+
+var float RadarPulse,RadarScale;
+var config float RadarPosX, RadarPosY;
+var float LastDrawRadar;
+var float MinEnemyDist;
+var int Meters;
+var() Sound RadarScanSound, RadarWarnSound;
+var bool bRadar;
+var() BUtil.FullSound	RadarOnSound;	// Sound when activating thermal mode
+var() BUtil.FullSound	RadarOffSound;// Sound when deactivating thermal mode
+
+var float RadarHeat, RadarHeatRate, RadarCoolRate, MaxRadarTime;
+
 var() Sound		GrenOpenSound;		//Sounds for grenade reloading
 var() Sound		GrenLoadSound;		//
 var() Sound		GrenCloseSound;		//
@@ -13,7 +40,396 @@ var(BRINKAssaultRifle) name		ScopeBone;			// Bone to use for hiding scope
 replication
 {
 	reliable if (Role == ROLE_Authority)
-		ClientGrenadePickedUp;
+		ClientScreenStart, ClientGrenadePickedUp, MinEnemyDist, Meters, ClientNotify_ChangeRadarSkin, bRadar;
+	reliable if (Role < ROLE_Authority)
+		Notify_ChangeRadarSkin;
+}
+
+//=====================================================================
+// SCREEN CODE
+//=====================================================================
+
+function GiveTo(Pawn Other, optional Pickup Pickup)
+{
+    local int m;
+    local weapon w;
+    local bool bPossiblySwitch, bJustSpawned;
+
+    Instigator = Other;
+    W = Weapon(Other.FindInventoryType(class));
+    if ( W == None )
+    {
+		bJustSpawned = true;
+        Super(Inventory).GiveTo(Other);
+        bPossiblySwitch = true;
+        W = self;
+		if (Pickup != None && BallisticWeaponPickup(Pickup) != None)
+			MagAmmo = BallisticWeaponPickup(Pickup).MagAmmo;
+
+		Notify_ChangeRadarSkin();
+    }
+    else if ( !W.HasAmmo() )
+	    bPossiblySwitch = true;
+
+    if ( Pickup == None )
+        bPossiblySwitch = true;
+
+    for (m = 0; m < NUM_FIRE_MODES; m++)
+    {
+        if ( FireMode[m] != None )
+        {
+            FireMode[m].Instigator = Instigator;
+            GiveAmmo(m,WeaponPickup(Pickup),bJustSpawned);
+        }
+    }
+
+	if ( (Instigator.Weapon != None) && Instigator.Weapon.IsFiring() )
+		bPossiblySwitch = false;
+
+	if ( Instigator.Weapon != W )
+		W.ClientWeaponSet(bPossiblySwitch);
+
+    if ( !bJustSpawned )
+	{
+        for (m = 0; m < NUM_FIRE_MODES; m++)
+			Ammo[m] = None;
+		Destroy();
+	}
+}
+
+function Notify_ChangeRadarSkin()
+{
+	//log("Notify_ChangeAmmoSkin");
+	//log("CurrentWeaponMode: "$CurrentWeaponMode);
+	if (bRadar)
+	{
+		Skins[ScreenIndex]=Shader'BWBP_SWC_Tex.BR1NK.RadarShader';
+	}
+	if (Role == ROLE_Authority)
+		ClientNotify_ChangeRadarSkin();
+}
+
+simulated function ClientNotify_ChangeRadarSkin()
+{
+	//log("ClientNotify_ChangeAmmoSkin");
+	//log("CurrentWeaponMode: "$CurrentWeaponMode);
+	if (bRadar)
+	{
+		Skins[ScreenIndex]=Shader'BWBP_SWC_Tex.BR1NK.RadarShader';
+	}
+}
+
+simulated function UpdatePrecacheMaterials()
+{
+	Level.AddPrecacheMaterial(Material'InterfaceContent.HUD.SkinA');
+	Level.AddPrecacheMaterial(Material'AS_FX_TX.AssaultRadar');
+	Super.UpdatePrecacheMaterials();
+}
+
+//Radar stuff taken from invasion
+simulated function ShowTeamScorePassA(Canvas C)
+{
+	local float RadarWidth, PulseWidth, PulseBrightness;
+
+	RadarScale = Default.RadarScale * class'HUD'.default.HUDScale;
+	RadarWidth = 0.5 * RadarScale * C.ClipX;
+	PulseWidth = RadarScale * C.ClipX;
+	C.DrawColor = class'HUD'.default.BlueColor;//RedColor;
+	C.Style = ERenderStyle.STY_Translucent;
+
+	PulseBrightness = FMax(0,(1 - 2*RadarPulse) * 255.0);
+	C.DrawColor.B = PulseBrightness; //.R
+	C.SetPos(RadarPosX*C.ClipX - 0.5*PulseWidth,RadarPosY*C.ClipY+RadarWidth-0.5*PulseWidth);
+	C.DrawTile( Material'InterfaceContent.SkinA', PulseWidth, PulseWidth, 0, 880, 142, 142);
+
+	PulseWidth = RadarPulse * RadarScale * C.ClipX;
+	C.DrawColor = class'HUD'.default.BlueColor;//RedColor;
+	C.SetPos(RadarPosX*C.ClipX - 0.5*PulseWidth,RadarPosY*C.ClipY+RadarWidth-0.5*PulseWidth);
+	C.DrawTile( Material'InterfaceContent.SkinA', PulseWidth, PulseWidth, 0, 880, 142, 142);
+
+	C.Style = ERenderStyle.STY_Alpha;
+	//C.DrawColor = class'HUD'.default.BlueColor;//GetTeamColor( Pawn(Owner).GetTeamNum() );
+	C.DrawColor.R = 167;
+	C.DrawColor.G = 218;
+	C.DrawColor.B = 232;
+
+	
+	C.SetPos(RadarPosX*C.ClipX - RadarWidth,RadarPosY*C.ClipY+RadarWidth);
+	C.DrawTile( Material'AS_FX_TX.AssaultRadar', RadarWidth, RadarWidth, 0, 512, 512, -512);
+	C.SetPos(RadarPosX*C.ClipX,RadarPosY*C.ClipY+RadarWidth);
+	C.DrawTile( Material'AS_FX_TX.AssaultRadar', RadarWidth, RadarWidth, 512, 512, -512, -512);
+	C.SetPos(RadarPosX*C.ClipX - RadarWidth,RadarPosY*C.ClipY);
+	C.DrawTile( Material'AS_FX_TX.AssaultRadar', RadarWidth, RadarWidth, 0, 0, 512, 512);
+	C.SetPos(RadarPosX*C.ClipX,RadarPosY*C.ClipY);
+	C.DrawTile( Material'AS_FX_TX.AssaultRadar', RadarWidth, RadarWidth, 512, 0, -512, 512);
+}
+
+//Radar stuff taken from invasion
+simulated function ShowTeamScorePassC(Canvas C)
+{
+	local Pawn P;
+	local float Dist, MaxDist, RadarWidth, PulseBrightness,Angle,DotSize,OffsetY,OffsetScale;
+	local rotator Dir;
+	local vector Start;
+	
+
+	Start = Pawn(Owner).Location;
+	
+	LastDrawRadar = Level.TimeSeconds;
+	RadarWidth = 0.5 * /*Pawn(Owner).*/RadarScale * C.ClipX;
+	DotSize = 24*C.ClipX * ((class'HUD'.default.HUDScale)/1600);
+
+	MaxDist = 3000 * RadarPulse;
+	C.Style = ERenderStyle.STY_Translucent;
+	OffsetY = RadarPosY + RadarWidth/C.ClipY;
+	MinEnemyDist = 3000;//5000;
+	ForEach DynamicActors(class'Pawn',P)
+		if ( P.Health > 0 )
+		{
+			Dist = VSize(Start - P.Location);
+			if ( Dist < 3000 )
+			{
+				if ( Dist < MaxDist )
+					PulseBrightness = 255 - 255*Abs(Dist*0.00033 - RadarPulse);
+				else
+					PulseBrightness = 255 - 255*Abs(Dist*0.00033 - RadarPulse - 1);
+				if ( xPawn(P) != None && P != Owner ) 
+				{
+					
+					MinEnemyDist = FMin(MinEnemyDist, Dist);
+					C.DrawColor.R = PulseBrightness;
+					C.DrawColor.G = PulseBrightness;
+					C.DrawColor.B = PulseBrightness;//0;
+
+					Dir = rotator(P.Location - Start);
+					OffsetScale = RadarScale*Dist*0.000167;
+			
+					Angle = ((Dir.Yaw - Pawn(Owner).Rotation.Yaw) & 65535) * 6.2832/65536;
+					//C.SetPos(RadarPosX * C.ClipX + OffsetScale * C.ClipX * sin(Angle) - 0.5*DotSize,OffsetY * C.ClipY - OffsetScale * C.ClipX * cos(Angle) - 0.5*DotSize/1.5);
+					C.SetPos(RadarPosX * C.ClipX + OffsetScale * C.ClipX * sin(Angle) - 0.5*DotSize,OffsetY * C.ClipY - OffsetScale * C.ClipX * cos(Angle) - 0.5*DotSize);
+					C.DrawTile(Material'InterfaceContent.Hud.SkinA',DotSize,DotSize,838,238,144,144);
+					
+				}
+				else if ( xPawn(P) != None && P == Owner ) 
+				{
+					//Draw a separate dot for the player without messing with distance
+					C.DrawColor.R = 128;
+					C.DrawColor.G = 128;
+					C.DrawColor.B = 255;
+					Dir = rotator(P.Location - Start);
+					OffsetScale = RadarScale*Dist*0.000167;
+					
+					Angle = ((Dir.Yaw - Pawn(Owner).Rotation.Yaw) & 65535) * 6.2832/65536;
+					C.SetPos(RadarPosX * C.ClipX + OffsetScale * C.ClipX * sin(Angle) - 0.5*DotSize,
+						OffsetY * C.ClipY - OffsetScale * C.ClipX * cos(Angle) - 0.5*DotSize);
+					C.DrawTile(Material'InterfaceContent.Hud.SkinA',DotSize,DotSize,838,238,144,144);
+				}
+				else
+				{
+					C.DrawColor.R = 0;
+					C.DrawColor.G = 0;
+					C.DrawColor.B = PulseBrightness;
+				}
+
+			}
+		}			
+}
+
+simulated event WeaponTick(float DT)
+{
+	super.WeaponTick(DT);
+
+	if (AIController(Instigator.Controller) != None && !IsGrenadeLoaded()&& AmmoAmount(1) > 0 && BotShouldReloadGrenade() && !IsReloadingGrenade())
+		LoadGrenade();
+
+	if (bRadar) 
+	{		
+		RadarHeat = FMin(MaxRadarTime, RadarHeat + RadarHeatRate * DT);
+		RadarPulse = RadarPulse + 0.75 * DT;//0.5 * DT;
+		
+		if (RadarHeat >= MaxRadarTime)
+			ServerSwitchRadar(!bRadar);	
+		else if ( RadarPulse >= 1 )
+		{
+			if ( MinEnemyDist < 3000 )
+			{
+				Meters = int(MinEnemyDist / 25.0);
+				//if (Level.TimeSeconds - LastDrawRadar < 0.2) 
+      				Pawn(Owner).PlaySound(RadarWarnSound,,FMin(2.0,1200.0 / MinEnemyDist),,,FClamp(2000.0 / MinEnemyDist,0.81,2.0));
+				//log("In weapontick - playwarnsound");
+			}
+			else 
+			{
+      				Meters = -1;
+      				Pawn(Owner).PlaySound(RadarScanSound,,1.0);
+				//log("In weapontick - playscansound");
+    			}
+			RadarPulse = RadarPulse - 1;
+		}
+	}
+	else
+		RadarHeat = FMax(0, RadarHeat - RadarCoolRate * DT);
+}
+
+simulated function BringUp(optional Weapon PrevWeapon)
+{
+	if (Instigator != None && AIController(Instigator.Controller) == None) //Player Screen ON
+	{
+		ScreenStart();
+		if (!Instigator.IsLocallyControlled())
+			ClientScreenStart();
+	}
+
+	Super.BringUp(PrevWeapon);
+
+	Instigator.AmbientSound = UsedAmbientSound;
+	Instigator.SoundVolume = default.SoundVolume;
+	Instigator.SoundPitch = default.SoundPitch;
+	Instigator.SoundRadius = default.SoundRadius;
+	Instigator.bFullVolume = true;
+}
+
+simulated function float ChargeBar()
+{
+	return RadarHeat / MaxRadarTime;
+}
+
+function ServerWeaponSpecial(optional byte i)
+{
+	if (!bRadar && RadarHeat > 0)
+		return;
+		
+	ServerSwitchRadar(!bRadar);
+}
+
+function ServerSwitchRadar(bool bNewRadar)
+{
+	bRadar = bNewRadar;
+	Notify_ChangeRadarSkin();
+	
+	if (!bRadar)
+	{
+		ScreenStart();
+		if (!Instigator.IsLocallyControlled())
+			ClientScreenStart();
+	}
+	
+	UpdateScreen();
+	
+	if (Instigator.IsLocallyControlled())
+		ClientSwitchRadar();
+}
+
+simulated function ClientSwitchRadar()
+{
+	if (bRadar)
+	{
+    	class'BUtil'.static.PlayFullSound(self, RadarOnSound);
+	}
+	else
+	{
+		ScreenStart();
+		if (!Instigator.IsLocallyControlled())
+			ClientScreenStart();
+			
+    	class'BUtil'.static.PlayFullSound(self, RadarOffSound);
+	}
+	
+	Notify_ChangeRadarSkin();
+	UpdateScreen();
+}
+
+simulated event RenderOverlays (Canvas C)
+{
+	if (bRadar)
+	{
+		ShowTeamScorePassA(C);
+		ShowTeamScorePassC(C);
+	}
+	
+	NumpadYOffset1=(5+(MagAmmo/10)*49);
+	NumpadYOffset2=(5+(MagAmmo%10)*49);
+	
+	Super.RenderOverlays(C);
+}
+
+simulated function ClientScreenStart()
+{
+	ScreenStart();
+}
+
+// Called on clients from camera when it gets to postnetbegin
+simulated function ScreenStart()
+{
+	if (Instigator.IsLocallyControlled())
+		WeaponScreen.Client = self;
+		
+	Skins[ScreenIndex] = Screen; //Set up scripted texture.
+	UpdateScreen();//Give it some numbers n shit
+	if (Instigator.IsLocallyControlled())
+		WeaponScreen.Revision++;
+}
+
+simulated function Destroyed()
+{
+	if (Instigator != None && AIController(Instigator.Controller) == None)
+		WeaponScreen.client=None;
+}
+
+simulated event RenderTexture( ScriptedTexture Tex )
+{
+	Tex.DrawTile(0,0,256,128,0,0,256,128,ScreenBase, MyFontColor); //Basic screen
+
+	Tex.DrawTile(40,65,128,128,45,NumpadYOffset1,50,50,Numbers, MyFontColor); //Ammo
+	Tex.DrawTile(110,65,128,128,45,NumpadYOffset2,50,50,Numbers, MyFontColor);
+}
+
+simulated function UpdateScreen()
+{
+	if (Instigator != None && AIController(Instigator.Controller) != None) //Bots cannot update your screen
+		return;
+
+	if (Instigator.IsLocallyControlled())
+	{
+		WeaponScreen.Revision++;
+	}
+}
+
+// Consume ammo from one of the possible sources depending on various factors
+simulated function bool ConsumeMagAmmo(int Mode, float Load, optional bool bAmountNeededIsMax)
+{
+	if (bNoMag || (BFireMode[Mode] != None && BFireMode[Mode].bUseWeaponMag == false))
+		ConsumeAmmo(Mode, Load, bAmountNeededIsMax);
+	else
+	{
+		if (MagAmmo < Load)
+			MagAmmo = 0;
+		else
+			MagAmmo -= Load;
+	}
+	UpdateScreen();
+	return true;
+}
+
+// Animation notify for when the clip is stuck in
+simulated function Notify_ClipIn()
+{
+	local int AmmoNeeded;
+
+	if (ReloadState == RS_None)
+		return;
+	ReloadState = RS_PostClipIn;
+	PlayOwnedSound(ClipInSound.Sound,ClipInSound.Slot,ClipInSound.Volume,ClipInSound.bNoOverride,ClipInSound.Radius,ClipInSound.Pitch,ClipInSound.bAtten);
+	if (level.NetMode != NM_Client)
+	{
+		AmmoNeeded = default.MagAmmo-MagAmmo;
+		if (AmmoNeeded > Ammo[0].AmmoAmount)
+			MagAmmo+=Ammo[0].AmmoAmount;
+		else
+			MagAmmo = default.MagAmmo;
+		Ammo[0].UseAmmo (AmmoNeeded, True);
+	}
+	UpdateScreen();
 }
 
 //=====================================================================
@@ -136,13 +552,6 @@ function bool BotShouldReloadGrenade ()
 	return false;
 }
 
-simulated event WeaponTick(float DT)
-{
-	super.WeaponTick(DT);
-	if (AIController(Instigator.Controller) != None && !IsGrenadeLoaded()&& AmmoAmount(1) > 0 && BotShouldReloadGrenade() && !IsReloadingGrenade())
-		LoadGrenade();
-}
-
 simulated function PlayReload()
 {
 	if (MagAmmo < 1)
@@ -154,17 +563,6 @@ simulated function PlayReload()
 simulated function Notify_ClipOutOfSight()
 {
 	SetBoneScale (1, 1.0, 'Bullet');
-}
-
-simulated function BringUp(optional Weapon PrevWeapon)
-{
-	Super.BringUp(PrevWeapon);
-
-	Instigator.AmbientSound = UsedAmbientSound;
-	Instigator.SoundVolume = default.SoundVolume;
-	Instigator.SoundPitch = default.SoundPitch;
-	Instigator.SoundRadius = default.SoundRadius;
-	Instigator.bFullVolume = true;
 }
 
 simulated function bool PutDown()
@@ -305,6 +703,21 @@ function float SuggestDefenseStyle()	{	return -0.4;	}
 
 defaultproperties
 {
+	ScreenIndex=3
+	WeaponScreen=ScriptedTexture'BWBP_SWC_Tex.BR1NK.PulseScreen'
+	Screen=Shader'BWBP_SWC_Tex.BR1NK.PulseScreenTex_SD'
+	ScreenBase=FinalBlend'ONSstructureTextures.CoreGroup.InvisibleFinal'
+	//ScreenBase=Shader'BWBP_SWC_Tex.BR1NK.PulseScreenTex_SD'
+	Numbers=Texture'BWBP_SKC_Tex.PUMA.PUMA-Numbers'
+	MyFontColor=(B=255,G=255,R=255,A=255)
+
+	RadarHeatRate=2.000000
+	RadarCoolRate=1.000000
+	MaxRadarTime=30.000000
+    RadarOnSound=(Sound=Sound'BW_Core_WeaponSound.M75.M75ThermalOn',Volume=0.500000,Pitch=2.000000)
+    RadarOffSound=(Sound=Sound'BW_Core_WeaponSound.M75.M75ThermalOff',Volume=0.500000,Pitch=2.000000)
+    RadarScanSound=Sound'BWBP_SWC_Sounds.BR1NK.RadarScan'
+    RadarWarnSound=Sound'BWBP_SWC_Sounds.BR1NK.RadarWarn'
 	GrenOpenSound=Sound'BW_Core_WeaponSound.M50.M50GrenOpen'
 	GrenLoadSound=Sound'BW_Core_WeaponSound.M50.M50GrenLoad'
 	GrenCloseSound=Sound'BW_Core_WeaponSound.M50.M50GrenClose'
@@ -335,6 +748,7 @@ defaultproperties
 	WeaponModes(1)=(ModeName="Double Barrel",Value=2.000000)
 	WeaponModes(2)=(ModeName="Single Barrel")
 	bNoCrosshairInScope=True
+	bShowChargingBar=True
 	SightOffset=(X=-20.000000,Y=-0.240000,Z=17.750000)
 	SightDisplayFOV=25.000000
 	ParamsClasses(0)=Class'BRINKAssaultRifleWeaponParamsArena'
@@ -364,4 +778,8 @@ defaultproperties
 	LightRadius=4.000000
 	Mesh=SkeletalMesh'BWBP_SWC_Anims.FPm_BR1NK'
 	DrawScale=0.250000
+	RadarScale=0.200000
+	RadarPosX=0.900000
+	RadarPosY=0.250000
+	Skins(0)=Shader'BW_Core_WeaponTex.Hands.Hands-Shiny'
 }
