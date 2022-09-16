@@ -154,7 +154,7 @@ defaultproperties
      ImpactManager=Class'BWBP_SKCExp_Pro.IM_HVPCProjectileSmall'
      bCheckHitSurface=True
      //bRandomStartRotaion=False
-     TrailClass=Class'BWBP_SKCExp_Pro.A73BTrailEmitter'
+     TrailClass=Class'BallisticProV55.A73TrailEmitter'
      MyRadiusDamageType=Class'BWBP_SKC_Pro.DTBulldogFRAGRadius'
      SplashManager=Class'BallisticProV55.IM_ProjWater'
      ShakeRadius=1024.000000
@@ -172,6 +172,8 @@ defaultproperties
      LightBrightness=192.000000
      LightRadius=12.000000
      StaticMesh=StaticMesh'BW_Core_WeaponStatic.A73.A73Projectile'
+	 Skins(1)=FinalBlend'BWBP_SKC_Tex.SkrithBow.AY90ProjectileFast1-Final'
+     Skins(0)=FinalBlend'BWBP_SKC_Tex.A73b.AY90Projectile2-Final'
      bDynamicLight=True
      AmbientSound=Sound'BW_Core_WeaponSound.A73.A73ProjFly'
      LifeSpan=6.000000

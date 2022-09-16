@@ -148,10 +148,10 @@ defaultproperties
 	 ImpactManager=Class'BWBP_SKCExp_Pro.IM_A73BProjectile'
      PenetrateManager=Class'BWBP_SKCExp_Pro.IM_A73BProjectile'
      bPenetrate=True
-     //bRandomStartRotaion=False
+     bRandomStartRotation=False
      bTearOnExplode=False
      AccelSpeed=70000.000000
-     TrailClass=Class'BWBP_SKCExp_Pro.A73BTrailEmitter'
+     //TrailClass=Class'BallisticProV55.A73TrailEmitter'
      MyRadiusDamageType=Class'BWBP_SKCExp_Pro.DTA73BSkrith'
      bUsePositionalDamage=True
      Damage=40
@@ -174,11 +174,11 @@ defaultproperties
      bDynamicLight=True
      AmbientSound=Sound'BW_Core_WeaponSound.A73.A73ProjFly'
      LifeSpan=4.000000
-     Skins(0)=FinalBlend'BWBP_SKC_Tex.A73b.A73BProjFinal'
-     Skins(1)=FinalBlend'BWBP_SKC_Tex.A73b.A73BProj2Final'
+     Skins(1)=FinalBlend'BWBP_SKC_Tex.SkrithBow.AY90Wave1-Final'
+     Skins(0)=FinalBlend'BWBP_SKC_Tex.SkrithBow.AY90Wave2-Final'
      Style=STY_Additive
      SoundVolume=255
      SoundRadius=75.000000
      bFixedRotationDir=True
-     RotationRate=(Roll=16384)
+	 DrawScale=3.000000
 }

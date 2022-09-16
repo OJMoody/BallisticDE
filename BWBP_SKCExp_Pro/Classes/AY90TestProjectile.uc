@@ -207,7 +207,7 @@ defaultproperties
 {
      ImpactManager=Class'BWBP_SKC_Pro.IM_HVPCMk66Projectile'
      AccelSpeed=100.000000
-     TrailClass=Class'BWBP_SKC_Pro.HVPCMk66BFGTrail'
+     //TrailClass=Class'BallisticProV55.A73TrailEmitter'
      MyRadiusDamageType=Class'BWBP_SKC_Pro.DT_BFGCharge'
      MotionBlurRadius=1024.000000
      ShakeRotMag=(Y=200.000000,Z=128.000000)
@@ -234,11 +234,11 @@ defaultproperties
      //bOnlyDirtyReplication=True
      AmbientSound=Sound'IndoorAmbience.electricity1'
      LifeSpan=16.000000
-     Skins(0)=FinalBlend'BWBP_SKC_Tex.BFG.BFGProj2FB'
-     Skins(1)=FinalBlend'BWBP_SKC_Tex.BFG.BFGProjFB'
+     Skins(1)=FinalBlend'BWBP_SKC_Tex.SkrithBow.AY90Projectile1-Final'
+     Skins(0)=FinalBlend'BWBP_SKC_Tex.A73b.AY90ProjectileBig2-Final'
      Style=STY_Additive
      SoundVolume=255
      SoundRadius=75.000000
      bProjTarget=True
-     RotationRate=(Roll=1638)
+	 Drawscale=10.000000
 }

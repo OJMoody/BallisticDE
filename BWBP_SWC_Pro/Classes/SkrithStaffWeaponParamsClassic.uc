@@ -12,7 +12,7 @@ defaultproperties
 		SpawnOffset=(X=10.000000,Y=10.000000,Z=-9.000000)
 		Speed=85.000000
 		MaxSpeed=4500.000000
-		AccelSpeed=70000.000000
+		AccelSpeed=0.000000
 		Damage=40
 		HeadMult=2.2f
 		LimbMult=0.5f
@@ -77,7 +77,7 @@ defaultproperties
 		DamageTypeArm=Class'BWBP_SWC_Pro.DT_SkrithStaff'
 		PenetrateForce=200
 		bPenetrate=True
-		MuzzleFlashClass=Class'BWBP_SKC_Pro.XM20BFlashEmitter'
+		MuzzleFlashClass=Class'BWBP_SKC_Pro.XM20FlashEmitter'
 		FlashScaleFactor=0.100000
 		FireSound=(Sound=Sound'BW_Core_WeaponSound.VPR.VPR-Fire',Volume=1.200000,Slot=SLOT_Interact,bNoOverride=False)
 		Recoil=1.000000

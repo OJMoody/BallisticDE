@@ -115,6 +115,7 @@ defaultproperties
 			MomentumTransfer=150.000000
 			HeadMult=1.5f
 			LimbMult=0.9f
+			MuzzleFlashClass=Class'BallisticProV55.A73FlashEmitter'
 			FireSound=(Sound=Sound'BWBP_SKC_Sounds.SkirthBow.SkrithBow-WaveFire',Volume=1.700000)
 			Recoil=130.00000
 			Chaos=0.020000

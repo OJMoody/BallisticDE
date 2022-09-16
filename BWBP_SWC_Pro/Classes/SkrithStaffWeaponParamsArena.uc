@@ -12,7 +12,7 @@ defaultproperties
 		SpawnOffset=(X=10.000000,Y=10.000000,Z=-9.000000)
 		Speed=11000.000000
 		MaxSpeed=11000.000000
-		AccelSpeed=100000.000000
+		AccelSpeed=0.000000
 		Damage=38
 		DamageRadius=96.000000
 		MomentumTransfer=150.000000
@@ -41,13 +41,13 @@ defaultproperties
 		SpawnOffset=(X=10.000000,Y=10.000000,Z=-9.000000)
 		Speed=11000.000000
 		MaxSpeed=11000.000000
-		AccelSpeed=100000.000000
+		AccelSpeed=0.000000
 		Damage=80
 		DamageRadius=180.000000
 		MomentumTransfer=150.000000
 		MuzzleFlashClass=Class'BallisticProV55.E23FlashEmitter'
 		FlashScaleFactor=0.200000
-		FireSound=(Sound=Sound'BWBP_SWC_Sounds.SkrithStaff.SkrithStaff-Shot',Volume=1.200000,Slot=SLOT_Interact,bNoOverride=False)
+		FireSound=(Sound=Sound'BWBP_SKC_SoundsExp.A73E.A73E-Power',Volume=1.200000,Slot=SLOT_Interact,bNoOverride=False)
 		Recoil=1024.000000
 		Chaos=0.500000
 		WarnTargetPct=0.200000	
