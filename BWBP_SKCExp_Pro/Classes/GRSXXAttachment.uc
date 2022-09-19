@@ -112,13 +112,13 @@ simulated function Tick(float DT)
 	Scale3D.X = VSize(HitLocation-Laser.Location)/128;
 	if (bBigLaser)
 	{
-		Scale3D.Y = 4;
-		Scale3D.Z = 4;
+		Scale3D.Y = 9;
+		Scale3D.Z = 9;
 	}
 	else
 	{
-		Scale3D.Y = 1.5;
-		Scale3D.Z = 1.5;
+		Scale3D.Y = 4.5;
+		Scale3D.Z = 4.5;
 	}
 	Laser.SetDrawScale3D(Scale3D);
 }

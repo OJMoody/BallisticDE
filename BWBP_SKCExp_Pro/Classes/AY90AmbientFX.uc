@@ -62,7 +62,7 @@ defaultproperties
          Opacity=0.500000
          FadeOutStartTime=0.350000
          CoordinateSystem=PTCS_Relative
-         StartLocationOffset=(X=-45.000000,Y=-80.000000,Z=2.750000)
+         StartLocationOffset=(X=-45.000000,Y=-80.000000,Z=-1.750000)
          SpinsPerSecondRange=(X=(Max=0.100000))
          StartSpinRange=(X=(Max=1.000000))
          SizeScale(0)=(RelativeSize=1.000000)
