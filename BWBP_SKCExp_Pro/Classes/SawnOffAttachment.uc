@@ -422,33 +422,23 @@ defaultproperties
 {
     TracerClass=Class'BallisticProV55.TraceEmitter_Shotgun'
     ImpactManager=Class'BallisticProV55.IM_Shell'
-
     TracerClassAlt=Class'BWBP_SKC_Pro.TraceEmitter_X83AM'
     ImpactManagerAlt=Class'BWBP_SKC_Pro.IM_ExpBullet'
-
     MeleeImpactManager=Class'BallisticProV55.IM_GunHit'
-
     FireClass=Class'BWBP_SKCExp_Pro.SawnOffPrimaryFire'
     MuzzleFlashClass=Class'BallisticProV55.MRT6FlashEmitter'
     FlashBone="Tip"
     AltFlashBone="tip2"
     FlashScale=1.500000
-
     InstantMode = MU_Both
-
     BrassClass=Class'BallisticProV55.Brass_MRS138Shotgun'
-
     TrackAnimMode=MU_None
-
-    Mesh=SkeletalMesh'BWBP_SKC_AnimExp.SawnOff_TPm'
-    RelativeLocation=(X=15.000000)
-    DrawScale=0.200000
-
+    Mesh=SkeletalMesh'BWBP_SKC_AnimExp.ScifiSawnOff_TPm'
+    DrawScale=0.150000
     SingleFireAnim="Reload_BreakOpenFast"
     SingleAimedFireAnim="Reload_BreakOpenFast"
     RapidFireAnim="RifleHip_Fire"
     RapidAimedFireAnim="RifleAimed_Fire"
-
     ReloadAnim="Reload_BreakOpen"
     CockingAnim="Reload_BreakOpen"
 }

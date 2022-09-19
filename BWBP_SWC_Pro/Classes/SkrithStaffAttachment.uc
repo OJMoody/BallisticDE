@@ -173,10 +173,13 @@ simulated function Timer()
 
 defaultproperties
 {
-     MuzzleFlashClass=Class'BWBP_SWC_Pro.SkrithStaffFlashEmitter'
+	 MuzzleFlashClass=Class'BWBP_SWC_Pro.SkrithStaffFlashEmitter'
+	 ImpactManager=Class'BWBP_SWC_Pro.IM_SSLaser'
+     MeleeImpactManager=Class'BallisticProV55.IM_A73Knife'
 	 Mesh=SkeletalMesh'BWBP_SWC_Anims.SkrithStaff_TPm'
+	 ReloadAnim="Reload_MG"
+	 ReloadAnimRate=1.50000
 	 TracerMode=MU_None
-     InstantMode=MU_Secondary
      bRapidFire=True
 	 FlashBone="Muzzle"
 	 PrePivot=(Z=-10.000000)

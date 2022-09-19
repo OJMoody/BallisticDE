@@ -131,6 +131,8 @@ defaultproperties
 	Begin Object Class=WeaponParams Name=RealisticParams
 		WeaponBoneScales(0)=(BoneName="RCAttachment",Slot=1,Scale=0f)
 		WeaponBoneScales(1)=(BoneName="RCSlider",Slot=2,Scale=0f)
+		WeaponBoneScales(1)=(BoneName="RCSliderFront",Slot=3,Scale=0f)
+		WeaponBoneScales(1)=(BoneName="RCAttachmentIron",Slot=4,Scale=0f)
 		PlayerSpeedFactor=1.100000
 		InventorySize=35
 		SightMoveSpeedFactor=0.500000
