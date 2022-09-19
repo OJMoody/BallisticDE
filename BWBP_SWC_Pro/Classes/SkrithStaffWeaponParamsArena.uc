@@ -10,9 +10,9 @@ defaultproperties
 	Begin Object Class=ProjectileEffectParams Name=ArenaRapidPrimaryEffectParams
 		ProjectileClass=Class'BWBP_SWC_Pro.SkrithStaffProjectile'
 		SpawnOffset=(X=10.000000,Y=10.000000,Z=-9.000000)
-		Speed=11000.000000
-		MaxSpeed=11000.000000
-		AccelSpeed=0.000000
+		Speed=5500.000000
+		MaxSpeed=14000.000000
+		AccelSpeed=100000.000000
 		Damage=38
 		DamageRadius=96.000000
 		MomentumTransfer=150.000000

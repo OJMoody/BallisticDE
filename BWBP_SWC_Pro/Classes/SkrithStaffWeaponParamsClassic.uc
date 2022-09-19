@@ -12,7 +12,7 @@ defaultproperties
 		SpawnOffset=(X=10.000000,Y=10.000000,Z=-9.000000)
 		Speed=85.000000
 		MaxSpeed=4500.000000
-		AccelSpeed=0.000000
+		AccelSpeed=100000.000000
 		Damage=40
 		HeadMult=2.2f
 		LimbMult=0.5f
