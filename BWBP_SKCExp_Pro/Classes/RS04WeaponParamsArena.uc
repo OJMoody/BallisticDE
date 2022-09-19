@@ -1,4 +1,4 @@
-class RS04PistolWeaponParamsArena extends BallisticWeaponParams;
+class RS04WeaponParamsArena extends BallisticWeaponParams;
 
 defaultproperties
 {
