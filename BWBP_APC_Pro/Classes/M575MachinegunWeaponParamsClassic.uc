@@ -116,6 +116,7 @@ defaultproperties
 	//=================================================================	
 	
 	Begin Object Class=WeaponParams Name=ClassicParams
+		WeaponBoneScales(2)=(BoneName="AMP",Slot=53,Scale=0f)
 		PlayerSpeedFactor=0.90000
 		PlayerJumpFactor=0.900000
 		SightMoveSpeedFactor=0.500000

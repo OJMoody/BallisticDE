@@ -364,11 +364,15 @@ simulated function BringUp(optional Weapon PrevWeapon)
 	{
 		IdleAnim = 'OpenIdle';
 		ReloadAnim = 'OpenReload';
+		AmplifierOnAnim = 'AMPApplyOpen';
+		AmplifierOffAnim = 'AMPRemoveOpen';
 	}
 	else
 	{
 		IdleAnim = 'Idle';
 		ReloadAnim = 'Reload';
+		AmplifierOnAnim = 'AMPApply';
+		AmplifierOffAnim = 'AMPRemove';
 	}
 
 	if (GlowFX != None)
@@ -441,11 +445,15 @@ simulated event AnimEnd (int Channel)
 		{
 			IdleAnim = 'OpenIdle';
 			ReloadAnim = 'OpenReload';
+			AmplifierOnAnim = 'AMPApplyOpen';
+			AmplifierOffAnim = 'AMPRemoveOpen';
 		}
 		else
 		{
 			IdleAnim = 'Idle';
 			ReloadAnim = 'Reload';
+			AmplifierOnAnim = 'AMPApply';
+			AmplifierOffAnim = 'AMPRemove';
 		}
 	}
 	Super.AnimEnd(Channel);

@@ -13,7 +13,7 @@ defaultproperties
 		DecayRange=(Min=0.0,Max=0.0)
 		RangeAtten=0.800000
 		//Damage=21.0
-		//Damage=35.0
+		Damage=35.0
 		HeadMult=2.952380
 		LimbMult=0.428571
 		DamageType=Class'BWBP_JCF_Pro.DTM7A3Rifle'
@@ -28,7 +28,7 @@ defaultproperties
 		MuzzleFlashClass=Class'BWBP_JCF_Pro.M7A3FlashEmitter'
 		FlashScaleFactor=0.500000
 		FireSound=(Sound=Sound'BWBP_JCF_Sounds.M7A3.M7A3-HFire',Slot=SLOT_Interact,bNoOverride=False)
-		Recoil=20.000000
+		Recoil=200.000000
 		Chaos=0.040000
 		Inaccuracy=(X=128,Y=128)
 		WarnTargetPct=0.200000
@@ -54,7 +54,7 @@ defaultproperties
 		MaxRecoil=3840.000000
 		DeclineTime=0.800000
 		ViewBindFactor=0.200000
-		ADSViewBindFactor=0.200000
+		ADSViewBindFactor=1.000000
 		HipMultiplier=1.000000
 		CrouchMultiplier=0.900000
 		bViewDecline=True
@@ -83,7 +83,7 @@ defaultproperties
 		InventorySize=35
 		SightMoveSpeedFactor=0.500000
 		SightingTime=0.25
-		MagAmmo=45
+		MagAmmo=20
 		WeaponBoneScales(0)=(BoneName="RDS",Slot=14,Scale=0f)
 		WeaponBoneScales(1)=(BoneName="Scope",Slot=16,Scale=1f)
 		SightOffset=(X=-10.000000,Y=-0.45000,Z=11.300000)

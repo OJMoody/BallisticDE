@@ -39,12 +39,11 @@ defaultproperties
 	FireEffectParams(0)=InstantEffectParams'RealisticPrimaryEffectParams'
 	End Object
 		
-		
 	//=================================================================
 	// SECONDARY FIRE
 	//=================================================================	
 	
-	Begin Object Class=ProjectileEffectParams Name=ArenaSecondaryEffectParams
+	Begin Object Class=ProjectileEffectParams Name=RealisticSecondaryEffectParams
 		ProjectileClass=Class'BWBP_APC_Pro.SHADRACHRifleGrenade'
 		SpawnOffset=(X=15.000000,Y=10.000000,Z=-9.000000)
 		Speed=3750.000000
@@ -59,11 +58,11 @@ defaultproperties
 		WarnTargetPct=0.300000	
 	End Object
 
-	Begin Object Class=FireParams Name=ArenaSecondaryFireParams
+	Begin Object Class=FireParams Name=RealisticSecondaryFireParams
 		FireInterval=0.600000
 		FireAnim="GrenadeFire"
 		AimedFireAnim="GrenadeFireSight"			
-	FireEffectParams(0)=ProjectileEffectParams'ArenaSecondaryEffectParams'
+	FireEffectParams(0)=ProjectileEffectParams'RealisticSecondaryEffectParams'
 	End Object
 		
 	//=================================================================
