@@ -97,6 +97,7 @@ defaultproperties
 	//=================================================================
 
 	Begin Object Class=AimParams Name=RealisticAimParams
+		SprintOffset=(Pitch=-3000,Yaw=-4000)
 		AimSpread=(Min=12,Max=1400)
 		CrouchMultiplier=0.700000
 		ADSMultiplier=0.700000
