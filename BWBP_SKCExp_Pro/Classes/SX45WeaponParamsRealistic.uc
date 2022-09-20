@@ -55,7 +55,7 @@ defaultproperties
 		DamageTypeArm=Class'BWBP_SKCExp_Pro.DTSX45Pistol_Cryo'
 		PenetrateForce=135
 		bPenetrate=True
-		MuzzleFlashClass=Class'BWBP_SKCExp_Pro.SX45FlashEmitter'
+		MuzzleFlashClass=Class'BWBP_SKCExp_Pro.SX45CryoFlash'
 		FlashScaleFactor=1.10
 		FireSound=(Sound=Sound'BWBP_SKC_SoundsExp.SX45.SX45-HeavyFrostFire',Volume=2.800000)
 		Recoil=700.000000
@@ -86,7 +86,7 @@ defaultproperties
 		DamageTypeArm=Class'BWBP_SKCExp_Pro.DTSX45Pistol_RAD'
 		PenetrateForce=135
 		bPenetrate=True
-		MuzzleFlashClass=Class'BWBP_SKCExp_Pro.SX45FlashEmitter'
+		MuzzleFlashClass=Class'BWBP_SKCExp_Pro.SX45RadMuzzleFlash'
 		FlashScaleFactor=0.9
 		FireSound=(Sound=Sound'BWBP_SKC_SoundsExp.SX45.SX45-HeavyRadFire',Volume=2.200000)
 		Recoil=700.000000

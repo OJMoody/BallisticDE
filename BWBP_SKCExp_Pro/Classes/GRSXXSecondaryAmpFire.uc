@@ -6,9 +6,11 @@
 //=============================================================================
 class GRSXXSecondaryAmpFire extends BallisticFire;
 
-event ModeDoFire()
+simulated event ModeDoFire()
 {
-	if (Weapon.Role == ROLE_Authority)
+	if (!Instigator.IsLocallyControlled())
+		return;
+	if (AllowFire())
 		GRSXXPistol(Weapon).ToggleAmplifier();
 }
 
