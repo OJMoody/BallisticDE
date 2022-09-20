@@ -82,9 +82,11 @@ defaultproperties
 	Begin Object Class=WeaponParams Name=ClassicParams
 		WeaponBoneScales(0)=(BoneName="RCAttachment",Slot=1,Scale=0f)
 		WeaponBoneScales(1)=(BoneName="RCSlider",Slot=2,Scale=0f)
-		WeaponBoneScales(1)=(BoneName="RCSliderFront",Slot=3,Scale=0f)
-		WeaponBoneScales(1)=(BoneName="RCAttachmentIron",Slot=4,Scale=0f)
-		InventorySize=10
+		WeaponMaterialSwaps(0)=(Material=Shader'BW_Core_WeaponTex.Hands.Hands-Shiny',Index=0)
+		WeaponMaterialSwaps(1)=(Material=Texture'BWBP_SKC_TexExp.T9CN.Ber-MainE',Index=1)
+		WeaponMaterialSwaps(2)=(Material=Texture'BWBP_SKC_TexExp.T9CN.Ber-SlideE',Index=3)
+		Weight=1
+		InventorySize=6
 		SightMoveSpeedFactor=0.500000
 		SightingTime=0.150000
 		MagAmmo=18
@@ -95,7 +97,8 @@ defaultproperties
 		AimParams(0)=AimParams'ClassicAimParams'
 		FireParams(0)=FireParams'ClassicPrimaryFireParams'
 	End Object
-	Layouts(0)=WeaponParams'ClassicParams'
+	
+	Layouts(0)=WeaponParams'ClassicParams' //Robocop
 
 
 }

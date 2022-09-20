@@ -115,7 +115,7 @@ defaultproperties
 	
 	Begin Object Class=WeaponParams Name=ClassicParams
 		PlayerJumpFactor=1.100000
-		InventorySize=35
+		InventorySize=15
 		SightMoveSpeedFactor=0.500000
 		MagAmmo=20
 		SightOffset=(X=18.000000,Y=-8.500000,Z=22.000000)

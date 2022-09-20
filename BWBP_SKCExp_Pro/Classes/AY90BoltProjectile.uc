@@ -111,7 +111,8 @@ simulated function Explode(vector HitLocation, vector HitNormal)
 	}
 	else
 	{
-		Proj = Spawn (class'AY90Mine',,, LastHitLoc, R);
+		StickActor(StuckActor);
+		/*Proj = Spawn (class'AY90Mine',,, LastHitLoc, R);
 		Proj.Instigator = Instigator;
 		Proj.SetPhysics(PHYS_None);
 		Proj.bHardAttach = true;
@@ -119,11 +120,21 @@ simulated function Explode(vector HitLocation, vector HitNormal)
 			StuckActor.AttachToBone(Proj, StuckActor.GetClosestBone(LastHitLoc, Velocity, BoneDist));
 		else
 			Proj.SetBase(StuckActor);
+			*/
 	}
 	Proj.SetRotation(R);
 	Proj.Velocity = vect(0,0,0);
 
 	Destroy();
+}
+
+simulated function StickActor(Actor A)
+{
+	local AY90ActorExploder AE;
+
+	AE = Spawn(class'AY90ActorExploder');
+	AE.Instigator = Instigator;
+	AE.Initialize(A);
 }
 
 //used to set falling gravity after a short delay
