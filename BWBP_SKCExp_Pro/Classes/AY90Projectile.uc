@@ -145,7 +145,7 @@ simulated function DestroyEffects()
 defaultproperties
 {
      ModeIndex=1
-	 ImpactManager=Class'BWBP_SKCExp_Pro.IM_A73BProjectile'
+	 ImpactManager=Class'BallisticProV55.IM_A73Projectile'
      PenetrateManager=Class'BWBP_SKCExp_Pro.IM_A73BProjectile'
      bPenetrate=True
      bRandomStartRotation=False
@@ -166,10 +166,10 @@ defaultproperties
      MyDamageType=Class'BWBP_SKCExp_Pro.DTA73BSkrith'
      LightType=LT_Steady
      LightEffect=LE_QuadraticNonIncidence
-     LightHue=10
-     LightSaturation=50
+     LightHue=150
+     LightSaturation=0
      LightBrightness=192.000000
-     LightRadius=6.000000
+	 LightRadius=6.000000
      StaticMesh=StaticMesh'BW_Core_WeaponStatic.A73.A73Projectile'
      bDynamicLight=True
      AmbientSound=Sound'BW_Core_WeaponSound.A73.A73ProjFly'

@@ -180,9 +180,10 @@ defaultproperties
      MyDamageType=Class'BWBP_SKCExp_Pro.DTPlasmaCharge'
      LightType=LT_Steady
      LightEffect=LE_QuadraticNonIncidence
-     LightSaturation=70
+     LightHue=150
+     LightSaturation=0
      LightBrightness=192.000000
-     LightRadius=12.000000
+	 LightRadius=9.000000
      StaticMesh=StaticMesh'BW_Core_WeaponStatic.A73.A73Projectile'
      bDynamicLight=True
      AmbientSound=Sound'BW_Core_WeaponSound.A73.A73ProjFly'

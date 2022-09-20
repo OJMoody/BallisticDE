@@ -205,9 +205,8 @@ simulated function InitEffects ()
 
 defaultproperties
 {
-     ImpactManager=Class'BWBP_SKC_Pro.IM_HVPCMk66Projectile'
+     ImpactManager=Class'BWBP_SKCExp_Pro.IM_SkrithBFGProjectile'
      AccelSpeed=100.000000
-     //TrailClass=Class'BallisticProV55.A73TrailEmitter'
      MyRadiusDamageType=Class'BWBP_SKC_Pro.DT_BFGCharge'
      MotionBlurRadius=1024.000000
      ShakeRotMag=(Y=200.000000,Z=128.000000)
@@ -224,14 +223,11 @@ defaultproperties
      ZapRadius=512.000000
      MomentumTransfer=280000.000000
      MyDamageType=Class'BWBP_SKC_Pro.DT_BFGCharge'
-     LightHue=110
-     LightSaturation=20
-     LightBrightness=160.000000
+     LightHue=150
+     LightSaturation=0
+     LightBrightness=192.000000
      LightRadius=12.000000
      StaticMesh=StaticMesh'BW_Core_WeaponStatic.DarkStar.DarkProjBig'
-     //bNetTemporary=False
-     //bSkipActorPropertyReplication=True
-     //bOnlyDirtyReplication=True
      AmbientSound=Sound'IndoorAmbience.electricity1'
      LifeSpan=16.000000
      Skins(1)=FinalBlend'BWBP_SKC_Tex.SkrithBow.AY90Projectile1-Final'

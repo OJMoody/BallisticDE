@@ -162,9 +162,9 @@ simulated event Timer()
 
 defaultproperties
 {
-     ImpactManager=Class'BWBP_SKCExp_Pro.IM_HVPCProjectileSmall'
+     ImpactManager=Class'BallisticProV55.IM_A73Projectile'
      bCheckHitSurface=True
-     //bRandomStartRotaion=False
+     bRandomStartRotation=False
      TrailClass=Class'BallisticProV55.A73TrailEmitter'
      MyRadiusDamageType=Class'BWBP_SKC_Pro.DTBulldogFRAGRadius'
      SplashManager=Class'BallisticProV55.IM_ProjWater'
@@ -179,9 +179,10 @@ defaultproperties
      MomentumTransfer=30000.000000
 	 LightType=LT_Steady
      LightEffect=LE_QuadraticNonIncidence
-     LightSaturation=70
+     LightHue=150
+     LightSaturation=0
      LightBrightness=192.000000
-     LightRadius=12.000000
+     LightRadius=6.000000
      StaticMesh=StaticMesh'BW_Core_WeaponStatic.A73.A73Projectile'
 	 Skins(1)=FinalBlend'BWBP_SKC_Tex.SkrithBow.AY90ProjectileFast1-Final'
      Skins(0)=FinalBlend'BWBP_SKC_Tex.A73b.AY90Projectile2-Final'
@@ -189,7 +190,6 @@ defaultproperties
      AmbientSound=Sound'BW_Core_WeaponSound.A73.A73ProjFly'
      LifeSpan=6.000000
      MyDamageType=Class'BWBP_SKC_Pro.DTBulldogFRAG'
-//     Physics=PHYS_Falling
      DrawScale3D=(X=0.500000,Y=1.000000,Z=1.000000)
      DrawScale=0.500000
      Style=STY_Additive
