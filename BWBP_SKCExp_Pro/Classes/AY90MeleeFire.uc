@@ -14,9 +14,9 @@ defaultproperties
      Damage=85
      HeadMult=1.5
      LimbMult=0.5
-     DamageType=Class'BWBP_SKCExp_Pro.DTA73bStab'
-     DamageTypeHead=Class'BWBP_SKCExp_Pro.DTA73bStabHead'
-     DamageTypeArm=Class'BWBP_SKCExp_Pro.DTA73bStab'
+     DamageType=Class'BWBP_SKCExp_Pro.DTAY90Stab'
+     DamageTypeHead=Class'BWBP_SKCExp_Pro.DTAY90StabHead'
+     DamageTypeArm=Class'BWBP_SKCExp_Pro.DTAY90Stab'
      KickForce=100
      HookStopFactor=1.700000
      HookPullForce=100.000000

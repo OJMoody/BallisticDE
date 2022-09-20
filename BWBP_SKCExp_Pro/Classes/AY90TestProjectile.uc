@@ -207,7 +207,9 @@ defaultproperties
 {
      ImpactManager=Class'BWBP_SKCExp_Pro.IM_SkrithBFGProjectile'
      AccelSpeed=100.000000
-     MyRadiusDamageType=Class'BWBP_SKC_Pro.DT_BFGCharge'
+	 MyDamageType=Class'BWBP_SKCExp_Pro.DTAY90Skrith'
+	 DamageTypeHead=Class'BWBP_SKCExp_Pro.DTAY90SkrithHead'
+     MyRadiusDamageType=Class'BWBP_SKCExp_Pro.DTAY90SkrithRadius'
      MotionBlurRadius=1024.000000
      ShakeRotMag=(Y=200.000000,Z=128.000000)
      ShakeRotTime=2.000000
@@ -222,7 +224,6 @@ defaultproperties
      ZapInterval=0.1
      ZapRadius=512.000000
      MomentumTransfer=280000.000000
-     MyDamageType=Class'BWBP_SKC_Pro.DT_BFGCharge'
      LightHue=150
      LightSaturation=0
      LightBrightness=192.000000

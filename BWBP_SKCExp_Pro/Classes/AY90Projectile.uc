@@ -145,25 +145,24 @@ simulated function DestroyEffects()
 defaultproperties
 {
      ModeIndex=1
+	 MyDamageType=Class'BWBP_SKCExp_Pro.DTAY90SkrithAlt'
+	 DamageTypeHead=Class'BWBP_SKCExp_Pro.DTAY90SkrithAltHead'
+     MyRadiusDamageType=Class'BWBP_SKCExp_Pro.DTAY90SkrithRadius'
 	 ImpactManager=Class'BallisticProV55.IM_A73Projectile'
      PenetrateManager=Class'BWBP_SKCExp_Pro.IM_A73BProjectile'
      bPenetrate=True
      bRandomStartRotation=False
      bTearOnExplode=False
      AccelSpeed=70000.000000
-     //TrailClass=Class'BallisticProV55.A73TrailEmitter'
-     MyRadiusDamageType=Class'BWBP_SKCExp_Pro.DTA73BSkrith'
      bUsePositionalDamage=True
      Damage=40
      HeadMult=2.0
      LimbMult=0.5
-     DamageTypeHead=Class'BWBP_SKCExp_Pro.DTA73BSkrithHead'
      SplashManager=Class'BallisticProV55.IM_ProjWater'
      Speed=85.000000
      MaxSpeed=4500.000000
      DamageRadius=96.000000
      MomentumTransfer=150.000000
-     MyDamageType=Class'BWBP_SKCExp_Pro.DTA73BSkrith'
      LightType=LT_Steady
      LightEffect=LE_QuadraticNonIncidence
      LightHue=150

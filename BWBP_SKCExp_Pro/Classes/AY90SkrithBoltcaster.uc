@@ -392,8 +392,8 @@ defaultproperties
      AIRating=0.600000
      CurrentRating=0.600000
      bMeleeWeapon=True
-     Description="AY90 Skrith Boltcaster||Manufacturer: Unknown Skrith Engineers|Primary: Energy Bolt|Secondary: Blade Stab||The A73-E is a specialized version of the Skrith standard rifle and is rarely seen on the battlefield. Aside from the red tint, the Elite model is very similar in appearance to the standard. Scans show, however, that this special version fires projectiles at roughly 3 times the standard heat level and has an odd permanent electrical charge coursing through the blades. If encountered in the field, it is advised to report the occurrence to HQ immediately for testing."
-     Priority=92
+     Description="AY90 Skrith Boltcaster||Manufacturer: Unknown Skrith Engineers|Primary: Variable Charge Shot|Secondary: Charged Bolt Spread|Named after a certain bird of prey, the AY90 ''Wyvern'' is a Skrith's companion to take down terrans without being seen or heard.  A boltcaster with all the signs that it's Skrith in origin; blades on the bow arms, blue in color and firing powerful plasma with this weapon taking the form of a variable charge system.  Able to fire rapid shots for swift getaways or a full charge to snipe a soldier from a distance, and if that wasn't enough; the Wyvern has a charged bolt spread to eliminate multiple enemies in rapid succession.  A versatile, deadly tool of destruction without being heard, just ask the PTSD ridden troops of UTC's elite division on Ravenos; who watched 90% of their squad dying to plasma bolts without their enemies being known."
+	 Priority=92
      CustomCrossHairTextureName="Crosshairs.HUD.Crosshair_Cross1"
      InventoryGroup=5
      GroupOffset=19
