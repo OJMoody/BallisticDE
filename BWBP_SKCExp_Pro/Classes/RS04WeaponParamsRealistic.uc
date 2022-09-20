@@ -65,12 +65,14 @@ defaultproperties
 	//=================================================================
 
 	Begin Object Class=AimParams Name=RealisticAimParams
-		AimSpread=(Min=36,Max=768)
-		AimAdjustTime=0.550000
-		CrouchMultiplier=0.700000
-		ADSMultiplier=0.700000
+		AimSpread=(Min=512,Max=768)
+		AimAdjustTime=0.400000
+		CrouchMultiplier=0.820000
+		ADSMultiplier=0.770000
+		AimDamageThreshold=300
 		ViewBindFactor=0.050000
 		SprintChaos=0.400000
+		SprintOffSet=(Pitch=-4608,Yaw=-512)
 		ChaosDeclineTime=0.500000
 		ChaosSpeedThreshold=750.000000
 	End Object
@@ -80,9 +82,9 @@ defaultproperties
 	//=================================================================	
 	
 	Begin Object Class=WeaponParams Name=RealisticParams
-		InventorySize=35
+		InventorySize=5
 		SightMoveSpeedFactor=0.500000
-		SightingTime=0.200000
+		SightingTime=0.110000
 		MagAmmo=10
 		SightOffset=(X=-20.000000,Y=-1.9500000,Z=17.000000)
 		WeaponName="RS4 .45 Compact Handgun"

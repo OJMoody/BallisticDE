@@ -71,7 +71,7 @@ function DoFireEffect()
 	}
 
 	SendFireEffect(none, vect(0,0,0), StartTrace, 0);
-	Super.DoFireEffect();
+	Super(BallisticFire).DoFireEffect();
 	if (level.Netmode == NM_DedicatedServer)
 		HVPCMk5PlasmaCannon(BW).AddHeat(HeatPerShot);
 }

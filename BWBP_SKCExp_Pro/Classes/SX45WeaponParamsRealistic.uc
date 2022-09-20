@@ -127,12 +127,14 @@ defaultproperties
 	//=================================================================
 
 	Begin Object Class=AimParams Name=RealisticAimParams
-		AimSpread=(Min=32,Max=1100)
-		AimAdjustTime=0.550000
-		CrouchMultiplier=0.700000
-		ADSMultiplier=0.200000
+		AimSpread=(Min=512,Max=1100)
+		AimAdjustTime=0.400000
+		CrouchMultiplier=0.820000
+		ADSMultiplier=0.770000
+		AimDamageThreshold=300
 		ViewBindFactor=0.050000
 		SprintChaos=0.400000
+		SprintOffSet=(Pitch=-4608,Yaw=-512)
 		ChaosDeclineTime=0.500000
 		ChaosSpeedThreshold=1200.000000
 	End Object
@@ -142,9 +144,9 @@ defaultproperties
 	//=================================================================	
 	
 	Begin Object Class=WeaponParams Name=RealisticParams
-		InventorySize=35
+		InventorySize=6
 		SightMoveSpeedFactor=0.500000
-		SightingTime=0.200000
+		SightingTime=0.130000
 		MagAmmo=15
 		SightOffset=(y=-3.140000,Z=14.300000)
 		WeaponName="SX-45 .45 Tech Pistol"

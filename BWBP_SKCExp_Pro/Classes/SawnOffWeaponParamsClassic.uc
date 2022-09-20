@@ -15,7 +15,7 @@ defaultproperties
 		DamageType=Class'BWBP_SKCExp_Pro.DTSawnOff'
 		DamageTypeHead=Class'BWBP_SKCExp_Pro.DTSawnOff'
 		DamageTypeArm=Class'BWBP_SKCExp_Pro.DTSawnOff'
-		Damage=25
+		Damage=20
 		MuzzleFlashClass=Class'BallisticProV55.MRT6FlashEmitter_C'
 		FlashScaleFactor=1.500000
 		Recoil=1024.000000
@@ -82,7 +82,7 @@ defaultproperties
 		DamageType=Class'BWBP_SKCExp_Pro.DTSawnOff'
 		DamageTypeHead=Class'BWBP_SKCExp_Pro.DTSawnOff'
 		DamageTypeArm=Class'BWBP_SKCExp_Pro.DTSawnOff'
-		Damage=25
+		Damage=20
 		MuzzleFlashClass=Class'BallisticProV55.MRT6FlashEmitter_C'
 		FlashScaleFactor=1.500000
 		Recoil=1024.000000
@@ -169,7 +169,7 @@ defaultproperties
 		SightOffset=(X=-40.000000,Y=11.150000,Z=29.000000)
 		PlayerSpeedFactor=1.000000
 		PlayerJumpFactor=1.000000
-		InventorySize=11
+		InventorySize=10
 		SightMoveSpeedFactor=0.9
 		SightingTime=0.250000
 		DisplaceDurationMult=1
