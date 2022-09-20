@@ -38,7 +38,7 @@ replication
 	reliable if (Role < ROLE_Authority)
 		ServerFlashLight, ServerSwitchAmplifier;
 	reliable if (ROLE==ROLE_Authority)
-		ClientSetHeat, SwitchAmplifier;
+		ClientSetHeat;
 }
 
 simulated function bool SlaveCanUseMode(int Mode) {return Mode == 0;}

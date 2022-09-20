@@ -42,7 +42,7 @@ replication
 	reliable if (Role < ROLE_Authority)
 		ServerSwitchAmplifier;
 	reliable if (Role == ROLE_Authority)
-		bLaserOn, LaserAmmo, bRemovableAmp, ClientSetHeat, SwitchAmplifier;
+		bLaserOn, LaserAmmo, bRemovableAmp, ClientSetHeat;
 }
 
 simulated event PreBeginPlay()
