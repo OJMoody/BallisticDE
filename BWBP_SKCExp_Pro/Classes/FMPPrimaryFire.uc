@@ -8,16 +8,18 @@
 //=============================================================================
 class FMPPrimaryFire extends BallisticProInstantFire;
 
-var() sound		AmpRedFireSound;
-var() sound		AmpGreenFireSound;
-var() sound		RegularFireSound;
+var(FMP) sound		AmpRedFireSound;
+var(FMP) sound		AmpGreenFireSound;
+var(FMP) sound		RegularFireSound;
 
-var() Actor						MuzzleFlashRed;		// ALT: The muzzleflash actor
-var() class<Actor>				MuzzleFlashClassRed;	// ALT: The actor to use for this fire's muzzleflash
-var() Actor						MuzzleFlashGreen;		// ALT: The muzzleflash actor
-var() class<Actor>				MuzzleFlashClassGreen;	// ALT: The actor to use for this fire's muzzleflash
-var() Name						AmpFlashBone;
-var() float						AmpFlashScaleFactor;
+var(FMP) Actor						MuzzleFlashRed;		// ALT: The muzzleflash actor
+var(FMP) class<Actor>				MuzzleFlashClassRed;	// ALT: The actor to use for this fire's muzzleflash
+var(FMP) Actor						MuzzleFlashGreen;		// ALT: The muzzleflash actor
+var(FMP) class<Actor>				MuzzleFlashClassGreen;	// ALT: The actor to use for this fire's muzzleflash
+var(FMP) Name						AmpFlashBone;
+var(FMP) float						AmpFlashScaleFactor;
+var(SX45) bool						bAmped;
+var(FMP) float						AmpDrainPerShot;
 
 
 // Effect related functions ------------------------------------------------
@@ -72,22 +74,26 @@ simulated function SwitchWeaponMode (byte NewMode)
 	{
 		RangeAtten=default.RangeAtten;
 		FlashBone=default.FlashBone;
+		bAmped=False;
 	}
 	
 	else if (NewMode == 1) //Incendiary Amp
 	{
 		RangeAtten=1.000000;
 		FlashBone=default.AmpFlashBone;
+		bAmped=True;
 	}
 	else if (NewMode == 2) //Corrosive Amp
 	{
 		RangeAtten=1.000000;
 		FlashBone=AmpFlashBone;
+		bAmped=True;
 	}
 	else
 	{
 		RangeAtten=default.RangeAtten;
 		FlashBone=default.FlashBone;
+		bAmped=False;
 	}
 	if (Weapon.bBerserk)
 		FireRate *= 0.75;
@@ -170,7 +176,19 @@ function PlayFiring()
 		Weapon.PlayOwnedSound(BallisticFireSound.Sound,BallisticFireSound.Slot,BallisticFireSound.Volume,,BallisticFireSound.Radius);
 
 	CheckClipFinished();
+	
+	if (bAmped)
+		FMPMachinePistol(BW).AddHeat(AmpDrainPerShot);
 }
+
+// Get aim then run trace...
+function DoFireEffect()
+{
+	Super.DoFireEffect();
+	if (Level.NetMode == NM_DedicatedServer)
+		FMPMachinePistol(BW).AddHeat(AmpDrainPerShot);
+}
+
 
 function ApplyDamage(Actor Victim, int Damage, Pawn Instigator, vector HitLocation, vector MomentumDir, class<DamageType> DamageType)
 {
@@ -207,6 +225,7 @@ simulated function bool ImpactEffect(vector HitLocation, vector HitNormal, Mater
 
 defaultproperties
 {
+	 AmpDrainPerShot=-0.50
      AmpRedFireSound=SoundGroup'BWBP_SKC_SoundsExp.MP40.MP40-HotFire'
      AmpGreenFireSound=SoundGroup'BWBP_SKC_SoundsExp.MP40.MP40-AcidFire'
 	 MuzzleFlashClass=Class'BallisticProV55.XK2FlashEmitter'

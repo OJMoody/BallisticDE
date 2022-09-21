@@ -44,6 +44,10 @@ replication
 simulated function bool SlaveCanUseMode(int Mode) {return Mode == 0;}
 simulated function bool MasterCanSendMode(int Mode) {return Mode == 0;}
 
+//==============================================
+// Amp Code
+//==============================================
+
 //mount or unmount amp
 exec simulated function ToggleAmplifier(optional byte i)
 {
@@ -56,10 +60,6 @@ exec simulated function ToggleAmplifier(optional byte i)
 	ServerSwitchAmplifier(bAmped);
 	SwitchAmplifier(bAmped);
 }
-
-//==============================================
-// Amp Code
-//==============================================
 
 function ServerSwitchAmplifier(bool bNewValue)
 {

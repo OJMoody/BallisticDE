@@ -10,8 +10,10 @@ class FMPSecondaryFire extends BallisticProInstantFire;
 
 simulated event ModeDoFire()
 {
-	if (Weapon.Role == ROLE_Authority)
-		FMPMachinePistol(Weapon).ToggleAmplifier();
+	if (!Instigator.IsLocallyControlled())
+		return;
+	if (AllowFire())
+	FMPMachinePistol(Weapon).ToggleAmplifier();
 }
 
 defaultproperties

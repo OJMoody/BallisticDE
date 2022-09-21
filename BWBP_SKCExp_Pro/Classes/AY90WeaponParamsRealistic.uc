@@ -43,7 +43,7 @@ defaultproperties
 		Speed=10000.000000
 		MaxSpeed=10000.000000
 		AccelSpeed=90000.000000
-		Damage=75
+		Damage=150
 		DamageRadius=30.000000
 		HeadMult=2.000000
 		LimbMult=0.500000
@@ -69,10 +69,10 @@ defaultproperties
 	Begin Object Class=ProjectileEffectParams Name=RealisticPrimaryMaxEffectParams
 		ProjectileClass=Class'BWBP_SKCExp_Pro.AY90TestProjectile'
 		SpawnOffset=(X=10.000000,Y=10.000000,Z=-9.000000)
-		Speed=14500.000000
+		Speed=10000.000000
 		MaxSpeed=1000000.000000
 		AccelSpeed=90000.000000
-		Damage=500
+		Damage=400
 		DamageRadius=832.000000
 		HeadMult=2.000000
 		LimbMult=0.500000
@@ -80,7 +80,7 @@ defaultproperties
 		SpreadMode=FSM_Rectangle
 		MuzzleFlashClass=Class'BallisticProV55.A73FlashEmitter'
 		FireSound=(Sound=Sound'BWBP_SKC_Sounds.SkrithBow.SkrithBow-BoltBlastMax',Volume=1.200000,Slot=SLOT_Interact,bNoOverride=False)
-		Recoil=256.000000
+		Recoil=1024.000000
 		Chaos=-1.0
 		Inaccuracy=(X=9,Y=6)
 		WarnTargetPct=0.200000	
@@ -138,7 +138,7 @@ defaultproperties
 		YRandFactor=0.300000
 		MaxRecoil=1024.000000
 		DeclineTime=1.500000
-		ViewBindFactor=0.450000
+		ViewBindFactor=0.150000
 		HipMultiplier=1.000000
 		CrouchMultiplier=0.600000
 		bViewDecline=True
@@ -151,14 +151,14 @@ defaultproperties
 	Begin Object Class=AimParams Name=RealisticAimParams
 		SprintOffset=(Pitch=-3000,Yaw=-5000)
 		JumpOffset=(Pitch=-4000,Yaw=-3000)
-		AimSpread=(Min=16,Max=1740)
+		AimSpread=(Min=256,Max=1536)
 		CrouchMultiplier=0.600000
 		ADSMultiplier=0.700000
 		ViewBindFactor=0.100000
 		SprintChaos=0.400000
 		AimDamageThreshold=75.000000
 		ChaosDeclineTime=2.000000
-		ChaosSpeedThreshold=600.000000
+		ChaosSpeedThreshold=550.000000
 	End Object
     
 	//=================================================================
@@ -168,6 +168,7 @@ defaultproperties
 	Begin Object Class=WeaponParams Name=RealisticParams
 		InventorySize=15
 		SightMoveSpeedFactor=0.500000
+		SightingTime=0.250000
 		SightOffset=(Y=4.700000,Z=8.000000)
 		SightPivot=(Pitch=768)
 		RecoilParams(0)=RecoilParams'RealisticRecoilParams'
