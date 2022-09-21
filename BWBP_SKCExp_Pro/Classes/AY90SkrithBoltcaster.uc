@@ -381,7 +381,7 @@ defaultproperties
      SightDisplayFOV=40.000000
      ParamsClasses(0)=Class'AY90WeaponParamsArena'
      ParamsClasses(1)=Class'AY90WeaponParamsClassic'
-	 ParamsClasses(2)=Class'AY90WeaponParamsClassic'
+	 ParamsClasses(2)=Class'AY90WeaponParamsRealistic'
 	 ParamsClasses(3)=Class'AY90WeaponParamsClassic'
      FireModeClass(0)=Class'BWBP_SKCExp_Pro.AY90PrimaryFire'
      FireModeClass(1)=Class'BWBP_SKCExp_Pro.AY90SecondaryFire'
