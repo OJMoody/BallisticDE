@@ -24,7 +24,7 @@ var   actor					MuzzleFlashAmp1;
 var() class<actor>			MuzzleFlashClassAmp2;
 var   actor					MuzzleFlashAmp2;
 
-var() array<Material> CamoMaterials; //We're using this for the amp
+var() array<Material> AmpMaterials; //We're using this for the amp
 		
 var bool		bAmp1, bOldAmp1;	//cryo
 var bool		bAmp2, bOldAmp2;	//RAD
@@ -59,8 +59,8 @@ simulated event PostNetReceive()
 		bOldAmp1 = bAmp1;
 		if (bAmped && bAmp1)
 		{
-			Skins[5]=CamoMaterials[1];
-			Skins[6]=CamoMaterials[2];
+			Skins[5]=AmpMaterials[1];
+			Skins[6]=AmpMaterials[2];
 		}
 	}
 	if (bAmp2 != bOldAmp2)	//RAD
@@ -68,8 +68,8 @@ simulated event PostNetReceive()
 		bOldAmp2 = bAmp2;
 		if (bAmped && bAmp1)
 		{
-			Skins[5]=CamoMaterials[0];
-			Skins[6]=CamoMaterials[3];
+			Skins[5]=AmpMaterials[0];
+			Skins[6]=AmpMaterials[3];
 		}
 	}
 	Super.PostNetReceive();
@@ -105,13 +105,13 @@ simulated function SetAmpColour(bool bIsAmp1, bool bIsAmp2)
 	//set skins
 	if (bAmped && bAmp1)	//cryo
 	{
-		Skins[5]=CamoMaterials[1];
-		Skins[6]=CamoMaterials[2];
+		Skins[5]=AmpMaterials[1];
+		Skins[6]=AmpMaterials[2];
 	}
 	if (bAmped && bAmp2)	//RAD
 	{
-		Skins[5]=CamoMaterials[0];
-		Skins[6]=CamoMaterials[3];
+		Skins[5]=AmpMaterials[0];
+		Skins[6]=AmpMaterials[3];
 	}
 }
 
@@ -373,10 +373,10 @@ simulated function Destroyed()
 
 defaultproperties
 {
-	 CamoMaterials[0]=Shader'BWBP_SKC_Tex.AMP.Amp-FinalYellow'
-	 CamoMaterials[1]=Shader'BWBP_SKC_Tex.AMP.Amp-FinalCyan'
-	 CamoMaterials[2]=Shader'BWBP_SKC_Tex.Amp.Amp-GlowCyanShader'
-     CamoMaterials[3]=Shader'BWBP_SKC_Tex.Amp.Amp-GlowYellowShader'
+	 AmpMaterials[0]=Shader'BWBP_SKC_Tex.AMP.Amp-FinalYellow'
+	 AmpMaterials[1]=Shader'BWBP_SKC_Tex.AMP.Amp-FinalCyan'
+	 AmpMaterials[2]=Shader'BWBP_SKC_Tex.Amp.Amp-GlowCyanShader'
+     AmpMaterials[3]=Shader'BWBP_SKC_Tex.Amp.Amp-GlowYellowShader'
 
      MuzzleFlashClassAmp1=Class'BWBP_SKCExp_Pro.SX45CryoFlash'
      MuzzleFlashClassAmp2=Class'BWBP_SKCExp_Pro.SX45RadMuzzleFlash'

@@ -160,29 +160,30 @@ simulated function DestroyEffects()
 
 defaultproperties
 {
-     ImpactManager=Class'BallisticProV55.IM_A73Lob'
+     MyDamageType=Class'BWBP_SKCExp_Pro.DTAY90Skrith'
+	 DamageTypeHead=Class'BWBP_SKCExp_Pro.DTAY90SkrithHead'
+     MyRadiusDamageType=Class'BWBP_SKCExp_Pro.DTAY90SkrithRadius'
+	 ImpactManager=Class'BallisticProV55.IM_A73Lob'
      PenetrateManager=Class'BWBP_SKCExp_Pro.IM_HVPCProjectile'
      bPenetrate=True
-     //bRandomStartRotaion=False
+     bRandomStartRotation=False
      AccelSpeed=90000.000000
      TrailClass=Class'BallisticProV55.A73TrailEmitter'
-     MyRadiusDamageType=Class'BWBP_SKCExp_Pro.DTPlasmaCharge'
      bUsePositionalDamage=True
      Damage=75
      HeadMult=1.5
      LimbMult=0.5
-     DamageTypeHead=Class'BWBP_SKCExp_Pro.DTPlasmaChargeHead'
      SplashManager=Class'BallisticProV55.IM_ProjWater'
      Speed=50.000000
      MaxSpeed=8000.000000
      DamageRadius=265.000000
      MomentumTransfer=65000.000000
-     MyDamageType=Class'BWBP_SKCExp_Pro.DTPlasmaCharge'
      LightType=LT_Steady
      LightEffect=LE_QuadraticNonIncidence
-     LightSaturation=70
+     LightHue=150
+     LightSaturation=0
      LightBrightness=192.000000
-     LightRadius=12.000000
+	 LightRadius=9.000000
      StaticMesh=StaticMesh'BW_Core_WeaponStatic.A73.A73Projectile'
      bDynamicLight=True
      AmbientSound=Sound'BW_Core_WeaponSound.A73.A73ProjFly'

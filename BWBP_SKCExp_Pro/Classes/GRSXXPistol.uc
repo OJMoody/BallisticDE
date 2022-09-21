@@ -35,12 +35,14 @@ var(GRSXX)  float 		DrainRate;					// Rate that ampjuice leaks out
 var(GRSXX)	bool		bShowCharge;				// Hides charge until the amp is on
 var(GRSXX)	bool		bRemovableAmp;
 
+var() array<Material> AmpMaterials; //We're using this for the amp
+
 replication
 {
 	reliable if (Role < ROLE_Authority)
 		ServerSwitchAmplifier;
 	reliable if (Role == ROLE_Authority)
-		bLaserOn, LaserAmmo, bRemovableAmp, ClientSetHeat, SwitchAmplifier;
+		bLaserOn, LaserAmmo, bRemovableAmp, ClientSetHeat;
 }
 
 simulated event PreBeginPlay()
@@ -82,6 +84,10 @@ simulated function bool CanAlternate(int Mode)
 simulated event WeaponTick(float DT)
 {
 	super.WeaponTick(DT);
+	
+	if (AmpCharge > 0)
+		AddHeat(-DrainRate * DT);
+	
 	if (GlowFX != None)
 	{
 		GRSXXAmbientFX(GlowFX).SetReadyIndicator (FireMode[1]!=None && !FireMode[1].IsFiring() && level.TimeSeconds - GRSXXSecondaryFire(FireMode[1]).StopFireTime >= 0.8 && LaserAmmo > 0);
@@ -101,9 +107,6 @@ simulated event WeaponTick(float DT)
 			GRSXXAmbientFX(GlowFX).SetFireGlow(false);
 		}
 	}
-
-	if (AmpCharge > 0)
-		AmpCharge = FMax(0, AmpCharge - DrainRate*DT);
 }
 
 simulated event Tick (float DT)
@@ -565,6 +568,8 @@ function ServerSwitchAmplifier(bool bNewValue)
 		CurrentWeaponMode=3;
 		ServerSwitchWeaponMode(3);
 		AmpCharge=10;
+		Skins[4]=AmpMaterials[0];
+		Skins[5]=AmpMaterials[1];
 	}
 	else
 	{
@@ -592,6 +597,9 @@ simulated function SwitchAmplifier(bool bNewValue)
 		WeaponModes[1].bUnavailable=true;
 		WeaponModes[2].bUnavailable=true;
 		WeaponModes[3].bUnavailable=false;
+		AmpCharge=10;
+		Skins[4]=AmpMaterials[0];
+		Skins[5]=AmpMaterials[1];
 	}
 	else
 	{
@@ -600,6 +608,7 @@ simulated function SwitchAmplifier(bool bNewValue)
 		WeaponModes[1].bUnavailable=false;
 		WeaponModes[2].bUnavailable=false;
 		WeaponModes[3].bUnavailable=true;
+		AmpCharge=0;
 	}
 		
 	//if (Role == ROLE_Authority)
@@ -636,11 +645,10 @@ simulated function AddHeat(float Amount)
 	if (bBerserk)
 		Amount *= 0.75;
 		
-	AmpCharge += Amount;
+	AmpCharge = FMax(0, AmpCharge + Amount);
 	
-	if (AmpCharge <= 0.25)
+	if (AmpCharge <= 0)
 	{
-		AmpCharge = 0;
 		PlaySound(AmplifierPowerOffSound,,2.0,,32);
 		WeaponModes[0].bUnavailable=false;
 		WeaponModes[1].bUnavailable=false;
@@ -648,6 +656,8 @@ simulated function AddHeat(float Amount)
 		WeaponModes[3].bUnavailable=true;
 		CurrentWeaponMode=2;
 		ServerSwitchWeaponMode(2);
+		Skins[4]=AmpMaterials[2];
+		Skins[5]=AmpMaterials[3];
 		//if (Role == ROLE_Authority)
 		//	SX45Attachment(ThirdPersonActor).SetAmped(false);
 	}
@@ -723,6 +733,11 @@ function float SuggestDefenseStyle()	{	return -0.8;	}
 defaultproperties
 {
 	bAmped=True
+	Skins[0]=Shader'BW_Core_WeaponTex.Hands.Hands-Shiny'
+	AmpMaterials[0]=Shader'BWBP_SKC_TexExp.Glock_Gold.GRSXX-AmpShine'
+	AmpMaterials[1]=Shader'BWBP_SKC_TexExp.Glock_Gold.GRSXX-AmpGlowShader'
+	AmpMaterials[2]=Shader'BWBP_SKC_TexExp.Glock_Gold.Amp-GoldDepleted-Shine'
+	AmpMaterials[3]=Texture'ONSstructureTextures.CoreGroup.Invisible'
     AmplifierBone="AMP"
     AmplifierOnAnim="AMPApply"
     AmplifierOffAnim="AMPRemove"
@@ -730,7 +745,7 @@ defaultproperties
     AmplifierOffSound=Sound'BW_Core_WeaponSound.SRS900.SRS-SilencerOff'
     AmplifierPowerOnSound=Sound'BWBP_SKC_SoundsExp.GRSXX.GRSXX-Select'
     AmplifierPowerOffSound=Sound'BWBP_SKC_Sounds.AMP.Amp-Depleted'
-	DrainRate=0.01
+	DrainRate=0.1
 	AIRating=0.6
 	CurrentRating=0.6
 	LaserAmmo=3.500000

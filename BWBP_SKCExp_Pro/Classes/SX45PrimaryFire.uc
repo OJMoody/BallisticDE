@@ -14,7 +14,8 @@ var(SX45) Actor						MuzzleFlashAmp2;
 var(SX45) class<Actor>				MuzzleFlashClassAmp1;	
 var(SX45) class<Actor>				MuzzleFlashClassAmp2;	
 var(SX45) Name						AmpFlashBone;
-var(SX45) float						AmpFlashScaleFactor;
+var(SX45) float						AmpFlashScaleFactor1;
+var(SX45) float						AmpFlashScaleFactor2;
 var(SX45) bool						bAmped;
 var(SX45) float						AmpDrainPerShot;
 
@@ -36,9 +37,9 @@ function InitEffects()
     if ((MuzzleFlashClass != None) && ((MuzzleFlash == None) || MuzzleFlash.bDeleteMe) )
 		class'BUtil'.static.InitMuzzleFlash (MuzzleFlash, MuzzleFlashClass, Weapon.DrawScale*FlashScaleFactor, weapon, FlashBone);
     if ((MuzzleFlashClassAmp1 != None) && ((MuzzleFlashAmp1 == None) || MuzzleFlashAmp1.bDeleteMe) )
-		class'BUtil'.static.InitMuzzleFlash (MuzzleFlashAmp1, MuzzleFlashClassAmp1, Weapon.DrawScale*FlashScaleFactor, weapon, AmpFlashBone);
+		class'BUtil'.static.InitMuzzleFlash (MuzzleFlashAmp1, MuzzleFlashClassAmp1, Weapon.DrawScale*AmpFlashScaleFactor1, weapon, AmpFlashBone);
     if ((MuzzleFlashClassAmp2 != None) && ((MuzzleFlashAmp2 == None) || MuzzleFlashAmp2.bDeleteMe) )
-		class'BUtil'.static.InitMuzzleFlash (MuzzleFlashAmp2, MuzzleFlashClassAmp2, Weapon.DrawScale*AmpFlashScaleFactor, weapon, AmpFlashBone);
+		class'BUtil'.static.InitMuzzleFlash (MuzzleFlashAmp2, MuzzleFlashClassAmp2, Weapon.DrawScale*AmpFlashScaleFactor2, weapon, AmpFlashBone);
 
 }
 
@@ -119,6 +120,7 @@ function PlayFiring()
 		FireAnim = 'Fire';
 	}
 	super.PlayFiring();
+	
 	if (bAmped)
 		SX45Pistol(BW).AddHeat(AmpDrainPerShot);
 }
@@ -190,7 +192,8 @@ defaultproperties
 {
 	 AmpDrainPerShot=-0.85
 	 AmpFlashBone="tip2"
-     AmpFlashScaleFactor=0.500000
+     AmpFlashScaleFactor1=1.000000
+	 AmpFlashScaleFactor2=2.500000
 	 FlashBone="tip"
 	 FlashScaleFactor=0.9
 	 TraceRange=(Min=4000.000000,Max=4000.000000)
