@@ -318,11 +318,11 @@ function float SuggestDefenseStyle()	{	return 0.5;	}
 defaultproperties
 {
 	DrainRate=0.15
-	AmpMaterials[0]=Shader'BWBP_SKC_Tex.Amp.Amp-FinalGreen'
-	AmpMaterials[1]=Shader'BWBP_SKC_Tex.Amp.Amp-FinalRed'
-	AmpMaterials[2]=Shader'BWBP_SKC_Tex.AMP.Amp-GlowRedShader'
-	AmpMaterials[3]=Shader'BWBP_SKC_Tex.AMP.Amp-GlowGreenShader'
-	AmpMaterials[4]=Texture'BWBP_SKC_Tex.Amp.Amp-BaseDepleted'
+	AmpMaterials[0]=Shader'BW_Core_WeaponTex.Amp.Amp-FinalGreen'
+	AmpMaterials[1]=Shader'BW_Core_WeaponTex.Amp.Amp-FinalRed'
+	AmpMaterials[2]=Shader'BW_Core_WeaponTex.AMP.Amp-GlowRedShader'
+	AmpMaterials[3]=Shader'BW_Core_WeaponTex.AMP.Amp-GlowGreenShader'
+	AmpMaterials[4]=Texture'BW_Core_WeaponTex.Amp.Amp-BaseDepleted'
 	AmpMaterials[5]=Texture'ONSstructureTextures.CoreGroup.Invisible'
 	AmplifierBone="Amplifier1"
 	AmplifierBone2="Amplifier2"
@@ -333,8 +333,8 @@ defaultproperties
 	CockingBringUpTime=1.500000
 	AmplifierOnSound=Sound'BW_Core_WeaponSound.SRS900.SRS-SilencerOn'
 	AmplifierOffSound=Sound'BW_Core_WeaponSound.SRS900.SRS-SilencerOff'
-	AmplifierPowerOnSound=Sound'BWBP_SKC_Sounds.AMP.Amp-Install'
-	AmplifierPowerOffSound=Sound'BWBP_SKC_Sounds.AMP.Amp-Depleted'
+	AmplifierPowerOnSound=Sound'BW_Core_WeaponSound.AMP.Amp-Install'
+	AmplifierPowerOffSound=Sound'BW_Core_WeaponSound.AMP.Amp-Depleted'
 	bShowChargingBar=True
 	TeamSkins(0)=(RedTex=Shader'BW_Core_WeaponTex.Hands.RedHand-Shiny',BlueTex=Shader'BW_Core_WeaponTex.Hands.BlueHand-Shiny')
 	AIReloadTime=1.000000
@@ -391,6 +391,6 @@ defaultproperties
 	Skins(0)=Shader'BW_Core_WeaponTex.Hands.Hands-Shiny'
 	Skins(1)=Shader'BWBP_SKC_TexExp.MP40.MP40-MainShine'
 	Skins(2)=Shader'BWBP_SKC_TexExp.MP40.MP40-MagShine'
-	Skins(3)=Shader'BWBP_SKC_Tex.Amp.Amp-FinalRed'
-	Skins(4)=Shader'BWBP_SKC_Tex.AMP.Amp-GlowRedShader'
+	Skins(3)=Shader'BW_Core_WeaponTex.Amp.Amp-FinalRed'
+	Skins(4)=Shader'BW_Core_WeaponTex.AMP.Amp-GlowRedShader'
 }

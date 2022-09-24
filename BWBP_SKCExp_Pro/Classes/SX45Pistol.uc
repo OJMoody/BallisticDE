@@ -462,11 +462,11 @@ static function class<Pickup> RecommendAmmoPickup(int Mode)
 defaultproperties
 {
 	DrainRate=0.15
-	AmpMaterials[0]=Shader'BWBP_SKC_Tex.AMP.Amp-FinalYellow'
-	AmpMaterials[1]=Shader'BWBP_SKC_Tex.AMP.Amp-FinalCyan'
-	AmpMaterials[2]=Shader'BWBP_SKC_Tex.Amp.Amp-GlowCyanShader'
-    AmpMaterials[3]=Shader'BWBP_SKC_Tex.Amp.Amp-GlowYellowShader'
-    AmpMaterials[4]=Texture'BWBP_SKC_Tex.Amp.Amp-BaseDepleted'
+	AmpMaterials[0]=Shader'BW_Core_WeaponTex.AMP.Amp-FinalYellow'
+	AmpMaterials[1]=Shader'BW_Core_WeaponTex.AMP.Amp-FinalCyan'
+	AmpMaterials[2]=Shader'BW_Core_WeaponTex.Amp.Amp-GlowCyanShader'
+    AmpMaterials[3]=Shader'BW_Core_WeaponTex.Amp.Amp-GlowYellowShader'
+    AmpMaterials[4]=Texture'BW_Core_WeaponTex.Amp.Amp-BaseDepleted'
     AmpMaterials[5]=Texture'ONSstructureTextures.CoreGroup.Invisible'
     AmplifierBone="AMP"
     AmplifierBone2="AMP2"
@@ -477,8 +477,8 @@ defaultproperties
     TorchOffSound=Sound'BW_Core_WeaponSound.MRS38.RSS-FlashClick'
     AmplifierOnSound=Sound'BW_Core_WeaponSound.SRS900.SRS-SilencerOn'
     AmplifierOffSound=Sound'BW_Core_WeaponSound.SRS900.SRS-SilencerOff'
-    AmplifierPowerOnSound=Sound'BWBP_SKC_Sounds.AMP.Amp-Install'
-    AmplifierPowerOffSound=Sound'BWBP_SKC_Sounds.AMP.Amp-Depleted'
+    AmplifierPowerOnSound=Sound'BW_Core_WeaponSound.AMP.Amp-Install'
+    AmplifierPowerOffSound=Sound'BW_Core_WeaponSound.AMP.Amp-Depleted'
 	bShowChargingBar=True
 	TeamSkins(0)=(RedTex=Shader'BW_Core_WeaponTex.Hands.RedHand-Shiny',BlueTex=Shader'BW_Core_WeaponTex.Hands.BlueHand-Shiny')
 	AIReloadTime=1.000000
@@ -544,6 +544,6 @@ defaultproperties
     Skins(3)=Texture'BWBP_SKC_TexExp.SX45.SX45-Sight'
     Skins(4)=Texture'BWBP_SKC_TexExp.SX45.SX45-Main'
     Skins(5)=Texture'BWBP_SKC_TexExp.SX45.SX45-Laser'
-    Skins(6)=Shader'BWBP_SKC_Tex.Amp.Amp-FinalCyan'
-	Skins(7)=Shader'BWBP_SKC_Tex.Amp.Amp-GlowCyanShader'
+    Skins(6)=Shader'BW_Core_WeaponTex.Amp.Amp-FinalCyan'
+	Skins(7)=Shader'BW_Core_WeaponTex.Amp.Amp-GlowCyanShader'
 }

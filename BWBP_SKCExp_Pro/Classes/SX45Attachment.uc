@@ -373,10 +373,10 @@ simulated function Destroyed()
 
 defaultproperties
 {
-	 AmpMaterials[0]=Shader'BWBP_SKC_Tex.AMP.Amp-FinalYellow'
-	 AmpMaterials[1]=Shader'BWBP_SKC_Tex.AMP.Amp-FinalCyan'
-	 AmpMaterials[2]=Shader'BWBP_SKC_Tex.Amp.Amp-GlowCyanShader'
-     AmpMaterials[3]=Shader'BWBP_SKC_Tex.Amp.Amp-GlowYellowShader'
+	 AmpMaterials[0]=Shader'BW_Core_WeaponTex.AMP.Amp-FinalYellow'
+	 AmpMaterials[1]=Shader'BW_Core_WeaponTex.AMP.Amp-FinalCyan'
+	 AmpMaterials[2]=Shader'BW_Core_WeaponTex.Amp.Amp-GlowCyanShader'
+     AmpMaterials[3]=Shader'BW_Core_WeaponTex.Amp.Amp-GlowYellowShader'
 
      MuzzleFlashClassAmp1=Class'BWBP_SKCExp_Pro.SX45CryoFlash'
      MuzzleFlashClassAmp2=Class'BWBP_SKCExp_Pro.SX45RadMuzzleFlash'
@@ -402,7 +402,6 @@ defaultproperties
      CockingAnim="Cock_RearPull"
      ReloadAnimRate=1.400000
      bRapidFire=True
-     bAltRapidFire=True
      Mesh=SkeletalMesh'BWBP_SKC_AnimExp.SX45_TPm'
      DrawScale=1.000000
 }

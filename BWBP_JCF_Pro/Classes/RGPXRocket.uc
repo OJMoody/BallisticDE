@@ -126,11 +126,7 @@ defaultproperties
      TrailOffset=(X=-14.000000)
      MyRadiusDamageType=Class'BWBP_JCF_Pro.DTRGPXBazookaRadius'
      SplashManager=Class'BallisticProV55.IM_ProjWater'
-     ShakeRadius=378.000000
      MotionBlurRadius=512.000000
-     ShakeRotMag=(X=512.000000,Y=400.000000)
-     ShakeRotRate=(X=3000.000000,Z=3000.000000)
-     ShakeOffsetMag=(X=20.000000,Y=30.000000,Z=30.000000)
      Speed=2000.000000
      MaxSpeed=25000.000000
      Damage=80.000000

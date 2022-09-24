@@ -18,7 +18,7 @@ defaultproperties
 		DamageTypeHead=Class'BWBP_JCF_Pro.DTM99RifleHead'
 		DamageTypeArm=Class'BWBP_JCF_Pro.DTM99Rifle'
 		PenetrationEnergy=64.000000
-		PenetrateForce=400
+		PenetrateForce=0.000000
 		bPenetrate=True
 		PDamageFactor=0.6
 		WallPDamageFactor=0.4

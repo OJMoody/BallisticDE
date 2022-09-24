@@ -44,7 +44,7 @@ defaultproperties
 			DamageTypeArm=Class'BWBP_APC_Pro.DTM575Freeze'
 			PenetrateForce=150
 			bPenetrate=True
-			MuzzleFlashClass=Class'BallisticProV55.Fifty9FlashEmitter'
+			MuzzleFlashClass=Class'BWBP_APC_Pro.M575FlashEmitter'
 			FlashScaleFactor=0.250000
 			Recoil=70.000000
 			Chaos=0.050000

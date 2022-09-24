@@ -251,15 +251,17 @@ defaultproperties
      WeaponModes(3)=(ModeName="3600 RPM",bUnavailable=True,ModeID="WM_FullAuto")
 	 NDCrosshairCfg=(Pic1=Texture'BW_Core_WeaponTex.Crosshairs.Misc7',Pic2=Texture'BW_Core_WeaponTex.Crosshairs.Misc10',USize1=256,VSize1=256,USize2=256,VSize2=256,Color1=(B=160,G=80,R=88,A=137),Color2=(B=151,G=150,R=0,A=202),StartSize1=84,StartSize2=61)
      DesiredSpeed=0.33
-     SightPivot=(Pitch=1024,Roll=2048)
      SightOffset=(X=-10.000000,Y=-3.830000,Z=16.900000)
      SightDisplayFOV=45.000000
 	 SightingTime=0.600000
      FireModeClass(0)=Class'BWBP_SWC_Pro.A800MinigunPrimaryFire'
      FireModeClass(1)=Class'BWBP_SWC_Pro.A800MinigunSecondaryFire'
-     SelectAnimRate=1.00000
-     PutDownTime=0.800000
-     BringUpTime=1.000000
+     ScopeViewTex=Texture'BWBP_SWC_Tex.SkrithHyperBlaster.HyperBlaster-Scope'
+     ZoomInSound=(Sound=Sound'BW_Core_WeaponSound.R78.R78ZoomIn',Volume=0.500000,Pitch=1.000000)
+     ZoomOutSound=(Sound=Sound'BW_Core_WeaponSound.R78.R78ZoomOut',Volume=0.500000,Pitch=1.000000)
+	 SelectAnimRate=1.20000
+     PutDownTime=1.200000
+     BringUpTime=1.200000
      SelectForce="SwitchToAssaultRifle"
      AIRating=0.700000
      CurrentRating=0.700000
@@ -277,7 +279,7 @@ defaultproperties
      AttachmentClass=Class'BWBP_SWC_Pro.A800MinigunAttachment'
      IconMaterial=Texture'BWBP_SWC_Tex.SkrithMinigun.SmallIcon_SkrithMinigun'
      IconCoords=(X2=127,Y2=31)
-     ItemName="Y11 Skrith Warthog"
+     ItemName="[B] A800 Skrith HyperBlaster"
      LightType=LT_Pulse
      LightEffect=LE_NonIncidence
      LightHue=30
@@ -285,8 +287,8 @@ defaultproperties
      LightBrightness=150.000000
      LightRadius=4.000000
 	 ParamsClasses(0)=Class'A800SkrithMinigunWeaponParamsArena'
-     Mesh=SkeletalMesh'BWBP_SWC_Anims.FPm_SME'
-     DrawScale=1.000000
+     Mesh=SkeletalMesh'BWBP_SWC_Anims.FPm_SkrithHyperBlaster'
+     DrawScale=0.400000
      SoundRadius=128.000000
 	 bShowChargingBar=True
 }
