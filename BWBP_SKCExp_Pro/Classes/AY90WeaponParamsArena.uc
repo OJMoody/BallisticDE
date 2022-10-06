@@ -16,7 +16,7 @@ defaultproperties
 			AccelSpeed=100000.000000
 			HeadMult=1.5f
 			LimbMult=0.9f
-			Damage=50
+			Damage=20
 			DamageRadius=30.000000
 			MaxDamageGainFactor=0.75
 			DamageGainStartTime=0.05
@@ -46,8 +46,8 @@ defaultproperties
 			AccelSpeed=100000.000000
 			HeadMult=1.5f
 			LimbMult=0.9f
-			Damage=90
-			DamageRadius=100.000000
+			Damage=100
+			DamageRadius=150.000000
 			MaxDamageGainFactor=1.75
 			DamageGainStartTime=0.05
 			DamageGainEndTime=0.25
@@ -76,8 +76,8 @@ defaultproperties
 			AccelSpeed=100000.000000
 			HeadMult=1.5f
 			LimbMult=0.9f
-			Damage=100
-			DamageRadius=450.000000
+			Damage=205
+			DamageRadius=768.000000
 			MaxDamageGainFactor=1.75
 			DamageGainStartTime=0.05
 			DamageGainEndTime=0.25
@@ -107,7 +107,7 @@ defaultproperties
 			Speed=5500.000000
 			MaxSpeed=14000.000000
 			AccelSpeed=70000.000000
-			Damage=72
+			Damage=50
 			DamageRadius=15.000000
 			MaxDamageGainFactor=1.00
 			DamageGainStartTime=0.05

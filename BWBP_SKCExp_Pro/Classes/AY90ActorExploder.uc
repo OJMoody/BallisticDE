@@ -197,10 +197,10 @@ defaultproperties
      DamageType=Class'BWBP_SKCExp_Pro.DT_VSKTranqPsn'
      MyRadiusDamageType=Class'BWBP_SKCExp_Pro.DT_VSKTranqPsn'
      ImpactManager=Class'BWBP_SKCExp_Pro.IM_A73BPower'
-     StickDamage=150
+     StickDamage=50
      Damage=150
      DamageRadius=256.000000
-    RadiusFallOffType=RFO_Quadratic
+     RadiusFallOffType=RFO_Quadratic
      AutoDestroy=True
      bNoDelete=False
      bFullVolume=True

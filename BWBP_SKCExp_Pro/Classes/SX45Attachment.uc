@@ -377,10 +377,8 @@ defaultproperties
 	 AmpMaterials[1]=Shader'BW_Core_WeaponTex.AMP.Amp-FinalCyan'
 	 AmpMaterials[2]=Shader'BW_Core_WeaponTex.Amp.Amp-GlowCyanShader'
      AmpMaterials[3]=Shader'BW_Core_WeaponTex.Amp.Amp-GlowYellowShader'
-
      MuzzleFlashClassAmp1=Class'BWBP_SKCExp_Pro.SX45CryoFlash'
      MuzzleFlashClassAmp2=Class'BWBP_SKCExp_Pro.SX45RadMuzzleFlash'
-	 
 	 MuzzleFlashClass=Class'BWBP_SKCExp_Pro.SX45FlashEmitter'
      AltMuzzleFlashClass=Class'BWBP_SKCExp_Pro.SX45FlashEmitter'
      ImpactManager=Class'BallisticProV55.IM_Bullet'
@@ -401,7 +399,6 @@ defaultproperties
      ReloadAnim="Reload_Pistol"
      CockingAnim="Cock_RearPull"
      ReloadAnimRate=1.400000
-     bRapidFire=True
      Mesh=SkeletalMesh'BWBP_SKC_AnimExp.SX45_TPm'
      DrawScale=1.000000
 }
