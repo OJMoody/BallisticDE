@@ -7,7 +7,8 @@
 // Copyright(c) 2007 RuneStorm. All Rights Reserved.
 //=============================================================================
 class XMV500Minigun_TW extends XMV500Minigun
-    HideDropDown
+    transient
+	HideDropDown
 	CacheExempt;
 
 // Rotates the player's view according to Aim

@@ -245,52 +245,6 @@ simulated function IndirectLaunch()
 //	StartFire(1);
 }
 
-// HARDCODED SIGHTING TIME
-simulated function TickSighting (float DT)
-{
-	if (SightingState == SS_None || SightingState == SS_Active)
-		return;
-
-	if (SightingState == SS_Raising)
-	{	// Raising gun to sight position
-		if (SightingPhase < 1.0)
-		{
-			if ((bScopeHeld || bPendingSightUp) && CanUseSights())
-				SightingPhase += DT/0.20;
-			else
-			{
-				SightingState = SS_Lowering;
-
-				Instigator.Controller.bRun = 0;
-			}
-		}
-		else
-		{	// Got all the way up. Now go to scope/sight view
-			SightingPhase = 1.0;
-			SightingState = SS_Active;
-			ScopeUpAnimEnd();
-		}
-	}
-	else if (SightingState == SS_Lowering)
-	{	// Lowering gun from sight pos
-		if (SightingPhase > 0.0)
-		{
-			if (bScopeHeld && CanUseSights())
-				SightingState = SS_Raising;
-			else
-				SightingPhase -= DT/0.20;
-		}
-		else
-		{	// Got all the way down. Tell the system our anim has ended...
-			SightingPhase = 0.0;
-			SightingState = SS_None;
-			ScopeDownAnimEnd();
-			DisplayFOv = default.DisplayFOV;
-		}
-	}
-}
-
-
 simulated function float RateSelf()
 {
 	if (!HasAmmo())

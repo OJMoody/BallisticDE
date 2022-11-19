@@ -10,7 +10,10 @@
 // by Nolan "Dark Carnivour" Richert.
 // Copyright(c) 2005 RuneStorm. All Rights Reserved.
 //=============================================================================
-class AutoGLauncher extends BallisticMachinegun;
+class AutoGLauncher extends BallisticMachinegun
+	transient
+	HideDropDown
+	CacheExempt;
 
 function InitWeaponFromTurret(BallisticTurret Turret)
 {

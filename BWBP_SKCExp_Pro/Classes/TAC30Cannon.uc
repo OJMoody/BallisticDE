@@ -7,7 +7,10 @@
 // by Sarge, based on code by Runestorm
 // Copyright(c) 2005 RuneStorm. All Rights Reserved.
 //=============================================================================
-class TAC30Cannon extends BallisticWeapon;
+class TAC30Cannon extends BallisticWeapon
+	transient
+	HideDropDown
+	CacheExempt;
 
 var float		lastModeChangeTime;
 
