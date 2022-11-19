@@ -6,9 +6,11 @@
 //=============================================================================
 class SX45SecondaryFire extends BallisticFire;
 
-event ModeDoFire()
+simulated event ModeDoFire()
 {
-	if (Weapon.Role == ROLE_Authority)
+	if (!Instigator.IsLocallyControlled())
+		return;
+	if (AllowFire())
 		SX45Pistol(Weapon).ToggleAmplifier();
 }
 

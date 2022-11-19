@@ -6,21 +6,21 @@
 // by Nolan "Dark Carnivour" Richert.
 // Copyright(c) 2006 RuneStorm. All Rights Reserved.
 //=============================================================================
-class DTA73BSkrithHead extends DT_BWMiscDamage;
+class DTAY90SkrithAltHead extends DT_BWMiscDamage;
 
 defaultproperties
 {
-     DeathStrings(0)="%k burned through %o's scalp with the A73-E."
-     DeathStrings(1)="%o's brain was melted by %k's A73-E."
-     DeathStrings(2)="%o intercepted %k's A73-E bolt with %vh head."
-     DeathStrings(3)="%k scored a headshot on %o with the A73-E."
+     DeathStrings(0)="%k decapitated and cauterized %o's neck stump."
+     DeathStrings(1)="%o's head was bifurcated by %k's Vulture."
+     DeathStrings(2)="%k's Vulture annihilated %o's face into something unrecognizable."
+     DeathStrings(3)="%o couldn't eat all of %k's Plasma spread, it was too spicy."
      BloodManagerName="BWBP_SKCExp_Pro.BloodMan_A73B"
      bIgniteFires=True
      DamageDescription=",Flame,Plasma,"
      WeaponClass=Class'BWBP_SKCExp_Pro.AY90SkrithBoltcaster'
-     DeathString="%k burned through %o's scalp with the A73-E."
-     FemaleSuicide="%o's A73-E turned on her."
-     MaleSuicide="%o's A73-E turned on him."
+     DeathString="%k burned through %o's scalp with the AY90."
+     FemaleSuicide="%o's AY90 turned on her."
+     MaleSuicide="%o's AY90 turned on him."
      bAlwaysSevers=True
      bSpecial=True
      GibPerterbation=0.200000

@@ -62,6 +62,8 @@ defaultproperties
 	Begin Object Class=WeaponParams Name=ArenaParams
 		WeaponBoneScales(0)=(BoneName="RCAttachment",Slot=1,Scale=0f)
 		WeaponBoneScales(1)=(BoneName="RCSlider",Slot=2,Scale=0f)
+		WeaponBoneScales(2)=(BoneName="RCSliderFront",Slot=3,Scale=0f)
+		WeaponBoneScales(3)=(BoneName="RCAttachmentIron",Slot=4,Scale=0f)
 		DisplaceDurationMult=0.75
 		PlayerSpeedFactor=1.050000
 		SightingTime=0.250000
@@ -76,6 +78,5 @@ defaultproperties
 		AltFireParams(0)=FireParams'ArenaSecondaryFireParams'
 	End Object
 	Layouts(0)=WeaponParams'ArenaParams'
-
 
 }

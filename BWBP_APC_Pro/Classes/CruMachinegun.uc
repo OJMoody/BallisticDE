@@ -10,7 +10,10 @@
 // by Nolan "Dark Carnivour" Richert.
 // Copyright(c) 2005 RuneStorm. All Rights Reserved.
 //=============================================================================
-class CruMachinegun extends BallisticMachinegun;
+class CruMachinegun extends BallisticMachinegun
+	transient
+	HideDropDown
+	CacheExempt;
 
 var() BUtil.FullSound	LeverUpSound;	// Sound to play when Lever opens
 var() BUtil.FullSound	LeverDownSound;	// Sound to play when Lever closes

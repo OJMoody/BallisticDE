@@ -111,7 +111,8 @@ simulated function Explode(vector HitLocation, vector HitNormal)
 	}
 	else
 	{
-		Proj = Spawn (class'AY90Mine',,, LastHitLoc, R);
+		StickActor(StuckActor);
+		/*Proj = Spawn (class'AY90Mine',,, LastHitLoc, R);
 		Proj.Instigator = Instigator;
 		Proj.SetPhysics(PHYS_None);
 		Proj.bHardAttach = true;
@@ -119,11 +120,21 @@ simulated function Explode(vector HitLocation, vector HitNormal)
 			StuckActor.AttachToBone(Proj, StuckActor.GetClosestBone(LastHitLoc, Velocity, BoneDist));
 		else
 			Proj.SetBase(StuckActor);
+			*/
 	}
 	Proj.SetRotation(R);
 	Proj.Velocity = vect(0,0,0);
 
 	Destroy();
+}
+
+simulated function StickActor(Actor A)
+{
+	local AY90ActorExploder AE;
+
+	AE = Spawn(class'AY90ActorExploder');
+	AE.Instigator = Instigator;
+	AE.Initialize(A);
 }
 
 //used to set falling gravity after a short delay
@@ -151,11 +162,11 @@ simulated event Timer()
 
 defaultproperties
 {
-     ImpactManager=Class'BWBP_SKCExp_Pro.IM_HVPCProjectileSmall'
+     ImpactManager=Class'BallisticProV55.IM_A73Projectile'
      bCheckHitSurface=True
-     //bRandomStartRotaion=False
-     TrailClass=Class'BWBP_SKCExp_Pro.A73BTrailEmitter'
-     MyRadiusDamageType=Class'BWBP_SKC_Pro.DTBulldogFRAGRadius'
+     bRandomStartRotation=False
+     TrailClass=Class'BallisticProV55.A73TrailEmitter'
+     MyRadiusDamageType=Class'BWBP_SKCExp_Pro.DTAY90SkrithRadius'
      SplashManager=Class'BallisticProV55.IM_ProjWater'
      ShakeRadius=1024.000000
      MotionBlurRadius=200.000000
@@ -168,15 +179,18 @@ defaultproperties
      MomentumTransfer=30000.000000
 	 LightType=LT_Steady
      LightEffect=LE_QuadraticNonIncidence
-     LightSaturation=70
+     LightHue=150
+     LightSaturation=0
      LightBrightness=192.000000
-     LightRadius=12.000000
+     LightRadius=6.000000
      StaticMesh=StaticMesh'BW_Core_WeaponStatic.A73.A73Projectile'
+	 Skins(1)=FinalBlend'BWBP_SKC_Tex.SkrithBow.AY90ProjectileFast1-Final'
+     Skins(0)=FinalBlend'BWBP_SKC_Tex.A73b.AY90Projectile2-Final'
      bDynamicLight=True
      AmbientSound=Sound'BW_Core_WeaponSound.A73.A73ProjFly'
      LifeSpan=6.000000
-     MyDamageType=Class'BWBP_SKC_Pro.DTBulldogFRAG'
-//     Physics=PHYS_Falling
+     MyDamageType=Class'BWBP_SKCExp_Pro.DTAY90Skrith'
+	 DamageTypeHead=Class'BWBP_SKCExp_Pro.DTAY90SkrithHead'
      DrawScale3D=(X=0.500000,Y=1.000000,Z=1.000000)
      DrawScale=0.500000
      Style=STY_Additive

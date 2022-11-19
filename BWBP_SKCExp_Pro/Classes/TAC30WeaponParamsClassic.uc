@@ -81,7 +81,7 @@ defaultproperties
 	
 	Begin Object Class=WeaponParams Name=ArenaParams
 		PlayerSpeedFactor=0.850000
-		InventorySize=30
+		InventorySize=26
 		MagAmmo=10
 		SightOffset=(X=0.000000,Y=10.000000,Z=16.000000)
 		SightPivot=(Pitch=1024,Roll=2048)

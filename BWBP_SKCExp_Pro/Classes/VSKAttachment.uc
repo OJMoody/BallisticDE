@@ -30,7 +30,6 @@ simulated function Vector GetModeTipLocation(optional byte Mode)
 
 defaultproperties
 {
-	 RelativeLocation=(X=20.000000,Z=25.000000)
 	 RelativeRotation=(Pitch=32768)
      MuzzleFlashClass=Class'BWBP_SKCExp_Pro.VSKSilencedFlash'
      ImpactManager=Class'BWBP_SKCExp_Pro.IM_Tranq'

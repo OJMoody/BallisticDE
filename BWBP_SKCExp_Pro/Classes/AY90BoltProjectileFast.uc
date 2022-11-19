@@ -160,36 +160,37 @@ simulated function DestroyEffects()
 
 defaultproperties
 {
-     ImpactManager=Class'BWBP_SKCExp_Pro.IM_HVPCProjectile'
-     PenetrateManager=Class'BWBP_SKCExp_Pro.IM_HVPCProjectile'
+     MyDamageType=Class'BWBP_SKCExp_Pro.DTAY90Skrith'
+	 DamageTypeHead=Class'BWBP_SKCExp_Pro.DTAY90SkrithHead'
+     MyRadiusDamageType=Class'BWBP_SKCExp_Pro.DTAY90SkrithRadius'
+	 ImpactManager=Class'BallisticProV55.IM_A73Lob'
+     PenetrateManager=Class'BallisticProV55.IM_A73Lob'
      bPenetrate=True
-     //bRandomStartRotaion=False
+     bRandomStartRotation=False
      AccelSpeed=90000.000000
-     TrailClass=Class'BWBP_SKCExp_Pro.A73BTrailEmitter'
-     MyRadiusDamageType=Class'BWBP_SKCExp_Pro.DTPlasmaCharge'
+     TrailClass=Class'BallisticProV55.A73TrailEmitter'
      bUsePositionalDamage=True
      Damage=75
      HeadMult=1.5
      LimbMult=0.5
-     DamageTypeHead=Class'BWBP_SKCExp_Pro.DTPlasmaChargeHead'
      SplashManager=Class'BallisticProV55.IM_ProjWater'
      Speed=50.000000
      MaxSpeed=8000.000000
      DamageRadius=265.000000
      MomentumTransfer=65000.000000
-     MyDamageType=Class'BWBP_SKCExp_Pro.DTPlasmaCharge'
      LightType=LT_Steady
      LightEffect=LE_QuadraticNonIncidence
-     LightSaturation=70
+     LightHue=150
+     LightSaturation=0
      LightBrightness=192.000000
-     LightRadius=12.000000
+	 LightRadius=9.000000
      StaticMesh=StaticMesh'BW_Core_WeaponStatic.A73.A73Projectile'
      bDynamicLight=True
      AmbientSound=Sound'BW_Core_WeaponSound.A73.A73ProjFly'
      LifeSpan=6.000000
      DrawScale3D=(X=0.500000,Y=3.000000,Z=3.000000)
-     Skins(0)=FinalBlend'BWBP_SKC_Tex.A73b.A73BProjFinal'
-     Skins(1)=FinalBlend'BWBP_SKC_Tex.A73b.A73BProj2Final'
+     Skins(1)=FinalBlend'BWBP_SKC_Tex.SkrithBow.AY90ProjectileFast1-Final'
+     Skins(0)=FinalBlend'BWBP_SKC_Tex.A73b.AY90Projectile2-Final'
      Style=STY_Additive
      SoundVolume=255
      SoundRadius=75.000000

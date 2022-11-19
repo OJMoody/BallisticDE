@@ -56,6 +56,6 @@ defaultproperties
 	 Swaps(4)=(NewVehicles=(Class'BWBP_VPC_Pro.StingRay'),OldVehicle=Class'Onslaught.ONSHoverBike')
 	 Swaps(5)=(NewVehicles=(Class'BWBP_VPC_Pro.Tarantula'),OldVehicle=Class'Onslaught.ONSRV')
 	 GroupName="VehicleArena"
-     FriendlyName="Ballistic Weapons: Vehicles"
+     FriendlyName="BallisticPro: Vehicles"
      Description="Replaces vehicles with ones modified to fit in better with Ballistic Weapons."
 }

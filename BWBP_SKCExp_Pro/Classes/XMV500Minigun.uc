@@ -25,7 +25,10 @@
 //
 // Kab
 //=============================================================================
-class XMV500Minigun extends BallisticWeapon;
+class XMV500Minigun extends BallisticWeapon
+	transient
+	HideDropDown
+	CacheExempt;
 
 #exec OBJ LOAD FILE=BW_Core_WeaponTex.utx
 #exec OBJ LOAD FILE=BWBP_SKC_Tex.utx

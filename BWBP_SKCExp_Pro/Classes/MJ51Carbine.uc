@@ -245,52 +245,6 @@ simulated function IndirectLaunch()
 //	StartFire(1);
 }
 
-// HARDCODED SIGHTING TIME
-simulated function TickSighting (float DT)
-{
-	if (SightingState == SS_None || SightingState == SS_Active)
-		return;
-
-	if (SightingState == SS_Raising)
-	{	// Raising gun to sight position
-		if (SightingPhase < 1.0)
-		{
-			if ((bScopeHeld || bPendingSightUp) && CanUseSights())
-				SightingPhase += DT/0.20;
-			else
-			{
-				SightingState = SS_Lowering;
-
-				Instigator.Controller.bRun = 0;
-			}
-		}
-		else
-		{	// Got all the way up. Now go to scope/sight view
-			SightingPhase = 1.0;
-			SightingState = SS_Active;
-			ScopeUpAnimEnd();
-		}
-	}
-	else if (SightingState == SS_Lowering)
-	{	// Lowering gun from sight pos
-		if (SightingPhase > 0.0)
-		{
-			if (bScopeHeld && CanUseSights())
-				SightingState = SS_Raising;
-			else
-				SightingPhase -= DT/0.20;
-		}
-		else
-		{	// Got all the way down. Tell the system our anim has ended...
-			SightingPhase = 0.0;
-			SightingState = SS_None;
-			ScopeDownAnimEnd();
-			DisplayFOv = default.DisplayFOV;
-		}
-	}
-}
-
-
 simulated function float RateSelf()
 {
 	if (!HasAmmo())
@@ -362,7 +316,7 @@ defaultproperties
      AIReloadTime=1.000000
      BCRepClass=Class'BallisticProV55.BallisticReplicationInfo'
      TeamSkins(0)=(RedTex=Shader'BW_Core_WeaponTex.Hands.RedHand-Shiny',BlueTex=Shader'BW_Core_WeaponTex.Hands.BlueHand-Shiny')
-     BigIconMaterial=Texture'BWBP_SKC_TexExp.M4A1.BigIcon_M4'
+     BigIconMaterial=Texture'BWBP_SKC_TexExp.G51.BigIcon_G51'
      BringUpSound=(Sound=Sound'BWBP_SKC_Sounds.MJ51.MJ51-PullOut',Volume=2.200000)
      PutDownSound=(Sound=Sound'BWBP_SKC_Sounds.MJ51.MJ51-Putaway',Volume=2.200000)
      WeaponModes(0)=(ModeName="Semi-Auto")
@@ -399,7 +353,7 @@ defaultproperties
      PlayerViewOffset=(X=-8.000000,Y=10.000000,Z=-16.000000)
      BobDamping=2.000000
      AttachmentClass=Class'BWBP_SKCExp_Pro.MJ51Attachment'
-     IconMaterial=Texture'BWBP_SKC_TexExp.M4A1.SmallIcon_M4'
+     IconMaterial=Texture'BWBP_SKC_TexExp.G51.SmallIcon_G51'
      IconCoords=(X2=127,Y2=31)
      ItemName="G51 Carbine"
      LightType=LT_Pulse

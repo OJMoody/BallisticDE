@@ -98,6 +98,7 @@ defaultproperties
 	//=================================================================
 
 	Begin Object Class=AimParams Name=ClassicAimParams
+		SprintOffset=(Pitch=-3000,Yaw=-4000)
 		AimSpread=(Min=16,Max=2050)
 		CrouchMultiplier=0.500000
 		ADSMultiplier=0.700000
@@ -112,7 +113,7 @@ defaultproperties
 	
 	Begin Object Class=WeaponParams Name=ClassicParams
 		Weight=30
-		InventorySize=35
+		InventorySize=11
 		SightMoveSpeedFactor=0.500000
 		SightingTime=0.200000
 		SightOffset=(X=0.000000,Y=-6.450000,Z=24.000000)

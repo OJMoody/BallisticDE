@@ -7,7 +7,10 @@
 // by Nolan "Dark Carnivour" Richert.
 // Copyright(c) 2007 RuneStorm. All Rights Reserved.
 //=============================================================================
-class HMCBeamCannon extends BallisticWeapon;
+class HMCBeamCannon extends BallisticWeapon
+	transient
+	HideDropDown
+	CacheExempt;
 
 var float NextAmmoTickTime;
 var() Material          MatRed;       	// Red skin.

@@ -16,7 +16,7 @@ defaultproperties
 			AccelSpeed=100000.000000
 			HeadMult=1.5f
 			LimbMult=0.9f
-			Damage=50
+			Damage=20
 			DamageRadius=30.000000
 			MaxDamageGainFactor=0.75
 			DamageGainStartTime=0.05
@@ -46,8 +46,8 @@ defaultproperties
 			AccelSpeed=100000.000000
 			HeadMult=1.5f
 			LimbMult=0.9f
-			Damage=90
-			DamageRadius=100.000000
+			Damage=100
+			DamageRadius=150.000000
 			MaxDamageGainFactor=1.75
 			DamageGainStartTime=0.05
 			DamageGainEndTime=0.25
@@ -76,8 +76,8 @@ defaultproperties
 			AccelSpeed=100000.000000
 			HeadMult=1.5f
 			LimbMult=0.9f
-			Damage=100
-			DamageRadius=450.000000
+			Damage=205
+			DamageRadius=768.000000
 			MaxDamageGainFactor=1.75
 			DamageGainStartTime=0.05
 			DamageGainEndTime=0.25
@@ -107,7 +107,7 @@ defaultproperties
 			Speed=5500.000000
 			MaxSpeed=14000.000000
 			AccelSpeed=70000.000000
-			Damage=72
+			Damage=50
 			DamageRadius=15.000000
 			MaxDamageGainFactor=1.00
 			DamageGainStartTime=0.05
@@ -115,6 +115,7 @@ defaultproperties
 			MomentumTransfer=150.000000
 			HeadMult=1.5f
 			LimbMult=0.9f
+			MuzzleFlashClass=Class'BallisticProV55.A73FlashEmitter'
 			FireSound=(Sound=Sound'BWBP_SKC_Sounds.SkirthBow.SkrithBow-WaveFire',Volume=1.700000)
 			Recoil=130.00000
 			Chaos=0.020000
@@ -154,6 +155,8 @@ defaultproperties
 	//=================================================================
 
 	Begin Object Class=AimParams Name=ArenaAimParams
+		SprintOffset=(Pitch=-3000,Yaw=-5000)
+		JumpOffset=(Pitch=-4000,Yaw=-3000)
 		AimSpread=(Min=16,Max=1740)
 		CrouchMultiplier=0.600000
 		ADSMultiplier=0.700000
@@ -169,7 +172,7 @@ defaultproperties
 	//=================================================================	
 	
 	Begin Object Class=WeaponParams Name=ArenaParams
-		InventorySize=35
+		InventorySize=12
 		SightMoveSpeedFactor=0.900000
 		SightOffset=(Y=4.700000,Z=7.050000)
 		SightPivot=(Pitch=768)

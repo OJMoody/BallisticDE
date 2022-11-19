@@ -21,7 +21,7 @@ var(SX45) float		AmpCharge;					// Existing ampjuice
 var(SX45) float 	DrainRate;					// Rate that ampjuice leaks out
 var(SX45) bool		bShowCharge;				// Hides charge until the amp is on
 
-var() array<Material> CamoMaterials; //We're using this for the amp
+var() array<Material> AmpMaterials; //We're using this for the amp
 
 var Projector	FlashLightProj;
 var Emitter		FlashLightEmitter;
@@ -44,6 +44,10 @@ replication
 simulated function bool SlaveCanUseMode(int Mode) {return Mode == 0;}
 simulated function bool MasterCanSendMode(int Mode) {return Mode == 0;}
 
+//==============================================
+// Amp Code
+//==============================================
+
 //mount or unmount amp
 exec simulated function ToggleAmplifier(optional byte i)
 {
@@ -57,10 +61,6 @@ exec simulated function ToggleAmplifier(optional byte i)
 	SwitchAmplifier(bAmped);
 }
 
-//==============================================
-// Amp Code
-//==============================================
-
 function ServerSwitchAmplifier(bool bNewValue)
 {
 	bAmped = bNewValue;
@@ -72,21 +72,37 @@ function ServerSwitchAmplifier(bool bNewValue)
 
 	if (bAmped)
 	{
-			WeaponModes[0].bUnavailable=true;
-			WeaponModes[1].bUnavailable=false;
-			WeaponModes[2].bUnavailable=false;
-			CurrentWeaponMode=1;
-			ServerSwitchWeaponMode(1);
-			AmpCharge=10;
+		WeaponModes[0].bUnavailable=true;
+		WeaponModes[1].bUnavailable=false;
+		WeaponModes[2].bUnavailable=false;
+		CurrentWeaponMode=1;
+		ServerSwitchWeaponMode(1);
+		AmpCharge=10;
 	}
 	else
 	{
-			WeaponModes[0].bUnavailable=false;
-			WeaponModes[1].bUnavailable=true;
-			WeaponModes[2].bUnavailable=true;
-			CurrentWeaponMode=0;
-			ServerSwitchWeaponMode(0);
-			AmpCharge=0;
+		WeaponModes[0].bUnavailable=false;
+		WeaponModes[1].bUnavailable=true;
+		WeaponModes[2].bUnavailable=true;
+		CurrentWeaponMode=0;
+		ServerSwitchWeaponMode(0);
+		AmpCharge=0;
+	}
+	
+	if (Role == ROLE_Authority)
+		SX45Attachment(ThirdPersonActor).SetAmped(bNewValue);
+	
+	if (CurrentWeaponMode == 1 && AmpCharge > 0)	//cryo
+	{
+		SX45Attachment(ThirdPersonActor).SetAmpColour(true, false);
+		Skins[6]=AmpMaterials[1];
+		Skins[7]=AmpMaterials[2];
+	}
+	else if (CurrentWeaponMode == 2 && AmpCharge > 0)	//RAD
+	{
+		SX45Attachment(ThirdPersonActor).SetAmpColour(false, true);
+		Skins[6]=AmpMaterials[0];
+		Skins[7]=AmpMaterials[3];
 	}
 }
 
@@ -103,7 +119,7 @@ simulated function SwitchAmplifier(bool bNewValue)
 		WeaponModes[0].bUnavailable=true;
 		WeaponModes[1].bUnavailable=false;
 		WeaponModes[2].bUnavailable=false;
-		
+		AmpCharge=10;
 	}
 	else
 	{
@@ -111,6 +127,7 @@ simulated function SwitchAmplifier(bool bNewValue)
 		WeaponModes[0].bUnavailable=false;
 		WeaponModes[1].bUnavailable=true;
 		WeaponModes[2].bUnavailable=true;
+		AmpCharge=0;
 	}
 		
 	if (Role == ROLE_Authority)
@@ -119,14 +136,14 @@ simulated function SwitchAmplifier(bool bNewValue)
 	if (CurrentWeaponMode == 1 && AmpCharge > 0)	//cryo
 	{
 		SX45Attachment(ThirdPersonActor).SetAmpColour(true, false);
-		Skins[6]=CamoMaterials[1];
-		Skins[7]=CamoMaterials[2];
+		Skins[6]=AmpMaterials[1];
+		Skins[7]=AmpMaterials[2];
 	}
 	else if (CurrentWeaponMode == 2 && AmpCharge > 0)	//RAD
 	{
 		SX45Attachment(ThirdPersonActor).SetAmpColour(false, true);
-		Skins[6]=CamoMaterials[0];
-		Skins[7]=CamoMaterials[3];
+		Skins[6]=AmpMaterials[0];
+		Skins[7]=AmpMaterials[3];
 	}
 }
 
@@ -144,14 +161,14 @@ simulated function CommonSwitchWeaponMode (byte newMode)
 	if (newMode == 1 && AmpCharge > 0)
 	{
 		SX45Attachment(ThirdPersonActor).SetAmpColour(true, false);
-		Skins[6]=CamoMaterials[1];
-		Skins[7]=CamoMaterials[2];
+		Skins[6]=AmpMaterials[1];
+		Skins[7]=AmpMaterials[2];
 	}
 	else if (newMode == 2 && AmpCharge > 0)
 	{
 		SX45Attachment(ThirdPersonActor).SetAmpColour(false, true);
-		Skins[6]=CamoMaterials[0];
-		Skins[7]=CamoMaterials[3];
+		Skins[6]=AmpMaterials[0];
+		Skins[7]=AmpMaterials[3];
 	}
 }
 
@@ -209,14 +226,13 @@ simulated function AddHeat(float Amount)
 	if (bBerserk)
 		Amount *= 0.75;
 		
-	AmpCharge += Amount;
+	AmpCharge = FMax(0, AmpCharge + Amount);
 	
-	if (AmpCharge <= 0.25)
+	if (AmpCharge <= 0)
 	{
-		AmpCharge = 0;
 		PlaySound(AmplifierPowerOffSound,,2.0,,32);
-		Skins[6]=CamoMaterials[4];
-		Skins[7]=CamoMaterials[5];
+		Skins[6]=AmpMaterials[4];
+		Skins[7]=AmpMaterials[5];
 		WeaponModes[0].bUnavailable=false;
 		WeaponModes[1].bUnavailable=true;
 		WeaponModes[2].bUnavailable=true;
@@ -284,16 +300,15 @@ simulated event Tick(float DT)
 {
 	super.Tick(DT);
 
+	if (AmpCharge > 0)
+		AddHeat(-DrainRate * DT);
+
 	if (!bLightsOn || ClientState != WS_ReadyToFire)
 		return;
 	if (!Instigator.IsFirstPerson())
 		KillProjector();
 	else if (FlashLightProj == None)
-		StartProjector();
-		
-	if (AmpCharge > 0)
-		AmpCharge = FMax(0, AmpCharge - DrainRate*DT);
-		
+		StartProjector();		
 }
 
 
@@ -446,13 +461,13 @@ static function class<Pickup> RecommendAmmoPickup(int Mode)
 
 defaultproperties
 {
-	DrainRate=0.01
-	CamoMaterials[0]=Shader'BWBP_SKC_Tex.AMP.Amp-FinalYellow'
-	CamoMaterials[1]=Shader'BWBP_SKC_Tex.AMP.Amp-FinalCyan'
-	CamoMaterials[2]=Shader'BWBP_SKC_Tex.Amp.Amp-GlowCyanShader'
-    CamoMaterials[3]=Shader'BWBP_SKC_Tex.Amp.Amp-GlowYellowShader'
-    CamoMaterials[4]=Texture'BWBP_SKC_Tex.Amp.Amp-BaseDepleted'
-    CamoMaterials[5]=Texture'ONSstructureTextures.CoreGroup.Invisible'
+	DrainRate=0.15
+	AmpMaterials[0]=Shader'BW_Core_WeaponTex.AMP.Amp-FinalYellow'
+	AmpMaterials[1]=Shader'BW_Core_WeaponTex.AMP.Amp-FinalCyan'
+	AmpMaterials[2]=Shader'BW_Core_WeaponTex.Amp.Amp-GlowCyanShader'
+    AmpMaterials[3]=Shader'BW_Core_WeaponTex.Amp.Amp-GlowYellowShader'
+    AmpMaterials[4]=Texture'BW_Core_WeaponTex.Amp.Amp-BaseDepleted'
+    AmpMaterials[5]=Texture'ONSstructureTextures.CoreGroup.Invisible'
     AmplifierBone="AMP"
     AmplifierBone2="AMP2"
     AmplifierOnAnim="AMPAdd"
@@ -462,8 +477,8 @@ defaultproperties
     TorchOffSound=Sound'BW_Core_WeaponSound.MRS38.RSS-FlashClick'
     AmplifierOnSound=Sound'BW_Core_WeaponSound.SRS900.SRS-SilencerOn'
     AmplifierOffSound=Sound'BW_Core_WeaponSound.SRS900.SRS-SilencerOff'
-    AmplifierPowerOnSound=Sound'BWBP_SKC_Sounds.AMP.Amp-Install'
-    AmplifierPowerOffSound=Sound'BWBP_SKC_Sounds.AMP.Amp-Depleted'
+    AmplifierPowerOnSound=Sound'BW_Core_WeaponSound.AMP.Amp-Install'
+    AmplifierPowerOffSound=Sound'BW_Core_WeaponSound.AMP.Amp-Depleted'
 	bShowChargingBar=True
 	TeamSkins(0)=(RedTex=Shader'BW_Core_WeaponTex.Hands.RedHand-Shiny',BlueTex=Shader'BW_Core_WeaponTex.Hands.BlueHand-Shiny')
 	AIReloadTime=1.000000
@@ -529,6 +544,6 @@ defaultproperties
     Skins(3)=Texture'BWBP_SKC_TexExp.SX45.SX45-Sight'
     Skins(4)=Texture'BWBP_SKC_TexExp.SX45.SX45-Main'
     Skins(5)=Texture'BWBP_SKC_TexExp.SX45.SX45-Laser'
-    Skins(6)=Shader'BWBP_SKC_Tex.Amp.Amp-FinalCyan'
-	Skins(7)=Shader'BWBP_SKC_Tex.Amp.Amp-GlowCyanShader'
+    Skins(6)=Shader'BW_Core_WeaponTex.Amp.Amp-FinalCyan'
+	Skins(7)=Shader'BW_Core_WeaponTex.Amp.Amp-GlowCyanShader'
 }

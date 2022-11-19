@@ -124,7 +124,7 @@ defaultproperties
     ClipFinishSound=(Sound=Sound'BW_Core_WeaponSound.Misc.ClipEnd-2',Volume=0.800000,Radius=72.000000,bAtten=True)
     DryFireSound=(Sound=Sound'BW_Core_WeaponSound.Misc.DryPistol',Volume=0.700000)
     bDryUncock=True
-	FlashBone="Muzzle"
+	FlashBone="tip"
     MuzzleFlashClass=Class'BWBP_APC_Pro.M575FlashEmitter'
     FlashScaleFactor=0.250000
     BrassClass=Class'BallisticProV55.Brass_MG'

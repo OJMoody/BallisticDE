@@ -106,7 +106,7 @@ defaultproperties
 {
      TeamSkins(0)=(RedTex=Shader'BW_Core_WeaponTex.Hands.RedHand-Shiny',BlueTex=Shader'BW_Core_WeaponTex.Hands.BlueHand-Shiny')
      AIReloadTime=1.000000
-     BigIconMaterial=Texture'BWBP_SKC_TexExp.552.552_Icon_Large'
+     BigIconMaterial=Texture'BWBP_SKC_TexExp.VSKS.BigIcon_VSK'
      BCRepClass=Class'BallisticProV55.BallisticReplicationInfo'
      bWT_Bullet=True
      SpecialInfo(0)=(Info="320.0;25.0;1.0;110.0;2.0;0.1;0.1")
@@ -147,7 +147,7 @@ defaultproperties
      PlayerViewOffset=(X=10.000000,Y=15.000000,Z=-27.000000)
      BobDamping=2.000000
      AttachmentClass=Class'BWBP_SKCExp_Pro.VSKAttachment'
-     IconMaterial=Texture'BWBP_SKC_TexExp.552.552_Icon_Small'
+     IconMaterial=Texture'BWBP_SKC_TexExp.VSKS.SmallIcon_VSK'
      IconCoords=(X2=127,Y2=31)
      ItemName="VSK-42 Tranquilizer Rifle"
      LightType=LT_Pulse

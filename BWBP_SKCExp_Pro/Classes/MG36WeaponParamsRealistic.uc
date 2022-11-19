@@ -66,6 +66,8 @@ defaultproperties
 
 	Begin Object Class=AimParams Name=RealisticAimParams
 		AimSpread=(Min=32,Max=2872)
+		SprintOffset=(Pitch=-3000,Yaw=-5000)
+		JumpOffset=(Pitch=-4000,Yaw=-3000)
 		CrouchMultiplier=0.700000
 		ADSMultiplier=0.700000
 		ViewBindFactor=0.100000
@@ -83,8 +85,9 @@ defaultproperties
 		WeaponBoneScales(1)=(BoneName="MagDrum",Slot=21,Scale=1f)
 		WeaponBoneScales(2)=(BoneName="Reciever",Slot=22,Scale=0f)
 		PlayerSpeedFactor=0.900000
-		InventorySize=40
+		InventorySize=15
 		SightMoveSpeedFactor=0.500000
+		SightingTime=0.3
 		MagAmmo=100
 		ViewOffset=(X=5.000000,Y=4.000000,Z=-12.000000)
 		SightOffset=(X=-15.000000,Y=-0.350000,Z=12.300000)

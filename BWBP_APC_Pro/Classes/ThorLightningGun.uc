@@ -23,7 +23,10 @@
 // by Nolan "Dark Carnivour" Richert.
 // Copyright(c) 2006 RuneStorm. All Rights Reserved.
 //=============================================================================
-class ThorLightningGun extends BallisticWeapon;
+class ThorLightningGun extends BallisticWeapon
+	transient
+	HideDropDown
+	CacheExempt;
 
 var float		HeatLevel;			// Current Heat level
 var bool		bWaterBurn;			// busy getting damaged in water

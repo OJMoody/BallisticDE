@@ -357,7 +357,7 @@ defaultproperties
 {
      TeamSkins(0)=(RedTex=Shader'BW_Core_WeaponTex.Hands.RedHand-Shiny',BlueTex=Shader'BW_Core_WeaponTex.Hands.BlueHand-Shiny',SkinNum=0)
      UsedAmbientSound=Sound'BW_Core_WeaponSound.A73.A73Hum1'
-     BigIconMaterial=Texture'BWBP_SKC_Tex.A73b.BigIcon_A73E'
+     BigIconMaterial=Texture'BWBP_SKC_Tex.SkrithBow.BigIcon_SBow'
      BCRepClass=Class'BallisticProV55.BallisticReplicationInfo'
      bWT_RapidProj=True
      bWT_Energy=True
@@ -381,17 +381,19 @@ defaultproperties
      SightDisplayFOV=40.000000
      ParamsClasses(0)=Class'AY90WeaponParamsArena'
      ParamsClasses(1)=Class'AY90WeaponParamsClassic'
-	 ParamsClasses(2)=Class'AY90WeaponParamsClassic'
+	 ParamsClasses(2)=Class'AY90WeaponParamsRealistic'
 	 ParamsClasses(3)=Class'AY90WeaponParamsClassic'
      FireModeClass(0)=Class'BWBP_SKCExp_Pro.AY90PrimaryFire'
      FireModeClass(1)=Class'BWBP_SKCExp_Pro.AY90SecondaryFire'
-     BringUpTime=0.500000
+	 NDCrosshairCfg=(Pic1=Texture'BW_Core_WeaponTex.Crosshairs.Misc7',Pic2=Texture'BW_Core_WeaponTex.Crosshairs.Misc3',USize1=256,VSize1=256,USize2=256,VSize2=256,Color1=(B=255,G=93,R=0,A=112),Color2=(B=0,G=212,R=226,A=255),StartSize1=110,StartSize2=55)
+	 NDCrosshairInfo=(SpreadRatios=(X1=0.500000,Y1=0.500000,X2=0.500000,Y2=0.750000),SizeFactors=(X1=1.000000,Y1=1.000000,X2=1.000000,Y2=1.000000),MaxScale=4.000000,CurrentScale=0.000000)
+	 BringUpTime=0.500000
      SelectForce="SwitchToAssaultRifle"
      AIRating=0.600000
      CurrentRating=0.600000
      bMeleeWeapon=True
-     Description="AY90 Skrith Boltcaster||Manufacturer: Unknown Skrith Engineers|Primary: Energy Bolt|Secondary: Blade Stab||The A73-E is a specialized version of the Skrith standard rifle and is rarely seen on the battlefield. Aside from the red tint, the Elite model is very similar in appearance to the standard. Scans show, however, that this special version fires projectiles at roughly 3 times the standard heat level and has an odd permanent electrical charge coursing through the blades. If encountered in the field, it is advised to report the occurrence to HQ immediately for testing."
-     Priority=92
+     Description="AY90 Skrith Boltcaster||Manufacturer: Unknown Skrith Engineers|Primary: Variable Charge Shot|Secondary: Charged Bolt Spread|Named after a certain bird of prey, the AY90 ''Wyvern'' is a Skrith's companion to take down terrans without being seen or heard.  A boltcaster with all the signs that it's Skrith in origin; blades on the bow arms, blue in color and firing powerful plasma with this weapon taking the form of a variable charge system.  Able to fire rapid shots for swift getaways or a full charge to snipe a soldier from a distance, and if that wasn't enough; the Wyvern has a charged bolt spread to eliminate multiple enemies in rapid succession.  A versatile, deadly tool of destruction without being heard, just ask the PTSD ridden troops of UTC's elite division on Ravenos; who watched 90% of their squad dying to plasma bolts without their enemies being known."
+	 Priority=92
      CustomCrossHairTextureName="Crosshairs.HUD.Crosshair_Cross1"
      InventoryGroup=5
      GroupOffset=19
@@ -400,9 +402,9 @@ defaultproperties
      BobDamping=2.200000
 	 MeleeFireClass=Class'BWBP_SKCExp_Pro.AY90MeleeFire'
      AttachmentClass=Class'BWBP_SKCExp_Pro.AY90Attachment'
-     IconMaterial=Texture'BWBP_SKC_Tex.A73b.SmallIcon_A73E'
+     IconMaterial=Texture'BWBP_SKC_Tex.SkrithBow.SmallIcon_SBow'
      IconCoords=(X2=127,Y2=31)
-     ItemName="[B] AY90 Skrith Boltcaster"
+     ItemName="AY90 Skrith Boltcaster"
      LightType=LT_Pulse
      LightEffect=LE_NonIncidence
      LightHue=180

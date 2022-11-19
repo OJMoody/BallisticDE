@@ -48,7 +48,7 @@ defaultproperties
      DryFireSound=(Sound=Sound'BW_Core_WeaponSound.Misc.DryRifle',Volume=0.700000)
      bCockAfterEmpty=True
      MuzzleFlashClass=Class'BWBP_APC_Pro.M575FlashEmitter'
-	 FlashBone="Muzzle"
+	 FlashBone="tip"
      FlashScaleFactor=0.300000
      BrassClass=Class'BallisticProV55.Brass_MG'
      BrassOffset=(X=6.000000,Y=10.000000)

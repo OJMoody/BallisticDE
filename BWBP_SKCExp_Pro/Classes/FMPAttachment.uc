@@ -271,10 +271,10 @@ simulated function FlashMuzzleFlash(byte Mode)
 defaultproperties
 {
 	 AmpFlashScale=0.2
-	 CamoMaterials[0]=Shader'BWBP_SKC_Tex.Amp.Amp-FinalRed'
-	 CamoMaterials[1]=Shader'BWBP_SKC_Tex.Amp.Amp-FinalGreen'
-	 CamoMaterials[2]=Shader'BWBP_SKC_Tex.AMP.Amp-GlowRedShader'
-	 CamoMaterials[3]=Shader'BWBP_SKC_Tex.AMP.Amp-GlowGreenShader'
+	 CamoMaterials[0]=Shader'BW_Core_WeaponTex.Amp.Amp-FinalRed'
+	 CamoMaterials[1]=Shader'BW_Core_WeaponTex.Amp.Amp-FinalGreen'
+	 CamoMaterials[2]=Shader'BW_Core_WeaponTex.AMP.Amp-GlowRedShader'
+	 CamoMaterials[3]=Shader'BW_Core_WeaponTex.AMP.Amp-GlowGreenShader'
 
      AltFlashBone="tip2"
 	 AltTipRotation=(Pitch=16384)
@@ -301,7 +301,6 @@ defaultproperties
      WaterTracerMode=MU_Both
      FlyBySound=(Sound=SoundGroup'BW_Core_WeaponSound.FlyBys.Bullet-Whizz',Volume=0.700000)
      bRapidFire=True
-     bAltRapidFire=True
      Mesh=SkeletalMesh'BWBP_SKC_AnimExp.MP40_TPm'
      RelativeLocation=(Z=3.000000)
      RelativeRotation=(Yaw=32768,Roll=-16384)

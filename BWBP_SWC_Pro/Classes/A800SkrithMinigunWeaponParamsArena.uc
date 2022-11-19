@@ -24,6 +24,8 @@ defaultproperties
 
 	Begin Object Class=FireParams Name=ArenaPrimaryFireParams
 		FireInterval=0.075000
+		FireLoopAnim="FireLoop"
+		FireEndAnim="FireEnd"
 		AimedFireAnim="SightFire"	
 	FireEffectParams(0)=ProjectileEffectParams'ArenaPrimaryEffectParams'
 	End Object
@@ -96,9 +98,10 @@ defaultproperties
         MagAmmo=90
         InventorySize=12
         SightMoveSpeedFactor=0.75
-		SightOffset=(X=-10.000000,Y=-3.830000,Z=16.900000)
-		SightPivot=(Pitch=1024,Roll=2048)
-		ViewOffset=(X=5.000000,Y=3.5.000000,Z=-8.000000)
+		ZoomType=ZT_Logarithmic
+		SightOffset=(X=-30.000000,Y=-25.000000,Z=6.500000)
+		SightPivot=(Roll=-1900)
+		ViewOffset=(X=22.000000,Y=13.000000,Z=-10.000000)
 		ViewPivot=(Roll=-256)
 		RecoilParams(0)=RecoilParams'ArenaRecoilParams'
 		AimParams(0)=AimParams'ArenaAimParams'
