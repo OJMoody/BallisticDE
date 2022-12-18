@@ -17,8 +17,8 @@ defaultproperties
 			DamageTypeArm=Class'BWBP_APC_Pro.DTM575MG'
 			PenetrateForce=150
 			bPenetrate=True
-			MuzzleFlashClass=Class'BWBP_APC_Pro.M575FlashEmitter'
-			FlashScaleFactor=0.300000
+			MuzzleFlashClass=Class'BallisticProV55.Fifty9FlashEmitter'
+			FlashScaleFactor=0.050000
 			Recoil=80.000000
 			WarnTargetPct=0.200000
 			FireSound=(Sound=Sound'BWBP_OP_Sounds.M575.M575-Fire',Volume=0.700000,Radius=384.000000,Pitch=1.400000)

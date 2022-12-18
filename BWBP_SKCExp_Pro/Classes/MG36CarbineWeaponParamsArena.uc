@@ -90,9 +90,9 @@ defaultproperties
 	
 	Begin Object Class=WeaponParams Name=ArenaParams
 		ReloadAnimRate=0.800000
-		WeaponBoneScales(0)=(BoneName="Mag",Slot=20,Scale=1f)
-		WeaponBoneScales(1)=(BoneName="MagDrum",Slot=21,Scale=0f)
-		WeaponBoneScales(2)=(BoneName="Reciever",Slot=22,Scale=0f)
+		WeaponBoneScales(0)=(BoneName="MagSmall",Slot=30,Scale=1f)
+		WeaponBoneScales(1)=(BoneName="MagDrum",Slot=31,Scale=0f)
+		WeaponBoneScales(2)=(BoneName="Reciever",Slot=32,Scale=0f)
 		PlayerSpeedFactor=0.90
 		PlayerJumpFactor=0.90
 		InventorySize=12
@@ -102,6 +102,8 @@ defaultproperties
 		SightOffset=(X=-15.000000,Y=-0.350000,Z=12.300000)
 		ViewOffset=(X=5.000000,Y=5.000000,Z=-9.000000)
 		ZoomType=ZT_Logarithmic
+		MinZoom=4.000000
+		MaxZoom=8.000000
 		RecoilParams(0)=RecoilParams'ArenaRecoilParams'
 		AimParams(0)=AimParams'ArenaAimParams'
 		FireParams(0)=FireParams'ArenaPrimaryFireParams'
