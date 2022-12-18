@@ -26,7 +26,7 @@ function float ImpactDamageModifier()
 
 defaultproperties
 {
-     TorqueCurve=(Points=((OutVal=40.000000),(InVal=0.000000,OutVal=19.000000),(InVal=0.000000,OutVal=20.000000),(InVal=2800.000000)))
+     TorqueCurve=(Points=((OutVal=40.000000),(InVal=200.000000,OutVal=19.000000),(InVal=1500.000000,OutVal=20.000000),(InVal=2800.000000)))
      TransRatio=0.150000
      PassengerWeapons(0)=(WeaponPawnClass=Class'BWBP_VPC_Pro.RhinoMGPawn')
      ImpactDamageMult=0.000300

@@ -78,9 +78,9 @@ defaultproperties
 	//=================================================================	
 	
 	Begin Object Class=WeaponParams Name=ClassicParams
-		WeaponBoneScales(0)=(BoneName="Mag",Slot=20,Scale=0f)
-		WeaponBoneScales(1)=(BoneName="MagDrum",Slot=21,Scale=1f)
-		WeaponBoneScales(2)=(BoneName="Reciever",Slot=22,Scale=0f)
+		WeaponBoneScales(0)=(BoneName="MagSmall",Slot=30,Scale=0f)
+		WeaponBoneScales(1)=(BoneName="MagDrum",Slot=31,Scale=1f)
+		WeaponBoneScales(2)=(BoneName="Reciever",Slot=32,Scale=0f)
 		PlayerSpeedFactor=0.900000
 		InventorySize=15
 		SightMoveSpeedFactor=0.500000
