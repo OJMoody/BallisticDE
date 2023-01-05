@@ -111,9 +111,9 @@ simulated event Tick(float DT)
 		BarrelTurn += BarrelSpeed * 655360 * DT;
 		BT.Roll = BarrelTurn;
 		//if (A800Turret(Instigator) != None)
-		//	Instigator.SetBoneRotation('Barrels', BT);
+		//	Instigator.SetBoneRotation('BarrelArray', BT);
 		//else
-			SetBoneRotation('Barrels', BT);
+			SetBoneRotation('BarrelArray', BT);
 	}
 }
 
@@ -290,8 +290,8 @@ defaultproperties
      TracerClass=Class'BallisticProV55.TraceEmitter_A42Beam'
      bHeavy=True
      bRapidFire=True
-	 FlashScale=0.100000
-	 PrePivot=(Z=-4.000000)
-     Mesh=SkeletalMesh'BWBP_SWC_Anims.SME_TPm'
+	 FlashBone="Tip2"
+	 FlashScale=0.200000
+     Mesh=SkeletalMesh'BWBP_SWC_Anims.SkrithHyperBlaster_TPm'
      DrawScale=1.000000
 }
