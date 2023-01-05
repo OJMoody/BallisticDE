@@ -232,7 +232,7 @@ defaultproperties
      PlayerJumpFactor=0.750000
      TeamSkins(0)=(RedTex=Shader'BW_Core_WeaponTex.Hands.RedHand-Shiny',BlueTex=Shader'BW_Core_WeaponTex.Hands.BlueHand-Shiny')
      AIReloadTime=4.000000
-     BigIconMaterial=Texture'BWBP_SWC_Tex.SkrithMinigun.BigIcon_SkrithMinigun'
+     BigIconMaterial=Texture'BWBP_SWC_Tex.SkrithHyperBlaster.BigIcon_HyperBlaster'
      BCRepClass=Class'BallisticProV55.BallisticReplicationInfo'
      bWT_Machinegun=True
      bWT_Super=True
@@ -254,7 +254,10 @@ defaultproperties
      SightOffset=(X=-10.000000,Y=-3.830000,Z=16.900000)
      SightDisplayFOV=45.000000
 	 SightingTime=0.600000
-     FireModeClass(0)=Class'BWBP_SWC_Pro.A800MinigunPrimaryFire'
+	 ReloadAnimRate=1.3
+	 MinZoom=2.000000
+     MaxZoom=8.000000
+	 FireModeClass(0)=Class'BWBP_SWC_Pro.A800MinigunPrimaryFire'
      FireModeClass(1)=Class'BWBP_SWC_Pro.A800MinigunSecondaryFire'
      ScopeViewTex=Texture'BWBP_SWC_Tex.SkrithHyperBlaster.HyperBlaster-Scope'
      ZoomInSound=(Sound=Sound'BW_Core_WeaponSound.R78.R78ZoomIn',Volume=0.500000,Pitch=1.000000)
@@ -273,13 +276,13 @@ defaultproperties
      CustomCrossHairTextureName="Crosshairs.HUD.Crosshair_Cross1"
      InventoryGroup=6
      PickupClass=Class'BWBP_SWC_Pro.A800MinigunPickup'
-     PlayerViewOffset=(X=5.000000,Y=3.5.000000,Z=-8.000000)
+     PlayerViewOffset=(X=40.000000,Y=14.000000,Z=-15.000000)
 	 PlayerViewPivot=(Roll=-256)
      BobDamping=2.200000
      AttachmentClass=Class'BWBP_SWC_Pro.A800MinigunAttachment'
-     IconMaterial=Texture'BWBP_SWC_Tex.SkrithMinigun.SmallIcon_SkrithMinigun'
+     IconMaterial=Texture'BWBP_SWC_Tex.SkrithHyperBlaster.SmallIcon_HyperBlaster'
      IconCoords=(X2=127,Y2=31)
-     ItemName="[B] A800 Skrith HyperBlaster"
+     ItemName="A800 Skrith HyperBlaster"
      LightType=LT_Pulse
      LightEffect=LE_NonIncidence
      LightHue=30

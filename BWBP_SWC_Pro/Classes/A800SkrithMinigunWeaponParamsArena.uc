@@ -101,8 +101,9 @@ defaultproperties
 		ZoomType=ZT_Logarithmic
 		SightOffset=(X=-30.000000,Y=-25.000000,Z=6.500000)
 		SightPivot=(Roll=-1900)
-		ViewOffset=(X=22.000000,Y=13.000000,Z=-10.000000)
+		ViewOffset=(X=40.000000,Y=14.000000,Z=-15.000000)
 		ViewPivot=(Roll=-256)
+		ReloadAnimRate=1.300000
 		RecoilParams(0)=RecoilParams'ArenaRecoilParams'
 		AimParams(0)=AimParams'ArenaAimParams'
 		FireParams(0)=FireParams'ArenaPrimaryFireParams'
