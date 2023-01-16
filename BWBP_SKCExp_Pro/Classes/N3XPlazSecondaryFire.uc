@@ -16,19 +16,21 @@ function ApplyDamage(Actor Target, int Damage, Pawn Instigator, vector HitLocati
 
 defaultproperties
 {
-     FatiguePerStrike=0.200000
      bCanBackstab=False
 	 MinDamage=70.000000
 	 MaxDamage=150.000000
+	 FatiguePerStrike=0.400000
      DamageType=Class'BWBP_SKCExp_Pro.DTShockN3XAlt'
      DamageTypeHead=Class'BWBP_SKCExp_Pro.DTShockN3XAlt'
      DamageTypeArm=Class'BWBP_SKCExp_Pro.DTShockN3XAlt'
      KickForce=500
      bUseWeaponMag=False
+	 bReleaseFireOnDie=False
      BallisticFireSound=(Sound=SoundGroup'BW_Core_WeaponSound.MRS38.RSS-ElectroSwing',Radius=32.000000,bAtten=True)
      bAISilent=True
-     PreFireAnim="PrepSlash"
-     FireAnim="Slash"
+     bFireOnRelease=True
+	 PreFireAnim="PrepHack"
+     FireAnim="Hack"
      FireAnimRate=1.500000
      FireRate=1.200000
      AmmoClass=Class'BWBP_SKCExp_Pro.Ammo_N3XCharge'

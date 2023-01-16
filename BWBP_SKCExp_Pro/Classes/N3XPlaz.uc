@@ -15,6 +15,8 @@ var() Sound			VentingSound;		//For DA MAGNETS
 var Sound      		ShieldHitSound;
 var float			HeatLevel;			// Current Heat level, duh...
 var float			MaxHeat;
+var 	Rotator		AxeActiveRot, AxeDeactiveRot;
+
 
 var Actor			Arc;				// The top arcs
 
@@ -121,8 +123,9 @@ simulated function AdjustMagnetProperties ()
 	if (bMagnetOpen)
 	{
 		if (Arc == None)
-			class'bUtil'.static.InitMuzzleFlash(Arc, class'BWBP_SKCExp_Pro.N3XBladeEffect', DrawScale, self, 'EmitterBase');
-			
+			class'bUtil'.static.InitMuzzleFlash(Arc, class'BWBP_SKCExp_Pro.N3XBladeEffect', DrawScale, self, 'PlasmaEmitterStart');
+		
+		SetBoneRotation('BattleAxleHandleHandle', AxeActiveRot);	
 		Instigator.AmbientSound = VentingSound;
 		AddSpeedModification(0.7);
 	}
@@ -131,6 +134,7 @@ simulated function AdjustMagnetProperties ()
 		if (Arc != None)
 			Emitter(Arc).kill();
 
+		SetBoneRotation('BattleAxleHandle', AxeDeactiveRot);	
 		Instigator.AmbientSound = UsedAmbientSound;
 		RemoveSpeedModification(1);
 	}
@@ -147,12 +151,21 @@ simulated event WeaponTick (float DT)
 simulated event Tick (float DT)
 {
 	if (bMagnetOpen)
+	{
 		AddHeat(DT*200, false);
+		SetBoneRotation('BattleAxe', AxeActiveRot);
+	}
 	else if (Heatlevel > 0)
+	{
 		Heatlevel = FMax(HeatLevel - (DT*200) * 5f, 0);
+		SetBoneRotation('BattleAxe', AxeDeactiveRot);
+	}
 	else
+	{
 		Heatlevel = 0;
-
+		SetBoneRotation('BattleAxe', AxeDeactiveRot);
+	}
+	
 	super.Tick(DT);
 }
 
@@ -321,14 +334,16 @@ function float SuggestDefenseStyle()
 
 defaultproperties
 {
+	 AxeActiveRot=(Pitch=0)
+	 AxeDeactiveRot=(Pitch=32768)
 	 OverheatSound=Sound'BWBP_SKC_Sounds.XavPlas.Xav-Overload'
 	 VentingSound=Sound'BWBP_SKC_Sounds.M2020.M2020-IdleShield'
 	 ShieldHitSound=ProceduralSound'WeaponSounds.ShieldGun.ShieldReflection'
 	 MaxHeat=4000.000000	//20 seconds * 20 = 4000. this change is to avoid precision errors with adding epsilon of heat
 	 MagnetSwitchFireRate=2.000000
-	 MagnetOpenAnim="TurnOnOff"
-	 MagnetCloseAnim="TurnOnOff"
-	 MagnetForceCloseAnim="Asplode"
+	 MagnetOpenAnim="Toggle"
+	 MagnetCloseAnim="Toggle"
+	 MagnetForceCloseAnim="NoAnimationNeedToMakeAsplode"
 	 
 	 NDCrosshairCfg=(Pic1=Texture'BW_Core_WeaponTex.Crosshairs.Misc4',Pic2=Texture'BW_Core_WeaponTex.Crosshairs.Dot1',USize1=256,VSize1=256,Color1=(B=255,R=0,A=157),Color2=(B=153,G=152,R=149),StartSize1=48,StartSize2=17)
 	 BringUpSound=(Sound=Sound'BWBP_SKC_Sounds.NEX.NEX-Pullout',Volume=2.000000)
@@ -369,8 +384,8 @@ defaultproperties
      ItemName="NEX Plas-Edge Sword"
 	 ParamsClasses(0)=Class'N3XWeaponParams'
 	 ParamsClasses(1)=Class'NEXWeaponParamsClassic'
-     Mesh=SkeletalMesh'BWBP_SKC_AnimExp.FPm_NEX'
-     DrawScale=3.000000
+     Mesh=SkeletalMesh'BWBP_SKC_AnimExp.FPm_PlasEdgeAxe'
+     DrawScale=0.400000
      bFullVolume=True
      SoundVolume=64
      SoundRadius=128.000000

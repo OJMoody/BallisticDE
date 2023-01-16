@@ -17,7 +17,8 @@ defaultproperties
     End Object
 
     Begin Object Class=WeaponParams Name=UniversalParams
-        PlayerSpeedFactor=1.15
+        WeaponBoneScales(0)=(BoneName="WeldingShield",Slot=1,Scale=0f)
+ 	    PlayerSpeedFactor=1.15
         MagAmmo=1
         InventorySize=3
         RecoilParams(0)=RecoilParams'UniversalRecoilParams'
