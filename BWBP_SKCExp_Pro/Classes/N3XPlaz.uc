@@ -9,22 +9,21 @@
 //==============================================================================
 class N3XPlaz extends BallisticMeleeWeapon;
 
-var bool			bOverheat;
-var() Sound			OverHeatSound;		//For vents
-var() Sound			VentingSound;		//For DA MAGNETS
-var Sound      		ShieldHitSound;
-var float			HeatLevel;			// Current Heat level, duh...
-var float			MaxHeat;
-var 	Rotator		AxeActiveRot, AxeDeactiveRot;
+var bool					bOverheat;
+var() Sound					OverHeatSound;		//For vents
+var() Sound					VentingSound;		//For DA MAGNETS
+var Sound      				ShieldHitSound;
+var float					HeatLevel;			// Current Heat level, duh...
+var float					MaxHeat;
 
+var Actor					Arc;				// The top arcs
 
-var Actor			Arc;				// The top arcs
-
-var   float			MagnetSwitchTime, MagnetSwitchFireRate;
-var   name			MagnetOpenAnim;
-var   name			MagnetCloseAnim;
-var   name			MagnetForceCloseAnim;
-var   bool			bMagnetOpen;
+var   float					MagnetSwitchTime, MagnetSwitchFireRate;
+var   name					MagnetOpenAnim;
+var   name					MagnetCloseAnim;
+var   name					MagnetForceCloseAnim;
+var   bool					bMagnetOpen;
+var() BUtil.FullSound		ToggleSound;				// Sound to play when magazine is put in
 
 replication
 {
@@ -125,7 +124,7 @@ simulated function AdjustMagnetProperties ()
 		if (Arc == None)
 			class'bUtil'.static.InitMuzzleFlash(Arc, class'BWBP_SKCExp_Pro.N3XBladeEffect', DrawScale, self, 'PlasmaEmitterStart');
 		
-		SetBoneRotation('BattleAxleHandleHandle', AxeActiveRot);	
+		Skins[4]=Shader'BWBP_SKC_TexExp.PlasAxe.PlasEdge_Fire_S1';
 		Instigator.AmbientSound = VentingSound;
 		AddSpeedModification(0.7);
 	}
@@ -133,12 +132,16 @@ simulated function AdjustMagnetProperties ()
 	{
 		if (Arc != None)
 			Emitter(Arc).kill();
-
-		SetBoneRotation('BattleAxleHandle', AxeDeactiveRot);	
+		
+		Skins[4]=Texture'BW_Core_WeaponTex.Misc.Invisible';
 		Instigator.AmbientSound = UsedAmbientSound;
 		RemoveSpeedModification(1);
 	}
-	
+}
+
+simulated function Notify_TogglePower()
+{
+	PlayOwnedSound(ToggleSound.Sound,ToggleSound.Slot,ToggleSound.Volume,ToggleSound.bNoOverride,ToggleSound.Radius,ToggleSound.Pitch,ToggleSound.bAtten);
 }
 
 simulated event WeaponTick (float DT)
@@ -153,17 +156,14 @@ simulated event Tick (float DT)
 	if (bMagnetOpen)
 	{
 		AddHeat(DT*200, false);
-		SetBoneRotation('BattleAxe', AxeActiveRot);
 	}
 	else if (Heatlevel > 0)
 	{
 		Heatlevel = FMax(HeatLevel - (DT*200) * 5f, 0);
-		SetBoneRotation('BattleAxe', AxeDeactiveRot);
 	}
 	else
 	{
 		Heatlevel = 0;
-		SetBoneRotation('BattleAxe', AxeDeactiveRot);
 	}
 	
 	super.Tick(DT);
@@ -334,8 +334,7 @@ function float SuggestDefenseStyle()
 
 defaultproperties
 {
-	 AxeActiveRot=(Pitch=0)
-	 AxeDeactiveRot=(Pitch=32768)
+	 ToggleSound=(Sound=Sound'BW_Core_WeaponSound.DarkStar.Dark-Close',Volume=0.500000,Radius=64.000000,Slot=SLOT_Interact,Pitch=1.000000,bAtten=True)
 	 OverheatSound=Sound'BWBP_SKC_Sounds.XavPlas.Xav-Overload'
 	 VentingSound=Sound'BWBP_SKC_Sounds.M2020.M2020-IdleShield'
 	 ShieldHitSound=ProceduralSound'WeaponSounds.ShieldGun.ShieldReflection'
@@ -343,14 +342,14 @@ defaultproperties
 	 MagnetSwitchFireRate=2.000000
 	 MagnetOpenAnim="Toggle"
 	 MagnetCloseAnim="Toggle"
-	 MagnetForceCloseAnim="NoAnimationNeedToMakeAsplode"
+	 MagnetForceCloseAnim="OverHeat"
 	 
 	 NDCrosshairCfg=(Pic1=Texture'BW_Core_WeaponTex.Crosshairs.Misc4',Pic2=Texture'BW_Core_WeaponTex.Crosshairs.Dot1',USize1=256,VSize1=256,Color1=(B=255,R=0,A=157),Color2=(B=153,G=152,R=149),StartSize1=48,StartSize2=17)
 	 BringUpSound=(Sound=Sound'BWBP_SKC_Sounds.NEX.NEX-Pullout',Volume=2.000000)
 	 PutDownSound=(Sound=Sound'BWBP_OP_Sounds.FlameSword.FlameSword-Unequip',Volume=2.000000)
      PlayerSpeedFactor=1.100000
      TeamSkins(0)=(RedTex=Shader'BW_Core_WeaponTex.Hands.RedHand-Shiny',BlueTex=Shader'BW_Core_WeaponTex.Hands.BlueHand-Shiny')
-     BigIconMaterial=Texture'BWBP_SKC_TexExp.NEX.BigIcon_Nex'
+     BigIconMaterial=Texture'BWBP_SKC_TexExp.PlasAxe.BigIcon_PlasAxe'
      BigIconCoords=(X1=96,Y1=10,X2=418,Y2=245)
      BCRepClass=Class'BallisticProV55.BallisticReplicationInfo'
      bWT_Heal=True
@@ -367,7 +366,6 @@ defaultproperties
      AIRating=0.200000
      CurrentRating=0.200000
      bMeleeWeapon=True
-     bCanThrow=False
      Description="NEX Plas-Edge Sword||Manufacturer: Nexron Defence|Primary: Slash|Secondary: Charged Slash|Special: Block|| The NEX Plas-Edge Mod 0 is the first in a line of high tech energy based swords pioneered by Nexron defense. Unlike the later nanosword designs, the NEX Mod 0 uses only the supercharged ionic gas channel for energy and relies on a traditional metal sword for the cutting. This approach was quickly abandoned as Element 115's plasma field unfortunately proved to be highly unstable with erratic charge levels and random dangerous overheats. The blade's excessive heat also required a different approach - scientists noted that after prolonged exposure the blade ionized the surrounding atmosphere and made breathing difficult. When using the NEX in combat, be careful not to overcharge it as the blade is prone to discharge when completely energized. It should be noted that the plas-edge's coils are incredibly unstable and will absorb any and all incoming energy. With an effect similar to skrith anti-energy armor, this can be used to the user's advantage in the field by absorbing enemy plasma charges and using them to strike a supercharged blow."
      DisplayFOV=65.000000
      Priority=1
@@ -379,9 +377,9 @@ defaultproperties
      PickupClass=Class'BWBP_SKCExp_Pro.N3XPlazPickup'
      PlayerViewOffset=(X=40.000000,Z=-10.000000)
      AttachmentClass=Class'BWBP_SKCExp_Pro.N3XPlazAttachment'
-     IconMaterial=Texture'BWBP_SKC_TexExp.NEX.SmallIcon_Nex'
+     IconMaterial=Texture'BWBP_SKC_TexExp.PlasAxe.SmallIcon_PlasAxe'
      IconCoords=(X2=127,Y2=31)
-     ItemName="NEX Plas-Edge Sword"
+     ItemName="NEX Plas-Edge Axe"
 	 ParamsClasses(0)=Class'N3XWeaponParams'
 	 ParamsClasses(1)=Class'NEXWeaponParamsClassic'
      Mesh=SkeletalMesh'BWBP_SKC_AnimExp.FPm_PlasEdgeAxe'
@@ -389,4 +387,9 @@ defaultproperties
      bFullVolume=True
      SoundVolume=64
      SoundRadius=128.000000
+	 Skins(0)=Shader'BW_Core_WeaponTex.Hands.Hands-Shiny'
+	 Skins(1)=Shader'BWBP_SKC_TexExp.PlasAxe.PlasEdge_Axe_S1'
+	 Skins(2)=Shader'BWBP_SKC_TexExp.PlasAxe.PlasEdge_Shield_S1'
+	 Skins(3)=Texture'BW_Core_WeaponTex.Misc.Glass'
+	 Skins(4)=Texture'BW_Core_WeaponTex.Misc.Invisible'
 }
