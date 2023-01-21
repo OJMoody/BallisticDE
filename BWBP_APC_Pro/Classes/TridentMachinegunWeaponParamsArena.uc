@@ -1,4 +1,4 @@
-class CruWeaponParams extends BallisticWeaponParams;
+class TridentMachinegunWeaponParamsArena extends BallisticWeaponParams;
 
 defaultproperties
 {
@@ -12,16 +12,16 @@ defaultproperties
 		Damage=20
 		HeadMult=1.5f
 		LimbMult=0.8f
-		DamageType=Class'BallisticProV55.DTM353MG'
-		DamageTypeHead=Class'BallisticProV55.DTM353MGHead'
-		DamageTypeArm=Class'BallisticProV55.DTM353MG'
+		//DamageType=Class'BallisticProV55.DTM353MG'
+		//DamageTypeHead=Class'BallisticProV55.DTM353MGHead'
+		//DamageTypeArm=Class'BallisticProV55.DTM353MG'
 		PenetrateForce=150
 		bPenetrate=True
 		MuzzleFlashClass=Class'BallisticProV55.M353FlashEmitter'
 		FlashScaleFactor=0.700000
 		Recoil=96.000000
 		WarnTargetPct=0.200000
-		FireSound=(Sound=Sound'BWBP_CC_Sounds.MillitaryLaser.MG-Fire',Volume=1.400000,Slot=SLOT_Interact,bNoOverride=False)
+		FireSound=(Sound=Sound'BWBP_CC_Sounds.CruMG.MG-Fire',Volume=1.400000,Slot=SLOT_Interact,bNoOverride=False)
 	End Object
 
 	Begin Object Class=FireParams Name=ArenaPrimaryFireParams
@@ -32,33 +32,37 @@ defaultproperties
 	End Object
 		
 	//=================================================================
-    // Secondary FIRE
+    // SECONDARY FIRE
     //=================================================================	
 	
-	Begin Object Class=InstantEffectParams Name=ArenaSecondaryEffectParams
-		TraceRange=(Min=15000.000000,Max=15000.000000)
-		RangeAtten=0.35
-		Damage=20
-		HeadMult=1.5f
-		LimbMult=0.8f
-		DamageType=Class'BallisticProV55.DTM353MG'
-		DamageTypeHead=Class'BallisticProV55.DTM353MGHead'
-		DamageTypeArm=Class'BallisticProV55.DTM353MG'
-		PenetrateForce=150
-		bPenetrate=True
-		MuzzleFlashClass=Class'BallisticProV55.M353FlashEmitter'
-		FlashScaleFactor=0.700000
-		Recoil=96.000000
-		WarnTargetPct=0.200000
-		FireSound=(Sound=Sound'BWBP_CC_Sounds.MillitaryLaser.MG-Fire',Volume=1.400000,Slot=SLOT_Interact,bNoOverride=False)
-	End Object
+	Begin Object Class=ShotgunEffectParams Name=ArenaSecondaryEffectParams
+        TraceRange=(Min=2048.000000,Max=2048.000000)
+        RangeAtten=0.350000
+        TraceCount=6
+        TracerClass=Class'BWBP_SKC_Pro.TraceEmitter_ShotgunHE'
+        ImpactManager=Class'BWBP_SKC_Pro.IM_ShellHE'
+        Damage=11
+        DamageType=Class'BWBP_SKC_Pro.DT_SK410Shotgun'
+        DamageTypeHead=Class'BWBP_SKC_Pro.DT_SK410ShotgunHead'
+        DamageTypeArm=Class'BWBP_SKC_Pro.DT_SK410Shotgun'
+        MuzzleFlashClass=Class'BallisticProV55.M353FlashEmitter'
+        FlashScaleFactor=0.500000
+        Recoil=378.000000
+        Chaos=0.400000
+        BotRefireRate=0.900000
+        WarnTargetPct=0.500000
+		Inaccuracy=(X=256,Y=256)
+        FireSound=(Sound=Sound'BWBP_SKC_Sounds.M781.M781-Blast',Volume=1.300000)
+    End Object
 
-	Begin Object Class=FireParams Name=ArenaSecondaryFireParams
-		FireInterval=0.08000
-		FireEndAnim=
-		AimedFireAnim="SightFireHeavy"	
-		FireEffectParams(0)=InstantEffectParams'ArenaSecondaryEffectParams'
-	End Object
+    Begin Object Class=FireParams Name=ArenaSecondaryFireParams
+        AmmoPerFire=3
+		FireInterval=0.120000
+        FireEndAnim=
+        AimedFireAnim="SightFire"
+        FireAnimRate=1.750000	
+        FireEffectParams(0)=ShotgunEffectParams'ArenaSecondaryEffectParams'
+    End Object
 		
 	//=================================================================
 	// RECOIL
@@ -93,8 +97,9 @@ defaultproperties
 	//=================================================================	
 
     Begin Object Class=WeaponParams Name=ArenaParams
+		WeaponBoneScales(0)=(BoneName="Bullet1",Slot=101,Scale=0f)
 		SightOffset=(X=-15.000000,Y=-0.900000,Z=19.30000)
-		//PlayerViewOffset=(X=15.000000,Y=7.000000,Z=-11.000000)
+		ViewOffset=(X=8.000000,Y=10.000000,Z=-12.000000)
 		PlayerSpeedFactor=0.950000
         PlayerJumpFactor=0.950000
         DisplaceDurationMult=1.25

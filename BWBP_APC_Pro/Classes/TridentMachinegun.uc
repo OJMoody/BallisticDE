@@ -10,96 +10,126 @@
 // by Nolan "Dark Carnivour" Richert.
 // Copyright(c) 2005 RuneStorm. All Rights Reserved.
 //=============================================================================
-class CruMachinegun extends BallisticMachinegun
-	transient
-	HideDropDown
-	CacheExempt;
+class TridentMachinegun extends BallisticMachinegun;
+
+var   float DesiredSpeed, BarrelSpeed;
+var   int	BarrelTurn;
+var() Sound BarrelSpinSound;
+var() Sound BarrelStopSound;
+var() Sound BarrelStartSound;
+
+var float		RotationSpeeds[3];
 
 var() BUtil.FullSound	LeverUpSound;	// Sound to play when Lever opens
 var() BUtil.FullSound	LeverDownSound;	// Sound to play when Lever closes
 
-function InitWeaponFromTurret(BallisticTurret Turret)
+replication
 {
-	bNeedCock = false;
-	Ammo[0].AmmoAmount = Turret.AmmoAmount[0];
-	if (!Instigator.IsLocallyControlled())
-		ClientInitWeaponFromTurret(Turret);
-}
-simulated function ClientInitWeaponFromTurret(BallisticTurret Turret)
-{
-	bNeedCock=false;
+	reliable if (Role < ROLE_Authority)
+		SetServerTurnVelocity;
 }
 
-function Notify_Deploy()
+function SetServerTurnVelocity (int NewTVYaw, int NewTVPitch)
 {
-	local vector HitLoc, HitNorm, Start, End;
-	local actor T;
-	local Rotator CompressedEq;
-    local BallisticTurret Turret;
-    local int Forward;
-
-	if (Instigator.HeadVolume.bWaterVolume)
-		return;
-	// Trace forward and then down. make sure turret is being deployed:
-	//   on world geometry, at least 30 units away, on level ground, not on the other side of an obstacle
-	// BallisticPro specific: Can be deployed upon sandbags providing that sandbag is not hosting
-	// another weapon already. When deployed upon sandbags, the weapon is automatically deployed 
-	// to the centre of the bags.
+	TridentPrimaryFire(FireMode[0]).TurnVelocity.Yaw = NewTVYaw;
+	TridentPrimaryFire(FireMode[0]).TurnVelocity.Pitch = NewTVPitch;
 	
-	Start = Instigator.Location + Instigator.EyePosition();
-	for (Forward=75;Forward>=45;Forward-=15)
+	TridentSecondaryFire(FireMode[1]).TurnVelocity.Yaw = NewTVYaw;
+	TridentSecondaryFire(FireMode[1]).TurnVelocity.Pitch = NewTVPitch;
+}
+
+simulated event PostBeginPlay()
+{
+	super.PostBeginPlay();
+	TridentPrimaryFire(FireMode[0]).TridentWeapon = self;
+	TridentSecondaryFire(FireMode[1]).TridentWeapon = self;
+}
+
+simulated function float GetRampUpSpeed()
+{
+	local float mult;
+	
+	mult = 1 - (BarrelSpeed / RotationSpeeds[2]);
+	
+	return 0.075f + (0.07f * mult * mult);	//change 0.07f here to increase/decrease rotation acceleration. higher values = faster accel
+}
+
+simulated event WeaponTick (float DT)
+{
+	local rotator BT;
+
+	BT.Roll = BarrelTurn;
+
+	SetBoneRotation('Barrels', BT);
+
+	DesiredSpeed = RotationSpeeds[CurrentWeaponMode];
+
+	super.WeaponTick(DT);
+}
+
+simulated function bool PutDown()
+{
+	if (super.PutDown())
 	{
-		End = Start + vector(Instigator.Rotation) * Forward;
-		T = Trace(HitLoc, HitNorm, End, Start, true, vect(6,6,6));
-		if (T != None && VSize(HitLoc - Start) < 30)
-			return;
-		if (T == None)
-			HitLoc = End;
-		End = HitLoc - vect(0,0,100);
-		T = Trace(HitLoc, HitNorm, End, HitLoc, true, vect(6,6,6));
-		if (T != None && (T.bWorldGeometry && (Sandbag(T) == None || Sandbag(T).AttachedWeapon == None)) && HitNorm.Z >= 0.9 && FastTrace(HitLoc, Start))
-			break;
-		if (Forward <= 45)
-			return;
+		Instigator.AmbientSound = None;
+		BarrelSpeed = 0;
+		return true;
+	}
+	return false;
+}
+
+simulated event Tick (float DT)
+{
+	local float OldBarrelTurn;
+
+	super.Tick(DT);
+
+	if ((FireMode[0].IsFiring() || FireMode[1].IsFiring()) && !bServerReloading)
+	{
+		BarrelSpeed = BarrelSpeed + FClamp(DesiredSpeed - BarrelSpeed, -0.35*DT, GetRampUpSpeed() *DT);
+		BarrelTurn += BarrelSpeed * 655360 * DT;
+	}
+	else if (BarrelSpeed > 0)
+	{
+		BarrelSpeed = FMax(BarrelSpeed-0.5*DT, 0.01);
+		OldBarrelTurn = BarrelTurn;
+		BarrelTurn += BarrelSpeed * 655360 * DT;
+		if (BarrelSpeed <= 0.025 && int(OldBarrelTurn/10922.66667) < int(BarrelTurn/10922.66667))
+		{
+			BarrelTurn = int(BarrelTurn/10922.66667) * 10922.66667;
+			BarrelSpeed = 0;
+			PlaySound(BarrelStopSound, SLOT_None, 0.5, , 32, 1.0, true);
+			Instigator.AmbientSound = None;
+		}
+	}
+	if (BarrelSpeed > 0)
+	{
+		Instigator.AmbientSound = BarrelSpinSound;
+		Instigator.SoundPitch = 32 + 96 * BarrelSpeed;
 	}
 
-	FireMode[1].bIsFiring = false;
-   	FireMode[1].StopFiring();
+	if (ThirdPersonActor != None)
+		TridentAttachment(ThirdPersonActor).BarrelSpeed = BarrelSpeed;
+}
 
-	if(Sandbag(T) != None)
+function ServerSwitchWeaponMode (byte NewMode)
+{
+	if (NewMode == 255)
+		NewMode = CurrentWeaponMode + 1;
+	while (NewMode != CurrentWeaponMode && (NewMode >= WeaponModes.length || WeaponModes[NewMode].bUnavailable) )
 	{
-		HitLoc = T.Location;
-		HitLoc.Z += class'M353Turret'.default.CollisionHeight + 30;
+		if (NewMode >= WeaponModes.length)
+			NewMode = 0;
+		else
+			NewMode++;
 	}
-	
-	else
-	{
-		HitLoc.Z += class'M353Turret'.default.CollisionHeight - 9;
-	}
-	
-	CompressedEq = Instigator.Rotation;
-		
-	//Rotator compression causes disparity between server and client rotations,
-	//which then plays hob with the turret's aim.
-	//Do the compression first then use that to spawn the turret.
-	
-	CompressedEq.Pitch = (CompressedEq.Pitch >> 8) & 255;
-	CompressedEq.Yaw = (CompressedEq.Yaw >> 8) & 255;
-	CompressedEq.Pitch = (CompressedEq.Pitch << 8);
-	CompressedEq.Yaw = (CompressedEq.Yaw << 8);
+	if (!WeaponModes[NewMode].bUnavailable)
+		CurrentWeaponMode = NewMode;
+}
 
-	Turret = Spawn(class'M353Turret', None,, HitLoc, CompressedEq);
-	
-    if (Turret != None)
-    {
-    	if (Sandbag(T) != None)
-			Sandbag(T).AttachedWeapon = Turret;
-		Turret.InitDeployedTurretFor(self);
-		Turret.TryToDrive(Instigator);
-		Destroy();
-    }
-    else
-		log("Notify_Deploy: Could not spawn turret for M353 Machinegun");
+simulated function float ChargeBar()
+{
+     return BarrelSpeed / DesiredSpeed;
 }
 
 // Run when Lever is Up
@@ -169,7 +199,7 @@ simulated function bool HasAmmo()
 	return false;	//This weapon is empty
 }
 
-function GiveTo(Pawn Other, optional Pickup Pickup)
+/*function GiveTo(Pawn Other, optional Pickup Pickup)
 {
     local int m;
     local weapon w;
@@ -233,7 +263,7 @@ function GiveTo(Pawn Other, optional Pickup Pickup)
 			Ammo[m] = None;
 		Destroy();
 	}
-}
+}*/
 
 function float GetAIRating()
 {
@@ -265,16 +295,20 @@ function float SuggestDefenseStyle()	{	return 0.5;	}
 
 defaultproperties
 {
+	BarrelSpinSound=Sound'IndoorAmbience.Machinery14'
+    BarrelStopSound=Sound'BW_Core_WeaponSound.XMV-850.XMV-BarrelStop'
+    BarrelStartSound=Sound'BW_Core_WeaponSound.XMV-850.XMV-BarrelStart'
+	bShowChargingBar=True
 	BeltBones(0)="Bullet2"
-	LeverUpSound=(Sound=Sound'BWBP_CC_Sounds.MillitaryLaser.MG-LeverUp')
-	LeverDownSound=(Sound=Sound'BWBP_CC_Sounds.MillitaryLaser.MG-LeverDown')
-	BoxOnSound=(Sound=Sound'BWBP_CC_Sounds.MillitaryLaser.MG-BoxOn')
-	BoxOffSound=(Sound=Sound'BWBP_CC_Sounds.MillitaryLaser.MG-BoxOff')
-	FlapUpSound=(Sound=Sound'BWBP_CC_Sounds.MillitaryLaser.MG-FlapUp')
-	FlapDownSound=(Sound=Sound'BWBP_CC_Sounds.MillitaryLaser.MG-FlapDown')
+	LeverUpSound=(Sound=Sound'BWBP_CC_Sounds.CruMG.MG-LeverUp')
+	LeverDownSound=(Sound=Sound'BWBP_CC_Sounds.CruMG.MG-LeverDown')
+	BoxOnSound=(Sound=Sound'BWBP_CC_Sounds.CruMG.MG-BoxOn')
+	BoxOffSound=(Sound=Sound'BWBP_CC_Sounds.CruMG.MG-BoxOff')
+	FlapUpSound=(Sound=Sound'BWBP_CC_Sounds.CruMG.MG-FlapUp')
+	FlapDownSound=(Sound=Sound'BWBP_CC_Sounds.CruMG.MG-FlapDown')
 	TeamSkins(0)=(RedTex=Shader'BW_Core_WeaponTex.Hands.RedHand-Shiny',BlueTex=Shader'BW_Core_WeaponTex.Hands.BlueHand-Shiny')
 	AIReloadTime=4.000000
-	BigIconMaterial=Texture'BWBP_CC_Tex.MillitaryLaser.BigIcon_CruML'
+	BigIconMaterial=Texture'BWBP_CC_Tex.CruMg.BigIcon_CruML'
 	BigIconCoords=(Y1=50,Y2=240)
 	BCRepClass=Class'BallisticProV55.BallisticReplicationInfo'
 	bWT_Bullet=True
@@ -286,44 +320,46 @@ defaultproperties
 	BringUpSound=(Sound=Sound'BW_Core_WeaponSound.M353.M353-Pullout')
 	PutDownSound=(Sound=Sound'BW_Core_WeaponSound.M353.M353-Putaway')
 	CockAnimRate=1.250000
-	CockSound=(Sound=Sound'BWBP_CC_Sounds.MillitaryLaser.MG-Cock')
+	CockSound=(Sound=Sound'BWBP_CC_Sounds.CruMG.MG-Cock')
 	ReloadAnim="ReloadStart"
 	ReloadAnimRate=1.250000
-	ClipOutSound=(Sound=Sound'BWBP_CC_Sounds.MillitaryLaser.MG-BulletsOff')
-	ClipInSound=(Sound=Sound'BWBP_CC_Sounds.MillitaryLaser.MG-BulletsOn')
+	ClipOutSound=(Sound=Sound'BWBP_CC_Sounds.CruMG.MG-BulletsOff')
+	ClipInSound=(Sound=Sound'BWBP_CC_Sounds.CruMG.MG-BulletsOn')
 	ClipInFrame=0.650000
 	bCockOnEmpty=True
-	WeaponModes(0)=(bUnavailable=True)
-	WeaponModes(1)=(ModeName="Burst of Three")
-	WeaponModes(2)=(ModeName="Burst of Five",ModeID="WM_BigBurst",Value=5.000000)
-	WeaponModes(3)=(ModeName="Full Auto",ModeID="WM_FullAuto")
-    
+	WeaponModes(0)=(ModeName="800 RPM",ModeID="WM_FullAuto")
+    WeaponModes(1)=(ModeName="1200 RPM",ModeID="WM_FullAuto",bUnavailable=True)
+    WeaponModes(2)=(ModeName="1800 RPM",ModeID="WM_FullAuto",bUnavailable=True)
 	
+	// originally XMV is 1200 RPM on its base firemode, so its rotation speed is 0.33. (3600 RPM = 1.00 rot speed)
+	// so divide desired RPM by 3600 to get rot speed
+	RotationSpeeds(0)=0.23 // 829 RPM
+	RotationSpeeds(1)=0.34 // 1224 RPM
+	RotationSpeeds(2)=0.51 // 1836 RPM
 	
-	CurrentWeaponMode=3
+	CurrentWeaponMode=0
 	bNoCrosshairInScope=True
 	SightOffset=(X=-15.000000,Y=-0.900000,Z=19.30000)
-	ParamsClasses(0)=Class'CruWeaponParams'
-	FireModeClass(0)=Class'BWBP_APC_Pro.CruPrimaryFire'
-	FireModeClass(1)=Class'BWBP_APC_Pro.CruPrimaryFire'
-	SelectAnimRate=1.350000
-	PutDownTime=0.550000
-	BringUpTime=0.700000
+	ParamsClasses(0)=Class'TridentMachinegunWeaponParamsArena'
+	FireModeClass(0)=Class'BWBP_APC_Pro.TridentPrimaryFire'
+	FireModeClass(1)=Class'BWBP_APC_Pro.TridentSecondaryFire'
+	PutDownTime=0.600000
+	BringUpTime=1.100000
 	SelectForce="SwitchToAssaultRifle"
 	AIRating=0.7500000
 	CurrentRating=0.7500000
 	Description=""
 	DisplayFOV=50.000000
 	Priority=43
-	HudColor=(G=150,R=100)
+	HudColor=(B=150,R=50)
 	CustomCrossHairTextureName="Crosshairs.HUD.Crosshair_Cross1"
 	InventoryGroup=6
-	PickupClass=Class'BallisticProV55.M353Pickup'
+	PickupClass=Class'BWBP_APC_Pro.TridentPickup'
 	PlayerViewOffset=(X=15.000000,Y=7.000000,Z=-11.000000)
-	AttachmentClass=Class'BallisticProV55.M353Attachment'
-	IconMaterial=Texture'BWBP_CC_Tex.MillitaryLaser.SmallIcon_CruML'
+	AttachmentClass=Class'BWBP_APC_Pro.TridentAttachment'
+	IconMaterial=Texture'BWBP_CC_Tex.CruMg.SmallIcon_CruML'
 	IconCoords=(X2=127,Y2=31)
-	ItemName="[B] Trident MG"
+	ItemName="[B] Trident Splitter Machinegun"
 	LightType=LT_Pulse
 	LightEffect=LE_NonIncidence
 	LightHue=30
