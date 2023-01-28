@@ -30,6 +30,33 @@ defaultproperties
 		FireAnimRate=1.75	
 	FireEffectParams(0)=InstantEffectParams'ArenaPrimaryEffectParams'
 	End Object
+	
+	Begin Object Class=InstantEffectParams Name=ArenaPrimaryBurstEffectParams
+		TraceRange=(Max=5500.000000)
+		RangeAtten=0.900000
+		Damage=28
+		DamageType=Class'BWBP_SKCExp_Pro.DTM1911Pistol'
+		DamageTypeHead=Class'BWBP_SKCExp_Pro.DTM1911PistolHead'
+		DamageTypeArm=Class'BWBP_SKCExp_Pro.DTM1911Pistol'
+		PenetrateForce=150
+		bPenetrate=True
+		MuzzleFlashClass=Class'BallisticProV55.XK2FlashEmitter'
+		FireSound=(Sound=Sound'BWBP_SKC_Sounds.M1911.M1911-Fire',Volume=1.200000)
+		Recoil=256.000000
+		Chaos=0.200000
+		BotRefireRate=0.300000
+		WarnTargetPct=0.100000
+	End Object
+
+	Begin Object Class=FireParams Name=ArenaPrimaryBurstFireParams
+		FireInterval=0.030000
+		FireAnim="FireDual"
+		AimedFireAnim="Fire"
+		BurstFireRateFactor=0.02
+		FireEndAnim=
+		FireAnimRate=1.75	
+	FireEffectParams(0)=InstantEffectParams'ArenaPrimaryBurstEffectParams'
+	End Object
 		
 	//=================================================================
 	// SECONDARY FIRE
@@ -95,6 +122,7 @@ defaultproperties
 		RecoilParams(0)=RecoilParams'ArenaRecoilParams'
 		AimParams(0)=AimParams'ArenaAimParams'
 		FireParams(0)=FireParams'ArenaPrimaryFireParams'
+		FireParams(1)=FireParams'ArenaPrimaryFireParams'
 		AltFireParams(0)=FireParams'ArenaSecondaryFireParams'
 	End Object
 	Layouts(0)=WeaponParams'ArenaParams'

@@ -403,7 +403,7 @@ simulated event AnimEnd (int Channel)
 
     GetAnimParams(0, Anim, Frame, Rate);
 
-	if (Anim == 'OpenFire' || Anim == 'Fire' || Anim == CockAnim || Anim == ReloadAnim || Anim == ReloadAltAnim)
+	if (Anim == 'OpenFire' || Anim == 'Fire' || Anim == CockAnim || Anim == ReloadAnim || Anim == ReloadAltAnim || Anim == DualReloadAnim || Anim == DualReloadEmptyAnim)
 	{
 		if (MagAmmo - BFireMode[0].ConsumedLoad < 1)
 		{
@@ -549,7 +549,7 @@ defaultproperties
 	HudColor=(B=255,G=200,R=200)
 	CustomCrossHairTextureName="Crosshairs.HUD.Crosshair_Cross1"
 	InventoryGroup=2
-	GroupOffset=11
+	GroupOffset=14
 	PickupClass=Class'BWBP_JCF_Pro.HKMKSpecPickup'
 	PlayerViewOffset=(X=3.000000,Y=9.000000,Z=-10.000000)
 	AttachmentClass=Class'BWBP_JCF_Pro.HKMKSpecAttachment'

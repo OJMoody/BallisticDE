@@ -521,7 +521,7 @@ defaultproperties
 	HudColor=(B=255,G=200,R=200)
 	CustomCrossHairTextureName="Crosshairs.HUD.Crosshair_Cross1"
 	InventoryGroup=2
-	GroupOffset=7
+	GroupOffset=11
 	PickupClass=Class'BWBP_SKCExp_Pro.SX45Pickup'
 	PlayerViewOffset=(X=0.000000,Y=7.000000,Z=-12.000000)
 	AttachmentClass=Class'BWBP_SKCExp_Pro.SX45Attachment'

@@ -35,9 +35,43 @@ defaultproperties
 
 	Begin Object Class=FireParams Name=RealisticPrimaryFireParams
 		FireInterval=0.070000
-		BurstFireRateFactor=1.00
 		FireEndAnim=	
 	FireEffectParams(0)=InstantEffectParams'RealisticPrimaryEffectParams'
+	End Object
+	
+	Begin Object Class=InstantEffectParams Name=RealisticPrimaryBurstEffectParams
+	TraceRange=(Min=800.000000,Max=4000.000000)  //.45
+		WaterTraceRange=3300.0
+		DecayRange=(Min=0.0,Max=0.0)
+		RangeAtten=0.900000
+		Damage=45
+		HeadMult=2.65
+		LimbMult=0.6
+		DamageType=Class'BWBP_SKCExp_Pro.DTM1911Pistol'
+		DamageTypeHead=Class'BWBP_SKCExp_Pro.DTM1911PistolHead'
+		DamageTypeArm=Class'BWBP_SKCExp_Pro.DTM1911Pistol'
+		PenetrationEnergy=32.000000
+		PenetrateForce=30
+		bPenetrate=True
+		PDamageFactor=0.6
+		WallPDamageFactor=0.4
+		SpreadMode=FSM_Rectangle
+		MuzzleFlashClass=Class'BallisticProV55.XK2FlashEmitter'
+		FireSound=(Sound=Sound'BWBP_SKC_Sounds.M1911.M1911-Fire',Volume=1.200000)
+		Recoil=1000.000000
+		Chaos=0.060000
+		Inaccuracy=(X=20,Y=20)
+		BotRefireRate=0.300000
+		WarnTargetPct=0.100000
+	End Object
+
+	Begin Object Class=FireParams Name=RealisticPrimaryBurstFireParams
+		FireInterval=0.030000
+		FireAnim="FireDual"
+		AimedFireAnim="Fire"
+		BurstFireRateFactor=0.02
+		FireEndAnim=	
+	FireEffectParams(0)=InstantEffectParams'RealisticPrimaryBurstEffectParams'
 	End Object
 		
 	//=================================================================
@@ -91,6 +125,7 @@ defaultproperties
 		RecoilParams(0)=RecoilParams'RealisticRecoilParams'
 		AimParams(0)=AimParams'RealisticAimParams'
 		FireParams(0)=FireParams'RealisticPrimaryFireParams'
+		FireParams(1)=FireParams'RealisticPrimaryBurstFireParams'
 	End Object
 	Layouts(0)=WeaponParams'RealisticParams'
 
