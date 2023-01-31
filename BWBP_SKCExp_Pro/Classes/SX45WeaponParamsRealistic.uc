@@ -148,6 +148,7 @@ defaultproperties
 		SightMoveSpeedFactor=0.500000
 		SightingTime=0.130000
 		MagAmmo=15
+		bMagPlusOne=True
 		SightOffset=(y=-3.140000,Z=14.300000)
 		WeaponName="SX-45 .45 Tech Pistol"
 		RecoilParams(0)=RecoilParams'RealisticRecoilParams'

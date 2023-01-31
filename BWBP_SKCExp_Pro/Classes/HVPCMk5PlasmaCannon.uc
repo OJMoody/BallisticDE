@@ -17,6 +17,7 @@ var() Sound		OverHeatSound;		// Sound to play when it overheats
 var bool		bWaterBurn;			// busy getting damaged in water
 
 var bool	bArcOOA;			// Arcs have been killed cause ammo is out
+var Actor CoolantSmoke;			// Gas emitted when cooling gun
 //var Actor	Arc1;				// The decorative side arc
 //var Actor	Arc2;				// The top arcs
 //var Actor	Arc3;
@@ -223,6 +224,17 @@ simulated event WeaponTick(float DT)
 
 	super.WeaponTick(DT);
 
+	//Heat based effect code
+	
+	if (HeatLevel >= 7 && Spiral == None)
+		class'bUtil'.static.InitMuzzleFlash(Spiral, class'HVPCMk66_GreenSpiral', DrawScale, self, 'tip');
+	else if (HeatLevel < 7)
+	{
+		if (Spiral != None)
+			Emitter(Spiral).kill();
+	}
+		
+	
 	if (AIController(Instigator.Controller) != None)
 	{
 		if (HeatLevel > 0)
@@ -233,9 +245,6 @@ simulated event WeaponTick(float DT)
 		else if (bIsVenting)
 			ReloadRelease();
 	}
-	//if (Arc1 != None)
-		//HVPCMk5_SideArc(Arc1).SetColorShift(HeatLevel/10);
-
 
 	if (Instigator.PhysicsVolume.bWaterVolume)
 	{
@@ -351,6 +360,7 @@ simulated function bool PutDown()
 			ServerReloadRelease();
 		}
 
+		if (CoolantSmoke != None) CoolantSmoke.Destroy();
 		//if (Arc1 != None)	Arc1.Destroy();
 		//if (Arc2 != None)	Arc2.Destroy();
 		//if (Arc3 != None)	Arc3.Destroy();
@@ -392,13 +402,19 @@ simulated function InitArcs()
 		//class'bUtil'.static.InitMuzzleFlash(Arc3, class'HVPCMk5_TopArc',  DrawScale, self, 'Arc2');
 }
 
+simulated function InitGas()
+{
+	if (CoolantSmoke == None)
+		class'bUtil'.static.InitMuzzleFlash(CoolantSmoke, class'PumaGlowFXDamaged', DrawScale, self, 'tip');
+}
+
 
 
 simulated event RenderOverlays (Canvas C)
 {
 	local vector End, X,Y,Z;
-	if (Spiral != None)
-		Spiral.SetRelativeRotation(rot(0,0,1)*RotorSpin);
+//	if (Spiral != None)
+//		Spiral.SetRelativeRotation(rot(0,0,1)*RotorSpin);
 
 
 	Super.RenderOverlays(C);
@@ -452,6 +468,10 @@ simulated function Notify_LGArcOff()
 {
 	Instigator.AmbientSound = VentingSound;
 	Instigator.SoundVolume = 128;
+	
+	if (level.DetailMode>DM_Low)
+		InitGas();
+		
 	//if (Arc1 != None)
 	//{	Emitter(Arc1).Kill();	Arc1=None;	}
 	//if (Arc2 != None)
@@ -517,6 +537,8 @@ exec simulated  function ReloadRelease(optional byte i)
 
 simulated function Notify_LGArcOn()
 {
+	if (CoolantSmoke != None)
+		CoolantSmoke.Destroy();
 	if (AmmoAmount(0) > 0 && level.DetailMode>DM_Low)
 		InitArcs();
 }
@@ -553,6 +575,8 @@ simulated function Destroyed()
 {
 	if (FreeZap != None)
 		FreeZap.Destroy();
+	if (CoolantSmoke != None)
+		CoolantSmoke.Destroy();
 	//if (Arc1 != None)
 	//	Arc1.Destroy();
 	//if (Arc2 != None)

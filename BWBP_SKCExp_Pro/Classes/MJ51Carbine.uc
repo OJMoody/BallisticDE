@@ -342,6 +342,7 @@ defaultproperties
      IdleAnimRate=0.200000
      PutDownTime=0.700000
      BringUpTime=0.900000
+	 CockingBringUpTime=2.000000
      SelectForce="SwitchToAssaultRifle"
      AIRating=0.600000
      CurrentRating=0.600000

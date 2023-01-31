@@ -117,6 +117,7 @@ defaultproperties
 		SightMoveSpeedFactor=0.500000
 		SightingTime=0.200000
 		SightOffset=(X=0.000000,Y=-6.450000,Z=24.000000)
+		bNeedCock=True
 		WeaponBoneScales(0)=(BoneName="CarryHandle",Slot=54,Scale=1f)
 		WeaponBoneScales(1)=(BoneName="HoloSightLower",Slot=55,Scale=1f)
 		WeaponBoneScales(2)=(BoneName="HoloSightLower",Slot=56,Scale=0f)
@@ -136,6 +137,7 @@ defaultproperties
 		SightMoveSpeedFactor=0.500000
 		SightingTime=0.200000
 		SightOffset=(X=10.000000,Y=-6.450000,Z=20.900000)
+		bNeedCock=True
 		WeaponBoneScales(0)=(BoneName="IronsLower",Slot=53,Scale=0f)
 		WeaponBoneScales(1)=(BoneName="CarryHandle",Slot=54,Scale=-1)
 		WeaponBoneScales(2)=(BoneName="HoloSightUpper",Slot=55,Scale=0f)
@@ -156,6 +158,7 @@ defaultproperties
 		SightMoveSpeedFactor=0.500000
 		SightingTime=0.200000
 		SightOffset=(X=10.000000,Y=-6.450000,Z=20.900000)
+		bNeedCock=True
 		WeaponBoneScales(0)=(BoneName="IronsLower",Slot=53,Scale=0f)
 		WeaponBoneScales(1)=(BoneName="CarryHandle",Slot=54,Scale=1f)
 		WeaponBoneScales(2)=(BoneName="HoloSightUpper",Slot=55,Scale=0f)
@@ -178,6 +181,7 @@ defaultproperties
 		SightMoveSpeedFactor=0.500000
 		SightingTime=0.200000
 		SightOffset=(X=0.000000,Y=-6.450000,Z=24.000000)
+		bNeedCock=True
 		WeaponBoneScales(0)=(BoneName="CarryHandle",Slot=54,Scale=1f)
 		WeaponBoneScales(1)=(BoneName="HoloSightLower",Slot=55,Scale=1f)
 		WeaponBoneScales(2)=(BoneName="HoloSightLower",Slot=56,Scale=0f)
@@ -195,6 +199,7 @@ defaultproperties
 		Weight=1
 		LayoutMesh=SkeletalMesh'BWBP_SKC_AnimExp.FPm_MJ5000'
 		InventorySize=11
+		bNeedCock=True
 		MagAmmo=60
 		SightMoveSpeedFactor=0.500000
 		SightingTime=0.200000

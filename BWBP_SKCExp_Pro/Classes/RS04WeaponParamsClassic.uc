@@ -83,6 +83,7 @@ defaultproperties
 		InventorySize=5
 		SightMoveSpeedFactor=0.500000
 		SightingTime=0.200000
+		bNeedCock=True
 		MagAmmo=8
 		SightOffset=(X=-20.000000,Y=-1.9500000,Z=17.000000)
 		RecoilParams(0)=RecoilParams'ClassicRecoilParams'
@@ -94,9 +95,10 @@ defaultproperties
 		WeaponMaterialSwaps(0)=(Material=Shader'BW_Core_WeaponTex.Hands.Hands-Shiny',Index=0)
 		WeaponMaterialSwaps(1)=(Material=Shader'BWBP_SKC_TexExp.M1911.RS04-MainShineX2',Index=1)
 		Weight=27
-		InventorySize=35
+		InventorySize=5
 		SightMoveSpeedFactor=0.500000
 		SightingTime=0.200000
+		bNeedCock=True
 		MagAmmo=8
 		SightOffset=(X=-20.000000,Y=-1.9500000,Z=17.000000)
 		RecoilParams(0)=RecoilParams'ClassicRecoilParams'
@@ -108,9 +110,10 @@ defaultproperties
 		WeaponMaterialSwaps(0)=(Material=Shader'BW_Core_WeaponTex.Hands.Hands-Shiny',Index=0)
 		WeaponMaterialSwaps(1)=(Material=Texture'BWBP_SKC_TexExp.M1911.RS04-UC-Main2Tone',Index=1)
 		Weight=9
-		InventorySize=35
+		InventorySize=5
 		SightMoveSpeedFactor=0.500000
 		SightingTime=0.200000
+		bNeedCock=True
 		MagAmmo=8
 		SightOffset=(X=-20.000000,Y=-1.9500000,Z=17.000000)
 		RecoilParams(0)=RecoilParams'ClassicRecoilParams'
@@ -122,9 +125,10 @@ defaultproperties
 		WeaponMaterialSwaps(0)=(Material=Shader'BW_Core_WeaponTex.Hands.Hands-Shiny',Index=0)
 		WeaponMaterialSwaps(1)=(Material=Texture'BWBP_SKC_TexExp.M1911.RS04-UC-CamoJungle',Index=1)
 		Weight=9
-		InventorySize=35
+		InventorySize=5
 		SightMoveSpeedFactor=0.500000
 		SightingTime=0.200000
+		bNeedCock=True
 		MagAmmo=8
 		SightOffset=(X=-20.000000,Y=-1.9500000,Z=17.000000)
 		RecoilParams(0)=RecoilParams'ClassicRecoilParams'
@@ -136,9 +140,10 @@ defaultproperties
 		WeaponMaterialSwaps(0)=(Material=Shader'BW_Core_WeaponTex.Hands.Hands-Shiny',Index=0)
 		WeaponMaterialSwaps(1)=(Material=Texture'BWBP_SKC_TexExp.M1911.RS04-R-CamoAutumn',Index=1)
 		Weight=3
-		InventorySize=35
+		InventorySize=5
 		SightMoveSpeedFactor=0.500000
 		SightingTime=0.200000
+		bNeedCock=True
 		MagAmmo=8
 		SightOffset=(X=-20.000000,Y=-1.9500000,Z=17.000000)
 		RecoilParams(0)=RecoilParams'ClassicRecoilParams'
@@ -150,9 +155,10 @@ defaultproperties
 		WeaponMaterialSwaps(0)=(Material=Shader'BW_Core_WeaponTex.Hands.Hands-Shiny',Index=0)
 		WeaponMaterialSwaps(1)=(Material=Texture'BWBP_SKC_TexExp.M1911.RS04-R-CamoHunter',Index=1)
 		Weight=3
-		InventorySize=35
+		InventorySize=5
 		SightMoveSpeedFactor=0.500000
 		SightingTime=0.200000
+		bNeedCock=True
 		MagAmmo=8
 		SightOffset=(X=-20.000000,Y=-1.9500000,Z=17.000000)
 		RecoilParams(0)=RecoilParams'ClassicRecoilParams'
@@ -164,9 +170,10 @@ defaultproperties
 		WeaponMaterialSwaps(0)=(Material=Shader'BW_Core_WeaponTex.Hands.Hands-Shiny',Index=0)
 		WeaponMaterialSwaps(1)=(Material=Texture'BWBP_SKC_TexExp.M1911.RS04-X-CamoTiger',Index=1)
 		Weight=1
-		InventorySize=35
+		InventorySize=5
 		SightMoveSpeedFactor=0.500000
 		SightingTime=0.200000
+		bNeedCock=True
 		MagAmmo=8
 		SightOffset=(X=-20.000000,Y=-1.9500000,Z=17.000000)
 		RecoilParams(0)=RecoilParams'ClassicRecoilParams'

@@ -84,6 +84,7 @@ defaultproperties
 		PlayerSpeedFactor=0.900000
 		InventorySize=15
 		SightMoveSpeedFactor=0.500000
+		bNeedCock=True
 		MagAmmo=100
 		SightOffset=(X=-15.000000,Y=-0.350000,Z=12.300000)
 		ZoomType=ZT_Logarithmic

@@ -609,6 +609,7 @@ defaultproperties
 	 ReloadAnimRate=0.800000
      PutDownTime=0.600000
      BringUpTime=0.650000
+	 CockingBringUpTime=1.300000
      SelectForce="SwitchToAssaultRifle"
      AIRating=0.70000
      CurrentRating=0.700000

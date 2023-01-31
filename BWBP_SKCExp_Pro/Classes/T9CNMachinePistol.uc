@@ -201,6 +201,8 @@ defaultproperties
     NDCrosshairInfo=(SpreadRatios=(Y1=0.800000,Y2=1.000000),MaxScale=2.000000)
 	PutDownTime=0.400000
 	BringUpTime=0.500000
+	CockingBringUpTime=0.400000
+	CockSelectAnim="PulloutFancyOG"
 	SelectForce="SwitchToAssaultRifle"
 	bShowChargingBar=False
 	Description="The T9CN was the precursor to the standard GRS9 Pistol, and it sported a rugged automatic firing mechanism and nickel finish. The automatic variant was designed with use by counter-terrorism units in mind, but sadly a lack of compensator gave the gun horrible inaccuracy and recoil. Most CTU's quickly dropped the T9CN in favor of other more accurate machine pistols like the XRS-10 and the XK2, however infamous outlaw Var Dehidra and his cronies stole a stash of T9CN's and found good use for them. They were known for spraying them to keep enemies at bay and even tilting them to the side like gangsters of old. Their brazen use of police equipment inspired robberies throughout the cosmos!"

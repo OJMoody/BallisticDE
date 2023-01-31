@@ -102,6 +102,7 @@ defaultproperties
 		Weight=30
 		InventorySize=12
 		SightMoveSpeedFactor=0.500000
+		bNeedCock=True
 		MagAmmo=10
 		SightOffset=(X=-20.000000,Y=-1.250000,Z=31.000000)
 		ViewOffset=(X=10.000000,Y=15.000000,Z=-27.000000)
@@ -119,6 +120,7 @@ defaultproperties
 		WeaponMaterialSwaps(1)=(Material=Shader'BWBP_Boom_Tex.VSKBoom.UTCVskShine',Index=1)
 		InventorySize=12
 		SightMoveSpeedFactor=0.500000
+		bNeedCock=True
 		MagAmmo=10
 		SightOffset=(X=-20.000000,Y=-1.250000,Z=31.000000)
 		ViewOffset=(X=10.000000,Y=15.000000,Z=-27.000000)

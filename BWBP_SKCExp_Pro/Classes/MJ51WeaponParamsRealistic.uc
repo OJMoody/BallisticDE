@@ -116,6 +116,7 @@ defaultproperties
 		SightMoveSpeedFactor=0.500000
 		SightOffset=(X=10.000000,Y=-6.450000,Z=20.900000)
 		ViewOffset=(X=-9.000000,Y=8.000000,Z=-15.000000)
+		bMagPlusOne=True
 		WeaponBoneScales(0)=(BoneName="IronsLower",Slot=53,Scale=0f)
 		WeaponBoneScales(1)=(BoneName="CarryHandle",Slot=54,Scale=-1)
 		WeaponBoneScales(2)=(BoneName="HoloSightUpper",Slot=55,Scale=0f)
