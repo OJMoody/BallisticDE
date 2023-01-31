@@ -111,6 +111,7 @@ defaultproperties
 		SightMoveSpeedFactor=0.9
 		SightingTime=0.450000		
 		DisplaceDurationMult=1
+		bNeedCock=True
 		MagAmmo=20
 		RecoilParams(0)=RecoilParams'ClassicRecoilParams'
 		AimParams(0)=AimParams'ClassicAimParams'

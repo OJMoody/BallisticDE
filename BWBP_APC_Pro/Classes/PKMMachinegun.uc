@@ -360,6 +360,7 @@ defaultproperties
      SelectAnimRate=1.000000
      PutDownTime=0.550000
      BringUpTime=0.500000
+	CockingBringUpTime=2.000000
      SelectForce="SwitchToAssaultRifle"
      AIRating=0.7500000
      CurrentRating=0.7500000
