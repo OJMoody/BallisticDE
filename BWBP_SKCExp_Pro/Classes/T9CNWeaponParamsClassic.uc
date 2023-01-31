@@ -88,8 +88,10 @@ defaultproperties
 		WeaponMaterialSwaps(1)=(Material=Texture'BWBP_SKC_TexExp.T9CN.Ber-MainE',Index=1)
 		WeaponMaterialSwaps(2)=(Material=Texture'BWBP_SKC_TexExp.T9CN.Ber-SlideE',Index=3)
 		InventorySize=6
+
 		SightMoveSpeedFactor=0.500000
 		SightingTime=0.150000
+		bNeedCock=True
 		MagAmmo=18
 		SightPivot=(Pitch=128)
 		SightOffset=(X=-10.000000,Y=-2.090000,Z=9.35000)

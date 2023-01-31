@@ -116,6 +116,7 @@ defaultproperties
 		SightMoveSpeedFactor=0.500000
 		SightingTime=0.200000
 		SightOffset=(X=0.000000,Y=-6.450000,Z=24.000000)
+		bNeedCock=True
 		WeaponBoneScales(0)=(BoneName="CarryHandle",Slot=54,Scale=1f)
 		WeaponBoneScales(1)=(BoneName="HoloSightLower",Slot=55,Scale=1f)
 		WeaponBoneScales(2)=(BoneName="HoloSightLower",Slot=56,Scale=0f)
@@ -128,6 +129,7 @@ defaultproperties
 		FireParams(0)=FireParams'ClassicPrimaryFireParams'
 		AltFireParams(0)=FireParams'ClassicSecondaryFireParams'
 	End Object
+
 	Layouts(0)=WeaponParams'ClassicParams'
 
 

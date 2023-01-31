@@ -116,6 +116,7 @@ defaultproperties
 		InventorySize=5
 		SightMoveSpeedFactor=0.500000
 		SightingTime=0.200000
+		bNeedCock=True
 		MagAmmo=8
 		SightOffset=(X=-20.000000,Y=-1.9500000,Z=17.000000)
 		RecoilParams(0)=RecoilParams'ClassicRecoilParams'
@@ -123,6 +124,7 @@ defaultproperties
 		FireParams(0)=FireParams'ClassicPrimaryFireParams'
 		FireParams(1)=FireParams'ClassicPrimaryBurstFireParams'
 	End Object
+
 	Layouts(0)=WeaponParams'ClassicParams'
 
 

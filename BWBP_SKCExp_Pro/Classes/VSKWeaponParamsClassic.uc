@@ -101,6 +101,7 @@ defaultproperties
 	Begin Object Class=WeaponParams Name=ClassicParams
 		InventorySize=12
 		SightMoveSpeedFactor=0.500000
+		bNeedCock=True
 		MagAmmo=10
 		SightOffset=(X=-20.000000,Y=-1.250000,Z=31.000000)
 		ViewOffset=(X=10.000000,Y=15.000000,Z=-27.000000)
@@ -111,6 +112,7 @@ defaultproperties
 		FireParams(0)=FireParams'ClassicPrimaryFireHeavyParams'
 		FireParams(1)=FireParams'ClassicPrimaryFireStandardParams'
 	End Object
+
 	Layouts(0)=WeaponParams'ClassicParams'
 
 
