@@ -129,6 +129,7 @@ defaultproperties
 		SightingTime=0.450000		
 		DisplaceDurationMult=1
 		MagAmmo=20
+		bMagPlusOne=True
 		WeaponName="ZX-98 7.62mm Gauss Rifle"
 		RecoilParams(0)=RecoilParams'RealisticRecoilParams'
 		AimParams(0)=AimParams'RealisticAimParams'

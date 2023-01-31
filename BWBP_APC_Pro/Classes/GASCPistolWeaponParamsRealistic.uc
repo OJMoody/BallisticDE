@@ -116,6 +116,7 @@ defaultproperties
 		SightingTime=0.150000
 		DisplaceDurationMult=1
 		MagAmmo=16
+		bMagPlusOne=True
 		WeaponModes(0)=(ModeName="Semi-Auto",ModeID="WM_SemiAuto",Value=1.000000)
 		WeaponModes(1)=(ModeName="Burst of Four",ModeID="WM_BigBurst",Value=4.000000)
 		WeaponModes(2)=(ModeName="Semi-Auto",ModeID="WM_BigBurst",Value=5.000000,bUnavailable=True)

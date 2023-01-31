@@ -94,6 +94,8 @@ defaultproperties
 		ADSMultiplier=0.875000
 		ViewBindFactor=0.100000
 		SprintChaos=0.400000
+		SprintOffSet=(Pitch=-1000,Yaw=-2048)
+		JumpOffSet=(Pitch=1000,Yaw=-3000)
 		ChaosDeclineTime=0.700000
 		ChaosSpeedThreshold=600.000000
 	End Object
@@ -107,6 +109,7 @@ defaultproperties
 		SightOffset=(X=-5.000000,Y=-0.100000,Z=27.000000)
 		SightPivot=(Pitch=128)
 		MagAmmo=5
+		bMagPlusOne=True
         SightingTime=0.350000
         InventorySize=12
 		WeaponName="FM-13 Dragon's Breath Shotgun"

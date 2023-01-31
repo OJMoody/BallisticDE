@@ -136,6 +136,7 @@ defaultproperties
 	//=================================================================	
 	
 	Begin Object Class=WeaponParams Name=ClassicParams
+		bNeedCock=True
 		MagAmmo=24
         InventorySize=12
 		SightingTime=0.200000
