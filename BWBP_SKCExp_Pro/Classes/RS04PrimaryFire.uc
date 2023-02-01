@@ -50,7 +50,8 @@ function PlayFiring()
 
     ClientPlayForceFeedback(FireForce);  // jdf
     FireCount++;
-
+	
+	super.PlayFiring();
 }
 
 defaultproperties
