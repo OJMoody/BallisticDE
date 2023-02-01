@@ -126,6 +126,7 @@ defaultproperties
 		InventorySize=35
 		SightMoveSpeedFactor=0.500000
 		SightingTime=0.450000
+		bNeedCock=True
 		MagAmmo=5
 		ReloadAnimRate=1.0
 		CockAnimRate=1.0

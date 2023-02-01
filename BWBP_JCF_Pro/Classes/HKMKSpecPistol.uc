@@ -522,6 +522,7 @@ defaultproperties
 	BringUpSound=(Sound=Sound'BW_Core_WeaponSound.XK2.XK2-Pullout')
 	PutDownSound=(Sound=Sound'BW_Core_WeaponSound.XK2.XK2-Putaway')
 	PutDownTime=0.500000
+	CockingBringUpTime=0.600000
 	CockAnimRate=1.250000
 	ReloadAnimRate=1.250000
 	CockSound=(Sound=Sound'BWBP_JCF_Sounds.MK23.mk23_cock',Volume=2.300000)

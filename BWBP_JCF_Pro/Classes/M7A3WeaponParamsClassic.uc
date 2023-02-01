@@ -105,6 +105,7 @@ defaultproperties
 		InventorySize=35
 		SightMoveSpeedFactor=0.500000
 		SightingTime=0.25
+		bNeedCock=True
 		MagAmmo=20
 		WeaponBoneScales(0)=(BoneName="RDS",Slot=14,Scale=0f)
 		WeaponBoneScales(1)=(BoneName="Scope",Slot=16,Scale=1f)

@@ -81,6 +81,7 @@ defaultproperties
 		InventorySize=65
 		SightMoveSpeedFactor=0.500000
 		SightingTime=0.900000
+		bNeedCock=True
 		MagAmmo=1
 		SightOffset=(X=-10.000000,Y=20.000000,Z=36.000000)
 		SightPivot=(Roll=-1024)
@@ -100,6 +101,7 @@ defaultproperties
 		InventorySize=12
 		SightMoveSpeedFactor=0.500000
 		SightingTime=0.900000
+		bNeedCock=True
 		MagAmmo=1
 		SightOffset=(X=-10.000000,Y=20.000000,Z=36.000000)
 		SightPivot=(Roll=-1024)

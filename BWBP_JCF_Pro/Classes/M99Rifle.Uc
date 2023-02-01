@@ -392,6 +392,7 @@ defaultproperties
      FireModeClass(0)=Class'BWBP_JCF_Pro.M99PrimaryFire'
      FireModeClass(1)=Class'BWBP_JCF_Pro.M99DeployFire'
      BringUpTime=3.200000
+     CockingBringUpTime=3.200000
 	 PutDownTime=2.200000
 	 SelectAnim="PulloutFancy"
      PutDownAnim="PutawayFancy"
