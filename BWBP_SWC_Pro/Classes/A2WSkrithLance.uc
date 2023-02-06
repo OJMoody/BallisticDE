@@ -86,6 +86,7 @@ defaultproperties
     NDCrosshairChaosFactor=0.700000
 	SightOffset=(X=-24.000000,Y=-0.500000,Z=18.000000)
 	SightDisplayFOV=40.000000
+	MeleeFireClass=Class'BWBP_SWC_Pro.A2WMeleeFire'
 	ParamsClasses(0)=Class'A2WWeaponParams'
 	FireModeClass(0)=Class'BWBP_SWC_Pro.A2WPrimaryFire'
 	FireModeClass(1)=Class'BCoreProV55.BallisticScopeFire'

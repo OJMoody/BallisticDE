@@ -12,7 +12,7 @@ defaultproperties
 			TraceCount=1
 			TracerClass=Class'BallisticProV55.TraceEmitter_Shotgun'
 			ImpactManager=Class'BWBP_APC_Pro.IM_FireShot'
-			Damage=105
+			Damage=80
 			DamageType=Class'BWBP_APC_Pro.DTFM14Shotgun'
 			DamageTypeHead=Class'BWBP_APC_Pro.DTFM14ShotgunHead'
 			DamageTypeArm=Class'BWBP_APC_Pro.DTFM14Shotgun'
@@ -40,27 +40,26 @@ defaultproperties
     // SECONDARY FIRE
     //=================================================================	
 	
-	
-		Begin Object Class=ProjectileEffectParams Name=ArenaSecondaryEffectParams
-			ProjectileClass=Class'BWBP_APC_Pro.FM14FlakGrenade'
-			Speed=3500.000000
-			Damage=15
-			DamageRadius=32.000000
-			FlashScaleFactor=2.000000
-			Recoil=1280.000000
-			Chaos=0.500000
-			BotRefireRate=0.3
-			WarnTargetPct=0.75
-			FireSound=(Sound=Sound'BWBP_CC_Sounds.FM13.FM13-Fire',Volume=1.300000)
-		End Object
+	Begin Object Class=ProjectileEffectParams Name=ArenaSecondaryEffectParams
+		ProjectileClass=Class'BWBP_APC_Pro.FM14FlakGrenade'
+		Speed=3500.000000
+		Damage=15
+		DamageRadius=256.000000
+		FlashScaleFactor=2.000000
+		Recoil=1280.000000
+		Chaos=0.500000
+		BotRefireRate=0.3
+		WarnTargetPct=0.75
+		FireSound=(Sound=Sound'BWBP_CC_Sounds.FM13.FM13-Fire',Volume=1.300000)
+	End Object
 
-		Begin Object Class=FireParams Name=ArenaSecondaryFireParams
-			FireInterval=0.750000
-			FireEndAnim=
-			AimedFireAnim="SightFire"
-			FireAnimRate=1.100000	
-		FireEffectParams(0)=ProjectileEffectParams'ArenaSecondaryEffectParams'
-		End Object
+	Begin Object Class=FireParams Name=ArenaSecondaryFireParams
+		FireInterval=0.750000
+		FireEndAnim=
+		AimedFireAnim="SightFire"
+		FireAnimRate=1.100000	
+	FireEffectParams(0)=ProjectileEffectParams'ArenaSecondaryEffectParams'
+	End Object
 		
 	//=================================================================
 	// RECOIL

@@ -45,7 +45,6 @@ simulated function Timer()
 simulated function Explode(vector HitLocation, vector HitNormal)
 {
 	OnDie(self);
-	Damage *= 1 + FClamp(default.LifeSpan  - (LifeSpan + ArmingDelay), 0, 0.5);
 	Super.Explode(HitLocation, HitNormal);
 }
 
@@ -57,7 +56,7 @@ simulated function ApplyImpactEffect(Actor Other, vector HitLocation)
     if (!bArmed)
         class'BallisticDamageType'.static.GenericHurt (Other, ImpactDamage, Instigator, HitLocation, ImpactMomentumTransfer * Normal(Velocity), ImpactDamageType);
     else 
-        class'BallisticDamageType'.static.GenericHurt (Other, Damage, Instigator, HitLocation, MomentumTransfer * Normal(Velocity),MyDamageType);
+        class'BallisticDamageType'.static.GenericHurt (Other, ArmedImpactDamage, Instigator, HitLocation, MomentumTransfer * Normal(Velocity),MyDamageType);
 }
 
 simulated function bool Impact(Actor Other, vector HitLocation)
@@ -76,7 +75,9 @@ simulated singular function HitWall( vector HitNormal, actor Wall )
 	{
 		if ( Instigator == None || Instigator.Controller == None )
 			Wall.SetDelayedDamageInstigatorController( InstigatorController );
+			
 		class'BallisticDamageType'.static.GenericHurt (Wall, Damage, Instigator, Location, MomentumTransfer * Normal(Velocity), MyDamageType);
+		
 		if (DamageRadius > 0 && Vehicle(Wall) != None && Vehicle(Wall).Health > 0)
 			Vehicle(Wall).DriverRadiusDamage(Damage, DamageRadius, InstigatorController, MyDamageType, MomentumTransfer, Location);
 		HurtWall = Wall;
@@ -99,9 +100,7 @@ simulated singular function HitWall( vector HitNormal, actor Wall )
 	{
 		MakeNoise(1.0);
 		
-		Damage *= 1 + FClamp(default.LifeSpan  - (LifeSpan + ArmingDelay), 0, 0.5);
 		Explode(Location + ExploWallOut * HitNormal, HitNormal);
-		
 		HurtWall = None;
 	}
 }
@@ -136,6 +135,7 @@ defaultproperties
      MaxSpeed=25000.000000
      Damage=120.000000
      DamageRadius=768.000000
+	 LifeSpan=8.000000
      WallPenetrationForce=384
      MomentumTransfer=75000.000000
      LightType=LT_Steady

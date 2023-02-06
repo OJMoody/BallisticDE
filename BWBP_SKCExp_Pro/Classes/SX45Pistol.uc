@@ -44,6 +44,17 @@ replication
 simulated function bool SlaveCanUseMode(int Mode) {return Mode == 0;}
 simulated function bool MasterCanSendMode(int Mode) {return Mode == 0;}
 
+simulated state PendingSwitchAmplifier extends PendingDualAction
+{
+	simulated function BeginState()	{	OtherGun.LowerHandGun();	}
+	simulated function HandgunLowered (BallisticHandgun Other)	{ global.HandgunLowered(Other); if (Other == Othergun) ToggleAmplifier();	}
+	simulated event AnimEnd(int Channel)
+	{
+		Othergun.RaiseHandGun();
+		global.AnimEnd(Channel);
+	}
+}
+
 //==============================================
 // Amp Code
 //==============================================
@@ -53,6 +64,18 @@ exec simulated function ToggleAmplifier(optional byte i)
 {
 	if (ReloadState != RS_None || SightingState != SS_None)
 		return;
+	if (Othergun != None)
+	{
+		if (Othergun.Clientstate != WS_ReadyToFire)
+			return;
+		if (IsinState('DualAction'))
+			return;
+		if (!Othergun.IsinState('Lowered'))
+		{
+			GotoState('PendingSwitchAmplifier');
+			return;
+		}
+	}
 
 	TemporaryScopeDown(0.5);
 
@@ -374,7 +397,7 @@ simulated event AnimEnd (int Channel)
 
     GetAnimParams(0, Anim, Frame, Rate);
 
-	if (Anim == 'FireOpen' || Anim == 'Pullout' || Anim == 'PulloutAlt' || Anim == 'Fire' || Anim == 'FireDualOpen' || Anim == 'FireDual' ||Anim == CockAnim || Anim == ReloadAnim || Anim == 'FireOpen' || Anim == 'SightFireOpen')
+	if (Anim == 'FireOpen' || Anim == 'Pullout' || Anim == 'PulloutAlt' || Anim == 'Fire' || Anim == 'FireDualOpen' || Anim == 'FireDual' ||Anim == CockAnim || Anim == ReloadAnim || Anim == 'FireOpen' || Anim == 'SightFireOpen' || Anim == DualReloadAnim || Anim == DualReloadEmptyAnim)
 	{
 		if (MagAmmo - BFireMode[0].ConsumedLoad < 1)
 		{
@@ -479,6 +502,7 @@ defaultproperties
     AmplifierOffSound=Sound'BW_Core_WeaponSound.SRS900.SRS-SilencerOff'
     AmplifierPowerOnSound=Sound'BW_Core_WeaponSound.AMP.Amp-Install'
     AmplifierPowerOffSound=Sound'BW_Core_WeaponSound.AMP.Amp-Depleted'
+	bShouldDualInLoadout=True
 	bShowChargingBar=True
 	TeamSkins(0)=(RedTex=Shader'BW_Core_WeaponTex.Hands.RedHand-Shiny',BlueTex=Shader'BW_Core_WeaponTex.Hands.BlueHand-Shiny')
 	AIReloadTime=1.000000
@@ -521,7 +545,7 @@ defaultproperties
 	HudColor=(B=255,G=200,R=200)
 	CustomCrossHairTextureName="Crosshairs.HUD.Crosshair_Cross1"
 	InventoryGroup=2
-	GroupOffset=7
+	GroupOffset=11
 	PickupClass=Class'BWBP_SKCExp_Pro.SX45Pickup'
 	PlayerViewOffset=(X=0.000000,Y=7.000000,Z=-12.000000)
 	AttachmentClass=Class'BWBP_SKCExp_Pro.SX45Attachment'

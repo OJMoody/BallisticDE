@@ -25,6 +25,9 @@ replication
 
 exec simulated function WeaponSpecial(optional byte i)
 {
+	if (ReloadState != RS_None || ClientState != WS_ReadyToFire)
+		return;
+
 	bLaserOn = !bLaserOn;
 	ServerSwitchLaser(bLaserOn);
 	if (bLaserOn)

@@ -7,79 +7,6 @@
 // Copyright(c) 2007 RuneStorm. All Rights Reserved.
 //=============================================================================
 class RS04PrimaryFire extends BallisticProInstantFire;
-var() Actor						SMuzzleFlash;		// Silenced Muzzle flash stuff
-var() class<Actor>				SMuzzleFlashClass;
-var() Name						SFlashBone;
-var() float						SFlashScaleFactor;
-
-var() sound		ClassicFireSound;
-var() sound		AltFireSound;
-
-
-simulated event ModeDoFire()
-{
-	Super.ModeDoFire();
-}
-
-
-
-function InitEffects()
-{
-	if (AIController(Instigator.Controller) != None)
-		return;
-    if ((MuzzleFlashClass != None) && ((MuzzleFlash == None) || MuzzleFlash.bDeleteMe) )
-		class'BUtil'.static.InitMuzzleFlash (MuzzleFlash, MuzzleFlashClass, Weapon.DrawScale*FlashScaleFactor, weapon, FlashBone);
-    if ((SMuzzleFlashClass != None) && ((SMuzzleFlash == None) || SMuzzleFlash.bDeleteMe) )
-		class'BUtil'.static.InitMuzzleFlash (SMuzzleFlash, SMuzzleFlashClass, Weapon.DrawScale*SFlashScaleFactor, weapon, SFlashBone);
-}
-
-//Trigger muzzleflash emitter
-function FlashMuzzleFlash()
-{
-    if ( (Level.NetMode == NM_DedicatedServer) || (AIController(Instigator.Controller) != None) )
-		return;
-	if (!Instigator.IsFirstPerson() || PlayerController(Instigator.Controller).ViewTarget != Instigator)
-		return;
-    if (MuzzleFlash != None)
-        MuzzleFlash.Trigger(Weapon, Instigator);
-    else if (SMuzzleFlash != None)
-        SMuzzleFlash.Trigger(Weapon, Instigator);
-
-	if (!bBrassOnCock)
-		EjectBrass();
-}
-
-// Remove effects
-simulated function DestroyEffects()
-{
-	Super.DestroyEffects();
-
-	class'BUtil'.static.KillEmitterEffect (MuzzleFlash);
-	class'BUtil'.static.KillEmitterEffect (SMuzzleFlash);
-}
-
-simulated function SendFireEffect(Actor Other, vector HitLocation, vector HitNormal, int Surf, optional vector WaterHitLoc)
-{
-	BallisticAttachment(Weapon.ThirdPersonActor).BallisticUpdateHit(Other, HitLocation, HitNormal, Surf, True, WaterHitLoc);
-}
-
-function ServerPlayFiring()
-{
-	//if (RS04Pistol(Weapon) != None && SilencedFireSound.Sound != None)
-		//Weapon.PlayOwnedSound(SilencedFireSound.Sound,SilencedFireSound.Slot,SilencedFireSound.Volume,SilencedFireSound.bNoOverride,SilencedFireSound.Radius,SilencedFireSound.Pitch,SilencedFireSound.bAtten);
-	//else if (BallisticFireSound.Sound != None)
-		Weapon.PlayOwnedSound(BallisticFireSound.Sound,BallisticFireSound.Slot,BallisticFireSound.Volume,BallisticFireSound.bNoOverride,BallisticFireSound.Radius,BallisticFireSound.Pitch,BallisticFireSound.bAtten);
-
-    if (FireCount > 0)
-    {
-        if (Weapon.HasAnim(FireLoopAnim))
-            BW.SafePlayAnim(FireLoopAnim, FireLoopAnimRate, 0.0, ,"FIRE");
-        else
-            BW.SafePlayAnim(FireAnim, FireAnimRate, TweenTime, ,"FIRE");
-    }
-    else
-        BW.SafePlayAnim(FireAnim, FireAnimRate, TweenTime, ,"FIRE");
-}
 
 
 //Do the spread on the client side
@@ -123,21 +50,12 @@ function PlayFiring()
 
     ClientPlayForceFeedback(FireForce);  // jdf
     FireCount++;
-
-	if (RS04Pistol(Weapon) != None && SilencedFireSound.Sound != None)
-		Weapon.PlayOwnedSound(SilencedFireSound.Sound,SilencedFireSound.Slot,SilencedFireSound.Volume,,SilencedFireSound.Radius,,true);
-	else if (BallisticFireSound.Sound != None)
-		Weapon.PlayOwnedSound(BallisticFireSound.Sound,BallisticFireSound.Slot,BallisticFireSound.Volume,,BallisticFireSound.Radius);
-
+	
+	super.PlayFiring();
 }
 
 defaultproperties
 {
-     SMuzzleFlashClass=Class'BallisticProV55.XK2SilencedFlash'
-     SFlashBone="tip"
-     SFlashScaleFactor=1.000000
-     ClassicFireSound=Sound'BWBP_SKC_Sounds.M1911.M1911-FireOld'
-     AltFireSound=Sound'BWBP_SKC_Sounds.M1911.M1911-Fire2'
      TraceRange=(Max=5500.000000)
      Damage=28
      RangeAtten=0.900000

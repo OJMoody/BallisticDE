@@ -403,7 +403,7 @@ simulated event AnimEnd (int Channel)
 
     GetAnimParams(0, Anim, Frame, Rate);
 
-	if (Anim == 'OpenFire' || Anim == 'Fire' || Anim == CockAnim || Anim == ReloadAnim || Anim == ReloadAltAnim)
+	if (Anim == 'OpenFire' || Anim == 'Fire' || Anim == CockAnim || Anim == ReloadAnim || Anim == ReloadAltAnim || Anim == DualReloadAnim || Anim == DualReloadEmptyAnim)
 	{
 		if (MagAmmo - BFireMode[0].ConsumedLoad < 1)
 		{
@@ -523,10 +523,10 @@ defaultproperties
 	PutDownSound=(Sound=Sound'BW_Core_WeaponSound.XK2.XK2-Putaway')
 	PutDownTime=0.500000
 	CockingBringUpTime=0.600000
-	CockAnimRate=1.250000
-	ReloadAnimRate=1.250000
+	CockAnimRate=1.000000
+	ReloadAnimRate=1.000000
 	CockSound=(Sound=Sound'BWBP_JCF_Sounds.MK23.mk23_cock',Volume=2.300000)
-    ClipHitSound=(Sound=Sound'BW_Core_WeaponSound.Glock.Glk-ClipHit',Volume=0.700000)
+    ClipHitSound=(Sound=Sound'BW_Core_WeaponSound.M806.M806-ClipHit')
     ClipOutSound=(Sound=Sound'BWBP_JCF_Sounds.MK23.MKClipOut',Volume=1.300000)
     ClipInSound=(Sound=Sound'BWBP_JCF_Sounds.MK23.MKClipIn',Volume=1.300000)
 	WeaponModes(2)=(bUnavailable=True)
@@ -539,7 +539,7 @@ defaultproperties
 	ParamsClasses(2)=Class'HKMKSpecWeaponParamsRealistic'
 	FireModeClass(0)=Class'BWBP_JCF_Pro.HKMKSpecPrimaryFire'
 	FireModeClass(1)=Class'BWBP_JCF_Pro.HKMKSpecSecondaryFire'
-	bShouldDualInLoadout=False
+	bShouldDualInLoadout=True
 	NDCrosshairCfg=(Pic1=Texture'BW_Core_WeaponTex.Crosshairs.M806OutA',Pic2=Texture'BW_Core_WeaponTex.Crosshairs.Cross4',USize1=256,VSize1=256,USize2=256,VSize2=256,Color1=(B=79,G=78,R=82,A=251),Color2=(B=0,G=116,R=255,A=255),StartSize1=79,StartSize2=33)
 	NDCrosshairInfo=(SpreadRatios=(X1=0.500000,Y1=0.800000,X2=0.500000,Y2=1.000000),SizeFactors=(X1=1.000000,Y1=1.000000,X2=1.000000,Y2=1.000000),MaxScale=6.000000,CurrentScale=0.000000)
 	SelectForce="SwitchToAssaultRifle"
@@ -550,7 +550,7 @@ defaultproperties
 	HudColor=(B=255,G=200,R=200)
 	CustomCrossHairTextureName="Crosshairs.HUD.Crosshair_Cross1"
 	InventoryGroup=2
-	GroupOffset=11
+	GroupOffset=14
 	PickupClass=Class'BWBP_JCF_Pro.HKMKSpecPickup'
 	PlayerViewOffset=(X=3.000000,Y=9.000000,Z=-10.000000)
 	AttachmentClass=Class'BWBP_JCF_Pro.HKMKSpecAttachment'

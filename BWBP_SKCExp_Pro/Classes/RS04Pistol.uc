@@ -10,33 +10,23 @@ class RS04Pistol extends BallisticHandGun;
 
 var() name		SilencerBone;			// Bone to use for hiding silencer
 
-var	  byte			CurrentWeaponMode2;
-
 var Projector	FlashLightProj;
 var Emitter		FlashLightEmitter;
 var bool		bLightsOn;
-var bool		bFirstDraw;
 var vector		TorchOffset;
 var() Sound		TorchOnSound;
 var() Sound		TorchOffSound;
 var() Sound		DrawSoundQuick;		//For first draw
-
 var() name		FlashlightAnim;
-var() sound		SilencerOnSound;		// Silencer stuck on sound
-var() sound		SilencerOffSound;		//
-var() sound		SilencerOnTurnSound;	// Silencer screw on sound
-var() sound		SilencerOffTurnSound;	//
 
 replication
 {
 	reliable if (Role < ROLE_Authority)
-		ServerFlashLight, ServerSwitchSilencer;
+		ServerFlashLight;
 }
 
 simulated function bool SlaveCanUseMode(int Mode) {return Mode == 0;}
 simulated function bool MasterCanSendMode(int Mode) {return Mode == 0;}
-
-
 
 exec simulated function WeaponSpecial(optional byte i)
 {
@@ -73,6 +63,7 @@ simulated function StartProjector()
 	AttachToBone(FlashLightProj, 'tip2');
 	FlashLightProj.SetRelativeLocation(TorchOffset);
 }
+
 simulated function KillProjector()
 {
 	if (FlashLightProj != None)
@@ -109,35 +100,6 @@ simulated event RenderOverlays( Canvas Canvas )
 	}
 }
 
-
-
-simulated function SetBurstModeProps()
-{
-	if (CurrentWeaponMode == 1)
-	{
-		BFireMode[0].FireRate = 0.04;
-		BFireMode[0].FireRecoil = 256;
-		BFireMode[0].FireChaos = BFireMode[0].default.FireChaos;
-	}
-	else if (CurrentWeaponMode == 2)
-	{
-		BFireMode[0].FireRate = 0.2;
-		BFireMode[0].FireRecoil = 128;
-		BFireMode[0].FireChaos = 0.1;
-	}
-	else
-	{
-		BFireMode[0].FireRate = BFireMode[0].default.FireRate;
-		BFireMode[0].FireRecoil = BFireMode[0].default.FireRecoil;
-		BFireMode[0].FireChaos = BFireMode[0].default.FireChaos;
-	}
-}
-simulated function ServerSwitchWeaponMode (byte NewMode)
-{
-	super.ServerSwitchWeaponMode (NewMode);
-	SetBurstModeProps();
-}
-
 simulated function PlayIdle()
 {
 	super.PlayIdle();
@@ -146,19 +108,6 @@ simulated function PlayIdle()
 		return;
 	FreezeAnimAt(0.0);
 }
-
-simulated event PostNetReceive()
-{
-	if (level.NetMode != NM_Client)
-		return;
-	if (CurrentWeaponMode != CurrentWeaponMode2)
-	{
-		SetBurstModeProps();
-		CurrentWeaponMode2 = CurrentWeaponMode;
-	}
-	Super.PostNetReceive();
-}
-
 
 simulated function TickFireCounter (float DT)
 {
@@ -191,24 +140,6 @@ simulated function Destroyed ()
 	super.Destroyed();
 }
 
-/*
-// Change some properties when using sights...
-simulated function SetScopeBehavior()
-{
-	super.SetScopeBehavior();
-
-	bUseNetAim = default.bUseNetAim || bScopeView;
-	if (bScopeView)
-	{
-		ViewRecoilFactor = 0.2;
-		ChaosDeclineTime *= 0.9;
-	}
-	else
-		SightOffset = default.SightOffset;
-	if (Hand < 0)
-		SightOffset.Y = default.SightOffset.Y * -1;
-}*/
-
 simulated function PlayCocking(optional byte Type)
 {
 	if (Type == 2)
@@ -217,88 +148,6 @@ simulated function PlayCocking(optional byte Type)
 		PlayAnim(CockAnim, CockAnimRate, 0.2);
 }
 
-function ServerSwitchSilencer(bool bNewValue)
-{
-	BFireMode[0].bAISilent = true;
-     	BFireMode[0].FireRecoil=64.000000;
-}
-simulated function SwitchSilencer(bool bNewValue)
-{
-}
-simulated function Notify_SilencerOn()
-{
-	PlaySound(SilencerOnSound,,0.5);
-}
-simulated function Notify_SilencerOnTurn()
-{
-	PlaySound(SilencerOnTurnSound,,0.5);
-}
-simulated function Notify_SilencerOff()
-{
-	PlaySound(SilencerOffSound,,0.5);
-}
-simulated function Notify_SilencerOffTurn()
-{
-	PlaySound(SilencerOffTurnSound,,0.5);
-}
-simulated function Notify_SilencerShow()
-{
-	SetBoneScale (0, 1.0, SilencerBone);
-}
-
-/*simulated function SetDualMode (bool bDualMode)
-{
-	if (bDualMode)
-	{
-		if (Instigator.IsLocallyControlled() && SightingState == SS_Active)
-			StopScopeView();
-		SetBoneScale(8, 0.0, SupportHandBone);
-		if (AIController(Instigator.Controller) == None)
-			bUseSpecialAim = true;
-		if (bAimDisabled)
-			return;
-//		AimAdjustTime		*= 1.0;
-		AimSpread			*= 1.4;
-		ViewAimFactor		*= 0.0;
-		ViewRecoilFactor	*= 0.25;
-		ChaosDeclineTime	*= 1.2;
-		//ChaosTurnThreshold	*= 0.8;
-		ChaosSpeedThreshold	*= 0.8;
-		ChaosAimSpread		*= 1.2;
-		RecoilPitchFactor	*= 1.2;
-		RecoilYawFactor		*= 1.2;
-		RecoilXFactor		*= 1.2;
-		RecoilYFactor		*= 1.2;
-//		RecoilMax			*= 1.0;
-		RecoilDeclineTime	*= 1.2;
-     	SelectAnim = 'Pullout';
-		
-	}
-	else
-	{
-		SetBoneScale(8, 1.0, SupportHandBone);
-		bUseSpecialAim = false;
-		if (bAimDisabled)
-			return;
-//		AimAdjustTime		= default.AimAdjustTime;
-		AimSpread 			= default.AimSpread;
-		ViewAimFactor		= default.ViewAimFactor;
-		ViewRecoilFactor	= default.ViewRecoilFactor;
-		ChaosDeclineTime	= default.ChaosDeclineTime;
-		//ChaosTurnThreshold	= default.ChaosTurnThreshold;
-		ChaosSpeedThreshold	= default.ChaosSpeedThreshold;
-		ChaosAimSpread		= default.ChaosAimSpread;
-		ChaosAimSpread 		*= BCRepClass.default.AccuracyScale;
-		RecoilPitchFactor	= default.RecoilPitchFactor;
-		RecoilYawFactor		= default.RecoilYawFactor;
-		RecoilXFactor		= default.RecoilXFactor;
-		RecoilYFactor		= default.RecoilYFactor;
-//		RecoilMax			= default.RecoilMax;
-		RecoilDeclineTime	= default.RecoilDeclineTime;
-	}
-}*/
-
-
 simulated function BringUp(optional Weapon PrevWeapon)
 {
 
@@ -306,31 +155,17 @@ simulated function BringUp(optional Weapon PrevWeapon)
 	{
 		IdleAnim = 'IdleOpen';
 		ReloadAnim = 'ReloadOpen';
+		SelectAnim = 'PulloutOpen';
+		PutDownAnim = 'PutawayOpen';
 	}
 	else
 	{
 		IdleAnim = 'Idle';
 		ReloadAnim = 'Reload';
+		SelectAnim = 'Pullout';
+		PutDownAnim = 'Putaway';
 	}
-
-
-
 	Super.BringUp(PrevWeapon);
-	/*if (Instigator != None && AIController(Instigator.Controller) != None)
-	{
-     			CurrentWeaponMode=2;
-			ServerSwitchWeaponMode(2);
-	}
-	if (Instigator != None && AIController(Instigator.Controller) != None && FRand() > 0.5)
-		WeaponSpecial();
-	else if (bLightsOn && Instigator.IsLocallyControlled())
-	{
-		bLightsOn=false;
-		WeaponSpecial();
-	}*/
-
-
-	//SetBurstModeProps();
 }
 
 simulated event AnimEnd (int Channel)
@@ -340,11 +175,12 @@ simulated event AnimEnd (int Channel)
 
     GetAnimParams(0, Anim, Frame, Rate);
 
-	if (Anim == 'FireOpen' || Anim == 'Pullout' || Anim == 'PulloutAlt' || Anim == 'Fire' || Anim == 'FireDualOpen' || Anim == 'FireDual' ||Anim == CockAnim || Anim == ReloadAnim)
+	if (Anim == 'FireOpen' || Anim == 'Pullout' || Anim == 'PulloutAlt' || Anim == 'Fire' || Anim == 'FireDualOpen' || Anim == 'FireDual' ||Anim == CockAnim || Anim == ReloadAnim || Anim == DualReloadAnim || Anim == DualReloadEmptyAnim)
 	{
 		if (MagAmmo - BFireMode[0].ConsumedLoad < 1)
 		{
 			IdleAnim = 'IdleOpen';
+			SelectAnim = 'PulloutOpen';
 			PutDownAnim = 'PutawayOpen';
 			ReloadAnim = 'ReloadOpen';
 			FlashlightAnim = 'FlashLightToggleOpen';
@@ -352,6 +188,7 @@ simulated event AnimEnd (int Channel)
 		else
 		{
 			IdleAnim = 'Idle';
+			SelectAnim = 'Pullout';
 			PutDownAnim = 'Putaway';
 			ReloadAnim = 'Reload';
 			FlashlightAnim = 'FlashLightToggle';
@@ -369,56 +206,9 @@ simulated function PlayReload()
 {
 	super.PlayReload();
 
-	if (MagAmmo < 2)
+	if (MagAmmo < 1)
 		SetBoneScale (1, 0.0, 'Bullet');
 }
-
-
-// HARDCODED SIGHTING TIME
-simulated function TickSighting (float DT)
-{
-	if (SightingState == SS_None || SightingState == SS_Active)
-		return;
-
-	if (SightingState == SS_Raising)
-	{	// Raising gun to sight position
-		if (SightingPhase < 1.0)
-		{
-			if ((bScopeHeld || bPendingSightUp) && CanUseSights())
-				SightingPhase += DT/0.20;
-			else
-			{
-				SightingState = SS_Lowering;
-
-				Instigator.Controller.bRun = 0;
-			}
-		}
-		else
-		{	// Got all the way up. Now go to scope/sight view
-			SightingPhase = 1.0;
-			SightingState = SS_Active;
-			ScopeUpAnimEnd();
-		}
-	}
-	else if (SightingState == SS_Lowering)
-	{	// Lowering gun from sight pos
-		if (SightingPhase > 0.0)
-		{
-			if (bScopeHeld && CanUseSights())
-				SightingState = SS_Raising;
-			else
-				SightingPhase -= DT/0.20;
-		}
-		else
-		{	// Got all the way down. Tell the system our anim has ended...
-			SightingPhase = 0.0;
-			SightingState = SS_None;
-			ScopeDownAnimEnd();
-			DisplayFOv = default.DisplayFOV;
-		}
-	}
-}
-
 
 // Secondary fire doesn't count for this weapon
 simulated function bool HasAmmo()
@@ -478,7 +268,6 @@ static function class<Pickup> RecommendAmmoPickup(int Mode)
 
 defaultproperties
 {
-     bFirstDraw=True
 	 bLightsOn=False
      TorchOffset=(X=-75.000000)
      TorchOnSound=Sound'BW_Core_WeaponSound.MRS38.RSS-FlashClick'
@@ -493,7 +282,7 @@ defaultproperties
      SpecialInfo(0)=(Info="60.0;6.0;1.0;110.0;0.2;0.0;0.0")
      BringUpSound=(Sound=Sound'BWBP_SKC_Sounds.M1911.RS04-Draw')
      PutDownSound=(Sound=Sound'BW_Core_WeaponSound.XK2.XK2-Putaway')
-	 bShouldDualInLoadout=False
+	 bShouldDualInLoadout=True
      CockSound=(Sound=Sound'BW_Core_WeaponSound.M806.M806-Cock',Volume=1.100000)
      ClipHitSound=(Sound=Sound'BWBP_SKC_Sounds.M1911.RS04-SlideLock',Volume=0.400000)
      ClipOutSound=(Sound=Sound'BW_Core_WeaponSound.SAR.SAR-StockOut',Volume=1.100000)
@@ -524,7 +313,7 @@ defaultproperties
      Priority=155
      CustomCrossHairTextureName="Crosshairs.HUD.Crosshair_Cross1"
      InventoryGroup=2
-     GroupOffset=31
+     GroupOffset=10
      PickupClass=Class'BWBP_SKCExp_Pro.RS04Pickup'
      PlayerViewOffset=(Y=9.000000,Z=-14.000000)
      AttachmentClass=Class'BWBP_SKCExp_Pro.RS04Attachment'

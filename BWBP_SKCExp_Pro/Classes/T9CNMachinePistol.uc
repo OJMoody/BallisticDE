@@ -30,11 +30,6 @@ simulated function bool CanAlternate(int Mode)
 	return super.CanAlternate(Mode);
 }
 
-simulated function float ChargeBar()
-{
-	return MeleeFatigue;
-}
-
 simulated event WeaponTick (Float DT)
 {
 	Super.WeaponTick (DT);
@@ -63,20 +58,6 @@ Begin:
 	FinishAnim();
 	GotoState('Lowered');
 }
-
-simulated function Notify_MRDRMelee()
-{
-	if (Role == ROLE_Authority)
-		MRDRSecondaryFire(BFireMode[1]).NotifiedDoFireEffect();
-	PlayOwnedSound(BFireMode[1].BallisticFireSound.Sound,
-		BFireMode[1].BallisticFireSound.Slot,
-		BFireMode[1].BallisticFireSound.Volume,
-		BFireMode[1].BallisticFireSound.bNoOverride,
-		BFireMode[1].BallisticFireSound.Radius,
-		BFireMode[1].BallisticFireSound.Pitch,
-		BFireMode[1].BallisticFireSound.bAtten);
-}
-
 
 // AI Interface =====
 // choose between regular or alt-fire
@@ -138,7 +119,7 @@ simulated event AnimEnd (int Channel)
 
     GetAnimParams(0, Anim, Frame, Rate);
 
-	if (Anim == 'OpenFire' || Anim == 'Fire' || Anim == CockAnim || Anim == ReloadAnim)
+	if (Anim == 'OpenFire' || Anim == 'Fire' || Anim == CockAnim || Anim == ReloadAnim || Anim == DualReloadAnim || Anim == DualReloadEmptyAnim)
 	{
 		if (MagAmmo - BFireMode[0].ConsumedLoad < 1)
 		{
@@ -166,7 +147,7 @@ simulated function PlayCocking(optional byte Type)
 
 defaultproperties
 {
-	bShouldDualInLoadout=False
+	bShouldDualInLoadout=True
 	HandgunGroup=6
 	TeamSkins(0)=(RedTex=Shader'BW_Core_WeaponTex.Hands.RedHand-Shiny',BlueTex=Shader'BW_Core_WeaponTex.Hands.BlueHand-Shiny')
 	AIReloadTime=1.000000
@@ -210,7 +191,7 @@ defaultproperties
 	HudColor=(B=150,G=150,R=150)
 	CustomCrossHairTextureName="Crosshairs.HUD.Crosshair_Cross1"
 	InventoryGroup=2
-	GroupOffset=5
+	GroupOffset=12
 	SightPivot=(Pitch=128)
 	SightOffset=(X=-10.000000,Y=-2.110000,Z=9.15000)
 	PickupClass=Class'BWBP_SKCExp_Pro.T9CNPickup'

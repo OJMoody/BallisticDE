@@ -96,7 +96,7 @@ defaultproperties
     bNoInitialSpin=True
     bAlignToVelocity=True
     DetonateDelay=8.000000
-    ImpactDamage=15
+    ImpactDamage=105
 	FlakCount=20
 	FlakClass=Class'BWBP_APC_Pro.FM14Dart'
     ImpactDamageType=Class'BWBP_APC_Pro.DTFM14Grenade'
