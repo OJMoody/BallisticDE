@@ -329,8 +329,8 @@ defaultproperties
      SightOffset=(X=20.000000,Y=-6.450000,Z=20.500000)
      SightDisplayFOV=40.000000
      CockSound=(Sound=Sound'BWBP_SKC_SoundsExp.MJ51.MJ51-Cock',Volume=2.200000)
-     ClipHitSound=(Sound=Sound'BWBP_SKC_SoundsExp.MJ51.MJ51-MagIn',Volume=4.800000)
-     ClipOutSound=(Sound=Sound'BWBP_SKC_SoundsExp.MJ51.MJ51-MagOut',Volume=4.800000)
+     ClipHitSound=(Sound=Sound'BWBP_SKC_SoundsExp.MJ51.MJ51-MagIn',Volume=2.200000)
+     ClipOutSound=(Sound=Sound'BWBP_SKC_SoundsExp.MJ51.MJ51-MagOut',Volume=2.200000)
      ClipInFrame=0.650000
      LongGunOffset=(X=10.000000)
      bWT_Bullet=True
