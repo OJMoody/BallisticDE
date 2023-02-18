@@ -654,6 +654,8 @@ defaultproperties
 	SightDisplayFOV=35.000000
 	GunLength=48.000000
 	ParamsClasses(0)=Class'PugWeaponParams'
+	ParamsClasses(1)=Class'PugWeaponParamsClassic'
+	ParamsClasses(2)=Class'PugWeaponParamsRealistic'
 	FireModeClass(0)=Class'BWBP_SKCExp_Pro.PugPrimaryFire'
 	FireModeClass(1)=Class'BWBP_SKCExp_Pro.PugSecondaryFire'
 	PutDownAnimRate=1.700000

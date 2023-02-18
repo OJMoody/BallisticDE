@@ -103,6 +103,8 @@ defaultproperties
 	SightDisplayFOV=40.000000
 	GunLength=48.000000
 	ParamsClasses(0)=Class'ThumperGrenadeLauncherWeaponParamsArena'
+	ParamsClasses(1)=Class'ThumperGrenadeLauncherWeaponParamsClassic'
+	ParamsClasses(2)=Class'ThumperGrenadeLauncherWeaponParamsRealistic'
 	FireModeClass(0)=Class'BWBP_SKCExp_Pro.ThumperPrimaryFire'
 	FireModeClass(1)=Class'BWBP_SKCExp_Pro.ThumperSecondaryFire'
 	NDCrosshairInfo=(SpreadRatios=(X1=0.500000,Y1=0.500000,X2=0.500000,Y2=0.750000),SizeFactors=(X1=1.000000,Y1=1.000000,X2=1.000000,Y2=1.000000),MaxScale=4.000000,CurrentScale=0.000000)

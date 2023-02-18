@@ -1,4 +1,4 @@
-class NEXWeaponParamsClassic extends BallisticWeaponParams;
+class NEXWeaponParamsRealistic extends BallisticWeaponParams;
 
 defaultproperties
 {
@@ -8,7 +8,7 @@ defaultproperties
     //=================================================================	
 	
 	
-		Begin Object Class=MeleeEffectParams Name=ClassicPrimaryEffectParams
+		Begin Object Class=MeleeEffectParams Name=RealisticPrimaryEffectParams
 			TraceRange=(Min=128.000000,Max=128.000000)
 			WaterTraceRange=5000.0
 			Damage=35
@@ -29,13 +29,13 @@ defaultproperties
 			WarnTargetPct=0.100000
 		End Object
 		
-		Begin Object Class=FireParams Name=ClassicPrimaryFireParams
+		Begin Object Class=FireParams Name=RealisticPrimaryFireParams
 			FireInterval=0.500000
 			AmmoPerFire=0
 			BurstFireRateFactor=1.00
 			FireAnim="Swing1"
 			FireAnimRate=0.700000
-			FireEffectParams(0)=MeleeEffectParams'ClassicPrimaryEffectParams'
+			FireEffectParams(0)=MeleeEffectParams'RealisticPrimaryEffectParams'
 		End Object
 		
     //=================================================================
@@ -43,7 +43,7 @@ defaultproperties
     //=================================================================	
 	
 	
-		Begin Object Class=MeleeEffectParams Name=ClassicSecondaryEffectParams
+		Begin Object Class=MeleeEffectParams Name=RealisticSecondaryEffectParams
 			TraceRange=(Min=128.000000,Max=128.000000)
 			WaterTraceRange=5000.0
 			Damage=50
@@ -64,21 +64,21 @@ defaultproperties
 			WarnTargetPct=0.050000
 		End Object
 		
-		Begin Object Class=FireParams Name=ClassicSecondaryFireParams
+		Begin Object Class=FireParams Name=RealisticSecondaryFireParams
 			FireInterval=1.800000
 			AmmoPerFire=0
 			BurstFireRateFactor=1.00
 			PreFireAnim="PrepHack"
 			FireAnim="Hack"
 			FireAnimRate=0.8
-			FireEffectParams(0)=MeleeEffectParams'ClassicSecondaryEffectParams'
+			FireEffectParams(0)=MeleeEffectParams'RealisticSecondaryEffectParams'
 		End Object
 		
 	//=================================================================
 	// RECOIL
 	//=================================================================
 
-	Begin Object Class=RecoilParams Name=ClassicRecoilParams
+	Begin Object Class=RecoilParams Name=RealisticRecoilParams
 		XCurve=(Points=(,(InVal=1.000000,OutVal=1.000000)))
 		XRandFactor=0.500000
 		YRandFactor=0.500000
@@ -93,7 +93,7 @@ defaultproperties
 	// AIM
 	//=================================================================
 
-	Begin Object Class=AimParams Name=ClassicAimParams
+	Begin Object Class=AimParams Name=RealisticAimParams
 		AimSpread=(Min=16,Max=2560)
 		CrouchMultiplier=0.700000
 		ADSMultiplier=0.700000
@@ -106,18 +106,18 @@ defaultproperties
 	// BASIC PARAMS
 	//=================================================================	
 	
-	Begin Object Class=WeaponParams Name=ClassicParams
+	Begin Object Class=WeaponParams Name=RealisticParams
 		PlayerSpeedFactor=0.950000
 		PlayerJumpFactor=0.950000
 		InventorySize=8
 		SightMoveSpeedFactor=0.500000
 		MagAmmo=100
-		RecoilParams(0)=RecoilParams'ClassicRecoilParams'
-		AimParams(0)=AimParams'ClassicAimParams'
-		FireParams(0)=FireParams'ClassicPrimaryFireParams'
-		AltFireParams(0)=FireParams'ClassicSecondaryFireParams'
+		RecoilParams(0)=RecoilParams'RealisticRecoilParams'
+		AimParams(0)=AimParams'RealisticAimParams'
+		FireParams(0)=FireParams'RealisticPrimaryFireParams'
+		AltFireParams(0)=FireParams'RealisticSecondaryFireParams'
 	End Object
-	Layouts(0)=WeaponParams'ClassicParams'
+	Layouts(0)=WeaponParams'RealisticParams'
 
 
 }

@@ -38,8 +38,8 @@ defaultproperties
 {
 	 SliceAnims(0)="Swing1"
      SliceAnims(1)="Swing2"
-     SliceAnims(2)="Swing3"
-     SliceAnims(3)="Swing4"
+     SliceAnims(2)="Swing4"
+     SliceAnims(3)="Swing3"
      FatiguePerStrike=0.150000
 	 MinDamage=40.000000
 	 MaxDamage=100.000000
