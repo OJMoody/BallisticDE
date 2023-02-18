@@ -79,6 +79,8 @@ defaultproperties
      PutDownSound=(Sound=Sound'BW_Core_WeaponSound.NRP57.NRP57-Putaway')
      CurrentWeaponMode=1
      ParamsClasses(0)=Class'ScarabWeaponParams'
+     ParamsClasses(1)=Class'ScarabWeaponParamsClassic'
+     ParamsClasses(2)=Class'ScarabWeaponParamsRealistic'
      FireModeClass(0)=Class'BWBP_APC_Pro.ScarabPrimaryFire'
      FireModeClass(1)=Class'BWBP_APC_Pro.ScarabSecondaryFire'
 	 

@@ -329,6 +329,8 @@ defaultproperties
 	SightPivot=(Pitch=128)
 	GunLength=48.000000
 	ParamsClasses(0)=Class'FM14ShotgunWeaponParamsArena'
+	ParamsClasses(1)=Class'FM14ShotgunWeaponParamsClassic'
+	ParamsClasses(2)=Class'FM14ShotgunWeaponParamsRealistic'
 	FireModeClass(0)=Class'BWBP_APC_Pro.FM14PrimaryFire'
 	FireModeClass(1)=Class'BWBP_APC_Pro.FM14SecondaryFire'
 	AIRating=0.750000

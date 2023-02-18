@@ -505,7 +505,8 @@ defaultproperties
 	SightOffset=(X=-15.000000,Z=8.700000)
 	SightDisplayFOV=60.000000
 	ParamsClasses(0)=Class'RS8WeaponParams'
-	//ParamsClasses(1)=Class'RS8WeaponParamsClassic'
+	ParamsClasses(1)=Class'RS8WeaponParamsClassic'
+	ParamsClasses(2)=Class'RS8WeaponParamsRealistic'
 	FireModeClass(0)=Class'BWBP_APC_Pro.RS8X3PrimaryFire'
 	FireModeClass(1)=Class'BWBP_APC_Pro.RS8X3SecondaryFire'
 	SelectForce="SwitchToAssaultRifle"

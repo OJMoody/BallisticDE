@@ -510,6 +510,8 @@ defaultproperties
      LightBrightness=180.000000
      LightRadius=5.000000
 	 ParamsClasses(0)=Class'WrenchgunWeaponParamsArena'
+	 ParamsClasses(1)=Class'WrenchgunWeaponParamsClassic'
+	 ParamsClasses(2)=Class'WrenchgunWeaponParamsRealistic'
      Mesh=SkeletalMesh'BWBP_CC_Anim.FPm_WrenchGun'
      DrawScale=1.250000
      Skins(0)=Shader'BW_Core_WeaponTex.Hands.Hands-Shiny'
