@@ -752,6 +752,8 @@ defaultproperties
 	SightOffset=(X=-20.000000,Y=-0.240000,Z=17.750000)
 	SightDisplayFOV=25.000000
 	ParamsClasses(0)=Class'BRINKAssaultRifleWeaponParamsArena'
+	ParamsClasses(1)=Class'BRINKAssaultRifleWeaponParamsClassic'
+	ParamsClasses(2)=Class'BRINKAssaultRifleWeaponParamsRealistic'
 	FireModeClass(0)=Class'BWBP_SWC_Pro.BRINKPrimaryFire'
 	FireModeClass(1)=Class'BWBP_SWC_Pro.BRINKSecondaryFire'
 	PutDownTime=0.700000

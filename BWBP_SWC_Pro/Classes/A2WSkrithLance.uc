@@ -88,6 +88,8 @@ defaultproperties
 	SightDisplayFOV=40.000000
 	MeleeFireClass=Class'BWBP_SWC_Pro.A2WMeleeFire'
 	ParamsClasses(0)=Class'A2WWeaponParams'
+	ParamsClasses(1)=Class'A2WWeaponParamsClassic'
+	ParamsClasses(2)=Class'A2WWeaponParamsRealistic'
 	FireModeClass(0)=Class'BWBP_SWC_Pro.A2WPrimaryFire'
 	FireModeClass(1)=Class'BCoreProV55.BallisticScopeFire'
 	BringUpTime=0.500000

@@ -290,6 +290,8 @@ defaultproperties
      LightBrightness=150.000000
      LightRadius=4.000000
 	 ParamsClasses(0)=Class'A800SkrithMinigunWeaponParamsArena'
+	 ParamsClasses(1)=Class'A800SkrithMinigunWeaponParamsClassic'
+	 ParamsClasses(2)=Class'A800SkrithMinigunWeaponParamsRealistic'
      Mesh=SkeletalMesh'BWBP_SWC_Anims.FPm_SkrithHyperBlaster'
      DrawScale=0.400000
      SoundRadius=128.000000

@@ -396,7 +396,8 @@ defaultproperties
 	CurrentRating=0.8
 	SightZoomFactor=0.85
 	ParamsClasses(0)=Class'MDKWeaponParams'
-	ParamsClasses(1)=Class'MDKWeaponParams'
+	ParamsClasses(1)=Class'MDKWeaponParamsClassic'
+	ParamsClasses(2)=Class'MDKWeaponParamsRealistic'
 	FireModeClass(0)=Class'BWBP_SWC_Pro.MDKPrimaryFire'
 	FireModeClass(1)=Class'BWBP_SWC_Pro.MDKSecondaryFire'
 	SelectForce="SwitchToAssaultRifle"

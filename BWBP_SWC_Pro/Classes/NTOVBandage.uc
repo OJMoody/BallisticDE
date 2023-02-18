@@ -93,6 +93,8 @@ defaultproperties
      IconCoords=(X2=127,Y2=31)
      ItemName="N-TOV Emergency Bandage"
 	 ParamsClasses(0)=Class'NTOVBandageWeaponParamsArena'
+	 ParamsClasses(1)=Class'NTOVBandageWeaponParamsClassic'
+	 ParamsClasses(2)=Class'NTOVBandageWeaponParamsRealistic'
      Mesh=SkeletalMesh'BWBP_SWC_Anims.FPm_NTOV'
      DrawScale=0.400000
 }
