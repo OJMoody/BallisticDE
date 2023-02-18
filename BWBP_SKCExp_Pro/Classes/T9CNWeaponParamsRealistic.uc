@@ -138,6 +138,7 @@ defaultproperties
 		WeaponBoneScales(3)=(BoneName="RCAttachmentIron",Slot=4,Scale=0f)
 		PlayerSpeedFactor=1.100000
 		InventorySize=6
+		WeaponPrice=1200
 		SightMoveSpeedFactor=0.500000
 		SightingTime=0.130000
 		MagAmmo=18
