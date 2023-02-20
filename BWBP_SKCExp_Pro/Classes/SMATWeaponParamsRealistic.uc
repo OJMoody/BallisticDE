@@ -62,13 +62,16 @@ defaultproperties
 
 	Begin Object Class=AimParams Name=RealisticAimParams
 		AimSpread=(Min=900,Max=2560)
-		AimAdjustTime=0.450000
-		OffsetAdjustTime=0.350000
+		AimAdjustTime=0.550000
+		OffsetAdjustTime=0.450000
 		CrouchMultiplier=0.700000
 		ADSMultiplier=0.700000
 		ViewBindFactor=0.100000
-		SprintChaos=0.400000
+		SprintChaos=0.500000
 		SprintOffSet=(Pitch=-6000,Yaw=-8000)
+		JumpChaos=0.500000
+		JumpOffSet=(Pitch=-7000)
+		FallingChaos=0.500000
 		ChaosDeclineTime=1.300000
 		ChaosSpeedThreshold=475.000000
 	End Object
@@ -89,6 +92,7 @@ defaultproperties
 		SightOffset=(X=20.000000,Y=15.000000,Z=-10.000000)
 		ReloadAnimRate=1.000000
 		CockAnimRate=1.000000
+		WeaponName="S.M.A.T. 105mm Recoilless Rifle"
 		RecoilParams(0)=RecoilParams'RealisticRecoilParams'
 		AimParams(0)=AimParams'RealisticAimParams'
 		FireParams(0)=FireParams'RealisticPrimaryFireParams'

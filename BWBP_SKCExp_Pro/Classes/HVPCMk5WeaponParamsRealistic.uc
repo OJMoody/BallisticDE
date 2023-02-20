@@ -94,13 +94,15 @@ defaultproperties
 	//=================================================================
 
 	Begin Object Class=AimParams Name=RealisticAimParams
-		SprintOffset=(Pitch=-3000,Yaw=-5000)
-		JumpOffset=(Pitch=-4000,Yaw=-3000)
 		AimSpread=(Min=16,Max=3072)
 		CrouchMultiplier=0.700000
 		ADSMultiplier=0.700000
 		ViewBindFactor=0.100000
 		SprintChaos=0.400000
+		SprintOffset=(Pitch=-3000,Yaw=-5000)
+		JumpChaos=0.400000
+		JumpOffset=(Pitch=-4000,Yaw=-3000)
+		FallingChaos=0.400000
 		ChaosDeclineTime=1.600000
 		ChaosSpeedThreshold=375
 	End Object

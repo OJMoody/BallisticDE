@@ -57,7 +57,7 @@ defaultproperties
 		SpreadMode=FSM_Rectangle
 		RadiusFallOffType=RFO_Linear
 		MuzzleFlashClass=Class'MJ51AltFlashEmitter'
-		//FireSound=(Sound=Sound'BWBP_SKC_SoundsExp.MJ51.MJ51Carbine-GrenLaunch',Volume=2.200000)
+		FireSound=(Sound=Sound'BWBP_SKC_SoundsExp.MJ51.MJ51Carbine-GrenLaunch',Volume=2.200000)
 		Recoil=0.0
 		Chaos=-1.0
 		SplashDamage=True
@@ -98,12 +98,15 @@ defaultproperties
 	//=================================================================
 
 	Begin Object Class=AimParams Name=ClassicAimParams
-		SprintOffset=(Pitch=-3000,Yaw=-4000)
 		AimSpread=(Min=16,Max=2050)
 		CrouchMultiplier=0.500000
 		ADSMultiplier=0.700000
 		ViewBindFactor=0.200000
 		SprintChaos=0.400000
+		SprintOffset=(Pitch=-3000,Yaw=-4000)
+		JumpChaos=0.400000
+		JumpOffSet=(Pitch=-5000,Yaw=-1000)
+		FallingChaos=0.400000
 		ChaosDeclineTime=1.0
 	End Object
     
