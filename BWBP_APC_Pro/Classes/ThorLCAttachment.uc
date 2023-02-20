@@ -1,8 +1,8 @@
-class ParticleStreamAttachment extends BallisticAttachment;
+class ThorLCAttachment extends BallisticAttachment;
 
 var bool	bStreamOn,  bUseAlt, bUseAltColor;
-var ParticleStreamEffectNew StreamEffect;
-var ParticleStreamEffectChild StreamEffectChild;
+var ThorLCStreamEffectNew StreamEffect;
+var ThorLCStreamEffectChild StreamEffectChild;
 var sound StreamAmbientSound, StreamAmbientSoundAlt;
 var Actor LockedTarget;
 var Actor Pack;			// The Backpack
@@ -75,7 +75,7 @@ simulated function Hide(bool NewbHidden)
 simulated function PostNetBeginPlay()
 {
 	Super.PostNetBeginPlay();
-	Pack = Spawn(class'ParticleStreamPack');
+	Pack = Spawn(class'ThorLCPack');
 	if (Instigator.GetTeamNum() == 1)
 		Pack.Skins[0]=Shader'BWBP_OP_Tex.Proton_pack_SH_1';
 	if (Instigator != None)
@@ -99,28 +99,28 @@ function StartStream()
 	if (StreamEffect == None )
 	{
 		if (!bUseAlt)	
-			StreamEffect = spawn(class'ParticleStreamEffectNew', self);
-		else StreamEffect = spawn(class'ParticleStreamEffectNewAlt', self);
+			StreamEffect = spawn(class'ThorLCStreamEffectNew', self);
+		else StreamEffect = spawn(class'ThorLCStreamEffectNewAlt', self);
 
 		StreamEffect.bAltColor = bUseAltColor;
 		StreamEffect.SetLocation(GetBoneCoords('tip2').Origin);
 		StreamEffect.SetBase(self);
-		if (ParticleStreamer(Instigator.Weapon) != None)
-			ParticleStreamer(Instigator.Weapon).StreamEffect = StreamEffect;
+		if (ThorLightningCannon(Instigator.Weapon) != None)
+			ThorLightningCannon(Instigator.Weapon).StreamEffect = StreamEffect;
 		StreamEffect.Instigator = Instigator;
 		StreamEffect.LinkedPawn = LockedTarget;
 	}
 	if (StreamEffectChild == None )
 	{
 		if (!bUseAlt)	
-			StreamEffectChild = spawn(class'ParticleStreamEffectChild', self);
-		else StreamEffectChild = spawn(class'ParticleStreamEffectChildAlt', self);
+			StreamEffectChild = spawn(class'ThorLCStreamEffectChild', self);
+		else StreamEffectChild = spawn(class'ThorLCStreamEffectChildAlt', self);
 		
 		StreamEffectChild.bAltColor = bUseAltColor;
 		StreamEffectChild.SetLocation(GetBoneCoords('tip2').Origin);
 		StreamEffectChild.SetBase(self);
-		if (ParticleStreamer(Instigator.Weapon) != None)
-			ParticleStreamer(Instigator.Weapon).StreamEffectChild = StreamEffectChild;
+		if (ThorLightningCannon(Instigator.Weapon) != None)
+			ThorLightningCannon(Instigator.Weapon).StreamEffectChild = StreamEffectChild;
 		StreamEffectChild.Instigator = Instigator;
 		StreamEffectChild.LinkedPawn = LockedTarget;
 	}	
@@ -211,9 +211,9 @@ defaultproperties
 {
      StreamAmbientSound=Sound'BWBP_OP_Sounds.ProtonPack.Proton-FireLoop'
      StreamAmbientSoundAlt=Sound'BWBP_OP_Sounds.ProtonPack.Proton-FireLoopAlt'
-     BoostMuzzleFlashClass=Class'BWBP_APC_Pro.ParticleFlashEmitterBoost'
-     MuzzleFlashClass=Class'BWBP_APC_Pro.ParticleFlashEmitter'
-     AltMuzzleFlashClass=Class'BWBP_APC_Pro.ParticleFlashEmitterAlt'
+     BoostMuzzleFlashClass=Class'BWBP_APC_Pro.ThorLCFlashEmitterBoost'
+     MuzzleFlashClass=Class'BWBP_APC_Pro.ThorLCFlashEmitter'
+     AltMuzzleFlashClass=Class'BWBP_APC_Pro.ThorLCFlashEmitterAlt'
      ImpactManager=Class'BWBP_OP_Pro.IM_ProtonStream'
      WeaponLightTime=0.200000
      FlashScale=0.600000
