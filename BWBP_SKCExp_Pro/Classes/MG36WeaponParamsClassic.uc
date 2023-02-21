@@ -72,7 +72,6 @@ defaultproperties
 		JumpChaos=0.450000
 		JumpOffset=(Pitch=-4000,Yaw=-3000)
 		FallingChaos=0.450000
-		ChaosDeclineTime=2.000000
 		ChaosDeclineTime=1.500000
 	End Object
     
