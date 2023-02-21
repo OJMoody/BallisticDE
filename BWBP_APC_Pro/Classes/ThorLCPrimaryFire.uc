@@ -293,7 +293,7 @@ function PlayFiring()
 	}
 
 	if (LightMuzzleFlash == None || LightMuzzleFlash.bDeleteMe)
-		class'BUtil'.static.InitMuzzleFlash (LightMuzzleFlash, class'BWBP_APC_Pro.ThorLCFlashEmitter', Weapon.DrawScale*FlashScaleFactor, weapon, FlashBone);
+		class'BUtil'.static.InitMuzzleFlash (LightMuzzleFlash, class'HVCMk9MuzzleFlash', Weapon.DrawScale*FlashScaleFactor, weapon, FlashBone);
 
 	if (FireSoundLoop != None)
 	{
@@ -328,8 +328,6 @@ function StopLightning()
 	Instigator.SoundVolume = Weapon.default.SoundVolume;
 }
 
-function FlashMuzzleFlash();
-
 defaultproperties
 {
      Damage=3
@@ -339,7 +337,7 @@ defaultproperties
      bPawnRapidFireAnim=True
      FireAnim="FireLoop"
      FireRate=0.070000
-     AmmoClass=Class'BWBP_OP_Pro.Ammo_ProtonCharge'
+     AmmoClass=Class'BWBP_APC_Pro.Ammo_ThorLC'
      ShakeRotMag=(X=32.000000,Y=8.000000)
      ShakeRotRate=(X=10000.000000,Y=10000.000000,Z=10000.000000)
      ShakeRotTime=1.500000
