@@ -9,7 +9,7 @@ defaultproperties
     // PRIMARY FIRE
     //=================================================================	
 
-    Begin Object Class=InstantEffectParams Name=ArenaProjEffectParams
+    Begin Object Class=InstantEffectParams Name=ArenaPrimaryEffectParams
     	MuzzleFlashClass=Class'BallisticProV55.A42FlashEmitter'
 		FlashScaleFactor=0.100000
     	TraceRange=(Min=8000.000000,Max=8000.000000)
@@ -32,8 +32,31 @@ defaultproperties
     Begin Object Class=FireParams Name=ArenaPrimaryFireParams
         FireInterval=0.3
         FireEndAnim=
-        FireEffectParams(0)=InstantEffectParams'ArenaProjEffectParams'
+        FireEffectParams(0)=InstantEffectParams'ArenaPrimaryEffectParams'
     End Object
+	
+	//=================================================================
+    // SECONDARY FIRE
+    //=================================================================	
+	
+	Begin Object Class=ProjectileEffectParams Name=ArenaSecondaryEffectParams
+		ProjectileClass=Class'BWBP_SWC_Pro.A2WThrownProjectile'
+		SpawnOffset=(X=12.000000,Y=10.000000,Z=-15.000000)
+		Speed=8500.000000
+		MaxSpeed=8500.000000
+		Damage=150
+		BotRefireRate=0.300000
+		WarnTargetPct=0.300000
+		FireSound=(Sound=Sound'BW_Core_WeaponSound.M763.M763Swing',Volume=0.5,Radius=32.000000,bAtten=True)
+	End Object
+
+	Begin Object Class=FireParams Name=ArenaSecondaryFireParams
+		FireInterval=0.650000
+		PreFireTime=0.450000
+		PreFireAnim="ThrowPrep"
+		FireAnim="Throw"	
+		FireEffectParams(0)=ProjectileEffectParams'ArenaSecondaryEffectParams'
+	End Object
 
     //=================================================================
 	// RECOIL
@@ -76,6 +99,7 @@ defaultproperties
         RecoilParams(0)=RecoilParams'ArenaRecoilParams'
         AimParams(0)=AimParams'ArenaAimParams'
         FireParams(0)=FireParams'ArenaPrimaryFireParams'
+		AltFireParams(0)=FireParams'ArenaSecondaryFireParams'
     End Object 
     Layouts(0)=WeaponParams'ArenaParams'
 }
