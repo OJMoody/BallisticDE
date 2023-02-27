@@ -6,7 +6,7 @@
 // by Nolan "Dark Carnivour" Richert.
 // Copyright(c) 2005 RuneStorm. All Rights Reserved.
 //=============================================================================
-class AY90TestProjectile extends BallisticProjectile;
+class AY90BoltProjectileSuper extends BallisticProjectile;
 
 var() float ZapDamage;
 var() float ZapRadius; //Radius to do damaging zaps

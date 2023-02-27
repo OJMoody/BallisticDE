@@ -19,12 +19,152 @@ var float		lastModeChangeTime;
 var Vector TheEnd2;
 var Vector TheEnd;
 
+var(AY90) 	ScriptedTexture   	WeaponScreen; //Scripted texture to write on
+var(AY90) 	Material	        WeaponScreenShader; //Scripted Texture with self illum applied
+var(AY90)	int					ScreenIndex; //What texture slot the scripted texture goes in
+
+var(AY90) 	Material	        ScreenBase; //Screen colored background
+var(AY90) 	Material	        ScreenPie1; //0-10
+var(AY90) 	Material	        ScreenPie2; //10-20
+var(AY90) 	Material	        ScreenPie3; //20-30
+var(AY90) 	Material	        ScreenPie4; //30-40 pie oh my
+var(AY90) 	Material	        ScreenPie1_Y; //Quarter charge
+var(AY90) 	Material	        ScreenPie2_Y; //Half charge
+var(AY90) 	Material	        ScreenPie3_Y; //Threeourfths charge
+var(AY90) 	Material	        ScreenPie4_Y; //full charge
+
+var protected const color MyFontColor; //Why do I even need this?
+
+replication
+{
+	reliable if (Role == ROLE_Authority)
+		ClientScreenStart;
+}
+
 
 exec simulated function CockGun(optional byte Type);
 function ServerCockGun(optional byte Type);
 
+//========================== AMMO COUNTER NON-STATIC TEXTURE ============
+
+simulated function ClientScreenStart()
+{
+	ScreenStart();
+}
+
+// Called on clients from camera when it gets to postnetbegin
+simulated function ScreenStart()
+{
+	if (Instigator.IsLocallyControlled())
+		WeaponScreen.Client = self;
+	Skins[ScreenIndex] = WeaponScreenShader; //Set up scripted texture.
+	UpdateScreen();//Give it some numbers n shit
+	if (Instigator.IsLocallyControlled())
+		WeaponScreen.Revision++;
+}
+
+simulated event RenderTexture( ScriptedTexture Tex )
+{
+
+	Tex.DrawTile(0,0,256,256,0,0,256,256,ScreenBase, MyFontColor); //Basic screen
+	if (MagAmmo >= 10)
+	{
+		Tex.DrawTile(0,0,256,256,0,0,256,256,ScreenPie1, MyFontColor); //Ammo
+	}
+	if (MagAmmo >= 20)
+	{
+		Tex.DrawTile(0,0,256,256,0,0,256,256,ScreenPie2, MyFontColor); //Ammo
+	}
+	if (MagAmmo >= 30)
+	{
+		Tex.DrawTile(0,0,256,256,0,0,256,256,ScreenPie3, MyFontColor); //Ammo
+	}
+	if (MagAmmo >= 40)
+	{
+		Tex.DrawTile(0,0,256,256,0,0,256,256,ScreenPie4, MyFontColor); //Ammo
+	}
+
+	if (FireMode[0].bIsFiring == true)
+	{
+		if (FireMode[0].HoldTime/4 >= 0.25 && MagAmmo >= 10)
+		{
+			Tex.DrawTile(0,0,256,256,0,0,256,256,ScreenPie1_Y, MyFontColor); 
+		}
+		if (FireMode[0].HoldTime/4 >= 0.5 && MagAmmo >= 20)
+		{
+			Tex.DrawTile(0,0,256,256,0,0,256,256,ScreenPie2_Y, MyFontColor); 
+		}
+		if (FireMode[0].HoldTime/4 >= 0.75 && MagAmmo >= 30)
+		{
+			Tex.DrawTile(0,0,256,256,0,0,256,256,ScreenPie3_Y, MyFontColor);
+		}
+		if (FireMode[0].HoldTime/4 >= 1.00 && MagAmmo >= 40)
+		{
+			Tex.DrawTile(0,0,256,256,0,0,256,256,ScreenPie4_Y, MyFontColor);
+		}
+	}
+	else if (FireMode[1].bIsFiring == true)
+	{
+		if (FireMode[1].HoldTime/4 >= 0.25 && MagAmmo >= 10)
+		{
+			Tex.DrawTile(0,0,256,256,0,0,256,256,ScreenPie1_Y, MyFontColor); 
+		}
+		if (FireMode[1].HoldTime/4 >= 0.5 && MagAmmo >= 20)
+		{
+			Tex.DrawTile(0,0,256,256,0,0,256,256,ScreenPie2_Y, MyFontColor);
+		}
+		if (FireMode[1].HoldTime/4 >= 0.75 && MagAmmo >= 30)
+		{
+			Tex.DrawTile(0,0,256,256,0,0,256,256,ScreenPie3_Y, MyFontColor);
+		}
+		if (FireMode[1].HoldTime/4 >= 1.00 && MagAmmo >= 40)
+		{
+			Tex.DrawTile(0,0,256,256,0,0,256,256,ScreenPie4_Y, MyFontColor);
+		}
+	}
+
+}
+	
+simulated function UpdateScreen()
+{
+	if (Instigator != None && AIController(Instigator.Controller) != None) //Bots cannot update your screen
+		return;
+
+	if (Instigator.IsLocallyControlled())
+	{
+			WeaponScreen.Revision++;
+	}
+}
+	
+// Consume ammo from one of the possible sources depending on various factors
+simulated function bool ConsumeMagAmmo(int Mode, float Load, optional bool bAmountNeededIsMax)
+{
+	local bool bSuper;
+
+	bSuper = super.ConsumeMagAmmo(Mode, Load, bAmountNeededIsMax);
+	UpdateScreen();
+
+	return bSuper;
+}
+
+// Animation notify for when the clip is stuck in
+simulated function Notify_ClipIn()
+{
+	super.Notify_ClipIn();
+	UpdateScreen();
+}
+
+//=====================================================================
+
 simulated function BringUp(optional Weapon PrevWeapon)
 {
+	if (Instigator != None && AIController(Instigator.Controller) == None) //Player Screen ON
+	{
+		ScreenStart();
+		if (!Instigator.IsLocallyControlled())
+			ClientScreenStart();
+	}
+	
 	Super.BringUp(PrevWeapon);
 //	SoundPitch = 45;
 
@@ -150,6 +290,8 @@ simulated event Timer()
 
 simulated event Destroyed()
 {
+	if (Instigator != None && AIController(Instigator.Controller) == None)
+		WeaponScreen.client=None;
 	if (GlowFX != None)
 		GlowFX.Destroy();
 	if (StringSpark1 != None)
@@ -355,6 +497,21 @@ simulated function float ChargeBar()
 
 defaultproperties
 {
+    ScreenIndex=6
+	WeaponScreen=ScriptedTexture'BWBP_SKC_Tex.SkrithBow.SKBow-ScriptLCD'
+	WeaponScreenShader=Shader'BWBP_SKC_Tex.SkrithBow.SKBow-ScriptLCD-SD'
+	
+	ScreenBase=Texture'BWBP_SKC_Tex.SkrithBow.SKBow-ScreenBase'
+	ScreenPie1=Texture'BWBP_SKC_Tex.SkrithBow.SBow-ScreenPie1'
+	ScreenPie2=Texture'BWBP_SKC_Tex.SkrithBow.SBow-ScreenPie2'
+	ScreenPie3=Texture'BWBP_SKC_Tex.SkrithBow.SBow-ScreenPie3'
+	ScreenPie4=Texture'BWBP_SKC_Tex.SkrithBow.SBow-ScreenPie4'
+	ScreenPie1_Y=Texture'BWBP_SKC_Tex.SkrithBow.SBow-ScreenPie1_Y'
+	ScreenPie2_Y=Texture'BWBP_SKC_Tex.SkrithBow.SBow-ScreenPie2_Y'
+	ScreenPie3_Y=Texture'BWBP_SKC_Tex.SkrithBow.SBow-ScreenPie3_Y'
+	ScreenPie4_Y=Texture'BWBP_SKC_Tex.SkrithBow.SBow-ScreenPie4_Y'
+	MyFontColor=(B=255,G=255,R=255,A=255)
+	
      TeamSkins(0)=(RedTex=Shader'BW_Core_WeaponTex.Hands.RedHand-Shiny',BlueTex=Shader'BW_Core_WeaponTex.Hands.BlueHand-Shiny',SkinNum=0)
      UsedAmbientSound=Sound'BW_Core_WeaponSound.A73.A73Hum1'
      BigIconMaterial=Texture'BWBP_SKC_Tex.SkrithBow.BigIcon_SBow'
@@ -370,6 +527,7 @@ defaultproperties
      ClipInFrame=0.700000
      bNonCocking=True
      bShowChargingBar=True
+	 MagAmmo=40
      WeaponModes(0)=(ModeName="Charged Fire",ModeID="WM_FullAuto")
      WeaponModes(1)=(ModeName="Plasma Charge",ModeID="WM_FullAuto",bUnavailable=True)
      WeaponModes(2)=(ModeName="ALaser",bUnavailable=True)

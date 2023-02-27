@@ -46,8 +46,8 @@ defaultproperties
 			AccelSpeed=100000.000000
 			HeadMult=1.5f
 			LimbMult=0.9f
-			Damage=100
-			DamageRadius=150.000000
+			Damage=200
+			DamageRadius=180.000000
 			MaxDamageGainFactor=1.75
 			DamageGainStartTime=0.05
 			DamageGainEndTime=0.25
@@ -69,7 +69,7 @@ defaultproperties
 		
 		//Max
 		Begin Object Class=ProjectileEffectParams Name=ArenaPrimaryMaxEffectParams
-			ProjectileClass=Class'BWBP_SKCExp_Pro.AY90TestProjectile'
+			ProjectileClass=Class'BWBP_SKCExp_Pro.AY90BoltProjectileSuper'
 			SpawnOffset=(X=10.000000,Y=10.000000,Z=-9.000000)
 			Speed=5500.000000
 			MaxSpeed=14000.000000

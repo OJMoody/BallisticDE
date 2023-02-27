@@ -25,28 +25,28 @@ simulated function PlayPreFire()
 
 simulated event ModeDoFire()
 {
-	if (HoldTime >= ChargeTime && AY90SkrithBoltcaster(BW).MagAmmo >= 30)
+	if (HoldTime >= ChargeTime && AY90SkrithBoltcaster(BW).MagAmmo >= 40)
 	{
 		XInaccuracy=2000;
 		ProjectileCount=30;
-		AmmoPerFire=30;
-		Load=30;
+		AmmoPerFire=40;
+		Load=40;
 		BallisticFireSound.Sound=MaxChargeFireSound;
 	}
-	else if (HoldTime >= (ChargeTime/2) && AY90SkrithBoltcaster(BW).MagAmmo >= 15)
+	else if (HoldTime >= (ChargeTime/2) && AY90SkrithBoltcaster(BW).MagAmmo >= 20)
 	{
 		XInaccuracy=1000;
 		ProjectileCount=15;
-		AmmoPerFire=15;
-		Load=15;
+		AmmoPerFire=20;
+		Load=20;
 		BallisticFireSound.Sound=ChargeFireSound;
 	}
 	else
 	{
 		XInaccuracy=500;
 		ProjectileCount=5;
-		AmmoPerFire=5;
-		Load=5;
+		AmmoPerFire=10;
+		Load=10;
 		BallisticFireSound.Sound=default.BallisticFireSound.Sound;
 	}
 	
@@ -177,13 +177,16 @@ simulated event ModeDoFire()
 	
 	Weapon.AmbientSound = Weapon.default.AmbientSound;
 	
-	AmmoPerFire=5;
-	Load=5;
+	AmmoPerFire=10;
+	Load=10;
 }
 
 simulated function ModeTick(float DT)
 {
 	Super.ModeTick(DT);
+	
+	if (bIsFiring && BW.MagAmmo >= 10)
+		AY90SkrithBoltcaster(BW).UpdateScreen();
 
     if (bIsFiring && HoldTime >= AutoFireTime)
     {
@@ -285,7 +288,7 @@ defaultproperties
 	 bFireOnRelease=True
 	 ProjectileClass=Class'AY90Projectile'
      ProjectileCount=5
-	 AmmoPerFire=5
+	 AmmoPerFire=10
     // FireRate=1.000000
      BallisticFireSound=(Sound=Sound'BWBP_SKC_Sounds.SkirthBow.SkrithBow-WaveFire',Volume=1.700000)
     // XInaccuracy=2000
