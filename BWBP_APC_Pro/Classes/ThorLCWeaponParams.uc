@@ -13,6 +13,8 @@ defaultproperties
 		DamageType=Class'BallisticProV55.DT_HVCLightning'
 		DamageTypeHead=Class'BallisticProV55.DT_HVCLightning'
 		DamageTypeArm=Class'BallisticProV55.DT_HVCLightning'
+		MuzzleFlashClass=Class'BallisticProV55.HVCMk9MuzzleFlash'
+		FlashScaleFactor=1.200000
 		Recoil=4.000000
 		BotRefireRate=0.150000
 		WarnTargetPct=0.050000
@@ -37,7 +39,7 @@ defaultproperties
 		DamageType=Class'BWBP_OP_Pro.DTProtonStreamer'
 		DamageTypeHead=Class'BWBP_OP_Pro.DTProtonStreamer'
 		DamageTypeArm=Class'BWBP_OP_Pro.DTProtonStreamer'
-		MuzzleFlashClass=Class'BWBP_APC_Pro.ThorLCFlashEmitter'
+		MuzzleFlashClass=Class'BallisticProV55.HVCMk9MuzzleFlash'
 		FlashScaleFactor=1.200000
 		Recoil=2.000000
 		BotRefireRate=0.150000

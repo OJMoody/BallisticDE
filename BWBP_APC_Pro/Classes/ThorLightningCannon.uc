@@ -13,7 +13,6 @@ var	ThorLCStreamEffectNew			StreamEffect;
 var	ThorLCStreamEffectChild			StreamEffectChild;
 var ThorLCGameRules					myRules;
 var	Pawn							DrainTarget, BoostTarget;
-var float 							NextAmmoTickTime;
 var float							MaxStreamRange;
 var	bool							bAlternateCheck;
 var float	ClawAlpha;			// An alpha amount for claw movement interpolation
@@ -94,23 +93,6 @@ simulated event WeaponTick(float DT)
 {
 	super.WeaponTick(DT);
 
-	if (Role == ROLE_Authority)
-	{
-		if (NextAmmoTickTime < level.TimeSeconds && !FireMode[0].bIsFiring && !FireMode[1].bIsFiring)
-		{
-			if (bAlternateCheck)
-			{
-				if (MagAmmo < default.MagAmmo)
-				{
-					MagAmmo=Min(default.MagAmmo, MagAmmo+1);
-					bAlternateCheck = false;
-				}
-			}	
-			else
-			bAlternateCheck = true;
-			NextAmmoTickTime = level.TimeSeconds + 0.1;
-		}
-	}
 	if (FireMode[0].bIsFiring)	
 	{	
 		if (ClawAlpha < 1)
@@ -185,29 +167,6 @@ simulated function vector ConvertFOVs (vector InVec, float InFOV, float OutFOV, 
 //===========================================================================
 // Misc.
 //===========================================================================
-simulated function FirePressed(float F)
-{
-	if (bNeedReload && MagAmmo > 0)
-		bNeedReload = false;
-	super.FirePressed(F);
-}
-
-simulated function bool MayNeedReload(byte Mode, float Load)
-{
-	return false;
-}
-
-function ServerStartReload (optional byte i);
-
-simulated function string GetHUDAmmoText(int Mode)
-{
-	return "";
-}
-
-simulated function float AmmoStatus(optional int Mode)
-{
-    return float(MagAmmo) / float(default.MagAmmo);
-}
 
 simulated function bool PutDown()
 {
@@ -233,8 +192,10 @@ defaultproperties
      bWT_Energy=True
      bWT_Heal=True
      SpecialInfo(0)=(Info="0.0;-15.0;-999.0;-1.0;-999.0;-999.0;-999.0")
-     BringUpSound=(Sound=Sound'BWBP_OP_Sounds.ProtonPack.Proton-Pullout')
-     PutDownSound=(Sound=Sound'BWBP_OP_Sounds.ProtonPack.Proton-Putaway')
+     BringUpSound=(Sound=Sound'BWBP_CC_Sounds.ThorLG.Pullout')
+     PutDownSound=(Sound=Sound'BWBP_CC_Sounds.ThorLG.Putaway')
+	 ClipOutSound=(Sound=Sound'BWBP_CC_Sounds.ThorLG.ClipOut',Volume=1.250000)
+	 ClipInSound=(Sound=Sound'BWBP_CC_Sounds.ThorLG.ClipIn',Volume=1.250000)
      bNonCocking=True
      WeaponModes(0)=(ModeName="Gravity Proton Stream",ModeID="WM_FullAuto")
      WeaponModes(1)=(bUnavailable=True)
@@ -250,10 +211,8 @@ defaultproperties
      SightingTime=0.200000
      FireModeClass(0)=Class'BWBP_APC_Pro.ThorLCPrimaryFire'
      FireModeClass(1)=Class'BWBP_APC_Pro.ThorLCSecondaryFire'
-     SelectAnimRate=1.250000
-     PutDownAnimRate=1.250000
-     PutDownTime=0.600000
-     BringUpTime=0.600000
+     PutDownTime=1.100000
+	 BringUpTime=1.100000
      SelectForce="SwitchToAssaultRifle"
      AIRating=0.400000
      CurrentRating=0.400000
@@ -263,6 +222,7 @@ defaultproperties
      CustomCrossHairTextureName="Crosshairs.HUD.Crosshair_Cross1"
      InventoryGroup=5
      GroupOffset=1
+	 bShowChargingBar=True
      PickupClass=Class'BWBP_APC_Pro.ThorLCPickup'
      PlayerViewOffset=(X=12.000000,Y=10.000000,Z=-10.000000)
      AttachmentClass=Class'BWBP_APC_Pro.ThorLCAttachment'

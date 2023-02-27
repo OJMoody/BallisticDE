@@ -75,7 +75,6 @@ simulated function Hide(bool NewbHidden)
 simulated function PostNetBeginPlay()
 {
 	Super.PostNetBeginPlay();
-	Pack = Spawn(class'ThorLCPack');
 	if (Instigator.GetTeamNum() == 1)
 		Pack.Skins[0]=Shader'BWBP_OP_Tex.Proton_pack_SH_1';
 	if (Instigator != None)

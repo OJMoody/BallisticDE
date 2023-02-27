@@ -27,7 +27,7 @@ simulated function bool CheckCharge()
 	local name seq;
 	local float frame, rate;
 
-	if (PhotonCharge <= 0)
+	if (PhotonCharge <= 0 && BW.CurrentWeaponMode == 1)
 	{
 		weapon.GetAnimParams(channel, seq, frame, rate);
 		if (seq == ProtoSMG(Weapon).PhotonLoadAnim || seq == ProtoSMG(Weapon).PhotonLoadEmptyAnim)
