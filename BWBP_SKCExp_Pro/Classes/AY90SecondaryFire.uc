@@ -121,6 +121,7 @@ simulated event ModeDoFire()
         PlayFiring();
         FlashMuzzleFlash();
         StartMuzzleSmoke();
+		AY90SkrithBoltcaster(BW).UpdateScreen();
     }
     else // server
     {
