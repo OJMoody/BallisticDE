@@ -21,8 +21,7 @@ defaultproperties
      HipSpreadFactor=5
 	 TraceCount=12
 	 AmmoPerFire=2
-     CutOffDistance=2536.000000
-     CutOffStartRange=1280.000000
+	 DecayRange=(Min=1280,Max=2536)
      TracerClass=Class'BallisticProV55.TraceEmitter_Shotgun'
      ImpactManager=Class'BallisticProV55.IM_Shell'
      TraceRange=(Min=4000.000000,Max=6000.000000)

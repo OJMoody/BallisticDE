@@ -10,7 +10,7 @@
 // by Nolan "Dark Carnivour" Richert.
 // Copyright(c) 2005 RuneStorm. All Rights Reserved.
 //=============================================================================
-class MG36PrimaryFire extends BallisticRangeAttenFire;
+class MG36PrimaryFire extends BallisticProInstantFire;
 
 var() sound	FireSoundLoop;
 var() sound	FireSoundLoopBegin;
@@ -205,8 +205,7 @@ defaultproperties
      SMuzzleFlashClass=Class'BWBP_SKCExp_Pro.MG36SilencedFlash'
      SFlashBone="tip2"
      SFlashScaleFactor=0.750000
-     CutOffDistance=8192.000000
-     CutOffStartRange=7680.000000
+	 DecayRange=(Min=7680.000000,Max=15872.000000)
      TraceRange=(Min=9000.000000,Max=11000.000000)
      WallPenetrationForce=16.000000
      Damage=28.000000 

@@ -7,7 +7,7 @@
 // by Casey 'Xavious' Johnson and Marc 'Sergeant Kelly'
 // Copyright(c) 2005 RuneStorm. All Rights Reserved.
 //=============================================================================
-class ZX98PrimaryFire extends BallisticRangeAttenFire;
+class ZX98PrimaryFire extends BallisticProInstantFire;
 
 var rotator OldLookDir, TurnVelocity;
 var float	LastFireTime, MuzzleBTime, MuzzleCTime, OldFireRate;
@@ -327,8 +327,7 @@ simulated event ModeDoFire()
 defaultproperties
 {
 	 FireRate=0.5500000
-     CutOffDistance=3072.000000
-     CutOffStartRange=1280.000000
+	 DecayRange=(Min=1280,Max=3072)
      TraceRange=(Min=8000.000000,Max=12000.000000)
      WallPenetrationForce=24.000000
      Damage=22.000000

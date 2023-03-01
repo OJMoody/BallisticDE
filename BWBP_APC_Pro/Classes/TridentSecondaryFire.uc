@@ -16,7 +16,6 @@ var float	LastFireTime, MuzzleBTime, MuzzleCTime, OldFireRate;
 var Actor	MuzzleFlashB, MuzzleFlashC;
 var TridentMachinegun TridentWeapon;
 
-var	int		TraceCount;
 var float	NextTVUpdateTime;
 
 // Even if we hit nothing, this is already taken care of in DoFireEffects()...
@@ -302,8 +301,7 @@ defaultproperties
 {
 	 HipSpreadFactor=2.000000
 	 MaxSpreadFactor=2.000000
-     CutOffDistance=1536.000000
-     CutOffStartRange=768.000000
+	 DecayRange=(Min=768,Max=1536)
      TraceCount=6
      TracerClass=Class'BWBP_OP_Pro.TraceEmitter_RCSShotgun'
      ImpactManager=Class'BallisticProV55.IM_Shell'

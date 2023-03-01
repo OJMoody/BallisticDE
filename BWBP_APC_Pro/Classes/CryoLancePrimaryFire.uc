@@ -7,7 +7,7 @@
 // by Nolan "Dark Carnivour" Richert.
 // Copyright(c) 2005 RuneStorm. All Rights Reserved.
 //=============================================================================
-class CryoLancePrimaryFire extends BallisticRangeAttenFire;
+class CryoLancePrimaryFire extends BallisticProInstantFire;
 
 var() sound		FireSoundLoop;
 var   float		StopFireTime;
@@ -122,8 +122,7 @@ defaultproperties
 	 FireLoopAnim="LoopFire"
 	 FireEndAnim="LoopEnd"
 	 
-	 CutOffDistance=5120.000000
-     CutOffStartRange=2048.000000
+	 DecayRange=(Min=2048,Max=5120)
      TraceRange=(Min=15000.000000,Max=15000.000000)
      WallPenetrationForce=16.000000
      Damage=20.000000

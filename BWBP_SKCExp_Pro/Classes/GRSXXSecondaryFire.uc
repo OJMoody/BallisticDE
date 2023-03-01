@@ -8,7 +8,7 @@
 // by Nolan "Dark Carnivour" Richert.
 // Copyright(c) 2007 RuneStorm. All Rights Reserved.
 //=============================================================================
-class GRSXXSecondaryFire extends BallisticRangeAttenFire;
+class GRSXXSecondaryFire extends BallisticProInstantFire;
 
 var() sound		FireSoundLoop;
 var   float		StopFireTime;
@@ -85,8 +85,6 @@ simulated function bool ImpactEffect(vector HitLocation, vector HitNormal, Mater
 defaultproperties
 {
      FireSoundLoop=Sound'BWBP_SKC_SoundsExp.Glock_Gold.G-Glk-LaserBurn'
-	 CutOffStartRange=768
-	 CutOffDistance=2048
 	 RangeAtten=0.2
      Damage=18.000000
      

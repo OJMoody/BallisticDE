@@ -7,7 +7,7 @@
 // by SK, adapted from Nolan "Dark Carnivour" Richert.
 // Copyright(c) 2006 RuneStorm. All Rights Reserved.
 //=============================================================================
-class SX45PrimaryFire extends BallisticRangeAttenFire;
+class SX45PrimaryFire extends BallisticProInstantFire;
 
 var(SX45) Actor						MuzzleFlashAmp1;		
 var(SX45) Actor						MuzzleFlashAmp2;		
@@ -197,8 +197,7 @@ defaultproperties
 	 FlashBone="tip"
 	 FlashScaleFactor=0.9
 	 TraceRange=(Min=4000.000000,Max=4000.000000)
-     CutOffDistance=2048.000000
-     CutOffStartRange=768.000000
+	 DecayRange=(Min=768.000000,Max=2048.000000)
 	 RangeAtten=0.3
      WallPenetrationForce=8.000000
      Damage=32.000000

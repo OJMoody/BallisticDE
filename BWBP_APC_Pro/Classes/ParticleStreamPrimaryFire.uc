@@ -10,7 +10,6 @@ var   Actor						LightMuzzleFlash;
 var() sound		FireSoundLoop;
 var() sound		FireSound2;
 var   bool		bIsZapping;
-var() int		Damage;
 
 var   bool	bPendingOwnerZap;
 var   float	PendingZapDamage;

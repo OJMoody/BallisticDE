@@ -7,7 +7,7 @@
 // by Nolan "Dark Carnivour" Richert.
 // Copyright(c) 2007 RuneStorm. All Rights Reserved.
 //=============================================================================
-class GRSXXPrimaryFire extends BallisticRangeAttenFire;
+class GRSXXPrimaryFire extends BallisticProInstantFire;
 
 var(GRSXX) Actor					MuzzleFlashNaked;		
 var(GRSXX) class<Actor>				MuzzleFlashClassNaked;	
@@ -121,8 +121,7 @@ defaultproperties
 	 NakedFlashBone="Muzzle2"
      NakedFlashScaleFactor=1.500000
 	 
-     CutOffDistance=1536.000000
-     CutOffStartRange=768.000000
+	 DecayRange=(Min=768,Max=2304)
      TraceRange=(Min=4000.000000,Max=4000.000000)
      WallPenetrationForce=8.000000
      

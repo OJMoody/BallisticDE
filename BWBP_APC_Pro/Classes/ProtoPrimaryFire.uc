@@ -7,7 +7,7 @@
 // by Casey 'Xavious' Johnson and Marc 'Sergeant Kelly'
 // Copyright(c) 2005 RuneStorm. All Rights Reserved.
 //=============================================================================
-class ProtoPrimaryFire extends BallisticRangeAttenFire;
+class ProtoPrimaryFire extends BallisticProInstantFire;
 
 var() Actor						SMuzzleFlash;		// Silenced Muzzle flash stuff
 var() Actor						PhotonMuzzleFlash;
@@ -228,8 +228,7 @@ defaultproperties
 	 SFlashScaleFactor=1.000000
      PhotonFlashScaleFactor=0.400000
 	 SilencedFireSound=(Sound=SoundGroup'BWBP_JCF_Sounds.P90.P90SilFire',Volume=2.000000,Radius=192.000000,bAtten=True)
-     CutOffDistance=3072.000000
-     CutOffStartRange=1536.000000
+	 DecayRange=(Min=1536,Max=3072)
      TraceRange=(Min=8000.000000,Max=12000.000000)
      WallPenetrationForce=24.000000
      

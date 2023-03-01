@@ -4,7 +4,7 @@
 // by Nolan "Dark Carnivour" Richert.
 // Copyright(c) 2007 RuneStorm. All Rights Reserved.
 //=============================================================================
-class T9CNPrimaryFire extends BallisticRangeAttenFire;
+class T9CNPrimaryFire extends BallisticProInstantFire;
 
 //Do the spread on the client side
 function PlayFiring()
@@ -28,8 +28,7 @@ function PlayFiring()
 
 defaultproperties
 {
-     CutOffDistance=1536.000000
-     CutOffStartRange=768.000000
+	 DecayRange=(Min=768,Max=1536)
      WallPenetrationForce=8.000000
      
      Damage=14.000000

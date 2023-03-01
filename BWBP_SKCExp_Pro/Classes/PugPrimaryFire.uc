@@ -17,12 +17,11 @@ simulated function DestroyEffects()
 
 defaultproperties
 {
-     CutOffDistance=1536.000000
-     CutOffStartRange=1024.000000
      TraceCount=7
      TracerClass=Class'BallisticProV55.TraceEmitter_Shotgun'
      ImpactManager=Class'BallisticProV55.IM_Shell'
      TraceRange=(Min=2560.000000,Max=2560.000000)
+	 DecayRange=(Min=1024,Max=1536)
      Damage=11.000000
 
      RangeAtten=0.250000

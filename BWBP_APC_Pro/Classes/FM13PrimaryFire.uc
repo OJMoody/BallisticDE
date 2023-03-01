@@ -223,8 +223,7 @@ simulated function DestroyEffects()
 defaultproperties
 {
      HipSpreadFactor=3.000000
-     CutOffDistance=1562.000000
-     CutOffStartRange=512.000000
+	 DecayRange=(Min=512,Max=1562)
      TraceCount=10
      TracerClass=Class'BWBP_APC_Pro.TraceEmitter_ShotgunFlame'
      ImpactManager=Class'BWBP_APC_Pro.IM_FireShot'

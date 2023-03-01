@@ -437,8 +437,7 @@ defaultproperties
 	MaxHoldTime=0.0
 	HipSpreadFactor=2.5
 
-	CutOffDistance=2048.000000
-	CutOffStartRange=1024.000000
+	DecayRange=(Min=1024,Max=2048)
 
 	TraceCount=10
 	TracerClass=Class'BallisticProV55.TraceEmitter_MRTsix'

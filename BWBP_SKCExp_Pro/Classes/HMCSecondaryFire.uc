@@ -43,7 +43,7 @@ function DoDamage (Actor Other, vector HitLocation, vector TraceStart, vector Di
 		local Actor				Victim;
 		local Vector			RelativeVelocity, ForceDir;
 
-		Dmg = GetDamage(Other, HitLocation, Dir, Victim, HitDT);
+		Dmg = GetDamage(Other, HitLocation, TraceStart, Dir, Victim, HitDT);
 		if (RangeAtten != 1.0)
 			Dmg *= Lerp(VSize(HitLocation-TraceStart)/TraceRange.Max, 1, RangeAtten);
 		//if (WaterRangeAtten != 1.0 && WaterHitLocation != vect(0,0,0))
@@ -84,7 +84,7 @@ function DoDamage (Actor Other, vector HitLocation, vector TraceStart, vector Di
 		local Actor				Victim;
 		local Vector			RelativeVelocity, ForceDir;
 
-		Dmg = GetDamage(Other, HitLocation, Dir, Victim, HitDT);
+		Dmg = GetDamage(Other, HitLocation, TraceStart, Dir, Victim, HitDT);
 		if (RangeAtten != 1.0)
 			Dmg *= Lerp(VSize(HitLocation-TraceStart)/TraceRange.Max, 1, RangeAtten);
 		//if (WaterRangeAtten != 1.0 && WaterHitLocation != vect(0,0,0))
@@ -127,7 +127,7 @@ function DoDamage (Actor Other, vector HitLocation, vector TraceStart, vector Di
 		local Actor				Victim;
 		local Pawn 			HealTarget;
 
-		Dmg = GetDamage(Other, HitLocation, Dir, Victim, HitDT);
+		Dmg = GetDamage(Other, HitLocation, TraceStart, Dir, Victim, HitDT);
 
 		HealTarget = Pawn(Other);
 			//bProjTarget is set False when a pawn is frozen in Freon.
