@@ -30,7 +30,7 @@ defaultproperties
 
 	Begin Object Class=FireParams Name=RealisticPrimaryFireParamsNoCharge
 		FireInterval=1.000000
-		AmmoPerFire=5
+		AmmoPerFire=10
 		BurstFireRateFactor=1.00
 		FireEndAnim=	
 	FireEffectParams(0)=ProjectileEffectParams'RealisticPrimaryEffectParams'
@@ -43,8 +43,8 @@ defaultproperties
 		Speed=10000.000000
 		MaxSpeed=10000.000000
 		AccelSpeed=90000.000000
-		Damage=150
-		DamageRadius=30.000000
+		Damage=250
+		DamageRadius=250.000000
 		HeadMult=2.000000
 		LimbMult=0.500000
 		MomentumTransfer=30000.000000
@@ -59,7 +59,7 @@ defaultproperties
 
 	Begin Object Class=FireParams Name=RealisticPrimaryFireParamsHalfCharge
 		FireInterval=1.000000
-		AmmoPerFire=10
+		AmmoPerFire=20
 		BurstFireRateFactor=1.00
 		FireEndAnim=	
 	FireEffectParams(0)=ProjectileEffectParams'RealisticPrimaryChargedEffectParams'
@@ -67,7 +67,7 @@ defaultproperties
 	
 	//Fully Charged
 	Begin Object Class=ProjectileEffectParams Name=RealisticPrimaryMaxEffectParams
-		ProjectileClass=Class'BWBP_SKCExp_Pro.AY90TestProjectile'
+		ProjectileClass=Class'BWBP_SKCExp_Pro.AY90BoltProjectileSuper'
 		SpawnOffset=(X=10.000000,Y=10.000000,Z=-9.000000)
 		Speed=10000.000000
 		MaxSpeed=1000000.000000
@@ -88,7 +88,7 @@ defaultproperties
 
 	Begin Object Class=FireParams Name=RealisticPrimaryFireParamsMaxCharge
 		FireInterval=1.000000
-		AmmoPerFire=30
+		AmmoPerFire=40
 		BurstFireRateFactor=1.00
 		FireEndAnim=	
 	FireEffectParams(0)=ProjectileEffectParams'RealisticPrimaryMaxEffectParams'
@@ -120,7 +120,7 @@ defaultproperties
 
 	Begin Object Class=FireParams Name=RealisticSecondaryFireParams
 		FireInterval=1.000000
-		AmmoPerFire=5
+		AmmoPerFire=10
 		BurstFireRateFactor=1.00	
 	FireEffectParams(0)=ProjectileEffectParams'RealisticSecondaryEffectParams'
 	End Object
@@ -149,13 +149,15 @@ defaultproperties
 	//=================================================================
 
 	Begin Object Class=AimParams Name=RealisticAimParams
-		SprintOffset=(Pitch=-3000,Yaw=-5000)
-		JumpOffset=(Pitch=-4000,Yaw=-3000)
 		AimSpread=(Min=256,Max=1536)
 		CrouchMultiplier=0.600000
 		ADSMultiplier=0.700000
 		ViewBindFactor=0.100000
 		SprintChaos=0.400000
+		SprintOffset=(Pitch=-3000,Yaw=-5000)
+		JumpOffset=(Pitch=-4000,Yaw=-3000)
+		JumpChaos=0.400000
+		FallingChaos=0.400000
 		AimDamageThreshold=75.000000
 		ChaosDeclineTime=2.000000
 		ChaosSpeedThreshold=550.000000
@@ -167,6 +169,7 @@ defaultproperties
 	
 	Begin Object Class=WeaponParams Name=RealisticParams
 		InventorySize=15
+		MagAmmo=40
 		SightMoveSpeedFactor=0.500000
 		SightingTime=0.250000
 		SightOffset=(Y=4.700000,Z=8.000000)

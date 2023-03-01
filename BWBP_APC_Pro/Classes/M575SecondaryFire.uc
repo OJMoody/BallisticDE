@@ -3,7 +3,7 @@
 //
 // Ice rounds. Inflict slow upon targets hit, but deal lesser damage than standard XK2 rounds.
 //=============================================================================
-class M575SecondaryFire extends BallisticRangeAttenFire;
+class M575SecondaryFire extends BallisticProInstantFire;
 
 var() BUtil.FullSound            IceSound;    //Crackling sound to play
 
@@ -108,8 +108,7 @@ simulated function DestroyEffects()
 
 defaultproperties
 {
-    CutOffDistance=2304.000000
-    CutOffStartRange=1536.000000
+	DecayRange=(Min=1536,Max=2304)
     WallPenetrationForce=24.000000
     
     Damage=14.000000

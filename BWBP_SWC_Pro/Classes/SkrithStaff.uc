@@ -495,6 +495,7 @@ defaultproperties
      LightRadius=12.000000
 	 ParamsClasses(0)=Class'SkrithStaffWeaponParamsArena'
 	 ParamsClasses(1)=Class'SkrithStaffWeaponParamsClassic'
+	 ParamsClasses(2)=Class'SkrithStaffWeaponParamsRealistic'
 	 Mesh=SkeletalMesh'BWBP_SWC_Anims.FPm_SkrithStaff'
      DrawScale=1.000000
      SoundPitch=32

@@ -16,7 +16,6 @@ var float	LastFireTime, MuzzleBTime, MuzzleCTime, OldFireRate;
 var Actor	MuzzleFlashB, MuzzleFlashC;
 var TridentMachinegun TridentWeapon;
 
-var	int		TraceCount;
 var float	NextTVUpdateTime;
 
 // Even if we hit nothing, this is already taken care of in DoFireEffects()...
@@ -56,7 +55,7 @@ simulated function bool ImpactEffect(vector HitLocation, vector HitNormal, Mater
 		if (TracerClass != None && Level.DetailMode > DM_Low && class'BallisticMod'.default.EffectsDetailMode > 0 && VSize(HitLocation - BallisticAttachment(Weapon.ThirdPersonActor).GetModeTipLocation()) > 200 && FRand() < TracerChance)
 			Spawn(TracerClass, instigator, , BallisticAttachment(Weapon.ThirdPersonActor).GetModeTipLocation(), Rotator(HitLocation - BallisticAttachment(Weapon.ThirdPersonActor).GetModeTipLocation()));
 	}
-	Weapon.HurtRadius(1, 128, DamageType, 1, HitLocation);
+	BW.TargetedHurtRadius(1, 128, DamageType, 1, HitLocation, Pawn(Other));
 	return true;
 }
 
@@ -205,6 +204,9 @@ function DoFireEffect()
 		Interval = FireRate / TraceCount;
 		AimInterval = TurnVelocity * Interval;
 	}
+	
+	if (Level.NetMode == NM_DedicatedServer)
+		BW.RewindCollisions();
 
 	for (i=0;i<TraceCount && ConsumedLoad < BW.MagAmmo ;i++)
 	{
@@ -212,7 +214,9 @@ function DoFireEffect()
 		Aim = GetNewFireAim(StartTrace, ExtraTime);
 		Aim += ExtraAim;
 		R = Rotator(GetFireSpread() >> Aim);
+		
 		DoTrace(StartTrace, R);
+		
 		if (i == 1)
 			MuzzleBTime = Level.TimeSeconds + ExtraTime;
 		else if (i == 2)
@@ -220,9 +224,15 @@ function DoFireEffect()
 		ExtraTime += Interval;
 		ExtraAim += AimInterval;
 	}
+	
+	if (Level.NetMode == NM_DedicatedServer)
+        BW.RestoreCollisions();
+
+	ApplyHits();
+	
 	SetTimer(FMin(0.1, FireRate/2), false);
 
-//	SendFireEffect(none, Vector(Aim)*TraceRange.Max, StartTrace, 0);
+	SendFireEffect(none, Vector(Aim)*TraceRange.Max, StartTrace, 0);
 
 	Super(BallisticFire).DoFireEffect();;
 }
@@ -291,8 +301,7 @@ defaultproperties
 {
 	 HipSpreadFactor=2.000000
 	 MaxSpreadFactor=2.000000
-     CutOffDistance=1536.000000
-     CutOffStartRange=768.000000
+	 DecayRange=(Min=768,Max=1536)
      TraceCount=6
      TracerClass=Class'BWBP_OP_Pro.TraceEmitter_RCSShotgun'
      ImpactManager=Class'BallisticProV55.IM_Shell'

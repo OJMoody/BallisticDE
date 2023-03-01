@@ -26,29 +26,23 @@ simulated function PlayPreFire()
 simulated event ModeDoFire()
 {
 
-	if (HoldTime >= ChargeTime && AY90SkrithBoltcaster(BW).MagAmmo >= 30)
+	if (HoldTime >= ChargeTime && AY90SkrithBoltcaster(BW).MagAmmo >= 40)
 	{
 		AY90SkrithBoltcaster(BW).ParamsClasses[AY90SkrithBoltcaster(BW).GameStyleIndex].static.OverrideFireParams(AY90SkrithBoltcaster(BW),2);
-//		ProjectileClass=Class'AY90TestProjectile';
-		AmmoPerFire=30;
-		Load=30;
-//		BallisticFireSound.Sound=MaxChargeFireSound;
+		AmmoPerFire=40;
+		Load=40;
 	}
-	else if (HoldTime >= (ChargeTime/2) && AY90SkrithBoltcaster(BW).MagAmmo >= 15)
+	else if (HoldTime >= (ChargeTime/2) && AY90SkrithBoltcaster(BW).MagAmmo >= 20)
 	{
 		AY90SkrithBoltcaster(BW).ParamsClasses[AY90SkrithBoltcaster(BW).GameStyleIndex].static.OverrideFireParams(AY90SkrithBoltcaster(BW),1);
-//		ProjectileClass=Class'HVPCMk5Projectile';
-		AmmoPerFire=15;
-		Load=15;
-//		BallisticFireSound.Sound=ChargeFireSound;
+		AmmoPerFire=20;
+		Load=20;
 	}
 	else
 	{
 		AY90SkrithBoltcaster(BW).ParamsClasses[AY90SkrithBoltcaster(BW).GameStyleIndex].static.OverrideFireParams(AY90SkrithBoltcaster(BW),0);
-//		ProjectileClass=default.ProjectileClass;
-		AmmoPerFire=5;
-		Load=5;
-//		BallisticFireSound.Sound=default.BallisticFireSound.Sound;
+		AmmoPerFire=10;
+		Load=10;
 	}
 
 	Weapon.AmbientSound = Weapon.default.AmbientSound;
@@ -124,6 +118,7 @@ simulated event ModeDoFire()
         PlayFiring();
         FlashMuzzleFlash();
         StartMuzzleSmoke();
+		AY90SkrithBoltcaster(BW).UpdateScreen();
     }
     else // server
     {
@@ -177,14 +172,17 @@ simulated event ModeDoFire()
 			BW.bNeedCock=true;
 	}
 	
-	AmmoPerFire=5;
-	Load=5;
+	AmmoPerFire=10;
+	Load=10;
 	
 }
 
 simulated function ModeTick(float DT)
 {
 	Super.ModeTick(DT);
+	
+	if (bIsFiring && BW.MagAmmo >= 10)
+		AY90SkrithBoltcaster(BW).UpdateScreen();
 
     if (bIsFiring && HoldTime >= AutoFireTime)
     {
@@ -205,7 +203,7 @@ defaultproperties
      //RecoilPerShot=256.000000
      //XInaccuracy=9.000000
      //YInaccuracy=6.000000
-     AmmoPerFire=5
+     AmmoPerFire=10
      BallisticFireSound=(Sound=SoundGroup'BWBP_SKC_Sounds.SkrithBow.SkrithBow-BoltShot',Volume=1.200000,Slot=SLOT_Interact,bNoOverride=False)
 	 bFireOnRelease=True
      FireEndAnim=

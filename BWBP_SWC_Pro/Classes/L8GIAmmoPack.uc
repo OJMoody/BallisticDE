@@ -178,6 +178,8 @@ defaultproperties
      ItemName="L8 GI Ammunition Pack"
      Mesh=SkeletalMesh'BWBP_SWC_Anims.FPm_AmmoPack'
 	 ParamsClasses(0)=Class'L8GIAmmoPackWeaponParamsArena'
+	 ParamsClasses(1)=Class'L8GIAmmoPackWeaponParamsClassic'
+	 ParamsClasses(2)=Class'L8GIAmmoPackWeaponParamsRealistic'
      DrawScale=0.400000
 	 Skins(0)=Texture'BW_Core_WeaponTex.Ammo.AmmoPackSkin'
 	 Skins(1)=Texture'BW_Core_WeaponTex.A73.A73AmmoSkin'

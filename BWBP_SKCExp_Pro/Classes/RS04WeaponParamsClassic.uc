@@ -63,13 +63,16 @@ defaultproperties
 	// AIM
 	//=================================================================
 
-	Begin Object Class=AimParams Name=ClassicAimParams
+	Begin Object Class=AimParams Name=ClassicAimParams //Light Pistol
 		AimSpread=(Min=36,Max=2048)
 		AimAdjustTime=0.550000
 		CrouchMultiplier=0.700000
 		ADSMultiplier=0.700000
 		ViewBindFactor=0.050000
-		SprintChaos=0.400000
+		SprintChaos=0.050000
+		JumpChaos=0.050000
+		JumpOffSet=(Pitch=1000,Yaw=-500)
+		FallingChaos=0.050000
 		ChaosDeclineTime=0.500000
 		ChaosSpeedThreshold=1200.000000
 	End Object

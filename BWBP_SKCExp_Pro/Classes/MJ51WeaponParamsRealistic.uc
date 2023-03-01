@@ -97,12 +97,15 @@ defaultproperties
 	//=================================================================
 
 	Begin Object Class=AimParams Name=RealisticAimParams
-		SprintOffset=(Pitch=-3000,Yaw=-4000)
 		AimSpread=(Min=12,Max=1400)
 		CrouchMultiplier=0.700000
 		ADSMultiplier=0.700000
 		ViewBindFactor=0.100000
 		SprintChaos=0.400000
+		SprintOffset=(Pitch=-3000,Yaw=-4000)
+		JumpChaos=0.400000
+		JumpOffSet=(Pitch=-5000,Yaw=-1000)
+		FallingChaos=0.400000
 		ChaosDeclineTime=1.450000
 		ChaosSpeedThreshold=550.000000
 	End Object
@@ -113,6 +116,7 @@ defaultproperties
 	
 	Begin Object Class=WeaponParams Name=RealisticParams
 		InventorySize=11
+		WeaponPrice=1200
 		SightMoveSpeedFactor=0.500000
 		SightOffset=(X=10.000000,Y=-6.450000,Z=20.900000)
 		ViewOffset=(X=-9.000000,Y=8.000000,Z=-15.000000)

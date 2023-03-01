@@ -7,7 +7,10 @@
 // by Nolan "Dark Carnivour" Richert.
 // Copyright(c) 2005 RuneStorm. All Rights Reserved.
 //=============================================================================
-class ParticleStreamer extends BallisticWeapon;
+class ParticleStreamer extends BallisticWeapon
+	transient
+	HideDropDown
+	CacheExempt;
 
 var	ParticleStreamEffectNew		StreamEffect;
 var	ParticleStreamEffectChild		StreamEffectChild;
@@ -56,7 +59,6 @@ simulated function Destroyed()
 		
 	Super.Destroyed();
 }
-
 
 function AttachToPawn(Pawn P)
 {
@@ -361,6 +363,6 @@ defaultproperties
      Skins(0)=Shader'BW_Core_WeaponTex.Hands.Hands-Shiny'
      Skins(1)=Shader'BWBP_OP_Tex.ProtonPack.proton_gun_SH1'
      SoundPitch=56
-	 ParamsClasses(0)=Class'ProtonMK2WeaponParams'
+	 ParamsClasses(0)=Class'ParticleStreamerWeaponParams'
      SoundRadius=32.000000
 }

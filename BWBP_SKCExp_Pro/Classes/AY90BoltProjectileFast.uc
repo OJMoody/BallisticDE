@@ -163,7 +163,7 @@ defaultproperties
      MyDamageType=Class'BWBP_SKCExp_Pro.DTAY90Skrith'
 	 DamageTypeHead=Class'BWBP_SKCExp_Pro.DTAY90SkrithHead'
      MyRadiusDamageType=Class'BWBP_SKCExp_Pro.DTAY90SkrithRadius'
-	 ImpactManager=Class'BallisticProV55.IM_A73Lob'
+	 ImpactManager=Class'BWBP_SKC_Pro.IM_A49Lob'
      PenetrateManager=Class'BallisticProV55.IM_A73Lob'
      bPenetrate=True
      bRandomStartRotation=False

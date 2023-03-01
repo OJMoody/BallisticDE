@@ -382,6 +382,7 @@ defaultproperties
      ItemName="NEX Plas-Edge Axe"
 	 ParamsClasses(0)=Class'N3XWeaponParams'
 	 ParamsClasses(1)=Class'NEXWeaponParamsClassic'
+	 ParamsClasses(2)=Class'NEXWeaponParamsRealistic'
      Mesh=SkeletalMesh'BWBP_SKC_AnimExp.FPm_PlasEdgeAxe'
      DrawScale=0.400000
      bFullVolume=True

@@ -84,8 +84,7 @@ simulated function bool ImpactEffect(vector HitLocation, vector HitNormal, Mater
 defaultproperties
 {
      HipSpreadFactor=3.000000
-     CutOffDistance=3124.000000
-     CutOffStartRange=1562.000000
+	 DecayRange=(Min=1562,Max=3124)
      TraceCount=1
      TracerClass=Class'BWBP_APC_Pro.TraceEmitter_ShotgunFlame'
      ImpactManager=Class'BWBP_APC_Pro.IM_FireShot'

@@ -7,7 +7,7 @@
 // by Nolan "Dark Carnivour" Richert.
 // Copyright(c) 2005 RuneStorm. All Rights Reserved.
 //=============================================================================
-class MDKPrimaryFire extends BallisticRangeAttenFire;
+class MDKPrimaryFire extends BallisticProInstantFire;
 
 var() Actor						SMuzzleFlash;		// Silenced Muzzle flash stuff
 var() class<Actor>				SMuzzleFlashClass;
@@ -31,13 +31,13 @@ function SetSilenced(bool bSilenced)
 	{
 		XInaccuracy *= 2;
 		YInaccuracy *= 2;
-		CutOffStartRange *= 1.25;
+		DecayRange.Min *= 1.25;
 	}
 	else
 	{
 		XInaccuracy = default.XInaccuracy;
 		YInaccuracy = default.YInaccuracy;
-		CutOffStartRange = default.CutOffStartRange;
+		DecayRange.Min = default.DecayRange.Min;
 	}
 }
 
@@ -122,8 +122,7 @@ defaultproperties
 	 FlashBone="tip2"
      SFlashScaleFactor=1.000000
 	 
-     CutOffDistance=2048.000000
-     CutOffStartRange=768.000000
+	 DecayRange=(Min=768,Max=2048)
      TraceRange=(Min=4096.000000,Max=4096.000000)
 	 RangeAtten=0.2
 	 WaterRangeAtten=0.200000

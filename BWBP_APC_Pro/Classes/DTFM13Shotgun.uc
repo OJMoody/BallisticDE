@@ -13,7 +13,7 @@ defaultproperties
      DeathStrings(0)="%o was chewed up like a piece of meat by %k's Pitbull."
      DeathStrings(1)="%k unleashed the dragon's breath on %o."
      DeathStrings(2)="%o couldn't slay the dragon and got roasted by %k's FM13."
-     DeathStrings(3)="%k sicced his Pitbull onto %o, good shotgun gets a treat."
+     DeathStrings(3)="%k sicced %kh Pitbull onto %o, good shotgun gets a treat."
      InvasionDamageScaling=2
      DamageIdent="Shotgun"
      WeaponClass=Class'BWBP_APC_Pro.FM13Shotgun'

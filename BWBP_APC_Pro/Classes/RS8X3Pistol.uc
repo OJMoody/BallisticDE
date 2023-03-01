@@ -273,8 +273,15 @@ function ServerSwitchSilencer(bool bNewValue)
 	BFireMode[0].bAISilent = bSilenced;
 	SwitchSilencer(bSilenced);
 	if (bSilenced)
+	{
 		BFireMode[0].FireRecoil *= 0.85;
-	else BFireMode[0].FireRecoil = BFireMode[0].default.FireRecoil;
+		BallisticInstantFire(BFireMode[0]).Damage *= 0.85;
+	}
+	else
+	{
+		BFireMode[0].FireRecoil = BFireMode[0].default.FireRecoil;
+		BallisticInstantFire(BFireMode[0]).Damage = BallisticInstantFire(BFireMode[0]).default.Damage;
+	}
 }
 
 exec simulated function WeaponSpecial(optional byte i)
@@ -505,7 +512,8 @@ defaultproperties
 	SightOffset=(X=-15.000000,Z=8.700000)
 	SightDisplayFOV=60.000000
 	ParamsClasses(0)=Class'RS8WeaponParams'
-	//ParamsClasses(1)=Class'RS8WeaponParamsClassic'
+	ParamsClasses(1)=Class'RS8WeaponParamsClassic'
+	ParamsClasses(2)=Class'RS8WeaponParamsRealistic'
 	FireModeClass(0)=Class'BWBP_APC_Pro.RS8X3PrimaryFire'
 	FireModeClass(1)=Class'BWBP_APC_Pro.RS8X3SecondaryFire'
 	SelectForce="SwitchToAssaultRifle"

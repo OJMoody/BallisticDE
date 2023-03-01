@@ -123,6 +123,9 @@ defaultproperties
 		ViewBindFactor=0.050000
 		SprintChaos=0.400000
 		SprintOffSet=(Pitch=-4608,Yaw=-512)
+		JumpChaos=0.200000
+		JumpOffSet=(Pitch=1000,Yaw=-500)
+		FallingChaos=0.400000
 		ChaosDeclineTime=0.600000
 		ChaosSpeedThreshold=800.000000
 	End Object
@@ -138,6 +141,7 @@ defaultproperties
 		WeaponBoneScales(3)=(BoneName="RCAttachmentIron",Slot=4,Scale=0f)
 		PlayerSpeedFactor=1.100000
 		InventorySize=6
+		WeaponPrice=1200
 		SightMoveSpeedFactor=0.500000
 		SightingTime=0.130000
 		MagAmmo=18

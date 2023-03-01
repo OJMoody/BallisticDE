@@ -177,7 +177,7 @@ simulated function bool AllowFire()
 defaultproperties
 {
      bUseWeaponMag=False
-     EffectString="Deploy weapon"
+     //EffectString="Deploy weapon"
      bModeExclusive=False
 	 //FireAnim="Drop"
      FireAnim="Undeploy"

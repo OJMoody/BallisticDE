@@ -155,7 +155,7 @@ defaultproperties
      RunOffset=(Pitch=-1500,Yaw=-4500)
      CoolRate=0.700000
      PlayerSpeedFactor=0.700000
-     TeamSkins(0)=(RedTex=Shader'BW_Core_WeaponTex.Hands.RedHand-Shiny',BlueTex=Shader'BallisticWeapons2.Hands.BlueHand-Shiny')
+     TeamSkins(0)=(RedTex=Shader'BW_Core_WeaponTex.Hands.RedHand-Shiny',BlueTex=Shader'BW_Core_WeaponTex.Hands.BlueHand-Shiny')
      AIReloadTime=4.000000
      BigIconMaterial=Texture'BWBP_SKC_TexExp.SMAA.BigIcon_SMAA'
      BCRepClass=Class'BallisticProV55.BallisticReplicationInfo'

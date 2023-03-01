@@ -337,7 +337,7 @@ function float GetAIRating()
 
 	Dist = VSize(B.Enemy.Location - Instigator.Location);
 	
-	return class'BUtil'.static.DistanceAtten(Rating, 0.6, Dist, BallisticRangeAttenFire(BFireMode[0]).CutOffStartRange, BallisticRangeAttenFire(BFireMode[0]).CutOffDistance); 
+	return class'BUtil'.static.DistanceAtten(Rating, 0.5, Dist, BallisticProInstantFire(BFireMode[0]).DecayRange.Min, BallisticProInstantFire(BFireMode[0]).DecayRange.Max); 
 }
 
 // tells bot whether to charge or back off while using this weapon
@@ -396,7 +396,8 @@ defaultproperties
 	CurrentRating=0.8
 	SightZoomFactor=0.85
 	ParamsClasses(0)=Class'MDKWeaponParams'
-	ParamsClasses(1)=Class'MDKWeaponParams'
+	ParamsClasses(1)=Class'MDKWeaponParamsClassic'
+	ParamsClasses(2)=Class'MDKWeaponParamsRealistic'
 	FireModeClass(0)=Class'BWBP_SWC_Pro.MDKPrimaryFire'
 	FireModeClass(1)=Class'BWBP_SWC_Pro.MDKSecondaryFire'
 	SelectForce="SwitchToAssaultRifle"

@@ -108,9 +108,9 @@ simulated state SpreadShot
 }
 
 //Accessor for stats
-static function FireModeStats GetStats() 
+static function FireEffectParams.FireModeStats GetStats() 
 {
-	local FireModeStats FS;
+	local FireEffectParams.FireModeStats FS;
 	
 	FS.DamageInt = default.ProjectileClass.default.Damage * default.ProjectileCount;
 	FS.Damage = String(FS.DamageInt);

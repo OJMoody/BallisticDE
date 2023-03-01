@@ -109,9 +109,6 @@ function StartStream()
 			ParticleStreamer(Instigator.Weapon).StreamEffect = StreamEffect;
 		StreamEffect.Instigator = Instigator;
 		StreamEffect.LinkedPawn = LockedTarget;
-		//StreamEffect.Target = LockedTarget;
-		//StreamEffect.ParticleAttachment = self;
-		//StreamEffect.UpdateEndpoint();
 	}
 	if (StreamEffectChild == None )
 	{
@@ -126,9 +123,6 @@ function StartStream()
 			ParticleStreamer(Instigator.Weapon).StreamEffectChild = StreamEffectChild;
 		StreamEffectChild.Instigator = Instigator;
 		StreamEffectChild.LinkedPawn = LockedTarget;
-		//StreamEffect.Target = LockedTarget;
-		//StreamEffect.ParticleAttachment = self;
-		//StreamEffect.UpdateEndpoint();
 	}	
 }
 
@@ -211,11 +205,6 @@ simulated function Tick(float DT)
 		
 	if (StreamEffectChild != None && !Instigator.IsFirstPerson())
 		StreamEffectChild.SetLocation(GetBoneCoords('tip2').Origin);
-			
-	/*if (StreamEffect != None)
-		StreamEffect.bAltColor = bAltColor;
-	if (StreamEffectChild != None)
-		StreamEffectChild.bAltColor = bAltColor;*/	
 }
 
 defaultproperties

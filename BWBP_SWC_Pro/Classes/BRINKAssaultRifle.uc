@@ -692,7 +692,7 @@ function float GetAIRating()
 
 	Dist = VSize(B.Enemy.Location - Instigator.Location);
 	
-	return class'BUtil'.static.DistanceAtten(Rating, 0.5, Dist, BallisticRangeAttenFire(BFireMode[0]).CutOffStartRange, BallisticRangeAttenFire(BFireMode[0]).CutOffDistance); 
+	return class'BUtil'.static.DistanceAtten(Rating, 0.5, Dist, BallisticProInstantFire(BFireMode[0]).DecayRange.Min, BallisticProInstantFire(BFireMode[0]).DecayRange.Max); 
 }
 
 // tells bot whether to charge or back off while using this weapon
@@ -752,6 +752,8 @@ defaultproperties
 	SightOffset=(X=-20.000000,Y=-0.240000,Z=17.750000)
 	SightDisplayFOV=25.000000
 	ParamsClasses(0)=Class'BRINKAssaultRifleWeaponParamsArena'
+	ParamsClasses(1)=Class'BRINKAssaultRifleWeaponParamsClassic'
+	ParamsClasses(2)=Class'BRINKAssaultRifleWeaponParamsRealistic'
 	FireModeClass(0)=Class'BWBP_SWC_Pro.BRINKPrimaryFire'
 	FireModeClass(1)=Class'BWBP_SWC_Pro.BRINKSecondaryFire'
 	PutDownTime=0.700000

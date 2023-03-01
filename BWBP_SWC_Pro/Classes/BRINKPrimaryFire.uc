@@ -7,7 +7,7 @@
 // by Nolan "Dark Carnivour" Richert.
 // Copyright(c) 2005 RuneStorm. All Rights Reserved.
 //=============================================================================
-class BRINKPrimaryFire extends BallisticRangeAttenFire;
+class BRINKPrimaryFire extends BallisticProInstantFire;
 
 /*
 //Trigger muzzleflash emitter
@@ -30,8 +30,7 @@ function FlashMuzzleFlash()
 
 defaultproperties
 {
-     CutOffDistance=5120.000000
-     CutOffStartRange=2048.000000
+	 DecayRange=(Min=2048,Max=5120)
      TraceRange=(Min=15000.000000,Max=15000.000000)
      WallPenetrationForce=16.000000
      Damage=18.000000

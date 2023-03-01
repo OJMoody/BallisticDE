@@ -341,6 +341,8 @@ defaultproperties
 	bNoCrosshairInScope=True
 	SightOffset=(X=-15.000000,Y=-0.900000,Z=19.30000)
 	ParamsClasses(0)=Class'TridentMachinegunWeaponParamsArena'
+	ParamsClasses(1)=Class'TridentMachinegunWeaponParamsClassic'
+	ParamsClasses(2)=Class'TridentMachinegunWeaponParamsRealistic'
 	FireModeClass(0)=Class'BWBP_APC_Pro.TridentPrimaryFire'
 	FireModeClass(1)=Class'BWBP_APC_Pro.TridentSecondaryFire'
 	PutDownTime=0.600000

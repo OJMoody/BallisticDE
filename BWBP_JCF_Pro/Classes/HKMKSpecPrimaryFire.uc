@@ -4,7 +4,7 @@
 // by Nolan "Dark Carnivour" Richert.
 // Copyright(c) 2006 RuneStorm. All Rights Reserved.
 //=============================================================================
-class HKMKSpecPrimaryFire extends BallisticRangeAttenFire;
+class HKMKSpecPrimaryFire extends BallisticProInstantFire;
 
 var() Actor						SMuzzleFlash;		// Silenced Muzzle flash stuff
 var() class<Actor>				SMuzzleFlashClass;
@@ -44,14 +44,6 @@ simulated function DestroyEffects()
 
 	class'BUtil'.static.KillEmitterEffect (MuzzleFlash);
 	class'BUtil'.static.KillEmitterEffect (SMuzzleFlash);
-}
-// End effect functions ----------------------------------------------------
-function float GetDamage (Actor Other, vector HitLocation, vector Dir, out Actor Victim, optional out class<DamageType> DT)
-{
-	if (HKMKSpecPistol(Weapon).bSilenced)
-		return Super.GetDamage (Other, HitLocation, Dir, Victim, DT) * 0.85;
-	else
-		return Super.GetDamage (Other, HitLocation, Dir, Victim, DT);
 }
 
 simulated function SendFireEffect(Actor Other, vector HitLocation, vector HitNormal, int Surf, optional vector WaterHitLoc)
@@ -143,8 +135,7 @@ defaultproperties
      SFlashBone="tip2"
      SFlashScaleFactor=0.25
 	 TraceRange=(Min=4000.000000,Max=4000.000000)
-     CutOffDistance=2048.000000
-     CutOffStartRange=768.000000
+	 DecayRange=(Min=768,Max=2048)
 	 RangeAtten=0.3
      WallPenetrationForce=8.000000
      
