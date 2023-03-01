@@ -9,7 +9,7 @@ defaultproperties
     // PRIMARY FIRE
     //=================================================================	
 
-    Begin Object Class=InstantEffectParams Name=ClassicProjEffectParams
+    Begin Object Class=InstantEffectParams Name=ClassicPrimaryEffectParams
     	MuzzleFlashClass=Class'BallisticProV55.A42FlashEmitter'
 		FlashScaleFactor=0.100000
     	TraceRange=(Min=8000.000000,Max=8000.000000)
@@ -32,7 +32,7 @@ defaultproperties
     Begin Object Class=FireParams Name=ClassicPrimaryFireParams
         FireInterval=0.3
         FireEndAnim=
-        FireEffectParams(0)=InstantEffectParams'ClassicProjEffectParams'
+        FireEffectParams(0)=InstantEffectParams'ClassicPrimaryEffectParams'
     End Object
 
     //=================================================================

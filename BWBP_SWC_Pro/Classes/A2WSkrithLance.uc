@@ -91,7 +91,7 @@ defaultproperties
 	ParamsClasses(1)=Class'A2WWeaponParamsClassic'
 	ParamsClasses(2)=Class'A2WWeaponParamsRealistic'
 	FireModeClass(0)=Class'BWBP_SWC_Pro.A2WPrimaryFire'
-	FireModeClass(1)=Class'BCoreProV55.BallisticScopeFire'
+	FireModeClass(1)=Class'BWBP_SWC_Pro.A2WSecondaryFire'
 	BringUpTime=0.500000
 	SelectForce="SwitchToAssaultRifle"
 	AIRating=0.6000
