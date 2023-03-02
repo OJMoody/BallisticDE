@@ -157,7 +157,7 @@ defaultproperties
      PlayerSpeedFactor=0.700000
      TeamSkins(0)=(RedTex=Shader'BW_Core_WeaponTex.Hands.RedHand-Shiny',BlueTex=Shader'BW_Core_WeaponTex.Hands.BlueHand-Shiny')
      AIReloadTime=4.000000
-     BigIconMaterial=Texture'BWBP_SKC_TexExp.SMAA.BigIcon_SMAA'
+     //BigIconMaterial=Texture'BWBP_SKC_TexExp.SMAA.BigIcon_SMAA'
      BCRepClass=Class'BallisticProV55.BallisticReplicationInfo'
      
      bWT_Hazardous=True
@@ -221,7 +221,7 @@ defaultproperties
      PlayerViewOffset=(X=20.000000,Y=15.000000,Z=-10.000000)
      BobDamping=1.800000
      AttachmentClass=Class'BWBP_SKCExp_Pro.SMATAttachment'
-     IconMaterial=Texture'BWBP_SKC_TexExp.SMAA.SmallIcon_SMAA'
+     //IconMaterial=Texture'BWBP_SKC_TexExp.SMAA.SmallIcon_SMAA'
      IconCoords=(X2=127,Y2=31)
      ItemName="S.M.A.T. Infantry Cannon"
      LightType=LT_Pulse

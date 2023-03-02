@@ -501,8 +501,7 @@ defaultproperties
 	WeaponScreen=ScriptedTexture'BWBP_SKC_Tex.SkrithBow.SKBow-ScriptLCD'
 	WeaponScreenShader=Shader'BWBP_SKC_Tex.SkrithBow.SKBow-ScriptLCD-SD'
 	
-	ScreenBase=Texture'BW_Core_WeaponTex.Misc.Invisible'
-	//ScreenBase=Texture'BWBP_SKC_Tex.SkrithBow.SKBow-ScreenBase'
+	ScreenBase=Texture'BWBP_SKC_Tex.SkrithBow.SKBow-ScreenBase'
 	ScreenPie1=Texture'BWBP_SKC_Tex.SkrithBow.SBow-ScreenPie1'
 	ScreenPie2=Texture'BWBP_SKC_Tex.SkrithBow.SBow-ScreenPie2'
 	ScreenPie3=Texture'BWBP_SKC_Tex.SkrithBow.SBow-ScreenPie3'
@@ -575,4 +574,5 @@ defaultproperties
      bFullVolume=True
      SoundVolume=255
      SoundRadius=256.000000
+	 Skins(0)=Shader'BW_Core_WeaponTex.Hands.Hands-Shiny'
 }

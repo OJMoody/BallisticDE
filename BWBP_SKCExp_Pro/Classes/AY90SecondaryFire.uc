@@ -27,7 +27,6 @@ simulated event ModeDoFire()
 {
 	if (HoldTime >= ChargeTime && AY90SkrithBoltcaster(BW).MagAmmo >= 40)
 	{
-		XInaccuracy=2000;
 		ProjectileCount=30;
 		AmmoPerFire=40;
 		Load=40;
@@ -35,7 +34,6 @@ simulated event ModeDoFire()
 	}
 	else if (HoldTime >= (ChargeTime/2) && AY90SkrithBoltcaster(BW).MagAmmo >= 20)
 	{
-		XInaccuracy=1000;
 		ProjectileCount=15;
 		AmmoPerFire=20;
 		Load=20;
@@ -43,7 +41,6 @@ simulated event ModeDoFire()
 	}
 	else
 	{
-		XInaccuracy=500;
 		ProjectileCount=5;
 		AmmoPerFire=10;
 		Load=10;
@@ -248,10 +245,14 @@ simulated function vector GetFireSpread()
 // Get aim then spawn projectile
 function DoFireEffect()
 {
-    local Vector StartTrace, X, Y, Z, Start, End, HitLocation, HitNormal;
+    local Vector StartTrace, X, Y, Z, Start, End, HitLocation, HitNormal, V;
     local Rotator Aim;
 	local actor Other;
 	local int i;
+	local float ProjAngle;
+	
+	//affects how spreaded the projectiles are - higher values for wider spread. can change implementation from here
+	const ProjSpread = 300;
 
     Weapon.GetViewAxes(X,Y,Z);
     // the to-hit trace always starts right in front of the eye
@@ -261,10 +262,17 @@ function DoFireEffect()
     if(!Weapon.WeaponCentered())
 	    StartTrace = StartTrace + Weapon.Hand * Y*SpawnOffset.Y;
 
-	for(i=0; i < (ProjectileCount-1); i++)
+	for(i=0; i < ProjectileCount; i++)
 	{
 		Aim = GetFireAim(StartTrace);
-		Aim = Rotator(GetFireSpread() >> Aim);
+		
+		ProjAngle = ProjSpread * PI / 32768 * (i - 0.5*float(ProjectileCount - 1));
+		
+		V.X = Cos(ProjAngle);
+		V.Y = Sin(ProjAngle);
+		V.Z = 0.0;
+		
+		Aim = Rotator(V >> Aim);
 
 		End = Start + (Vector(Aim)*MaxRange());
 		Other = Trace (HitLocation, HitNormal, End, Start, true);
@@ -276,7 +284,6 @@ function DoFireEffect()
 	}
 
 	SendFireEffect(none, vect(0,0,0), StartTrace, 0);
-	Super.DoFireEffect();
 }
 
 defaultproperties
